@@ -1,0 +1,665 @@
+﻿############################
+# I AM THE EGGMAN I HAVE A MASTER PLAN
+############################
+
+add_namespace = egg
+######################################
+# hello everybody i am old communist 
+######################################
+country_event = {
+	id = egg.1
+	title = egg.1.t
+	desc = egg.1.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = egg
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = egg.1.a 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = egg}
+		set_cosmetic_tag = SNIV_EGG
+		create_country_leader = {
+			name = "Snively Robotnik"
+			desc = "SNIVLEY_IS_PIDOR"
+			picture = "Portrait_Snicley_Robotnik.dds"
+			expire = "1965.1.1"
+			ideology = technocratic_despotist_subtype
+			traits = {
+			}
+		}
+	}
+	option = {
+		name = egg.1.b 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = egg}
+		
+		set_cosmetic_tag = METAL_EGG
+		country_event = {
+				id = egg.2
+				days = 3
+			}
+	}
+	option = {
+		name = egg.1.c 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = egg}
+		set_country_flag = EGG_start_repressions
+		set_variable = {
+			var = ff_activity
+			value = 100
+		}
+	}
+}
+
+country_event = {
+	id = egg.2
+	title = egg.2.t
+	desc = egg.2.d
+	picture = GFX_report_event_neo_metal_sonic
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = egg
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.2.a 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = egg}
+		create_country_leader = {
+			name = "Neo Metal Sonic"
+			desc = "METAL_SONIC"
+			picture = "Portrait_Neo_Metal_Sonic.dds"
+			expire = "1965.1.1"
+			ideology = technocratic_despotist_subtype
+			traits = {
+			}
+		}
+	}
+}
+country_event = {
+	id = egg.3
+	title = egg.3.t
+	desc = egg.3.d
+	picture = GFX_report_event_ff_subversion
+	
+	is_triggered_only = yes 
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					industrial_complex > 0
+					is_controlled_by = EGG
+				}
+				save_event_target_as = sabotage_state
+			}
+		}
+	}
+	
+	option = {
+		name = egg.3.a
+		add_stability = -0.025
+		if = {
+			add_to_variable = {
+					ff_activity = 22
+				}	
+			limit = {
+						has_idea = Freedom_fighters_saboteurs
+					}
+			event_target:sabotage_state = {
+				damage_building = {
+					type = industrial_complex
+					damage = 1.0
+				}
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					random_list = {
+						75 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = arms_factory
+									damage = 1.0
+								}
+							}
+						}
+						25 = {}
+					}
+				}
+				if = {
+					limit = {
+						infrastructure > 5
+					}
+					random_list = {
+						25 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 2.0
+								}
+							}
+						}
+						50 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 1.0
+								}
+							}
+						}
+						25 = {}
+					}
+				}
+				random_list = {
+					25 = {
+						ROOT = {
+							add_manpower = -300
+						}
+					}
+					50 = {
+						ROOT = {
+							add_manpower = -150
+						}
+					}
+					25 = {
+						ROOT = {
+							add_manpower = -100
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+			add_to_variable = {
+					ff_activity = 20
+					}
+			event_target:sabotage_state = {
+				damage_building = {
+					type = industrial_complex
+					damage = 0.75
+				}
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					random_list = {
+						75 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = arms_factory
+									damage = 0.8
+								}
+							}
+						}
+						25 = {}
+					}
+				}
+				if = {
+					limit = {
+						infrastructure > 5
+					}
+					random_list = {
+						25 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 1.5
+								}
+							}
+						}
+						50 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 1.0
+								}
+							}
+						}
+						25 = {}
+					}
+				}
+				random_list = {
+					15 = {
+						ROOT = {
+							add_manpower = -300
+						}
+					}
+					50 = {
+						ROOT = {
+							add_manpower = -150
+						}
+					}
+					35 = {
+						ROOT = {
+							add_manpower = -100
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+			add_to_variable = {
+					ff_activity = 15
+				}
+			event_target:sabotage_state = {
+				damage_building = {
+					type = industrial_complex
+					damage = 0.5
+				}
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					random_list = {
+						60 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = arms_factory
+									damage = 0.5
+								}
+							}
+						}
+						40 = {}
+					}
+				}
+				if = {
+					limit = {
+						infrastructure > 5
+					}
+					random_list = {
+						10 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 1.5
+								}
+							}
+						}
+						50 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 0.8
+								}
+							}
+						}
+						40 = {}
+					}
+				}
+				random_list = {
+					15 = {
+						ROOT = {
+							add_manpower = -200
+						}
+					}
+					50 = {
+						ROOT = {
+							add_manpower = -100
+						}
+					}
+					35 = {
+						ROOT = {
+							add_manpower = -50
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+			add_to_variable = {
+					ff_activity = 12
+				}
+			event_target:sabotage_state = {
+				damage_building = {
+					type = industrial_complex
+					damage = 0.2
+				}
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					random_list = {
+						70 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = arms_factory
+									damage = 0.3
+								}
+							}
+						}
+						30 = {}
+					}
+				}
+				if = {
+					limit = {
+						infrastructure > 5
+					}
+					random_list = {
+						5 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 1.0
+								}
+							}
+						}
+						50 = {
+							event_target:sabotage_state = {
+								damage_building = {
+									type = infrastructure
+									damage = 0.5
+								}
+							}
+						}
+						45 = {}
+					}
+				}
+				random_list = {
+					10 = {
+						ROOT = {
+							add_manpower = -100
+						}
+					}
+					50 = {
+						ROOT = {
+							add_manpower = -50
+						}
+					}
+					40 = {
+						ROOT = {
+							add_manpower = -25
+						}
+					}
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = egg.4
+	title = egg.4.t
+	desc = egg.4.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity < 75
+		}
+		has_idea = Freedom_fighters_saboteurs
+		has_country_flag = EGG_start_repressions
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 7
+	}
+	
+	
+	option = {
+		name = egg.4.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs
+			add_idea = Freedom_fighters_saboteurs_1
+		}
+	}
+}
+
+country_event = {
+	id = egg.5
+	title = egg.5.t
+	desc = egg.5.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity > 75
+		}
+		has_idea = Freedom_fighters_saboteurs_1
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.5.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs_1
+			add_idea = Freedom_fighters_saboteurs
+		}
+	}
+}
+
+country_event = {
+	id = egg.6
+	title = egg.6.t
+	desc = egg.6.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity < 50
+		}
+		has_idea = Freedom_fighters_saboteurs_1
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.6.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs_1
+			add_idea = Freedom_fighters_saboteurs_2
+		}
+	}
+}
+
+country_event = {
+	id = egg.7
+	title = egg.7.t
+	desc = egg.7.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity > 50
+		}
+		has_idea = Freedom_fighters_saboteurs_2
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.7.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs_2
+			add_idea = Freedom_fighters_saboteurs_1
+		}
+	}
+}
+
+country_event = {
+	id = egg.8
+	title = egg.8.t
+	desc = egg.8.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity < 25
+		}
+		has_idea = Freedom_fighters_saboteurs_2
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.8.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs_2
+			add_idea = Freedom_fighters_saboteurs_3
+		}
+		set_country_flag = EGG_destroy_HQ
+	}
+}
+
+country_event = {
+	id = egg.9
+	title = egg.9.t
+	desc = egg.9.d
+	picture = GFX_report_event_attack_on_ff
+	
+	trigger = {
+		original_tag = EGG
+		check_variable = {
+			ff_activity > 25
+		}
+		has_idea = Freedom_fighters_saboteurs_3
+	}
+	
+	fire_only_once = yes
+	
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	
+	option = {
+		name = egg.9.a 
+		swap_ideas = {
+			remove_idea = Freedom_fighters_saboteurs_3
+			add_idea = Freedom_fighters_saboteurs_2
+		}
+		
+	}
+}
+
+country_event = {
+	id = egg.10
+	title = egg.10.t
+	desc = egg.10.d
+	picture = GFX_report_event_attack_sand_blast_city
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = egg.10.a 
+		subtract_from_variable = { ff_activity = 15 }
+		add_manpower = -15000
+		57 = {
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 3
+			}
+		}
+	}
+}
+country_event = {
+	id = egg.11
+	title = egg.11.t
+	desc = egg.11.d
+	picture = GFX_report_event_eggman_triumphant
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = egg.11.a 
+		add_stability = 0.1
+		add_political_power = 125
+	}
+}
+
+	

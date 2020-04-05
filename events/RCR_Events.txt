@@ -1,0 +1,929 @@
+﻿############################
+# тупа ивенты для коммуняг, я пажылое онямэ кста за соника и двор расстреливаю николая второго вот и живи теперь с этим
+############################
+
+add_namespace = rcr
+######################################
+# hello everybody i am old communist 
+######################################
+country_event = {
+	id = rcr.1
+	title = rcr.1.t
+	desc = rcr.1.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = RCR
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = rcr.1.a 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = RCR}
+	}
+}
+
+country_event = {
+	id = rcr.2
+	immediate = {log = "[GetDateText]: [Root.GetName]: event rcr.2"}
+	title = rcr.2.t
+	desc = rcr.2.d
+	picture = GFX_report_event_revolution_day
+
+	trigger = {
+		tag = RCR
+		date > 3236.01.01
+		date < 3236.01.15
+	}
+
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = rcr.3
+				days = 365
+			}
+			country_event = {
+				id = rcr.37
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		name = rcr.2.a
+		add_political_power = 40
+	}
+}
+
+country_event = {
+	id = rcr.3 
+	title = rcr.3.t
+	desc = rcr.3.d
+	picture = GFX_report_event_revolution_day
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = rcr.3
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = rcr.3.a
+		add_political_power = 40
+	}
+}
+
+country_event = {
+	id = rcr.4
+	title = rcr.4.t
+	desc = rcr.4.d
+	picture = GFX_report_blue_hedgehog
+
+	trigger = {
+		tag = RCR
+		date > 3236.01.15
+		date < 3236.01.30
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.4.a
+		add_political_power = -20
+	}
+
+	option = {
+		name = rcr.4.b
+		add_stability = -0.02
+	}
+}
+
+country_event = {
+	id = rcr.5
+	immediate = {log = "[GetDateText]: [Root.GetName]: event rcr.5"}
+	title = rcr.5.t
+	desc = rcr.5.d
+	picture = GFX_report_event_women_day
+
+	trigger = {
+		tag = RCR
+		date > 3236.01.8
+		date < 3236.01.30
+	}
+
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = rcr.6
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = rcr.5.a
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = rcr.6 
+	title = rcr.6.t
+	desc = rcr.6.d
+	picture = GFX_report_event_women_day
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = rcr.6
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = rcr.6.a
+		add_political_power = 25
+	}
+}
+
+country_event = { ### Шилов охуел ###
+	id = rcr.7
+	title = rcr.7.t
+	desc = rcr.7.d
+	picture = GFX_report_event_military_mutiny
+
+	trigger = {
+		tag = RCR
+		date > 3236.02.8
+		date < 3236.02.30
+	}
+
+	fire_only_once = yes
+
+	option = { ### Арестовать эту мразь ###
+		name = rcr.7.a
+		add_political_power = -100
+		hidden_effect = {
+			country_event = {
+				id = rcr.9
+				days = 3
+			}
+		}
+	}
+	
+	option = { ### Выйти с ним на переговоры ###
+		name = rcr.7.b
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = rcr.8
+				days = 3
+			}
+		}
+	}
+	
+	option = { ### Игнорим лошка ###
+		name = rcr.7.c
+		hidden_effect = {
+			country_event = {
+				id = rcr.10
+				days = 21
+			}
+		}
+	}
+}
+
+country_event = { ### Переговоры с Шиловым ###
+	id = rcr.8 
+	title = rcr.8.t
+	desc = rcr.8.d
+	picture = GFX_report_event_military_mutiny
+
+	is_triggered_only = yes
+
+	option = { ### Согласиться ###
+		name = rcr.8.a
+		add_political_power = -20
+	}
+	
+	option = { ### Убить ###
+		name = rcr.8.b
+		add_stability = 0.1
+		remove_unit_leader = 102
+	}
+}
+
+country_event = { ### Арест Шилова! ###
+	id = rcr.9 
+	title = rcr.9.t
+	desc = rcr.9.d
+	picture = GFX_report_event_military_mutiny
+
+	is_triggered_only = yes
+	
+	option = { ### Take it boy! ###
+		name = rcr.9.a
+		add_stability = 0.1
+		remove_unit_leader = 102
+		set_global_flag = jail_Shilov
+	}
+}
+
+country_event = { ### Переворот Шилова! ###
+	id = rcr.10 
+	title = rcr.10.t
+	desc = rcr.10.d
+	picture = GFX_report_event_military_mutiny
+
+	is_triggered_only = yes
+	
+	option = { ### Take it boy ###
+		name = rcr.10.a
+		add_stability = -0.1
+		remove_unit_leader = 102
+		hidden_effect = {
+			country_event = {
+				id = rcr.12
+				days = 1
+			}
+		}
+	}
+	
+	option = { ### I don't feel so good... ###
+		name = rcr.10.b
+		add_stability = -0.3
+		remove_unit_leader = 100
+		kill_country_leader = yes
+		set_politics = {
+			ruling_party = neosocialist
+		}
+		create_country_leader = {
+			name = "Gennadiy Shilov"
+			desc = "SHILOV_IS_PIDOR"
+			picture = "Gennadiy_Shilov_general.dds"
+			expire = "1965.1.1"
+			ideology = militarist_socialist
+			traits = {
+			}
+		}
+		create_country_leader = {
+			name = "Leona Eismesser"
+			desc = "SHILOV_IS_PIDOR"
+			picture = "Leona_Eismesser_marshal.dds"
+			expire = "1965.1.1"
+			ideology = katzerist_pallasovist
+			traits = {
+			}
+		}
+		set_global_flag = Shilov_coup
+		hidden_effect = {
+			country_event = {
+				id = rcr.13
+				days = 7
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = rcr.13
+	title = rcr.13.t
+	desc = rcr.13.d
+	picture = GFX_report_event_military_mutiny
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcr.13.a
+		add_stability = -0.2
+		
+	country_event = {
+			id = rcr.31
+			days = 7
+		}
+	}
+}
+
+country_event = { ### Активизация КОРТСА шо###
+	id = rcr.14
+	title = rcr.14.t
+	desc = rcr.14.d
+	picture = GFX_report_event_koliuchkin
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.14.a
+		remove_ideas = Inactive_Cheka
+	}
+}
+
+country_event = { ### Убил авт ###
+	id = rcr.15
+	title = rcr.15.t
+	desc = rcr.15.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.15.a
+		add_stability = -0.02
+	}
+}
+
+country_event = { ### Убил нк ###
+	id = rcr.16
+	title = rcr.16.t
+	desc = rcr.16.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.16.a
+		add_stability = -0.02
+	}
+}
+
+country_event = { ### Хныкин сука! ###
+	id = rcr.17
+	title = rcr.17.t
+	desc = rcr.17.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.17.a
+		add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.03
+		}
+	}
+}
+
+country_event = { ### Кругин сука! ###
+	id = rcr.18
+	title = rcr.18.t
+	desc = rcr.18.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.18.a
+		add_popularity = {
+				ideology = neosocialist
+				popularity = 0.05
+		}
+	}
+}
+
+country_event = { ### Сдались автономистам ### 
+	id = rcr.19
+	title = rcr.19.t
+	desc = rcr.19.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.19.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { ### Сдались национал-катцеристам ### 
+	id = rcr.20
+	title = rcr.20.t
+	desc = rcr.20.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.20.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+	}
+}
+
+country_event = { ### Победа Хныкина ### 
+	id = rcr.21
+	title = rcr.21.t
+	desc = rcr.21.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.21.a
+		remove_ideas = Political_Infighting 
+		remove_ideas = Political_Infighting_waut
+		remove_ideas = Political_Infighting_wnat 
+		remove_ideas = Political_Infighting_fin
+		add_stability = 0.3
+		set_country_flag = RCR_chairman_is_elected
+	}
+}
+
+country_event = { ### Опала автономистов ### 
+	id = rcr.22
+	title = rcr.22.t
+	desc = rcr.22.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.22.a
+		if = {
+			limit = {
+				has_idea = Political_Infighting
+			}
+			swap_ideas = {
+				remove_idea = Political_Infighting
+				add_idea = Political_Infighting_waut
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Political_Infighting_wnat
+			}
+			swap_ideas = {
+				remove_idea = Political_Infighting_wnat
+				add_idea = Political_Infighting_fin
+			}
+		}
+	}
+}
+
+country_event = { ### Опала национал-катцеристов ### 
+	id = rcr.23
+	title = rcr.23.t
+	desc = rcr.23.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.23.a 
+		if = {
+			limit = {
+				has_idea = Political_Infighting
+			}
+			swap_ideas = {
+				remove_idea = Political_Infighting
+				add_idea = Political_Infighting_wnat
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Political_Infighting_waut
+			}
+			swap_ideas = {
+				remove_idea = Political_Infighting_waut
+				add_idea = Political_Infighting_fin
+			}
+		}
+	}
+}
+
+country_event = { ### Убийство Хныкина ### 
+	id = rcr.24
+	title = rcr.24.t
+	desc = rcr.24.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.24.a
+		hidden_effect = {
+			country_event = {
+				id = rcr.22
+				days = 4
+			}
+		}
+		add_stability = -0.07
+		create_country_leader = {
+			name = "Fyodor Shubin"
+			desc = "SHILOV_IS_PIDOR"
+			picture = "Fyodor Shubin.dds"
+			expire = "1965.1.1"
+			ideology = market_socialist
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { ### Победа Палласова ### 
+	id = rcr.25
+	title = rcr.25.t
+	desc = rcr.25.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.25.a
+		remove_ideas = Political_Infighting 
+		remove_ideas = Political_Infighting_waut
+		remove_ideas = Political_Infighting_wnat
+		remove_ideas = Political_Infighting_fin
+		add_stability = 0.3
+		set_country_flag = RCR_chairman_is_elected
+	}
+}
+
+country_event = { ### Победа Кругина ### 
+	id = rcr.26
+	title = rcr.26.t
+	desc = rcr.26.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.26.a
+		remove_ideas = Political_Infighting 
+		remove_ideas = Political_Infighting_waut
+		remove_ideas = Political_Infighting_wnat
+		remove_ideas = Political_Infighting_fin
+		add_stability = 0.3
+		set_country_flag = RCR_chairman_is_elected
+	}
+}
+
+country_event = { ### Убийство Кругина ### 
+	id = rcr.27
+	title = rcr.27.t
+	desc = rcr.27.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.27.a
+		hidden_effect = {
+			country_event = {
+				id = rcr.23
+				days = 4
+			}
+		}
+		add_stability = -0.07
+		create_country_leader = {
+			name = "Nikolai Koliuchkin"
+			desc = "SHILOV_IS_PIDOR"
+			picture = "Nikolai_Koliuchkin.dds"
+			expire = "1965.1.1"
+			ideology = militarist_socialist
+			traits = {
+			}
+		}		
+	}
+}
+
+country_event = { ### Победа Палласова на Чрезвычайном съезде ### 
+	id = rcr.28
+	title = rcr.28.t
+	desc = rcr.28.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.28.a
+		set_global_flag = Old_Favorit_event
+	}
+}
+
+country_event = { ### Победа Громова ### 
+	id = rcr.29
+	title = rcr.29.t
+	desc = rcr.29.d
+	picture = GFX_report_event_infighting
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.29.a
+		set_global_flag = Gromov_President
+	}
+}
+country_event = { ### Введение в политоту ### 
+	id = rcr.30
+	title = rcr.30.t
+	desc = rcr.30.d
+	picture = GFX_report_event_the_congress
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = RCR
+	date > 3236.01.15
+	date < 3236.01.30
+	}
+	
+	
+	option = {
+		name = rcr.30.a 
+		ai_chance = { factor = 100 } 
+		trigger = {tag = RCR}
+		hidden_effect = {
+			country_event = {
+				id = rcr.32
+				days = 30
+			}
+		}
+	}
+}
+country_event = {
+	id = rcr.31
+	title = rcr.31.t
+	desc = rcr.31.d
+	picture = GFX_report_event_arrest_em
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcr.31.a
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nikolai Koliuchkin"
+			desc = "SHILOV_IS_PIDOR"
+			picture = "Nikolai_Kolyuchkin.dds"
+			expire = "1965.1.1"
+			ideology = militarist_socialist
+			traits = {
+			}
+		}
+		set_party_name = {
+					ideology = neosocialist
+					long_name = RCR_Gachi_Cheka_gang_long
+					name = RCR_Gachi_Cheka_gang
+				}
+	}
+}
+
+country_event = {###Дебаты Палласова с Кругиным ###
+	id = rcr.32
+	title = rcr.32.t
+	desc = rcr.32.d
+	picture = GFX_report_event_the_congress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.32.a
+		add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		hidden_effect = {
+			country_event = {
+				id = rcr.33
+				days = 15
+				}
+			}	
+		}
+	option = {
+		name = rcr.32.b
+		add_popularity = {
+				ideology = neosocialist
+				popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = rcr.33
+				days = 15
+				}
+			}	
+		}
+	}
+	
+country_event = {###Конфликт с профсоюзами ###
+	id = rcr.33
+	title = rcr.33.t
+	desc = rcr.33.d
+	picture = GFX_report_event_the_congress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.33.a
+		add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		add_political_power = -50
+		hidden_effect = {
+			country_event = {
+				id = rcr.34
+				days = 15
+				}
+			}	
+		}
+	option = {
+		name = rcr.33.b
+		add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.05
+		}
+		hidden_effect = {
+			country_event = {
+				id = rcr.34
+				days = 15
+				}
+			}	
+		}
+	option = {
+		name = rcr.33.c
+		hidden_effect = {
+			country_event = {
+				id = rcr.35
+				days = 7
+				}
+			}	
+		}
+	}
+
+country_event = {### Недостаток продовольствия ###
+	id = rcr.34
+	title = rcr.34.t
+	desc = rcr.34.d
+	picture = GFX_report_event_the_congress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.34.a
+		add_manpower = -10000
+		add_stability = -0.1
+		hidden_effect = {
+			country_event = {
+				id = rcr.36
+				days = 15
+				}
+			}	
+		}
+	option = {
+		name = rcr.34.b
+		add_timed_idea =  { idea = Cope_with_famine days = 60 }
+		add_political_power = -75
+		hidden_effect = {
+			country_event = {
+				id = rcr.36
+				days = 15
+				}
+			}	
+		}
+	}
+country_event = {### Забастовка ###
+	id = rcr.35
+	title = rcr.35.t
+	desc = rcr.35.d
+	picture = GFX_report_general_strike
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.35.a
+		add_timed_idea = { idea = General_strike days = 100 }
+		add_stability = -0.1
+		hidden_effect = {
+			country_event = {
+				id = rcr.34
+				days = 8
+				}
+			}	
+		}
+	option = {
+		name = rcr.35.b
+		add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.1
+		}
+		hidden_effect = {
+			country_event = {
+				id = rcr.34
+				days = 8
+				}
+			}	
+		}
+	}
+country_event = {### Начало Съезда ###
+	id = rcr.36
+	title = rcr.36.t
+	desc = rcr.36.d
+	picture = GFX_report_event_the_congress
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.36.a
+		set_country_flag = the_congress_is_to_start
+		}
+	}
+country_event = {### Сталегор замерзает ###
+	id = rcr.37
+	title = rcr.37.t
+	desc = rcr.37.d
+	picture = GFX_report_event_cold_way
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.37.a
+		add_political_power = -50
+		hidden_effect = {
+			country_event = {
+				id = rcr.38
+				days = 14
+				}
+			}	
+		}
+	option = {
+		name = rcr.37.b
+		add_manpower = -10000
+		add_stability = -0.12
+		}	
+	}
+	
+country_event = {### Сталегор спасен от холода ###
+	id = rcr.38
+	title = rcr.38.t
+	desc = rcr.38.d
+	picture = GFX_report_event_cold_way
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.38.a
+		add_manpower = -100
+		add_popularity = {
+				ideology = communism
+				popularity = 0.025
+			}
+		}
+	}
+
+country_event = {### Палласов запрещает одежду ###
+	id = rcr.39
+	title = rcr.39.t
+	desc = rcr.39.d
+	picture = GFX_report_event_stalegor
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.39.a
+		add_stability = -0.1
+		hidden_effect = {
+			create_country_leader = {
+				name = "Yuri Pallasov"
+				desc = "NUDE_PALLASOV"
+				picture = "Portrait_Nude_Pallasov.dds"
+				expire = "1965.1.1"
+				ideology = katzerist_pallasovist
+				traits = {
+				Leader_of_the_proletarian_revolution
+				}
+			}
+		}
+	}
+}
+	
+country_event = {
+	id = rcr.40
+	immediate = {log = "[GetDateText]: [Root.GetName]: event rcr.2"}
+	title = rcr.40.t
+	desc = rcr.40.d
+	picture = GFX_report_event_new_year
+
+	trigger = {
+		tag = RCR
+		date > 3236.01.01
+		date < 3236.01.15
+	}
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.40.a
+		add_political_power = 10
+	}
+}
+##############################
+# what about some communism? #
+##############################

@@ -1,0 +1,864 @@
+RCR_seventh_congress_of_soviets = {
+
+	pass_position_to_autonomists = {
+	
+		icon = GFX_decision_giveup
+		
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		
+		available = {
+			autonomous_socialist > 0.4
+		}
+		remove_effect = {
+			set_politics = {
+				ruling_party = autonomous_socialist
+			}
+			country_event = {
+				id = rcr.19
+				days = 1
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+	pass_position_to_neosocialists = {
+		
+		icon = GFX_decision_giveup
+		
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		
+		available = {
+			neosocialist  > 0.4
+		}
+		remove_effect = {
+			set_politics = {
+				ruling_party = neosocialist 
+			}
+			country_event = {
+				id = rcr.20
+				days = 1
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	activate_KORTS = {
+	
+		icon = GFX_decision_gabnya
+		
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		cost = 75
+		available = {
+			OR = {
+				AND = {
+					autonomous_socialist > 0.3
+					has_government = autonomous_socialist
+				}
+				AND = {
+					neosocialist > 0.3
+					has_government = neosocialist
+				}
+				AND = {
+					katzerist > 0.3
+					has_government = katzerist
+				}
+			}
+		}
+		remove_effect = {
+			country_event = {
+				id = rcr.14
+				days = 1
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	kick_autonomists = {
+	
+		icon = GFX_decision_demand
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		cost = 100
+		available = {
+			NOT = { has_idea = Inactive_Cheka }
+			autonomous_socialist < 0.2
+		}
+		remove_effect = {
+			add_popularity = {
+					ideology = autonomous_socialist
+					popularity = -0.15
+				}
+			country_event = {
+					id = rcr.22
+					days = 1
+				}
+			set_country_flag = RCR_auts_are_expelled
+			}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	kick_neosocialists = {
+	
+		icon = GFX_decision_demand
+		
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		cost = 100
+		available = {
+			NOT = { has_idea = Inactive_Cheka }
+			neosocialist < 0.2
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = -0.15
+			}
+			country_event = {
+				id = rcr.23
+				days = 1
+			}
+			set_country_flag = RCR_natkatz_are_expelled
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	choose_chairman_of_sovnarcom = {
+	
+		icon = GFX_decision_elect
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = yes
+		cost = 100
+		available = {
+			NOT = { has_idea = Inactive_Cheka}
+			OR = {
+				AND = {
+					autonomous_socialist > 0.7
+					has_government = autonomous_socialist
+				}
+				AND = {
+					neosocialist > 0.7
+					has_government = neosocialist
+				}
+				AND = {
+					katzerist > 0.7
+					has_government = katzerist
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_government = autonomous_socialist
+				}
+				country_event = {
+					id = rcr.21
+					days = 1
+					}
+				}
+			if = {
+				limit = {
+					has_government = neosocialist
+				}
+				country_event = {
+					id = rcr.26
+					days = 1
+					}
+				}
+			if = {
+				limit = {
+					has_government = katzerist
+				}
+				country_event = {
+					id = rcr.25
+					days = 1
+					}
+				}
+			}
+		}
+	
+	
+	visit_factory_arsenal = {
+	
+		icon = GFX_decision_generic_industry
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 25
+		days_re_enable = 50
+		remove_effect = {
+			if = {
+				limit = {
+					has_government = autonomous_socialist
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = 0.05
+				}
+			}
+			if = {
+				limit = {
+					has_government = neosocialist
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = 0.05
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+					NOT = { autonomous_socialist < 0.28 }
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = 0.05
+					}
+				hidden_effect = {
+					country_event = {
+					id = rcr.17
+					days = 2
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+					autonomous_socialist < 0.28
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	pressure_on_media = {
+	
+		icon = GFX_decision_propaganda_campaigns
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 50
+		days_re_enable = 50
+		remove_effect = {
+			if = {
+				limit = {
+					has_government = autonomous_socialist
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = -0.03
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = -0.03
+				}
+			}
+			if = {
+				limit = {
+					has_government = neosocialist
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = -0.03
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = -0.03
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+					neosocialist < 0.28
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = -0.03
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = -0.03
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+					NOT = { neosocialist < 0.28 }
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = -0.03
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = -0.03
+				}
+				hidden_effect = {
+					country_event = {
+					id = rcr.18
+					days = 2
+					}
+				}
+			}
+		}
+	}
+	
+	populist_promises = {
+	
+		icon = GFX_decision_populism
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 0
+		days_re_enable = 100
+		available = {
+			OR = {
+					AND = {
+						autonomous_socialist > 0.45
+						has_government = autonomous_socialist
+					}
+					AND = {
+						neosocialist > 0.45
+						has_government = neosocialist
+					}
+					AND = {
+						katzerist > 0.45
+						has_government = katzerist
+					}
+				}
+			}
+		complete_effect  = {
+		add_political_power = 75
+			}
+		days_remove = 21
+		remove_effect = {
+			add_stability = -0.05
+		}
+	}
+	
+	bribe_delegates = {
+	
+		icon = GFX_decision_bribe
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 75
+		days_re_enable = 100
+		complete_effect  = {
+			if = {
+				limit = {
+					has_government = autonomous_socialist
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = 0.15
+				}
+			}
+			if = {
+				limit = {
+					has_government = neosocialist
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = 0.15
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = 0.15
+				}
+			}
+		}
+		days_remove = 7
+		remove_effect = {
+			add_stability = -0.1
+		}
+	}
+	
+	kill_delegates_autonomous_socialist = {
+	
+		icon = GFX_decision_kill_delegate
+	
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			NOT = { has_country_flag = RCR_delegate_was_killed }
+			NOT = { has_government = autonomous_socialist }
+			NOT = { has_idea = Inactive_Cheka }
+		}
+		fire_only_once = no
+		cost = 100
+		days_re_enable = 100
+		complete_effect  = {
+			set_country_flag = RCR_delegate_was_killed
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = -0.10
+				country_event = {
+					id = rcr.15
+					days = 1
+				}
+			}
+		}
+		days_remove = 14
+		remove_effect = {
+			clr_country_flag = RCR_delegate_was_killed
+		}
+	}
+
+	kill_delegates_neosocialist = {
+	
+		icon = GFX_decision_kill_delegate
+	
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			NOT = { has_country_flag = RCR_delegate_was_killed }
+			NOT = { has_government = neosocialist }
+			NOT = { has_idea = Inactive_Cheka }
+		}
+		fire_only_once = no
+		cost = 100
+		days_re_enable = 100
+		complete_effect  = {
+			set_country_flag = RCR_delegate_was_killed
+			add_popularity = {
+				ideology = neosocialist
+				popularity = -0.10
+				country_event = {
+					id = rcr.16
+					days = 1
+				}
+			}
+		}
+		days_remove = 14
+		remove_effect = {
+			clr_country_flag = RCR_delegate_was_killed
+		}
+	}
+
+	speech_of_civil_war_hero = {
+	
+		icon = GFX_decision_war_hero_speech
+	
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 50
+		days_re_enable = 70
+		remove_effect = {
+			if = {
+				limit = {
+					has_government = autonomous_socialist
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = 0.075
+				}
+			}
+			if = {
+				limit = {
+					has_government = neosocialist
+				}
+				add_popularity = {
+					ideology = neosocialist
+					popularity = 0.075
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerist
+				}
+				add_popularity = {
+					ideology = katzerist
+					popularity = 0.075
+				}
+			}
+		}
+	}
+	
+	kill_krugin = {
+	
+		icon = GFX_decision_kill_big
+	
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			NOT = { has_idea = Inactive_Cheka }
+			NOT = { has_government = neosocialist }
+			NOT = { has_country_flag = RCR_natkatz_are_expelled }
+			neosocialist < 0.25
+		}
+		fire_only_once = yes
+		cost = 200
+		remove_effect = {
+			add_popularity = {
+				ideology = katzerist
+				popularity = -0.20
+			}
+		country_event = {
+			id = rcr.27
+			days = 1
+			}
+		}
+	}	
+	
+	kill_khnykin = {
+	
+		icon = GFX_decision_kill_big
+	
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			NOT = { has_idea = Inactive_Cheka }
+			NOT = { has_government = autonomous_socialist }
+			NOT = { has_country_flag = RCR_auts_are_expelled }
+			autonomous_socialist < 0.25
+		}
+		fire_only_once = yes
+		cost = 200
+		remove_effect = {
+			add_popularity = {
+				ideology = katzerist
+				popularity = -0.20
+			}
+		country_event = {
+			id = rcr.24
+			days = 1
+			}
+		}
+	}	
+}
+
+RCR_red_army_buildup = {
+
+	recruit_prisoners = {
+	
+		icon = GFX_decision_red_army
+		
+		allowed = {
+			original_tag = RCR
+		}
+		fire_only_once = no
+		cost = 100
+		days_re_enable = 200
+		days_remove = 30
+		remove_effect = {
+		}	
+	}
+
+	recruit_party_members = {
+	
+		icon = GFX_decision_red_army
+	}
+}
+
+RCR_war_and_peace_cat = {
+
+	wap_war_game = {
+		
+        visible = {
+			has_war = no
+        }
+		available = {
+			command_power > 50
+			has_war_support > 0.50
+		}
+		#icon = 
+        cost = 35
+		complete_effect = {
+			add_command_power = -50
+		}
+		remove_effect = {
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
+		}
+        modifier = {
+            experience_gain_army = 0.5
+            experience_gain_army_factor = 0.2
+			experience_gain_navy = 0.5
+			experience_gain_navy_factor = 0.2
+			experience_gain_air  = 0.5
+			experience_gain_air_factor  = 0.2
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 21
+		days_re_enable = 235
+	}
+	wap_motherland_miliraty_fabricks = {
+		
+        visible = {
+			has_war = no
+        }
+		available = {
+			command_power > 30
+			has_war_support > 0.50
+		}
+		#icon = 
+        cost = 100
+		days_remove = 185
+		fire_only_once = yes
+		complete_effect = {
+			add_command_power = -30
+		}
+		remove_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	wap_get_ready_for_war = {
+		
+        visible = {
+			has_war = no
+        }
+		available = {
+			has_war_support > 0.35
+		}
+		#icon = 
+        cost = 75
+		days_remove = 147
+		days_re_enable = 282
+        modifier = {
+			war_support_weekly = 0.015
+		}
+	}
+	wap_convert = {
+		
+        visible = {
+			has_war = yes
+        }
+		available = {
+			command_power > 15
+			has_war_support > 0.60
+		}
+		#icon = 
+        cost = 100
+		days_remove = 21
+		fire_only_once = yes
+		complete_effect = {
+			add_command_power = -15
+		}
+		remove_effect = {
+			add_stability = -0.05
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+					}
+					industrial_complex > 1
+				}
+				remove_building  = {
+					type = industrial_complex 
+					level = 2
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_builthas_built = {
+						type = industrial_complex
+						value > 1
+					}
+				}
+				remove_building  = {
+					type = industrial_complex 
+					level = 2
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					has_builthas_built = {
+						type = industrial_complex
+						value > 1
+					}
+				}
+				remove_building  = {
+					type = industrial_complex 
+					level = 2
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+					}
+					industrial_complex > 1
+				}
+				remove_building  = {
+					type = industrial_complex 
+					level = 2
+				}
+				add_building_construction = {
+					type = arms_factory 
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	wap_opolcheniye = {
+		
+        visible = {
+			has_war = yes
+        }
+		available = {
+			has_defensive_war = yes
+		}
+		fire_only_once = yes
+		#icon = 
+        cost = 10
+		days_remove = 3	
+		remove_effect = {
+			set_country_flag = opolcheniye_oob
+			load_oob = "RCR_opolcheniye"
+		}
+	}
+	wap_shtrafbat = {
+		
+        visible = {
+			has_war = yes
+        }
+		fire_only_once = yes
+		#icon = 
+        cost = 10
+		days_remove = 7
+		remove_effect = {
+			set_country_flag = shtrafbat_oob
+			load_oob = "RCR_penal_military_units"
+		}
+	}
+	wap_disband_opolcheniye = {
+	
+		#icon = 
+		
+        visible = {
+			has_war = no
+			has_country_flag = opolcheniye_oob
+        }
+		available = {
+			has_country_flag = opolcheniye_oob
+		}
+		fire_only_once = yes
+		remove_effect = {
+			delete_unit_template_and_units = {
+				division_template = "Narodnoe opolcheniye"
+			}
+			army_experience  = 5
+		}
+	}
+	wap_disband_shtrafbat = {
+	
+		#icon = 
+		
+        visible = {
+			has_war = no
+			has_country_flag = shtrafbat_oob
+        }
+		available = {
+			has_country_flag = shtrafbat_oob
+		}
+		fire_only_once = yes
+		remove_effect = {
+			delete_unit_template_and_units = {
+				division_template = "Shtrafnaya Diviziya"
+			}
+			army_experience  = 15
+		}
+	}
+}
+	
+		
+		
+	
+	

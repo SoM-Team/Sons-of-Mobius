@@ -1,0 +1,225 @@
+﻿focus_tree = {
+	id = Falanga_Psarska
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = POL
+		}
+	}
+	continuous_focus_position = { x = 250 y = 5000 }
+	default = no
+	focus = {
+		id = PSR_National_Identity ### Национальная идентичность
+		icon = GFX_focus_National_Identity
+		x = 4
+		y = 0
+		cost = 7
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = +0.05
+			hidden_effect = {
+				### Теперь ты фашистская мразь
+			}
+		}
+	}
+	focus = {
+		id = PSR_Carrot_And_Stick
+		icon = GFX_focus_Carrot_And_Stick
+		cost = 10
+		prerequisite = {
+			focus = PSR_National_Identity
+		}
+		mutually_exclusive = {
+			focus = PSR_Equal_Nations
+		}
+		completion_reward = {
+				
+		}
+		x = 3 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
+		y = 1
+	}
+	focus = {
+		id = PSR_Equal_Nations
+		icon = GFX_focus_Equal_Nations
+		cost = 10
+		prerequisite = {
+			focus = PSR_National_Identity
+		}
+		mutually_exclusive = {
+			focus = PSR_Carrot_And_Stick
+		}
+		completion_reward = {
+				
+		}
+		x = 5 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
+		y = 1
+	}
+	focus = {
+		id = PSR_Shoot_Pan_Zhigmich
+		icon = GFX_focus_Shoot_Pan_Zhigmich
+		cost = 10
+		prerequisite = {
+			focus = PSR_Carrot_And_Stick
+			focus = PSR_Equal_Nations
+		}
+		completion_reward = {
+				
+		}
+		x = 4 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
+		y = 2
+	}
+	focus = {
+		id = PSR_Negotiate_With_Shlachta
+		icon = GFX_focus_Negotiate_With_Shlachta
+		cost = 10
+		prerequisite = {
+			focus = PSR_Carrot_And_Stick
+		}
+		completion_reward = {
+				
+		}
+		x = 2 
+		y = 2
+	}
+	focus = {
+		id = PSR_Wartsaw_Language
+		icon = GFX_focus_Wartsaw_Language
+		cost = 10
+		prerequisite = {
+			focus = PSR_Equal_Nations
+		}
+		completion_reward = {
+				
+		}
+		x = 6 
+		y = 2
+	}
+	focus = {
+		id = PSR_Ban_Non_Native_Press
+		icon = GFX_focus_Ban_Non_Native_Press
+		cost = 10
+		prerequisite = {
+			focus = PSR_Negotiate_With_Shlachta
+		}
+		completion_reward = {
+				
+		}
+		x = 2
+		y = 3
+	}
+	focus = {
+		id = PSR_Zybuska_Myrka
+		icon = GFX_focus_Zybuska_Myrka
+		cost = 10
+		prerequisite = {
+			focus = PSR_Ban_Non_Native_Press
+		}
+		completion_reward = {
+				
+		}
+		x = 1
+		y = 4
+	}
+	focus = {
+		id = PSR_Witch_hunt
+		icon = GFX_focus_Witch_hunt
+		cost = 10
+		prerequisite = {
+			focus = PSR_Ban_Non_Native_Press
+		}
+		completion_reward = {
+				
+		}
+		x = 3
+		y = 4
+	}
+	focus = {
+		id = PSR_Attack_Dvushka_Party
+		icon = GFX_focus_Witch_hunt
+		cost = 10
+		prerequisite = {
+			focus = PSR_Witch_hunt
+		}
+		prerequisite = {
+			focus = PSR_Zybuska_Myrka
+		}
+		completion_reward = {
+				
+		}
+		x = 2
+		y = 5
+	}
+	focus = {
+		id = PSR_Unite_Traditions
+		icon = GFX_focus_Unite_Traditions
+		cost = 10
+		prerequisite = {
+			focus = PSR_Wartsaw_Language
+		}
+		completion_reward = {
+				
+		}
+		x = 6 
+		y = 3
+	}
+	focus = {
+		id = PSR_Psarska_Wartsaw_Republic
+		icon = GFX_focus_Psarska_Wartsaw_Republic
+		cost = 10
+		prerequisite = {
+			focus = PSR_Unite_Traditions
+		}
+		completion_reward = {
+				
+		}
+		x = 5
+		y = 4
+	}
+	focus = {
+		id = PSR_Two_Nation_Holiday
+		icon = GFX_focus_Two_Nation_Holiday
+		cost = 10
+		prerequisite = {
+			focus = PSR_Unite_Traditions
+		}
+		completion_reward = {
+				
+		}
+		x = 7
+		y = 4
+	}
+	focus = {
+		id = PSR_Integrate_Dwushka
+		icon = GFX_focus_Integrate_Dwushka
+		cost = 10
+		prerequisite = {
+			focus = PSR_Two_Nation_Holiday
+		}
+		prerequisite = {
+			focus = PSR_Psarska_Wartsaw_Republic
+		}
+		completion_reward = {
+				
+		}
+		x = 6
+		y = 5
+	}
+	focus = {
+		id = PSR_Blessed_Life
+		icon = GFX_focus_Integrate_Dwushka
+		cost = 10
+		prerequisite = {
+			focus = PSR_Witch_hunt
+			focus = PSR_Psarska_Wartsaw_Republic
+		}
+		completion_reward = {
+				
+		}
+		x = 4
+		y = 5
+	}
+}

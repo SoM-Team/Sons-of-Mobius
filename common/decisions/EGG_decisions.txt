@@ -1,0 +1,1396 @@
+EGG_Supress_Freedom_Fighters = {
+	
+	EGG_Freedom_Fighters_sabotage = {
+
+		allowed = {
+			OR = {
+				has_idea = Freedom_fighters_saboteurs
+				has_idea = Freedom_fighters_saboteurs_1
+				has_idea = Freedom_fighters_saboteurs_2
+				has_idea = Freedom_fighters_saboteurs_3
+			}
+		}
+		
+		icon = GFX_decision_sabotage
+		
+		activation = {
+			has_country_flag = EGG_start_repressions
+		}
+		
+		available = {
+		}
+		
+		selectable_mission = yes
+		days_mission_timeout = 55
+		days_re_enable = 65
+
+		cost = 50
+
+		is_good = no
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 40
+			modifier = {
+				add = 40
+				check_variable = {
+					var = ff_activity
+					value = 75
+					compare = greater_than_or_equals
+				}
+			}
+			modifier = {
+				add = 30
+				AND = {
+				check_variable = {
+					var = ff_activity
+					value = 74
+					compare = less_than_or_equals
+					}
+				check_variable = {
+					var = ff_activity
+					value = 50
+					compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 20
+				AND = {
+				check_variable = {
+					var = ff_activity
+					value = 49
+					compare = less_than_or_equals
+					}
+				check_variable = {
+					var = ff_activity
+					value = 25
+					compare = greater_than_or_equals
+					}
+				}
+			}
+			modifier = {
+				add = 10
+				check_variable = {
+					var = ff_activity
+					value = 24
+					compare = less_than_or_equals
+				}
+			}
+		}
+
+		complete_effect = {
+			subtract_from_variable = { ff_activity = 5 }
+			custom_effect_tooltip = "Preventive operation makes sense."
+		}
+
+		timeout_effect = {
+			hidden_effect = {
+				country_event = {
+					id = egg.3
+					days = 3
+				}
+			}
+		}
+	}
+	
+	
+	EGG_Destroy_HQ = {
+
+		icon = GFX_decision_Destroy_HQ
+
+		allowed = {
+		}
+
+		available = {
+			has_country_flag = EGG_destroy_HQ
+			has_idea = Freedom_fighters_saboteurs_3
+		}
+
+		fire_only_once = yes
+
+		days_remove = 20
+
+		cost = 100
+
+		remove_effect = {
+	     	subtract_from_variable = { ff_activity = 20 }
+			custom_effect_tooltip = "The resistance will be no more..."
+			remove_ideas = Freedom_fighters_saboteurs_3
+			hidden_effect = {
+				country_event = {
+					id = egg.11
+					days = 3
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	EGG_Sand_Blast_city_raid = {
+		
+		icon = GFX_decision_kill_big
+		
+		allowed = {
+		}
+		
+		visible = {
+			has_idea = Freedom_fighters_saboteurs_2
+		}
+
+		available = {
+			has_idea = Freedom_fighters_saboteurs_2
+		}
+
+		fire_only_once = yes
+
+		days_remove = 20
+
+		cost = 15
+
+		remove_effect = {
+			country_event = {
+				id = egg.10
+				days = 3
+			}
+		}
+		
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	
+	EGG_Send_Drones = {
+
+		allowed = {
+		}
+
+		icon = GFX_decision_eggman_drone
+		
+		available = {
+		}
+
+		fire_only_once = no
+		days_re_enable = 30
+
+		days_remove = 20
+
+		cost = 25
+
+		remove_effect = {
+	     	subtract_from_variable = { ff_activity = 5 }
+			custom_effect_tooltip = "Reduce Freedom Fighters' activity by 5%"
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+	EGG_plunder_settlements = {
+
+		icon = GFX_decision_kill_delegate
+
+		allowed = {
+		}
+
+		available = {
+		}
+
+		fire_only_once = no
+		days_re_enable = 70
+
+		days_remove = 15
+
+		cost = 35
+
+		remove_effect = {
+	     	subtract_from_variable = { ff_activity = 15 }
+			add_manpower = -1000
+			add_stability = -0.05
+			custom_effect_tooltip = "Reduce Freedom Fighters' activity by 15%"
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	EGG_Roboticize_the_saboteurs = {
+
+		icon = GFX_decision_roboticize
+
+		allowed = {
+		}
+
+		available = {
+		}
+
+		fire_only_once = no
+		days_re_enable = 50
+
+		days_remove = 14
+
+		cost = 30
+
+		remove_effect = {
+	     	subtract_from_variable = { ff_activity = 10 }
+			add_manpower = -1000
+			add_command_power = +0.2
+			custom_effect_tooltip = "Reduce Freedom Fighters' activity by 10%"
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+	EGG_Provoke_Extremism = {
+
+		icon = GFX_decision_kill_delegate
+
+		allowed = {
+		}
+
+		available = {
+		}
+
+		fire_only_once = no
+		days_re_enable = 100
+
+		days_remove = 21
+
+		cost = 55
+
+		remove_effect = {
+	     	subtract_from_variable = { ff_activity = 15 }
+			add_manpower = -500
+			add_stability = -0.025
+			custom_effect_tooltip = "Reduce Freedom Fighters' activity by 15%"
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+	}
+}
+	EGG_Roboticization_Campaign = {
+		
+		EGG_Roboticize_New_Robotropolis = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 70
+				}
+				available = {
+					has_full_control_of_state = 70
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					70 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 70 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 49
+					has_manpower > 50000
+				}
+				
+				custom_cost_text = decision_cost_pp_50_manpower_50000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					70 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -50 add_manpower = -50000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					70 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 50000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Sand_Blast_City = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 57
+				}
+				available = {
+					has_full_control_of_state = 57
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					57 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 57 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 49
+					has_manpower > 50000
+				}
+				
+				custom_cost_text = decision_cost_pp_50_manpower_50000
+				
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					57 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -50 add_manpower = -50000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					57 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 50000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Oil_Refinery_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 48
+				}
+				available = {
+					has_full_control_of_state = 48
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					48 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 48 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 39
+					has_manpower > 40000
+				}
+				
+				custom_cost_text = decision_cost_pp_40_manpower_40000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					48 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -40 add_manpower = -40000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					48 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 40000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Gravestone_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 51
+				}
+				available = {
+					has_full_control_of_state = 51
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					51 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 51 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 39
+					has_manpower > 40000
+				}
+				
+				custom_cost_text = decision_cost_pp_40_manpower_40000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					51 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -40 add_manpower = -40000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					51 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 40000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Cosmopolis_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 100
+				}
+				available = {
+					has_full_control_of_state = 100
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					100 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 100 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 39
+					has_manpower > 40000
+				}
+				
+				custom_cost_text = decision_cost_pp_40_manpower_40000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					100 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -40 add_manpower = -40000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					100 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 40000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Chemical_Plant_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 65
+				}
+				available = {
+					has_full_control_of_state = 65
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					65 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 65 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 39
+					has_manpower > 40000
+				}
+				
+				custom_cost_text = decision_cost_pp_40_manpower_40000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					65 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -40 add_manpower = -40000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					65 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 40000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Cybercity_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 53
+				}
+				available = {
+					has_full_control_of_state = 53
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					53 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 53 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 39
+					has_manpower > 40000
+				}
+				
+				custom_cost_text = decision_cost_pp_40_manpower_40000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					53 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -40 add_manpower = -40000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					53 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 40000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Arsenal_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 49
+				}
+				available = {
+					has_full_control_of_state = 49
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					49 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 49 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					49 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					49 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Genocide_city_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 52
+				}
+				available = {
+					has_full_control_of_state = 52
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					52 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 52 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					52 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					52 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Metalic_coast_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 54
+				}
+				available = {
+					has_full_control_of_state = 54
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					54 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 54 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					54 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					54 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Oil_Ocean_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 56
+				}
+				available = {
+					has_full_control_of_state = 56
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					56 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 56 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					56 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					56 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Dead_Forest_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 50
+				}
+				available = {
+					has_full_control_of_state = 50
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					50 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 50 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					50 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					50 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Scrap_Brain_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 71
+				}
+				available = {
+					has_full_control_of_state = 71
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					71 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 71 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 71
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					71 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					71 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Deadly_Coast_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 72
+				}
+				available = {
+					has_full_control_of_state = 72
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					72 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 72 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					72 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					72 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Dividing_Hills_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 75
+				}
+				available = {
+					has_full_control_of_state = 75
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					75 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 75 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 29
+					has_manpower > 30000
+				}
+				
+				custom_cost_text = decision_cost_pp_30_manpower_30000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					75 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -30000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					75 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 30000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Sand_Beach_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 92
+				}
+				available = {
+					has_full_control_of_state = 92
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					92 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 92 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					92 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -20 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					92 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Rail_Canyon_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 69
+				}
+				available = {
+					has_full_control_of_state = 69
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					69 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 69 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					69 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -20 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					69 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Roboticize_Transition_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 99
+				}
+				available = {
+					has_full_control_of_state = 99
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					99 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 99 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					99 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -20 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					99 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Quartz_Quadrant_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 104
+				}
+				available = {
+					has_full_control_of_state = 104
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					104 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 104 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					104 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -20 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					104 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Golden_Hive_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 102
+				}
+				available = {
+					has_full_control_of_state = 102
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					102 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 102 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					102 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -20 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					102 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		EGG_Crystal_Egg_Zone = {
+				icon = GFX_decision_roboticize
+				allowed = {
+					tag = EGG
+				}
+				highlight_states = {
+					state = 103
+				}
+				available = {
+					has_full_control_of_state = 103
+					NOT = { has_country_flag = EGG_Roboticizing }
+				}
+				visible = {
+					103 = {
+						is_controlled_by = ROOT
+					}
+				}
+
+				cancel_trigger = {
+						NOT = { controls_state = 103 }
+					}
+
+				fire_only_once = no
+				days_remove = 14
+				
+				custom_cost_trigger = {
+					has_political_power > 19
+					has_manpower > 20000
+				}
+				
+				custom_cost_text = decision_cost_pp_20_manpower_20000
+
+				ai_will_do = {
+					factor = 50
+				}
+
+				complete_effect = {
+					set_country_flag = EGG_Roboticizing
+					103 = { set_state_flag = EGG_Roboticizing_state }
+					hidden_effect = { add_political_power = -30 add_manpower = -20000 }
+				}
+				remove_effect = {
+					clr_country_flag = EGG_Roboticizing
+					103 = {
+						clr_state_flag = EGG_Roboticizing_state
+					}
+					#add_equipment_to_stockpile = {
+						#type = robian_equipment
+						#amount = 20000
+						#producer = EGG
+					#}
+				}
+			}
+		}
+	
+	

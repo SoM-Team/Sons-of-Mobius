@@ -1,0 +1,86 @@
+
+form_line_reform_category = {
+
+    ## Внедрить тактику 12 15 в политику
+    tactic_12_15 = {
+	
+	    icon = category_ger_military_buildup
+		
+		available = {
+		    has_war_support > 0.35
+		}
+	
+	    cost = 10
+	    fire_only_once = yes
+	    visible = {
+      	    original_tag = KOA
+		}
+	
+	    complete_effect = {
+	        add_political_power = 10
+			set_country_flag = decis1
+	    }
+
+        ai_will_do = {
+            factor = 1
+        }			
+	}
+	
+	## Подготовка Внедрения тактики 12 15 в политику
+    time_tactic_12_15 = {
+	
+	    icon = category_generic_economy
+		
+		available = {
+		    has_war_support > 0.15
+		}
+	
+	    cost = 15
+	    fire_only_once = yes
+	    visible = {
+      	    original_tag = KOA
+		}
+	
+	    complete_effect = {
+	        custom_effect_tooltip  = time_tactic
+	    }    
+	}
+}
+	
+	KOA_tactic_12_15 = {
+	 
+	    allowed = { tag = KOA }
+		
+		available = {
+		}
+		
+		activation = { has_country_flag = decis1 }
+		
+		Is_good = no
+		
+		days_mission_timeout = 360
+		
+		fire_only_once = yes
+		
+		timeout_effect = {
+		    #
+		}
+		
+		complete_effect = {
+		    if = {
+				limit = {
+				    KOA = {
+					    NOT = { has_decision = time_tactic_12_15 }
+					}
+				}
+				KOA = { country_event = koa.1 }
+				
+				limit = {
+				    KOA = { has_decision = time_tactic_12_15 }
+				}
+				KOA = { country_event = koa.2 }
+			}
+		}
+		
+	}		
+}

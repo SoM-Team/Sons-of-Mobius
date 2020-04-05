@@ -1,0 +1,195 @@
+###########################
+# Akorn Events
+###########################
+
+add_namespace = koa
+
+country_event = {
+	id = koa.1
+	title = koa.1.t
+	desc = koa.1.d
+	picture = GFX_report_event_hail_the_kingdom
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = KOA
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = koa.1.a 
+		hidden_effect = {
+			country_event = {
+				id = koa.2
+				days = 7
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = koa.3
+				days = 10
+			}
+			news_event = {
+				id = mobiannews.1
+				days = 3
+			}
+		}
+		ai_chance = { factor = 100 } 
+		trigger = {tag = KOA}
+	}
+}
+
+country_event = {
+	id = koa.2
+	title = koa.2.t
+	desc = koa.2.d
+	picture = GFX_report_event_death_of_naugus
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = koa.2.a 
+		add_stability = 0.02
+		ai_chance = { factor = 100 } 
+		trigger = {tag = KOA}
+	}
+}
+
+country_event = {
+	id = koa.3
+	title = koa.3.t
+	desc = koa.3.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.3.a 
+		remove_ideas = Two_War_Robotnik
+		hidden_effect = {
+			country_event = {
+				id = koa.4
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { #### Проблемы в политике
+	id = koa.4
+	title = koa.4.t
+	desc = koa.4.d
+	picture = GFX_report_event_Acorn_problem
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.4.a 
+		hidden_effect = {
+			country_event = {
+				id = koa.5
+				days = 10
+			}
+			country_event = {
+				id = koa.6
+				days = 15
+			}
+		}
+	}
+}
+
+country_event = { #### Речь Хонга
+	id = koa.5
+	title = koa.5.t
+	desc = koa.5.d
+	picture = GFX_report_event_hail_Hong
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.5.a 
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.05
+			}
+		add_stability = -0.05
+		hidden_effect = {
+			country_event = {
+				id = koa.6
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = { #### Шествие республикснких масс
+	id = koa.6
+	title = koa.6.t
+	desc = koa.6.d
+	picture = GFX_report_general_strike
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.6.a ###Выйти на переговоры
+		country_event = {
+				id = koa.7
+				days = 3
+		}
+		custom_effect_tooltip = koa.6.a.tt
+	}
+	option = {
+		name = koa.6.b ###Арест Прауэра
+		country_event = {
+				id = koa.8
+				days = 3
+		}
+		custom_effect_tooltip = koa.6.b.tt
+	}
+	option = {
+		name = koa.6.c ###Кровавое воскресенье
+		country_event = {
+				id = koa.9
+				days = 1
+				
+		}
+		custom_effect_tooltip = koa.6.c.tt
+	}	
+}	
+
+country_event = { #### Обеденная Резня
+	id = koa.9
+	title = koa.9.t
+	desc = koa.9.d
+	picture = GFX_report_event_bloody_evening
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.9.a
+		add_manpower = -300
+		add_stability = -0.20
+		remove_unit_leader = 107
+		custom_effect_tooltip = koa.9.a.tt
+	}
+}	

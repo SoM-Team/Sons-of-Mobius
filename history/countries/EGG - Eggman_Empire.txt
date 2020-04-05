@@ -1,0 +1,77 @@
+capital = 70
+
+OOB = "EGG_3236"
+
+set_technology = {
+	infantry_weapons = 1
+	
+	
+}
+
+set_politics = {
+	ruling_party = technocratic_despotist
+	last_election = "1933.3.5"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	neosocialist = 0
+	communism = 0
+	autonomous_socialist = 0
+	social_democrat = 5
+	social_liberal = 0
+	market_liberal = 0
+	democratic = 5
+	democratic_dictatorship = 20
+	neutrality = 0
+	technocratic_despotist = 70
+	fascism = 0
+}
+
+create_faction = Robosphere
+add_to_faction = EGG
+add_to_faction = NRD
+add_to_faction = GDD
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = NRD
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = GDD
+		autonomous_state = autonomy_integrated_puppet
+	}
+	else = {
+		puppet = NRD
+		puppet = GDD
+	}
+}
+
+add_ideas = {
+	Robotic_genius_spirit
+	Revenge_for_robotnik
+	Freedom_fighters_saboteurs
+	Ai_failure
+	Robian_Disobedience
+}
+
+
+set_convoys = 200
+
+create_country_leader = {
+	name = "Dr. Ivo 'Eggman' Robotnik"
+	desc = "POLITICS_EGGMAN_DESC"
+	picture = "gfx/leaders/EGG/Portrait_Eggman.dds"
+	expire = "1965.1.1"
+	ideology = technocratic_despotist_subtype
+	traits = {
+	}
+}
