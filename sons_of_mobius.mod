@@ -1,5 +1,5 @@
 
-name = "Sonic Optional Version 0.16"
+name = "Sonic Optional Version 0.17"
 
 path = "mod/Sons-of-Mobius/"
 
