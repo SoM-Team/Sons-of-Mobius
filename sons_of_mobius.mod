@@ -56,7 +56,7 @@ replace_path = "common/autonomous_states" #commented
 replace_path = "common/operations"
 replace_path = "common/operation_phases"
 replace_path = "common/operation_tokens"
-replace_path = "common/technologies" #fast checked
+#replace_path = "common/technologies" #fast checked
 replace_path = "common/technology_sharing" #fast checked
 
 replace_path = "gfx/loadingscreens" #fast checked
