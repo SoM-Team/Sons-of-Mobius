@@ -22,6 +22,8 @@ replace_path = "common/units/names" #commented
 
 replace_path = "common/abilities" #commented
 
+replace_path = "common/localisation" #commented
+
 replace_path = "common/national_focus" #fast checked
 
 replace_path = "common/countries" #fast checked

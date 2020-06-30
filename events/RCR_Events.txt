@@ -1,6 +1,9 @@
 ﻿############################
 # тупа ивенты для коммуняг, я пажылое онямэ кста за соника и двор расстреливаю николая второго вот и живи теперь с этим
 ############################
+############################
+# слыш камуняка я ведь лицо тебе сломаю капитализм топ капитализм лучше вот теперь и живи с этим
+############################
 
 add_namespace = rcr
 ######################################
@@ -244,6 +247,12 @@ country_event = { ### Арест Шилова! ###
 		add_stability = 0.1
 		remove_unit_leader = 102
 		set_global_flag = jail_Shilov
+		hidden_effect = {
+			country_event = {
+				id = rcr.41
+				days = 7
+			}
+		}
 	}
 }
 
@@ -438,7 +447,6 @@ country_event = { ### Победа Хныкина ###
 		remove_ideas = Political_Infighting_waut
 		remove_ideas = Political_Infighting_wnat 
 		remove_ideas = Political_Infighting_fin
-		add_stability = 0.3
 		set_country_flag = RCR_chairman_is_elected
 	}
 }
@@ -544,8 +552,11 @@ country_event = { ### Победа Палласова ###
 		remove_ideas = Political_Infighting_waut
 		remove_ideas = Political_Infighting_wnat
 		remove_ideas = Political_Infighting_fin
-		add_stability = 0.3
-		set_country_flag = RCR_chairman_is_elected
+		set_country_flag = RCR_chairman_Pallasov_is_elected
+		set_variable = {
+			var = RCR_automation_progress
+			value = 0
+		}
 	}
 }
 
@@ -562,7 +573,6 @@ country_event = { ### Победа Кругина ###
 		remove_ideas = Political_Infighting_waut
 		remove_ideas = Political_Infighting_wnat
 		remove_ideas = Political_Infighting_fin
-		add_stability = 0.3
 		set_country_flag = RCR_chairman_is_elected
 	}
 }
@@ -692,7 +702,7 @@ country_event = {###Дебаты Палласова с Кругиным ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.33
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -705,7 +715,7 @@ country_event = {###Дебаты Палласова с Кругиным ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.33
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -729,7 +739,7 @@ country_event = {###Конфликт с профсоюзами ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.34
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -742,7 +752,7 @@ country_event = {###Конфликт с профсоюзами ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.34
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -772,7 +782,7 @@ country_event = {### Недостаток продовольствия ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.36
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -783,7 +793,7 @@ country_event = {### Недостаток продовольствия ###
 		hidden_effect = {
 			country_event = {
 				id = rcr.36
-				days = 15
+				days = 7
 				}
 			}	
 		}
@@ -924,6 +934,903 @@ country_event = {
 		add_political_power = 10
 	}
 }
+
+country_event = {
+	id = rcr.41
+	title = rcr.41.t
+	desc = rcr.41.d
+	picture = GFX_report_event_stalegor
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.41.a
+		add_stability = -0.1
+		set_country_flag = emergency_meeting
+	}
+}
+
+country_event = {
+	id = rcr.42
+	title = rcr.42.t
+	desc = rcr.42.d
+	picture = GFX_report_event_stalegor
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.42.a
+		add_political_power = 25
+	}
+	
+	option = {
+		name = rcr.42.b
+		add_political_power = 25
+	}
+}
+
+country_event = {
+	id = rcr.43
+	title = rcr.43.t
+	desc = rcr.43.d
+	picture = GFX_report_event_industrial_colony
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.43.a
+		281  = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		add_resource = {
+			type = tungsten
+			amount = 25
+			state = 281
+		}
+		add_resource = {
+			type = chromium
+			amount = 25
+			state = 281
+		}
+	}
+	
+}
+
+country_event = {
+	id = rcr.44
+	title = rcr.44.t
+	desc = rcr.44.d
+	picture = GFX_report_event_stalegor
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.44.a
+		add_political_power = 25
+		add_ideas = Lego_City
+	}
+	
+}
+
+country_event = {
+	id = rcr.80
+	title = rcr.80.t
+	desc = rcr.80.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = RCR
+			tag = POL
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = rcr.80.a 
+		ai_chance = { factor = 100 } 
+		trigger = {
+		OR = {
+			tag = RCR
+			tag = POL
+			}
+		}
+		RCR = {
+			add_ideas = Vodka_War
+			set_variable = {
+				var = RCR_vodka_sells
+				value = 500
+			}
+			set_variable = {
+				var = POL_vodka_sells
+				value = 400
+			}
+			set_variable = {
+				var = FREE_vodka_sells
+				value = 400
+			}
+		}
+		POL = {
+			add_ideas = Vodka_War
+			set_variable = {
+				var = RCR_vodka_sells
+				value = 500
+			}
+			set_variable = {
+				var = POL_vodka_sells
+				value = 400
+			}
+			set_variable = {
+				var = FREE_vodka_sells
+				value = 400
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.81
+	title = rcr.81.t
+	desc = rcr.81.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.81.a 
+		ai_chance = { factor = 100 }
+		SWA = {
+			set_country_flag = RCR_vodka_banned
+		}
+		subtract_from_variable = {
+			RCR_vodka_sells = 150
+		}
+		POL = {
+			subtract_from_variable = {
+				RCR_vodka_sells = 150
+			}
+		}		
+	}
+}
+
+country_event = {
+	id = rcr.82
+	title = rcr.82.t
+	desc = rcr.82.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.82.a 
+		ai_chance = { factor = 100 }
+		MER = {
+			set_country_flag = RCR_vodka_banned
+		}
+		subtract_from_variable = {
+			RCR_vodka_sells = 150
+		}
+		POL = {
+			subtract_from_variable = {
+				RCR_vodka_sells = 150
+			}
+		}		
+	}
+}
+
+country_event = {
+	id = rcr.83
+	title = rcr.83.t
+	desc = rcr.83.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.83.a 
+		ai_chance = { factor = 100 }
+		KOA = {
+			set_country_flag = RCR_vodka_banned
+		}
+		subtract_from_variable = {
+			RCR_vodka_sells = 200
+		}
+		POL = {
+			subtract_from_variable = {
+				RCR_vodka_sells = 200
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.84
+	title = rcr.84.t
+	desc = rcr.84.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.84.a 
+		ai_chance = { factor = 100 }
+		add_war_support = 0.05
+		add_manpower = 150000
+		add_popularity = {
+			ideology = neosocialist
+			popularity = 0.05
+		}
+		add_command_power = 15
+	}
+}
+
+country_event = {
+	id = rcr.85
+	title = rcr.85.t
+	desc = rcr.85.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = rcr.85.a 
+		ai_chance = { factor = 100 }
+		add_tech_bonus = {
+			name = RCR_industry_bonus
+			bonus = 0.33
+			uses = 1
+			category = industry
+		}
+		add_tech_bonus = {
+			name = RCR_industry_bonus
+			bonus = 0.33
+			uses = 1
+			category = electronics
+		}
+		add_tech_bonus = {
+			name = RCR_industry_bonus
+			bonus = 0.33
+			uses = 1
+			category = radar_tech
+		}
+	}
+	
+	option = {
+		name = rcr.85.b
+		ai_chance = { factor = 100 }
+		add_tech_bonus = {
+			name = RCR_war_bonus
+			bonus = 0.33
+			uses = 1
+			category = infantry_weapons
+		}
+		add_tech_bonus = {
+			name = RCR_war_bonus
+			bonus = 0.33
+			uses = 1
+			category = artillery
+		}
+		add_tech_bonus = {
+			name = RCR_war_bonus
+			bonus = 0.33
+			uses = 1
+			category = land_doctrine
+		}
+	}
+	
+	option = {
+		name = rcr.85.c 
+		ai_chance = { factor = 100 }
+		add_tech_bonus = {
+			name = RCR_air_bonus
+			bonus = 0.33
+			uses = 1
+			category = light_fighter
+		}
+		add_tech_bonus = {
+			name = RCR_air_bonus
+			bonus = 0.33
+			uses = 1
+			category = tactical_bomber
+		}
+		add_tech_bonus = {
+			name = RCR_air_bonus
+			bonus = 0.33
+			uses = 1
+			category = naval_bomber
+		}
+	}
+}
+
+country_event = {
+	id = rcr.86
+	title = rcr.86.t
+	desc = rcr.86.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = rcr.86.a 
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 3
+			add_resource = {
+				type = steel
+				amount = 16
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 1
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 1
+			uses = 1
+			category = industry
+		}
+	}
+	
+	option = {
+		name = rcr.86.b
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_resource = {
+				type = oil
+				amount = 24
+			}
+			add_resource = {
+				type = rubber
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 2
+				}
+			}
+			if = {
+				limit = {
+					synthetic_refinery > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_resource = {
+				type = oil
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			if = {
+				limit = {
+					synthetic_refinery > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		random_owned_state = {
+			add_resource = {
+				type = oil
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = rcr.86.c
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			add_extra_state_shared_building_slots = 4
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			if = {
+				limit = {
+					industrial_complex < 25
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}	
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	option = {
+		name = rcr.86.da
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_state_modifier = {
+				modifier = {
+					local_resources = 1
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+			}
+			add_resource = {
+				type = tungsten
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_resource = {
+				type = aluminium
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_resource = {
+				type = steel
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.87
+	title = rcr.87.t
+	desc = rcr.87.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.87.a 
+		ai_chance = { factor = 100 }
+		add_ideas = win_teleology
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+				
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.88
+	title = rcr.88.t
+	desc = rcr.88.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.88.a 
+		ai_chance = { factor = 100 }
+		add_ideas = win_genetic
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+				
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.89
+	title = rcr.89.t
+	desc = rcr.89.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.89.a 
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+	}
+	
+	option = {
+		name = rcr.89.b
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.90
+	title = rcr.90.t
+	desc = rcr.90.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.90.a 
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_timed_idea = { idea = indicaton_economic days = 365 }
+	}
+	
+country_event = {
+	id = rcr.91
+	title = rcr.91.t
+	desc = rcr.91.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.91.a 
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			name = RCR_industry_bonus
+			bonus = 1
+			uses = 2
+			category = industry
+		}
+	}
 ##############################
 # what about some communism? #
 ##############################

@@ -1,0 +1,71 @@
+﻿############################
+# VIVA LA REVOLUCION!      #
+############################
+
+add_namespace = inf
+
+######################################
+# Comrade Pallasov reporting         #
+######################################
+country_event = {
+	id = inf.1
+	title = inf.1.t
+	desc = inf.1.d
+	picture = GFX_report_event_jackal_day
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = INF
+	}
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = inf.1.a
+		ai_chance = { factor = 100 } 
+		trigger = {tag = inf}
+		add_political_power = 40
+	}
+}
+
+country_event = {
+	id = inf.2
+	title = inf.2.t
+	desc = inf.2.d
+	picture = GFX_report_event_jackal_day
+	
+	fire_only_once = yes
+	
+	trigger = {
+	tag = INF
+	}
+	
+	option = {
+		name = inf.2.a
+	}
+}
+
+country_event = {
+	id = inf.3
+	title = inf.3.t
+	desc = inf.3.d
+	picture = GFX_report_event_train
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = inf.3.a
+		set_country_flag = gold_stolen
+		custom_effect_tooltip = gold_decisions
+		set_variable = {
+			var = inf_gold_storage
+			value = 2000
+		}
+	}
+}
+

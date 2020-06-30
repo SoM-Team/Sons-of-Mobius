@@ -13,20 +13,37 @@ focus_tree = {
 	focus = {
 		id = RCR_7_Go
 		icon = GFX_focus_siezd_prepare
-		cost = 0
+		cost = 7.00
 		x = 17
 		y = 0
-
+		available = {
+			always = no
+		}
+		bypass = { 
+			OR = {
+				has_country_flag = the_congress_is_to_start 
+				has_country_flag = emergency_meeting
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = The_future_of_Rethenia
+		}
 	}
 	focus = {
 		id = RCR_7_Go_Yes
 		icon = GFX_focus_siezd_approved
-		cost = 0
+		cost = 7.00
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = RCR_7_Go
 		}
 		mutually_exclusive = {
 			focus = RCR_7_Go_No
+		}
+		bypass = { 
+			has_country_flag = the_congress_is_to_start 
 		}
 		x = 11
 		y = 1
@@ -35,9 +52,20 @@ focus_tree = {
 	focus = {
 		id = RCR_Line_Pallasov
 		icon = GFX_focus_premier_Pallasov
-		cost = 0
+		cost = 1.00
+		available = {
+			has_country_flag = RCR_chairman_Pallasov_is_elected
+		}
 		prerequisite = {
 			focus = RCR_7_Go_Yes
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_political_power = 100
+			add_ideas = Pallasov_vision
 		}
 		x = 11
 		y = 2
@@ -46,9 +74,16 @@ focus_tree = {
 	focus = {
 		id = RCR_Democratic_Central
 		icon = GFX_focus_democratic_centralism
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Line_Pallasov
+		}
+		completion_reward = {
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = Pallasov_vision
+				add_idea = Pallasov_vision_1
+			}
 		}
 		x = 13
 		y = 3
@@ -57,23 +92,77 @@ focus_tree = {
 	focus = {
 		id = RCR_Nacionalisation_light_Prom
 		icon = GFX_focus_nationalisation
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Line_Pallasov
 		}
 		x = 9
 		y = 3
-
+		completion_reward = {
+			261  = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			257  = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			331 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = Echo_Civil_War
+				add_idea = Echo_Civil_War_1
+			}
+		}
 	}
+	
 	focus = {
 		id = RCR_Obligation_Automatization
 		icon = GFX_focus_autobonds
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Nacionalisation_light_Prom
 		}
 		prerequisite = {
 			focus = RCR_Democratic_Central
+		}
+		completion_reward = {
+			add_to_variable = {
+				RCR_automation_progress = 15
+			}
+			if = {
+				limit = {
+					has_idea = Echo_Civil_War_1
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_1
+					add_idea = Echo_Civil_War_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Echo_Civil_War_2
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_2
+					add_idea = Echo_Civil_War_3
+				}
+			}
+			custom_effect_tooltip = Automation_15
 		}
 		x = 11
 		y = 4
@@ -82,20 +171,89 @@ focus_tree = {
 	focus = {
 		id = RCR_Agranie_City
 		icon = GFX_focus_agrarian_towns
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Nacionalisation_light_Prom
 		}
+		
 		x = 9
 		y = 4
-
+		
+		completion_reward = {
+			328  = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			326  = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			323 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			223 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			227 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Echo_Civil_War_1
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_1
+					add_idea = Echo_Civil_War_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Echo_Civil_War_2
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_2
+					add_idea = Echo_Civil_War_3
+				}
+			}
+			add_ideas = New_agriculture
+		}
 	}
 	focus = {
 		id = RCR_War_Berocraty
 		icon = GFX_focus_fight_bureaucracy
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Democratic_Central
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Pallasov_vision_1
+				add_idea = Pallasov_vision_2
+			}
+			add_political_power = 75
 		}
 		x = 13
 		y = 4
@@ -104,7 +262,7 @@ focus_tree = {
 	focus = {
 		id = RCR_Europian_Jobber
 		icon = GFX_focus_international_workers
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Obligation_Automatization
 		}
@@ -113,17 +271,47 @@ focus_tree = {
 		}
 		x = 10
 		y = 5
+		completion_reward = {
+			remove_ideas = Echo_Civil_War_3
+			add_ideas = International_coop
+			add_manpower = 200000
+			hidden_effect = {
+				country_event = {
+					id = rcr.43
+					days = 50
+				}	
+			}
+		}
 
 	}
 	focus = {
-		id = RCR_Stalegorsky_School
+		id = RCR_Stalegorsky_Univer
 		icon = GFX_focus_stalegor_university
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_War_Berocraty
 		}
 		prerequisite = {
 			focus = RCR_Obligation_Automatization
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			#add_tech_bonus = {
+				#name = electronic_bonus
+				#bonus = 1
+				#uses = 2
+				#category = industry
+			#}
+			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = Pallasov_vision_2
+				add_idea = Pallasov_vision_3
+			}
 		}
 		x = 12
 		y = 5
@@ -132,12 +320,22 @@ focus_tree = {
 	focus = {
 		id = RCR_Upgrade_Army_Expirience
 		icon = GFX_focus_army_prestige
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Europian_Jobber
 		}
 		prerequisite = {
-			focus = RCR_Stalegorsky_School
+			focus = RCR_Stalegorsky_Univer
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Pallasov_vision_3
+				add_idea = Pallasov_vision_4
+			}
+			every_army_leader = {
+				add_logistics = 1
+			}
+			custom_effect_tooltip = The_party_army
 		}
 		x = 11
 		y = 6
@@ -146,27 +344,69 @@ focus_tree = {
 	focus = {
 		id = RCR_Building_New_Central
 		icon = GFX_focus_new_capital
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_Upgrade_Army_Expirience
 		}
 		prerequisite = {
 			focus = RCR_Agranie_City
 		}
+		completion_reward = {
+			6  = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_political_power = 50
+			hidden_effect = {
+				country_event = {
+					id = rcr.42
+					days = 30
+				}	
+			}
+		}
 		x = 9
 		y = 7
-
 	}
 	focus = {
 		id = RCR_7_Go_No
 		icon = GFX_focus_siezd_closed
-		cost = 0
+		cost = 7.00
+		available = {
+			always = no
+		}
 		prerequisite = {
 			focus = RCR_7_Go
 		}
 		mutually_exclusive = {
 			focus = RCR_7_Go_Yes
 		}
+		bypass = {
+			has_country_flag = emergency_meeting
+		}		
 		x = 23
 		y = 1
 
@@ -185,7 +425,7 @@ focus_tree = {
 	focus = {
 		id = RCR_Contine_Revolution
 		icon = GFX_focus_world_revolution
-		cost = 0
+		cost = 8.00
 		prerequisite = {
 			focus = RCR_War_Berocraty
 		}
@@ -221,18 +461,32 @@ focus_tree = {
 	focus = {
 		id = RCR_discussion_of_planning
 		icon = GFX_focus_planning_discussion
-		cost = 0
+		cost = 10
 		x = 65
 		y = 0
+		
+		completion_reward = {
+			country_event = rcr.86
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
 
 	}
 	focus = {
 		id = RCR_cultutal_revolutiom
 		icon = GFX_focus_cultural_revolution
-		cost = 0
+		cost = 8
 		x = 40
 		y = 10
-
+		
+		completion_reward = {
+			add_political_power = 90
+			add_timed_idea = { idea = culturian_rebuilding days = 365 }
+		}
 	}
 	focus = {
 		id = RCR_ouliver_doctrine
@@ -245,7 +499,7 @@ focus_tree = {
 		}
 		x = 19
 		y = 10
-
+		
 	}
 	focus = {
 		id = RCR_shilov_doctrine
@@ -288,13 +542,25 @@ focus_tree = {
 	}
 	focus = {
 		id = RCR_In_Hnikin_Open
+		available = {
+			always = no
+		}
 		icon = GFX_focus_khnykin
-		cost = 0
+		cost = 1
 		prerequisite = {
 			focus = RCR_7_Go_Yes
 		}
 		x = 4
 		y = 2
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.1
+			}
+			add_political_power = 100
+			add_ideas = Free_Hnikin
+		}
 
 	}
 	focus = {
@@ -306,34 +572,102 @@ focus_tree = {
 		}
 		x = 4
 		y = 3
+		
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.1
+			swap_ideas = {
+				remove_idea = Echo_Civil_War
+				add_idea = Echo_Civil_War_1
+			}
+		}
 
 	}
 	focus = {
 		id = RCR_Emansipation_Minimum
 		icon = GFX_focus_minorities_eman
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Decentral_Kingdom
 		}
 		x = 1
 		y = 4
+		
+		completion_reward = {
+			add_ideas = Emansipation
+			add_manpower = 150000
+			add_stability = 0.03
+		}
 
 	}
 	focus = {
 		id = RCR_Libertation_Agrar
 		icon = GFX_focus_lib_agro
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Decentral_Kingdom
 		}
 		x = 3
 		y = 4
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.03
+			}
+			add_stability = 0.04
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = Echo_Civil_War_1
+				add_idea = Echo_Civil_War_2
+			}
+			supply_units = 240
+		}
 
 	}
 	focus = {
 		id = RCR_School_Dont_ZAV
 		icon = GFX_focus_stalegor_university
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Emansipation_Minimum
 		}
@@ -343,11 +677,14 @@ focus_tree = {
 		x = 1
 		y = 5
 
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 	focus = {
 		id = RCR_Open_Press
 		icon = GFX_focus_free_press
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Libertation_Agrar
 		}
@@ -356,18 +693,57 @@ focus_tree = {
 		}
 		x = 3
 		y = 5
+		
+		completion_reward = {
+			add_timed_idea = { idea = Free_media days = 365 }
+			add_stability = 0.02
+			add_political_power = 40
+		}
 
 	}
 	focus = {
 		id = RCR_Prof_Union_Democratic
 		icon = GFX_focus_union_democracy
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Decentral_Kingdom
+		}
+		
+		available = {
+			NOT = {
+				has_idea = tot_economic_mobilisation
+			}
 		}
 		x = 5
 		y = 4
 
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = Unionists
+		}
 	}
 	focus = {
 		id = RCR_censorship
@@ -381,18 +757,47 @@ focus_tree = {
 		}
 		x = 37
 		y = 11
+		
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_idea = culturian_rebuilding
+				}
+				swap_ideas = {
+					remove_idea = culturian_rebuilding
+					add_idea = freedom_smrad
+				}
+			}
+		}
 
 	}
 	focus = {
 		id = RCR_heroism
 		icon = GFX_focus_heroic_propaganda
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_censorship
 		}
+		available = {
+			has_capitulated = no
+		}
 		x = 38
 		y = 12
-
+		
+		completion_reward = {
+			add_ideas = hero_retenia
+			if = {
+				limit = {
+					has_war = yes
+				}
+				add_command_power = 20
+				add_war_support = 0.1
+			}
+			army_experience = 10
+			air_experience = 10
+			navy_experience = 10
+		}
 	}
 	focus = {
 		id = RCR_Selected_Officer
@@ -401,23 +806,60 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Decentral_Kingdom
 		}
+		available = {
+			command_power > 19
+		}
 		x = 7
 		y = 4
+		
+		completion_reward = {
+			army_experience = 25
+			navy_experience = 10
+			add_war_support = 0.05
+			add_command_power = -20
+			random_army_leader = {
+				add_max_trait = 4
+				add_attack = 1
+				add_defense = 1
+			}
+			random_army_leader = {
+				add_max_trait = 2
+			}
+		}
 
 	}
 	focus = {
 		id = RCR_Sindicalist_Economic
 		icon = GFX_focus_syndie_econ
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Prof_Union_Democratic
 		}
 		prerequisite = {
 			focus = RCR_Selected_Officer
 		}
+		
+		available = {
+			has_stability > 0.1
+		}
 		x = 6
 		y = 5
-
+		
+		completion_reward = {
+			if = {
+				limit = {
+					258 = {
+						is_owned_by = RCR
+					}
+				}
+				add_resource = {
+					type = steel
+					amount = 16
+					state = 258
+				}
+			}
+			add_ideas = Sindicalism_Workers
+		}
 	}
 	focus = {
 		id = RCR_Oko_Libertarn_Socialism
@@ -434,6 +876,13 @@ focus_tree = {
 		}
 		x = 4
 		y = 6
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Echo_Civil_War_2
+				add_idea = Echo_Civil_War_3
+			}
+		}
 
 	}
 	focus = {
@@ -448,7 +897,19 @@ focus_tree = {
 		}
 		x = 43
 		y = 11
-
+		
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_idea = culturian_rebuilding
+				}
+				swap_ideas = {
+					remove_idea = culturian_rebuilding
+					add_idea = freedom_cultur
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_elightenment
@@ -460,6 +921,10 @@ focus_tree = {
 		}
 		x = 40
 		y = 12
+		
+		completion_reward = {
+			custom_effect_tooltip = elightenment_tooltip
+		}
 
 	}
 	focus = {
@@ -469,9 +934,125 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_elightenment
 		}
+		available = {
+			num_subjects > 0
+		}
+		bypass = {
+			num_subjects < 1
+		}
 		x = 40
 		y = 13
-
+		
+		completion_reward = {
+			army_experience = 20
+			if = {
+				limit = {
+					NOC = {
+						is_puppet_of = RCR
+					}
+				}
+				add_opinion_modifier = {
+					target = NOC
+					modifier = more_pioners_opinion_modifier
+				}
+				NOC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+				}
+			}
+			if = {
+				limit = {
+					SOC = {
+						is_puppet_of = RCR
+					}
+				}
+				SOC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+					army_experience = 10
+				}
+				add_opinion_modifier = {
+					target = SOC
+					modifier = more_pioners_opinion_modifier
+				}
+			}
+			if = {
+				limit = {
+					NWC = {
+						is_puppet_of = RCR
+					}
+				}
+				NWC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+					army_experience = 10
+				}
+				add_opinion_modifier = {
+					target = NWC
+					modifier = more_pioners_opinion_modifier
+				}
+			}
+			if = {
+				limit = {
+					WEC = {
+						is_puppet_of = RCR
+					}
+				}
+				WEC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+					army_experience = 10
+				}
+				add_opinion_modifier = {
+					target = WEC
+					modifier = more_pioners_opinion_modifier
+				}
+			}
+			if = {
+				limit = {
+					SIC = {
+						is_puppet_of = RCR
+					}
+				}
+				SIC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+					army_experience = 10
+				}
+				add_opinion_modifier = {
+					target = SIC
+					modifier = more_pioners_opinion_modifier
+				}
+			}
+			if = {
+				limit = {
+					FEC = {
+						is_puppet_of = RCR
+					}
+				}
+				FEC = {
+					add_opinion_modifier = {
+						target = RCR
+						modifier = more_pioners_opinion_modifier
+					}
+					army_experience = 10
+				}
+				add_opinion_modifier = {
+					target = FEC
+					modifier = more_pioners_opinion_modifier
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_laboratory_of_socialism
@@ -483,6 +1064,37 @@ focus_tree = {
 		x = 40
 		y = 14
 
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = freedom_cultur
+				}
+				swap_ideas = {
+					remove_idea = freedom_cultur
+					add_idea = Social_Culturian
+				}
+				add_war_support = 0.05
+			}
+			if = {
+				limit = {
+					has_idea = freedom_smrad
+				}
+				swap_ideas = {
+					remove_idea = freedom_smrad
+					add_idea = Social_Culturian
+				}
+				add_stability = 0.02
+			}
+			if = {
+				limit = {
+					NO = {
+						has_idea = freedom_smrad
+						has_idea = freedom_cultur
+					}
+				}
+				add_political_power = 50
+			}
+		}
 	}
 	focus = {
 		id = RCR_collectivism_propaganda
@@ -493,56 +1105,106 @@ focus_tree = {
 		}
 		x = 44
 		y = 12
-
+		
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.1
+			add_ideas = Collectivism
+		}
 	}
 	focus = {
 		id = RCR_Director_Crygina
 		icon = GFX_focus_directiva_Crugina
-		cost = 0
+		available = {
+			always = no
+		}
+		cost = 1
 		prerequisite = {
 			focus = RCR_7_Go_Yes
 		}
 		x = 18
 		y = 2
 
+		completion_reward = {
+			add_popularity = {
+				ideology = neosocialist
+				popularity = 0.1
+			}
+			add_political_power = 100
+			add_ideas = national_empire_crugin
+		}
 	}
 	focus = {
 		id = RCR_National_Katzerism
 		icon = GFX_focus_NatKatz
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Director_Crygina
 		}
 		x = 18
 		y = 3
-
+		
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.1
+			swap_ideas = {
+				remove_idea = Echo_Civil_War
+				add_idea = Echo_Civil_War_1
+			}
+			swap_ideas = {
+				add_idea = national_empire_crugin_2
+				remove_idea = national_empire_crugin
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+		}
 	}
 	focus = {
 		id = RCR_Reform_Pioner
 		icon = GFX_focus_reform_Pioneer
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_National_Katzerism
 		}
 		x = 17
 		y = 4
-
+		
+		completion_reward = {
+			add_ideas = patriotic_pioner
+			add_manpower = 40000
+			army_experience = 10
+			create_field_marshal = {
+				name = "Panteleimon Ponomarenko"
+				picture = "PPortrait_Peng_Xuanfeng.dds"
+				traits = { trait_cautious }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+			}
+		}
 	}
 	focus = {
 		id = RCR_War_Mraz
 		icon = GFX_focus_war_on_scum
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_National_Katzerism
 		}
 		x = 19
 		y = 4
-
+		
+		completion_reward = {
+			country_event = rcr.84
+		}
 	}
 	focus = {
 		id = RCR_Nacional_Zombie
 		icon = GFX_focus_Nation_rebirth
-		cost = 0
+		cost = 10
 		prerequisite = {
 			focus = RCR_Reform_Pioner
 		}
@@ -551,29 +1213,74 @@ focus_tree = {
 		}
 		x = 18
 		y = 5
+		
+		completion_reward = {
+			add_timed_idea = { 
+				idea = national_zombie_idea
+				days = 165
+			}
+			swap_ideas = {
+				remove_idea = Echo_Civil_War_1
+				add_idea = Echo_Civil_War_2
+			}
+			custom_effect_tooltip = notionale_zombi
+			set_country_flag = emppp
+			modify_country_flag = {
+				flag = emppp
+				value = 1
+			}
+		}
 
 	}
 	focus = {
 		id = RCR_Retensk_research_the_Best
 		icon = GFX_focus_Rethenian_science
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_Nacional_Zombie
 		}
 		x = 16
 		y = 6
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
 
 	}
 	focus = {
 		id = RCR_Propagan_Uroshism
 		icon = GFX_focus_Urashist_prop
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = RCR_Nacional_Zombie
 		}
 		x = 18
 		y = 6
-
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = national_zombie_idea
+				}
+				modify_timed_idea = {
+					idea = national_zombie_idea
+					days = 365
+				}
+				country_event = rcr.85
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_government = neosocialist
+					}
+					neosocialist > 0.75
+				}
+				set_country_leader_ideology = neosocialist
+			}
+			add_political_power = 100
+			army_experience = 25
+			add_ideas = zombie_red
+		}
 	}
 	focus = {
 		id = RCR_Propagand_Tradition_family
@@ -584,7 +1291,38 @@ focus_tree = {
 		}
 		x = 20
 		y = 6
-
+		
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_army_leader = {
+				boost_planning = 1
+			}
+			add_ideas = tradition_stroi
+			add_political_power = 25
+		}	
 	}
 	focus = {
 		id = RCR_Red_Urashi_Civilisation
@@ -612,7 +1350,26 @@ focus_tree = {
 		}
 		x = 19
 		y = 8
-
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = national_empire_crugin_2
+				add_idea = national_empire_crugin_3
+			}
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+			custom_effect_tooltip = physic_atomic
+			add_tech_bonus = {
+				name = atomic_bonus
+				bonus = 1
+				uses = 1
+				category = nuclear
+			}
+		}
 	}
 	focus = {
 		id = RCR_VDV
@@ -1485,6 +2242,17 @@ focus_tree = {
 		}
 		x = 64
 		y = 1
+		
+		completion_reward = {
+			country_event = rcr.87
+			random_list = {
+				90 = {
+				}
+				10 = {
+					add_timed_idea = { idea = war_genetic days = 180 }
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1507,7 +2275,69 @@ focus_tree = {
 		}
 		x = 61
 		y = 3
-
+		
+		completion_reward = {
+			if = {
+				limit = {
+					6 = {
+						is_capital = yes
+					}
+				}
+				6 = {
+					add_extra_state_shared_building_slots = 8
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					6 = {
+						is_capital = no
+					}
+				}
+				random_owned_state = {
+					add_extra_state_shared_building_slots = 8
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_destroy_village
@@ -1518,7 +2348,13 @@ focus_tree = {
 		}
 		x = 63
 		y = 2
-
+		
+		completion_reward = {
+			custom_effect_tooltip = destroy_village
+			hidden_effect = {
+				country_event = { id = rcr.89 days = 60 }
+			}
+		}
 	}
 	focus = {
 		id = RCR_village_communization
@@ -1529,6 +2365,60 @@ focus_tree = {
 		}
 		x = 63
 		y = 3
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_government = communism
+						has_completed_focus = RCR_Line_Pallasov
+					}
+				}
+				add_popularity = { ideology = communism popularity = 0.05 }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = autonomous_socialist
+						has_completed_focus = RCR_In_Hnikin_Open
+					}
+				}
+				add_popularity = { ideology = autonomous_socialist popularity = 0.05 }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = neosocialist
+						has_completed_focus = RCR_Director_Crygina
+					}
+				}
+				add_popularity = { ideology = neosocialist popularity = 0.05 }
+			}
+			random_owned_state = {
+				add_manpower = 25000
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.5
+					}
+				}
+			}
+			random_owned_state = {
+				add_manpower = 15000
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.5
+					}
+				}
+			}
+			random_owned_state = {
+				add_manpower = 5000
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.25
+					}
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1543,7 +2433,16 @@ focus_tree = {
 		}
 		x = 62
 		y = 4
-
+		
+		completion_reward = {
+			add_ideas = automation_focus
+			6 = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
 	}
 	focus = {
 		id = RCR_calculation_of_price
@@ -1554,7 +2453,16 @@ focus_tree = {
 		}
 		x = 61
 		y = 5
-
+		
+		completion_reward = {
+			add_political_power = 40
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 1
+				uses = 1
+				category = electronics
+			}
+		}
 	}
 	focus = {
 		id = RCR_end_deficiency
@@ -1563,9 +2471,17 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Automation
 		}
+		available = {
+			has_war = no
+		}
 		x = 63
 		y = 5
-
+		
+		completion_reward = {
+			add_timed_idea = { idea = go_finish_defic days = 30 }
+			add_stability = 0.15
+			add_manpower = 100000
+		}
 	}
 	focus = {
 		id = RCR_genetics_victory
@@ -1576,6 +2492,17 @@ focus_tree = {
 		}
 		x = 66
 		y = 1
+		
+		completion_reward = {
+			country_event = rcr.88
+			random_list = {
+				90 = {
+				}
+				10 = {
+					add_timed_idea = { idea = war_teleology days = 180 }
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1624,6 +2551,57 @@ focus_tree = {
 		}
 		x = 62
 		y = 6
+		
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1633,8 +2611,25 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_genetics_victory
 		}
+		bypass = {
+			NO = {
+				has_idea = win_genetic
+			}
+		}
 		x = 67
 		y = 2
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = win_genetic
+				}
+				swap_ideas = {
+					remove_idea = win_genetic
+					add_idea = win_genetic_2
+				}
+			}
+		}
 
 	}
 	focus = {
@@ -1647,6 +2642,18 @@ focus_tree = {
 		x = 67
 		y = 3
 
+		completion_reward = {
+			if = {
+				limit = {
+					has_stability < 0.71
+				}
+				add_stability = 0.02
+			}
+			custom_effect_tooltip = indicaton_economic
+			hidden_effect = {
+				country_event = { id = rcr.90 days = 30 }
+			}
+		}
 	}
 	focus = {
 		id = RCR_International_Best
@@ -1662,12 +2669,55 @@ focus_tree = {
 	focus = {
 		id = RCR_Openning_KORTs
 		icon = GFX_focus_korts_down
-		cost = 0
+		cost = 15
 		prerequisite = {
 			focus = RCR_Oko_Libertarn_Socialism
 		}
+		
+		available = {
+			OR = {
+				communism < 0.35
+				autonomous_socialist > 0.40
+			}
+		}
 		x = 4
 		y = 7
+		
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_government = autonomous_socialist
+					}
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = 0.15
+				}
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			random_owned_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			random_owned_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+			}
+			random_owned_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+			}
+			add_timed_idea = { idea = Oppening_KORTC days = 365 }
+			remove_ideas = Echo_Civil_War_3
+		}
 
 	}
 	focus = {
@@ -1679,7 +2729,23 @@ focus_tree = {
 		}
 		x = 17
 		y = 8
-
+		
+		completion_reward = {
+			6 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 2
+				category = industry
+			}	
+		}
 	}
 	focus = {
 		id = RCR_Organization_Factoring
@@ -1938,9 +3004,17 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_genetics_victory
 		}
+		available = {
+			NOT = {
+				has_idea = closed_economy
+			}
+		}
 		x = 69
 		y = 2
-
+		
+		completion_reward = {
+			add_ideas = AVP
+		}
 	}
 	focus = {
 		id = RCR_gosstratzakaz
@@ -1951,7 +3025,47 @@ focus_tree = {
 		}
 		x = 69
 		y = 3
-
+		
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_regional_renovation
@@ -1963,20 +3077,73 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_indicative_planning
 		}
+		available = {
+			num_of_controlled_states > 5
+		}
 		x = 68
 		y = 4
+		
+		completion_reward = {
+			all_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			6 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+					level = 1
+					instant_build = yes
+				}
+            }
+		}
 
 	}
 	focus = {
 		id = RCR_cooperation_technology
 		icon = GFX_focus_theory_cooperation
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_regional_renovation
 		}
 		x = 67
 		y = 5
-
+		
+		completion_reward = {
+			add_war_support = 0.03
+			random_owned_state = {
+				add_manpower = 40000
+				add_resource = {
+					type = steel
+					amount = 4
+				}
+				add_resource = {
+					type = aluminium
+					amount = 4
+				}
+			}
+			random_owned_state = {
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.25
+					}
+				}
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = RCR_commanding_heights
@@ -1987,7 +3154,42 @@ focus_tree = {
 		}
 		x = 69
 		y = 5
-
+		
+		completion_reward = {
+			add_command_power = 30
+			6 = {
+				add_building_construction = {
+					type = bunker
+					province = 9343
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9279
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9370
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9548
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9549
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_industrial_culture
@@ -2001,7 +3203,36 @@ focus_tree = {
 		}
 		x = 68
 		y = 6
-
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronic_bonus
+				bonus = 0.5
+				uses = 2
+				category = electronic
+			}
+			random_owned_state = {
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.25
+					}
+				}
+			}
+			random_owned_state = {
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.25
+					}
+				}
+			}
+			random_owned_state = {
+				add_state_modifier = {
+					modifier = {
+						local_resources = 0.25
+					}
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_second_five_year_plan
@@ -2016,7 +3247,17 @@ focus_tree = {
 		}
 		x = 65
 		y = 7
-
+		
+		completion_reward = {
+			add_timed_idea = {
+				idea = second_5
+				days = 1800
+			}
+			custom_effect_tooltip = holds_dadaadaa
+			hidden_effect = {
+				country_event = { id = rcr.91 days = 1801 }
+			}
+		}
 	}
 	focus = {
 		id = RCR_writers_union
@@ -2027,7 +3268,20 @@ focus_tree = {
 		}
 		x = 36
 		y = 12
-
+		
+		completion_reward = {
+			custom_effect_tooltip = massolit_tooltip
+			if = {
+				limit = {
+					has_stability < 0.2
+				}
+				add_stability = 0.05
+			}
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 		id = RCR_new_estrade
@@ -2041,7 +3295,13 @@ focus_tree = {
 		}
 		x = 37
 		y = 13
-
+		
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			custom_effect_tooltip = capital_manpower_estrade
+			capital_scope = { add_manpower = 40000 }
+		}
 	}
 	focus = {
 		id = RCR_collective_of_musicians
@@ -2050,9 +3310,22 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_freedom
 		}
+		bypass = {
+			OR = {
+				has_idea = all_adults_serve
+				has_idea = scraping_the_barrel
+			}
+		}
 		x = 42
 		y = 12
-
+		
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
 	}
 	focus = {
 		id = RCR_emancipation
@@ -2066,51 +3339,124 @@ focus_tree = {
 		}
 		x = 43
 		y = 13
-
+		
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			every_owned_state = {
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = RCR_end_dessidents
 		icon = GFX_focus_crush_dissidents
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_new_estrade
 		}
 		x = 37
 		y = 14
-
+		
+		completion_reward = {
+			country_event = rcr.92
+		}
 	}
 	focus = {
 		id = RCR_cult_of_red_army
 		icon = GFX_focus_military_patriotic_education
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_end_dessidents
 		}
 		x = 37
 		y = 15
-
+		
+		completion_reward = {
+			add_manpower = 100000
+			add_war_support = 0.05
+			if = {
+				limit = {
+					has_completed_focus = RCR_elightenment
+				}
+				add_war_support = 0.05
+			}
+			if = {
+				limit = {
+					NO = {
+						has_completed_focus = RCR_elightenment
+					}
+				}
+				custom_effect_tooltip = cult_of_red_army_tooltip
+			}
+		}
 	}
 	focus = {
 		id = RCR_revolutionary_downgrade
 		icon = GFX_focus_futurology_cult
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_emancipation
 		}
 		x = 43
 		y = 14
-
+		
+		completion_reward = {
+			hidden_effect = {
+				country_event = {
+					id = rcr.93
+					days = 90
+				}	
+			}
+			add_timed_idea = {
+				idea = build_futurology
+				days = 90
+			}
+			custom_effect_tooltip = build_shtab_tooltip
+			effect_tooltip = {
+				add_political_power = 90
+				add_stability = 0.05
+				add_tech_bonus = {
+					name = RCR_industry_bonus
+					bonus = 0.5
+					uses = 1
+					category = industry
+				}
+				add_tech_bonus = {
+					name = RCR_industry_bonus
+					bonus = 0.5
+					uses = 1
+					category = electronics
+				}
+			}
+		}
 	}
 	focus = {
 		id = RCR_womans_in_army
 		icon = GFX_focus_army_feminization
-		cost = 0
+		cost = 8
 		prerequisite = {
 			focus = RCR_revolutionary_downgrade
 		}
 		x = 43
 		y = 15
-
+		
+		completion_reward = {
+			set_rule = {
+				can_generate_female_aces = yes
+			}
+			add_ideas = women_army
+			if = {
+				limit = {
+					has_completed_focus = elightenment
+				}
+				add_manpower = 60000
+			}
+			add_manpower = 30000
+			custom_effect_tooltip = cult_of_red_army_tooltip
+		}
 	}
 	focus = {
 		id = RCR_end_of_capitalist_idea
@@ -2123,9 +3469,18 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_laboratory_of_socialism
 		}
+		available = {
+			has_stability > 0.20
+		}
 		x = 40
 		y = 16
-
+		
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Social_Culturian_Two
+				remove_idea = Social_Culturian
+			}
+		}
 	}
 	focus = {
 		id = RCR_ensemble
@@ -2136,7 +3491,17 @@ focus_tree = {
 		}
 		x = 39
 		y = 17
-
+		
+		completion_reward = {
+			custom_effect_tooltip = sbor_talants
+			capital_scope = {
+				add_manpower = 40
+			}
+			add_timed_idea = {
+				idea = Ansamble
+				days = 135
+			}
+		}
 	}
 	focus = {
 		id = RCR_new_socfirm
@@ -2147,10 +3512,23 @@ focus_tree = {
 		}
 		x = 41
 		y = 17
-
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_stability < 1
+				}
+				add_stability = 0.1
+			}
+			add_political_power = 50
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+		}
 	}
 	focus = {
-		id = RCR_new_mobian
+		id = RCR_new_mobian 
 		icon = GFX_focus_socialist_mobian
 		cost = 0
 		prerequisite = {
@@ -2161,7 +3539,13 @@ focus_tree = {
 		}
 		x = 40
 		y = 18
-
+		
+		completion_reward = {
+			swap_ideas = {
+				add_idea = Obraz_ideal_mobianec	
+				remove_idea = Social_Culturian_Two
+			}
+		}
 	}
 	focus = {
 		id = RCR_artillery_school

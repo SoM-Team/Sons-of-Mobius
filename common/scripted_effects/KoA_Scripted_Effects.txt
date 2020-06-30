@@ -1,0 +1,110 @@
+KOA_release_SOT = {
+	hidden_effect = {
+		SOT = {
+			add_state_core = 21
+			add_state_core = 22
+			add_state_core = 23
+			add_state_core = 24
+			add_state_core = 25
+			add_state_core = 26
+			add_state_core = 28
+			add_state_core = 27
+			add_state_core = 7
+		}
+
+		KOA = {
+			SOT = { transfer_technology = yes }
+			if = {
+				limit = {
+					has_country_flag = Southern_rally
+				}
+				clr_country_flag = Southern_rally
+			}
+			if = {
+				limit = {
+					OR = {
+						has_idea = KOA_South_Resistance_1
+						has_idea = KOA_South_Resistance_2
+						has_idea = KOA_South_Resistance_3
+					}
+					remove_ideas = KOA_South_Resistance_1
+					remove_ideas = KOA_South_Resistance_2
+					remove_ideas = KOA_South_Resistance_3
+				}
+			}
+			
+		}
+
+		every_owned_state = {
+			limit = { is_core_of = SOT }
+			SOT = { transfer_state = PREV }
+			teleport_armies = {
+				limit = { tag = KOA }
+				to_state_array = owned_controlled_states
+			}
+		}
+		remove_state_core = 21
+		remove_state_core = 22
+		remove_state_core = 23
+		remove_state_core = 24
+		remove_state_core = 25
+		remove_state_core = 26
+		remove_state_core = 28
+		remove_state_core = 27
+		remove_state_core = 7
+
+	}
+}
+
+KOA_release_NOR = {
+	hidden_effect = {
+		NOR = {
+			add_state_core = 8
+			add_state_core = 9
+			add_state_core = 10
+			add_state_core = 11
+			add_state_core = 12
+			add_state_core = 38
+			add_state_core = 39
+		}
+
+		KOA = {
+			NOR = { transfer_technology = yes }
+			if = {
+				limit = {
+					has_country_flag = republican_rise
+				}
+				clr_country_flag = republican_rise
+			}
+			if = {
+				limit = {
+					OR = {
+						has_idea = KOA_Prower_army_support_1
+						has_idea = KOA_Prower_army_support_2
+						has_idea = KOA_Prower_army_support_3
+					}
+					remove_ideas = KOA_Prower_army_support_1
+					remove_ideas = KOA_Prower_army_support_2
+					remove_ideas = KOA_Prower_army_support_3
+				}
+			}
+			
+		}
+
+		every_owned_state = {
+			limit = { is_core_of = NOR }
+			NOR = { transfer_state = PREV }
+			teleport_armies = {
+				limit = { tag = KOA }
+				to_state_array = owned_controlled_states
+			}
+		}
+		remove_state_core = 8
+		remove_state_core = 9
+		remove_state_core = 10
+		remove_state_core = 11
+		remove_state_core = 12
+		remove_state_core = 38
+		remove_state_core = 39
+	}
+}

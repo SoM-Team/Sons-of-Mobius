@@ -1,86 +1,949 @@
 
-form_line_reform_category = {
+KOA_Stop_The_Rev = {
 
-    ## Внедрить тактику 12 15 в политику
-    tactic_12_15 = {
+	revolution_looms = {
 	
-	    icon = category_ger_military_buildup
+	    icon = GFX_decision_kill_delegate
 		
 		available = {
-		    has_war_support > 0.35
-		}
-	
-	    cost = 10
-	    fire_only_once = yes
-	    visible = {
-      	    original_tag = KOA
-		}
-	
-	    complete_effect = {
-	        add_political_power = 10
-			set_country_flag = decis1
-	    }
-
-        ai_will_do = {
-            factor = 1
-        }			
-	}
-	
-	## Подготовка Внедрения тактики 12 15 в политику
-    time_tactic_12_15 = {
-	
-	    icon = category_generic_economy
-		
-		available = {
-		    has_war_support > 0.15
-		}
-	
-	    cost = 15
-	    fire_only_once = yes
-	    visible = {
-      	    original_tag = KOA
-		}
-	
-	    complete_effect = {
-	        custom_effect_tooltip  = time_tactic
-	    }    
-	}
-}
-	
-	KOA_tactic_12_15 = {
-	 
-	    allowed = { tag = KOA }
-		
-		available = {
-		}
-		
-		activation = { has_country_flag = decis1 }
-		
-		Is_good = no
-		
-		days_mission_timeout = 360
-		
-		fire_only_once = yes
-		
-		timeout_effect = {
-		    #
-		}
-		
-		complete_effect = {
-		    if = {
-				limit = {
-				    KOA = {
-					    NOT = { has_decision = time_tactic_12_15 }
-					}
+			AND = {
+				has_country_flag = great_compromise
+				check_variable = {
+					var = union_power
+					value = 25
+					compare = less_than
 				}
-				KOA = { country_event = koa.1 }
-				
-				limit = {
-				    KOA = { has_decision = time_tactic_12_15 }
+				check_variable = {
+					var = prower_power
+					value = 25
+					compare = less_than
 				}
-				KOA = { country_event = koa.2 }
+				check_variable = {
+					var = baron_power
+					value = 25
+					compare = less_than
+				}
+				check_variable = {
+					var = loyalty_elias
+					value = 50
+					compare = greater_than
+				}
+				custom_effect_toltip = pp_Req
 			}
 		}
 		
-	}		
+		priority = 10
+		
+		days_mission_timeout = 150
+		is_good = no
+		fire_only_once = yes
+	    visible = {
+      	    original_tag = KOA
+		}
+	
+	    complete_effect = {
+	       
+	    }
+		
+		timeout_effect = {
+			country_event = {
+				id = koa.88
+				days = 3
+			}
+			country_event = {
+				id = koa.89
+				days = 1
+			}
+		}
+
+        ai_will_do = {
+            factor = 100
+        }			
+	}
+	
+	KOA_General_Strike = {
+
+		allowed = {
+			check_variable = {
+				var = union_power
+				value = 0
+				compare = greater_than
+			}
+			NOT = {
+				has_idea = KOA_General_Strike_3
+			}
+		}
+		
+		icon = GFX_decision_generic_industry
+		
+		activation = {
+			has_country_flag = amadeus_revolt
+		}
+		
+		priority = 5
+		
+		available = {
+		}
+		
+		selectable_mission = yes
+		days_mission_timeout = 49
+		days_re_enable = 140
+
+		is_good = no
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		cost = 25
+
+		complete_effect = {
+			add_political_power = 40
+			add_to_variable = { loyalty_elias = 2 }
+			subtract_from_variable = { union_power = 5 }
+			custom_effect_tooltip = Gain_2_percent_Elias_minus_5_union
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 49
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					AND = {
+						NOT = { has_idea = KOA_General_Strike_1 }
+						NOT = { has_idea = KOA_General_Strike_2 }
+						NOT = { has_idea = KOA_General_Strike_3 }
+					}
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { union_power = 5 }
+				custom_effect_tooltip = General_strike_koa
+				add_stability = -0.05
+				add_ideas = KOA_General_Strike_1
+			}
+			if = {
+				limit = {
+					has_idea = KOA_General_Strike_1
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { union_power = 10 }
+				custom_effect_tooltip = General_strike_koa_exp
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_General_Strike_1
+					add_idea = KOA_General_Strike_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = KOA_General_Strike_2
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { union_power = 15 }
+				custom_effect_tooltip = General_strike_koa_max
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_General_Strike_2
+					add_idea = KOA_General_Strike_3
+				}
+			}
+		}
+	}
+	
+	KOA_End_Strike_1 = {
+
+		allowed = {
+			check_variable = {
+				var = union_power
+				value = 0
+				compare = greater_than
+			}
+			has_idea = KOA_General_Strike_1
+		}
+		
+		visible = {
+			has_idea = KOA_General_Strike_1
+		}
+		icon = GFX_decision_giveup
+		
+		available = {
+		}
+		
+		days_re_enable = 30
+		
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		cost = 50
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { union_power = 5 }
+			add_to_variable = { loyalty_elias = 5 }
+			add_stability = +0.025
+			remove_ideas = KOA_General_Strike_1
+			add_days_mission_timeout = {
+				mission = KOA_General_Strike
+				days = 7
+			}
+		}
+	}
+	
+	KOA_End_Strike_2 = {
+
+		allowed = {
+			check_variable = {
+				var = union_power
+				value = 0
+				compare = greater_than
+			}
+			has_idea = KOA_General_Strike_2
+		}
+		
+		
+		visible = {
+			has_idea = KOA_General_Strike_2
+		}
+		icon = GFX_decision_giveup
+		
+		available = {
+		}
+		
+		days_re_enable = 30
+		
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 14
+		
+		cost = 75
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { union_power = 5 }
+			add_to_variable = { loyalty_elias = 5 }
+			add_stability = +0.025
+			remove_ideas = KOA_General_Strike_2
+			add_days_mission_timeout = {
+				mission = KOA_General_Strike
+				days = 14
+			}
+		}
+	}
+	
+	KOA_End_Strike_3 = {
+
+		allowed = {
+			check_variable = {
+				var = union_power
+				value = 0
+				compare = greater_than
+			}
+			has_idea = KOA_General_Strike_3
+		}
+		
+		
+		visible = {
+			has_idea = KOA_General_Strike_3
+		}
+		icon = GFX_decision_giveup
+		
+		available = {
+		}
+		
+		days_re_enable = 30
+		
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 21
+		
+		cost = 100
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { union_power = 5 }
+			add_to_variable = { loyalty_elias = 5 }
+			add_stability = +0.025
+			remove_ideas = KOA_General_Strike_3
+			add_days_mission_timeout = {
+				mission = KOA_General_Strike
+				days = 21
+			}
+		}
+	}
+	
+	KOA_Desertion = {
+
+		allowed = {
+			check_variable = {
+				var = prower_power
+				value = 0
+				compare = greater_than
+			}
+			NOT = {
+				has_idea = KOA_Prower_army_support_3
+			}
+		}
+		
+		icon = GFX_decision_war_hero_speech
+		
+		activation = {
+			has_country_flag = republican_rise
+		}
+		
+		priority = 5
+		
+		available = {
+		}
+		
+		selectable_mission = yes
+		days_mission_timeout = 56
+		days_re_enable = 84
+
+		is_good = no
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		custom_cost_trigger = {
+			has_political_power > 35
+			command_power > 25
+		}
+		
+		custom_cost_text = cost_cc_25_pp_35
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -25
+				add_political_power = -35
+			}
+			add_to_variable = { loyalty_elias = 5 }
+			subtract_from_variable = { prower_power = 5 }
+			custom_effect_tooltip = Gain_5_percent_Elias_minus_5_prower
+			
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					AND = {
+						NOT = { has_idea = KOA_Prower_army_support_1 }
+						NOT = { has_idea = KOA_Prower_army_support_2 }
+						NOT = { has_idea = KOA_Prower_army_support_3 }
+					}
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { prower_power = 5 }
+				custom_effect_tooltip = desertion_koa
+				add_stability = -0.05
+				add_ideas = KOA_Prower_army_support_1
+				add_manpower = -10000
+			}
+			if = {
+				limit = {
+					has_idea = KOA_Prower_army_support_1
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { prower_power = 10 }
+				custom_effect_tooltip = desertion_koa_exp
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_Prower_army_support_1
+					add_idea = KOA_Prower_army_support_2
+				}
+				add_manpower = -50000
+			}
+			if = {
+				limit = {
+					has_idea = KOA_Prower_army_support_2
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { prower_power = 15 }
+				custom_effect_tooltip = desertion_koa_exp_max
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_Prower_army_support_2
+					add_idea = KOA_Prower_army_support_3
+				}
+				add_manpower = -100000
+			}
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 56
+			}
+		}
+	}
+	
+	KOA_Hong_speech = {
+
+		allowed = {
+			check_variable = {
+				var = baron_power
+				value = 0
+				compare = greater_than
+			}
+			NOT = {
+				has_idea = KOA_South_Resistance_3
+			}
+		}
+		
+		icon = GFX_decision_populism
+		
+		activation = {
+			has_country_flag = Southern_rally
+		}
+		
+		priority = 5
+		
+		available = {
+		}
+		
+		selectable_mission = yes
+		days_mission_timeout = 63
+		days_re_enable = 84
+
+		is_good = no
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		cost = 40
+
+		complete_effect = {
+			add_to_variable = { loyalty_elias = 5 }
+			subtract_from_variable = { baron_power = 5 }
+			custom_effect_tooltip = Gain_5_percent_Elias_minus_5_baron
+			
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					AND = {
+						NOT = { has_idea = KOA_South_Resistance_1 }
+						NOT = { has_idea = KOA_South_Resistance_2 }
+						NOT = { has_idea = KOA_South_Resistance_3 }
+					}
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { baron_power = 5 }
+				custom_effect_tooltip = baron_rally
+				add_stability = -0.05
+				add_ideas = KOA_South_Resistance_1
+			}
+			if = {
+				limit = {
+					has_idea = KOA_South_Resistance_1
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { baron_power = 10 }
+				custom_effect_tooltip = baron_rally_exp
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_South_Resistance_1
+					add_idea = KOA_South_Resistance_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = KOA_South_Resistance_2
+				}
+				subtract_from_variable = { loyalty_elias = 5 }
+				add_to_variable = { baron_power = 15 }
+				custom_effect_tooltip = baron_rally_max
+				add_stability = -0.05
+				swap_ideas = {
+					remove_idea = KOA_South_Resistance_2
+					add_idea = KOA_South_Resistance_3
+				}
+			}
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 49
+			}
+		}
+	}
+	
+	KOA_Pit_Socialist_Republican = {
+
+		allowed = {
+			AND = {
+				check_variable = {
+					var = union_power
+					value = 0
+					compare = greater_than
+				}
+				check_variable = {
+					var = prower_power
+					value = 0
+					compare = greater_than
+				}
+			}
+		}
+		
+		icon = GFX_decision_kill_big
+		
+		available = {
+		}
+		
+		days_re_enable = 30
+		
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		custom_cost_trigger = {
+			has_political_power > 44
+			has_manpower > 300
+		}
+		
+		custom_cost_text = decision_cost_pp_45_manpower_300
+		
+		complete_effect = {
+			custom_effect_tooltip = beat_each_other
+			hidden_effect = {
+				add_political_power = -45
+				add_manpower = -300
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { union_power = 5 }
+			subtract_from_variable = { prower_power = 5 }
+			add_stability = -0.025
+			custom_effect_tooltip = minus_5_minus_5
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 21
+			}
+		}
+	}
+	
+	KOA_Sally_Speech = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_Sally_Acorn
+		
+		available = {
+		}
+		
+		fire_only_once = no
+		days_re_enable = 35
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 3
+		
+		cost = 30
+		
+		complete_effect = {
+			custom_effect_tooltip = Sally_speech
+			custom_effect_tooltip = plus_10_Elias
+			add_to_variable = { loyalty_elias = 10 }
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 14
+			}
+			add_stability = 0.1
+		}
+		
+	}
+	
+	KOA_Send_Sonic_to_North = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_Sonic
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 3
+		
+		cost = 50
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			set_country_flag = Sonic_in_North
+			custom_effect_tooltip = Sonic_go_N
+			add_to_variable = { loyalty_elias = 10 }
+			custom_effect_tooltip = plus_10_Elias
+			add_political_power = 75
+		}
+	}
+	
+	KOA_Destroy_typography = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_generic_scorched_earth
+		
+		available = {
+			has_country_flag = Sonic_in_North
+		}
+		
+		fire_only_once = no
+		days_re_enable = 21
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		cost = 40
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { prower_power = -5 }
+			custom_effect_tooltip = prower_minus_5
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 7
+			}
+		}
+	}
+	
+	KOA_Disarm_National_Guard = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_gabnya
+		
+		available = {
+			has_country_flag = Sonic_in_North
+		}
+		
+		fire_only_once = no
+		days_re_enable = 35
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 10
+		
+		cost = 65
+		
+		custom_cost_trigger = {
+			has_political_power > 64
+			has_manpower > 1000
+		}
+		
+		custom_cost_text = decision_cost_pp_65_manpower_1000
+		
+		complete_effect = {
+			custom_effect_tooltip = disarm_guard
+			hidden_effect = {
+				add_political_power = -65
+				add_manpower = -1000
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = { prower_power = -10 }
+			custom_effect_tooltip = prower_minus_10
+			random_list = {
+				30 = { 
+					add_manpower = 1000 
+				}
+				40 = { 
+					add_manpower = 820
+				}
+				30 = { 
+					add_manpower = 750 
+				}
+			}
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 49
+			}
+			if = { 
+				limit = { 
+					has_idea = KOA_Prower_army_support_1
+				}
+				remove_ideas = KOA_Prower_army_support_1
+			}
+			if = { 
+				limit = { 
+					has_idea = KOA_Prower_army_support_2
+				}
+				swap_ideas = {
+					remove_idea = KOA_Prower_army_support_2
+					add_idea = KOA_Prower_army_support_1
+				}
+			}
+		}
+	}
+	
+	KOA_Send_Bunnie_to_South = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_bunnie
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 3
+		
+		cost = 50
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			set_country_flag = Bunnie_in_South
+			custom_effect_tooltip = Bunnie_go_S
+			add_to_variable = { loyalty_elias = 10 }
+			custom_effect_tooltip = plus_10_Elias
+			add_political_power = 75
+		}
+	}
+	
+	KOA_Bribe_Baron_leaders = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_bribe
+		
+		available = {
+			has_country_flag = Bunnie_in_South
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 14
+		
+		modifier = {
+			civilian_factory_use = 1
+		}
+		custom_cost_trigger = {
+			has_political_power > 24
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		complete_effect = {
+			hidden_effect = { add_political_power = -25 }
+			
+		}
+		custom_cost_text = decision_cost_pp_25_factory_1
+		
+		remove_effect = {
+			custom_effect_tooltip = baron_minus_5_elias_plus_5
+			add_to_variable = { loyalty_elias = 5}
+			subtract_from_variable = { baron_power = 5}
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 21
+			}
+		}
+	}
+	
+	KOA_Confront_Legion = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_kill_big
+		
+		available = {
+			has_country_flag = Bunnie_in_South
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 21
+		
+		custom_cost_trigger = {
+			has_political_power > 54
+			has_manpower > 2000
+		}
+		complete_effect = {
+			hidden_effect = { add_political_power = -55 add_manpower = -2000 }
+		}
+		custom_cost_text = decision_cost_pp_55_manpower_2000
+		
+		remove_effect = {
+			custom_effect_tooltip = baron_minus_10
+			subtract_from_variable = { baron_power = 10}
+			add_days_mission_timeout = {
+				mission = revolution_looms
+				days = 28
+			}
+			random_list = {
+				20 = { 
+					add_manpower = 2000
+				}
+				20 = { 
+					add_manpower = 1980
+				}
+				20 = { 
+					add_manpower = 1850 
+				}
+				20 = { 
+					add_manpower = 1780
+				}
+				20 = { 
+					add_manpower = 1650
+				}
+			}
+		}
+	}
+	
+	
+	
+	KOA_Kill_Hong = {
+	
+		allowed = {
+		}
+		
+		icon = GFX_decision_kill_Hong
+		
+		available = {
+			has_country_flag = Bunnie_in_South
+			check_variable = {
+				var = baron_power
+				value = 30
+				compare = more_than
+			}
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 7
+		
+		cost = 100
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = Kill_Hong
+			random_list = {
+				70 = {
+					country_event = {
+						id = koa.11
+						days = 1	
+					}
+				}
+				30 = {
+					country_event = {
+						id = koa.12
+						days = 1
+					}
+				}
+			}
+		}
+	}
+	
+	KOA_Elias_Abdicate = {
+	
+		allowed = {
+		
+		}
+		
+		icon = GFX_decision_elect
+		
+		available = {
+			check_variable = {
+				var = loyalty_elias
+				value = 10
+				compare = less_than
+			}
+		}
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		days_remove = 3
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = Abdication_Elias
+			add_stability = -0.1
+			hidden_effect = {
+				country_event
+			}
+		}
+	}
 }

@@ -10,6 +10,24 @@ country_event = {
 	desc = koa.1.d
 	picture = GFX_report_event_hail_the_kingdom
 	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event koa.1"
+		hidden_effect = {
+		country_event = {
+			id = koa.2
+			days = 7
+		}
+		country_event = {
+			id = koa.3
+			days = 10
+		}
+		news_event = {
+			id = mobiannews.1
+			days = 3
+		}
+		}
+	}
+	
 	fire_only_once = yes
 	
 	trigger = {
@@ -22,24 +40,16 @@ country_event = {
 	
 	option = {
 		name = koa.1.a 
+	}
+	
+	option = {
+		name = koa.1.b 
 		hidden_effect = {
 			country_event = {
-				id = koa.2
-				days = 7
+				id = koa.15
+				days = 1
 			}
 		}
-		hidden_effect = {
-			country_event = {
-				id = koa.3
-				days = 10
-			}
-			news_event = {
-				id = mobiannews.1
-				days = 3
-			}
-		}
-		ai_chance = { factor = 100 } 
-		trigger = {tag = KOA}
 	}
 }
 
@@ -101,12 +111,8 @@ country_event = { #### Проблемы в политике
 		name = koa.4.a 
 		hidden_effect = {
 			country_event = {
-				id = koa.5
-				days = 10
-			}
-			country_event = {
-				id = koa.6
-				days = 15
+				id = koa.13
+				days = 7
 			}
 		}
 	}
@@ -125,16 +131,21 @@ country_event = { #### Речь Хонга
 	option = {
 		name = koa.5.a 
 		add_popularity = {
-			ideology = social_conservative
+			ideology = democratic
 			popularity = 0.05
+			}
+		add_to_variable = {	
+			baron_power = 5
 			}
 		add_stability = -0.05
 		hidden_effect = {
 			country_event = {
 				id = koa.6
-				days = 10
+				days = 49
 			}
 		}
+		custom_effect_tooltip = koa.5.a.tt
+		set_country_flag = Southern_rally
 	}
 }
 
@@ -151,8 +162,14 @@ country_event = { #### Шествие республикснких масс
 	option = {
 		name = koa.6.a ###Выйти на переговоры
 		country_event = {
-				id = koa.7
-				days = 3
+			id = koa.7
+			days = 3
+		}
+		add_to_variable = {	
+			prower_power = 5
+		}
+		add_to_variable = {	
+			loyalty_elias = 5
 		}
 		custom_effect_tooltip = koa.6.a.tt
 	}
@@ -167,8 +184,8 @@ country_event = { #### Шествие республикснких масс
 	option = {
 		name = koa.6.c ###Кровавое воскресенье
 		country_event = {
-				id = koa.9
-				days = 1
+			id = koa.9
+			days = 1
 				
 		}
 		custom_effect_tooltip = koa.6.c.tt
@@ -190,6 +207,341 @@ country_event = { #### Обеденная Резня
 		add_manpower = -300
 		add_stability = -0.20
 		remove_unit_leader = 107
+		subtract_from_variable = {	
+			loyalty_elias = 20
+		}
 		custom_effect_tooltip = koa.9.a.tt
 	}
 }	
+
+country_event = { #### Речь Прауэра
+	id = koa.10
+	title = koa.10.t
+	desc = koa.10.d
+	picture = GFX_report_event_prower
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.10.a
+		add_to_variable = {	
+			prower_power = 10
+		}
+		custom_effect_tooltip = koa.10.a.tt
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = 0.02
+		}
+		set_country_flag = republican_rise
+	}
+}	
+
+country_event = { #### Убийство Хонга удалось!
+	id = koa.11
+	title = koa.11.t
+	desc = koa.11.d
+	picture = GFX_report_event_prower
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.11.a
+		add_stability = -0.25
+		custom_effect_tooltip = minus_25_barons
+		set_global_flag = Hong_is_Dead
+		subtract_from_variable = { baron_power = 25 }
+		if = {
+			limit = {
+				has_idea = KOA_South_Resistance_1
+			}
+			remove_ideas = KOA_South_Resistance_1
+		}
+		if = {
+			limit = {
+				has_idea = KOA_South_Resistance_2
+			}
+			remove_ideas = KOA_South_Resistance_2
+		}
+		if = {
+			limit = {
+				has_idea = KOA_South_Resistance_3
+			}
+			remove_ideas = KOA_South_Resistance_3
+		}
+	}
+}	
+
+country_event = { #### Убийство Хонга провалилось!
+	id = koa.12
+	title = koa.12.t
+	desc = koa.12.d
+	picture = GFX_report_event_prower
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.12.a
+		add_stability = -0.40
+		custom_effect_tooltip = minus_15_elias
+		subtract_from_variable = { loyalty_elias = 15 }
+	}
+}	
+
+country_event = { ####THE SOUTH SHALL RISE AGAIN
+	id = koa.88
+	title = koa.88.t
+	desc = koa.88.d
+	picture = GFX_report_event_southern_rebellion
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event koa.88"
+		KOA_release_SOT = yes
+	}
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.88.a ### For the KING!
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = fascist
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = democratic_dictatorship
+			popularity = -0.1
+		}
+	}
+	option = {
+		name = koa.88.b ### For the BUNS!
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = fascist
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = democratic_dictatorship
+			popularity = -0.1
+		}
+		SOT = {
+			change_tag_from = KOA
+		}
+	}
+}
+
+country_event = { ####DOWN WITH THE KING
+	id = koa.89
+	title = koa.89.t
+	desc = koa.89.d
+	picture = GFX_report_general_strike
+	
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event koa.89"
+		KOA_release_NOR = yes
+	}
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.89.a ### For the KING!
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.1
+		}
+	}
+	option = {
+		name = koa.89.b ### Stand by the republic
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = market_liberal
+			popularity = -0.1
+		}
+		NOR = {
+			change_tag_from = KOA
+		}
+	}
+}
+
+country_event = { #### Неждан
+	id = koa.100
+	title = koa.100.t
+	desc = koa.100.d
+	picture = GFX_report_event_Sally_crowning
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.100.a
+		set_politics = {
+			ruling_party = autonomous_socialist
+		}
+		create_country_leader = {
+			name = "HM Comrade Sally Acorn"
+			desc = "MONBOL_SALLY"
+			picture = "gfx/leaders/KOA/portrait_Sally_Red.dds"
+			expire = "1965.1.1"
+			ideology = market_socialist
+			traits = {
+			}
+		}
+		set_country_flag = KOA_Red_Monarchy
+		set_party_name = {
+			ideology = autonomous_socialist
+			long_name = KOA_MONBOL_GANG_long
+			name = KOA_MONBOL_GANG
+		}
+		set_cosmetic_tag = MONBOL_KOA
+	}
+}
+
+country_event = { #### Падение короля
+	id = koa.13
+	title = koa.13.t
+	desc = koa.13.d
+	picture = GFX_report_event_fall_king
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.13.a
+		set_country_flag = max_abdicated
+		add_stability = -0.1
+		country_event = {
+			id = koa.14
+			days = 3
+		}
+	}
+}
+
+country_event = { #### Коронация Элиаса
+	id = koa.14
+	title = koa.14.t
+	desc = koa.14.d
+	picture = GFX_report_event_elias_crowning
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.14.a
+		create_country_leader = {
+			name = "HM King Elias Acorn"
+			desc = "ELIAS_DESC"
+			picture = "gfx/leaders/KOA/portrait_King_Elias.dds"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {
+			}
+		}
+		add_stability = 0.1
+		add_political_power = 100
+		country_event = {
+			id = koa.5
+			days = 10
+		}
+		hidden_effect = {
+			country_event = {
+				id = koa.5
+				days = 14
+			}
+			country_event = {
+				id = koa.6
+				days = 15
+			}
+			set_variable = {
+				var = baron_power
+				value = 15
+			}
+			set_variable = {
+				var = prower_power
+				value = 25
+			}
+			set_variable = {
+				var = union_power
+				value = 15
+			}
+			set_variable = {
+				var = loyalty_elias
+				value = 30
+			}
+			set_country_flag = amadeus_revolt
+			set_country_flag = elias_crowned
+		}	
+	}
+}
+
+country_event = {
+	id = koa.15
+	title = koa.15.t
+	desc = koa.15.d
+	picture = GFX_report_event_hail_the_kingdom
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.15.a 
+	}
+}
+
