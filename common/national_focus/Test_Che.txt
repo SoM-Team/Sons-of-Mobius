@@ -1,0 +1,104 @@
+focus_tree = {
+	id = CHE_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CHE
+		}
+	}
+	default = no
+	continuous_focus_position = { x = -19 y = 2400 }
+	focus = {
+		id = CHE_fall_mother
+		icon = GFX_CHE_fall_mother
+		cost = 0
+		x = 8
+		y = 0
+
+	}
+	focus = {
+		id = CHE_presidnent_MonAx
+		icon = GFX_CHE_presidnent_MonAx
+		relative_position_id = CHE_fall_mother
+		prerequisite = {
+			focus = CHE_fall_mother
+		}
+		mutually_exclusive = {
+			focus = CHE_presidnent_Sad
+		}
+		cost = 0
+		x = -2
+		y = 2
+	}
+	focus = {
+		id = CHE_presidnent_Sad
+		icon = GFX_CHE_presidnent_Sad
+		relative_position_id = CHE_fall_mother
+		prerequisite = {
+			focus = CHE_fall_mother
+		}
+		mutually_exclusive = {
+			focus = CHE_presidnent_MonAx
+		}
+		cost = 0
+		x = 2
+		y = 2
+	}
+	focus = {
+		id = CHE_rzaka
+		icon = GFX_CHE_rzaka
+		relative_position_id = CHE_fall_mother
+		prerequisite = {
+			focus = CHE_presidnent_MonAx OR = CHE_presidnent_Sad
+		}
+		cost = 0
+		x = 0
+		y = 6
+	}
+	focus = {
+		id = CHE_Strilci_Stanislav
+		icon = GFX_CHE_Strilci_Stanislav
+		relative_position_id = CHE_presidnent_MonAx
+		prerequisite = {
+			focus = CHE_presidnent_MonAx
+		}
+		cost = 0
+		x = -2
+		y = 2
+	}
+	focus = {
+		id = CHE_Rich_change
+		icon = GFX_CHE_Rich_change
+		relative_position_id = CHE_presidnent_Sad
+		prerequisite = {
+			focus = CHE_presidnent_Sad
+		}
+		cost = 0
+		x = 2
+		y = 2
+	}
+	focus = {
+		id = CHE_Ekzil
+		icon = GFX_CHE_Ekzil
+		relative_position_id = CHE_Strilci_Stanislav
+		prerequisite = {
+			focus = CHE_Strilci_Stanislav
+		}
+		cost = 0
+		x = -2
+		y = 2
+	}
+	
+	focus = {
+		id = CHE_Final
+		icon = GFX_CHE_Final
+		relative_position_id = CHE_rzaka
+		prerequisite = {
+			focus = CHE_rzaka
+		}
+		cost = 0
+		x = 0
+		y = 2
+	}
+}
