@@ -12,26 +12,26 @@ focus_tree = {
 		id = KOA_New_Crown_Economic
 		icon = GFX_focus_new_royal_economy
 		cost = 7
-		x = 34
+		x = 39
 		y = 0
-		available_if_capitulated = no
+			available_if_capitulated = no
+
 	}
 	focus = {
 		id = KOA_new_king
 		icon = GFX_focus_Kill_New_King
 		cost = 0
-		available = {
-			always = no
-		}
-		bypass = {
-			has_country_flag = max_abdicated
-		}	
-		completion_reward = {
-			clr_country_flag = max_abdicated
-		}
 		x = 19
 		y = 0
-		
+			available = {
+					always = no
+				}
+			bypass = {
+					has_country_flag = max_abdicated
+				}
+			completion_reward = {
+					clr_country_flag = max_abdicated
+				}
 
 	}
 	focus = {
@@ -39,19 +39,19 @@ focus_tree = {
 		text = KOA_Grand_Military_Reforms
 		icon = GFX_focus_Grand_Military_Reforms
 		cost = 7
-		x = 60
+		x = 69
 		y = 0
 
 	}
 	focus = {
 		id = KOA_Revolution_from_Above
 		icon = GFX_focus_Revolution_from_Above
-		available = {
-			has_country_flag = KOA_Red_Monarchy
-		}
 		cost = 7
 		x = 44
 		y = 8
+			available = {
+					has_country_flag = KOA_Red_Monarchy
+				}
 
 	}
 	focus = {
@@ -61,17 +61,17 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_new_king
 		}
-		available = {
-			always = no
-		}
-		bypass = {
-			has_country_flag = elias_crowned
-		}	
-		completion_reward = {
-			clr_country_flag = elias_crowned
-		}
 		x = 11
 		y = 1
+			available = {
+					always = no
+				}
+			bypass = {
+					has_country_flag = elias_crowned
+				}
+			completion_reward = {
+					clr_country_flag = elias_crowned
+				}
 
 	}
 	focus = {
@@ -616,6 +616,39 @@ focus_tree = {
 
 	}
 	focus = {
+		id = KOA_Cats_and_Dogs
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Northamer_FF
+		}
+		x = 29
+		y = 9
+
+	}
+	focus = {
+		id = KOA_Soumerica_Trainings
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Cats_and_Dogs
+		}
+		x = 29
+		y = 10
+
+	}
+	focus = {
+		id = KOA_Kordova_Pact
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Soumerica_Trainings
+		}
+		x = 29
+		y = 11
+
+	}
+	focus = {
 		id = KOA_The_Triumph_Of_Productivism
 		icon = GFX_focus_KOA_productivism
 		cost = 7
@@ -625,7 +658,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Ecologic_Tradition_Akorn
 		}
-		x = 31
+		x = 38
 		y = 1
 			available_if_capitulated = no
 			completion_reward = {
@@ -646,7 +679,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_unlock_magazine
 		}
-		x = 30
+		x = 35
 		y = 2
 			available_if_capitulated = no
 			completion_reward = {
@@ -667,7 +700,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Akorn_socialism
 		}
-		x = 32
+		x = 38
 		y = 2
 			available_if_capitulated = no
 			completion_reward = {
@@ -680,10 +713,12 @@ focus_tree = {
 		icon = GFX_focus_KOA_Prom_nanit
 		cost = 7
 		prerequisite = {
+			focus = KOA_unlock_magazine
 			focus = KOA_Akorn_socialism
 			focus = KOA_unlock_magazine
+			focus = KOA_Akorn_socialism
 		}
-		x = 31
+		x = 36
 		y = 3
 			available_if_capitulated = no
 			completion_reward = {
@@ -699,23 +734,8 @@ focus_tree = {
 			focus = KOA_Akorn_socialism
 			focus = KOA_unlock_magazine
 		}
-		x = 29
+		x = 32
 		y = 3
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Tech_Overlander
-		icon = GFX_focus_KOA_Tech_Overlander
-		cost = 7
-		prerequisite = {
-			focus = KOA_Prom_nanit
-		}
-		x = 31
-		y = 4
 			available_if_capitulated = no
 			completion_reward = {
 
@@ -727,10 +747,11 @@ focus_tree = {
 		icon = GFX_focus_KOA_Auto_coorparation
 		cost = 7
 		prerequisite = {
-			focus = KOA_Soviet_Shvarlander
+			focus = KOA_Akorn_socialism
+			focus = KOA_unlock_magazine
 		}
-		x = 29
-		y = 4
+		x = 34
+		y = 3
 			available_if_capitulated = no
 			completion_reward = {
 					if = {
@@ -809,6 +830,100 @@ focus_tree = {
 
 	}
 	focus = {
+		id = KOA_Defense_Soviet_prom
+		icon = GFX_focus_KOA_Defense_Soviet_prom
+		cost = 7
+		prerequisite = {
+			focus = KOA_unlock_magazine
+			focus = KOA_Akorn_socialism
+		}
+		x = 38
+		y = 3
+			available_if_capitulated = no
+			completion_reward = {
+					add_timed_idea = {
+							idea = Protection_of_domestic_producers
+							days = 730
+						}
+				}
+
+	}
+	focus = {
+		id = KOA_AES_Mobotropolis
+		icon = GFX_focus_KOA_AES_Mobotropolis
+		cost = 7
+		prerequisite = {
+			focus = KOA_Prom_nanit
+		}
+		prerequisite = {
+			focus = KOA_Defense_Soviet_prom
+		}
+		x = 36
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Tech_Overlander
+		icon = GFX_focus_KOA_Tech_Overlander
+		cost = 7
+		prerequisite = {
+			focus = KOA_Soviet_Shvarlander
+		}
+		prerequisite = {
+			focus = KOA_Auto_coorparation
+		}
+		x = 34
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Robot_Farm
+		icon = GFX_focus_KOA_Robot_Farm
+		cost = 7
+		prerequisite = {
+			focus = KOA_Defense_Soviet_prom
+		}
+		prerequisite = {
+			focus = KOA_Prom_nanit
+		}
+		x = 38
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_New_Sever
+		icon = GFX_focus_KOA_New_Sever
+		cost = 7
+		prerequisite = {
+			focus = KOA_Tech_Overlander
+		}
+		prerequisite = {
+			focus = KOA_AES_Mobotropolis
+		}
+		prerequisite = {
+			focus = KOA_Robot_Farm
+		}
+		x = 36
+		y = 5
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
 		id = KOA_Eastern_Friends
 		icon = GFX_goal_unknown
 		cost = 7
@@ -817,6 +932,1255 @@ focus_tree = {
 		}
 		x = 34
 		y = 8
+
+	}
+	focus = {
+		id = KOA_Wulongyan_Mission
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Eastern_Friends
+		}
+		x = 36
+		y = 9
+
+	}
+	focus = {
+		id = KOA_Support_Aiguojun
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Wulongyan_Mission
+		}
+		x = 36
+		y = 10
+
+	}
+	focus = {
+		id = KOA_Strike_Iron_Dominion
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Support_Aiguojun
+		}
+		x = 36
+		y = 11
+
+	}
+	focus = {
+		id = KOA_Ecologic_Tradition_Akorn
+		icon = GFX_focus_KOA_Ecologic_Tradition_Akorn
+		cost = 7
+		prerequisite = {
+			focus = KOA_New_Crown_Economic
+		}
+		mutually_exclusive = {
+			focus = KOA_The_Triumph_Of_Productivism
+		}
+		x = 40
+		y = 1
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Codding_Economic
+		icon = GFX_focus_KOA_Codding_Economic
+		cost = 7
+		prerequisite = {
+			focus = KOA_Ecologic_Tradition_Akorn
+		}
+		mutually_exclusive = {
+			focus = KOA_Eco_Management
+		}
+		x = 40
+		y = 2
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Eco_Management
+		icon = GFX_focus_KOA_Eco_Management
+		cost = 7
+		prerequisite = {
+			focus = KOA_Ecologic_Tradition_Akorn
+		}
+		mutually_exclusive = {
+			focus = KOA_Codding_Economic
+		}
+		x = 43
+		y = 2
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Import_Federation
+		icon = GFX_focus_KOA_Import_Federation
+		cost = 7
+		prerequisite = {
+			focus = KOA_Eco_Management
+			focus = KOA_Codding_Economic
+		}
+		x = 40
+		y = 3
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Build_init
+		icon = GFX_focus_KOA_Build_init
+		cost = 7
+		prerequisite = {
+			focus = KOA_Eco_Management
+			focus = KOA_Codding_Economic
+		}
+		x = 42
+		y = 3
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Concern_Chak_Morgan
+		icon = GFX_focus_KOA_Concern_Chak_Morgan
+		cost = 7
+		prerequisite = {
+			focus = KOA_Import_Federation
+		}
+		prerequisite = {
+			focus = KOA_Build_init
+		}
+		x = 40
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Statistic_Heavy_Artillery
+		icon = GFX_focus_KOA_Statistic_Heavy_Artillery
+		cost = 7
+		prerequisite = {
+			focus = KOA_Concern_Chak_Morgan
+			focus = KOA_Robot_Farm
+		}
+		x = 39
+		y = 5
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Social_Revolution
+		icon = GFX_focus_Social_Revolution
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revolution_from_Above
+		}
+		x = 40
+		y = 9
+
+	}
+	focus = {
+		id = KOA_End_Priveleges
+		icon = GFX_focus_End_Priveleges
+		cost = 7
+		prerequisite = {
+			focus = KOA_Social_Revolution
+		}
+		x = 40
+		y = 11
+
+	}
+	focus = {
+		id = KOA_Expropriate_Landlords
+		icon = GFX_focus_Expropriate_Landlords
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revolution_from_Above
+		}
+		x = 43
+		y = 9
+
+	}
+	focus = {
+		id = KOA_Royal_National
+		icon = GFX_focus_Royal_National
+		cost = 7
+		prerequisite = {
+			focus = KOA_Expropriate_Landlords
+		}
+		x = 41
+		y = 10
+
+	}
+	focus = {
+		id = KOA_New_New_city
+		icon = GFX_focus_KOA_New_New_city
+		cost = 7
+		prerequisite = {
+			focus = KOA_Build_init
+		}
+		prerequisite = {
+			focus = KOA_Import_Federation
+		}
+		x = 42
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Cooperation_Agriculture
+		icon = GFX_focus_Cooperation_Agriculture
+		cost = 7
+		prerequisite = {
+			focus = KOA_Expropriate_Landlords
+		}
+		x = 43
+		y = 10
+
+	}
+	focus = {
+		id = KOA_Forest_resourse
+		icon = GFX_focus_kings_university
+		cost = 7
+		prerequisite = {
+			focus = KOA_Eco_Management
+			focus = KOA_Codding_Economic
+		}
+		x = 44
+		y = 3
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Zombie_A
+		icon = GFX_focus_KOA_Zombie_A
+		cost = 7
+		prerequisite = {
+			focus = KOA_Eco_Management
+			focus = KOA_Codding_Economic
+		}
+		x = 46
+		y = 3
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_New_Road
+		icon = GFX_focus_KOA_New_Road
+		cost = 7
+		prerequisite = {
+			focus = KOA_Forest_resourse
+		}
+		prerequisite = {
+			focus = KOA_Zombie_A
+		}
+		x = 44
+		y = 4
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Region
+		icon = GFX_focus_KOA_Region
+		cost = 7
+		prerequisite = {
+			focus = KOA_New_New_city
+		}
+		prerequisite = {
+			focus = KOA_New_Road
+		}
+		prerequisite = {
+			focus = KOA_Concern_Chak_Morgan
+		}
+		x = 42
+		y = 5
+			available_if_capitulated = no
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = KOA_Royal_Plan
+		icon = GFX_focus_Royal_Plan
+		cost = 7
+		prerequisite = {
+			focus = KOA_Cooperation_Agriculture
+		}
+		prerequisite = {
+			focus = KOA_Royal_National
+		}
+		x = 42
+		y = 11
+
+	}
+	focus = {
+		id = KOA_Councilist_Reform
+		icon = GFX_focus_Councilist_Reform
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revolution_from_Above
+		}
+		x = 45
+		y = 9
+
+	}
+	focus = {
+		id = KOA_Self_Management
+		icon = GFX_focus_Self_Management
+		cost = 7
+		prerequisite = {
+			focus = KOA_Councilist_Reform
+		}
+		x = 45
+		y = 10
+
+	}
+	focus = {
+		id = KOA_Word_and_Rifle
+		icon = GFX_focus_Word_and_Rifle
+		cost = 7
+		prerequisite = {
+			focus = KOA_Councilist_Reform
+		}
+		x = 47
+		y = 10
+
+	}
+	focus = {
+		id = KOA_Just_Constitution
+		icon = GFX_focus_Just_Constitution
+		cost = 7
+		prerequisite = {
+			focus = KOA_Word_and_Rifle
+		}
+		prerequisite = {
+			focus = KOA_Self_Management
+		}
+		x = 46
+		y = 11
+
+	}
+	focus = {
+		id = KOA_Rehabilitate_Reds
+		icon = GFX_focus_Rehabilitate_Reds
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revolution_from_Above
+		}
+		x = 48
+		y = 9
+
+	}
+	focus = {
+		id = KOA_Anti_Reactionary_FF
+		icon = GFX_focus_Anti_Reactionary_FF
+		cost = 7
+		prerequisite = {
+			focus = KOA_Rehabilitate_Reds
+		}
+		x = 48
+		y = 11
+
+	}
+	focus = {
+		id = KOA_Red_Monarchy
+		icon = GFX_focus_Red_Monarchy
+		cost = 7
+		prerequisite = {
+			focus = KOA_End_Priveleges
+		}
+		prerequisite = {
+			focus = KOA_Royal_Plan
+		}
+		prerequisite = {
+			focus = KOA_Just_Constitution
+		}
+		prerequisite = {
+			focus = KOA_Anti_Reactionary_FF
+		}
+		x = 44
+		y = 12
+
+	}
+	focus = {
+		id = KOA_the_Aviation_Unit
+		text = KOA_the_Aviation_Unit
+		icon = GFX_focus_the_Aviation_Unit
+		cost = 7
+		prerequisite = {
+			focus = KOA_Grand_Military_Reforms
+		}
+		x = 53
+		y = 1
+
+	}
+	focus = {
+		id = KOA_ROSE_System
+		text = KOA_ROSE_System
+		icon = GFX_focus_radar
+		cost = 7
+		prerequisite = {
+			focus = KOA_the_Aviation_Unit
+		}
+		x = 51
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Missile_Defence
+		text = KOA_Missile_Defence
+		icon = GFX_focus_PVO_equipment
+		cost = 7
+		prerequisite = {
+			focus = KOA_ROSE_System
+		}
+		x = 50
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Inspect_Aircrafts
+		text = KOA_Inspect_Aircrafts
+		icon = GFX_focus_Inspect_Aircrafts
+		cost = 7
+		prerequisite = {
+			focus = KOA_the_Aviation_Unit
+		}
+		x = 53
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Manouver_Priority
+		text = KOA_Manouver_Priority
+		icon = GFX_focus_Manouver_Priority
+		cost = 7
+		prerequisite = {
+			focus = KOA_Inspect_Aircrafts
+		}
+		mutually_exclusive = {
+			focus = KOA_Speed_Priority
+		}
+		x = 52
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Dogfight
+		text = KOA_Dogfight
+		icon = GFX_focus_Dogfight
+		cost = 7
+		prerequisite = {
+			focus = KOA_Manouver_Priority
+		}
+		x = 51
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Control_The_Sky
+		text = KOA_Control_The_Sky
+		icon = GFX_focus_Control_The_Sky
+		cost = 7
+		prerequisite = {
+			focus = KOA_Dogfight
+		}
+		x = 47
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Fighter_Bomber
+		text = KOA_Fighter_Bomber
+		icon = GFX_focus_Fighter_Bomber
+		cost = 7
+		prerequisite = {
+			focus = KOA_Dogfight
+		}
+		x = 49
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Speed_Priority
+		text = KOA_Speed_Priority
+		icon = GFX_focus_Speed_Priority
+		cost = 7
+		prerequisite = {
+			focus = KOA_Inspect_Aircrafts
+		}
+		mutually_exclusive = {
+			focus = KOA_Manouver_Priority
+		}
+		x = 54
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Strategic_Bomber
+		text = KOA_Strategic_Bomber
+		icon = GFX_focus_Strategic_Bomber
+		cost = 7
+		prerequisite = {
+			focus = KOA_Manouver_Priority
+			focus = KOA_Speed_Priority
+		}
+		x = 53
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Death_From_Above
+		text = KOA_Death_From_Above
+		icon = GFX_focus_destruction_bomb
+		cost = 7
+		prerequisite = {
+			focus = KOA_Speed_Priority
+		}
+		x = 55
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Flight_School
+		text = KOA_Flight_School
+		icon = GFX_focus_flight_school
+		cost = 7
+		prerequisite = {
+			focus = KOA_Death_From_Above
+			focus = KOA_Dogfight
+		}
+		x = 53
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Aviation_Industry
+		text = KOA_Aviation_Industry
+		icon = GFX_focus_air_materials
+		cost = 7
+		prerequisite = {
+			focus = KOA_the_Aviation_Unit
+		}
+		x = 55
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Missile_Development
+		text = KOA_Missile_Development
+		icon = GFX_focus_Missile_Development
+		cost = 7
+		prerequisite = {
+			focus = KOA_Strategic_Bomber
+			focus = KOA_Death_From_Above
+		}
+		x = 55
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Friederik_Airfield
+		text = KOA_Friederik_Airfield
+		icon = GFX_focus_Friederik_Airfield
+		cost = 7
+		prerequisite = {
+			focus = KOA_Aviation_Industry
+		}
+		x = 56
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Stealth_Fighter
+		text = KOA_Stealth_Fighter
+		icon = GFX_focus_faster_than_Sonic
+		cost = 7
+		prerequisite = {
+			focus = KOA_Death_From_Above
+		}
+		x = 57
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Destroy_their_AA
+		text = KOA_Destroy_their_AA
+		icon = GFX_focus_Destroy_their_AA
+		cost = 7
+		prerequisite = {
+			focus = KOA_Death_From_Above
+		}
+		x = 59
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Royal_Army
+		text = KOA_Royal_Army
+		icon = GFX_focus_Royal_Army
+		cost = 7
+		prerequisite = {
+			focus = KOA_Grand_Military_Reforms
+		}
+		x = 69
+		y = 1
+
+	}
+	focus = {
+		id = KOA_Freedom_Fighters_Structure
+		text = KOA_Freedom_Fighters_Structure
+		icon = GFX_focus_Freedom_Fighters_Structure
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Army
+		}
+		mutually_exclusive = {
+			focus = KOA_Grand_Army
+		}
+		x = 66
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Sally_Doctrine
+		text = KOA_Sally_Doctrine
+		icon = GFX_focus_Sally_Doctrine
+		cost = 7
+		prerequisite = {
+			focus = KOA_Freedom_Fighters_Structure
+		}
+		x = 62
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Secret_Freedom_Fighters
+		icon = GFX_focus_Secret_Freedom_Fighters
+		cost = 7
+		prerequisite = {
+			focus = KOA_Sally_Doctrine
+		}
+		x = 60
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Hit_and_Run
+		text = KOA_Hit_and_Run
+		icon = GFX_focus_Hit_and_Run
+		cost = 7
+		prerequisite = {
+			focus = KOA_Secret_Freedom_Fighters
+		}
+		x = 61
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Theory_Of_Operation
+		text = KOA_Theory_Of_Operation
+		icon = GFX_focus_Theory_Of_Operation
+		cost = 7
+		prerequisite = {
+			focus = KOA_Sally_Doctrine
+		}
+		x = 63
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Develop_Engineering
+		text = KOA_Develop_Engineering
+		icon = GFX_focus_Develop_Engineering
+		cost = 7
+		prerequisite = {
+			focus = KOA_Sally_Doctrine
+		}
+		x = 65
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Underground_Ways
+		text = KOA_Underground_Ways
+		icon = GFX_focus_Underground_Ways
+		cost = 7
+		prerequisite = {
+			focus = KOA_Develop_Engineering
+		}
+		x = 65
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Grand_Army
+		text = KOA_Grand_Army
+		icon = GFX_focus_Grand_Army
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Army
+		}
+		mutually_exclusive = {
+			focus = KOA_Freedom_Fighters_Structure
+		}
+		x = 72
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Revive_Military_Industry
+		text = KOA_Revive_Military_Industry
+		icon = GFX_focus_Revive_Military_Industry
+		cost = 7
+		prerequisite = {
+			focus = KOA_Grand_Army
+			focus = KOA_Freedom_Fighters_Structure
+		}
+		x = 69
+		y = 3
+
+	}
+	focus = {
+		id = KOA_War_Medic_Corps
+		text = KOA_War_Medic_Corps
+		icon = GFX_focus_War_Medic_Corps
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revive_Military_Industry
+		}
+		x = 67
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Propaganda_School
+		text = KOA_Propaganda_School
+		icon = GFX_focus_Propaganda_School
+		cost = 7
+		prerequisite = {
+			focus = KOA_War_Medic_Corps
+		}
+		x = 68
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Sonic_Spirit
+		text = KOA_Sonic_Spirit
+		icon = GFX_focus_Sonic_Spirit
+		cost = 7
+		prerequisite = {
+			focus = KOA_Propaganda_School
+		}
+		prerequisite = {
+			focus = KOA_Underground_Ways
+		}
+		x = 66
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Rifle_Standards
+		text = KOA_Rifle_Standards
+		icon = GFX_focus_Rifle_Standards
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revive_Military_Industry
+		}
+		x = 69
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Revive_Officer_Corps
+		text = KOA_Revive_Officer_Corps
+		icon = GFX_focus_Revive_Officer_Corps
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revive_Military_Industry
+		}
+		x = 71
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Mes_Braves
+		text = KOA_Mes_Braves
+		icon = GFX_focus_Mes_Braves
+		cost = 7
+		prerequisite = {
+			focus = KOA_Rifle_Standards
+		}
+		prerequisite = {
+			focus = KOA_Revive_Officer_Corps
+		}
+		x = 70
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Mil_Res
+		text = KOA_Mil_Res
+		icon = GFX_focus_Armament_Research_Center
+		cost = 7
+		prerequisite = {
+			focus = KOA_Propaganda_School
+		}
+		prerequisite = {
+			focus = KOA_Mes_Braves
+		}
+		x = 69
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Return_Of_Jules
+		text = KOA_Return_Of_Jules
+		icon = GFX_focus_Return_Of_Jules
+		cost = 7
+		prerequisite = {
+			focus = KOA_Revive_Officer_Corps
+		}
+		x = 72
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Learn_From_Robotnik_War
+		text = KOA_Learn_From_Robotnik_War
+		icon = GFX_focus_analyzing_frw
+		cost = 7
+		prerequisite = {
+			focus = KOA_Return_Of_Jules
+		}
+		x = 72
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Military_Revolution
+		text = KOA_Military_Revolution
+		icon = GFX_focus_Military_Revolution
+		cost = 7
+		prerequisite = {
+			focus = KOA_Grand_Army
+		}
+		x = 77
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Tank_Corps
+		text = KOA_Tank_Corps
+		icon = GFX_focus_Tank_Corps
+		cost = 7
+		prerequisite = {
+			focus = KOA_Military_Revolution
+		}
+		x = 73
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Heavy_Weaponry
+		text = KOA_Heavy_Weaponry
+		icon = GFX_focus_Heavy_Weaponry
+		cost = 7
+		prerequisite = {
+			focus = KOA_Military_Revolution
+		}
+		x = 76
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Motorized_Troops
+		text = KOA_Motorized_Troops
+		icon = GFX_focus_Motorized_Troops
+		cost = 7
+		prerequisite = {
+			focus = KOA_Tank_Corps
+		}
+		prerequisite = {
+			focus = KOA_Heavy_Weaponry
+		}
+		x = 75
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Develop_Robotic_Systems
+		text = KOA_Develop_Robotic_Systems
+		icon = GFX_focus_Develop_Robotic_Systems
+		cost = 7
+		prerequisite = {
+			focus = KOA_Motorized_Troops
+		}
+		prerequisite = {
+			focus = KOA_Return_Of_Jules
+		}
+		x = 74
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Better_than_GUN
+		text = KOA_Better_than_GUN
+		icon = GFX_focus_Better_than_GUN
+		cost = 7
+		prerequisite = {
+			focus = KOA_Motorized_Troops
+		}
+		x = 75
+		y = 7
+
+	}
+	focus = {
+		id = KOA_Theory_Of_Cooperation
+		text = KOA_Theory_Of_Cooperation
+		icon = GFX_focus_Theory_Of_Cooperation
+		cost = 7
+		prerequisite = {
+			focus = KOA_Heavy_Weaponry
+		}
+		x = 76
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Reform_System_Of_Ranks
+		text = KOA_Reform_System_Of_Ranks
+		icon = GFX_focus_Reform_System_Of_Ranks
+		cost = 7
+		prerequisite = {
+			focus = KOA_Military_Revolution
+		}
+		x = 78
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Centralized_Command
+		text = KOA_Centralized_Command
+		icon = GFX_focus_Centralized_Command
+		cost = 7
+		prerequisite = {
+			focus = KOA_Reform_System_Of_Ranks
+		}
+		x = 77
+		y = 5
+
+	}
+	focus = {
+		id = KOA_Prepare_Long_War
+		text = KOA_Prepare_Long_War
+		icon = GFX_focus_Prepare_Long_War
+		cost = 7
+		prerequisite = {
+			focus = KOA_Centralized_Command
+		}
+		x = 78
+		y = 6
+
+	}
+	focus = {
+		id = KOA_Proffesional_Army
+		text = KOA_Proffesional_Army
+		icon = GFX_focus_Proffesional_Army
+		cost = 7
+		prerequisite = {
+			focus = KOA_Prepare_Long_War
+		}
+		prerequisite = {
+			focus = KOA_Theory_Of_Cooperation
+		}
+		x = 77
+		y = 7
+
+	}
+	focus = {
+		id = KOA_Royal_Navy
+		text = KOA_Royal_Navy
+		icon = GFX_focus_Royal_Navy
+		cost = 7
+		prerequisite = {
+			focus = KOA_Grand_Military_Reforms
+		}
+		x = 85
+		y = 1
+
+	}
+	focus = {
+		id = KOA_Freedom_Marines
+		text = KOA_Freedom_Marines
+		icon = GFX_focus_Freedom_Marines
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Navy
+		}
+		x = 80
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Protect_the_Strait
+		text = KOA_Protect_the_Strait
+		icon = GFX_focus_Protect_the_Strait
+		cost = 7
+		prerequisite = {
+			focus = KOA_Freedom_Marines
+		}
+		x = 79
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Armor_for_Marines
+		text = KOA_Armor_for_Marines
+		icon = GFX_focus_Armor_for_Marines
+		cost = 7
+		prerequisite = {
+			focus = KOA_Freedom_Marines
+		}
+		x = 81
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Conscript_Vessels
+		text = KOA_Conscript_Vessels
+		icon = GFX_focus_Conscript_Vessels
+		cost = 7
+		prerequisite = {
+			focus = KOA_Armor_for_Marines
+		}
+		prerequisite = {
+			focus = KOA_Protect_the_Strait
+		}
+		x = 80
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Learn_from_UF
+		icon = GFX_focus_Learn_from_UF
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Navy
+		}
+		mutually_exclusive = {
+			focus = KOA_Own_School
+		}
+		x = 84
+		y = 2
+
+	}
+	focus = {
+		id = KOA_UF_Instructors
+		text = KOA_UF_Instructors
+		icon = GFX_focus_UF_Instructors
+		cost = 7
+		prerequisite = {
+			focus = KOA_Learn_from_UF
+		}
+		x = 83
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Carrier_Buildup
+		text = KOA_Carrier_Buildup
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_UF_Instructors
+		}
+		x = 82
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Own_School
+		text = KOA_Own_School
+		icon = GFX_focus_Own_School
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Navy
+		}
+		mutually_exclusive = {
+			focus = KOA_Learn_from_UF
+		}
+		x = 86
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Navigation_Research
+		text = KOA_Navigation_Research
+		icon = GFX_focus_Navigation_Research
+		cost = 7
+		prerequisite = {
+			focus = KOA_Learn_from_UF
+			focus = KOA_Own_School
+		}
+		x = 85
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Submarine_Development
+		text = KOA_Submarine_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_UF_Instructors
+		}
+		prerequisite = {
+			focus = KOA_Navigation_Research
+		}
+		x = 84
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Old_Navy_Experience
+		text = KOA_Old_Navy_Experience
+		icon = GFX_focus_Old_Navy_Experience
+		cost = 7
+		prerequisite = {
+			focus = KOA_Own_School
+		}
+		x = 87
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Destroyer_Overhaul
+		text = KOA_Destroyer_Overhaul
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Old_Navy_Experience
+		}
+		prerequisite = {
+			focus = KOA_Navigation_Research
+		}
+		x = 86
+		y = 4
+
+	}
+	focus = {
+		id = KOA_More_Guns_better
+		text = KOA_More_Guns_better
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Old_Navy_Experience
+		}
+		x = 88
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Naval_Academy
+		text = KOA_Naval_Academy
+		icon = GFX_focus_Naval_Academy
+		cost = 7
+		prerequisite = {
+			focus = KOA_Royal_Navy
+		}
+		x = 90
+		y = 2
+
+	}
+	focus = {
+		id = KOA_Recruit_Naval_Races
+		text = KOA_Recruit_Naval_Races
+		icon = GFX_focus_Recruit_Naval_Races
+		cost = 7
+		prerequisite = {
+			focus = KOA_Naval_Academy
+		}
+		x = 89
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Naval_Bureau
+		text = KOA_Naval_Bureau
+		icon = GFX_focus_Naval_Bureau
+		cost = 7
+		prerequisite = {
+			focus = KOA_Naval_Academy
+		}
+		x = 91
+		y = 3
+
+	}
+	focus = {
+		id = KOA_Grand_Port
+		text = KOA_Grand_Port
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Naval_Bureau
+		}
+		prerequisite = {
+			focus = KOA_Recruit_Naval_Races
+		}
+		x = 90
+		y = 4
+
+	}
+	focus = {
+		id = KOA_Rule_the_Seas
+		text = KOA_Rule_the_Seas
+		icon = GFX_goal_unknown
+		cost = 7
+		prerequisite = {
+			focus = KOA_Destroyer_Overhaul
+		}
+		prerequisite = {
+			focus = KOA_More_Guns_better
+		}
+		prerequisite = {
+			focus = KOA_Grand_Port
+		}
+		x = 88
+		y = 5
 
 	}
 	focus = {
@@ -831,61 +2195,6 @@ focus_tree = {
 		}
 		x = 32
 		y = 9
-
-	}
-	focus = {
-		id = KOA_Defense_Soviet_prom
-		icon = GFX_focus_KOA_Defense_Soviet_prom
-		cost = 7
-		prerequisite = {
-			focus = KOA_Akorn_socialism
-			focus = KOA_unlock_magazine
-		}
-		x = 33
-		y = 3
-			available_if_capitulated = no
-			completion_reward = {
-					add_timed_idea = {
-							idea = Protection_of_domestic_producers
-							days = 730
-						}
-				}
-
-	}
-	focus = {
-		id = KOA_Robot_Farm
-		icon = GFX_focus_KOA_Robot_Farm
-		cost = 7
-		prerequisite = {
-			focus = KOA_Defense_Soviet_prom
-		}
-		x = 33
-		y = 4
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_AES_Mobotropolis
-		icon = GFX_focus_KOA_AES_Mobotropolis
-		cost = 7
-		prerequisite = {
-			focus = KOA_Robot_Farm
-		}
-		prerequisite = {
-			focus = KOA_Tech_Overlander
-		}
-		prerequisite = {
-			focus = KOA_Auto_coorparation
-		}
-		x = 31
-		y = 5
-			available_if_capitulated = no
-			completion_reward = {
-
-}
 
 	}
 	focus = {
@@ -926,1120 +2235,15 @@ focus_tree = {
 
 	}
 	focus = {
-		id = KOA_New_Sever
-		icon = GFX_focus_KOA_New_Sever
-		cost = 7
-		prerequisite = {
-			focus = KOA_AES_Mobotropolis
-		}
-		x = 31
-		y = 6
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Ecologic_Tradition_Akorn
-		icon = GFX_focus_KOA_Ecologic_Tradition_Akorn
-		cost = 7
-		prerequisite = {
-			focus = KOA_New_Crown_Economic
-		}
-		mutually_exclusive = {
-			focus = KOA_The_Triumph_Of_Productivism
-		}
-		x = 37
-		y = 1
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Codding_Economic
-		icon = GFX_focus_KOA_Codding_Economic
-		cost = 7
-		prerequisite = {
-			focus = KOA_Ecologic_Tradition_Akorn
-		}
-		mutually_exclusive = {
-			focus = KOA_Eco_Management
-		}
-		x = 36
-		y = 2
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Wulongyan_Mission
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Eastern_Friends
-		}
-		x = 36
-		y = 9
-
-	}
-	focus = {
-		id = KOA_Support_Aiguojun
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Wulongyan_Mission
-		}
-		x = 36
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Strike_Iron_Dominion
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Support_Aiguojun
-		}
-		x = 36
-		y = 11
-
-	}
-	focus = {
-		id = KOA_Eco_Management
-		icon = GFX_focus_KOA_Eco_Management
-		cost = 7
-		prerequisite = {
-			focus = KOA_Ecologic_Tradition_Akorn
-		}
-		mutually_exclusive = {
-			focus = KOA_Codding_Economic
-		}
-		x = 38
-		y = 2
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Build_init
-		icon = GFX_focus_KOA_Build_init
-		cost = 7
-		prerequisite = {
-			focus = KOA_Eco_Management
-			focus = KOA_Codding_Economic
-		}
-		x = 37
-		y = 3
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Import_Federation
-		icon = GFX_focus_KOA_Import_Federation
-		cost = 7
-		prerequisite = {
-			focus = KOA_Eco_Management
-			focus = KOA_Codding_Economic
-		}
-		x = 35
-		y = 3
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_New_New_city
-		icon = GFX_focus_KOA_New_New_city
-		cost = 7
-		prerequisite = {
-			focus = KOA_Build_init
-		}
-		x = 37
-		y = 4
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Concern_Chak_Morgan
-		icon = GFX_focus_KOA_Concern_Chak_Morgan
-		cost = 7
-		prerequisite = {
-			focus = KOA_Import_Federation
-		}
-		x = 35
-		y = 4
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Forest_resourse
-		icon = GFX_focus_kings_university
-		cost = 7
-		prerequisite = {
-			focus = KOA_Eco_Management
-			focus = KOA_Codding_Economic
-		}
-		x = 39
-		y = 3
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Zombie_A
-		icon = GFX_focus_KOA_Zombie_A
-		cost = 7
-		prerequisite = {
-			focus = KOA_Forest_resourse
-		}
-		x = 39
-		y = 4
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_New_Road
-		icon = GFX_focus_KOA_New_Road
-		cost = 7
-		prerequisite = {
-			focus = KOA_Zombie_A
-		}
-		prerequisite = {
-			focus = KOA_Concern_Chak_Morgan
-		}
-		prerequisite = {
-			focus = KOA_New_New_city
-		}
-		x = 37
-		y = 5
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Social_Revolution
-		icon = GFX_focus_Social_Revolution
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revolution_from_Above
-		}
-		x = 40
-		y = 9
-
-	}
-	focus = {
-		id = KOA_End_Priveleges
-		icon = GFX_focus_End_Priveleges
-		cost = 7
-		prerequisite = {
-			focus = KOA_Social_Revolution
-		}
-		x = 40
-		y = 11
-
-	}
-	focus = {
-		id = KOA_the_Aviation_Unit
-		text = KOA_the_Aviation_Unit
-		icon = GFX_focus_the_Aviation_Unit
-		cost = 7
-		prerequisite = {
-			focus = KOA_Grand_Military_Reforms
-		}
-		x = 44
-		y = 1
-
-	}
-	focus = {
-		id = KOA_ROSE_System
-		text = KOA_ROSE_System
-		icon = GFX_focus_radar
-		cost = 7
-		prerequisite = {
-			focus = KOA_the_Aviation_Unit
-		}
-		x = 43
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Missile_Defence
-		text = KOA_Missile_Defence
-		icon = GFX_focus_PVO_equipment
-		cost = 7
-		prerequisite = {
-			focus = KOA_ROSE_System
-		}
-		x = 42
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Inspect_Aircrafts
-		text = KOA_Inspect_Aircrafts
-		icon = GFX_focus_Inspect_Aircrafts
-		cost = 7
-		prerequisite = {
-			focus = KOA_the_Aviation_Unit
-		}
-		x = 44
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Manouver_Priority
-		text = KOA_Manouver_Priority
-		icon = GFX_focus_Manouver_Priority
-		cost = 7
-		prerequisite = {
-			focus = KOA_Inspect_Aircrafts
-		}
-		mutually_exclusive = {
-			focus = KOA_Speed_Priority
-		}
-		x = 43
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Dogfight
-		text = KOA_Dogfight
-		icon = GFX_focus_Dogfight
-		cost = 7
-		prerequisite = {
-			focus = KOA_Manouver_Priority
-		}
-		x = 41
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Speed_Priority
-		text = KOA_Speed_Priority
-		icon = GFX_focus_Speed_Priority
-		cost = 7
-		prerequisite = {
-			focus = KOA_Inspect_Aircrafts
-		}
-		mutually_exclusive = {
-			focus = KOA_Manouver_Priority
-		}
-		x = 45
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Strategic_Bomber
-		text = KOA_Strategic_Bomber
-		icon = GFX_focus_Strategic_Bomber
-		cost = 7
-		prerequisite = {
-			focus = KOA_Manouver_Priority
-			focus = KOA_Speed_Priority
-		}
-		x = 44
-		y = 5
-
-	}
-	focus = {
 		id = KOA_Tails_Design
 		text = KOA_Tails_Design
 		icon = GFX_focus_Tails_Design
 		cost = 7
 		prerequisite = {
 			focus = KOA_Strategic_Bomber
-		}
-		x = 43
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Flight_School
-		text = KOA_Flight_School
-		icon = GFX_focus_flight_school
-		cost = 7
-		prerequisite = {
-			focus = KOA_Strategic_Bomber
-		}
-		x = 44
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Aviation_Industry
-		text = KOA_Aviation_Industry
-		icon = GFX_focus_air_materials
-		cost = 7
-		prerequisite = {
-			focus = KOA_the_Aviation_Unit
-		}
-		x = 45
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Missile_Development
-		text = KOA_Missile_Development
-		icon = GFX_focus_Missile_Development
-		cost = 7
-		prerequisite = {
-			focus = KOA_Strategic_Bomber
-		}
-		x = 45
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Councilist_Reform
-		icon = GFX_focus_Councilist_Reform
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revolution_from_Above
-		}
-		x = 45
-		y = 9
-
-	}
-	focus = {
-		id = KOA_Self_Management
-		icon = GFX_focus_Self_Management
-		cost = 7
-		prerequisite = {
-			focus = KOA_Councilist_Reform
-		}
-		x = 45
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Friederik_Airfield
-		text = KOA_Friederik_Airfield
-		icon = GFX_focus_Friederik_Airfield
-		cost = 7
-		prerequisite = {
-			focus = KOA_Aviation_Industry
-		}
-		x = 46
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Word_and_Rifle
-		icon = GFX_focus_Word_and_Rifle
-		cost = 7
-		prerequisite = {
-			focus = KOA_Councilist_Reform
-		}
-		x = 47
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Just_Constitution
-		icon = GFX_focus_Just_Constitution
-		cost = 7
-		prerequisite = {
-			focus = KOA_Word_and_Rifle
-		}
-		prerequisite = {
-			focus = KOA_Self_Management
-		}
-		x = 46
-		y = 11
-
-	}
-	focus = {
-		id = KOA_Death_From_Above
-		text = KOA_Death_From_Above
-		icon = GFX_focus_destruction_bomb
-		cost = 7
-		prerequisite = {
-			focus = KOA_Speed_Priority
-		}
-		x = 47
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Stealth_Fighter
-		text = KOA_Stealth_Fighter
-		icon = GFX_focus_faster_than_Sonic
-		cost = 7
-		prerequisite = {
-			focus = KOA_Death_From_Above
-		}
-		x = 47
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Destroy_their_AA
-		text = KOA_Destroy_their_AA
-		icon = GFX_focus_Destroy_their_AA
-		cost = 7
-		prerequisite = {
-			focus = KOA_Stealth_Fighter
-		}
-		x = 47
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Rehabilitate_Reds
-		icon = GFX_focus_Rehabilitate_Reds
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revolution_from_Above
-		}
-		x = 48
-		y = 9
-
-	}
-	focus = {
-		id = KOA_Anti_Reactionary_FF
-		icon = GFX_focus_Anti_Reactionary_FF
-		cost = 7
-		prerequisite = {
-			focus = KOA_Rehabilitate_Reds
-		}
-		x = 48
-		y = 11
-
-	}
-	focus = {
-		id = KOA_Royal_Army
-		text = KOA_Royal_Army
-		icon = GFX_focus_Royal_Army
-		cost = 7
-		prerequisite = {
-			focus = KOA_Grand_Military_Reforms
-		}
-		x = 60
-		y = 1
-
-	}
-	focus = {
-		id = KOA_Freedom_Fighters_Structure
-		text = KOA_Freedom_Fighters_Structure
-		icon = GFX_focus_Freedom_Fighters_Structure
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Army
-		}
-		mutually_exclusive = {
-			focus = KOA_Grand_Army
-		}
-		x = 57
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Sally_Doctrine
-		text = KOA_Sally_Doctrine
-		icon = GFX_focus_Sally_Doctrine
-		cost = 7
-		prerequisite = {
-			focus = KOA_Freedom_Fighters_Structure
-		}
-		x = 53
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Secret_Freedom_Fighters
-		icon = GFX_focus_Secret_Freedom_Fighters
-		cost = 7
-		prerequisite = {
-			focus = KOA_Sally_Doctrine
+			focus = KOA_Dogfight
 		}
 		x = 51
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Develop_Engineering
-		text = KOA_Develop_Engineering
-		icon = GFX_focus_Develop_Engineering
-		cost = 7
-		prerequisite = {
-			focus = KOA_Sally_Doctrine
-		}
-		x = 55
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Underground_Ways
-		text = KOA_Underground_Ways
-		icon = GFX_focus_Underground_Ways
-		cost = 7
-		prerequisite = {
-			focus = KOA_Develop_Engineering
-		}
-		x = 55
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Grand_Army
-		text = KOA_Grand_Army
-		icon = GFX_focus_Grand_Army
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Army
-		}
-		mutually_exclusive = {
-			focus = KOA_Freedom_Fighters_Structure
-		}
-		x = 63
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Revive_Military_Industry
-		text = KOA_Revive_Military_Industry
-		icon = GFX_focus_Revive_Military_Industry
-		cost = 7
-		prerequisite = {
-			focus = KOA_Grand_Army
-			focus = KOA_Freedom_Fighters_Structure
-		}
-		x = 60
-		y = 3
-
-	}
-	focus = {
-		id = KOA_War_Medic_Corps
-		text = KOA_War_Medic_Corps
-		icon = GFX_focus_War_Medic_Corps
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revive_Military_Industry
-		}
-		x = 58
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Propaganda_School
-		text = KOA_Propaganda_School
-		icon = GFX_focus_Propaganda_School
-		cost = 7
-		prerequisite = {
-			focus = KOA_War_Medic_Corps
-		}
-		x = 59
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Sonic_Spirit
-		text = KOA_Sonic_Spirit
-		icon = GFX_focus_Sonic_Spirit
-		cost = 7
-		prerequisite = {
-			focus = KOA_Propaganda_School
-		}
-		prerequisite = {
-			focus = KOA_Underground_Ways
-		}
-		x = 57
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Rifle_Standards
-		text = KOA_Rifle_Standards
-		icon = GFX_focus_Rifle_Standards
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revive_Military_Industry
-		}
-		x = 60
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Revive_Officer_Corps
-		text = KOA_Revive_Officer_Corps
-		icon = GFX_focus_Revive_Officer_Corps
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revive_Military_Industry
-		}
-		x = 62
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Mes_Braves
-		text = KOA_Mes_Braves
-		icon = GFX_focus_Mes_Braves
-		cost = 7
-		prerequisite = {
-			focus = KOA_Rifle_Standards
-		}
-		prerequisite = {
-			focus = KOA_Revive_Officer_Corps
-		}
-		x = 61
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Mil_Res
-		text = KOA_Mil_Res
-		icon = GFX_focus_Armament_Research_Center
-		cost = 7
-		prerequisite = {
-			focus = KOA_Propaganda_School
-		}
-		prerequisite = {
-			focus = KOA_Mes_Braves
-		}
-		x = 60
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Return_Of_Jules
-		text = KOA_Return_Of_Jules
-		icon = GFX_focus_Return_Of_Jules
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revive_Officer_Corps
-		}
-		x = 63
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Learn_From_Robotnik_War
-		text = KOA_Learn_From_Robotnik_War
-		icon = GFX_focus_analyzing_frw
-		cost = 7
-		prerequisite = {
-			focus = KOA_Return_Of_Jules
-		}
-		x = 62
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Military_Revolution
-		text = KOA_Military_Revolution
-		icon = GFX_focus_Military_Revolution
-		cost = 7
-		prerequisite = {
-			focus = KOA_Grand_Army
-		}
-		x = 68
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Tank_Corps
-		text = KOA_Tank_Corps
-		icon = GFX_focus_Tank_Corps
-		cost = 7
-		prerequisite = {
-			focus = KOA_Military_Revolution
-		}
-		x = 66
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Heavy_Weaponry
-		text = KOA_Heavy_Weaponry
-		icon = GFX_focus_Heavy_Weaponry
-		cost = 7
-		prerequisite = {
-			focus = KOA_Military_Revolution
-		}
-		x = 68
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Motorized_Troops
-		text = KOA_Motorized_Troops
-		icon = GFX_focus_Motorized_Troops
-		cost = 7
-		prerequisite = {
-			focus = KOA_Tank_Corps
-		}
-		prerequisite = {
-			focus = KOA_Heavy_Weaponry
-		}
-		x = 67
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Develop_Robotic_Systems
-		text = KOA_Develop_Robotic_Systems
-		icon = GFX_focus_Develop_Robotic_Systems
-		cost = 7
-		prerequisite = {
-			focus = KOA_Motorized_Troops
-		}
-		prerequisite = {
-			focus = KOA_Return_Of_Jules
-		}
-		x = 65
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Better_than_GUN
-		text = KOA_Better_than_GUN
-		icon = GFX_focus_Better_than_GUN
-		cost = 7
-		prerequisite = {
-			focus = KOA_Motorized_Troops
-		}
-		x = 67
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Theory_Of_Cooperation
-		text = KOA_Theory_Of_Cooperation
-		icon = GFX_focus_Theory_Of_Cooperation
-		cost = 7
-		prerequisite = {
-			focus = KOA_Heavy_Weaponry
-		}
-		x = 68
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Reform_System_Of_Ranks
-		text = KOA_Reform_System_Of_Ranks
-		icon = GFX_focus_Reform_System_Of_Ranks
-		cost = 7
-		prerequisite = {
-			focus = KOA_Military_Revolution
-		}
-		x = 70
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Centralized_Command
-		text = KOA_Centralized_Command
-		icon = GFX_focus_Centralized_Command
-		cost = 7
-		prerequisite = {
-			focus = KOA_Reform_System_Of_Ranks
-		}
-		x = 70
-		y = 5
-
-	}
-	focus = {
-		id = KOA_Prepare_Long_War
-		text = KOA_Prepare_Long_War
-		icon = GFX_focus_Prepare_Long_War
-		cost = 7
-		prerequisite = {
-			focus = KOA_Centralized_Command
-		}
-		x = 70
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Proffesional_Army
-		text = KOA_Proffesional_Army
-		icon = GFX_focus_Proffesional_Army
-		cost = 7
-		prerequisite = {
-			focus = KOA_Prepare_Long_War
-		}
-		prerequisite = {
-			focus = KOA_Theory_Of_Cooperation
-		}
-		x = 69
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Royal_Navy
-		text = KOA_Royal_Navy
-		icon = GFX_focus_Royal_Navy
-		cost = 7
-		prerequisite = {
-			focus = KOA_Grand_Military_Reforms
-		}
-		x = 78
-		y = 1
-
-	}
-	focus = {
-		id = KOA_Freedom_Marines
-		text = KOA_Freedom_Marines
-		icon = GFX_focus_Freedom_Marines
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Navy
-		}
-		x = 73
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Protect_the_Strait
-		text = KOA_Protect_the_Strait
-		icon = GFX_focus_Protect_the_Strait
-		cost = 7
-		prerequisite = {
-			focus = KOA_Freedom_Marines
-		}
-		x = 72
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Armor_for_Marines
-		text = KOA_Armor_for_Marines
-		icon = GFX_focus_Armor_for_Marines
-		cost = 7
-		prerequisite = {
-			focus = KOA_Freedom_Marines
-		}
-		x = 74
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Conscript_Vessels
-		text = KOA_Conscript_Vessels
-		icon = GFX_focus_Conscript_Vessels
-		cost = 7
-		prerequisite = {
-			focus = KOA_Armor_for_Marines
-		}
-		prerequisite = {
-			focus = KOA_Protect_the_Strait
-		}
-		x = 73
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Learn_from_UF
-		icon = GFX_focus_Learn_from_UF
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Navy
-		}
-		mutually_exclusive = {
-			focus = KOA_Own_School
-		}
-		x = 77
-		y = 2
-
-	}
-	focus = {
-		id = KOA_UF_Instructors
-		text = KOA_UF_Instructors
-		icon = GFX_focus_UF_Instructors
-		cost = 7
-		prerequisite = {
-			focus = KOA_Learn_from_UF
-		}
-		x = 76
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Carrier_Buildup
-		text = KOA_Carrier_Buildup
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_UF_Instructors
-		}
-		x = 75
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Own_School
-		text = KOA_Own_School
-		icon = GFX_focus_Own_School
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Navy
-		}
-		mutually_exclusive = {
-			focus = KOA_Learn_from_UF
-		}
-		x = 79
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Navigation_Research
-		text = KOA_Navigation_Research
-		icon = GFX_focus_Navigation_Research
-		cost = 7
-		prerequisite = {
-			focus = KOA_Learn_from_UF
-			focus = KOA_Own_School
-		}
-		x = 78
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Submarine_Development
-		text = KOA_Submarine_Development
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_UF_Instructors
-		}
-		prerequisite = {
-			focus = KOA_Navigation_Research
-		}
-		x = 77
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Old_Navy_Experience
-		text = KOA_Old_Navy_Experience
-		icon = GFX_focus_Old_Navy_Experience
-		cost = 7
-		prerequisite = {
-			focus = KOA_Own_School
-		}
-		x = 80
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Destroyer_Overhaul
-		text = KOA_Destroyer_Overhaul
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Old_Navy_Experience
-		}
-		prerequisite = {
-			focus = KOA_Navigation_Research
-		}
-		x = 79
-		y = 4
-
-	}
-	focus = {
-		id = KOA_More_Guns_better
-		text = KOA_More_Guns_better
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Old_Navy_Experience
-		}
-		x = 81
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Naval_Academy
-		text = KOA_Naval_Academy
-		icon = GFX_focus_Naval_Academy
-		cost = 7
-		prerequisite = {
-			focus = KOA_Royal_Navy
-		}
-		x = 83
-		y = 2
-
-	}
-	focus = {
-		id = KOA_Recruit_Naval_Races
-		text = KOA_Recruit_Naval_Races
-		icon = GFX_focus_Recruit_Naval_Races
-		cost = 7
-		prerequisite = {
-			focus = KOA_Naval_Academy
-		}
-		x = 82
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Naval_Bureau
-		text = KOA_Naval_Bureau
-		icon = GFX_focus_Naval_Bureau
-		cost = 7
-		prerequisite = {
-			focus = KOA_Naval_Academy
-		}
-		x = 84
-		y = 3
-
-	}
-	focus = {
-		id = KOA_Grand_Port
-		text = KOA_Grand_Port
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Naval_Bureau
-		}
-		prerequisite = {
-			focus = KOA_Recruit_Naval_Races
-		}
-		x = 83
-		y = 4
-
-	}
-	focus = {
-		id = KOA_Rule_the_Seas
-		text = KOA_Rule_the_Seas
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Destroyer_Overhaul
-		}
-		prerequisite = {
-			focus = KOA_More_Guns_better
-		}
-		prerequisite = {
-			focus = KOA_Grand_Port
-		}
-		x = 81
 		y = 5
 
 	}
@@ -2693,39 +2897,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = KOA_Region
-		icon = GFX_focus_KOA_Region
-		cost = 7
-		prerequisite = {
-			focus = KOA_New_Road
-		}
-		x = 37
-		y = 6
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
-		id = KOA_Statistic_Heavy_Artillery
-		icon = GFX_focus_KOA_Statistic_Heavy_Artillery
-		cost = 7
-		prerequisite = {
-			focus = KOA_Region
-		}
-		prerequisite = {
-			focus = KOA_New_Sever
-		}
-		x = 34
-		y = 7
-			available_if_capitulated = no
-			completion_reward = {
-
-}
-
-	}
-	focus = {
 		id = KOA_Elias_Line
 		text = KOA_Elias_Line
 		icon = GFX_goal_unknown
@@ -2782,18 +2953,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = KOA_Theory_Of_Operation
-		text = KOA_Theory_Of_Operation
-		icon = GFX_focus_Theory_Of_Operation
-		cost = 7
-		prerequisite = {
-			focus = KOA_Sally_Doctrine
-		}
-		x = 53
-		y = 4
-
-	}
-	focus = {
 		id = KOA_Stealth_Troops
 		text = KOA_Stealth_Troops
 		icon = GFX_focus_Stealth_Troops
@@ -2804,7 +2963,7 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Theory_Of_Operation
 		}
-		x = 53
+		x = 63
 		y = 5
 
 	}
@@ -2819,20 +2978,8 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Underground_Ways
 		}
-		x = 54
+		x = 64
 		y = 6
-
-	}
-	focus = {
-		id = KOA_Hit_and_Run
-		text = KOA_Hit_and_Run
-		icon = GFX_focus_Hit_and_Run
-		cost = 7
-		prerequisite = {
-			focus = KOA_Secret_Freedom_Fighters
-		}
-		x = 51
-		y = 5
 
 	}
 	focus = {
@@ -2843,7 +2990,7 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Hit_and_Run
 		}
-		x = 51
+		x = 62
 		y = 6
 
 	}
@@ -2858,31 +3005,10 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Fast_And_Furious
 		}
-		x = 53
-		y = 7
-
-	}
-	focus = {
-		id = KOA_Control_The_Sky
-		text = KOA_Control_The_Sky
-		icon = GFX_focus_Control_The_Sky
-		cost = 7
 		prerequisite = {
-			focus = KOA_Dogfight
+			focus = KOA_Sonic_Spirit
 		}
-		x = 41
-		y = 6
-
-	}
-	focus = {
-		id = KOA_Fighter_Bomber
-		text = KOA_Fighter_Bomber
-		icon = GFX_focus_Fighter_Bomber
-		cost = 7
-		prerequisite = {
-			focus = KOA_Control_The_Sky
-		}
-		x = 41
+		x = 64
 		y = 7
 
 	}
@@ -2893,7 +3019,7 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Mil_Res
 		}
-		x = 60
+		x = 69
 		y = 7
 
 	}
@@ -2911,7 +3037,7 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Conscript_Vessels
 		}
-		x = 75
+		x = 82
 		y = 5
 
 	}
@@ -2948,39 +3074,6 @@ focus_tree = {
 			focus = KOA_Studiopolis_Issue
 		}
 		x = 26
-		y = 11
-
-	}
-	focus = {
-		id = KOA_Cats_and_Dogs
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Northamer_FF
-		}
-		x = 29
-		y = 9
-
-	}
-	focus = {
-		id = KOA_Soumerica_Trainings
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Cats_and_Dogs
-		}
-		x = 29
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Kordova_Pact
-		icon = GFX_goal_unknown
-		cost = 7
-		prerequisite = {
-			focus = KOA_Soumerica_Trainings
-		}
-		x = 29
 		y = 11
 
 	}
@@ -3024,73 +3117,6 @@ focus_tree = {
 		}
 		x = 31
 		y = 14
-
-	}
-	focus = {
-		id = KOA_Expropriate_Landlords
-		icon = GFX_focus_Expropriate_Landlords
-		cost = 7
-		prerequisite = {
-			focus = KOA_Revolution_from_Above
-		}
-		x = 43
-		y = 9
-
-	}
-	focus = {
-		id = KOA_Cooperation_Agriculture
-		icon = GFX_focus_Cooperation_Agriculture
-		cost = 7
-		prerequisite = {
-			focus = KOA_Expropriate_Landlords
-		}
-		x = 43
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Royal_National
-		icon = GFX_focus_Royal_National
-		cost = 7
-		prerequisite = {
-			focus = KOA_Expropriate_Landlords
-		}
-		x = 41
-		y = 10
-
-	}
-	focus = {
-		id = KOA_Royal_Plan
-		icon = GFX_focus_Royal_Plan
-		cost = 7
-		prerequisite = {
-			focus = KOA_Cooperation_Agriculture
-		}
-		prerequisite = {
-			focus = KOA_Royal_National
-		}
-		x = 42
-		y = 11
-
-	}
-	focus = {
-		id = KOA_Red_Monarchy
-		icon = GFX_focus_Red_Monarchy
-		cost = 7
-		prerequisite = {
-			focus = KOA_End_Priveleges
-		}
-		prerequisite = {
-			focus = KOA_Royal_Plan
-		}
-		prerequisite = {
-			focus = KOA_Just_Constitution
-		}
-		prerequisite = {
-			focus = KOA_Anti_Reactionary_FF
-		}
-		x = 44
-		y = 12
 
 	}
 }

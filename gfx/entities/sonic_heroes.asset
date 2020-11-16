@@ -1,0 +1,31 @@
+
+entity = {
+	name = "KOA_hero_tech_entity"
+	pdxmesh = "tails_mech_mesh"
+	
+	state = { name = "idle"				animation = "idle"   animation_blend_time = 0.3 }
+	state = { name = "move"				animation = "move"   animation_blend_time = 0.3 }
+	state = { name = "retreat"				animation = "move"   animation_blend_time = 0.3 }
+	state = { name = "attack"			animation = "attack" animation_blend_time = 0.3 
+		event = { time = 0.2 node="small_barrel" particle = "rifle_muzzle_particle"  keep_particle = yes light = "muzzle_flash" sound = { soundeffect = infantry_rifle_attack } } 
+		event = { time = 0.92 node="big_barrel" particle = "mech_lazer_particle"  keep_particle = yes sound = { soundeffect = light_armour_fire } } 
+	}
+	state = { name = "defend"			animation = "attack" animation_blend_time = 0.3 
+		event = { time = 0.2 node="small_barrel" particle = "rifle_muzzle_particle"  keep_particle = yes sound = { soundeffect = light_armour_fire } } 
+		event = { time = 0.92 node="big_barrel" particle = "mech_lazer_particle"  keep_particle = yes sound = { soundeffect = light_armour_fire } } 
+	}
+	state = { name = "support_attack"	animation = "attack" animation_blend_time = 0.3  
+		event = { time = 0.2 node="small_barrel" particle = "rifle_muzzle_particle"  keep_particle = yes sound = { soundeffect = light_armour_fire } } 
+		event = { time = 0.92 node="big_barrel" particle = "mech_lazer_particle"  keep_particle = yes sound = { soundeffect = light_armour_fire } } 
+	}
+	state = { name = "training"				animation = "idle" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+
+	
+	scale = 0.7
+
+	game_data = {
+		texture_anim_speed = 0.5
+	}
+}
+
+

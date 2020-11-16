@@ -678,10 +678,14 @@ country_event = {
 			}
 		}
 		set_party_name = {
-					ideology = neosocialist
-					long_name = RCR_Gachi_Cheka_gang_long
-					name = RCR_Gachi_Cheka_gang
-				}
+			ideology = neosocialist
+			long_name = RCR_Gachi_Cheka_gang_long
+			name = RCR_Gachi_Cheka_gang
+		}
+		set_variable = {
+			var = RCR_prisoners
+			value = 15000
+		}
 	}
 }
 
@@ -1034,6 +1038,190 @@ country_event = {
 }
 
 country_event = {
+	id = rcr.45
+	title = rcr.45.t
+	desc = rcr.45.d
+	picture = GFX_report_event_stalegor
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+
+	option = {
+		name = rcr.45.a
+		add_political_power = +100
+		add_war_support = +0.2
+		add_stability = +0.1
+	}
+	
+}
+
+country_event = {
+	id = rcr.46
+	title = rcr.46.t
+	desc = rcr.46.d
+	picture = GFX_report_event_the_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.46.a
+		add_political_power = 50
+	}
+	
+}
+
+country_event = {
+	id = rcr.47
+	title = rcr.47.t
+	desc = rcr.47.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.47.a
+		add_political_power = -25
+		add_stability = +0.025
+		add_ideas = GOST
+	}
+	option = {
+		name = rcr.47.b
+	}
+	
+}
+
+country_event = {
+	id = rcr.48
+	title = rcr.48.t
+	desc = rcr.48.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.48.a
+		add_to_variable = {
+			RCR_communalisation_progress = 20
+			custom_effect_tooltip = rcr.48.tt
+			swap_ideas = {
+				remove_idea = Communalization
+				add_idea = Communalization_1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = rcr.50
+	title = rcr.50.t
+	desc = rcr.50.d
+	picture = GFX_report_event_echo_past
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.50.a
+	}
+}
+
+country_event = {
+	id = rcr.51
+	title = rcr.51.t
+	desc = rcr.51.d
+	picture = GFX_report_event_stalegor
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.51.a
+		add_ideas = Communalization
+		set_variable = { 
+			var = RCR_communalisation_progress
+			value = 0
+		}
+	}
+}
+
+country_event = {
+	id = rcr.52
+	title = rcr.52.t
+	desc = rcr.52.d
+	picture = GFX_report_event_the_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.52.a
+		add_political_power = -50
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = autonomous_socialist
+			popularity = -0.025
+		}
+		add_popularity = {
+			ideology = neosocialist
+			popularity = 0.025
+		}
+		set_party_name = {
+			ideology = neosocialist
+			long_name = RCR_RKP_long
+			name = RCR_RKP
+		}
+		set_party_name = {
+			ideology = communism
+			long_name = RCR_RKP_long
+			name = RCR_RKP
+		}
+		set_party_name = {
+			ideology = autonomous_socialist
+			long_name = RCR_RKP_long
+			name = RCR_RKP
+		}
+	}
+}
+
+country_event = {
+	id = rcr.53
+	title = rcr.53.t
+	desc = rcr.53.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.53.a
+		add_political_power = -75
+		add_manpower = -43
+		custom_effect_tooltip = rcr.53.tt
+		FEC = {
+			swap_ideas = {
+				remove_idea = Far_Eastern_Committee
+				add_idea = Far_Eastern_Committee_good
+			}
+		}
+	}
+}
+
+country_event = {
 	id = rcr.80
 	title = rcr.80.t
 	desc = rcr.80.d
@@ -1044,7 +1232,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = RCR
-			tag = POL
+			tag = PSR
 		}
 	}
 	
@@ -1058,7 +1246,7 @@ country_event = {
 		trigger = {
 		OR = {
 			tag = RCR
-			tag = POL
+			tag = PSR
 			}
 		}
 		RCR = {
@@ -1068,7 +1256,7 @@ country_event = {
 				value = 500
 			}
 			set_variable = {
-				var = POL_vodka_sells
+				var = PSR_vodka_sells
 				value = 400
 			}
 			set_variable = {
@@ -1076,14 +1264,14 @@ country_event = {
 				value = 400
 			}
 		}
-		POL = {
+		PSR = {
 			add_ideas = Vodka_War
 			set_variable = {
 				var = RCR_vodka_sells
 				value = 500
 			}
 			set_variable = {
-				var = POL_vodka_sells
+				var = PSR_vodka_sells
 				value = 400
 			}
 			set_variable = {
@@ -1119,7 +1307,7 @@ country_event = {
 		subtract_from_variable = {
 			RCR_vodka_sells = 150
 		}
-		POL = {
+		PSR = {
 			subtract_from_variable = {
 				RCR_vodka_sells = 150
 			}
@@ -1152,7 +1340,7 @@ country_event = {
 		subtract_from_variable = {
 			RCR_vodka_sells = 150
 		}
-		POL = {
+		PSR = {
 			subtract_from_variable = {
 				RCR_vodka_sells = 150
 			}
@@ -1185,7 +1373,7 @@ country_event = {
 		subtract_from_variable = {
 			RCR_vodka_sells = 200
 		}
-		POL = {
+		PSR = {
 			subtract_from_variable = {
 				RCR_vodka_sells = 200
 			}
@@ -1648,14 +1836,22 @@ country_event = {
 	id = rcr.89
 	title = rcr.89.t
 	desc = rcr.89.d
-	picture = GFX_report_event_soviet_rethenia
+	picture = GFX_report_event_5_year
 	
 	fire_only_once = yes
 	
-	is_triggered_only = yes
+	trigger =  {
+		original_tag = RCR
+		check_variable = {
+			RCR_communalisation_progress > 99
+		}
+	}
 	
-	mean_time_to_happen = {
-		days = 1
+	immediate = {
+		remove_ideas = Communalization
+		remove_ideas = Communalization_1
+		clear_variable = RCR_communalisation_progress
+		add_ideas = Communal_Agriculture
 	}
 	
 	is_triggered_only = yes
@@ -1772,7 +1968,7 @@ country_event = {
 		}
 		add_timed_idea = { idea = indicaton_economic days = 365 }
 	}
-	
+}	
 country_event = {
 	id = rcr.91
 	title = rcr.91.t
@@ -1831,6 +2027,30 @@ country_event = {
 			category = industry
 		}
 	}
+}
+
+country_event = {
+	id = rcr.92
+	title = rcr.92.t
+	desc = rcr.92.d
+	picture = GFX_report_event_parade_tank
+	
+	trigger = {
+		AND = {
+			has_completed_focus = RCR_updated_red_army
+			date > 3240.12.31
+			date < 3241.01.02
+		}
+	}
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr.92.a 
+		add_political_power = 75
+	}
+}
 ##############################
 # what about some communism? #
 ##############################
