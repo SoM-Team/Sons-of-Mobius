@@ -1,7 +1,7 @@
 equipments = {
 
 	anti_tank_equipment = {
-		year = 1934
+		year = 3200
 
 		is_archetype = yes
 		picture = archetype_anti_tank_equipment		
@@ -24,8 +24,8 @@ equipments = {
 
 		#Offensive Abilities
 		soft_attack = 4
-		hard_attack = 15
-		ap_attack = 75
+		hard_attack = 18
+		ap_attack = 60
 		air_attack = 0
 
 		#Space taken in convoy
@@ -38,26 +38,44 @@ equipments = {
 		}
 	}
 
-	anti_tank_equipment_1 = {
-		year = 1936
+	anti_tank_equipment_0 = {
+		year = 3230
 
 		archetype = anti_tank_equipment
 		priority = 90
 		visual_level = 0
 	}
+
+	anti_tank_equipment_1 = {
+		year = 3235
+
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_0
+		priority = 90
+		visual_level = 0
+		
+		hard_attack = 30
+		ap_attack = 80
+		
+		build_cost_ic = 5.5
+		resources = {
+			tungsten = 2
+			steel = 2
+		}
+	}
 	
 	anti_tank_equipment_2 = {
-		year = 1940
+		year = 3239
 
 		archetype = anti_tank_equipment
 		parent = anti_tank_equipment_1
 		priority = 90
 		visual_level = 1
 		
-		hard_attack = 22
-		ap_attack = 88
+		hard_attack = 42
+		ap_attack = 108
 		
-		build_cost_ic = 5
+		build_cost_ic = 6.6
 		resources = {
 			tungsten = 2
 			steel = 2
@@ -65,7 +83,7 @@ equipments = {
 	}
 	
 	anti_tank_equipment_3 = {
-		year = 1943
+		year = 3245
 
 		archetype = anti_tank_equipment
 		parent = anti_tank_equipment_2
@@ -73,12 +91,112 @@ equipments = {
 		visual_level = 2
 		
 		hard_attack = 30
-		ap_attack = 108
+		ap_attack = 128
 		
-		build_cost_ic = 6
+		build_cost_ic = 8
 		resources = {
 			tungsten = 2
 			steel = 3
+		}
+	}
+	
+	anti_tank_equipment_4 = {
+		year = 3250
+
+		archetype = anti_tank_equipment
+		parent = anti_tank_equipment_3
+		priority = 90
+		visual_level = 3
+		
+		hard_attack = 40
+		ap_attack = 148
+		
+		build_cost_ic = 8
+		resources = {
+			tungsten = 2
+			steel = 4
+		}
+	}
+
+	railgun_anti_tank_equipment = {
+		year = 3200
+
+		is_archetype = yes
+		picture = archetype_anti_tank_equipment		
+		type = { 
+			anti_tank
+			infantry #adding infantry type
+		}
+		group_by = archetype
+		
+		interface_category = interface_category_land
+
+		#Misc Abilities
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 4
+		breakthrough = 4
+		hardness = 0
+		armor_value = 0
+
+		#Offensive Abilities
+		soft_attack = 4
+		hard_attack = 180
+		ap_attack = 700
+		air_attack = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 4
+				
+		build_cost_ic = 9.3
+		resources = {
+			tungsten = 3
+			steel = 2
+		}
+	}
+
+	railgun_anti_tank_equipment_1 = {
+		year = 3235
+
+		archetype = railgun_anti_tank_equipment
+		priority = 90
+		visual_level = 0
+	}
+	
+	railgun_anti_tank_equipment_2 = {
+		year = 3243
+
+		archetype = railgun_anti_tank_equipment
+		parent = railgun_anti_tank_equipment_1
+		priority = 90
+		visual_level = 1
+		
+		hard_attack = 320
+		ap_attack = 1508
+		
+		build_cost_ic = 12
+		resources = {
+			tungsten = 4
+			steel = 3
+		}
+	}
+	
+	railgun_anti_tank_equipment_3 = {
+		year = 3250
+
+		archetype = railgun_anti_tank_equipment
+		parent = railgun_anti_tank_equipment_2
+		priority = 90
+		visual_level = 2
+		
+		hard_attack = 600
+		ap_attack = 9999
+		
+		build_cost_ic = 18.4
+		resources = {
+			tungsten = 6
+			steel = 4
 		}
 	}
 }
