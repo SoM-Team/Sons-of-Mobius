@@ -1,0 +1,859 @@
+technologies = {
+	programmed_electronics = {
+
+		# small boost to research speed
+		research_speed_factor = 0.04
+		
+		path = {
+			leads_to_tech = robotization_machine
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = quantum_processor 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 20
+			
+			
+			modifier = {
+				factor = 3
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 0 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	robotization_machine = {
+
+		# small boost to division recovery rate
+		army_morale_factor = 0.04
+		
+		path = {
+			leads_to_tech = fiw_robians
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		
+		ai_will_do = {
+			factor = 20
+			
+			modifier = {
+				factor = 2
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -6 y = 2 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	fiw_robians = {
+
+		enable_equipments = {
+			empty_robians_equipment_1
+			robians_equipment_1
+		}
+		
+		enable_subunits = {
+			robians
+		}
+		path = {
+			leads_to_tech = light_robots_1
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_robians"
+			}
+		}
+		research_cost = 3
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 1.5
+				date > "3237.1.1"
+			}
+			modifier = {
+				is_major = yes
+				factor = 6
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -6 y = 4 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	quantum_processor = {
+
+		# small boost to research speed
+		research_speed_factor = 0.04
+		
+		path = {
+			leads_to_tech = light_robots_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = medium_robot_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.5
+		
+		ai_will_do = {
+			factor = 6
+			
+			modifier = {
+				factor = 3
+				date > "3237.1.1"
+			}
+			
+			modifier = {
+				factor = 3
+				date > "3238.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 2 y = 4 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	medium_robot_1 = {
+
+		enable_equipments = {
+			medium_robot_equipment_1
+		}
+		enable_subunits = {
+			medium_robots
+		}
+		path = {
+			leads_to_tech = identification_system_friend_or_foe
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = heavy_robot_1
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_medium_robots"
+			}
+		}
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 4
+				is_major = yes
+				date > "3236.1.1"
+			}
+			modifier = {
+				factor = 1.1
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 6 y = 8 }
+		}
+		categories = {
+			robot_techs
+			cat_medium_robot
+		}
+	}
+	heavy_robot_1 = {
+
+		enable_equipments = {
+			heavy_robot_equipment_1
+		}
+		enable_subunits = {
+			heavy_robots
+		}
+		path = {
+			leads_to_tech = energy_ring_reactor
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_heavy_robots"
+			}
+		}
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 10 y = 10 }
+		}
+		categories = {
+			robot_techs
+			cat_heavy_robot
+		}
+	}
+	energy_ring_reactor = {
+		
+		heavy_robots = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+			max_organisation = 3
+			default_morale = 0.05
+		}
+		category_robots = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+			max_organisation = 4
+			default_morale = 0.05
+		}
+		
+		
+		path = {
+			leads_to_tech = heavy_robot_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		start_year = 3238
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 3
+				date > "3238.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 10 y = 12 }
+		}
+		categories = {
+			robot_techs
+			cat_mega_robot
+		}
+	}
+	heavy_robot_2 = {
+
+		enable_equipments = {
+			heavy_robot_equipment_2
+		}
+		path = {
+			leads_to_tech = heavy_robot_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 3240
+		
+		ai_will_do = {
+			factor = 1
+			
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 10 y = 14 }
+		}
+		categories = {
+			robot_techs
+			cat_heavy_robot
+		}
+	}
+	heavy_robot_3 = {
+
+		enable_equipments = {
+			heavy_robot_equipment_3
+		}
+		path = {
+			leads_to_tech = mega_robot_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 3243
+		
+		ai_will_do = {
+			factor = 1
+			
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 10 y = 16 }
+		}
+		categories = {
+			robot_techs
+			cat_heavy_robot
+		}
+	}
+	identification_system_friend_or_foe = {
+
+		category_robots = {
+			max_organisation = 2
+			default_morale = 0.05
+		}
+		path = {
+			leads_to_tech = medium_robot_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 3
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 6 y = 10 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	medium_robot_2 = {
+
+		enable_equipments = {
+			medium_robot_equipment_2
+		}
+		enable_equipments = {
+			gw_tank_equipment
+		}
+		path = {
+			leads_to_tech = reinforced_main_caliber
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3238
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 7
+				is_major = yes
+				date > "3238.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 6 y = 12 }
+		}
+		categories = {
+			robot_techs
+			cat_medium_robot
+		}
+	}
+	reinforced_main_caliber = {
+
+
+
+		heavy_robots = {
+			soft_attack = 0.04
+			hard_attack = 0.04
+			ap_attack = 0.04
+		}
+		medium_robots = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
+		
+		path = {
+			leads_to_tech = medium_robot_3
+			research_cost_coeff = 1
+		}
+		research_cost = 2.5
+		start_year = 3240
+		
+		ai_will_do = {
+			factor = 2
+			
+			modifier = {
+				factor = 8
+				date > "3240.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 6 y = 14 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	medium_robot_3 = {
+
+		enable_equipments = {
+			medium_robot_equipment_3
+		}
+		enable_equipments = {
+			gw_tank_equipment
+		}
+		path = {
+			leads_to_tech = mega_robot_1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3243
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 7
+				is_major = yes
+				date > "3243.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 6 y = 16 }
+		}
+		categories = {
+			robot_techs
+			cat_medium_robot
+		}
+	}
+	light_robots_1 = {
+
+		enable_equipments = {
+			light_robots_equipment_1
+		}
+		enable_subunits = {
+			light_robots
+			robot_recon
+			robot_maintenance_company
+		}
+		path = {
+			leads_to_tech = power_station
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_light_robots"
+			}
+		}
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 30
+			
+			modifier = {
+				factor = 3
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 6 }
+		}
+		categories = {
+			robot_techs
+			cat_light_robot
+		}
+	}
+	power_station = {
+
+		
+		light_robots = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+			max_organisation = 4
+			default_morale = 0.05
+		}
+		path = {
+			leads_to_tech = light_robots_2
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 1.5
+		
+		ai_will_do = {
+			factor = 30
+			
+			modifier = {
+				factor = 3
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 8 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	light_robots_2 = {
+
+		enable_equipments = {
+			light_robots_equipment_2
+		}
+		path = {
+			leads_to_tech = guidance_system
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = drone_robots_1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		
+		ai_will_do = {
+			factor = 1
+			
+			
+			modifier = {
+				factor = 3
+				is_major = yes
+			}
+			modifier = {
+				factor = 2
+				is_major = yes
+				date > "3237.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 10 }
+		}
+		categories = {
+			robot_techs
+			cat_light_robot
+		}
+	}
+	drone_robots_1 = {
+
+		enable_equipments = {
+			drone_equipment_1
+		}
+		path = {
+			leads_to_tech = rocket_weaponry
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3238
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 1.5
+				is_major = yes
+			}
+			modifier = {
+				factor = 2
+				is_major = yes
+				date > "3238.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 2 y = 12 }
+		}
+		categories = {
+			robot_techs
+			cat_drone_robot
+		}
+	}
+	rocket_weaponry = {
+
+		air_cas_present_factor = 0.20
+		category_robots = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		path = {
+			leads_to_tech = drone_robots_2
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3240
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				is_major = yes
+				date > "3240.1.1"
+			}
+			modifier = {
+				factor = 2
+				is_major = yes
+				date > "3241.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 2 y = 14 }
+		}
+		categories = {
+			robot_techs
+			cat_drone_robot
+		}
+	}
+	drone_robots_2 = {
+
+		enable_equipments = {
+			drone_equipment_2
+		}
+		path = {
+			leads_to_tech = mega_robot_1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3243
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				is_major = yes
+				date > "3243.1.1"
+			}
+			modifier = {
+				factor = 2
+				is_major = yes
+				date > "3244.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 2 y = 16 }
+		}
+		categories = {
+			robot_techs
+			cat_drone_robot
+		}
+	}
+	guidance_system = {
+
+		
+		category_robots = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+		}
+		path = {
+			leads_to_tech = light_robots_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 3238
+		
+		ai_will_do = {
+			factor = 3
+			
+			modifier = {
+				factor = 3
+				date > "3238.1.1"
+			}
+			modifier = {
+				factor = 4
+				date > "3239.1.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 12 }
+		}
+		categories = {
+			robot_techs
+		}
+	}
+	light_robots_3 = {
+
+		enable_equipments = {
+			light_robots_equipment_3
+		}
+		path = {
+			leads_to_tech = self_repair_system
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = androids_1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3240
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "3240.1.1"
+			}
+			modifier = {
+				factor = 4
+				is_major = yes
+			}
+			modifier = {
+				factor = 2
+				date > "3241.4.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 14 }
+		}
+		categories = {
+			robot_techs
+			cat_light_robot
+		}
+	}
+	androids_1 = {
+
+		enable_equipments = {
+			androids_equipment_1
+		}
+		enable_subunits = {
+			androids
+		}
+		research_cost = 3
+		start_year = 3243
+		
+
+		on_research_complete = {
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_androids"
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				date > "3243.1.1"
+			}
+			modifier = {
+				factor = 4
+				is_major = yes
+			}
+			modifier = {
+				factor = 2
+				date > "3244.4.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -6 y = 16 }
+		}
+		categories = {
+			robot_techs
+			cat_light_robot
+		}
+	}
+	self_repair_system = {
+		
+		category_robots = {
+			default_morale = 0.1
+		}
+		robot_maintenance_company = {
+			reliability_factor = 0.08
+			equipment_capture_factor = 0.12
+		}
+		path = {
+			leads_to_tech = mega_robot_1
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3243
+		
+		ai_will_do = {
+			factor = 2
+			
+			modifier = {
+				factor = 2
+				date > "3243.1.1"
+			}
+			modifier = {
+				factor = 4
+				is_major = yes
+			}
+			modifier = {
+				factor = 2
+				date > "3244.4.1"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = -2 y = 16 }
+		}
+		categories = {
+			robot_techs
+			cat_light_robot
+		}
+	}
+	mega_robot_1 = {
+
+		enable_equipments = {
+			mega_robot_equipment_1
+		}
+		enable_subunits = {
+			mega_robot
+		}
+		research_cost = 2
+		start_year = 3245
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 300
+				original_tag = EGG
+				date > "3245.6.9"
+			}
+		}
+		folder = {
+			name = robot_folder
+			position = { x = 4 y = 18 }
+		}
+		categories = {
+			robot_techs
+			cat_mega_robot
+		}
+	}
+}
+		
