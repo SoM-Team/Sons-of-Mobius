@@ -1,0 +1,113 @@
+add_namespace = tech
+
+country_event = {
+	id = tech.1
+	title = tech.1.t
+	desc = tech.1.d
+	picture = GFX_report_event_diplomatic_message
+	
+	trigger = {
+	any_country = {
+	OR = {
+	
+	AND = {
+	NOT = {has_idea = very_low_tech}
+	num_of_civilian_factories < 20
+	}
+	#
+	AND = {
+	NOT = {has_idea = low_tech}
+	AND = {
+	num_of_civilian_factories > 20
+	num_of_civilian_factories < 75
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = medium_tech}
+	AND = {
+	num_of_civilian_factories > 75
+	num_of_civilian_factories < 100
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = good_tech}
+	AND = {
+	num_of_civilian_factories > 100
+	num_of_civilian_factories < 125
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = very_good_tech}
+	num_of_civilian_factories > 125
+	}
+	#
+	}
+	}
+	}
+	
+    hidden = yes
+
+	option = {
+		name = tech.1.a
+		
+		every_country = {
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = very_low_tech}
+	    num_of_civilian_factories < 20
+		}
+		}
+		add_ideas = very_low_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = low_tech}
+	    num_of_civilian_factories > 20
+		num_of_civilian_factories < 75
+		}
+		}
+		add_ideas = low_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = medium_tech}
+	    num_of_civilian_factories > 75
+		num_of_civilian_factories < 100
+		}
+		}
+		add_ideas = medium_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = good_tech}
+	    num_of_civilian_factories > 100
+		num_of_civilian_factories < 125
+		}
+		}
+		add_ideas = good_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = very_good_tech}
+	    num_of_civilian_factories > 125
+		}
+		}
+		add_ideas = very_good_tech
+		}
+		}
+		
+	}
+}
+

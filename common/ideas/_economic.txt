@@ -70,7 +70,14 @@ ideas = {
 		
 			cost = 150
 			removal_cost = -1
-			
+			available = {
+				NOT = {
+				AND = {
+				has_government = fascism
+				has_government = technocratic_despotist
+				}
+				}
+			}
 			modifier = {
 				consumer_goods_factor = 0.35
 				production_speed_industrial_complex_factor = -0.3
@@ -88,7 +95,11 @@ ideas = {
 		low_economic_mobilisation = {
 			
 			available = {
+                OR = {			
 				has_war_support > 0.15
+				has_government = fascism
+				has_government = technocratic_despotist
+				}
 			}
 			
 			cost = 150
@@ -240,6 +251,8 @@ ideas = {
 			cancel_if_invalid = no
 		}
 	}
+	
+	
 	
 	trade_laws = { 
 		law = yes
@@ -400,4 +413,139 @@ ideas = {
    			}
 		}
 	}
+	
+	
+	######### МОД
+	
+	tech_progress = { 
+		law = yes
+		very_low_tech = { # 1-5
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			num_of_civilian_factories > 0
+			}
+			
+			
+			cancel_if_invalid = no
+		}
+		
+		low_tech = { # 2-5
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			num_of_civilian_factories > 20
+			}
+			
+			
+			cancel_if_invalid = no
+		}
+		
+		medium_tech = { # 3-5
+			
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			num_of_civilian_factories > 75
+			}
+			
+			default = yes
+			cancel_if_invalid = no
+		}
+		
+		good_tech = { # 4-5
+			
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			num_of_civilian_factories > 100
+			}
+			
+			
+			cancel_if_invalid = no
+		}
+		
+		
+		very_good_tech = { # 5-5
+			
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			num_of_civilian_factories > 125
+			}
+			
+			
+			cancel_if_invalid = no
+		}
+	}
+	
+	
+	mbr_rule = { 
+		law = yes
+		yes_mbr = {
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			AND = {
+			OR = {
+			has_idea = good_tech
+			has_idea = very_good_tech
+			}
+			threat > 0.75
+			}
+			}
+			
+			
+			cancel_if_invalid = no
+		}
+		
+		no_mbr = {
+			
+			removal_cost = -1
+		
+			modifier = {
+			
+			}
+			
+			available = {
+			}
+			
+			default = yes
+			cancel_if_invalid = no
+		}
+	}
+	
+
+	
+	
 }

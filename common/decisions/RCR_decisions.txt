@@ -1865,371 +1865,1386 @@ RCR_Vodka_Wars = {
 	}
 }
 
-RCR_GULAG = {
+RCR_GOOLAG = {
+    RCR_BuildGoolagInState = {
+		icon = generic_nationalism
 
-	RCR_create_Chislag = {
-		icon = GFX_decision_elect
-
-		available = {
-			num_of_civilian_factories_available_for_projects > 2
+		allowed = {
+			original_tag = RCR
 		}
 
-		visible = {
-			has_idea = GULAG_yes
-			272 = { is_owned_and_controlled_by = RCR } 
+		available = {
+			NOT = {
+			ROOT = {has_country_flag = lager_building}
+			#FROM = {
+			#check_variable = {var1 < state_population}
+			#}
+			}
+		}
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
 		}
 
 		cost = 50
-		days_remove = 60
-		fire_only_once = yes
+        days_re_enable = 1
+		#fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
 
 		modifier = {
+			political_power_gain = -0.15
 			civilian_factory_use = 3
 		}
 
-		ai_will_do = {
-			factor = 50
+		visible = {
+			tag = RCR
+			always = yes
 		}
 
-		highlight_state_targets = { state = 272 }
-
 		complete_effect = {
-			set_country_flag = lager_building
+        set_country_flag = lager_building
 		}
 
 		remove_effect = {
+			FROM = {
+				add_to_variable = {var1 = 100000}
+			}
+			ROOT = {add_to_variable = {RCR_prisoners = 100000}}
 			clr_country_flag = lager_building
-			272 = {
+			FROM = {
 				set_state_flag = chislag_created
 			}
 			custom_effect_tooltip = chislag_done
 		}
 	}
+	RCR_RemoveGoolagInState = {
+	icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+			FROM = {
+				check_variable = {var1 > 0}
+			}
+		}
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
+		}
+
+		cost = 50
+        days_re_enable = 1
+		#fire_only_once = yes
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.15
+			civilian_factory_use = 1
+		}
+
+		visible = {
+			tag = RCR
+			always = yes
+		}
+
+		complete_effect = {
+
+		}
+
+		remove_effect = {
+			ROOT = {add_to_variable = {RCR_prisoners = -100000}}
+			FROM = {
+				add_to_variable = {var1 = -100000}
+			}
+		}
+	}
 	
-	RCR_infrastructure_Chislag = {
-		icon = GFX_decision_generic_construction
+	RCR_Goolaginfrastructure = {
+	icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
 
 		available = {
-			272 = { has_state_flag = chislag_created } 
+			FROM = {
+				check_variable = {var1 > 99999}
+			}
+		}
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
+		}
+
+		cost = 50
+        days_re_enable = 1
+		#fire_only_once = yes
+        custom_cost_text = 100k_prisoners
+		days_remove = 75
+
+		modifier = {
+			political_power_gain = -0.25
+			civilian_factory_use = 1
 		}
 
 		visible = {
-			has_idea = GULAG_yes
-			272 = { has_state_flag = chislag_created } 
+			tag = RCR
+			always = yes
 		}
-		
-		custom_cost_trigger = {
-			check_variable = {
-				var = RCR_prisoners
-				value = 100000
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 100k_prisoners
-		
-		days_remove = 60
-		fire_only_once = yes
-
-		modifier = {
-			
-		}
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		highlight_state_targets = { state = 272 }
 
 		complete_effect = {
-			set_country_flag = lager_building
-			subtract_from_variable = { RCR_prisoners = 100000 }
+        ROOT = {
+		add_to_variable = { RCR_prisoners = -100000}
+		add_to_variable = { RCR_prisoners_working = 100000}
+		}
+		FROM = {add_to_variable = { var1 = -100000 }}
 		}
 
 		remove_effect = {
-			clr_country_flag = lager_building
-			272 = {
-				add_building_construction = {
+		FROM = {
+		add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
-			}
-			270 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
 				}
-			}
-			327 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
+				custom_effect_tooltip = 100kpris
+				hidden_effect = {
+				FROM = {
+				add_to_variable = { var1 = 100000 }
 				}
-			}
-			326 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 100000 }
+				add_to_variable = { RCR_prisoners_working = -100000}
 				}
-			}
-			random_list = {
-				20 = {
-					add_to_variable = { RCR_prisoners = 100000 }
 				}
-				20 = {
-					add_to_variable = { RCR_prisoners = 98000 }
-				}
-				20 = {
-					add_to_variable = { RCR_prisoners = 95000 }
-				}
-				20 = {
-					add_to_variable = { RCR_prisoners = 92000 }
-				}
-				20 = {
-					add_to_variable = { RCR_prisoners = 90000 }
-				}
-			}
 		}
 	}
-	RCR_civil_Chislag = {
-		icon = GFX_decision_generic_construction
+	
+	RCR_GoolagFabrics = {
+	icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
 
 		available = {
-			272 = { has_state_flag = chislag_created } 
+			FROM = {
+				check_variable = {var1 > 299999}
+			}
+		}
+
+		state_target = yes
+        days_re_enable = 1
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
+		}
+
+		cost = 125
+
+		#fire_only_once = yes
+        custom_cost_text = 300k_prisoners
+		days_remove = 1
+
+		modifier = {
+			political_power_gain = -0.35
+			civilian_factory_use = 1
 		}
 
 		visible = {
-			has_idea = GULAG_yes
-			272 = { has_state_flag = chislag_created } 
+			tag = RCR
+			always = yes
 		}
-		
-		custom_cost_trigger = {
-			check_variable = {
-				var = RCR_prisoners
-				value = 50000
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 50k_prisoners
-		
-		days_remove = 45
-		fire_only_once = yes
-
-		modifier = {
-			
-		}
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		highlight_state_targets = { state = 272 }
 
 		complete_effect = {
-			set_country_flag = lager_building
-			subtract_from_variable = { RCR_prisoners = 50000 }
+        ROOT = {add_to_variable = { RCR_prisoners = -300000} add_to_variable = { RCR_prisoners_working = 300000}}
+		FROM = {add_to_variable = { var1 = -300000 }}
 		}
 
 		remove_effect = {
-			clr_country_flag = lager_building
-			272 = {
-				add_building_construction = {
+		FROM = {
+		add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
-			}
-			270 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
 				}
-			}
-			327 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			326 = {
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		hidden_effect = {
-			random_list = {
-					20 = {
-						add_to_variable = { RCR_prisoners = 50000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 49000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 47000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 46000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 45000 }
-					}
-				}
-			}
-		}
-	}
-	RCR_military_Chislag = {
-		icon = GFX_decision_generic_construction
-
-		available = {
-			272 = { has_state_flag = chislag_created } 
-		}
-
-		visible = {
-			has_idea = GULAG_yes
-			272 = { has_state_flag = chislag_created } 
-		}
-		
-		custom_cost_trigger = {
-			check_variable = {
-				var = RCR_prisoners
-				value = 50000
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 50k_prisoners
-		
-		days_remove = 45
-		fire_only_once = yes
-
-		modifier = {
-			
-		}
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		highlight_state_targets = { state = 272 }
-
-		complete_effect = {
-			set_country_flag = lager_building
-			subtract_from_variable = { RCR_prisoners = 50000 }
-		}
-
-		remove_effect = {
-			clr_country_flag = lager_building
-			272 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			326 = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			hidden_effect = {
+				custom_effect_tooltip = 300kpris
+				hidden_effect = {
 				random_list = {
-					20 = {
-						add_to_variable = { RCR_prisoners = 50000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 49000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 47000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 46000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 45000 }
-					}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 300000 }
 				}
-			}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 300000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 0}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 250000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 250000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 50000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 200000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 200000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 100000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 150000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 150000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 150000}
+				}
+				}
+				}
+				}
 		}
 	}
-	RCR_tungsten_Chislag = {
-		icon = GFX_decision_generic_construction
+	
+	RCR_GoolagArms = {
+	icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
 
 		available = {
-			272 = { has_state_flag = chislag_created } 
+			FROM = {
+				check_variable = {var1 > 299999}
+			}
+		}
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
+		}
+
+		cost = 50
+        days_re_enable = 1
+		#fire_only_once = yes
+        custom_cost_text = 300k_prisoners
+		days_remove = 100
+
+		modifier = {
+			political_power_gain = -0.25
+			civilian_factory_use = 1
 		}
 
 		visible = {
-			has_idea = GULAG_yes
-			272 = { has_state_flag = chislag_created } 
+			tag = RCR
+			always = yes
 		}
-		
-		custom_cost_trigger = {
-			check_variable = {
-				var = RCR_prisoners
-				value = 30000
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 30k_prisoners
-		
-		days_remove = 45
-		fire_only_once = yes
-
-		modifier = {
-			
-		}
-
-		ai_will_do = {
-			factor = 50
-		}
-
-		highlight_state_targets = { state = 272 }
 
 		complete_effect = {
-			set_country_flag = lager_building
-			subtract_from_variable = { RCR_prisoners = 30000 }
+        ROOT = {add_to_variable = { RCR_prisoners = -300000} add_to_variable = { RCR_prisoners_working = 300000}}
+		FROM = {add_to_variable = { var1 = -300000 }}
 		}
 
 		remove_effect = {
-			clr_country_flag = lager_building
-			272 = {
-				add_resource = {
+		FROM = {
+		add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				}
+				custom_effect_tooltip = 300kpris
+				hidden_effect = {
+				random_list = {
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 300000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 300000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 0}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 250000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 250000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 50000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 200000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 200000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 100000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 150000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 150000}
+				add_to_variable = { RCR_prisoners_working = -300000}
+				add_to_variable = { RCR_prisoners_killed = 150000}
+				}
+				}
+				}
+				}
+		}
+	}
+	
+	RCR_Goolagtungsten = {
+	icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+			FROM = {
+				check_variable = {var1 > 199999}
+			}
+		}
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		#targets = {  }
+
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+						is_owned_by = ROOT
+			}
+		}
+
+		cost = 50
+        days_re_enable = 1
+		#fire_only_once = yes
+        custom_cost_text = 200k_prisoners
+		days_remove = 100
+
+		modifier = {
+			political_power_gain = -0.25
+			civilian_factory_use = 1
+		}
+
+		visible = {
+			tag = RCR
+			always = yes
+		}
+
+		complete_effect = {
+        ROOT = {add_to_variable = { RCR_prisoners = -200000} add_to_variable = { RCR_prisoners_working = 200000}}
+		FROM = {add_to_variable = { var1 = -200000 }}
+		}
+
+		remove_effect = {
+		        add_resource = {
 					type = tungsten
 					amount = 24
 				}
-			}
-			hidden_effect = {
+				custom_effect_tooltip = 200kpris
+				hidden_effect = {
 				random_list = {
-					20 = {
-						add_to_variable = { RCR_prisoners = 30000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 39000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 37000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 36000 }
-					}
-					20 = {
-						add_to_variable = { RCR_prisoners = 35000 }
-					}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 200000 }
 				}
-			}	
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 200000}
+				add_to_variable = { RCR_prisoners_working = -200000}
+				add_to_variable = { RCR_prisoners_killed = 0}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 150000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 150000}
+				add_to_variable = { RCR_prisoners_working = -200000}
+				add_to_variable = { RCR_prisoners_killed = 50000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 100000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 100000}
+				add_to_variable = { RCR_prisoners_working = -200000}
+				add_to_variable = { RCR_prisoners_killed = 100000}
+				}
+				}
+				25 = {
+				FROM = {
+				add_to_variable = { var1 = 50000 }
+				}
+				ROOT = {
+				add_to_variable = { RCR_prisoners = 50000}
+				add_to_variable = { RCR_prisoners_working = -200000}
+				add_to_variable = { RCR_prisoners_killed = 150000}
+				}
+				}
+				}
+				}
+		}
+	}	
+
+}
+
+
+
+RCR_Shilov_Campaign = {
+
+    RCR_Start_Operation_Falanga = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		}
+
+		cost = 200
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 30
+
+		modifier = {
+			political_power_gain = -0.15
+			civilian_factory_use = 5
+			war_support_weekly = 0.05
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		hidden_effect = {
+		set_variable = {Falanga_UFA = 100}
+		set_variable = {Falanga_RCR = 0}
+		}
+		set_country_flag = operation_start
+	}
+	}
+	
+	
+    RCR_Prepare_1 = { # Подготовка 75.000 военнослужащих к переброске
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.15
+			civilian_factory_use = 2
+			max_command_power = -10
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep1
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 75000}
+		add_to_variable = {Falanga_UFA = 15}
+		}
 		}
 	}
+	
+	RCR_Prepare_2 = { # Подготовка добровольческого корпуса в 25.000 чел. 
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.15
+			civilian_factory_use = 1
+			max_command_power = -10
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		add_manpower = -25000
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep2
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 25000}
+		add_to_variable = {Falanga_UFA = 5}
+		}
+		}
+	}
+	RCR_Prepare_3 = { # Перевод 150.000 контрактников 
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.15
+			max_command_power = -50
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		add_manpower = -150000
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep3
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 150000}
+		add_to_variable = {Falanga_UFA = 12}
+		}
+		}
+	}
+	RCR_Prepare_4 = { # ''Неудачные'' учения (на учениях "гибнет" 50.000 военнослужащих)
+ 		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.15
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		add_war_support = -0.15
+		add_manpower = -50000
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep4
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 50000}
+		add_to_variable = {Falanga_UFA = -5}
+		}
+		}
+	}
+	RCR_Prepare_5 = { # Перевооружение (под шумок прячем устаревшее снаряжение для операции)
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 125
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 150
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep5
+		hidden_effect = {
+		army_experience = 200
+		add_to_variable = {Falanga_RCR = 50000}
+		add_to_variable = {Falanga_UFA = 15}
+		}
+		}
+	}
+	
+	RCR_Prepare_6 = { # Отправка наемной армии
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 150
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 150
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep6
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 25000}
+		add_to_variable = {Falanga_UFA = 2}
+		}
+		}
+	}
+	
+	RCR_Prepare_7 = { # Найм 12.000 человек "на местах"
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 75
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 100
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = prep7
+		hidden_effect = {
+		add_to_variable = {Falanga_RCR = 12000}
+		}
+		}
+	}
+	
+	RCR_Hide_1 = { # Переговоры с Федерацией
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 60
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 50
+
+		modifier = {
+			political_power_gain = -0.25
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide1
+		hidden_effect = {
+		add_to_variable = {Falanga_UFA = -10}
+		}
+		}
+	}
+	
+	RCR_Hide_2 = { # Подготовка к войне с роботами
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 200
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 120
+
+		modifier = {
+			political_power_gain = -0.12
+			max_command_power = -50
+			civilian_factory_use = 5
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		add_manpower = 100000
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide2
+		hidden_effect = {
+		add_war_support = 0.15
+		army_experience = 15
+		random_owned_controlled_state = {
+		add_building_construction = {
+		type = arms_factory
+		level = 2
+		instant_build = yes
+		}
+		}
+		add_to_variable = {Falanga_UFA = -50}
+		}
+		}
+	}
+	
+	RCR_Hide_3 = { # Подготовка фальшивых военных планов
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 110
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 80
+
+		modifier = {
+			political_power_gain = -0.1
+			max_command_power = -25
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide3
+		hidden_effect = {
+		army_experience = 15
+		add_to_variable = {Falanga_UFA = -25}
+		}
+		}
+	}
+	
+	RCR_Hide_4 = { # Критика в отношении социалистов (UWM)
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 70
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 150
+
+		modifier = {
+			political_power_gain = -0.1
+			improve_relations_maintain_cost_factor = 0.25
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide4
+		hidden_effect = {
+		add_to_variable = {Falanga_UFA = -10}
+		}
+		}
+	}
+	
+	RCR_Hide_5 = { # Запуск фальшивой операции по перебросу 200.000 военнослужащих социалистам
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 200
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 100
+
+		modifier = {
+		civilian_factory_use = 2
+		max_command_power = -50
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		add_manpower = -5000
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide5
+		hidden_effect = {
+		add_to_variable = {Falanga_UFA = -45}
+		}
+		}
+	}
+	
+	RCR_Hide_6 = { # Маскировка операции
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 100
+
+		modifier = {
+		max_command_power = -5
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide6
+		hidden_effect = {
+		add_to_variable = {Falanga_UFA = -10}
+		}
+		}
+	}
+	
+	RCR_Hide_7 = { # Использование мирных судов, наем экипажа
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = operation_start
+		}
+
+		cost = 125
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 100
+
+		modifier = {
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = hide7
+		hidden_effect = {
+		add_to_variable = {Falanga_UFA = -20}
+		}
+		}
+	}
+	
+	
+	RCR_Start_Operation = { # Использование мирных судов, наем экипажа
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		AND = {
+		custom_trigger_tooltip = {
+		tooltip = need200
+		has_country_flag = operation_start
+		hidden_trigger = { 
+		check_variable = {Falanga_RCR > 199999}
+		}
+		}
+		}
+		}
+
+		cost = 200
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 30
+
+		modifier = {
+		max_command_power = -50
+		}
+
+		visible = {
+			has_country_flag = operation_start
+		}
+
+		complete_effect = {
+		custom_effect_tooltip = start
+		}
+
+		remove_effect = {
+		custom_effect_tooltip = start
+		hidden_effect = {
+		random_list = {
+		Falanga_UFA = {
+		UFA = {
+		declare_war_on = {
+            target = RCR
+            type = annex_everything
+        }
+		}
+		}
+		}
+		
+		UWM = {
+		set_temp_variable = { temp1 = 200000 }
+		set_temp_variable = { temp2 = Falanga_RCR }
+		subtract_from_temp_variable = { temp2 = temp1 }
+		set_variable = {Falanga_RCR = temp2}
+		add_manpower = Falanga_RCR
+		}
+		}
+		}
+	}
+	
+}
+
+
+
+RCR_EMP_weapon = {
+
+ RCR_EMP_Blueprint = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		}
+
+		cost = 150
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 100
+
+		modifier = {
+			civilian_factory_use = 2
+			max_command_power = -5
+			research_speed_factor = -0.12
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		set_country_flag = EMP_has_blueprint
+		hidden_effect = {
+		random_list = {
+		25 = {
+		set_global_flag = EMP_NAME_1
+		}
+		25 = {
+		set_global_flag = EMP_NAME_2
+		}
+		25 = {
+		set_global_flag = EMP_NAME_3
+		}
+		25 = {
+		set_global_flag = EMP_NAME_4
+		}
+		}
+		}
+		}
+	}
+	
+	RCR_EMP_Energy = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 150
+
+		modifier = {
+			civilian_factory_use = 5
+			fuel_gain_factor = -0.5
+            max_fuel_factor = -0.25			
+		}
+
+		visible = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		set_country_flag = EMP_has_energy
+		}
+	}
+	
+	RCR_EMP_SpaceStation = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		cost = 200
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 200
+
+		modifier = {
+			civilian_factory_use = 15
+			fuel_gain_factor = -0.1
+			max_command_power = -10
+            max_fuel_factor = -0.1			
+		}
+
+		visible = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		set_country_flag = EMP_has_station
+		}
+	}
+	
+	RCR_EMP_Infrastructure = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		cost = 100
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 200
+
+		modifier = {
+			civilian_factory_use = 10
+			max_command_power = -10		
+		}
+
+		visible = {
+		has_country_flag = EMP_has_blueprint
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		set_country_flag = EMP_has_infr
+		}
+	}
+	
+	RCR_EMP_Launch_EMP = {
+		icon = generic_nationalism
+
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		AND = {
+		has_country_flag = EMP_has_blueprint
+		has_country_flag = EMP_has_infr
+		has_country_flag = EMP_has_energy
+		has_country_flag = EMP_has_station
+		}
+		}
+
+		cost = 400
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 200
+
+		modifier = {
+			civilian_factory_use = 12
+			max_command_power = -40		
+		}
+
+		visible = {
+		AND = {
+		has_country_flag = EMP_has_blueprint
+		has_country_flag = EMP_has_infr
+		has_country_flag = EMP_has_energy
+		has_country_flag = EMP_has_station
+		}
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		set_country_flag = EMP_was_launched
+		}
+	}
+	
+	RCR_EMP_Use_EMP = {
+		icon = generic_nationalism
+		
+		
+		
+		
+		allowed = {
+			original_tag = RCR
+		}
+
+		available = {
+		NOT = {has_country_flag = EMP_ATTACK}
+		}
+
+		state_target = yes
+		on_map_mode = map_only
+
+		target_trigger = {
+			FROM = {
+			            AND = {
+						is_capital = yes
+						owner = {
+						has_war_with = ROOT
+						}
+						}
+			}
+		}
+
+		cost = 0
+		fire_only_once = yes
+        days_re_enable = 1
+		days_remove = 150
+
+		modifier = {
+        	fuel_gain_factor = -0.1
+            max_fuel_factor = -0.1	
+			civilian_factory_use = 1
+		}
+
+		visible = {
+		has_country_flag = EMP_was_launched
+		}
+
+		complete_effect = {
+		set_country_flag = EMP_ATTACK
+		FROM = {
+		owner = {
+		add_timed_idea = {
+            idea = EMPATTACK
+            days = 140
+        }
+		}
+		}
+		}
+
+		remove_effect = {
+		clr_country_flag = EMP_ATTACK
+		}
+	}
+	
+
 }
