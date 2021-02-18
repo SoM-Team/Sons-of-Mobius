@@ -46,36 +46,556 @@ technologies = {
 		}
 	}
 	
-	cv_early_fighter = {
+	
+	scout_plane0 = {
 
 		enable_equipments = {
-			cv_fighter_equipment_0
+			scout_plane_equipment_0
 		}
 	
 		research_cost = 1.0 #Carrier Variant
 		start_year = 3210
 		
 		categories = {
-			naval_air
+			light_air
 			air_equipment
 		}
 		
 		ai_will_do = {
-			factor = 1.5
+			factor = 1
+			
 			modifier = {
-				factor = 0
-				OR = {
-					has_tech = fighter1
-					is_researching_technology = fighter1
-				}
+				factor = 2
+				is_major = yes
 			}
+		}
+	}
+	transport_plane0 = {
+
+		enable_equipments = {
+			transport_plane_equipment_0
+		}
+	
+		path = {
+			leads_to_tech = transport_plane1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3235
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
 			modifier = {
-				factor = 3
-				has_navy_size = { type = carrier size > 3 }# if nation has several carriers, more likely
+				factor = 2
+				is_major = yes
 			}
+		}
+	}
+	transport_plane1 = {
+
+		enable_equipments = {
+			transport_plane_equipment_1
+		}
+		
+	
+		path = {
+			leads_to_tech = transport_plane2
+			research_cost_coeff = 1
+		}
+		research_cost = 2
+		start_year = 3235
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
 			modifier = {
-				factor = 0
-				has_navy_size = { type = carrier size < 1 }# if nation has no carriers, don't bother
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	transport_plane2 = {
+
+		enable_equipments = {
+			transport_plane_equipment_2
+		}
+	
+		path = {
+			leads_to_tech = transport_plane3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3240
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		categories = {
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	transport_plane3 = {
+
+		enable_equipments = {
+			transport_plane_equipment_3
+		}
+		
+		research_cost = 2
+		start_year = 3245
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		categories = {
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	
+	scout_plane1 = {
+
+		enable_equipments = {
+			scout_plane_equipment_1
+		}
+	
+		path = {
+			leads_to_tech = scout_plane2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3235
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			light_air
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	scout_plane2 = {
+
+		enable_equipments = {
+			scout_plane_equipment_2
+		}
+	
+		path = {
+			leads_to_tech = scout_plane3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3240
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		categories = {
+			light_air
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	scout_plane3 = {
+
+		enable_equipments = {
+			scout_plane_equipment_3
+		}
+	
+		path = {
+			leads_to_tech = scout_plane4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3245
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		categories = {
+			light_air
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	bomber1 = {
+
+		enable_equipments = {
+			strat_bomber_equipment_1
+		}
+	
+		path = {
+			leads_to_tech = strat_jet_bomber0
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3215
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 7 y = 4 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	strat_jet_bomber0 = {
+
+		enable_equipments = {
+			jet_strat_bomber_equipment_0
+		}
+
+		dependencies = {
+			jet_engines = 1
+		}
+	
+		path = {
+			leads_to_tech = jet_strat_bomber1
+			research_cost_coeff = 1
+		}
+	
+		path = {
+			leads_to_tech = jet_tact_bomber1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3220
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 7 y = 6 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_tact_bomber1 = {
+
+		enable_equipments = {
+			jet_tac_bomber_equipment_1
+		}
+	
+		path = {
+			leads_to_tech = jet_tact_bomber2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3235
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 5 y = 8 }
+		}
+		
+		categories = {
+			tactical_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_tact_bomber2 = {
+
+		enable_equipments = {
+			jet_tac_bomber_equipment_2
+		}
+	
+		path = {
+			leads_to_tech = jet_tact_bomber3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3240
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 5 y = 10 }
+		}
+		
+		categories = {
+			tactical_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_tact_bomber3 = {
+
+		enable_equipments = {
+			jet_tac_bomber_equipment_3
+		}
+	
+		path = {
+			leads_to_tech = jet_vtol_fighter1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3245
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 5 y = 12 }
+		}
+		
+		categories = {
+			tactical_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_strat_bomber1 = {
+
+		enable_equipments = {
+			jet_strat_bomber_equipment_1
+		}
+	
+		path = {
+			leads_to_tech = jet_strat_bomber2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3235
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 9 y = 8 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_strat_bomber2 = {
+
+		enable_equipments = {
+			jet_strat_bomber_equipment_2
+		}
+	
+		path = {
+			leads_to_tech = jet_strat_bomber3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3240
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 9 y = 10 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_strat_bomber3 = {
+
+		enable_equipments = {
+			jet_strat_bomber_equipment_3
+		}
+	
+		path = {
+			leads_to_tech = jet_strat_bomber4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 3245
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 9 y = 12 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
+	
+	jet_strat_bomber4 = {
+
+		enable_equipments = {
+			jet_strat_bomber_equipment_4
+		}
+		
+		research_cost = 2
+		start_year = 3250
+
+		folder = {
+			name = air_techs_folder
+			position = { x = 9 y = 14 }
+		}
+		
+		categories = {
+			cat_strategic_bomber
+			air_equipment
+		}
+		
+		ai_will_do = {
+			factor = 4
+			
+			modifier = {
+				factor = 2
+				is_major = yes
 			}
 		}
 	}
