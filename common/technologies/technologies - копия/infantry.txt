@@ -1,0 +1,951 @@
+technologies = {
+	
+	#ось Y
+	
+	@3200 = 0
+	@3215 = 3
+	@3225 = 8
+	@3226 = 10
+	@3227 = 12
+	@3230 = 14
+	@3237 = 16
+	@3239 = 18
+	@3240 = 20
+	@3241 = 22
+	@3242 = 24
+	@3243 = 26
+	@3244 = 28
+	@3248 = 30
+	@3250 = 32
+
+#------------------------------------------------------------------------#
+#------------------------ Пехотное вооружение ---------------------------#
+#------------------------------------------------------------------------#
+	
+	#Примитивное оружие
+	infantry_weapons = {
+
+		enable_equipments = {
+			infantry_equipment_0
+		}
+		
+		enable_subunits = {
+			infantry
+		}
+		
+		path = {
+			leads_to_tech = magazine_rifle
+			research_cost_coeff = 1
+		}		
+
+		research_cost = 1.0
+		start_year = 3200
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = @3200 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+	
+	#Магазинная винтовка
+	magazine_rifle = {
+
+		enable_equipments = {
+			infantry_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = assault_complex
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3
+		start_year = 3215
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = @3215 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------ Огнестрельное оружие --------------------------#
+#------------------------------------------------------------------------#
+	
+	#Штурмовой комплекс
+	assault_complex = {
+
+		enable_equipments = {
+			infantry_equipment_2
+		}
+		
+		path = {
+			leads_to_tech = assault_complex2
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = reflex_sight
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = armor_piercing_cartridges
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = fragmentation_grenade
+			research_cost_coeff = 1
+		}		
+
+		research_cost = 4
+		start_year = 3225
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Штурмовой комплекс 39
+	assault_complex2 = {
+
+		enable_equipments = {
+			infantry_equipment_3
+		}
+		
+		path = {
+			leads_to_tech = barrel_extension
+			research_cost_coeff = 1
+		}	
+
+		research_cost = 4
+		start_year = 3239
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 16 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Удлинение ствола
+	barrel_extension = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		path = {
+			leads_to_tech = assault_complex3
+			research_cost_coeff = 1
+		}	
+
+		research_cost = 3.5
+		start_year = 3241
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 19 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Штурмовой комплекс 42
+	assault_complex3 = {
+
+		enable_equipments = {
+			infantry_equipment_4
+		}
+		
+		path = {
+			leads_to_tech = lightweight_construction
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4
+		start_year = 3242
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 22 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Облегчение конструкции
+	lightweight_construction = {
+
+		#idea = better_weapons_production
+		
+		path = {
+			leads_to_tech = sleeveless_mechanism
+			research_cost_coeff = 1
+		}	
+
+		research_cost = 3.5
+		start_year = 3244
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 25 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Безгильзовый механизм
+	sleeveless_mechanism = {
+		
+		path = {
+			leads_to_tech = assault_complex4
+			research_cost_coeff = 1
+		}	
+
+		research_cost = 3.5
+		start_year = 3248
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 27 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+
+	#Штурмовой комплекс 50
+	assault_complex4 = {
+
+		enable_equipments = {
+			infantry_equipment_5
+		}
+
+		research_cost = 4
+		start_year = 3250
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 2 y = 30 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#---------------------------- Гранаты -----------------------------------#
+#------------------------------------------------------------------------#
+
+	#Осколочная граната
+	fragmentation_grenade = {
+
+		infantry = {
+			breakthrough = 0.05
+		}
+		
+		path = {
+			leads_to_tech = thermal_grenade
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.5
+		start_year = 3225
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 5 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Термическая граната
+	thermal_grenade = {
+
+		infantry = {
+			breakthrough = 0.05
+		}
+		
+		path = {
+			leads_to_tech = emp_grenade
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.5
+		start_year = 3240
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 5 y = 18 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#ЭМИ-граната
+	emp_grenade = {
+
+		infantry = {
+			breakthrough = 0.05
+		}
+		
+		research_cost = 3.5
+		start_year = 3244
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 5 y = 23 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#---------------------------- Прицелы -----------------------------------#
+#------------------------------------------------------------------------#
+
+	#Коллиматорные прицел
+	reflex_sight = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		path = {
+			leads_to_tech = holographic_sight 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.9
+		start_year = 3226
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Голографические прицел
+	holographic_sight = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		path = {
+			leads_to_tech = thermal_sight 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.9
+		start_year = 3240
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 18 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Тепловизионный прицел
+	thermal_sight = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		path = {
+			leads_to_tech = ai_sight 
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.9
+		start_year = 3243
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 24 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#ИИ-прицел
+	ai_sight = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		research_cost = 3.9
+		start_year = 3250
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 30 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#---------------------------- Патроны -----------------------------------#
+#------------------------------------------------------------------------#	
+	
+	#Бронебойные патроны
+	armor_piercing_cartridges = {
+
+		category_all_infantry = {
+			hard_attack = 0.05
+		}
+		
+		path = {
+			leads_to_tech = incendiary_cartridges
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.5
+		start_year = 3225
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = 11 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#	
+	
+	#Зажигательные патроны
+	incendiary_cartridges = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		path = {
+			leads_to_tech = smart_cartridges
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3.5
+		start_year = 3230
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = 13 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#	
+	
+	#Умные патроны
+	smart_cartridges = {
+
+		category_light_infantry = {
+			soft_attack = 0.02
+		}
+		
+		motorized = {
+			soft_attack = 0.02
+		}
+		
+		mechanized = {
+			soft_attack = 0.02
+		}
+		
+		research_cost = 3.5
+		start_year = 3244
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 4 y = 25 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+#------------------------- Энергооружие ---------------------------------#
+#------------------------------------------------------------------------#
+
+	#Первое энергооружие
+	first_energy_weapon = {
+
+		enable_equipments = {
+			energy_weapon_1
+		}
+		
+		path = {
+			leads_to_tech = assault_energy_weapon
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = battery_boost
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4.2
+		start_year = 3225
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 8 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Усиление батареи
+	battery_boost = {
+		
+		research_cost = 4.1
+		start_year = 3227
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 12 y = 11 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+
+	#Штурмовое энергооружие
+	assault_energy_weapon = {
+
+		enable_equipments = {
+			energy_weapon_2
+		}
+		
+		path = {
+			leads_to_tech = assault_energy_weapon2
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = guidance_system
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4.2
+		start_year = 3237
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 14 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+
+	#Система наведения
+	guidance_system = {
+		
+		research_cost = 4.1
+		start_year = 3239
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 12 y = 16 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Штурмовое энергооружие 2
+	assault_energy_weapon2 = {
+
+		enable_equipments = {
+			energy_weapon_3
+		}
+		
+		path = {
+			leads_to_tech = projectile_acceleration
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = railgun
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4.2
+		start_year = 3240
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 18 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+
+	#Ускорение снаряда
+	projectile_acceleration = {
+		
+		path = {
+			leads_to_tech = assault_energy_weapon3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4.1
+		start_year = 3242
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 22 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Рельса
+	railgun = {
+		
+		research_cost = 4.1
+		start_year = 3242
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 12 y = 22 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Штурмовое энергооружие 3
+	assault_energy_weapon3 = {
+
+		enable_equipments = {
+			energy_weapon_4
+		}
+		
+		path = {
+			leads_to_tech = assault_energy_weapon4
+			research_cost_coeff = 1
+		}
+		
+		path = {
+			leads_to_tech = autonomous_recharging
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 4.2
+		start_year = 3244
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 24 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#------------------------------------------------------------------------#
+
+	#Автономная подзарядка
+	autonomous_recharging = {
+		
+		research_cost = 4.1
+		start_year = 3248
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 12 y = 27 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+#------------------------------------------------------------------------#
+
+	#Штурмовое энергооружие 4
+	assault_energy_weapon4 = {
+
+		enable_equipments = {
+			energy_weapon_5
+		}
+		
+		research_cost = 4.2
+		start_year = 3250
+		
+		folder = {
+			name = infantry_folder
+			position = { x = 10 y = 30 }
+		}
+		
+		categories = {
+			energy_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
