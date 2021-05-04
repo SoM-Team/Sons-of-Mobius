@@ -2,10 +2,10 @@
 # тупа ивенты для коммуняг, я пажылое онямэ кста за соника и двор расстреливаю николая второго вот и живи теперь с этим
 ############################
 ############################
-# слыш камуняка я ведь лицо тебе сломаю капитализм топ капитализм лучше вот теперь и живи с этим
-############################
 
 add_namespace = rcr
+add_namespace = rcrspace
+add_namespace = rcr_border_conflict
 ######################################
 # hello everybody i am old communist 
 ######################################
@@ -17,13 +17,7 @@ country_event = {
 	
 	fire_only_once = yes
 	
-	trigger = {
-	tag = RCR
-	}
-	
-	mean_time_to_happen = {
-	days = 1
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = rcr.1.a 
@@ -286,7 +280,7 @@ country_event = { ### Переворот Шилова! ###
 		}
 		create_country_leader = {
 			name = "Gennadiy Shilov"
-			desc = "SHILOV_IS_PIDOR"
+			desc = "SHILOV_desc"
 			picture = "Gennadiy_Shilov_general.dds"
 			expire = "1965.1.1"
 			ideology = militarist_socialist
@@ -1050,9 +1044,9 @@ country_event = {
 
 	option = {
 		name = rcr.45.a
-		add_political_power = +100
-		add_war_support = +0.2
-		add_stability = +0.1
+		add_political_power = 100
+		add_war_support = 0.2
+		add_stability = 0.1
 	}
 	
 }
@@ -1087,7 +1081,7 @@ country_event = {
 	option = {
 		name = rcr.47.a
 		add_political_power = -25
-		add_stability = +0.025
+		add_stability = 0.025
 		add_ideas = GOST
 	}
 	option = {
@@ -1212,11 +1206,8 @@ country_event = {
 		add_political_power = -75
 		add_manpower = -43
 		custom_effect_tooltip = rcr.53.tt
-		FEC = {
-			swap_ideas = {
-				remove_idea = Far_Eastern_Committee
-				add_idea = Far_Eastern_Committee_good
-			}
+		add_to_variable = {
+			RCR_FEC_Loyalty = 25
 		}
 	}
 }
@@ -2089,6 +2080,228 @@ country_event = { ### Party Unit Drill
 	option = {
 		name = rcr.94.a 
 		load_oob = "RCR_Communnard_Unit"
+	}
+}
+
+country_event = { ### Bioweapon
+	id = rcr.95
+	title = rcr.95.t
+	desc = rcr.95.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr.95.a 
+		set_variable = {
+			var = RCR_genetic_material 
+			value = 50
+		}
+		set_variable = {
+			var = RCR_genetic_material_grow
+			value = 0
+		}
+		set_country_flag = RCR_Started_Molokh
+	}
+}
+
+country_event = { ### Automation
+	id = rcr.96
+	title = rcr.96.t
+	desc = rcr.96.d
+	picture = GFX_report_event_cybernetics
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr.96.a 
+		set_variable = {
+				RCR_AUTO = 0
+			}
+		set_variable = {
+				RCR_AUTO_GROW = 3
+			}
+		add_political_power = -50
+		add_ideas = automation_focus
+	}
+}
+
+country_event = { ### Automation
+	id = rcr.97
+	title = rcr.97.t
+	desc = rcr.97.d
+	picture = GFX_report_event_ilsa
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr.97.a 
+		add_to_variable = {
+			RCR_NOC_Loyalty = 35
+		}
+		add_political_power = 50
+		custom_effect_tooltip = loyalty_strong
+	}
+}
+
+country_event = { ### WAR
+	id = rcr.98
+	title = rcr.98.t
+	desc = rcr.98.d
+	picture = GFX_report_event_revolution_day
+	
+    trigger = {
+        AND = {
+			tag = RCR
+			OR = {
+				has_war_with = EGG
+				has_war_with = KOA
+				has_war_with = UFA
+				has_war_with = SWA
+			}
+		}
+    }
+	
+	fire_only_once = yes
+	
+	option = {
+		name = rcr.95.a
+		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = { ### Start
+	id = rcrspace.1
+	title = rcrspace.1.t
+	desc = rcrspace.1.d
+	picture = GFX_report_event_echo_past
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrspace.1.a 
+	}
+
+}
+
+country_event = { ### Satellite
+	id = rcrspace.2
+	title = rcrspace.2.t
+	desc = rcrspace.2.d
+	picture = GFX_report_event_echo_past
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrspace.2.a 
+		set_technology = { advanced_rocket_engines = 2 }
+		add_political_power = 100
+		add_stability = 0.2
+		add_popularity = {
+			ideology = communist
+			popularity = 0.05
+		}
+	}
+
+}
+
+country_event = { ### Poyekhali!
+	id = rcrspace.3
+	title = rcrspace.3.t
+	desc = rcrspace.3.d
+	picture = GFX_report_event_to_space
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrspace.3.a 
+		set_technology = { advanced_rocket_engines = 3 }
+		add_political_power = 100
+		add_stability = 0.25
+		add_popularity = {
+			ideology = communist
+			popularity = 0.05
+		}
+	}
+
+}
+
+### Border Wars
+
+country_event = { ### WIN
+	id = rcr_border_conflict.1
+	title = rcr_border_conflict.1.t
+	desc = rcr_border_conflict.1.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr_border_conflict.1.a 
+		add_political_power = 100
+		add_war_support = 0.05
+		add_to_variable = {
+				RCR_FEC_Loyalty = 30
+			}
+		custom_effect_tooltip = loyalty_strong
+		add_army_experience = 50
+	}
+}
+
+country_event = { ### LOSE
+	id = rcr_border_conflict.2
+	title = rcr_border_conflict.2.t
+	desc = rcr_border_conflict.2.d
+	picture = GFX_report_event_gulag
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr_border_conflict.2.a 
+		add_political_power = -50
+		add_war_support = -0.05
+		add_manpower = -500
+		add_army_experience = 25
+	}
+}
+
+country_event = { ### DRAW
+	id = rcr_border_conflict.3
+	title = rcr_border_conflict.3.t
+	desc = rcr_border_conflict.3.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcr_border_conflict.3.a 
 	}
 }
 ##############################

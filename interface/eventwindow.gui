@@ -1,58 +1,15 @@
 guiTypes = {
 
-  ##   ##   #   #
- #    #  #  ## ##
-  #   #  #  # # #
-   #  #  #  #   #
- ##    ##   #   #
-	scrollbarType = {
-		name = "som_text_scroll"
-		slider = "event_slider"
-		track= "listboxTrackButton"
-		leftbutton = "downButton"
-		rightbutton = "upButton"
-		size = {x = 60 y = 452 }
-		position = {x = -1s y = 0}
-		priority = 100
-		borderSize = {x = 12 y = 12}
-		maxValue = 100
-		minValue = 0
-		stepSize = 1
-		startValue = 0
-		horizontal = 0
+ ##   ##  #  # #  # ### ###  #   #     ### #   # ### #  # ###  ## 
+#  # #  # #  # ## #  #  #  #  # #      #   #   # #   ## #  #  #   
+#    #  # #  # # ##  #  ###    #       ##   # #  ##  # ##  #   #  
+#  # #  # #  # #  #  #  #  #   #       #    # #  #   #  #  #    # 
+ ##   ##   ##  #  #  #  #  #   #       ###   #   ### #  #  #  ##  
 
-		guiButtonType = {
-			name = "event_slider"
-			quadTextureSprite = "GFX_event_slider"
-			position = { x=0 y =0}
-		}
-
-		guiButtonType = {
-			name = "listboxTrackButton"
-			quadTextureSprite = "GFX_scroll_track"
-			position = { x=12 y =12}
-		
-		}
-
-		guiButtonType = {
-			parent = "listboxSliderButton"
-			name = "upButton"
-			quadTextureSprite = "GFX_scroll_up"
-			position = { x=0 y =0}
-		}
-
-		guiButtonType = {
-			parent = "listboxSliderButton"
-			name = "downButton"
-			quadTextureSprite = "GFX_scroll_down"
-			position = { x=0 y =120}
-		}
-	}
-	
 	containerWindowType = {
 		name = "EventWindow"
 		position = { x=-282 y=-310 }	
-		size = { width = 500 height =616 }
+		size = { width = 581 height =427 }
 		moveable = yes
 		Orientation = CENTER		
 		
@@ -67,41 +24,72 @@ guiTypes = {
 		containerWindowType = {
 			name = "top_Window"
 			position = { x=0 y=0 }	
-			size = { width = 468 height =32 }
+			size = { width = 581 height = 100 }
 			moveable = yes
 			Orientation = UPPER_LEFT
 
-##############background = {
-##############	name = "Background"	
-##############	spriteType ="GFX_event_report_top_win"
-##############}			
+			background = {
+				name = "Background"	
+				spriteType ="GFX_event_report_top_win"
+			}			
 		
 			instantTextBoxType = {
 				name = "Title"
-				position = { x = 0 y = 0 }
-				font = "impact_32"
+				position = { x = 0 y = 33 }
+				font = "impact_60"
 				borderSize = {x = 0 y = 0}
 				text = "Title text here!"	
-				maxWidth = 468
-				maxHeight = 32
-				format = left
+				maxWidth = 840
+				maxHeight = 70
+				format = left 
 			}
 
-			buttonType = {
-				name = "btn_minimize"
-				position = {x=10 y=45}
-				spriteType = "GFX_event_button_minimize"
-				clicksound = click_default
-				pdx_tooltip = "MINIMIZE_EVENT"
-			}
+			#buttonType = {
+			#	name = "btn_minimize"
+			#	position = {x=10 y=45}
+			#	spriteType = "GFX_event_button_minimize"
+			#	clicksound = click_default
+			#	pdx_tooltip = "MINIMIZE_EVENT"
+			#}
 		}
+
 		containerWindowType = {
-			name = "bottom_Window"
-			position = { x=0 y=466 }	
-			size = { width = 468 height = 150 }
+			name = "midsection"
+			position = { x=0 y=100 }	
+			size = { width = 580 height = 100 }
 			moveable = yes
 			clipping = no
 			Orientation = UPPER_LEFT
+
+			background = {
+				name = "Background"	
+				quadTextureSprite ="GFX_event_report_tileable_midsection"
+			}
+
+			instantTextBoxType = {
+				name = "Description"
+				position = { x = 31 y = 0 }
+				font = "century_gothic_16_black"
+				borderSize = {x = 0 y = 0}
+				text = "Long text here!"	
+				maxWidth = 512
+				maxHeight = 230
+				format = left
+			}	
+		}			
+
+		containerWindowType = {
+			name = "bottom_Window"
+			position = { x=0 y=200 }	
+			size = { width = 581 height = 206 }
+			moveable = yes
+			clipping = no
+			Orientation = UPPER_LEFT
+
+#			background = {
+#				name = "Background"	
+#				spriteType ="GFX_event_report_tileable_bottom_section"
+#			}
 
 			background = {
 				name = "Background"	
@@ -111,7 +99,7 @@ guiTypes = {
 			iconType = {
 				name ="event_picture"
 				spriteType = "GFX_report_event_001"
-				position = { x = 5 y = 5 }
+				position = { x = 2 y = 2 }
 				Orientation = "UPPER_LEFT"
 				alwaystransparent = yes				
 			}
@@ -119,7 +107,7 @@ guiTypes = {
 			iconType = {
 				name ="event_pic_clip"
 				spriteType = "GFX_event_pic_clip"
-				position = { x = -3 y = 35 }
+				position = { x = -3 y = 0 }
 				Orientation = "UPPER_LEFT"
 			}
 
@@ -133,34 +121,6 @@ guiTypes = {
 				format = "UPPER_LEFT"
 			}
 		}
-
-		containerWindowType = {
-			name = "midsection"
-			position = { x=0 y=32 }	
-			size = { width = 468 height = 434 }
-			moveable = yes
-			clipping = no
-			Orientation = UPPER_LEFT
-
-			background = {
-				name = "Background_1"	
-				spriteType ="GFX_event_report_midsection_win"
-			}
-
-			instantTextBoxType = {
-				name = "Description_1"
-				position = { x = 0 y = 20 }
-				font = "hoi4_typewriter16"
-				borderSize = {x = 0 y = 0}
-				text = "Long text here!"	
-				maxWidth = 400
-				maxHeight = 400
-				format = left
-				scrollbarType = som_text_scroll 
-			}	
-		}			
-
-		
 
 #		containerWindowType = {
 #			name = "bottom_window_end"
@@ -611,7 +571,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "Name"
 			position = { x = 5 y = 0 }
-			font = "hoi_20bs"
+			font = "century_gothic_20"
 			maxWidth = 340
 			maxHeight = 40
 			format = center

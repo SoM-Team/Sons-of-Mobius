@@ -1,0 +1,44 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+EGG_Draining_warfare = {
+	enable = { always = yes }
+	
+	remove_trigger = { 
+		has_war = no
+	}
+	
+	icon = GFX_idea_EGG_Draining_warfare
+	
+	production_lack_of_resource_penalty_factor = EGG_war_devastation
+	production_factory_efficiency_gain_factor = 0.45
+	army_attack_factor = 0.15
+	army_defence_factor = -0.15
+	planning_speed = 0.2
+	custom_modifier_tooltip = DRAIN_RESOURCES
+}
+
+

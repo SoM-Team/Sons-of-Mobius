@@ -1,0 +1,39 @@
+RCR_bioweapon_effects = {
+	if = {
+		limit = {
+			has_country_flag = RCR_Started_Molokh
+		}
+		add_to_variable = { RCR_genetic_material = RCR_genetic_material_grow }
+		clamp_variable = { 
+			var = RCR_Bio_Lethality 
+			min = 0 
+			max = 100 
+		}
+		clamp_variable = { 
+			var = RCR_Bio_Contagious 
+			min = 0 
+			max = 100 
+		}
+	}
+}
+
+RCR_automation_effects = {
+	if = {
+		limit = {
+			has_idea = automation_focus
+		}
+		add_to_variable = { RCR_AUTO = RCR_AUTO_GROW }
+		clamp_variable = { 
+			var = RCR_AUTO
+			min = 0 
+			max = 100 
+		}
+	}
+}
+
+
+RCR_AUTO_GUI_REFRESH = {
+	set_temp_variable = { TEMP_AUTOMATION_BAR = RCR_Automation_Process }
+	multiply_temp_variable = { TEMP_AUTOMATION_BAR = 100 }
+	set_variable = { RCR_Automation = TEMP_AUTOMATION_BAR }
+}
