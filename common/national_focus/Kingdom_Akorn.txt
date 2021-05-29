@@ -1689,9 +1689,15 @@ focus_tree = {
 		icon = GFX_goal_unknown
 		cost = 1
 		x = 18
-		y = 0,
+		y = 0
 		completion_reward = {
 		    add_stability = 0.05
+		    KOA = {
+		        country_event = {
+                    id = koa.100
+                    days = 1
+                }
+		    }
 		}
 	}
 	focus = {
@@ -1704,6 +1710,16 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Alexanders_Legacy
 		}
+		completion_reward = {
+		    add_ideas = KOA_Theodores_Grief_Idea
+		    add_war_support = -0.1
+		    KOA = {
+		        country_event = {
+		            id = koa.101
+		            days = 1
+		        }
+		    }
+	    }
 	}
 	focus = {
 		id = KOA_Raphaels_Preparations
@@ -1715,6 +1731,16 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Theodores_Grief
 		}
+		completion_reward = {
+		    add_political_power = -50
+            add_war_support = -0.1
+            add_ideas = KOA_Raphaels_Preparations
+            KOA = {
+                country_event = {
+                    id = koa.102
+                }
+            }
+		}
 	}
 	focus = {
 		id = KOA_Studies_of_Julius
@@ -1725,6 +1751,18 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = KOA_Theodores_Grief
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+            	bonus = 1
+            	uses = 1
+            	category = engineers_tech
+            }
+            KOA = {
+                country_event = {
+                    id = koa.103
+                }
+            }
 		}
 	}
 	focus = {
@@ -1740,16 +1778,32 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Studies_of_Julius
 		}
+		completion_reward = {
+		    add_tech_bonus = {
+                bonus = 0.5
+                uses = 2
+                category = industry
+            }
+            KOA = {
+                country_event = {
+                    id = koa.104
+                }
+            }
+		}
 	}
 	focus = {
 		id = KOA_Lessons_from_George
-		text = KOA_Constructions_of_Romulus
+		text = KOA_Lessons_from_George
 		icon = GFX_goal_unknown
 		cost = 1
 		x = 17
 		y = 4
 		prerequisite = {
 			focus = KOA_Constructions_of_Romulus
+		}
+		completion_reward = {
+            add_stability = -0.05
+            add_ideas = KOA_Increased_Taxes
 		}
 	}
 	focus = {
@@ -1761,6 +1815,14 @@ focus_tree = {
 		y = 4
 		prerequisite = {
 			focus = KOA_Constructions_of_Romulus
+		}
+		completion_reward = {
+		    add_political_power = 100
+		    KOA = {
+		        country_event = {
+		            id = koa.105
+		        }
+		    }
 		}
 	}
 	focus = {
@@ -1776,6 +1838,26 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Gifts_of_Abraham
 		}
+		completion_reward = {
+		    add_political_power = 50
+		    KOA = {
+                country_event = {
+                    id = koa.106
+                }
+		    }
+		    random_controlled_state = {
+		        limit = {
+		            NOT = {
+		                has_full_control_of_state = PREVPREV
+		            }
+		        }
+		        add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+		    }
+		}
 	}
 	focus = {
 		id = KOA_Strength_of_Silvanus
@@ -1785,6 +1867,18 @@ focus_tree = {
 		y = 6
 		prerequisite = {
 			focus = KOA_Passion_of_Reginald
+		}
+		completion_reward = {
+		    add_tech_bonus = {
+                bonus = 0.5
+                uses = 2
+                category = land_doctrine
+            }
+            KOA = {
+                country_event = {
+                    id = koa.107
+                }
+            }
 		}
 	}
 	focus = {
@@ -1796,6 +1890,19 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Strength_of_Silvanus
 		}
+		completion_reward = {
+		    MER = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = KOA_MER_trade_increase
+                }
+		    }
+		    KOA = {
+		        country_event = {
+                    id = koa.108
+                }
+		    }
+		}
 	}
 	focus = {
 		id = KOA_Frederics_open_mind
@@ -1805,6 +1912,19 @@ focus_tree = {
 		y = 7
 		prerequisite = {
 			focus = KOA_Strength_of_Silvanus
+		}
+		completion_reward = {
+		    UFA = {
+                add_opinion_modifier = {
+                    target = ROOT
+                    modifier = KOA_UFA_trade_increase
+                }
+            }
+            KOA = {
+                country_event = {
+                    id = koa.109
+                }
+            }
 		}
 	}
 	focus = {
@@ -1819,6 +1939,19 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Frederics_open_mind
 		}
+		completion_reward = {
+		    add_manpower = 50000
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = infantry_weapons
+            }
+            add_tech_bonus = {
+                bonus = 1
+                uses = 1
+                category = armor
+            }
+		}
 	}
 	focus = {
 		id = KOA_Gift_to_Elias
@@ -1828,6 +1961,13 @@ focus_tree = {
 		y = 9
 		prerequisite = {
 			focus = KOA_Maximilians_remorse
+		}
+		completion_reward = {
+		    KOA = {
+		        country_event = {
+		            id = koa.110
+		        }
+		    }
 		}
 	}
 }
