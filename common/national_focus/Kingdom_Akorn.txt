@@ -1863,6 +1863,7 @@ focus_tree = {
 		id = KOA_Strength_of_Silvanus
 		text = KOA_Strength_of_Silvanus
 		icon = GFX_goal_unknown
+		cost = 1
 		x = 18
 		y = 6
 		prerequisite = {
@@ -1885,6 +1886,7 @@ focus_tree = {
 		id = KOA_Sebastians_allies
 		text = KOA_Sebastians_allies
 		icon = GFX_goal_unknown
+		cost = 1
 		x = 17
 		y = 7
 		prerequisite = {
@@ -1908,6 +1910,7 @@ focus_tree = {
 		id = KOA_Frederics_open_mind
 		text = KOA_Frederics_open_mind
 		icon = GFX_goal_unknown
+		cost = 1
 		x = 19
 		y = 7
 		prerequisite = {
@@ -1931,6 +1934,7 @@ focus_tree = {
 		id = KOA_Maximilians_remorse
 		text = KOA_Maximilians_remorse
 		icon = GFX_goal_unknown
+		cost = 1
 		x = 18
 		y = 8
 		prerequisite = {
@@ -1957,6 +1961,7 @@ focus_tree = {
 		id = KOA_Gift_to_Elias
 		text = KOA_Gift_to_Elias
 		icon = GFX_goal_unknown
+		cost = 1
 		x = 18
 		y = 9
 		prerequisite = {
@@ -1967,7 +1972,252 @@ focus_tree = {
 		        country_event = {
 		            id = koa.110
 		        }
+				mark_focus_tree_layout_dirty = yes
 		    }
+		}
+	}
+
+	focus = {
+		id = KOA_Put_Out_The_Fires
+		text = KOA_Put_Out_The_Fires
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 18
+		y = 10
+		prerequisite = {
+			focus = KOA_Gift_to_Elias
+		}
+		#allow_branch = {
+		#	has_completed_focus = KOA_Gift_to_Elias
+		#}
+		completion_reward = {
+			add_stability = 0.1
+			remove_ideas = Soft_control_unit
+			KOA = {
+				country_event = {
+					id = koa.112
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Ease_the_Concerns
+		text = KOA_Ease_the_Concerns
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 16
+		y = 11
+		prerequisite = {
+			focus = KOA_Put_Out_The_Fires
+		}
+		mutually_exclusive = {
+			focus = KOA_Silence_the_Doubters
+		}
+		completion_reward = {
+			add_political_power = -100
+			add_stability = 0.05
+			KOA = {
+				country_event = {
+					id = koa.113
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Silence_the_Doubters
+		text = KOA_Silence_the_Doubters
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 20
+		y = 11
+		prerequisite = {
+			focus = KOA_Put_Out_The_Fires
+		}
+		mutually_exclusive = {
+			focus = KOA_Ease_the_Concerns
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+			KOA = {
+				country_event = {
+					id = koa.114
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Support_Workers_Rights
+		text = KOA_Support_Workers_Rights
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 11
+		y = 12
+		prerequisite = {
+			focus = KOA_Ease_the_Concerns
+			focus = KOA_Silence_the_Doubters
+		}
+		mutually_exclusive = {
+			focus = KOA_Suppress_Organized_Labor
+		}
+		completion_reward = {
+			add_political_power = -20
+			add_stability = 0.05
+			add_ideas = KOA_Support_Workers_Rights_Idea
+			custom_effect_tooltip = KOA_Unions_pleased_tooltip
+		}
+	}
+	focus = {
+		id = KOA_Negotiate_with_Union_Leaders
+		text = KOA_Negotiate_with_Union_Leaders
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 11
+		y = 13
+		prerequisite = {
+			focus = KOA_Support_Workers_Rights
+		}
+		completion_reward = {
+			add_stability = 0.05
+			#show_ideas_tooltip = TBA_SOCIALIST_ADVISOR
+			custom_effect_tooltip = available_theorist
+			add_ideas = KOA_Union_Appeasement
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = 0.05
+			}
+			custom_effect_tooltip = KOA_Unions_very_pleased_tooltip
+			KOA = {
+				country_event = {
+					id = koa.115
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Suppress_Organized_Labor
+		text = KOA_Suppress_Organized_Labor
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 13
+		y = 12
+		prerequisite = {
+			focus = KOA_Ease_the_Concerns
+			focus = KOA_Silence_the_Doubters
+		}
+		mutually_exclusive = {
+			focus = KOA_Support_Workers_Rights
+		}
+		completion_reward = {
+			add_political_power = -10
+			add_ideas = KOA_Suppress_Organized_Labor_Idea
+		}
+	}
+	focus = {
+		id = KOA_Bust_Northern_Unions
+		text = KOA_Bust_Northern_Unions
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 13
+		y = 13
+		prerequisite = {
+			focus = KOA_Suppress_Organized_Labor
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = autonomous_socialist
+				popularity = -0.05
+			}
+			add_ideas = KOA_Unions_Busted
+			KOA = {
+				country_event = {
+					id = koa.116
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Uphold_Barony_System
+		text = KOA_Uphold_Barony_System
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 15
+		y = 12
+		prerequisite = {
+			focus = KOA_Ease_the_Concerns
+			focus = KOA_Silence_the_Doubters
+		}
+		completion_reward = {
+			add_ideas = KOA_Southern_Baronies
+			custom_effect_tooltip = KOA_Baronies_pleased_tooltip
+		}
+	}
+	focus = {
+		id = KOA_Appeal_to_Populists
+		text = KOA_Appeal_to_Populists
+		icon = GFX_icon_unknown
+		cost = 1
+		x = 15
+		y = 13
+		prerequisite = {
+			focus = KOA_Uphold_Barony_System
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			#show_ideas_tooltip = TBA_BARONY_ADVISOR
+			custom_effect_tooltip = available_theorist
+			add_ideas = KOA_Appeal_To_Populists_Idea
+			custom_effect_tooltip = KOA_Baronies_very_pleased_tooltip
+			KOA = {
+				country_event = {
+					id = koa.117
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Sideline_the_Barons
+		text = KOA_Sideline_the_Barons
+		icon = GFX_icon_unknown
+		cost = 1
+		x = 17
+		y = 12
+		prerequisite = {
+			focus = KOA_Ease_the_Concerns
+			focus = KOA_Silence_the_Doubters
+		}
+		mutually_exclusive = {
+			focus = KOA_Uphold_Barony_System
+		}
+		completion_reward = {
+			add_political_power = 20
+			add_popularity = {
+				ideology = democratic_dictatorship
+				popularity = -0.05
+			}
+			custom_effect_tooltip = KOA_Baronies_wont_like_tooltip
+		}
+	}
+	focus = {
+		id = KOA_Revoke_Baron_Titles
+		text = KOA_Revoke_Baron_Titles
+		icon = GFX_icon_unknown
+		cost = 1
+		x = 17
+		y = 13
+		prerequisite = {
+			focus = KOA_Sideline_the_Barons
+		}
+		completion_reward = {
+			add_ideas = KOA_Revoke_Baron_Titles_Idea
+			KOA = {
+				country_event = {
+					id = koa.118
+				}
+			}
+			custom_effect_tooltip = KOA_Baronies_really_wont_like_tooltip
 		}
 	}
 }
