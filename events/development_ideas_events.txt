@@ -1,0 +1,257 @@
+add_namespace = tech
+add_namespace = cor
+
+country_event = {
+	id = tech.1
+	title = tech.1.t
+	desc = tech.1.d
+	picture = GFX_report_event_diplomatic_message
+	
+	trigger = {
+	any_country = {
+	OR = {
+	
+	AND = {
+	NOT = {has_idea = very_low_tech}
+	num_of_civilian_factories < 20
+	amount_research_slots > 0
+	}
+	#
+	AND = {
+	NOT = {has_idea = low_tech}
+	AND = {
+	num_of_civilian_factories > 20
+	num_of_civilian_factories < 75
+	amount_research_slots > 0
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = medium_tech}
+	AND = {
+	num_of_civilian_factories > 75
+	num_of_civilian_factories < 100
+	amount_research_slots > 2
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = good_tech}
+	AND = {
+	num_of_civilian_factories > 100
+	num_of_civilian_factories < 125
+	amount_research_slots > 3
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = very_good_tech}
+	num_of_civilian_factories > 125
+	amount_research_slots > 4
+	}
+	#
+	}
+	}
+	}
+
+	option = {
+		name = tech.1.a
+		
+		every_country = {
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = very_low_tech}
+	    num_of_civilian_factories < 20
+		amount_research_slots > 0
+		}
+		}
+		add_ideas = very_low_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = low_tech}
+	    num_of_civilian_factories > 20
+		num_of_civilian_factories < 75
+		amount_research_slots > 0
+		}
+		}
+		add_ideas = low_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = medium_tech}
+	    num_of_civilian_factories > 75
+		num_of_civilian_factories < 100
+		amount_research_slots > 2
+		}
+		}
+		add_ideas = medium_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = good_tech}
+	    num_of_civilian_factories > 100
+		num_of_civilian_factories < 125
+		amount_research_slots > 3
+		}
+		}
+		add_ideas = good_tech
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = very_good_tech}
+	    num_of_civilian_factories > 125
+		amount_research_slots > 4
+		}
+		}
+		add_ideas = very_good_tech
+		}
+		}
+		
+	}
+}
+
+country_event = {
+	id = cor.1
+	title = cor.1.t
+	desc = cor.1.d
+	picture = GFX_report_event_diplomatic_message
+	
+	trigger = {
+	any_country = {
+	OR = {
+	
+	AND = {
+	NOT = {has_idea = acceptable_corruption}
+	check_variable = {
+		gov_corruption < 20
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = nascent_corruption}
+	check_variable = {
+		gov_corruption > 19
+	}
+	check_variable = {
+		gov_corruption < 40
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = spreading_corruption}
+	check_variable = {
+		gov_corruption > 39
+	}
+	check_variable = {
+		gov_corruption < 60
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = heavy_corruption}
+	check_variable = {
+		gov_corruption > 59
+	}
+	check_variable = {
+		gov_corruption < 80
+	}
+	}
+	#
+	AND = {
+	NOT = {has_idea = desintegrating_corruption}
+	check_variable = {
+		gov_corruption > 79
+	}
+	}
+	#
+	}
+	}
+	}
+	
+
+	option = {
+		name = cor.1.a
+		
+		every_country = {
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = acceptable_corruption}
+	    check_variable = {
+			gov_corruption < 20
+		}
+		}
+		}
+		add_ideas = acceptable_corruption
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = nascent_corruption}
+	    check_variable = {
+			gov_corruption > 19
+		}
+		check_variable = {
+			gov_corruption < 40
+		}
+		}
+		}
+		add_ideas = nascent_corruption
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = spreading_corruption}
+	    check_variable = {
+			gov_corruption > 39
+		}
+		check_variable = {
+			gov_corruption < 60
+		}
+		}
+		}
+		add_ideas = spreading_corruption
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = heavy_corruption}
+	    check_variable = {
+			gov_corruption > 59
+		}
+		check_variable = {
+			gov_corruption < 80
+		}
+		}
+		}
+		add_ideas = heavy_corruption
+		}
+		#
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_idea = desintegrating_corruption}
+	    check_variable = {
+			gov_corruption > 79
+		}
+		}
+		}
+		add_ideas = desintegrating_corruption
+		}
+		}
+		
+	}
+}

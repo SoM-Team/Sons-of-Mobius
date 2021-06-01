@@ -1,11 +1,16 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			
 			KOA = {
 				set_country_flag = { flag = leader_has_bio value = 1}
 				set_variable = {
 					UFA_GUN_presence = 40
+				}
+				set_variable = {
+					gov_corruption = 65
+				}
+				set_variable = {
+					gov_corruption_growth = 3.5
 				}
 			}
 			RCR = {
@@ -39,6 +44,18 @@ on_actions = {
 				}
 				set_variable = {
 					UFA_GUN_presence = 0
+				}
+				set_variable = {
+					puppet_score = 0
+				}
+				set_variable = {
+					game_progress = 50
+				}
+				set_variable = {
+					gov_corruption = 48
+				}
+				set_variable = {
+					gov_corruption_growth = 1.5
 				}
 			}
 			EGG = { 
@@ -91,6 +108,12 @@ on_actions = {
 				set_variable = {
 					UFA_GUN_presence = 0
 				}
+				set_variable = {
+					gov_corruption = 52
+				}
+				set_variable = {
+					gov_corruption_growth = 0.5
+				}
 			}
 			UFA = {
 				set_variable = {
@@ -98,6 +121,15 @@ on_actions = {
 				}
 				set_variable = {
 					UFA_GUN_presence = 100
+				}
+				set_variable = {
+					puppet_score = 0
+				}
+				set_variable = {
+					gov_corruption = 36
+				}
+				set_variable = {
+					gov_corruption_growth = 2.5
 				}
 			}
 			PAT = {
@@ -119,6 +151,12 @@ on_actions = {
 				}
 				set_variable = {
 					INF_Ruby_Energy_refill = 5
+				}
+				set_variable = {
+					gov_corruption = 82
+				}
+				set_variable = {
+					gov_corruption_growth = 3.5
 				}
 			}
 			MER = {
@@ -149,447 +187,449 @@ on_actions = {
 		}
 	}
 	on_daily_RCR = {
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_FEC_Loyalty < 33
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Far_Eastern_Committee_bad
+						}
 					}
-					NOT = {
-						has_idea = Far_Eastern_Committee_bad
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee
+						add_idea = Far_Eastern_Committee_bad
 					}
 				}
 			}
-			FEC = {
-				swap_ideas = {
-					remove_idea = Far_Eastern_Committee
-					add_idea = Far_Eastern_Committee_bad
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_FEC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_FEC_Loyalty < 66
-					}
-					has_idea = Far_Eastern_Committee_good
-				}
-			}
-			FEC = {
-				swap_ideas = {
-					remove_idea = Far_Eastern_Committee_good
-					add_idea = Far_Eastern_Committee
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_FEC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_FEC_Loyalty < 66
-					}
-					has_idea = Far_Eastern_Committee_bad
-				}
-			}
-			FEC = {
-				swap_ideas = {
-					remove_idea = Far_Eastern_Committee_bad
-					add_idea = Far_Eastern_Committee
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_FEC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_FEC_Loyalty < 66
+						}
 						has_idea = Far_Eastern_Committee_good
 					}
 				}
-			}
-			FEC = {
-				swap_ideas = {
-					remove_idea = Far_Eastern_Committee
-					add_idea = Far_Eastern_Committee_good
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_WEC_Loyalty < 33
-					}
-					NOT = {
-						has_idea = Western_Committee_bad
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee_good
+						add_idea = Far_Eastern_Committee
 					}
 				}
 			}
-			WEC = {
-				swap_ideas = {
-					remove_idea = Western_Committee
-					add_idea = Western_Committee_bad
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_FEC_Loyalty < 66
+						}
+						has_idea = Far_Eastern_Committee_bad
+					}
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee_bad
+						add_idea = Far_Eastern_Committee
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_WEC_Loyalty > 32
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Far_Eastern_Committee_good
+						}
 					}
-					check_variable = {
-						RCR_WEC_Loyalty < 66
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee
+						add_idea = Far_Eastern_Committee_good
 					}
-					has_idea = Western_Committee_good
 				}
 			}
-			WEC = {
-				swap_ideas = {
-					remove_idea = Western_Committee_good
-					add_idea = Western_Committee
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Western_Committee_bad
+						}
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee
+						add_idea = Western_Committee_bad
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_WEC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_WEC_Loyalty < 66
-					}
-					has_idea = Western_Committee_bad
-				}
-			}
-			WEC = {
-				swap_ideas = {
-					remove_idea = Western_Committee_bad
-					add_idea = Western_Committee
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_WEC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_WEC_Loyalty < 66
+						}
 						has_idea = Western_Committee_good
 					}
 				}
-			}
-			WEC = {
-				swap_ideas = {
-					remove_idea = Western_Committee
-					add_idea = Western_Committee_good
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NOC_Loyalty < 33
-					}
-					NOT = {
-						has_idea = Northern_Committee_bad
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee_good
+						add_idea = Western_Committee
 					}
 				}
 			}
-			NOC = {
-				swap_ideas = {
-					remove_idea = Northern_Committee
-					add_idea = Northern_Committee_bad
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_WEC_Loyalty < 66
+						}
+						has_idea = Western_Committee_bad
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee_bad
+						add_idea = Western_Committee
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NOC_Loyalty > 32
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Western_Committee_good
+						}
 					}
-					check_variable = {
-						RCR_NOC_Loyalty < 66
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee
+						add_idea = Western_Committee_good
 					}
-					has_idea = Northern_Committee_good
 				}
 			}
-			NOC = {
-				swap_ideas = {
-					remove_idea = Northern_Committee_good
-					add_idea = Northern_Committee
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Northern_Committee_bad
+						}
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee
+						add_idea = Northern_Committee_bad
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NOC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_NOC_Loyalty < 66
-					}
-					has_idea = Northern_Committee_bad
-				}
-			}
-			NOC = {
-				swap_ideas = {
-					remove_idea = Northern_Committee_bad
-					add_idea = Northern_Committee
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NOC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NOC_Loyalty < 66
+						}
 						has_idea = Northern_Committee_good
 					}
 				}
-			}
-			NOC = {
-				swap_ideas = {
-					remove_idea = Northern_Committee
-					add_idea = Northern_Committee_good
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SIC_Loyalty < 33
-					}
-					NOT = {
-						has_idea = Siverian_Committee_bad
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee_good
+						add_idea = Northern_Committee
 					}
 				}
 			}
-			SIC = {
-				swap_ideas = {
-					remove_idea = Siverian_Committee_neutral
-					add_idea = Siverian_Committee_bad
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NOC_Loyalty < 66
+						}
+						has_idea = Northern_Committee_bad
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee_bad
+						add_idea = Northern_Committee
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SIC_Loyalty > 32
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Northern_Committee_good
+						}
 					}
-					check_variable = {
-						RCR_SIC_Loyalty < 66
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee
+						add_idea = Northern_Committee_good
 					}
-					has_idea = Siverian_Committee
 				}
 			}
-			SIC = {
-				swap_ideas = {
-					remove_idea = Siverian_Committee
-					add_idea = Siverian_Committee_neutral
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Siverian_Committee_bad
+						}
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_neutral
+						add_idea = Siverian_Committee_bad
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SIC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_SIC_Loyalty < 66
-					}
-					has_idea = Siverian_Committee_bad
-				}
-			}
-			SIC = {
-				swap_ideas = {
-					remove_idea = Siverian_Committee_bad
-					add_idea = Siverian_Committee_neutral
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SIC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SIC_Loyalty < 66
+						}
 						has_idea = Siverian_Committee
 					}
 				}
-			}
-			SIC = {
-				swap_ideas = {
-					remove_idea = Siverian_Committee_neutral
-					add_idea = Siverian_Committee
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SOC_Loyalty < 33
-					}
-					NOT = {
-						has_idea = Southern_Committee_bad
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee
+						add_idea = Siverian_Committee_neutral
 					}
 				}
 			}
-			SOC = {
-				swap_ideas = {
-					remove_idea = Southern_Committee_neutral
-					add_idea = Southern_Committee_bad
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SIC_Loyalty < 66
+						}
+						has_idea = Siverian_Committee_bad
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_bad
+						add_idea = Siverian_Committee_neutral
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SOC_Loyalty > 32
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Siverian_Committee
+						}
 					}
-					check_variable = {
-						RCR_SOC_Loyalty < 66
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_neutral
+						add_idea = Siverian_Committee
 					}
-					has_idea = Southern_Committee_1
 				}
 			}
-			SOC = {
-				swap_ideas = {
-					remove_idea = Southern_Committee
-					add_idea = Southern_Committee_neutral
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Southern_Committee_bad
+						}
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_neutral
+						add_idea = Southern_Committee_bad
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SOC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_SOC_Loyalty < 66
-					}
-					has_idea = Southern_Committee_bad
-				}
-			}
-			SOC = {
-				swap_ideas = {
-					remove_idea = Southern_Committee_bad
-					add_idea = Southern_Committee_neutral
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_SOC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SOC_Loyalty < 66
+						}
 						has_idea = Southern_Committee_1
 					}
 				}
-			}
-			SOC = {
-				swap_ideas = {
-					remove_idea = Southern_Committee_neutral
-					add_idea = Southern_Committee_1
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NWC_Loyalty < 33
-					}
-					NOT = {
-						has_idea = Northwestern_Committee
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee
+						add_idea = Southern_Committee_neutral
 					}
 				}
 			}
-			NWC = {
-				swap_ideas = {
-					remove_idea = Northwestern_Committee_neutral
-					add_idea = Northwestern_Committee
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SOC_Loyalty < 66
+						}
+						has_idea = Southern_Committee_bad
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_bad
+						add_idea = Southern_Committee_neutral
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NWC_Loyalty > 32
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Southern_Committee_1
+						}
 					}
-					check_variable = {
-						RCR_NWC_Loyalty < 66
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_neutral
+						add_idea = Southern_Committee_1
 					}
-					has_idea = Northwestern_Committee_good
 				}
 			}
-			NWC = {
-				swap_ideas = {
-					remove_idea = Northwestern_Committee_good
-					add_idea = Northwestern_Committee_neutral
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Northwestern_Committee
+						}
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_neutral
+						add_idea = Northwestern_Committee
+					}
 				}
 			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NWC_Loyalty > 32
-					}
-					check_variable = {
-						RCR_NWC_Loyalty < 66
-					}
-					has_idea = Northwestern_Committee
-				}
-			}
-			NWC = {
-				swap_ideas = {
-					remove_idea = Northwestern_Committee
-					add_idea = Northwestern_Committee_neutral
-				}
-			}
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						RCR_NWC_Loyalty > 65
-					}
-					NOT = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NWC_Loyalty < 66
+						}
 						has_idea = Northwestern_Committee_good
 					}
 				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_good
+						add_idea = Northwestern_Committee_neutral
+					}
+				}
 			}
-			NWC = {
-				swap_ideas = {
-					remove_idea = Northwestern_Committee_neutral
-					add_idea = Northwestern_Committee_good
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NWC_Loyalty < 66
+						}
+						has_idea = Northwestern_Committee
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee
+						add_idea = Northwestern_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Northwestern_Committee_good
+						}
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_neutral
+						add_idea = Northwestern_Committee_good
+					}
 				}
 			}
 		}
@@ -600,17 +640,20 @@ on_actions = {
 		}
 	}
 	on_monthly_NOC = {
-		if = {
-			limit = {
-				has_government = communism
+		effect = {
+			if = {
+				limit = {
+					has_government = communism
+				}
+				set_politics = {
+					ruling_party = neosocialist
+				}
 			}
-			set_politics = {
-				ruling_party = neosocialist
-			}
-		else = {
-			set_politics = {
-				ruling_party = communism
-			}
+			else = {
+				set_politics = {
+					ruling_party = communism
+				}
+			}	
 		}
 	}
 }

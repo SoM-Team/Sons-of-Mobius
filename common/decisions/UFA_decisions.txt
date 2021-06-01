@@ -1,41 +1,50 @@
 UFA_team_DARK = {
     
-	send_dark_on_front = { 
-		icon = GFX_decision_kill_big
-
-		allowed = {
-		}
-
-		available = {
-			check_variable = {
-				team_dark_readyness = 1
-			}
-		}
-		
-		custom_cost_trigger = {
-			command_power > 49
-		}
-		
-		custom_cost_text = cost_cc_50
-
-		complete_effect = {
-			hidden_effect = {
-				add_commad_power = -50
-			}
-			subtract_from_variable = { team_dark_readyness = -2 }
-			custom_effect_tooltip = team_dark_front
-		}
-		
-		fire_only_once = yes
-		days_remove = 1
-
-		remove_effect = {
-		}
-	}
+	#send_dark_on_front = { 
+	#	icon = GFX_decision_kill_big
+	#	
+	#	allowed = {
+	#	}
+	#
+	#	available = {
+	#		check_variable = {
+	#			team_dark_readyness = 1
+	#		}
+	#	}
+	#	
+	#	custom_cost_trigger = {
+	#		command_power > 49
+	#	}
+	#	
+	#	custom_cost_text = cost_cc_50
+	#
+	#	complete_effect = {
+	#		hidden_effect = {
+	#			add_commad_power = -50
+	#		}
+	#		subtract_from_variable = { team_dark_readyness = -2 }
+	#		custom_effect_tooltip = team_dark_front
+	#	}
+	#	
+	#	fire_only_once = yes
+	#	days_remove = 1
+	#
+	#	remove_effect = {
+	#	}
+	#}
 	operation_REDSHIFT = { # RCSR operation
 		icon = generic_nationalism
 
 		allowed = {
+		}
+		 
+		visible = {
+			AND = {
+				has_country_flag = DARK_deployed
+				check_variable = {
+					UFA_DARK_ops = RCR
+				}
+			}
 		}
 
 		available = {
@@ -71,6 +80,15 @@ UFA_team_DARK = {
 		allowed = {
 		}
 
+		visible = {
+			AND = {
+				has_country_flag = DARK_deployed
+				check_variable = {
+					UFA_DARK_ops = INF
+				}
+			}
+		}
+
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
@@ -102,6 +120,15 @@ UFA_team_DARK = {
 		icon = generic_nationalism
 
 		allowed = {
+		}
+
+		visible = {
+			AND = {
+				has_country_flag = DARK_deployed
+				check_variable = {
+					UFA_DARK_ops = SWA
+				}
+			}
 		}
 
 		available = {
@@ -292,6 +319,67 @@ UFA_GUN_ops = {
 			}
 		}
 	}
+
+	UFA_Glitch_EGG = {
+		icon = GFX_decision_computer
+		
+		target_trigger = {
+            FROM = {
+				tag = EGG
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = EGG
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				check_variable = {
+					UFA_GUN_presence > 24
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = cost_cc_25
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -25
+			}
+		}
+		
+		fire_only_once = yes
+		days_remove = 10
+		days_re_enable = 40
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 5
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+				add_ideas = EGG_son_of_glitch
+			}
+		}
+	}
 	
 	UFA_rescue_robians = {
 		icon = GFX_decision_roboticize
@@ -412,26 +500,179 @@ UFA_GUN_ops = {
 
 		remove_effect = {
 			custom_effect_tooltip = GUN_minus_del_obedience
-			hidden_effect = {
+			FROM = {	
+				subtract_from_variable = { 
+					EGG.DEL_1_Submission = 25
+				}
+			}
+		}
+	}
+
+	UFA_sabotage_DEL_2 = {
+		icon = GFX_decision_eggman_medium
+		
+		target_trigger = {
+            FROM = {
+				tag = EGG
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = EGG
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
 				FROM = {
-					random_list = {
-						40 = { 
-							subtract_from_variable = { 
-								EGG.DEL_1_Submission = 25
-							}
-						}
-						30 = {
-							subtract_from_variable = { 
-								EGG.DEL_2_Submission = 25
-							}
-						}
-						30 = {
-							subtract_from_variable = { 
-								EGG.DEL_3_Submission = 25
-							}
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 50
 						}
 					}
 				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -50
+			}
+			set_country_flag = GUN_active
+		}
+		
+		days_remove = 20
+		days_re_enable = 55
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_minus_del_obedience
+			subtract_from_variable = { 
+				EGG.DEL_2_Submission = 25
+			}
+		}
+	}
+	UFA_sabotage_DEL_3 = {
+		icon = GFX_decision_eggman_medium
+		
+		target_trigger = {
+            FROM = {
+				tag = EGG
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = EGG
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 50
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -50
+			}
+			set_country_flag = GUN_active
+		}
+		
+		days_remove = 20
+		days_re_enable = 55
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_minus_del_obedience
+			subtract_from_variable = { 
+				EGG.DEL_3_Submission = 25
+			}
+		}
+	}
+	UFA_sabotage_DEL_4 = {
+		icon = GFX_decision_eggman_medium
+		
+		target_trigger = {
+            FROM = {
+				tag = EGG
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = EGG
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 50
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -50
+			}
+			set_country_flag = GUN_active
+		}
+		
+		days_remove = 20
+		days_re_enable = 55
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_minus_del_obedience
+			subtract_from_variable = { 
+				EGG.DEL_4_Submission = 25
 			}
 		}
 	}
@@ -618,6 +859,184 @@ UFA_GUN_ops = {
 					}	
 				}
 			}
+		}
+	}
+	UFA_burn_oil_sea = {
+		icon = GFX_decision_oil_burn
+		
+		target_trigger = {
+            FROM = {
+				tag = EGG
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = EGG
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 30
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		
+		custom_cost_text = cost_cc_75
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -75
+			}
+			set_country_flag = GUN_active
+		}
+		
+		days_remove = 35
+		days_re_enable = 70
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 30
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+				country_event = {
+					id = egg.38
+				}
+			}
+		}
+	}
+	UFA_paradrop_saboteurs = {
+		icon = GFX_decision_bomber
+		
+		target_trigger = {
+            FROM = {
+				tag = INF
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = INF
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			NOT = {
+				has_country_flag = GUN_active
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -50
+			}
+		}
+		
+		days_remove = 15
+		days_re_enable = 45
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 10
+				}
+			}
+		}
+	}
+	UFA_slave_uprising = {
+		icon = GFX_decision_shackles
+		
+		target_trigger = {
+            FROM = {
+				tag = INF
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = INF
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 45
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -50
+			}
+		}
+		
+		days_remove = 25
+		days_re_enable = 35
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_manpower = -15000
+				add_stability = -0.05
+				random_owned_state = {
+					damage_building = {
+						type = infrastructure
+						damage = 0.5
+					}
+				}
+			}
+			add_manpower = 10000
 		}
 	}
 	UFA_airdrop_propaganda_leaflets = {
@@ -988,4 +1407,508 @@ UFA_GUN_ops = {
 			}
 		}
 	}
+	UFA_invest_mercian_construction = {
+		icon = GFX_decision_generic_construction
+		
+		target_trigger = {
+            FROM = {
+				tag = MER
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				NOT = {
+					has_country_flag = GUN_active
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+		 	}
+		}
+		
+		cost = 50
+
+		complete_effect = {
+			set_country_flag = GUN_active
+		}
+		
+		days_remove = 50
+		days_re_enable = 50
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 5
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	UFA_train_Mercian_army = {
+		icon = GFX_decision_sweat
+		
+		target_trigger = {
+            FROM = {
+				tag = MER
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 30
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = cost_cc_25
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -25
+			}
+		}
+		
+		days_remove = 30
+		days_re_enable = 20
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 10
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+				army_experience = 50
+			}
+		}
+	}
+	UFA_suppress_mercian_opposition = {
+		icon = GFX_decision_gabnya
+		
+		target_trigger = {
+            FROM = {
+				tag = MER
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				FROM = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 50
+						}
+					}
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -50
+			}
+		}
+		
+		days_remove = 40
+		days_re_enable = 40
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			FROM = {
+				add_to_variable = {
+					UFA_GUN_presence = 15
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+				add_stability = 0.05
+			}
+		}
+	}
+	UFA_support_svyatlales_nationalists = {
+		icon = GFX_decision_giveup
+		
+		target_trigger = {
+            FROM = {
+				tag = SVT
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				MER = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 20
+						}
+					}
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = cost_cc_25
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -25
+			}
+		}
+		
+		days_remove = 25
+		days_re_enable = 40
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			MER = { 
+				add_to_variable = {
+					UFA_GUN_presence = 5
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+			}
+			FROM = {
+				NOT = {
+					is_subject_of = RCR
+				}
+			}
+			FROM = {
+				add_stability = -0.05
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	UFA_invest_chernivian_oil_gas = {
+		icon = GFX_decision_nuclear_program
+		
+		target_trigger = {
+            FROM = {
+				tag = CHE
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				MER = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 20
+						}
+					}
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+			}
+		}
+		
+		cost = 75
+
+		days_remove = 25
+		days_re_enable = 40
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			MER = {
+				add_to_variable = {
+					UFA_GUN_presence = 5
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+			}
+			FROM = {
+				random_owned_state = {
+					add_resource = {
+						type = oil
+						amount = 40
+					}
+				}
+			}
+		}
+	}
+	UFA_arm_cherniwian_troops = {
+		icon = GFX_decision_icv
+		
+		target_trigger = {
+            FROM = {
+				tag = CHE
+            }
+        }
+		
+		visible = {
+			check_variable = {
+				UFA_GUN_target = MER
+			}
+		}
+		
+		fire_only_once = no
+		
+		available = {
+			AND = {
+				MER = {
+					custom_trigger_tooltip = {
+						tooltip = enough_GUN_presence
+						check_variable = {
+							UFA_GUN_presence > 30
+						}
+					}
+				}
+				NOT = {
+					has_country_flag = GUN_active
+				}
+				FROM = {
+					NOT = {
+						is_subject_of = RCR
+					}
+				}
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			set_country_flag = GUN_active
+			hidden_effect = {
+				add_commad_power = -50
+			}
+		}
+
+		days_remove = 40
+		days_re_enable = 40
+
+		remove_effect = {
+			custom_effect_tooltip = GUN_add_presense
+			MER = {
+				add_to_variable = {
+					UFA_GUN_presence = 10
+				}
+				clamp_variable = {
+					var = UFA_GUN_presence 
+					min = 0
+					max = 100
+				}
+			}
+			FROM = {
+				add_equipment_to_stockpile = {
+					type = ifv_mechanized_equipment_2
+					amount = 100
+					producer = UFA
+				}
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment_2
+					amount = 50
+					producer = UFA
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 50
+					producer = UFA
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_3
+					amount = 1000
+					producer = UFA
+				}
+			}
+		}
+	}
+}
+UFA_Great_Game = { 
+	End_game_UFA = {
+		icon = GFX_decision_icv
+			
+		fire_only_once = yes
+			
+		available = {
+			has_global_flag = Great_game_ended
+		}
+			
+		cost = 100
+			
+		days_remove = 35
+		
+		complete_effect = {
+			if = {
+				limit = {
+					tag = RCR
+				}
+				UFA = {
+					country_event = {
+						id = greatgame.1
+					}
+				}
+			}
+			else = {
+				RCR = {
+					country_event = {
+						id = greatgame.2
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					tag = RCR
+				}
+				declare_war_on = {
+					target = UFA
+					type = puppet_wargoal_focus
+				}
+			}
+			else = {
+				declare_war_on = {
+					target = RCR
+					type = puppet_wargoal_focus
+				}
+			}
+		}
+	}	
 }
