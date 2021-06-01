@@ -1,4 +1,14 @@
 monthly_effects = {
+	every_country = {
+		add_to_variable = {
+			corruption = corruption_growth
+		}
+		clamp_variable = {
+			var = corruption
+			min = 0
+			max = 100
+		}
+	}
 	log = "[GetDateText]: [Root.GetName]: first_every_month_script"
 	add_to_variable = { month_counter = 1 }
 	if = {
@@ -14,6 +24,13 @@ monthly_effects = {
 		limit = { country_exists = RCR }
 		RCR = { RCR_bioweapon_effects = yes }
 	}
+	if = {
+		limit = {
+			country_exists = EGG
+		}
+		EGG_DEL_growth = yes
+	}
+	
 	if = {
 		limit = { country_exists = RCR }
 		RCR = { RCR_automation_effects = yes }

@@ -1,0 +1,183 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			set_variable = {
+				global.ARK_Dock_Control = 1
+			}
+			set_variable = {
+				global.ARK_Liv_Control = 1
+			}
+			set_variable = {
+				global.ARK_Cnt_Control = 1
+			}
+			set_variable = {
+				global.ARK_Inf_Control = 1
+			}
+			set_variable = {
+				global.ARK_Med_Control = 1
+			}
+			set_variable = {
+				global.ARK_Gen_Control = 1
+			}
+			set_variable = {
+				global.ARK_Eclipse_Control = 1
+			}
+			UFA = {
+				set_country_flag = Rouge_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_Ratio = 100
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_unit_number = 200
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 200
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+			}
+			EGG = {
+				set_country_flag = Metal_Sonic_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_Ratio = 0
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_unit_number = 300
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+			}
+			RCR = {
+				set_country_flag = Shubina_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_Ratio = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_unit_number = 300
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = UFA
+						tag = RCR 
+						tag = EGG
+					}
+				}
+				add_to_variable = {
+					ARK_organisation = 5
+				}
+				clamp_variable = {
+					var = ARK_organisation
+					min = 0
+					max = 100 
+				}
+			}
+		}
+	}
+}
