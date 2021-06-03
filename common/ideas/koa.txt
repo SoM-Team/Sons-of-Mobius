@@ -347,5 +347,51 @@ ideas = {
                 stability_factor = -0.05
             }
         }
+
+        # Nobles vs Populist mechanic
+
+        KOA_Populist_Domination = {
+            
+            available = {
+                AND = {
+                    has_global_flag = KOA_Sally_Queen
+                    has_global_flag = KOA_Populist_vs_Noble
+                }
+            }
+
+            modifier = {
+                stability_factor = 0.05
+                research_speed_factor = -0.05
+			    planning_speed = -0.05
+            }
+
+            on_add = {
+                subtract_variable = { 
+                    gov_corruption_growth = 0.05 
+                }
+            }
+        }
+
+        KOA_Nobles_Domination = {
+
+            available = {
+                AND = {
+                    has_global_flag = KOA_Sally_Queen
+                    has_global_flag = KOA_Populist_vs_Noble
+                }
+            }
+
+            modifier = {
+                consumer_goods_factor = -0.05
+                army_infantry_attack_factor = 0.05
+                production_factory_start_efficiency_factor = -0.05
+		    }
+
+            on_add = {
+                add_to_variable = { 
+                    gov_corruption_growth = 0.05 
+                }
+            }
+        }
     }
 }
