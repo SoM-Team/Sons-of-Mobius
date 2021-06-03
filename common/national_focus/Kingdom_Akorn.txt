@@ -2794,9 +2794,55 @@ focus_tree = {
 		cost = 1
 		x = 18
 		y = 14
+		#allow_branch = {
+		#	has_global_flag = KOA_Sally_Queen
+		#}
 		completion_reward = {
 			add_political_power = 100
 			set_global_flag = KOA_Sally_Queen
+			set_variable = { nobles_influence = 50 }
+			set_variable = { populist_influence = 50 }
+			KOA = {
+				country_event = {
+					id = koa.131
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Amnesty_as_Deserved
+		icon = GFX_icon_unknown
+		cost = 1
+		x = 17
+		y = 15
+		prerequisite = {
+			focus = KOA_The_One_Who_Was_Ready
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_ideas = KOA_Pardoned_for_the_Past
+		}
+	}
+	focus = {
+		id = KOA_Negotiations_as_Promised
+		icon = GFX_icon_unknown
+		cost = 1
+		x = 19
+		y = 15
+		prerequisite = {
+			focus = KOA_The_One_Who_Was_Ready
+		}
+		completion_reward = {
+			country_event = {
+				id = koa.133
+			}
 		}
 	}
 }
