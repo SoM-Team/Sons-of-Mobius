@@ -17,52 +17,63 @@ focus_tree = {
 	focus = {
 		id = UFA_Crisis_Worsens
 		icon = GFX_focus_UFA_Crisis_Worsens
-		cost = 10
+		cost = 4
 		x = 25
 		y = 0
 
 		completion_reward = {
 			country_event = {	id = ufa_oil.1 }
+			custom_effect_tooltip = NEED_HURRY
 		}
 	}
 	focus = {
 		id = UFA_Announce_Fuel_Rationing
 		icon = GFX_focus_UFA_Announce_Fuel_Rationing
 		prerequisite = { focus = UFA_Crisis_Worsens }
-		mutually_exclusive = {
-			
-		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 1
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			swap_ideas = {
+				remove_idea = Oil_Crisis_3235
+				add_idea = Oil_Crisis_3235_1
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_political_power = -50
 		}
 	}
 	focus = {
 		id = UFA_Develop_Synthetic_Alternatives
 		icon = GFX_UFA_Develop_Synthetic_Alternatives
 		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
-		mutually_exclusive = {
-			
-		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = -2
 		y = 3
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = synth_resources
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 60
+			}
 		}
 	}
 	focus = {
 		id = UFA_Search_Alternate_Energy_Supplies
 		icon = GFX_UFA_Search_Alternate_Energy_Supplies
-		prerequisite = { focus = UFA_Crisis_Worsens }
+		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
 		mutually_exclusive = {
 			
 		}
@@ -70,27 +81,46 @@ focus_tree = {
 		x = 0
 		y = 2
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			add_resource = {
+				type = oil
+				amount = 50
+				state = 394
+			}
+			swap_ideas = {
+				remove_idea = Oil_Crisis_3235_1
+				add_idea = Oil_Crisis_3235_2
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			custom_effect_tooltip = Decision_RCR_Embargo
 		}
 	}
 	focus = {
 		id = UFA_Move_into_Renewables
 		icon = GFX_UFA_Move_into_Renewables
 		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
-		mutually_exclusive = {
-			
-		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 2
 		y = 3
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = nuclear
+			}
+			custom_effect_tooltip = UFA_Renewable_decisions
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 60
+			}
 		}
 	}
 	focus = {
@@ -104,10 +134,17 @@ focus_tree = {
 		x = 0
 		y = 3
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_timed_idea = {
+				idea = Buy_Rings
+				days = 180
+			}
 		}
 	}
 	focus = {
@@ -123,27 +160,28 @@ focus_tree = {
 		x = 0
 		y = 4
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_political_power = 50
 		}
 	}
 	focus = {
 		id = UFA_Situation_Stabilizes
 		icon = GFX_UFA_Situation_Stabilizes
 		prerequisite = { focus = UFA_Calm_Populace }
-		mutually_exclusive = {
-			
-		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 5
 
-		cost = 10
+		cost = 4
 
 		completion_reward = {
-			country_event = {   }
+			remove_ideas = Oil_Crisis_3235_2
 		}
 	}
 	focus = {

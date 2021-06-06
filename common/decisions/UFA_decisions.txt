@@ -1912,3 +1912,59 @@ UFA_Great_Game = {
 		}
 	}	
 }
+
+UFA_Oil_Crisis = { 
+	UFA_Oil_Worsens = {
+		icon = GFX_decision_oil_burn
+
+		allowed = {
+			tag = UFA
+		}
+		activation = {
+			has_completed_focus = UFA_Crisis_Worsens
+        }
+		is_good = no
+
+		days_mission_timeout = 60
+		
+		timeout_effect = {
+			custom_effect_tooltip = OIL_WORSE
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = Oil_Crisis_3235
+					add_idea = Oil_Crisis_Worse
+				}
+			}
+			subtract_from_variable = {
+				federal_unity = 20
+			}
+		}
+	}
+	UFA_Oil_Worsens = {
+		icon = GFX_decision_oil
+		target_trigger = {
+			FROM = {
+				tag = RCR
+			}
+		}
+		allowed = {
+			tag = UFA
+		}
+		
+		visible = {
+			has_completed_focus = UFA_Search_Alternate_Energy_Supplies
+		}
+		
+		cost = 100
+
+		days_remove = 7
+
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = rcr_ufa.1
+				}
+			}
+		}
+	}
+}
