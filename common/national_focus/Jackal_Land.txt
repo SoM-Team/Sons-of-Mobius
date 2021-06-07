@@ -12,6 +12,7 @@ focus_tree = {
 	
 	focus = {
 		id = INF_the_Phantom_Ruby
+		text = INF_the_Phantom_Ruby
 		icon = GFX_focus_the_Ruby
 		cost = 7
 		x = 12
@@ -54,6 +55,16 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_the_Phantom_Ruby
+		}
+		completion_reward = {
+			INF = {
+				if = {
+					limit = {
+						has_idea = Monarchist_Insurgence
+					}
+					remove_ideas = Monarchist_Insurgence
+				}
+			}
 		}
 		x = 14
 		y = 1
@@ -913,6 +924,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_and_start_this_war
 		}
+		completion_reward = {
+			diplomatic_relation = {
+				country = RCR
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
 		x = 21
 		y = 12
 	}
@@ -923,6 +941,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Rethenian_agreement
 		}
+		completion_reward = {
+			RCR = {
+				country_event = {
+					id = rcr.100
+				}
+			}
+		}
 		x = 20
 		y = 13
 	}
@@ -932,6 +957,21 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus =  INF_Rethenian_agreement
+		}
+		completion_reward = {
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+			}
+			country_event = {
+				id = inf.100
+			}
 		}
 		x = 22
 		y = 13
