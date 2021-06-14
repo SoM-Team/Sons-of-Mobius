@@ -365,6 +365,15 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Tango_plan
 		}
+		completion_reward = {
+			add_ideas = INF_Widespread_ICV
+			INF = {
+				add_equipment_to_stockpile = {
+					type = ifv_mechanized_equipment
+					amount = 500
+				}
+			}
+		}
 		x = 3
 		y = 8
 	}
@@ -375,6 +384,24 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Tango_plan
 			focus = INF_Foxtrot_plan
+		}
+		completion_reward = {
+			INF = {
+				random_owned_state = {
+					create_unit = {
+						division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+						owner = INF
+					}
+					create_unit = {
+						division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+						owner = INF
+					}
+					create_unit = {
+						division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+						owner = INF
+					}
+				}
+			}
 		}
 		x = 6
 		y = 8
@@ -491,6 +518,11 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = INF_demoralize_society
 		}
+		completion_reward = {
+			UFA = {
+				add_ideas = UFA_Collapsing_Army_1
+			}
+		}
 		x = 17
 		y = 6
 	}
@@ -518,6 +550,10 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_demoralize_society
+		}
+		completion_reward = {
+			set_global_flag = INF_Fake_Resources_Completed
+			custom_effect_tooltip = INF_Fake_Resources_tooltip
 		}
 		x = 23
 		y = 7
@@ -550,6 +586,23 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_demoralize_army
 		}
+		completion_reward = {
+			UFA = {
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_1
+					}
+					remove_ideas = UFA_Collapsing_Army_1
+				}
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_3
+					}
+					remove_ideas = UFA_Collapsing_Army_3
+				}
+				add_ideas = UFA_Collapsing_Army_2
+			}
+		}
 		x = 17
 		y = 7
 	}
@@ -559,6 +612,23 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_demoralize_army
+		}
+		completion_reward = {
+			UFA = {
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_1
+					}
+					remove_ideas = UFA_Collapsing_Army_1
+				}
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_2
+					}
+					remove_ideas = UFA_Collapsing_Army_2
+				}
+				add_ideas = UFA_Collapsing_Army_3
+			}
 		}
 		x = 15
 		y = 7
