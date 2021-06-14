@@ -295,7 +295,7 @@ focus_tree = {
 			focus = INF_I_am_a_dangerous_weapon
 		}
 		completion_reward = {
-			every_state = {
+			every_owned_state = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -367,11 +367,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = INF_Widespread_ICV
-			INF = {
-				add_equipment_to_stockpile = {
-					type = ifv_mechanized_equipment
-					amount = 500
-				}
+			add_equipment_to_stockpile = {
+				type = ifv_mechanized_equipment
+				amount = 500
 			}
 		}
 		x = 3
@@ -758,6 +756,17 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Huranjan_direction
 		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 500
+			}
+			add_tech_bonus = {
+				category = cat_anti_tank
+				bonus = 1
+				uses = 1
+			}
+		}
 		x = 4
 		y = 13
 	}
@@ -770,6 +779,32 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus =  INF_build_AA
+		}
+		bypass = {
+			if = {
+				limit = {
+					UFA = {
+						exists = no
+					}
+				}
+			}
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					any_neighbor_state = {
+						is_core_of = UFA
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						limit_to_border = yes
+					}
+				}
+			}
 		}
 		x = 3
 		y = 14
@@ -890,6 +925,14 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Bharatshan_divisions
 		}
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
 		x = 9
 		y = 14
 	}
@@ -965,6 +1008,12 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Requisition
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = INF_Fighting_the_Long_War
+				days = 365
+			}
+		}
 		x = 12
 		y = 15
 	}
@@ -992,7 +1041,7 @@ focus_tree = {
 			focus =  INF_plunder_banks
 		}
 		completion_reward = {
-			every_state = {
+			every_owned_state = {
 				limit = {
 					is_core_of = INF
 				}
@@ -1146,6 +1195,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Industrial_Sun
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = electronics
+			}
+		}
 		x = 15
 		y = 14
 	}
@@ -1158,6 +1214,11 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus =  INF_rice_meal
+		}
+		completion_reward = {
+			set_rule = {
+				can_use_kamikaze_pilots = yes
+			}
 		}
 		x = 17
 		y = 14
