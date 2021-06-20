@@ -2384,9 +2384,9 @@ focus_tree = {
 		cost = 4
 		x = 18
 		y = 14
-		allow_branch = {
-			has_global_flag = KOA_Civil_War
-		}
+		#allow_branch = {
+		#	has_global_flag = KOA_Civil_War
+		#}
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
@@ -2532,7 +2532,14 @@ focus_tree = {
 			focus = KOA_Our_Friends_at_Home
 		}
 		completion_reward = {
-			#effect_TBA?
+			1 = {
+				create_unit = {
+					owner = KOA
+					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+			}
+			add_ideas = KOA_Alternate_Freedom_Fighters_1
 			country_event = {
 				id = koa.126
 			}
@@ -2563,7 +2570,10 @@ focus_tree = {
 			focus = KOA_Sallys_Operations_Manual
 		}
 		completion_reward = {
-			#effect_TBA?
+			swap_ideas = {
+				remove_idea = KOA_Alternate_Freedom_Fighters_1
+				add_idea = KOA_Alternate_Freedom_Fighters_3
+			}
 			country_event = {
 				id = koa.127
 			}
@@ -2602,7 +2612,14 @@ focus_tree = {
 			focus = KOA_The_Acorn_Civil_War
 		}
 		completion_reward = {
-			#effect_TBA?
+			add_opinion_modifier = {
+				target = MER
+				modifier = huge_increase
+			}
+			add_opinion_modifier = {
+				target = UFA
+				modifier = huge_increase
+			}
 		}
 	}
 	focus = {
@@ -2616,7 +2633,7 @@ focus_tree = {
 			focus = KOA_Our_Allies_Abroad
 		}
 		completion_reward = {
-			#effect_TBA?
+			add_ideas = KOA_UF_Military_Advisors_Idea
 		}
 	}
 	focus = {
@@ -2630,7 +2647,26 @@ focus_tree = {
 			focus = KOA_UF_Military_Advisors
 		}
 		completion_reward = {
-			#effect_TBA?
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = UFA  
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 2000
+				producer = UFA  
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 2000
+				producer = UFA  
+			}
+			add_equipment_to_stockpile = {
+				type = main_battle_tank_equipment
+				amount = 500
+				producer = UFA  
+			}
 			country_event = {
 				id = koa.129
 			}
@@ -2661,7 +2697,10 @@ focus_tree = {
 			focus = KOA_Our_Allies_Abroad
 		}
 		completion_reward = {
-			#effect_TBA?
+			give_resource_rights = {
+				reveiver = KOA
+				state = 510
+			}
 		}
 	}
 	focus = {
@@ -2689,7 +2728,23 @@ focus_tree = {
 			focus = KOA_Acorn_Commonwealth
 		}
 		completion_reward = {
-			#effect_TBA?
+			1 = {
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+			}
 		}
 	}
 	focus = {
@@ -2701,6 +2756,18 @@ focus_tree = {
 		y = 16
 		prerequisite = {
 			focus = KOA_Our_Allies_Abroad
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = MER  
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 2000
+				producer = MER  
+			}
 		}
 	}
 	focus = {
@@ -2724,6 +2791,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Questing_Knights
 		}
+		completion_reward = {
+			add_ideas = KOA_Irregular_Rangers
+		}
 	}
 	focus = {
 		id = KOA_Acorn_Foreign_Legion
@@ -2740,6 +2810,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Mercian_Trailblazers
+		}
+		completion_reward = {
+			add_manpower = 45000
 		}
 	}
 	focus = {
@@ -2785,6 +2858,8 @@ focus_tree = {
 			add_ideas = KOA_Running_on_Empty_Idea
 		}
 	}
+
+	# TODO: Check focuses "Stop Holding Back!" and "Mercian Trailblazers"
 
 	# Sally Acorn focuses
 	focus = {
