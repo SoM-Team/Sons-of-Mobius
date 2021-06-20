@@ -2962,34 +2962,50 @@ EGG_DEL_CREATION = {
 		}
 		fire_only_once = yes
 		complete_effect = {
-			every_state = {
-				limit = {
-					AND = {
-						OR = {
-							is_core_of = SWA
-							is_core_of = TYY
+			SWA = {
+				every_state = {
+					limit = {
+						AND = {
+							OR = {
+								is_core_of = SWA
+								is_core_of = TYY
+							}
+							is_controlled_by = EGG
 						}
-						is_controlled_by = EGG
 					}
+					#SWA = {
+					#	transfer_state = PREV
+					#}
 				}
-				SWA = {
-					transfer_state = PREV
+				delete_unit = {
+					state = THIS
+					disband = yes
 				}
 			}
+			
 			SWA = {
 				set_politics = {
 					ruling_party = technocratic_despotist
 					elections_allowed = no
 				}
 			}
+			
+			KOA = {
+				release = SWA
+			}
+
 			ROOT = {
 				set_rule = {
 					can_puppet = yes
 				}
 				puppet = SWA
-				set_rule = {
-					can_puppet = no
-				}
+				#set_autonomy = { 
+				#	target = SWA
+				#	autonomy_state = autonomy_integrated_puppet 
+				#}
+				#set_rule = {
+				#	can_puppet = no
+				#}
 			}
 		}
 	}
