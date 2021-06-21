@@ -1,0 +1,260 @@
+add_namespace = ark
+
+country_event = { ### ARK_Controlled
+	id = ark.1
+	title = ark.1.t
+	desc = ark.1.d
+	picture = GFX_report_event_space_colony_ark
+	
+	trigger = { 
+		AND = {
+			NOT = {
+				has_idea = idea_ARK_control
+			}
+			OR = {
+				AND = {
+					tag = UFA
+					check_variable = {
+						global.ARK_Dock_Control = 1
+					}
+					check_variable = {
+						global.ARK_Cnt_Control = 1
+					}
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+					check_variable = {
+						global.ARK_Inf_Control = 1
+					}
+					check_variable = {
+						global.ARK_Med_Control = 1
+					}
+					check_variable = {
+						global.ARK_Gen_Control = 1
+					}
+					check_variable = {
+						global.ARK_Eclipse_Control = 1
+					}
+				}
+				AND = {
+					tag = RCR
+					check_variable = {
+						global.ARK_Dock_Control = 2
+					}
+					check_variable = {
+						global.ARK_Cnt_Control = 2
+					}
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+					check_variable = {
+						global.ARK_Inf_Control = 2
+					}
+					check_variable = {
+						global.ARK_Med_Control = 2
+					}
+					check_variable = {
+						global.ARK_Gen_Control = 2
+					}
+					check_variable = {
+						global.ARK_Eclipse_Control = 2
+					}
+				}
+				AND = {
+					tag = EGG
+					check_variable = {
+						global.ARK_Dock_Control = 3
+					}
+					check_variable = {
+						global.ARK_Cnt_Control = 3
+					}
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+					check_variable = {
+						global.ARK_Inf_Control = 3
+					}
+					check_variable = {
+						global.ARK_Med_Control = 3
+					}
+					check_variable = {
+						global.ARK_Gen_Control = 3
+					}
+					check_variable = {
+						global.ARK_Eclipse_Control = 3
+					}
+				}
+			}
+		}
+	}
+
+	fire_only_once = no
+	
+	option = {
+		name = ark.1.a
+		add_ideas = idea_ARK_control
+		every_other_country = {
+			limit = {
+				has_idea = idea_ARK_control
+			}
+			country_event = {
+				id = ark.2
+			}
+		}
+	}
+}
+
+country_event = { ### ARK_Lost
+	id = ark.2
+	title = ark.2.t
+	desc = ark.2.d
+	picture = GFX_report_event_space_colony_ark
+	
+	trigger = { 
+		AND = {
+			has_idea = idea_ARK_control
+			OR = {
+				AND = {
+					tag = UFA
+					NOT = {
+						check_variable = {
+							global.ARK_Dock_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Cnt_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Inf_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Med_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Gen_Control = 1
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+				}
+				AND = {
+					tag = RCR
+					NOT = {
+						check_variable = {
+							global.ARK_Dock_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Cnt_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Inf_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Med_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Gen_Control = 2
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+				}
+				AND = {
+					tag = EGG
+					NOT = {
+						check_variable = {
+							global.ARK_Dock_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Cnt_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Inf_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Med_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Gen_Control = 3
+						}
+					}
+					NOT = {
+						check_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+				}
+			}
+		}
+	}
+
+	fire_only_once = no
+	
+	is_triggered_only = yes
+
+	option = {
+		name = ark.2.a
+		remove_ideas = idea_ARK_control
+	}
+}
+
+country_event = {
+	id = ark.666
+	title = ark.666.t
+	desc = ark.666.d
+	picture = GFX_report_event_space_colony_ark
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = ark.666.a
+		set_global_flag = ARK_Collapsed
+	}
+}

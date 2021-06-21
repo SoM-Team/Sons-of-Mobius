@@ -1,0 +1,270 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = { 
+				set_variable = {
+					emerald_count = 0
+				}
+			}
+			
+			set_variable = {
+				global.ARK_Dock_Control = 1
+			}
+			set_variable = {
+				global.ARK_Liv_Control = 1
+			}
+			set_variable = {
+				global.ARK_Cnt_Control = 1
+			}
+			set_variable = {
+				global.ARK_Inf_Control = 1
+			}
+			set_variable = {
+				global.ARK_Med_Control = 1
+			}
+			set_variable = {
+				global.ARK_Gen_Control = 1
+			}
+			set_variable = {
+				global.ARK_Eclipse_Control = 1
+			}
+			UFA = {
+				set_country_flag = Rouge_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_Eclipse_charge = 0
+				}
+				set_variable = {
+					ARK_charge_level = 1
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_Ratio = 100
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_unit_number = 200
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 200
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+				set_variable = {
+					ARK_eclipse_recharge = 0
+				}
+			}
+			EGG = {
+				set_country_flag = Metal_Sonic_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_charge_level = 1
+				}
+				set_variable = {
+					ARK_Eclipse_charge = 0
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_Ratio = 0
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_unit_number = 300
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+				set_variable = {
+					ARK_eclipse_recharge = 0
+				}
+			}
+			RCR = {
+				set_country_flag = Shubina_to_Ark
+				set_variable = {
+					ARK_organisation = 100
+				}
+				set_variable = {
+					ARK_Eclipse_charge = 0
+				}
+				set_variable = {
+					ARK_strength = 100
+				}
+				set_variable = {
+					ARK_charge_level = 1
+				}
+				set_variable = {
+					ARK_Ratio = 0
+				}
+				set_variable = {
+					ARK_set_target = 1
+				}
+				set_variable = {
+					ARK_send_reinforcements = 0
+				}
+				set_variable = {
+					ARK_Free_Units = 0
+				}
+				set_variable = {
+					ARK_unit_number = 300
+				}
+				set_variable = {
+					ARK_unit_number_area_1 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_2 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_3 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_4 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_5 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_6 = 0
+				}
+				set_variable = {
+					ARK_unit_number_area_7 = 0
+				}
+				set_variable = {
+					ARK_eclipse_recharge = 0
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = UFA
+						tag = RCR 
+						tag = EGG
+					}
+				}
+				add_to_variable = {
+					ARK_organisation = 5
+				}
+				clamp_variable = {
+					var = ARK_organisation
+					min = 0
+					max = 100 
+				}
+			}
+			if = {
+				limit = {
+					has_idea = idea_ARK_control
+				}
+				set_temp_variable = {
+					c = emerald_count
+				}
+				set_temp_variable = {
+					d = 5
+				}
+				multiply_temp_variable = {
+					c = d
+				}
+				set_variable = {
+					ARK_eclipse_recharge = c
+				}
+				add_to_variable = {
+					ARK_Eclipse_charge = ARK_eclipse_recharge
+				}
+				if = {
+					limit = {
+						check_variable = {
+							emerald_count < 3
+						}
+					}
+					clamp_variable = {
+						var = ARK_Eclipse_charge
+						min = 0
+						max = 34
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							emerald_count > 2
+						}
+						check_variable = {
+							emerald_count < 6
+						}
+					}
+					clamp_variable = {
+						var = ARK_Eclipse_charge
+						min = 0
+						max = 73
+					}
+				}
+				else = {
+					clamp_variable = {
+						var = ARK_Eclipse_charge
+						min = 0
+						max = 100
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,540 @@
+ARK_space_colony = {
+	ARK_collapse = {
+
+		icon = GFX_decision_kill_delegate
+
+		is_good = no
+
+		activation = {              
+        	AND = {
+				date > 3239.01.01
+				has_idea = idea_ARK_control
+			}
+
+     	}
+
+		days_mission_timeout = 720
+		
+		timeout_effect = {
+			country_event = {
+				id = ark.666
+			}
+		}
+	}
+	ARK_send_reinforcements = {
+		icon = GFX_decision_Sonic
+		
+		available = {
+			NOT = { has_country_flag = ARK_Repairing }
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_docks
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Dock_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Dock_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Dock_Control = 1
+						}
+					}
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		
+		custom_cost_text = cost_cc_75
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -75
+			}
+		}
+
+		days_remove = 7
+
+		days_re_enable = 14
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_arrive_reinforcements
+			add_to_variable = {
+				ARK_Free_Units = ARK_reinforcement
+			}
+		}
+	}
+	ARK_activate_robots = {
+		icon = GFX_decision_eggman_medium
+		
+		available = {
+			NOT = { has_country_flag = ARK_Repairing }
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_liv
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = cost_cc_25
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -25
+			}
+		}
+
+		days_remove = 2
+
+		days_re_enable = 10
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_robots_plus
+			add_to_variable = {
+				ARK_Free_Units = 100
+			}
+			add_to_variable = {
+				ARK_strength = 20
+			}
+			clamp_variable = {
+				var = ARK_strength
+				min = 0
+				max = 100
+			}
+		}
+	}
+	ARK_cure_soldiers = {
+		icon = GFX_decision_sweat
+		
+		available = {
+			NOT = { has_country_flag = ARK_Repairing }
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_inf
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Inf_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Inf_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Inf_Control = 1
+						}
+					}
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		
+		custom_cost_text = cost_cc_25
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -25
+			}
+		}
+
+		days_remove = 4
+
+		days_re_enable = 10
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_cured_soldiers
+			add_to_variable = {
+				ARK_strength = 30
+			}
+			clamp_variable = {
+				var = ARK_strength
+				min = 0
+				max = 100
+			}
+		}
+	}
+	ARK_deploy_artificial_Chaos = {
+		icon = GFX_decision_artificial_chaos
+		
+		available = {
+			NOT = { has_country_flag = ARK_Repairing }
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_gen
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Gen_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Gen_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Gen_Control = 1
+						}
+					}
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		
+		custom_cost_text = cost_cc_50
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -50
+			}
+		}
+
+		days_remove = 4
+
+		days_re_enable = 10
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_artificial_c
+			add_to_variable = {
+				ARK_strength = 40
+			}
+			clamp_variable = {
+				var = ARK_strength
+				min = 0
+				max = 100
+			}
+			add_to_variable = {
+				ARK_Free_Units = 100
+			}
+		}
+	}
+	ARK_destroy_Eclipse_cannon = {
+		icon = GFX_decision_sabotage
+		
+		available = {
+			NOT = { has_country_flag = ARK_Repairing }
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_eclipse
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 99
+		}
+		
+		custom_cost_text = cost_cc_100
+
+		complete_effect = {
+			hidden_effect = {
+				add_commad_power = -100
+			}
+		}
+
+		days_remove = 180
+
+		fire_only_once = yes
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_destroy_eclipse
+			add_political_power = 500
+			add_stability = 0.25
+			add_war_support = 0.3
+		}
+	}
+	ARK_repair_ARK = {
+		icon = GFX_decision_generic_construction
+		
+		available = {
+			has_idea = idea_ARK_control
+		}
+
+		visible = {
+			has_active_mission = ARK_collapse
+		}
+
+		modifier = {
+			civilian_factory_use = 15
+		}
+		custom_cost_trigger = {
+			num_of_civilian_factories_available_for_projects > 14
+		}
+		custom_cost_text = decision_cost_factory_15
+
+		complete_effect = {
+			set_country_flag = ARK_Repairing
+		}
+
+		days_remove = 90
+
+		fire_only_once = yes
+
+		remove_effect = {
+			clr_country_flag = ARK_Repairing
+			remove_mission = ARK_collapse
+		}
+	}
+}
+ARK_Eclipse_Shooting = {
+	ARK_DEBUG_COUNT = {
+		icon = GFX_decision_ark_shot
+		fire_only_once = no
+		complete_effect = {
+			add_to_variable = {
+				emerald_count = 7
+			}
+		}
+		days_remove = 1
+		days_re_enable = 1
+	}
+	ARK_weak_shot = {
+		icon = GFX_decision_ark_shot
+		visible = { 
+			check_variable = {
+				ARK_charge_level = 1
+			}
+		}
+		available = {
+			check_variable = {
+				ARK_Eclipse_charge > 32
+			}
+		}
+		days_re_enable = 1
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		complete_effect = {
+			subtract_from_variable = {
+				ARK_Eclipse_charge = 33
+			}
+		}
+		
+		fire_only_once = no
+	
+		target_trigger = {
+			FROM = {
+				owner = { has_war_with = ROOT }
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_SHOT
+			every_other_country = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = eclipse_maniac
+				}
+			}
+			hidden_effect = {
+				FROM = {owner = { if = {limit = {is_ai = no} play_song = "air_alarm"}}}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+			}
+		}
+	}
+	ARK_medium_shot = {
+		icon = GFX_decision_ark_shot
+
+		visible = { 
+			check_variable = {
+				ARK_charge_level = 2
+			}
+		}
+		available = {
+			check_variable = {
+				ARK_Eclipse_charge > 65
+			}
+		}
+		days_re_enable = 1
+
+		state_target = yes
+
+		on_map_mode = map_only
+
+		complete_effect = {
+			subtract_from_variable = {
+				ARK_Eclipse_charge = 66
+			}
+		}
+	
+		target_trigger = {
+			FROM = {
+				owner = { has_war_with = ROOT }
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ARK_SHOT
+			every_other_country = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = eclipse_maniac
+				}
+			}
+			hidden_effect = {
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				launch_nuke = {
+					state = FROM
+					controller = FROM.owner
+					use_nuke = no
+				}
+				FROM = {
+					add_manpower = -10000000
+					owner = { 
+						if = {
+							limit = {
+								is_ai = no
+							}
+							play_song = "air_alarm"
+						}
+						country_event = ark.3 
+					}
+					every_neighbor_state = {
+						damage_building = {
+							type = infrastructure
+							damage = 10
+						}
+						damage_building = {
+							type = industrial_complex
+							damage = 10
+						}
+						damage_building = {
+							type = arms_factory
+							damage = 10
+						}
+						add_manpower = -10000000
+						every_neighbor_state = {
+							damage_building = {
+								type = infrastructure
+								damage = 5
+							}
+							damage_building = {
+								type = industrial_complex
+								damage = 5
+							}
+							damage_building = {
+								type = arms_factory
+								damage = 5
+							}
+							add_manpower = -5000000
+						}
+					}
+				}
+			}
+		}
+	}
+}

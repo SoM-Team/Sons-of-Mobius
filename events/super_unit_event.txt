@@ -1,0 +1,80 @@
+add_namespace = hero
+
+country_event = {
+	id = hero.1 # Пришествие Лисохвоста
+	title = hero.1.t
+	desc = hero.1.d
+	picture = GFX_report_event_diplomatic_message
+
+	is_triggered_only = yes
+    hidden = yes
+
+	option = {
+		name = hero.1.a
+		set_global_flag = TAILS
+		ROOT = {
+	   division_template = {
+	name = "Mails ''Tails'' Prower"  	
+	regiments = {
+		tails_mech_hero = { x = 0 y = 0 }
+	}
+	support = {
+	}
+	is_locked = yes
+	}
+	capital_scope = {
+	create_unit = {
+					division = "name = \"Mails ''Tails'' Prower Mech\" division_template = \"Mails ''Tails'' Prower\" start_experience_factor = 1.0" 
+					owner = PREV
+				}
+	   
+      }
+	  }
+	}
+}
+
+
+country_event = {
+	id = hero.2 # тестовый танк
+	title = hero.2.t
+	desc = hero.2.d
+	picture = GFX_report_event_diplomatic_message
+
+	is_triggered_only = yes
+    hidden = yes
+
+	option = {
+		name = hero.2.a
+		ROOT = {
+	   division_template = {
+	name = "tank"  	
+	regiments = {
+		heavy_armor = { x = 0 y = 0 }
+	}
+	support = {
+	}
+	is_locked = yes
+	}
+	division_template = {
+	name = "tank1"  	
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+	}
+	support = {
+	}
+	is_locked = yes
+	}
+	capital_scope = {
+	create_unit = {
+					division = "name = \"test tank\" division_template = \"tank\" start_experience_factor = 1.0" 
+					owner = PREV
+				}
+				create_unit = {
+					division = "name = \"test tank1\" division_template = \"tank1\" start_experience_factor = 1.0" 
+					owner = PREV
+				}
+	   
+      }
+	  }
+	}
+}

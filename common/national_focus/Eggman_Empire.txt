@@ -8,59 +8,113 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = { x = 50 y = 5000 }
 	focus = {
 		id = EGG_agression_failed
 		icon = GFX_focus_agression_failed
-		cost = 0
+		cost = 5
 		x = 33
 		y = 0
-
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				category = land_doctrine
+			}
+			country_event = {
+				id = egg.13
+			}	
+		}
 	}
 	focus = {
 		id = EGG_rework_all_projects
 		icon = GFX_focus_rework_all_projects
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_agression_failed
 		}
 		x = 31
 		y = 1
-
+		completion_reward = {
+			custom_effect_tooltip = reworking_projects
+			country_event = {
+				id = egg.19
+			}
+		}
 	}
 	focus = {
 		id = EGG_Invest_in_Metal_Series
 		icon = GFX_focus_Invest_in_Metal_Series
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_rework_all_projects
 		}
 		mutually_exclusive = {
 			focus = EGG_Snively_bioengineering
 		}
+		completion_reward = {
+			country_event = {
+				id = egg.33
+			}
+		}
 		x = 29
 		y = 2
-
+		
 	}
 	focus = {
 		id = EGG_expand_E_series
 		icon = GFX_focus_expand_E_series
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_Invest_in_Metal_Series
 		}
 		x = 29
 		y = 3
+		completion_reward = {
+			hidden_effect = {
+				remove_ideas = { 
+					EGG_military_investments
+				}
+				add_timed_idea = {
+					idea = EGG_military_investments_1
+					days = 300
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = EGG_expanded_eseries
+		}
 
 	}
 	focus = {
 		id = EGG_Snively_bioengineering
 		icon = GFX_focus_Snively_bioengineering
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_rework_all_projects
 		}
 		mutually_exclusive = {
 			focus = EGG_Invest_in_Metal_Series
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.32
+			}
 		}
 		x = 31
 		y = 2
@@ -69,9 +123,12 @@ focus_tree = {
 	focus = {
 		id = EGG_upgrade_Robians
 		icon = GFX_focus_upgrade_Robians
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_Snively_bioengineering
+		}
+		completion_reward = {
+			add_ideas = EGG_UP_Robians
 		}
 		x = 31
 		y = 3
@@ -80,21 +137,102 @@ focus_tree = {
 	focus = {
 		id = EGG_boost_industrial_production
 		icon = GFX_focus_boost_industrial_production
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_upgrade_Robians
 			focus = EGG_expand_E_series
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = EGG_revival_industry
+				days = 730
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			70 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			
+		}
 		x = 30
 		y = 4
-
+		
 	}
 	focus = {
 		id = EGG_punish_the_saboteurs
 		icon = GFX_focus_punish_the_saboteurs
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_agression_failed
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = tech_military_police
+			}
+			add_ideas = EGG_campaign_one
+			country_event = {
+				id = egg.20
+			}
 		}
 		x = 33
 		y = 1
@@ -103,10 +241,18 @@ focus_tree = {
 	focus = {
 		id = EGG_purge_freedom_fighters
 		icon = GFX_focus_purge_freedom_fighters
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_punish_the_saboteurs
 		}
+		completion_reward = {
+			country_event = {
+				id = egg.12
+			}
+			add_stability = 0.05
+			add_war_support = 0.1
+			custom_effect_tooltip = start_anti_ff
+		}	
 		x = 33
 		y = 2
 
@@ -114,20 +260,63 @@ focus_tree = {
 	focus = {
 		id = EGG_control_the_DELs
 		icon = GFX_focus_control_the_DELs
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_purge_freedom_fighters
 		}
+		completion_reward = {
+			custom_effect_tooltip = DEL_decisions
+			country_event = {
+				id = egg.21
+			}
+		}
 		x = 33
 		y = 3
-
 	}
 	focus = {
 		id = EGG_improve_the_monorail
 		icon = GFX_focus_improve_the_monorail
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_control_the_DELs
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = EGG_SUPER_MONO
 		}
 		x = 32
 		y = 4
@@ -136,31 +325,50 @@ focus_tree = {
 	focus = {
 		id = EGG_rework_the_AI
 		icon = GFX_focus_rework_the_AI
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_control_the_DELs
 		}
 		x = 34
 		y = 4
-
+		completion_reward = {
+			country_event = {
+				id = egg.15
+			}
+		}
 	}
 	focus = {
 		id = EGG_robotize_the_prisoners
 		icon = GFX_focus_robotize_the_prisoners
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_agression_failed
 		}
+		completion_reward = {
+			custom_effect_tooltip = can_roboticize
+			swap_ideas = {
+				remove_idea = Robian_Disobedience
+				add_idea = Robian_Disobedience_1
+			}
+			country_event = {
+				id = egg.14
+			}
+		}
 		x = 35
 		y = 1
-
 	}
 	focus = {
 		id = EGG_control_chips
 		icon = GFX_focus_control_chips
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_robotize_the_prisoners
+		}
+		completion_reward = {
+			custom_effect_tooltip = Robian_better
+			country_event = {
+				id = egg.27
+			}
 		}
 		x = 35
 		y = 2
@@ -169,9 +377,15 @@ focus_tree = {
 	focus = {
 		id = EGG_new_labour_code
 		icon = GFX_focus_new_labour_code
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_control_chips
+		}
+		completion_reward = {
+			custom_effect_tooltip = Robian_better
+			country_event = {
+				id = egg.28
+			}
 		}
 		x = 35
 		y = 3
@@ -180,9 +394,18 @@ focus_tree = {
 	focus = {
 		id = EGG_hail_the_old_Robotnik
 		icon = GFX_focus_hail_the_old_Robotnik
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_robotize_the_prisoners
+		}
+		completion_reward = {
+			hidden_effect = {
+
+			}
+			custom_effect_tooltip = Robian_better
+			country_event = {
+				id = egg.29
+			}
 		}
 		x = 37
 		y = 2
@@ -191,9 +414,15 @@ focus_tree = {
 	focus = {
 		id = EGG_demoralization_campaign
 		icon = GFX_focus_demoralization_campaign
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_hail_the_old_Robotnik
+		}
+		completion_reward = {
+			custom_effect_tooltip = Robian_better
+			country_event = {
+				id = egg.30
+			}
 		}
 		x = 37
 		y = 3
@@ -202,21 +431,26 @@ focus_tree = {
 	focus = {
 		id = EGG_strike_down_personality
 		icon = GFX_focus_strike_down_personality
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_demoralization_campaign
 		}
 		prerequisite = {
 			focus = EGG_new_labour_code
 		}
+		completion_reward = {
+			custom_effect_tooltip = EGG_Obedient_Robo
+			country_event = {
+				id = egg.31
+			}
+		}
 		x = 36
 		y = 4
-
 	}
 	focus = {
 		id = EGG_rebuild_New_Robotropolis
 		icon = GFX_focus_rebuild_New_Robotropolis
-		cost = 0
+		cost = 7
 		prerequisite = {
 			focus = EGG_strike_down_personality
 		}
@@ -229,6 +463,48 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_boost_industrial_production
 		}
+		completion_reward = {
+			custom_effect_tooltip = Robotropolis_build
+			hidden_effect = {
+				70 = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 3
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = radar_station 
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 4
+				}
+			}
+		}
 		x = 33
 		y = 5
 
@@ -236,9 +512,74 @@ focus_tree = {
 	focus = {
 		id = EGG_prepare_for_the_revenge
 		icon = GFX_focus_prepare_for_the_revenge
-		cost = 0
+		cost = 5
 		prerequisite = {
 			focus = EGG_rebuild_New_Robotropolis
+		}
+		completion_reward = {
+			custom_effect_tooltip = EGG_Prepare
+			remove_ideas = EGG_Crisis_Empire
+			hidden_effect = {
+				if = {
+					limit = {
+						AND = {
+							check_variable = {
+								EGG.METAL_SONIC_Influence > 65
+							}
+							check_variable = {
+								EGG.SNIV_Influence < 50
+							}
+							check_variable = {
+								EGG.Regime_Stability < 25
+							}
+						}
+					}
+					country_event = {
+						id = egg.2
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							check_variable = {
+								EGG.METAL_SONIC_Influence < 50
+							}
+							check_variable = {
+								EGG.SNIV_Influence > 65
+							}
+							check_variable = {
+								EGG.Regime_Stability < 25
+							}
+						}
+					}
+					country_event = {
+						id = egg.16
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							check_variable = {
+								EGG.METAL_SONIC_Influence > 50
+							}
+							check_variable = {
+								EGG.SNIV_Influence > 50
+							}
+							check_variable = {
+								EGG.Regime_Stability < 25
+							}
+						}
+					}
+					country_event = {
+						id = egg.17
+					}
+				}
+				else = {
+					country_event = { 
+						id = egg.18
+					}
+				}
+			}
 		}
 		x = 33
 		y = 6
@@ -251,10 +592,10 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_prepare_for_the_revenge
 		}
-		mutually_exclusive = {
-			focus = EGG_Ensure_Control
+		allow_branch = {
+			has_global_flag = EGGSnively
 		}
-		x = 58
+		x = 33
 		y = 7
 
 	}
@@ -265,10 +606,10 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_prepare_for_the_revenge
 		}
-		mutually_exclusive = {
-			focus = EGG_Ensure_Control
+		allow_branch = {
+			has_global_flag = EGGMetal
 		}
-		x = 9
+		x = 33
 		y = 7
 
 	}
@@ -279,7 +620,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Rise_of_Metal_Sonic
 		}
-		x = 8
+		x = 32
 		y = 8
 
 	}
@@ -290,7 +631,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Purge_DEL_Masters
 		}
-		x = 7
+		x = 31
 		y = 9
 
 	}
@@ -301,7 +642,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Rise_of_Metal_Sonic
 		}
-		x = 10
+		x = 34
 		y = 8
 
 	}
@@ -312,7 +653,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_activate_Metal_series
 		}
-		x = 11
+		x = 35
 		y = 9
 
 	}
@@ -323,7 +664,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_Rise
 		}
-		x = 56
+		x = 31
 		y = 8
 
 	}
@@ -334,7 +675,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_Rise
 		}
-		x = 58
+		x = 33
 		y = 8
 
 	}
@@ -351,7 +692,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_Hail_Iron_Dominion
 		}
-		x = 57
+		x = 32
 		y = 9
 
 	}
@@ -362,7 +703,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_the_Emperor
 		}
-		x = 55
+		x = 30
 		y = 10
 
 	}
@@ -373,7 +714,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_Rise
 		}
-		x = 60
+		x = 35
 		y = 8
 
 	}
@@ -390,7 +731,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_Snively_the_Emperor
 		}
-		x = 59
+		x = 34
 		y = 9
 
 	}
@@ -401,7 +742,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_the_Emperor
 		}
-		x = 59
+		x = 34
 		y = 10
 
 	}
@@ -412,7 +753,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Invite_Genetisist
 		}
-		x = 59
+		x = 34
 		y = 11
 
 	}
@@ -423,7 +764,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Experimental_Biology
 		}
-		x = 58
+		x = 33
 		y = 13
 
 	}
@@ -434,7 +775,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Experimental_Biology
 		}
-		x = 59
+		x = 34
 		y = 12
 
 	}
@@ -445,7 +786,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Experimental_Biology
 		}
-		x = 61
+		x = 36
 		y = 12
 
 	}
@@ -459,7 +800,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Clonning_Machine
 		}
-		x = 60
+		x = 35
 		y = 13
 
 	}
@@ -470,7 +811,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Rise_of_Metal_Sonic
 		}
-		x = 9
+		x = 33
 		y = 9
 
 	}
@@ -484,7 +825,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Purge_DEL_Masters
 		}
-		x = 8
+		x = 32
 		y = 10
 
 	}
@@ -498,7 +839,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Integrate_in_Metal_Sonic
 		}
-		x = 10
+		x = 34
 		y = 10
 
 	}
@@ -515,7 +856,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Bring_them_New_Order
 		}
-		x = 9
+		x = 33
 		y = 11
 
 	}
@@ -526,7 +867,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Great_Metal_Army
 		}
-		x = 5
+		x = 29
 		y = 12
 
 	}
@@ -537,7 +878,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Great_Metal_Army
 		}
-		x = 7
+		x = 31
 		y = 12
 
 	}
@@ -548,7 +889,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Great_Metal_Army
 		}
-		x = 9
+		x = 33
 		y = 12
 
 	}
@@ -559,7 +900,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Great_Metal_Army
 		}
-		x = 11
+		x = 35
 		y = 12
 
 	}
@@ -570,7 +911,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Great_Metal_Army
 		}
-		x = 13
+		x = 37
 		y = 12
 
 	}
@@ -584,7 +925,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_modify_the_Egg_fleet
 		}
-		x = 6
+		x = 30
 		y = 13
 
 	}
@@ -598,7 +939,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_modify_the_Egg_fleet
 		}
-		x = 8
+		x = 32
 		y = 13
 
 	}
@@ -612,7 +953,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Build_bioreactors
 		}
-		x = 10
+		x = 34
 		y = 13
 
 	}
@@ -626,7 +967,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Build_bioreactors
 		}
-		x = 12
+		x = 36
 		y = 13
 
 	}
@@ -646,7 +987,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Forget_being_alive
 		}
-		x = 9
+		x = 33
 		y = 14
 
 	}
@@ -657,7 +998,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Operation_Fading_Sun
 		}
-		x = 7
+		x = 31
 		y = 15
 
 	}
@@ -668,7 +1009,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Operation_Fading_Sun
 		}
-		x = 9
+		x = 33
 		y = 15
 
 	}
@@ -679,7 +1020,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Operation_Fading_Sun
 		}
-		x = 11
+		x = 35
 		y = 15
 
 	}
@@ -693,7 +1034,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Hack_nanites
 		}
-		x = 8
+		x = 32
 		y = 16
 
 	}
@@ -707,7 +1048,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Hack_nanites
 		}
-		x = 10
+		x = 34
 		y = 16
 
 	}
@@ -718,7 +1059,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Metal_roads
 		}
-		x = 7
+		x = 31
 		y = 17
 
 	}
@@ -732,7 +1073,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Mine_their_rear
 		}
-		x = 9
+		x = 33
 		y = 17
 
 	}
@@ -743,7 +1084,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Mine_their_rear
 		}
-		x = 11
+		x = 35
 		y = 17
 
 	}
@@ -763,7 +1104,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_Slight_Roboticization
 		}
-		x = 8
+		x = 32
 		y = 18
 
 	}
@@ -783,7 +1124,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_End_of_Roboticization
 		}
-		x = 10
+		x = 34
 		y = 18
 
 	}
@@ -794,7 +1135,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_End_of_Roboticization
 		}
-		x = 7
+		x = 31
 		y = 19
 
 	}
@@ -805,7 +1146,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_End_of_Roboticization
 		}
-		x = 6
+		x = 30
 		y = 20
 
 	}
@@ -816,7 +1157,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_End_of_Roboticization
 		}
-		x = 5
+		x = 29
 		y = 19
 
 	}
@@ -827,7 +1168,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Synergetic_Development
 		}
-		x = 5
+		x = 29
 		y = 21
 
 	}
@@ -838,7 +1179,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Slight_Roboticization
 		}
-		x = 11
+		x = 35
 		y = 19
 
 	}
@@ -849,7 +1190,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Slight_Roboticization
 		}
-		x = 12
+		x = 36
 		y = 20
 
 	}
@@ -860,7 +1201,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Slight_Roboticization
 		}
-		x = 13
+		x = 37
 		y = 19
 
 	}
@@ -871,7 +1212,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Copy_Living_data
 		}
-		x = 13
+		x = 37
 		y = 21
 
 	}
@@ -883,7 +1224,7 @@ focus_tree = {
 			focus = EGG_Slight_Roboticization
 			focus = EGG_End_of_Roboticization
 		}
-		x = 9
+		x = 33
 		y = 19
 
 	}
@@ -894,7 +1235,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Genocide_Parctices
 		}
-		x = 9
+		x = 33
 		y = 21
 
 	}
@@ -905,7 +1246,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Genocide_Parctices
 		}
-		x = 8
+		x = 32
 		y = 20
 
 	}
@@ -916,7 +1257,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Chaos_Emerald_Hunt
 		}
-		x = 7
+		x = 31
 		y = 21
 
 	}
@@ -927,7 +1268,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Genocide_Parctices
 		}
-		x = 10
+		x = 34
 		y = 20
 
 	}
@@ -938,7 +1279,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Capture_Sonic
 		}
-		x = 11
+		x = 35
 		y = 21
 
 	}
@@ -955,7 +1296,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_AI_Takeover
 		}
-		x = 9
+		x = 33
 		y = 22
 
 	}
@@ -969,7 +1310,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Forget_being_alive
 		}
-		x = 4
+		x = 28
 		y = 15
 
 	}
@@ -983,7 +1324,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Forget_being_alive
 		}
-		x = 2
+		x = 26
 		y = 15
 
 	}
@@ -997,7 +1338,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Forget_being_alive
 		}
-		x = 0
+		x = 24
 		y = 15
 
 	}
@@ -1008,7 +1349,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Industrial_Code
 		}
-		x = 0
+		x = 24
 		y = 16
 
 	}
@@ -1022,7 +1363,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Explore_New_Resources
 		}
-		x = 1
+		x = 25
 		y = 17
 
 	}
@@ -1033,7 +1374,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Learn_from_Eggman_Mistakes
 		}
-		x = 4
+		x = 28
 		y = 16
 
 	}
@@ -1047,7 +1388,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Automated_Logistics
 		}
-		x = 3
+		x = 27
 		y = 17
 
 	}
@@ -1061,7 +1402,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Mass_Weaponry_Production
 		}
-		x = 2
+		x = 26
 		y = 18
 
 	}
@@ -1075,7 +1416,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Invest_in_Superweapon
 		}
-		x = 14
+		x = 38
 		y = 14
 
 	}
@@ -1086,7 +1427,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Intel_Breakthrough
 		}
-		x = 14
+		x = 38
 		y = 15
 
 	}
@@ -1097,7 +1438,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Intel_Breakthrough
 		}
-		x = 16
+		x = 40
 		y = 15
 
 	}
@@ -1108,7 +1449,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Drones_Bases
 		}
-		x = 18
+		x = 42
 		y = 16
 
 	}
@@ -1119,7 +1460,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Robotic_Radars
 		}
-		x = 16
+		x = 40
 		y = 16
 
 	}
@@ -1130,7 +1471,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Robotic_Radars
 		}
-		x = 14
+		x = 38
 		y = 16
 
 	}
@@ -1147,7 +1488,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Airborne_Robots
 		}
-		x = 16
+		x = 40
 		y = 17
 
 	}
@@ -1155,12 +1496,11 @@ focus_tree = {
 		id = EGG_Ensure_Control
 		icon = GFX_focus_Ensure_Control
 		cost = 0
+		allow_branch = {
+			has_global_flag = EGGEggman
+		}
 		prerequisite = {
 			focus = EGG_prepare_for_the_revenge
-		}
-		mutually_exclusive = {
-			focus = EGG_Rise_of_Metal_Sonic
-			focus = EGG_Snively_Rise
 		}
 		x = 33
 		y = 7
@@ -1845,7 +2185,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_the_Emperor
 		}
-		x = 57
+		x = 32
 		y = 10
 
 	}
@@ -1856,7 +2196,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Remake_Prod_Line
 		}
-		x = 57
+		x = 32
 		y = 11
 
 	}
@@ -1867,7 +2207,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Programming_Breakthrough
 		}
-		x = 55
+		x = 30
 		y = 11
 
 	}
@@ -1878,7 +2218,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_GUN_Methods
 		}
-		x = 55
+		x = 30
 		y = 12
 
 	}
@@ -1889,7 +2229,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_GUN_Methods
 		}
-		x = 53
+		x = 28
 		y = 12
 
 	}
@@ -1900,7 +2240,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Factory_Design
 		}
-		x = 57
+		x = 32
 		y = 12
 
 	}
@@ -1911,7 +2251,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_GUN_Methods
 		}
-		x = 56
+		x = 31
 		y = 13
 
 	}
@@ -1925,7 +2265,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Kintobor_Family_Secrets
 		}
-		x = 54
+		x = 29
 		y = 13
 
 	}
@@ -1948,7 +2288,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Living_Army
 		}
-		x = 57
+		x = 32
 		y = 14
 
 	}
@@ -1962,7 +2302,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_No_Friends
 		}
-		x = 54
+		x = 29
 		y = 15
 
 	}
@@ -1976,7 +2316,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = EGG_New_Allies
 		}
-		x = 60
+		x = 35
 		y = 15
 
 	}
@@ -1988,7 +2328,7 @@ focus_tree = {
 			focus = EGG_No_Friends
 			focus = EGG_New_Allies
 		}
-		x = 57
+		x = 32
 		y = 16
 
 	}
@@ -1999,7 +2339,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Allies
 		}
-		x = 54
+		x = 29
 		y = 16
 
 	}
@@ -2010,7 +2350,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Allies
 		}
-		x = 53
+		x = 28
 		y = 17
 
 	}
@@ -2021,7 +2361,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Allies
 		}
-		x = 52
+		x = 27
 		y = 16
 
 	}
@@ -2032,7 +2372,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Allies
 		}
-		x = 51
+		x = 26
 		y = 17
 
 	}
@@ -2043,7 +2383,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_No_Friends
 		}
-		x = 60
+		x = 35
 		y = 16
 
 	}
@@ -2054,7 +2394,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_No_Friends
 		}
-		x = 61
+		x = 36
 		y = 17
 
 	}
@@ -2065,7 +2405,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_No_Friends
 		}
-		x = 62
+		x = 37
 		y = 16
 
 	}
@@ -2076,7 +2416,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_No_Friends
 		}
-		x = 63
+		x = 38
 		y = 17
 
 	}
@@ -2087,7 +2427,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Way_of_Empire
 		}
-		x = 55
+		x = 30
 		y = 17
 
 	}
@@ -2098,7 +2438,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Way_of_Empire
 		}
-		x = 57
+		x = 32
 		y = 17
 
 	}
@@ -2109,7 +2449,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Way_of_Empire
 		}
-		x = 59
+		x = 34
 		y = 17
 
 	}
@@ -2123,7 +2463,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Reintroduce_Bureaucracy
 		}
-		x = 58
+		x = 33
 		y = 18
 
 	}
@@ -2137,7 +2477,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Expand_Mobian_Troops
 		}
-		x = 56
+		x = 31
 		y = 18
 
 	}
@@ -2151,7 +2491,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Airborne_Birds
 		}
-		x = 57
+		x = 32
 		y = 19
 
 	}
@@ -2162,7 +2502,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Occupation_Order
 		}
-		x = 51
+		x = 26
 		y = 20
 
 	}
@@ -2173,7 +2513,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Snively_Cult
 		}
-		x = 51
+		x = 26
 		y = 22
 
 	}
@@ -2184,7 +2524,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Occupation_Order
 		}
-		x = 54
+		x = 29
 		y = 20
 
 	}
@@ -2195,7 +2535,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_experimental_medicine
 		}
-		x = 53
+		x = 28
 		y = 21
 
 	}
@@ -2206,7 +2546,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_experimental_medicine
 		}
-		x = 55
+		x = 30
 		y = 21
 
 	}
@@ -2220,7 +2560,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Create_Supersoldier
 		}
-		x = 54
+		x = 29
 		y = 22
 
 	}
@@ -2231,7 +2571,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Occupation_Order
 		}
-		x = 57
+		x = 32
 		y = 20
 
 	}
@@ -2242,7 +2582,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Warlord_Administration
 		}
-		x = 57
+		x = 32
 		y = 22
 
 	}
@@ -2253,7 +2593,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Occupation_Order
 		}
-		x = 60
+		x = 35
 		y = 20
 
 	}
@@ -2264,7 +2604,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Punishing_System
 		}
-		x = 59
+		x = 34
 		y = 21
 
 	}
@@ -2275,7 +2615,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Punishing_System
 		}
-		x = 61
+		x = 36
 		y = 21
 
 	}
@@ -2289,7 +2629,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Theatre_Of_Death
 		}
-		x = 60
+		x = 35
 		y = 22
 
 	}
@@ -2300,7 +2640,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_New_Occupation_Order
 		}
-		x = 63
+		x = 38
 		y = 20
 
 	}
@@ -2311,7 +2651,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Medium_Robotic_Projects
 		}
-		x = 63
+		x = 38
 		y = 22
 
 	}
@@ -2334,7 +2674,7 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Robot_Tank
 		}
-		x = 57
+		x = 32
 		y = 23
 
 	}

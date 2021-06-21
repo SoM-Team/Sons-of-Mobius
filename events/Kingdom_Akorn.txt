@@ -357,6 +357,7 @@ country_event = { ####THE SOUTH SHALL RISE AGAIN
 	}
 }
 
+
 country_event = { ####DOWN WITH THE KING
 	id = koa.89
 	title = koa.89.t
@@ -367,6 +368,37 @@ country_event = { ####DOWN WITH THE KING
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.89"
 		KOA_release_NOR = yes
+		if = {
+			limit = {
+				has_global_flag = united_front
+			}
+			clr_global_flag = united_front
+			13 = { add_core_of = NOR }
+			14 = { add_core_of = NOR }
+			15 = { add_core_of = NOR }
+			16 = { add_core_of = NOR }
+			5 = { add_core_of = NOR }
+			NOR = { 
+				transfer_state = 14
+				transfer_state = 13
+				transfer_state = 15
+				transfer_state = 16
+				transfer_state = 5
+				add_popularity = {
+					ideology = neosocialist
+					popularity = +0.1
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = +0.15
+				}
+				add_popularity = {
+					ideology = autonomous_socialist
+					popularity = +0.15
+				}
+				set_cosmetic_tag = UF_NOR
+			}
+		}
 	}
 	
 	fire_only_once = yes
@@ -415,6 +447,85 @@ country_event = { ####DOWN WITH THE KING
 		NOR = {
 			change_tag_from = KOA
 		}
+	}
+}
+
+country_event = { ####SOLIDARITY FOREVER
+	id = koa.90
+	title = koa.90.t
+	desc = koa.90.d
+	picture = GFX_report_event_revolution_Avisla
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event koa.90"
+		KOA_release_UWM = yes
+	}
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.90.a ### For the KING!
+		ai_chance = {
+			factor = 100
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = neosocialist
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = autonomous_socialist
+			popularity = -0.1
+		}
+	}
+	option = {
+		name = koa.90.b ### BREAK THE CHAINS
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = 0.2
+		add_war_support = 0.2
+		add_popularity = {
+			ideology = neosocialist
+			popularity = -0.05
+			}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+			}
+		add_popularity = {
+			ideology = autonomous_socialist
+			popularity = -0.1
+		}
+		UWM = {
+			change_tag_from = KOA
+		}
+	}
+}
+
+country_event = { ####United Front
+	id = koa.91
+	title = koa.91.t
+	desc = koa.91.d
+	picture = GFX_report_event_united_front
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.91.a ### Rot Front!
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = united_front
 	}
 }
 
@@ -492,6 +603,8 @@ country_event = { #### Коронация Элиаса
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
 			traits = {
+				Spy_King
+				Unpopular_heir
 			}
 		}
 		add_stability = 0.1

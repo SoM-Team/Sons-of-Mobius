@@ -52,7 +52,14 @@ KOA_release_SOT = {
 		remove_state_core = 28
 		remove_state_core = 27
 		remove_state_core = 7
-
+		40 = { set_demilitarized_zone = yes }
+		41 = { set_demilitarized_zone = yes }
+		29 = { set_demilitarized_zone = yes }
+		37 = { set_demilitarized_zone = yes }
+		43 = { set_demilitarized_zone = yes }
+		42 = { set_demilitarized_zone = yes }
+		44 = { set_demilitarized_zone = yes }
+		45 = { set_demilitarized_zone = yes }
 	}
 }
 
@@ -106,5 +113,54 @@ KOA_release_NOR = {
 		remove_state_core = 12
 		remove_state_core = 38
 		remove_state_core = 39
+	}
+}
+
+KOA_release_UWM = {
+	hidden_effect = {
+		UWM = {
+			add_state_core = 14
+			add_state_core = 13
+			add_state_core = 15
+			add_state_core = 16
+			add_state_core = 5
+		}
+
+		KOA = {
+			UWM = { transfer_technology = yes }
+			if = {
+				limit = {
+					has_country_flag = republican_rise
+				}
+				clr_country_flag = republican_rise
+			}
+			if = {
+				limit = {
+					OR = {
+						has_idea = KOA_General_Strike_1
+						has_idea = KOA_General_Strike_2
+						has_idea = KOA_General_Strike_3
+					}
+					remove_ideas = KOA_General_Strike_1
+					remove_ideas = KOA_General_Strike_2
+					remove_ideas = KOA_General_Strike_3
+				}
+			}
+			
+		}
+
+		every_owned_state = {
+			limit = { is_core_of = UWM }
+			UWM = { transfer_state = PREV }
+			teleport_armies = {
+				limit = { tag = KOA }
+				to_state_array = owned_controlled_states
+			}
+		}
+		remove_state_core = 14
+		remove_state_core = 13
+		remove_state_core = 15
+		remove_state_core = 16
+		remove_state_core = 5
 	}
 }

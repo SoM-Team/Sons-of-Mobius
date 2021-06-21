@@ -1,0 +1,5627 @@
+scripted_gui = {
+	ARK_Button = { 
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "ARK_Button_opener"
+	
+		visible = {
+			OR = {
+				tag = EGG
+				tag = UFA
+				tag = RCR
+			}
+			NOT = {
+				has_global_flag = ARK_Collapsed
+			}
+		}
+
+		effects = {
+			ARK_Button_click = {
+				if = {
+					limit = { has_country_flag = ARK_visible_flag }
+					clr_country_flag = ARK_visible_flag
+				}
+				else = { set_country_flag = ARK_visible_flag }
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	ARK_Eclipse = { 
+		context_type = decision_category
+		window_name = "ARK_Eclipse_cannon_screen"
+	
+		visible = {
+			OR = {
+				tag = EGG
+				tag = UFA
+				tag = RCR
+			}
+			NOT = {
+				has_global_flag = ARK_Collapsed
+			}
+		}
+
+		triggers = {
+			ARK_charge_plus_click_enabled = {
+				NOT = {
+					check_variable = {
+						ARK_charge_level = 3
+					}
+				}
+				OR = {
+					AND = {
+						check_variable = {
+							emerald_count > 2
+						}
+						check_variable = {
+							ARK_charge_level = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							emerald_count > 5
+						}
+						check_variable = {
+							ARK_charge_level = 2
+						}
+					}
+				}
+			}
+			ARK_charge_minus_click_enabled = {
+				NOT = {
+					check_variable = {
+						ARK_charge_level = 1
+					}
+				}
+			}
+		}
+
+		effects = {
+			ARK_charge_plus_click = {
+				add_to_variable = {
+					ARK_charge_level = 1
+				}
+			}
+			ARK_charge_minus_click = {
+				subtract_from_variable = {
+					ARK_charge_level = 1
+				}
+			}
+		}
+
+		properties = {
+			ARK_ECL_BAR = {
+				frame = ARK_Eclipse_charge
+			}
+		}
+	}
+}
+
+
+
+scripted_gui = {
+	ARK_Screen = { 
+		context_type = player_context
+		window_name = "ARK_Window"
+	
+		visible = {
+			has_country_flag = ARK_visible_flag
+		}
+
+		effects = {
+			ARK_PLUS_click = {
+				if = {
+					limit = {
+						check_variable = {
+							ARK_Free_Units > 49
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 1
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_1 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 2
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_2 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 3
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_3 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 4
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_4 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 5
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_5 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 6
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_6 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_unit_number_area_7 = 50
+						}
+						subtract_from_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 1
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_1 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 2
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_2 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 3
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_3 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 4
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_4 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 5
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_5 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 6
+							}
+						}
+						add_to_variable = {
+							ARK_unit_number_area_6 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_unit_number_area_7 = ARK_Free_Units
+						}
+						set_variable = {
+							ARK_Free_Units = 0
+						}
+					}
+				}
+			}
+			ARK_MINUS_click = {
+				if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 1
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_1 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_1 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_1
+						}
+						set_variable = {
+							ARK_unit_number_area_1 = 0
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 2
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_2 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_2 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_2
+						}
+						set_variable = {
+							ARK_unit_number_area_2 = 0
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 3
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_3 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_3 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_3
+						}
+						set_variable = {
+							ARK_unit_number_area_3 = 0
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 4
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_4 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_4 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_4
+						}
+						set_variable = {
+							ARK_unit_number_area_4 = 0
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 5
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_5 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_5 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_5
+						}
+						set_variable = {
+							ARK_unit_number_area_5 = 0
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ARK_set_target = 6
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_6 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_6 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_6
+						}
+						set_variable = {
+							ARK_unit_number_area_6 = 0
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = {
+								ARK_unit_number_area_7 > 49
+							}
+						}
+						subtract_from_variable = {
+							ARK_unit_number_area_7 = 50
+						}
+						add_to_variable = {
+							ARK_Free_Units = 50
+						}
+					}
+					else = {
+						add_to_variable = {
+							ARK_Free_Units = ARK_unit_number_area_7
+						}
+						set_variable = {
+							ARK_unit_number_area_7 = 0
+						}
+					}
+				}
+			}
+			ARK_close_button_click = {
+				clr_country_flag = ARK_visible_flag
+			}
+			ARK_motion_button_click = {
+				if = {
+					limit = {
+						tag = RCR
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 1
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Dock_Control = 1
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 3
+								}
+							}
+						}
+						ARK_battle_Dock_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 2
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+							}
+						}
+						ARK_battle_Liv_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 3
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
+							}
+						}
+						ARK_battle_Cnt_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 4
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
+							}
+						}
+						ARK_battle_Inf_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 5
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
+							}
+						}
+						ARK_battle_Med_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 6
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
+							}
+						}
+						ARK_battle_Gen_RCR = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 7
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 1
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 3
+								}
+							}
+						}
+						ARK_battle_Eclipse_RCR = yes
+					}
+				}
+				if = {
+					limit = {
+						tag = UFA
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 1
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Dock_Control = 2
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 3
+								}
+							}
+						}
+						ARK_battle_Dock_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 2
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+							}
+						}
+						ARK_battle_Liv_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 3
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
+							}
+						}
+						ARK_battle_Cnt_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 4
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
+							}
+						}
+						ARK_battle_Inf_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 5
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
+							}
+						}
+						ARK_battle_Med_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 6
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
+							}
+						}
+						ARK_battle_Gen_UFA = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 7
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 2
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 3
+								}
+							}
+						}
+						ARK_battle_Eclipse_UFA = yes
+					}
+				}
+				if = {
+					limit = {
+						tag = EGG
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 1
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Dock_Control = 2
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 1
+								}
+							}
+						}
+						ARK_battle_Dock_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 2
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
+							}
+						}
+						ARK_battle_Liv_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 3
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
+							}
+						}
+						ARK_battle_Cnt_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 4
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
+							}
+						}
+						ARK_battle_Inf_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 5
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
+							}
+						}
+						ARK_battle_Med_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 6
+							}
+								OR = {
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
+							}
+						}
+						ARK_battle_Gen_EGG = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ARK_set_target = 7
+							}
+							OR = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 2
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 1
+								}
+							}
+						}
+						ARK_battle_Eclipse_EGG = yes
+					}
+				}
+			}
+			ARK_Dock_UFA_click = {
+				set_variable = {
+					ARK_set_target = 1
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						
+						if = {
+							limit = {
+								NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+							}
+							set_temp_variable = {
+								n = ARK_unit_number
+							}
+						}
+						else = {
+							set_temp_variable = {
+								n = ARK_unit_number_area_1
+							}
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						if = {
+							limit = {
+								NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+							}
+							set_temp_variable = {
+								n = ARK_unit_number
+							}
+						}
+						else = {
+							set_temp_variable = {
+								n = ARK_unit_number_area_1
+							}
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Dock_RCR_click = {
+				set_variable = {
+					ARK_set_target = 1
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						if = {
+							limit = {
+								NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+							}
+							set_temp_variable = {
+								n = ARK_unit_number
+							}
+						}
+						else = {
+							set_temp_variable = {
+								n = ARK_unit_number_area_1
+							}
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Dock_EGG_click = {
+				set_variable = {
+					ARK_set_target = 1
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						if = {
+							limit = {
+								NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+							}
+							set_temp_variable = {
+								n = ARK_unit_number
+							}
+						}
+						else = {
+							set_temp_variable = {
+								n = ARK_unit_number_area_1
+							}
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						if = {
+							limit = {
+								NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+							}
+							set_temp_variable = {
+								n = ARK_unit_number
+							}
+						}
+						else = {
+							set_temp_variable = {
+								n = ARK_unit_number_area_1
+							}
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_1
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Liv_UFA_click = {
+				set_variable = {
+					ARK_set_target = 2
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Liv_RCR_click = {
+				set_variable = {
+					ARK_set_target = 2
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Liv_EGG_click = {
+				set_variable = {
+					ARK_set_target = 2
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_2
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Cnt_UFA_click = {
+				set_variable = {
+					ARK_set_target = 3
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Cnt_RCR_click = {
+				set_variable = {
+					ARK_set_target = 3
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Cnt_EGG_click = {
+				set_variable = {
+					ARK_set_target = 3
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_3
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Inf_UFA_click = {
+				set_variable = {
+					ARK_set_target = 4
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Inf_RCR_click = {
+				set_variable = {
+					ARK_set_target = 4
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Inf_EGG_click = {
+				set_variable = {
+					ARK_set_target = 4
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_4
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Med_UFA_click = {
+				set_variable = {
+					ARK_set_target = 5
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Med_RCR_click = {
+				set_variable = {
+					ARK_set_target = 5
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Med_EGG_click = {
+				set_variable = {
+					ARK_set_target = 5
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_5
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Gen_UFA_click = {
+				set_variable = {
+					ARK_set_target = 6
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Gen_RCR_click = {
+				set_variable = {
+					ARK_set_target = 6
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Gen_EGG_click = {
+				set_variable = {
+					ARK_set_target = 6
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_6
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Eclipse_UFA_click = {
+				set_variable = {
+					ARK_set_target = 7
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							r = u
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { UFA.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+								e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						divide_temp_variable = {
+							e = u
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Eclipse_RCR_click = {
+				set_variable = {
+					ARK_set_target = 7
+				}
+				if = {
+					limit = { tag = RCR }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							u = r
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = EGG }
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { RCR.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						divide_temp_variable = {
+							e = r
+						}
+						multiply_temp_variable = {
+							e = 100
+						}
+						subtract_from_temp_variable = { e = 50 }
+						set_variable = {
+							ARK_Ratio = e
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+			ARK_Eclipse_EGG_click = {
+				set_variable = {
+					ARK_set_target = 7
+				}
+				if = {
+					limit = { tag = EGG }
+					set_variable = {
+						ARK_Ratio = 100
+					}
+				}
+				if = {
+					limit = { tag = RCR }
+					RCR = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							r = RCR.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							r = e
+						}
+						multiply_temp_variable = {
+							r = 100
+						}
+						subtract_from_temp_variable = { r = 50 }
+						set_variable = {
+							ARK_Ratio = r
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+				if = {
+					limit = { tag = UFA }
+					UFA = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					EGG = {
+						set_temp_variable = {
+							a = ARK_organisation
+						}
+						set_temp_variable = {
+							b = ARK_strength
+						}
+						divide_temp_variable = {
+							a = 100
+						}
+						divide_temp_variable = {
+							b = 100
+						}
+						set_temp_variable = {
+							n = ARK_unit_number_area_7
+						}
+						multiply_temp_variable = {
+							a = b
+						}
+						multiply_temp_variable = {
+							a = n
+						}
+						set_variable = {
+							ARK_Power = a
+						}
+					}
+					if = { 
+						limit = {
+							check_variable = { EGG.ARK_Power > 0 }
+						}
+						set_temp_variable = {
+							u = UFA.ARK_Power
+						}
+						set_temp_variable = {
+							e = EGG.ARK_Power
+						}
+						divide_temp_variable = {
+							u = e
+						}
+						multiply_temp_variable = {
+							u = 100
+						}
+						subtract_from_temp_variable = { u = 50 }
+						set_variable = {
+							ARK_Ratio = u
+						}
+						clamp_variable = {
+							var = ARK_Ratio
+							min = 0
+							max = 100
+						}
+					}
+					else = {
+						set_variable = {
+							ARK_Ratio = 100
+						}
+					}
+				}
+			}
+		}
+
+		triggers = {
+			ARK_motion_button_click_enabled = {
+				NOT = {
+					has_country_flag = WINNER
+					has_country_flag = LOSER
+				}
+				check_variable = {
+					ARK_organisation > 0
+				}
+				check_variable = {
+					ARK_strength > 0
+				}
+				OR = {
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 1 }
+						NOT = { check_variable = { global.ARK_Dock_Control = 2 } }
+						OR = {
+							check_variable = {
+								ARK_unit_number_area_1 > 0
+							}
+							check_variable = {
+								ARK_unit_number > 0
+							}
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 2 }
+						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+						OR = {
+							check_variable = { global.ARK_Dock_Control = 2 }
+							check_variable = { global.ARK_Cnt_Control = 2 }
+						}
+						check_variable = {
+							ARK_unit_number_area_2 > 0
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 3 }
+						NOT = { check_variable = { global.ARK_Cnt_Control = 2 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = { global.ARK_Liv_Control = 2 }
+						}
+						check_variable = {
+							ARK_unit_number_area_3 > 0
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 4 }
+						NOT = { check_variable = { global.ARK_Inf_Control = 2 } }
+						OR = {
+							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = { global.ARK_Med_Control = 2 }
+						}
+						check_variable = {
+							ARK_unit_number_area_4 > 0
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 5 }
+						NOT = { check_variable = { global.ARK_Med_Control = 2 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = { global.ARK_Gen_Control = 2 }
+						}
+						check_variable = {
+							ARK_unit_number_area_5 > 0
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 6 }
+						NOT = { check_variable = { global.ARK_Gen_Control = 2 } }
+						OR = {
+							check_variable = { global.ARK_Eclipse_Control = 2 }
+							check_variable = { global.ARK_Med_Control = 2 }
+						}
+						check_variable = {
+							ARK_unit_number_area_6 > 0
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = { ARK_set_target = 7 }
+						NOT = { check_variable = { global.ARK_Eclipse_Control = 2 } }
+						check_variable = { global.ARK_Gen_Control = 2 }
+						check_variable = {
+							ARK_unit_number_area_7 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 1 }
+						NOT = { check_variable = { global.ARK_Dock_Control = 1 } }
+						OR = {
+							check_variable = {
+								ARK_unit_number_area_1 > 0
+							}
+							check_variable = {
+								ARK_unit_number > 0
+							}
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 2 }
+						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+						OR = {
+							check_variable = { global.ARK_Dock_Control = 1 }
+							check_variable = { global.ARK_Cnt_Control = 1 }
+						}
+						check_variable = {
+							ARK_unit_number_area_2 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 3 }
+						NOT = { check_variable = { global.ARK_Cnt_Control = 1 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = { global.ARK_Liv_Control = 1 }
+						}
+						check_variable = {
+							ARK_unit_number_area_3 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 4 }
+						NOT = { check_variable = { global.ARK_Inf_Control = 1 } }
+						OR = {
+							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = { global.ARK_Med_Control = 1 }
+						}
+						check_variable = {
+							ARK_unit_number_area_4 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 5 }
+						NOT = { check_variable = { global.ARK_Med_Control = 1 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = { global.ARK_Gen_Control = 1 }
+						}
+						check_variable = {
+							ARK_unit_number_area_5 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 6 }
+						NOT = { check_variable = { global.ARK_Gen_Control = 1 } }
+						OR = {
+							check_variable = { global.ARK_Eclipse_Control = 1 }
+							check_variable = { global.ARK_Med_Control = 1 }
+						}
+						check_variable = {
+							ARK_unit_number_area_6 > 0
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = { ARK_set_target = 7 }
+						NOT = { check_variable = { global.ARK_Eclipse_Control = 1 } }
+						check_variable = { global.ARK_Gen_Control = 1 }
+						check_variable = {
+							ARK_unit_number_area_7 > 0
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 1 }
+						NOT = { check_variable = { global.ARK_Dock_Control = 3 } }
+						OR = {
+							check_variable = {
+								ARK_unit_number_area_1 > 0
+							}
+							check_variable = {
+								ARK_unit_number > 0
+							}
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 2 }
+						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+						OR = {
+							check_variable = { global.ARK_Dock_Control = 3 }
+							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								ARK_unit_number_area_2 > 0
+							}
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 3 }
+						NOT = { check_variable = { global.ARK_Cnt_Control = 3 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = { global.ARK_Liv_Control = 3 }
+						}
+						check_variable = {
+							ARK_unit_number_area_3 > 0
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 4 }
+						NOT = { check_variable = { global.ARK_Inf_Control = 3 } }
+						OR = {
+							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = { global.ARK_Med_Control = 3 }
+						}
+						check_variable = {
+							ARK_unit_number_area_4 > 0
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 5 }
+						NOT = { check_variable = { global.ARK_Med_Control = 3 } }
+						OR = {
+							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = { global.ARK_Gen_Control = 3 }
+						}
+						check_variable = {
+							ARK_unit_number_area_5 > 0
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 6 }
+						NOT = { check_variable = { global.ARK_Gen_Control = 3 } }
+						OR = {
+							check_variable = { global.ARK_Eclipse_Control = 3 }
+							check_variable = { global.ARK_Med_Control = 3 }
+						}
+						check_variable = {
+							ARK_unit_number_area_6 > 0
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = { ARK_set_target = 7 }
+						NOT = { check_variable = { global.ARK_Eclipse_Control = 3 } }
+						check_variable = { global.ARK_Gen_Control = 3 }
+						check_variable = {
+							ARK_unit_number_area_7 > 0
+						}
+					}
+				}
+			}
+			
+			ARK_Dock_UFA_visible = {
+				check_variable = {
+					global.ARK_Dock_Control = 1
+				}
+			}
+			ARK_Dock_RCR_visible = {
+				check_variable = {
+					global.ARK_Dock_Control = 2
+				}
+			}
+			ARK_Dock_EGG_visible = {
+				check_variable = {
+					global.ARK_Dock_Control = 3
+				}
+			}
+			ARK_Liv_UFA_visible = {
+				check_variable = {
+					global.ARK_Liv_Control = 1
+				}
+			}
+			ARK_Liv_RCR_visible = {
+				check_variable = {
+					global.ARK_Liv_Control = 2
+				}
+			}
+			ARK_Liv_EGG_visible = {
+				check_variable = {
+					global.ARK_Liv_Control = 3
+				}
+			}
+			ARK_Cnt_UFA_visible = {
+				check_variable = {
+					global.ARK_Cnt_Control = 1
+				}
+			}
+			ARK_Cnt_RCR_visible = {
+				check_variable = {
+					global.ARK_Cnt_Control = 2
+				}
+			}
+			ARK_Cnt_EGG_visible = {
+				check_variable = {
+					global.ARK_Cnt_Control = 3
+				}
+			}
+			ARK_Inf_UFA_visible = {
+				check_variable = {
+					global.ARK_Inf_Control = 1
+				}
+			}
+			ARK_Inf_RCR_visible = {
+				check_variable = {
+					global.ARK_Inf_Control = 2
+				}
+			}
+			ARK_Inf_EGG_visible = {
+				check_variable = {
+					global.ARK_Inf_Control = 3
+				}
+			}
+			ARK_Med_UFA_visible = {
+				check_variable = {
+					global.ARK_Med_Control = 1
+				}
+			}
+			ARK_Med_RCR_visible = {
+				check_variable = {
+					global.ARK_Med_Control = 2
+				}
+			}
+			ARK_Med_EGG_visible = {
+				check_variable = {
+					global.ARK_Med_Control = 3
+				}
+			}
+			ARK_Gen_UFA_visible = {
+				check_variable = {
+					global.ARK_Gen_Control = 1
+				}
+			}
+			ARK_Gen_RCR_visible = {
+				check_variable = {
+					global.ARK_Gen_Control = 2
+				}
+			}
+			ARK_Gen_EGG_visible = {
+				check_variable = {
+					global.ARK_Gen_Control = 3
+				}
+			}
+			ARK_Eclipse_UFA_visible = {
+				check_variable = {
+					global.ARK_Eclipse_Control = 1
+				}
+			}
+			ARK_Eclipse_RCR_visible = {
+				check_variable = {
+					global.ARK_Eclipse_Control = 2
+				}
+			}
+			ARK_Eclipse_EGG_visible = {
+				check_variable = {
+					global.ARK_Eclipse_Control = 3
+				}
+			}
+			ARK_RCSR_logo_visible = {
+				tag = RCR
+			}
+			ARK_GUN_logo_visible = {
+				tag = UFA
+			}
+			ARK_EGG_logo_visible = {
+				tag = EGG
+			}
+			ARK_Rouge_visible = {
+				has_country_flag = Rouge_to_Ark
+			}
+			ARK_Shadow_visible = {
+				has_country_flag = Shadow_to_Ark
+			}
+			ARK_Shubin_visible = {
+				has_country_flag = Shubin_to_Ark
+			}
+			ARK_Metal_Sonic_visible = {
+				has_country_flag = Metal_Sonic_to_Ark
+			}
+			ARK_SHUBINA_visible = {
+				has_country_flag = Shubina_to_Ark
+			}
+			ARK_MINUS_click_enabled = {
+				OR = {
+					AND = {
+						check_variable = {
+							ARK_set_target = 1
+						}
+						check_variable = {
+							ARK_unit_number_area_1 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 2
+						}
+						check_variable = {
+							ARK_unit_number_area_2 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 3
+						}
+						check_variable = {
+							ARK_unit_number_area_3 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 4
+						}
+						check_variable = {
+							ARK_unit_number_area_4 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 5
+						}
+						check_variable = {
+							ARK_unit_number_area_5 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 6
+						}
+						check_variable = {
+							ARK_unit_number_area_6 > 0
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 7
+						}
+						check_variable = {
+							ARK_unit_number_area_7 > 0
+						}
+					}
+				}
+			}
+			ARK_PLUS_click_enabled = {
+				check_variable = {
+					ARK_Free_Units > 0
+				}
+				OR = {
+					AND = {
+						check_variable = {
+							ARK_set_target = 1
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 3
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 2
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 1
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 2
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 3
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 3
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 2
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 2
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Dock_Control = 1
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 1
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 3
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 3
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 3
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 2
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 2
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 1
+									}
+									check_variable = {
+										global.ARK_Liv_Control = 1
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 4
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 3
+									}
+									check_variable = {
+										global.ARK_Med_Control = 3
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 2
+									}
+									check_variable = {
+										global.ARK_Med_Control = 2
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 1
+									}
+									check_variable = {
+										global.ARK_Med_Control = 1
+									}
+									check_variable = {
+										global.ARK_Cnt_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 5
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 3
+									}
+									check_variable = {
+										global.ARK_Med_Control = 3
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 2
+									}
+									check_variable = {
+										global.ARK_Med_Control = 2
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Inf_Control = 1
+									}
+									check_variable = {
+										global.ARK_Med_Control = 1
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 6
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 3
+									}
+									check_variable = {
+										global.ARK_Med_Control = 3
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 2
+									}
+									check_variable = {
+										global.ARK_Med_Control = 2
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 1
+									}
+									check_variable = {
+										global.ARK_Med_Control = 1
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 1
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_set_target = 7
+						}
+						OR = {
+							AND = {
+								tag = EGG
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 3
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 3
+									}
+								}
+							}
+							AND = {
+								tag = RCR
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 2
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 2
+									}
+								}
+							}
+							AND = {
+								tag = UFA
+								OR = { 
+									check_variable = {
+										global.ARK_Eclipse_Control = 1
+									}
+									check_variable = {
+										global.ARK_Gen_Control = 1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		properties = {
+			ARK_ORG_BAR = {
+				frame = ARK_organisation
+			}
+			ARK_STR_BAR = {
+				frame = ARK_strength
+			}
+			ARK_STR_RATIO = {
+				frame = ARK_Ratio
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	ARK_Combat_log_winner = { 
+		context_type = player_context
+		window_name = "ARK_Combat_log_win"
+	
+		visible = {
+			has_country_flag = WINNER
+		}
+
+		triggers = {
+			ARK_RCR_LCS_visible = {
+				tag = RCR
+			}
+			ARK_EGG_LCS_visible = {
+				tag = EGG
+			}
+			ARK_GUN_LCS_visible = {
+				tag = UFA
+			}
+			ARK_RCR_RCS_visible = {
+				check_variable = {
+					RCR.ARK_casualties > 0
+				}
+				NOT = {
+					tag = RCR
+				}
+			}
+			ARK_EGG_RCS_visible = {
+				check_variable = {
+					EGG.ARK_casualties > 0
+				}
+				NOT = {
+					tag = EGG
+				}
+			}
+			ARK_GUN_RCS_visible = {
+				check_variable = {
+					UFA.ARK_casualties > 0
+				}
+				NOT = {
+					tag = UFA
+				}
+			}
+		}
+
+		effects = {
+			ARK_Dismiss_Button_click = {
+				if = {
+					limit = {
+						OR = {
+							tag = EGG
+							tag = RCR
+							tag = UFA
+						}
+					}
+					set_temp_variable = {
+						a = ARK_unit_number_area_1 
+					}	
+					set_temp_variable = {
+						b = ARK_unit_number_area_2 
+					}
+					set_temp_variable = {
+						c = ARK_unit_number_area_3 
+					}
+					set_temp_variable = {
+						d = ARK_unit_number_area_4 
+					}
+					set_temp_variable = {
+						e = ARK_unit_number_area_5 
+					}
+					set_temp_variable = {
+						f = ARK_unit_number_area_6 
+					}
+					set_temp_variable = {
+						g = ARK_unit_number_area_7 
+					}
+					set_temp_variable = {
+						h = ARK_Free_Units
+					}
+					add_to_temp_variable = {
+						a = b
+					}
+					add_to_temp_variable = {
+						a = c
+					}
+					add_to_temp_variable = {
+						a = d
+					}
+					add_to_temp_variable = {
+						a = e
+					}
+					add_to_temp_variable = {
+						a = f
+					}
+					add_to_temp_variable = {
+						a = g
+					}
+					add_to_temp_variable = {
+						a = h
+					}
+					set_variable = {
+						ARK_unit_number = a
+					}
+					set_variable = {
+						ARK_casualties = 0
+					}
+				}
+				clr_country_flag = WINNER
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	ARK_Combat_log_loser = { 
+		context_type = player_context
+		window_name = "ARK_Combat_log_lose"
+
+		visible = {
+			has_country_flag = LOSER
+		}
+
+		triggers = {
+			ARK_RCR_LCS_visible = {
+				tag = RCR
+			}
+			ARK_EGG_LCS_visible = {
+				tag = EGG
+			}
+			ARK_GUN_LCS_visible = {
+				tag = UFA
+			}
+			ARK_RCR_RCS_visible = {
+				check_variable = {
+					RCR.ARK_casualties > 0
+				}
+				NOT = {
+					tag = RCR
+				}
+			}
+			ARK_EGG_RCS_visible = {
+				check_variable = {
+					EGG.ARK_casualties > 0
+				}
+				NOT = {
+					tag = EGG
+				}
+			}
+			ARK_GUN_RCS_visible = {
+				check_variable = {
+					UFA.ARK_casualties > 0
+				}
+				NOT = {
+					tag = UFA
+				}
+			}
+		}
+
+		effects = {
+			ARK_Dismiss_Button_click = {
+				if = {
+					limit = {
+						OR = {
+							tag = EGG
+							tag = RCR
+							tag = UFA
+						}
+					}
+					set_temp_variable = {
+						a = ARK_unit_number_area_1 
+					}	
+					set_temp_variable = {
+						b = ARK_unit_number_area_2 
+					}
+					set_temp_variable = {
+						c = ARK_unit_number_area_3 
+					}
+					set_temp_variable = {
+						d = ARK_unit_number_area_4 
+					}
+					set_temp_variable = {
+						e = ARK_unit_number_area_5 
+					}
+					set_temp_variable = {
+						f = ARK_unit_number_area_6 
+					}
+					set_temp_variable = {
+						g = ARK_unit_number_area_7 
+					}
+					set_temp_variable = {
+						h = ARK_Free_Units
+					}
+					add_to_temp_variable = {
+						a = b
+					}
+					add_to_temp_variable = {
+						a = c
+					}
+					add_to_temp_variable = {
+						a = d
+					}
+					add_to_temp_variable = {
+						a = e
+					}
+					add_to_temp_variable = {
+						a = f
+					}
+					add_to_temp_variable = {
+						a = g
+					}
+					add_to_temp_variable = {
+						a = h
+					}
+					set_variable = {
+						ARK_unit_number = a
+					}
+					set_variable = {
+						ARK_casualties = 0
+					}
+				}
+				clr_country_flag = LOSER
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	ARK_Reinf_screen = { 
+		context_type = decision_category
+		window_name = "ARK_Reinforcement_screen"
+	
+		trigger = {
+			ARK_Reinf_Plus_click_enabled = {
+				has_manpower = 50
+			}
+			ARK_Reinf_Minus_click_enabled = {
+				check_variable = {
+					ARK_send_reinforcements > 49
+				}
+			}
+		}
+
+		effects = {
+			ARK_Reinf_Plus_click = {
+				add_manpower = -50
+				add_to_variable = {
+					ARK_send_reinforcements = 50
+				}
+			}
+			ARK_Reinf_Minus_click = {
+				subtract_from_variable = {
+					ARK_send_reinforcements = 50
+				}
+				add_manpower = 50
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	CORRUPTION = {
+		context_type = player_context
+		window_name = "corruption_window"
+		parent_window_token = top_bar
+
+		visible = {
+			always = yes
+		}
+	}
+}

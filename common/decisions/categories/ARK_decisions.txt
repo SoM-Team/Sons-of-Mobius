@@ -1,0 +1,68 @@
+ARK_space_colony = {
+	icon = GFX_decision_category_ark
+
+	picture = GFX_cat_space_colony_ARK
+	
+	allowed = {
+		OR ={
+			original_tag = EGG
+			original_tag = RCR
+			original_tag = UFA
+		}
+	}
+	
+	available = {
+		# has_tech = advanced_rocket_engines
+	}
+	
+	visible = { 
+		NOT = {
+			has_global_flag = ARK_Collapsed
+		}
+	}
+
+	scripted_gui = ARK_Reinf_screen
+}
+ARK_Eclipse_Shooting = {
+	icon = GFX_decision_category_ark
+	
+	allowed = {
+		OR ={
+			original_tag = EGG
+			original_tag = RCR
+			original_tag = UFA
+		}
+	}
+	
+	available = {
+		NOT = { has_country_flag = ARK_Repairing }
+	}
+	
+	visible = { 
+		NOT = {
+			has_global_flag = ARK_Collapsed
+		}
+		OR = {
+			AND = {
+				tag = UFA
+				check_variable = {
+					global.ARK_Eclipse_Control = 1
+				}
+			}
+			AND = {
+				tag = RCR
+				check_variable = {
+					global.ARK_Eclipse_Control = 2
+				}
+			}
+			AND = {
+				tag = EGG
+				check_variable = {
+					global.ARK_Eclipse_Control = 3
+				}
+			}
+		}
+	}
+
+	scripted_gui = ARK_Eclipse
+}

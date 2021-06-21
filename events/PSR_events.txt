@@ -1,0 +1,92 @@
+﻿############################
+# PSARSKA STRONK
+############################
+############################
+
+add_namespace = psr
+######################################
+
+country_event = { ### DEATH OF MARSHAL
+	id = psr.1
+	title = psr.1.t
+	desc = psr.1.d
+	picture = GFX_report_event_death
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = psr.1.a 
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Jakub Drarzcowski"
+			desc = "JAKUB_DESC"
+			picture = "gfx/leaders/PSR/Jakub_Drarzcowski.dds"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {
+			}
+		}
+		set_country_flag = WIKTOR_DEAD
+		set_variable = {
+			PSR_NZF_LOYALTY = 61
+		}
+		set_temp_variable = {
+			sum_1 = 100
+		}
+		subtract_from_temp_variable = { 
+			sum_1 = PSR_NZF_LOYALTY
+		}
+		set_variable = {
+			PSR_NZF_ILLOYALTY = sum_1
+		}
+		set_variable = {
+			PSR_DBN_LOYALTY = 56
+		}
+		set_temp_variable = {
+			sum_2 = 100
+		}
+		subtract_from_temp_variable = { 
+			sum_2 = PSR_DBN_LOYALTY
+		}
+		set_variable = {
+			PSR_DBN_ILLOYALTY = sum_2
+		}
+		set_variable = {
+			PSR_ARMY_LOYALTY = 35
+		}
+		set_temp_variable = {
+			sum_3 = 100
+		}
+		subtract_from_temp_variable = { 
+			sum_3 = PSR_ARMY_LOYALTY
+		}
+		set_variable = {
+			PSR_ARMY_ILLOYALTY = sum_3
+		}
+		
+	}
+}
+
+country_event = { ### ROTA
+	id = psr.2
+	title = psr.2.t
+	desc = psr.2.d
+	picture = GFX_report_event_palace
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = psr.2.a 
+		add_political_power = 100
+	}
+}
+
+
+
+##############################
+# DOG is WEAK without TANK   #
+##############################

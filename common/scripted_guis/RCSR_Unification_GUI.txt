@@ -1,0 +1,353 @@
+scripted_gui = {
+	RCSR_Unification = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "RCSR_Unification_GUI"
+	
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
+			### NOC
+			RCR_NOC_RED_visible = {
+				check_variable = {
+					RCR_NOC_Loyalty > 65
+				}
+			}
+			RCR_NOC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_NOC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_NOC_Loyalty > 32
+					}
+				}
+			}
+			RCR_NOC_GREY_visible = {
+				check_variable = {
+					RCR_NOC_Loyalty < 33
+				}
+			}
+			RCR_NOC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 1
+				}
+			}
+			### SOC 
+			RCR_SOC_RED_visible = {
+				check_variable = {
+					RCR_SOC_Loyalty > 65
+				}
+			}
+			RCR_SOC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_SOC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_SOC_Loyalty > 32
+					}
+				}
+			}
+			RCR_SOC_GREY_visible = {
+				check_variable = {
+					RCR_SOC_Loyalty < 33
+				}
+			}
+			RCR_SOC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 2
+				}
+			}
+			### NWC
+			RCR_NWC_RED_visible = {
+				check_variable = {
+					RCR_NWC_Loyalty > 65
+				}
+			}
+			RCR_NWC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_NWC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_NWC_Loyalty > 32
+					}
+				}
+			}
+			RCR_NWC_GREY_visible = {
+				check_variable = {
+					RCR_NWC_Loyalty < 33
+				}
+			}
+			RCR_NWC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 3
+				}
+			}
+			### SIC
+			RCR_SIC_RED_visible = {
+				check_variable = {
+					RCR_SIC_Loyalty > 65
+				}
+			}
+			RCR_SIC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_SIC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_SIC_Loyalty > 32
+					}
+				}
+			}
+			RCR_SIC_GREY_visible = {
+				check_variable = {
+					RCR_SIC_Loyalty < 33
+				}
+			}
+			RCR_SIC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 4
+				}
+			}
+			### FEC
+			RCR_FEC_RED_visible = {
+				check_variable = {
+					RCR_FEC_Loyalty > 65
+				}
+			}
+			RCR_FEC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_FEC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_FEC_Loyalty > 32
+					}
+				}
+			}
+			RCR_FEC_GREY_visible = {
+				check_variable = {
+					RCR_FEC_Loyalty < 33
+				}
+			}
+			RCR_FEC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 5
+				}
+			}
+			### WEC
+			RCR_WEC_RED_visible = {
+				check_variable = {
+					RCR_WEC_Loyalty > 65
+				}
+			}
+			RCR_WEC_PINK_visible = {
+				AND = {
+					check_variable = {
+						RCR_WEC_Loyalty < 66
+					}
+					check_variable = {
+						RCR_WEC_Loyalty > 32
+					}
+				}
+			}
+			RCR_WEC_GREY_visible = {
+				check_variable = {
+					RCR_WEC_Loyalty < 33
+				}
+			}
+			RCR_WEC_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 6
+				}
+			}
+			RCR_CNT_DARK_visible = {
+				check_variable = {
+					RCR_unif_inter = 7
+				}
+			}
+			### POLITICAL CAPITAL
+			RCR_PC_1_visible = {
+				check_variable = {
+					CNT_Political_Capital > 0
+				}
+			}
+			RCR_PC_2_visible = {
+				check_variable = {
+					CNT_Political_Capital > 1
+				}
+			}
+			RCR_PC_3_visible = {
+				check_variable = {
+					CNT_Political_Capital > 2
+				}
+			}
+			RCR_PC_4_visible = {
+				check_variable = {
+					CNT_Political_Capital > 3
+				}
+			}
+			RCR_PC_5_visible = {
+				check_variable = {
+					CNT_Political_Capital > 4
+				}
+			}
+		}
+		
+		effects = {
+			### NOC
+			RCR_NOC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 1
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_NOC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 1
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_NOC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 1
+				}
+				sound_effect = "click_province_01"
+			}
+			### SOC 
+			RCR_SOC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 2
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_SOC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 2
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_SOC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 2
+				}
+				sound_effect = "click_province_01"
+			}
+			### NWC
+			RCR_NWC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 3
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_NWC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 3
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_NWC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 3
+				}
+				sound_effect = "click_province_01"
+			}
+			### SIC
+			RCR_SIC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 4
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_SIC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 4
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_SIC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 4
+				}
+				sound_effect = "click_province_01"
+			}
+			### FEC
+			RCR_FEC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 5
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_FEC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 5
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_FEC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 5
+				}
+				sound_effect = "click_province_01"
+			}
+			### WEC
+			RCR_WEC_RED_click = {
+				set_variable = {
+					RCR_unif_inter = 6
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_WEC_PINK_click = {
+				set_variable = {
+					RCR_unif_inter = 6
+				}
+				sound_effect = "click_province_01"
+			}
+			RCR_WEC_GREY_click = {
+				set_variable = {
+					RCR_unif_inter = 6
+				}
+				sound_effect = "click_province_01"
+			}
+			### CNT
+			RCR_CNT_PIECE_click = {
+				set_variable = {
+					RCR_unif_inter = 7
+				}
+				sound_effect = "click_province_01"
+			}
+		}
+		
+		properties = {
+			
+		}
+	}
+}
+
+scripted_gui = { ###Автоматизация, отсюда не нужно ничего брать
+	RCR_AUTOMATION_WINDOW = {
+		context_type = decision_category
+		window_name = "RCR_AUTOMATION_WINDOW_GUI"
+		
+		visible = {
+			always = yes
+		}
+		
+		effects = {
+			
+		}
+		
+		triggers = {
+			
+		}
+		
+		properties = {
+			RCR_AUTOMATION_GUI_ProgressBar_1 = {
+				frame = RCR_AUTO
+			}
+		}
+	}
+}
