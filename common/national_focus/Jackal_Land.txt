@@ -711,6 +711,12 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_take_whats_mine
 		}
+		completion_reward = {
+			declare_war_on = {
+				target = UFA
+				type = annex_everything
+			}
+		}
 		x = 12
 		y = 11
 	}
@@ -801,7 +807,8 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 					province = {
-						limit_to_border = yes
+        				all_provinces = yes
+        				limit_to_border = yes
 					}
 				}
 			}
@@ -820,12 +827,18 @@ focus_tree = {
 			BHA = {
 				if = {
 					limit = {
-						exists = no
-						every_state = {
-							is_controlled_by = INF
+						NOT = {
+							country_exists = THIS
 						}
 					}
-					add_core_of = INF
+					every_state = {
+						limit = {
+							if = {
+								is_controlled_by = INF
+							}
+						}
+						add_core_of = INF
+					}
 				}
 			}
 			country_event = {
@@ -841,6 +854,9 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus =  INF_integrating_Bharatshan_land
+		}
+		completion_reward = {
+			add_ideas = INF_Enslaving_Bharatshans_Idea
 		}
 		x = 6
 		y = 13
@@ -1066,6 +1082,12 @@ focus_tree = {
 		mutually_exclusive = {
 			focus =  INF_plunder_banks
 		}
+		completion_reward = {
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = INF_Revanchist_Restitution_Idea
+		}
 		x = 10
 		y = 15
 	}
@@ -1078,6 +1100,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus =  INF_slash_overlander
+		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Controlled
 		}
 		x = 14
 		y = 15
@@ -1105,6 +1130,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus =  INF_zomby_overlander
 		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Extinct
+		}
 		x = 16
 		y = 15
 	}
@@ -1115,17 +1143,27 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_slash_overlander
 		}
+		completion_reward = {
+			add_ideas = INF_Squad_9146
+		}
 		x = 15
 		y = 16
 	}
 	focus = {
 		id = INF_its_only_me_and_you
 		icon = GFX_focus_its_only_me_and_you
-		cost = 0
+		cost = 4
 		prerequisite = {
 			focus = INF_experimental_squads
 			focus = INF_enforce_collaborationism
 			focus = INF_finish_industrialization
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = nuclear
+			}
 		}
 		x = 12
 		y = 17
@@ -1162,6 +1200,18 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_great_Jackal
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_equipment
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
 		x = 14
 		y = 13
 	}
@@ -1171,6 +1221,21 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus =  INF_great_Jackal
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			203 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
 		}
 		x = 16
 		y = 13
