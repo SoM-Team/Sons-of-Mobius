@@ -2962,26 +2962,6 @@ EGG_DEL_CREATION = {
 		}
 		fire_only_once = yes
 		complete_effect = {
-			SWA = {
-				every_state = {
-					limit = {
-						AND = {
-							OR = {
-								is_core_of = SWA
-								is_core_of = TYY
-							}
-							is_controlled_by = EGG
-						}
-					}
-					#SWA = {
-					#	transfer_state = PREV
-					#}
-					delete_unit = {
-						state = THIS
-						disband = yes
-					}
-				}
-			}
 			
 			SWA = {
 				set_politics = {
@@ -2995,17 +2975,23 @@ EGG_DEL_CREATION = {
 			}
 
 			ROOT = {
-				set_rule = {
-					can_puppet = yes
+				release_autonomy = {
+					target = SWA
+					autonomy_state = autonomy_integrated_puppet
+					freedom_level = 0.5
 				}
-				puppet = SWA
-				#set_autonomy = { 
-				#	target = SWA
-				#	autonomy_state = autonomy_integrated_puppet 
-				#}
-				#set_rule = {
-				#	can_puppet = no
-				#}
+			}
+
+			every_state = {
+				limit = {
+					AND = {
+						is_core_of = TYY
+						is_controlled_by = EGG
+					}
+				}
+				SWA = {
+					transfer_state = PREV
+				}
 			}
 		}
 	}
