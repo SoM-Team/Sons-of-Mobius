@@ -79,6 +79,16 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_brain_washing
 		}
+		completion_reward = {
+			INF = {
+				add_ideas = INF_Loyal_Soldiers_Idea
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
 		x = 9
 		y = 2
 	}
@@ -91,6 +101,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = INF_steal_the_Gold
+		}
+		completion_reward = {
+			add_ideas = INF_Enslave_Workers_Idea
 		}
 		x = 11
 		y = 2
@@ -200,7 +213,10 @@ focus_tree = {
 			focus = INF_I_am_the_sharpest_of_blades
 		}
 		completion_reward = {
-			add_ideas = INF_Steal_Their_Minds_Idea
+			add_timed_idea = {
+				idea = INF_Steal_Their_Minds_Idea
+				days = 365
+			}
 		}
 		x = 14
 		y = 6
@@ -211,6 +227,18 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_I_am_the_sharpest_of_blades
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				ahead_reduction = 3
+				uses = 1
+				category = infantry_weapons
+			}
 		}
 		x = 12
 		y = 6
@@ -313,6 +341,14 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = motorized_equipment
+				category = cat_mechanized_equipment
+			}
+		}
 		x = 6
 		y = 6
 	}
@@ -322,6 +358,17 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
+		}
+		completion_reward = {
+			716 = {
+				INF_Gas_And_Tires_Effect = yes
+			}
+			713 = {
+				INF_Gas_And_Tires_Effect = yes
+			}
+			540 = {
+				INF_Gas_And_Tires_Effect = yes
+			}
 		}
 		x = 8
 		y = 6
@@ -339,6 +386,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = INF_Tango_plan
 		}
+		completion_reward = {
+			add_ideas = INF_The_Foxtrot_Plan_Idea
+		}
 		x = 7
 		y = 7
 	}
@@ -354,6 +404,14 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = INF_Foxtrot_plan
+		}
+		completion_reward = {
+			add_ideas = INF_The_Tango_Plan_Idea
+			add_tech_bonus = {
+				bonus = 0.2
+				uses = 1
+				category = armor
+			}
 		}
 		x = 5
 		y = 7
@@ -457,6 +515,43 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_introduce_ICV
 		}
+		completion_reward = {
+			203 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			713 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			718 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 		x = 2
 		y = 9
 	}
@@ -469,6 +564,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = INF_Infinite_Guard
+		}
+		completion_reward = {
+			add_ideas = INF_Head_to_Head_Idea
 		}
 		x = 4
 		y = 9
@@ -492,6 +590,24 @@ focus_tree = {
 		cost = 0
 		prerequisite = {
 			focus = INF_Boost_motorized_production
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = INF
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		x = 10
 		y = 9
@@ -563,6 +679,14 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_demoralize_society
 		}
+		completion_reward = {
+			UFA = {
+				remove_unit_leader = 1000
+				add_stability = -0.1
+			}
+			UFA_Remove_Team_Dark = yes
+			add_stability = 0.1
+		}
 		x = 21
 		y = 7
 	}
@@ -599,6 +723,20 @@ focus_tree = {
 					remove_ideas = UFA_Collapsing_Army_3
 				}
 				add_ideas = UFA_Collapsing_Army_2
+			}
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 0.6 start_equipment_factor = 1"
+					owner = INF
+				}
 			}
 		}
 		x = 17
@@ -640,6 +778,23 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = INF_brainwash_our_troops
+		}
+		completion_reward = {
+			UFA = {
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_2
+					}
+					remove_ideas = UFA_Collapsing_Army_2
+				}
+				if = {
+					limit = {
+						has_idea = UFA_Collapsing_Army_3
+					}
+					remove_ideas = UFA_Collapsing_Army_3
+				}
+				add_ideas = UFA_Collapsing_Army_4
+			}
 		}
 		x = 16
 		y = 8
@@ -700,6 +855,11 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = INF_this_is_an_illusion
+		}
+		completion_reward = {
+			INF = {
+				country_event = inf.106
+			}
 		}
 		x = 12
 		y = 10
@@ -871,7 +1031,7 @@ focus_tree = {
 		completion_reward = {
 			random_owned_state = {
 				limit = {
-					is_core_of = BHA
+					original_tag = BHA
 				}
 				create_unit = {
 					division = "name = \"Bharatshian Legion\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"

@@ -1,0 +1,33 @@
+UFA_Add_Team_Dark = {
+    UFA = {
+        division_template = {
+            name = "Team DARK"  	
+            regiments = {
+                team_dark_hero = { x = 0 y = 0 }
+            }
+        }
+        set_division_template_lock = {
+            division_template = "Team DARK"
+            is_locked = yes
+        }
+        random_owned_state = {
+            create_unit = {
+                division = "name = \"Team DARK\" division_template = \"Team DARK\" start_experience_factor = 1 start_equipment_factor = 1"
+                owner = UFA
+            }
+        }
+    }
+}
+
+UFA_Remove_Team_Dark = {
+    UFA = {
+        set_division_template_lock = {
+            division_template = "Team DARK"
+            is_locked = no
+        }
+        delete_unit_template_and_units = {
+            division_template = "Team DARK"
+            disband = no
+        }
+    }
+}
