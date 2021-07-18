@@ -10,59 +10,6 @@ KOA_enable_populist_domination = {
 	}
 }
 
-KOA_Switch_Opposition_Idea_Meta = {
-	meta_effect = {
-		text = {
-			KOA = {
-				if = {
-					limit = {
-						check_variable = {
-							[CURRENT_IDEA_LEVEL_VAR] > 0
-						}
-					}
-					if = {
-						limit = {
-							has_idea = [IDEA_NAME]_[OLD_LEVEL]
-						}
-						remove_ideas = [IDEA_NAME]_[OLD_LEVEL]
-					}
-				}
-				if = {
-					limit = {
-						AND = {
-							check_variable = {
-								[NEW_IDEA_LEVEL_VAR] > 0
-							}
-							check_variable = {
-								[CURRENT_IDEA_LEVEL_VAR] < 11
-							}
-						}
-					}
-					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
-					set_variable = {
-						KOA_current_populist_idea_level = [NEW_LEVEL]
-					}
-					if = {
-						limit = {
-							has_global_flag = [HELP_FLAG]
-						}
-						add_stability = -0.05
-						clr_global_flag = [HELP_FLAG]
-					}
-					clear_variable = NEW_IDEA_LEVEL_VAR
-				}
-			}
-		}
-		CURRENT_IDEA_LEVEL_VAR = "[?current_idea_level_var_name]"
-		NEW_IDEA_LEVEL_VAR = "[?new_idea_level_var_name]"
-		MAX_IDEA_LEVEL = "[?max_idea_level]"
-		MIN_IDEA_LEVEL = "[?min_idea_level]"
-		HELP_FLAG = "[?help_flag_var]"
-		OLD_LEVEL = "[?[CURRENT_IDEA_LEVEL_VAR]]|.0]"
-		NEW_LEVEL = "[?[NEW_IDEA_LEVEL_VAR]|.0]"
-	}
-}
-
 KOA_Switch_Populist_Meta = {
 	meta_effect = {
 		text = {
@@ -112,215 +59,61 @@ KOA_Switch_Populist_Meta = {
 	}
 }
 
+KOA_Switch_Nobles_Meta = {
+	meta_effect = {
+		text = {
+			KOA = {
+				if = {
+					limit = {
+						check_variable = {
+							KOA_current_nobles_idea_level > 0
+						}
+					}
+					if = {
+						limit = {
+							has_idea = [IDEA_NAME]_[OLD_LEVEL]
+						}
+						remove_ideas = [IDEA_NAME]_[OLD_LEVEL]
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = {
+								KOA_new_nobles_idea_level > 0
+							}
+							check_variable = {
+								KOA_new_nobles_idea_level < 11
+							}
+						}
+					}
+					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
+					set_variable = {
+						KOA_current_nobles_idea_level = [NEW_LEVEL]
+					}
+					if = {
+						limit = {
+							has_global_flag = KOA_helped_populist
+						}
+						add_stability = -0.05
+						clr_global_flag = KOA_helped_populist
+					}
+					clear_variable = KOA_new_nobles_idea_level
+				}
+			}
+		}
+		IDEA_NAME = "KOA_Northern_Winds"
+		OLD_LEVEL = "[?KOA_current_nobles_idea_level|.0]"
+		NEW_LEVEL = "[?KOA_new_nobles_idea_level|.0]"
+	}
+}
+
 KOA_Switch_Populist_Idea = {
 	KOA_Switch_Populist_Meta = yes
 }
 
-KOA_Remove_Nobles_Idea = {
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 1
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_1
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 2
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_2
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 3
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_3
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 4
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_4
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 5
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_5
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 6
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_6
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 7
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_7
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 8
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_8
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 9
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_9
-	}
-	if = {
-		limit = {
-			check_variable = {
-				KOA_current_nobles_idea_level = 10
-			}
-		}
-		remove_ideas = KOA_Northern_Winds_10
-	}
-}
-
 KOA_Switch_Nobles_Idea = {
-	KOA = {
-		KOA_Remove_Nobles_Idea = yes
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 1
-				}
-			}
-			add_ideas = KOA_Northern_Winds_1
-			set_variable = { 
-				KOA_current_nobles_idea_level = 1 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 2
-				}
-			}
-			add_ideas = KOA_Northern_Winds_2
-			set_variable = { 
-				KOA_current_nobles_idea_level = 2
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 3
-				}
-			}
-			add_ideas = KOA_Northern_Winds_3
-			set_variable = { 
-				KOA_current_nobles_idea_level = 3 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 4
-				}
-			}
-			add_ideas = KOA_Northern_Winds_4
-			set_variable = { 
-				KOA_current_nobles_idea_level = 4
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 5
-				}
-			}
-			add_ideas = KOA_Northern_Winds_5
-			set_variable = { 
-				KOA_current_nobles_idea_level = 5 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 6
-				}
-			}
-			add_ideas = KOA_Northern_Winds_6
-			set_variable = { 
-				KOA_current_nobles_idea_level = 6 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 7
-				}
-			}
-			add_ideas = KOA_Northern_Winds_7
-			set_variable = { 
-				KOA_current_nobles_idea_level = 7 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 8
-				}
-			}
-			add_ideas = KOA_Northern_Winds_8
-			set_variable = { 
-				KOA_current_nobles_idea_level = 8 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 9
-				}
-			}
-			add_ideas = KOA_Northern_Winds_9
-			set_variable = { 
-				KOA_current_nobles_idea_level = 9 
-			}
-		}
-		if = {
-			limit = {
-				check_variable = {
-					KOA_new_nobles_idea_level = 10
-				}
-			}
-			add_ideas = KOA_Northern_Winds_10
-			set_variable = { 
-				KOA_current_nobles_idea_level = 10
-			}
-		}
-		if = {
-			limit = {
-				has_global_flag = KOA_helped_populist
-			}
-			add_stability = -0.05
-			clr_global_flag = KOA_helped_populist
-		}
-	}
-	clear_variable = KOA_new_nobles_idea_level
+	KOA_Switch_Nobles_Meta = yes
 }
 
 KOA_enable_nobles_domination = {
