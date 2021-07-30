@@ -3735,6 +3735,10 @@ focus_tree = {
 		relative_position_id = KOA_Project_Crown_Atomic
 		x = 0
 		y = 2
+		completion_reward = {
+			add_political_power = 75
+			# TODO: Add event "Acorn is Back!"
+		}
 	}
 
 	focus = {
@@ -3751,6 +3755,33 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			# TODO: Add news event "Acorns Announce Their Ambitions v1"
+			every_country = {
+				if = {
+					limit = {
+						AND = {
+							NOT = {
+								is_in_faction_with = INF
+							}
+							NOT = {
+								is_in_faction_with = EGG
+							}
+							NOT = {
+								original_tag = INF
+							}
+							NOT = {
+								original_tag = EGG
+							}
+						}
+					}
+					add_opinion_modifier = {
+						target = KOA
+						modifier = KOA_Peaceful_Missionaries
+					}
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -3766,6 +3797,33 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = KOA_To_Bright_Tomorrow
+		}
+		completion_reward = {
+			# TODO: Add news event "Acorns Announce Their Ambitions v2"
+			every_country = {
+				if = {
+					limit = {
+						AND = {
+							NOT = {
+								is_in_faction_with = INF
+							}
+							NOT = {
+								is_in_faction_with = EGG
+							}
+							NOT = {
+								original_tag = INF
+							}
+							NOT = {
+								original_tag = EGG
+							}
+						}
+					}
+					add_opinion_modifier = {
+						target = KOA
+						modifier = KOA_Old_Imperialist
+					}
+				}
+			}
 		}
 	}
 
@@ -3915,6 +3973,19 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_To_Bright_Tomorrow
 		}
+		completion_reward = {
+			# TODO: Add events for both countries
+			add_opinion_modifier = {
+				target = RCR
+				modifier = KOA_Detente_Propositions
+			}
+			RCR = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = KOA_Detente_Propositions
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -3931,6 +4002,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Northamer_Collective_Security
 		}
+		completion_reward = {
+			# TODO: Add country event "Friendly Nightcall"
+			add_political_power = 50
+			RCR = {
+				add_political_power = 50
+			}
+		}
 	}
 
 	focus = {
@@ -3943,6 +4021,10 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_Not_So_Different
+		}
+		completion_reward = {
+			# TODO: Add events for KOA, RCR and UFA
+			# TODO: Add removal of embargo trade opinion modifiers
 		}
 	}
 
@@ -3957,6 +4039,17 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Not_So_Different
 		}
+		completion_reward = {
+			# TODO: Add national idea "Rethenian Military Mission"
+			# TODO: Add country event for both RCR and KOA "Exercise Zapad-*number of year*"
+			# TODO: Add news event “Rethenian-Acorn Joint Exercises”
+			army_experience = 75
+			add_command_power = 50
+			RCR = {
+				army_experience = 75
+				add_command_power = 50
+			}
+		}
 	}
 
 	focus = {
@@ -3969,6 +4062,10 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_Not_So_Different
+		}
+		completion_reward = {
+			# TODO: Add country event "Love Without Boundaries"
+			add_stability = 0.05
 		}
 	}
 
@@ -3988,6 +4085,9 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Call_For_the_Feast
+		}
+		completion_reward = {
+			# TODO: Add country event for both RCR and KOA "The Agreement"
 		}
 	}
 
