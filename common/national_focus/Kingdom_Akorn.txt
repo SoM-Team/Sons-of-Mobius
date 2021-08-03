@@ -2390,11 +2390,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			KOA = {
-				country_event = {
-					id = koa.121
-				}
+			country_event = {
+				id = koa.121
 			}
+			set_global_flag = KOA_Elias_Despot_King
 		}
 	}
 	focus = {
@@ -3737,7 +3736,21 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			add_political_power = 75
-			# TODO: Add event "Acorn is Back!"
+			if = {
+				limit = {
+					has_global_flag = KOA_Sally_Queen
+				}
+				country_event = koa.300
+			}
+			if_else = {
+				limit = {
+					has_global_flag = KOA_Elias_Despot_King
+				}
+				country_event = koa.302
+			}
+			else = {
+				country_event = koa.301
+			}
 		}
 	}
 
@@ -3749,6 +3762,9 @@ focus_tree = {
 		relative_position_id = KOA_Masters_of_Mobius
 		x = -2
 		y = 1
+		available = {
+			has_global_flag = KOA_Foreign_Liberation
+		}
 		prerequisite = {
 			focus = KOA_Masters_of_Mobius
 		}
@@ -3756,7 +3772,6 @@ focus_tree = {
 			focus = KOA_To_Glorious_Yesterday
 		}
 		completion_reward = {
-			# TODO: Add news event "Acorns Announce Their Ambitions v1"
 			every_country = {
 				if = {
 					limit = {
@@ -3781,6 +3796,7 @@ focus_tree = {
 					}
 				}
 			}
+			news_event = koa.303
 		}
 	}
 
@@ -3792,6 +3808,9 @@ focus_tree = {
 		relative_position_id = KOA_Masters_of_Mobius
 		x = 2
 		y = 1
+		available = {
+			has_global_flag = KOA_Foreign_Aggression
+		}
 		prerequisite = {
 			focus = KOA_Masters_of_Mobius
 		}
@@ -3799,7 +3818,6 @@ focus_tree = {
 			focus = KOA_To_Bright_Tomorrow
 		}
 		completion_reward = {
-			# TODO: Add news event "Acorns Announce Their Ambitions v2"
 			every_country = {
 				if = {
 					limit = {
@@ -3824,6 +3842,7 @@ focus_tree = {
 					}
 				}
 			}
+			news_event = koa.304
 		}
 	}
 
@@ -3839,6 +3858,11 @@ focus_tree = {
 			focus = KOA_To_Bright_Tomorrow
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			# TODO: Add events "Red Militarism" and "Better Dead Than Red"
+			# TODO: Add news event "Acorns Dennounce Council Retenia"
+			# TODO: Add negative opinion modifier with RCR
+		}
 	}
 
 	focus = {
@@ -3851,6 +3875,10 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_The_Eastern_Blizzard
+		}
+		completion_reward = {
+			# TODO: Add skills to general Vladimir (not settled yet)
+			# TODO: Add country event "The Rogue Kniaz"
 		}
 	}
 
@@ -3865,6 +3893,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Old_Good_Dynasty
 		}
+		completion_reward = {
+			# TODO: Add decisions to invite Cordon Sanitaire missions
+		}
 	}
 
 	focus = {
@@ -3877,6 +3908,10 @@ focus_tree = {
 		y = 3
 		prerequisite = {
 			focus = KOA_Amass_Around_Reds
+		}
+		completion_reward = {
+			# TODO: Add country event
+			custom_effect_tooltip = KOA_Global_war_tooltip
 		}
 	}
 
@@ -3892,6 +3927,10 @@ focus_tree = {
 			focus = KOA_To_Bright_Tomorrow
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			# TODO: Add country event "The Answer"
+			add_war_support = 0.1
+		}
 	}
 
 	focus = {
@@ -3904,6 +3943,9 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_The_Root_of_All_Evils
+		}
+		completion_reward = {
+			# TODO: Add decisions to affect DEL leadership
 		}
 	}
 
@@ -3918,6 +3960,18 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Not_So_Loyal_Ones
 		}
+		available = {
+			AND = {
+				OR = {
+					is_subject_of = EGG
+					is_puppet_of = EGG
+				}
+				compliance < 30
+			}
+		}
+		completion_reward = {
+			# TODO: Add country event
+		}
 	}
 
 	focus = {
@@ -3930,6 +3984,10 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_The_Root_of_All_Evils
+		}
+		completion_reward = {
+			# TODO: Add effects that depend on current doctrine
+			# TODO: Add country event "The Guerilla Army"
 		}
 	}
 
@@ -3974,7 +4032,7 @@ focus_tree = {
 			focus = KOA_To_Bright_Tomorrow
 		}
 		completion_reward = {
-			# TODO: Add events for both countries
+			country_event = koa.305
 			add_opinion_modifier = {
 				target = RCR
 				modifier = KOA_Detente_Propositions
