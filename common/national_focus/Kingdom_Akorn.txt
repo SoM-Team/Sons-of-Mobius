@@ -2869,9 +2869,9 @@ focus_tree = {
 		cost = 4
 		x = 18
 		y = 14
-		allow_branch = {
-			has_global_flag = KOA_Sally_Queen
-		}
+		#allow_branch = {
+		#	has_global_flag = KOA_Sally_Queen
+		#}
 		completion_reward = {
 			add_political_power = 100
 			set_variable = { nobles_influence = 50 }
@@ -2903,7 +2903,12 @@ focus_tree = {
 				ideology = social_democrat
 				popularity = 0.05
 			}
+			country_event = {
+				id = koa.132
+			}
 			add_ideas = KOA_Pardoned_for_the_Past
+			KOA_increase_populist_influence = yes
+			custom_effect_tooltip = KOA_Populist_influence_increase_tooltip
 		}
 	}
 	focus = {
@@ -2919,6 +2924,10 @@ focus_tree = {
 			country_event = {
 				id = koa.133
 			}
+			KOA_increase_populist_influence = yes
+			custom_effect_tooltip = KOA_Populist_influence_increase_tooltip
+			KOA_increase_nobles_influence = yes
+			custom_effect_tooltip = KOA_Nobles_influence_increase_tooltip
 		}
 	}
 	focus = {
@@ -2939,6 +2948,9 @@ focus_tree = {
 				idea = KOA_New_Vision_of_Crown
 				days = 90
 			}
+			country_event = {
+				id = koa.134
+			}
 		}
 	}
 	focus = {
@@ -2956,10 +2968,8 @@ focus_tree = {
 				set_variable = { KOA_new_populist_idea_level = 1 }
 				KOA_Switch_Populist_Idea = yes
 			}
-			KOA = {
-				country_event = {
-					id = koa.135
-				}
+			country_event = {
+				id = koa.135
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
 		}
@@ -3023,6 +3033,11 @@ focus_tree = {
 			}
 			custom_effect_tooltip = KOA_Nobles_influence_increase_tooltip
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
+			add_tech_bonus = {
+				bonus = 0.5
+            	uses = 1
+            	category = agriculture_tech_group
+			}
 		}
 	}
 	focus = {
@@ -3086,6 +3101,7 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = KOA_Populist_influence_increase_tooltip
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
 		}
 	}
@@ -3116,6 +3132,7 @@ focus_tree = {
 					id = koa.139
 				}
 			}
+			custom_effect_tooltip = KOA_Nobles_influence_increase_tooltip
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
 		}
 	}
@@ -3580,6 +3597,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Oath_to_the_People
 		}
+		completion_reward = {
+			country_event = {
+				id = koa.150
+			}
+			army_experience = 75
+			add_political_power = 75
+		}
 	}
 	focus = {
 		id = KOA_Warlords_Legacy
@@ -3590,6 +3614,15 @@ focus_tree = {
 		y = 18
 		prerequisite = {
 			focus = KOA_Oath_to_the_People
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = KOA_Down_with_Warlords
+				days = 180
+			}
+			country_event = {
+				id = koa.151
+			}
 		}
 	}
 	focus = {
@@ -3605,6 +3638,19 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Warlords_Legacy
 		}
+		completion_reward = {
+			subtract_from_variable = {
+				gov_corruption_growth = 0.45
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.1
+			}
+			custom_effect_tooltip = corruption_growth_decrease_tooltip
+			country_event = {
+				id = koa.152
+			}
+		}
 	}
 	focus = {
 		id = KOA_Recall_Our_Blindness
@@ -3616,6 +3662,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Struggle_Brings_Freedom
 		}
+		completion_reward = {
+			subtract_from_variable = {
+				gov_corruption_growth = 0.45
+			}
+			custom_effect_tooltip = corruption_growth_decrease_tooltip
+			add_ideas = KOA_The_Closer_Eye
+		}
 	}
 	focus = {
 		id = KOA_Back_to_Mobian
@@ -3626,6 +3679,11 @@ focus_tree = {
 		y = 20
 		prerequisite = {
 			focus = KOA_Struggle_Brings_Freedom
+		}
+		completion_reward = {
+			country_event = {
+				id = koa.153
+			}
 		}
 	}
 	focus = {
@@ -3641,6 +3699,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Back_to_Mobian
 		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = KOA_Court_Reform
+				days = 180
+			}
+			custom_effect_tooltip = corruption_growth_decrease_tooltip
+		}
 	}
 	focus = {
 		id = KOA_Cut_Their_Priveleges
@@ -3655,6 +3720,11 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Back_to_Mobian
 		}
+		completion_reward = {
+			add_ideas = KOA_Egalitarian_Services
+			KOA_increase_populist_influence = yes
+			custom_effect_tooltip = KOA_Populist_influence_increase_tooltip
+		}
 	}
 	focus = {
 		id = KOA_Thousand_Lights_Campaign
@@ -3668,6 +3738,17 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Recall_Our_Blindness
+		}
+		completion_reward = {
+			country_event = {
+				id = koa.154
+			}
+			add_timed_idea = {
+				idea = KOA_Thousand_Lights_Campaign_Idea
+				days = 180
+			}
+			KOA_increase_populist_influence = yes
+			custom_effect_tooltip = KOA_Populist_influence_increase_tooltip
 		}
 	}
 	focus = {
@@ -3686,6 +3767,31 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Thousand_Lights_Campaign
 		}
+		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = KOA_Age_of_Reforms
+					}
+					swap_ideas = {
+						remove_idea = KOA_Age_of_Reforms
+						add_idea = KOA_Age_of_Reforms_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = KOA_Age_of_Reforms_3
+					}
+					swap_ideas = {
+						remove_idea = KOA_Age_of_Reforms_3
+						add_idea = KOA_Age_of_Reforms_2
+					}
+				}
+			}
+			country_event = {
+				id = koa.156
+			}
+		}
 	}
 	focus = {
 		id = KOA_And_from_Below
@@ -3702,6 +3808,32 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Thousand_Lights_Campaign
+		}
+		completion_reward = {
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = KOA_Age_of_Reforms
+					}
+					swap_ideas = {
+						remove_idea = KOA_Age_of_Reforms
+						add_idea = KOA_Age_of_Reforms_3
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = KOA_Age_of_Reforms_2
+					}
+					swap_ideas = {
+						remove_idea = KOA_Age_of_Reforms_2
+						add_idea = KOA_Age_of_Reforms_3
+					}
+				}
+			}
+			
+			country_event = {
+				id = koa.157
+			}
 		}
 	}
 	focus = {
@@ -3722,6 +3854,20 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Streets_are_Quiet
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = KOA_Age_of_Reforms_2
+				}
+				remove_ideas = KOA_Age_of_Reforms_2
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Age_of_Reforms_3
+				}
+				remove_ideas = KOA_Age_of_Reforms_3
+			}
 		}
 	}
 }

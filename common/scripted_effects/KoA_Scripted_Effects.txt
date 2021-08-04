@@ -484,6 +484,30 @@ KOA_compare_opposition = {
 	}
 }
 
+KOA_check_populist_levity = {
+	if = {
+		limit = {
+			has_global_flag = KOA_populist_levity_penalty
+		}
+		KOA = {
+			add_stability = -0.1
+		}
+		clr_global_flag = KOA_populist_levity_penalty
+	}
+}
+
+KOA_check_nobles_levity = {
+	if = {
+		limit = {
+			has_global_flag = KOA_nobles_levity_penalty
+		}
+		KOA = {
+			add_stability = -0.1
+		}
+		clr_global_flag = KOA_nobles_levity_penalty
+	}
+}
+
 KOA_increase_populist_influence = {
 	if = {
 		limit = {
@@ -506,7 +530,10 @@ KOA_increase_populist_influence = {
 		set_variable = { populist_influence = 100 }
 		set_variable = { nobles_influence = 0 }
 	}
-	KOA_compare_opposition = yes
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_nobles_levity = yes
 }
 
 KOA_greatly_increase_populist_influence = {
@@ -531,7 +558,10 @@ KOA_greatly_increase_populist_influence = {
 		set_variable = { populist_influence = 100 }
 		set_variable = { nobles_influence = 0 }
 	}
-	KOA_compare_opposition = yes
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_nobles_levity = yes
 }
 
 KOA_increase_nobles_influence = {
@@ -556,7 +586,10 @@ KOA_increase_nobles_influence = {
 		set_variable = { nobles_influence = 100 }
 		set_variable = { populist_influence = 0 }
 	}
-	KOA_compare_opposition = yes
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_populist_levity = yes
 }
 
 KOA_greatly_increase_nobles_influence = {
@@ -581,7 +614,10 @@ KOA_greatly_increase_nobles_influence = {
 		set_variable = { nobles_influence = 100 }
 		set_variable = { populist_influence = 0 }
 	}
-	KOA_compare_opposition = yes
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_populist_levity = yes
 }
 
 KOA_release_SOT = {
