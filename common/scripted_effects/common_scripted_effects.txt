@@ -1,16 +1,24 @@
 Enable_Trade_Embargo = {
-    ROOT = {
-        add_opinion_modifier = {
-            target = PREV
-            modifier = Trade_Embargo
-        }
-    }
-    PREV = {
-        add_opinion_modifier = {
-            target = ROOT
-            modifier = Trade_Embargo_Opinion
-        }
-    }
+    meta_effect = {
+		text = {
+			[EMBARGO_TARGET] = {
+                add_opinion_modifier = {
+                    target = [EMBARGO_INITIATOR]
+                    modifier = Trade_Embargo
+                }
+            }
+            [EMBARGO_INITIATOR] = {
+                add_opinion_modifier = {
+                    target = [EMBARGO_TARGET]
+                    modifier = Trade_Embargo_Opinion
+                }
+            }
+            clear_variable = embargo_target
+            clear_variable = embargo_initiator
+		}
+		EMBARGO_TARGET = "[?embargo_target.GetTag]"
+		EMBARGO_INITIATOR = "[?embargo_initiator.GetTag]"
+	}
 }
 
 Disable_Trade_Embargo = {
