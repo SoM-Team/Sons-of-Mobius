@@ -2390,11 +2390,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			KOA = {
-				country_event = {
-					id = koa.121
-				}
+			country_event = {
+				id = koa.121
 			}
+			set_global_flag = KOA_Elias_Despot_King
 		}
 	}
 	focus = {
@@ -3868,6 +3867,942 @@ focus_tree = {
 				}
 				remove_ideas = KOA_Age_of_Reforms_3
 			}
+		}
+	}
+
+	# Foreign Politics Focuses
+
+	focus = {
+		id = KOA_Masters_of_Mobius
+		text = KOA_Masters_of_Mobius
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Project_Crown_Atomic
+		x = 0
+		y = 2
+		completion_reward = {
+			add_political_power = 75
+			if = {
+				limit = {
+					has_global_flag = KOA_Sally_Queen
+				}
+				country_event = koa.300
+			}
+			if_else = {
+				limit = {
+					has_global_flag = KOA_Elias_Despot_King
+				}
+				country_event = koa.302
+			}
+			else = {
+				country_event = koa.301
+			}
+		}
+	}
+
+	focus = {
+		id = KOA_To_Bright_Tomorrow
+		text = KOA_To_Bright_Tomorrow
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Masters_of_Mobius
+		x = -2
+		y = 1
+		available = {
+			has_global_flag = KOA_Foreign_Liberation
+		}
+		prerequisite = {
+			focus = KOA_Masters_of_Mobius
+		}
+		mutually_exclusive = {
+			focus = KOA_To_Glorious_Yesterday
+		}
+		completion_reward = {
+			every_country = {
+				if = {
+					limit = {
+						AND = {
+							NOT = {
+								is_in_faction_with = INF
+							}
+							NOT = {
+								is_in_faction_with = EGG
+							}
+							NOT = {
+								original_tag = INF
+							}
+							NOT = {
+								original_tag = EGG
+							}
+						}
+					}
+					add_opinion_modifier = {
+						target = KOA
+						modifier = KOA_Peaceful_Missionaries
+					}
+				}
+			}
+			news_event = koa.303
+		}
+	}
+
+	focus = {
+		id = KOA_To_Glorious_Yesterday
+		text = KOA_To_Glorious_Yesterday
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Masters_of_Mobius
+		x = 2
+		y = 1
+		available = {
+			has_global_flag = KOA_Foreign_Aggression
+		}
+		prerequisite = {
+			focus = KOA_Masters_of_Mobius
+		}
+		mutually_exclusive = {
+			focus = KOA_To_Bright_Tomorrow
+		}
+		completion_reward = {
+			every_country = {
+				if = {
+					limit = {
+						AND = {
+							NOT = {
+								is_in_faction_with = INF
+							}
+							NOT = {
+								is_in_faction_with = EGG
+							}
+							NOT = {
+								original_tag = INF
+							}
+							NOT = {
+								original_tag = EGG
+							}
+						}
+					}
+					add_opinion_modifier = {
+						target = KOA
+						modifier = KOA_Old_Imperialist
+					}
+				}
+			}
+			news_event = koa.304
+		}
+	}
+
+	focus = {
+		id = KOA_The_Eastern_Blizzard
+		text = KOA_The_Eastern_Blizzard
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Bright_Tomorrow
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Bright_Tomorrow
+			focus = KOA_To_Glorious_Yesterday
+		}
+		completion_reward = {
+			# TODO: Add events "Red Militarism" and "Better Dead Than Red"
+			# TODO: Add news event "Acorns Dennounce Council Retenia"
+			# TODO: Add negative opinion modifier with RCR
+		}
+	}
+
+	focus = {
+		id = KOA_Old_Good_Dynasty
+		text = KOA_Old_Good_Dynasty
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Eastern_Blizzard
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_The_Eastern_Blizzard
+		}
+		completion_reward = {
+			# TODO: Add skills to general Vladimir (not settled yet)
+			# TODO: Add country event "The Rogue Kniaz"
+		}
+	}
+
+	focus = {
+		id = KOA_Amass_Around_Reds
+		text = KOA_Amass_Around_Reds
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Eastern_Blizzard
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = KOA_Old_Good_Dynasty
+		}
+		completion_reward = {
+			# TODO: Add decisions to invite Cordon Sanitaire missions
+		}
+	}
+
+	focus = {
+		id = KOA_Aint_I_Right
+		text = KOA_Aint_I_Right
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Eastern_Blizzard
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = KOA_Amass_Around_Reds
+		}
+		completion_reward = {
+			# TODO: Add country event
+			custom_effect_tooltip = KOA_Global_war_tooltip
+		}
+	}
+
+	focus = {
+		id = KOA_The_Root_of_All_Evils
+		text = KOA_The_Root_of_All_Evils
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Glorious_Yesterday
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Bright_Tomorrow
+			focus = KOA_To_Glorious_Yesterday
+		}
+		completion_reward = {
+			# TODO: Add country event "The Answer"
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = KOA_Not_So_Loyal_Ones
+		text = KOA_Not_So_Loyal_Ones
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Root_of_All_Evils
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = KOA_The_Root_of_All_Evils
+		}
+		completion_reward = {
+			# TODO: Add decisions to affect DEL leadership
+		}
+	}
+
+	focus = {
+		id = KOA_Meeting_with_Beauregard
+		text = KOA_Meeting_with_Beauregard
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Root_of_All_Evils
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_Not_So_Loyal_Ones
+		}
+		available = {
+			AND = {
+				OR = {
+					is_subject_of = EGG
+					is_puppet_of = EGG
+				}
+				compliance < 30
+			}
+		}
+		completion_reward = {
+			# TODO: Add country event
+		}
+	}
+
+	focus = {
+		id = KOA_The_Guerilla_Answered
+		text = KOA_The_Guerilla_Answered
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Root_of_All_Evils
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = KOA_The_Root_of_All_Evils
+		}
+		completion_reward = {
+			# TODO: Add effects that depend on current doctrine
+			# TODO: Add country event "The Guerilla Army"
+		}
+	}
+
+	focus = {
+		id = KOA_Short_Circuit
+		text = KOA_Short_Circuit
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Root_of_All_Evils
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_The_Guerilla_Answered
+		}
+	}
+
+	focus = {
+		id = KOA_The_Showdown_Resumes
+		text = KOA_The_Showdown_Resumes
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Root_of_All_Evils
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = KOA_Meeting_with_Beauregard
+		}
+		prerequisite = {
+			focus = KOA_Short_Circuit
+		}
+	}
+
+	focus = {
+		id = KOA_To_Retenia_With_Love
+		text = KOA_To_Retenia_With_Love
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Bright_Tomorrow
+		x = -4
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Bright_Tomorrow
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = RCR
+				modifier = KOA_Detente_Propositions
+			}
+			RCR = {
+				# TODO: Add country event call for RCR
+				add_opinion_modifier = {
+					target = KOA
+					modifier = KOA_Detente_Propositions
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = KOA_Not_So_Different
+		text = KOA_Not_So_Different
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Retenia_With_Love
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Retenia_With_Love
+		}
+		prerequisite = {
+			focus = KOA_Northamer_Collective_Security
+		}
+		completion_reward = {
+			country_event = koa.306
+			add_political_power = 50
+			RCR = {
+				add_political_power = 50
+			}
+		}
+	}
+
+	focus = {
+		id = KOA_Break_the_Embargo
+		text = KOA_Break_the_Embargo
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Not_So_Different
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = KOA_Not_So_Different
+		}
+		completion_reward = {
+			remove_opinion_modifier = {
+				target = RCR
+				modifier = RCR_Trade_Embargo
+			}
+			# TODO: Add events for KOA, RCR and UFA
+			# TODO: Add removal of embargo trade opinion modifiers
+		}
+	}
+
+	focus = {
+		id = KOA_Rethenian_Military_Comission
+		text = KOA_Rethenian_Military_Comission
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Not_So_Different
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_Not_So_Different
+		}
+		completion_reward = {
+			# TODO: Add national idea "Rethenian Military Mission"
+			# TODO: Add country event for both RCR and KOA "Exercise Zapad-*number of year*"
+			# TODO: Add news event “Rethenian-Acorn Joint Exercises”
+			army_experience = 75
+			add_command_power = 50
+			RCR = {
+				army_experience = 75
+				add_command_power = 50
+			}
+		}
+	}
+
+	focus = {
+		id = KOA_Call_For_the_Feast
+		text = KOA_Call_For_the_Feast
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Not_So_Different
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = KOA_Not_So_Different
+		}
+		completion_reward = {
+			# TODO: Add country event "Love Without Boundaries"
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = KOA_Mobians_Forever
+		text = KOA_Mobians_Forever
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Not_So_Different
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = KOA_Break_the_Embargo
+		}
+		prerequisite = {
+			focus = KOA_Rethenian_Military_Comission
+		}
+		prerequisite = {
+			focus = KOA_Call_For_the_Feast
+		}
+		completion_reward = {
+			# TODO: Add country event for both RCR and KOA "The Agreement"
+		}
+	}
+
+	focus = {
+		id = KOA_Northamer_Collective_Security
+		text = KOA_Northamer_Collective_Security
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Bright_Tomorrow
+		x = -10
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Bright_Tomorrow
+		}
+	}
+
+	focus = {
+		id = KOA_Offer_Protection
+		text = KOA_Offer_Protection
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = KOA_Northamer_Collective_Security
+		}
+	}
+	
+	focus = {
+		id = KOA_Convince_the_Stubborn
+		text = KOA_Convince_the_Stubborn
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_Northamer_Collective_Security
+		}
+	}
+
+	focus = {
+		id = KOA_Assist_in_Deroboticization
+		text = KOA_Assist_in_Deroboticization
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = KOA_Northamer_Collective_Security
+		}
+	}
+
+	focus = {
+		id = KOA_Huboulian_Bases
+		text = KOA_Huboulian_Bases
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = KOA_Northamer_Collective_Security
+		}
+	}
+
+	focus = {
+		id = KOA_Pacify_the_Region
+		text = KOA_Pacify_the_Region
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_Offer_Protection
+		}
+		prerequisite = {
+			focus = KOA_Convince_the_Stubborn
+		}
+		prerequisite = {
+			focus = KOA_Assist_in_Deroboticization
+		}
+	}
+
+	focus = {
+		id = KOA_Infiltrate_Studiopolis
+		text = KOA_Infiltrate_Studiopolis
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_Offer_Protection
+		}
+		prerequisite = {
+			focus = KOA_Convince_the_Stubborn
+		}
+		prerequisite = {
+			focus = KOA_Assist_in_Deroboticization
+		}
+	}
+
+	focus = {
+		id = KOA_Swartzland_Brothers
+		text = KOA_Swartzland_Brothers
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Northamer_Collective_Security
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = KOA_Pacify_the_Region
+		}
+		prerequisite = {
+			focus = KOA_Infiltrate_Studiopolis
+		}
+	}
+
+	focus = {
+		id = KOA_The_Big_Uncle
+		text = KOA_The_Big_Uncle
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Bright_Tomorrow
+		x = -15
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Bright_Tomorrow
+		}
+	}
+
+	focus = {
+		id = KOA_GUN_Lessons
+		text = KOA_GUN_Lessons
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Big_Uncle
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_The_Big_Uncle
+		}
+	}
+
+	focus = {
+		id = KOA_Robots_on_Robots
+		text = KOA_Robots_on_Robots
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_GUN_Lessons
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = KOA_GUN_Lessons
+		}
+	}
+
+	focus = {
+		id = KOA_Bills_on_Bills
+		text = KOA_Bills_on_Bills
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_GUN_Lessons
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_GUN_Lessons
+		}
+	}
+
+	focus = {
+		id = KOA_Chips_on_Chips
+		text = KOA_Chips_on_Chips
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_GUN_Lessons
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = KOA_GUN_Lessons
+		}
+	}
+
+	focus = {
+		id = KOA_Mutual_Obligations
+		text = KOA_Mutual_Obligations
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_GUN_Lessons
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_Robots_on_Robots
+		}
+		prerequisite = {
+			focus = KOA_Bills_on_Bills
+		}
+		prerequisite = {
+			focus = KOA_Chips_on_Chips
+		}
+	}
+
+	focus = {
+		id = KOA_Live_and_Learn
+		text = KOA_Live_and_Learn
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_GUN_Lessons
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_Robots_on_Robots
+		}
+		prerequisite = {
+			focus = KOA_Bills_on_Bills
+		}
+		prerequisite = {
+			focus = KOA_Chips_on_Chips
+		}
+	}
+
+	focus = {
+		id = KOA_Rally_for_Richard
+		text = KOA_Rally_for_Richard
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Glorious_Yesterday
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Glorious_Yesterday
+		}
+	}
+
+	focus = {
+		id = KOA_Reichsmacht_at_Service
+		text = KOA_Reichsmacht_at_Service
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Rally_for_Richard
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = KOA_Rally_for_Richard
+		}
+	}
+
+	focus = {
+		id = KOA_Flugwaffe_Mission
+		text = KOA_Flugwaffe_Mission
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Rally_for_Richard
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_Reichsmacht_at_Service
+		}
+	}
+
+	focus = {
+		id = KOA_Industrial_Imperialism
+		text = KOA_Industrial_Imperialism
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Rally_for_Richard
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = KOA_Rally_for_Richard
+		}
+	}
+
+	focus = {
+		id = KOA_Question_of_Colonies
+		text = KOA_Question_of_Colonies
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Rally_for_Richard
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_Industrial_Imperialism
+		}
+	}
+
+	focus = {
+		id = KOA_The_Iron_Acorn
+		text = KOA_The_Iron_Acorn
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Rally_for_Richard
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = KOA_Flugwaffe_Mission
+		}
+		prerequisite = {
+			focus = KOA_Question_of_Colonies
+		}
+	}
+
+	focus = {
+		id = KOA_Spread_the_Word
+		text = KOA_Spread_the_Word
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Glorious_Yesterday
+		x = 8
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Glorious_Yesterday
+		}
+	}
+
+	focus = {
+		id = KOA_To_Jewel_of_Bharatsha
+		text = KOA_To_Jewel_of_Bharatsha
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Spread_the_Word
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = KOA_Spread_the_Word
+		}
+	}
+
+	focus = {
+		id = KOA_To_Mercian_Waves
+		text = KOA_To_Mercian_Waves
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Spread_the_Word
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_To_Jewel_of_Bharatsha
+		}
+	}
+
+	focus = {
+		id = KOA_To_Hills_of_Downunda
+		text = KOA_To_Hills_of_Downunda
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Spread_the_Word
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = KOA_Spread_the_Word
+		}
+	}
+
+	focus = {
+		id = KOA_To_Jade_Dragon
+		text = KOA_To_Jade_Dragon
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Spread_the_Word
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_To_Hills_of_Downunda
+		}
+	}
+
+	focus = {
+		id = KOA_We_the_Empire
+		text = KOA_We_the_Empire
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Spread_the_Word
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = KOA_To_Mercian_Waves
+		}
+		prerequisite = {
+			focus = KOA_To_Jade_Dragon
+		}
+	}
+
+	focus = {
+		id = KOA_Mutual_Settlements
+		text = KOA_Mutual_Settlements
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_To_Glorious_Yesterday
+		x = 14
+		y = 1
+		prerequisite = {
+			focus = KOA_To_Glorious_Yesterday
+		}
+	}
+
+	focus = {
+		id = KOA_Traitorous_Race
+		text = KOA_Traitorous_Race
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Mutual_Settlements
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = KOA_Mutual_Settlements
+		}
+	}
+
+	focus = {
+		id = KOA_Nationalize_Federal_Assets
+		text = KOA_Nationalize_Federal_Assets
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Traitorous_Race
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = KOA_Traitorous_Race
+		}
+	}
+
+	focus = {
+		id = KOA_Recall_the_Great_War
+		text = KOA_Recall_the_Great_War
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Traitorous_Race
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_Traitorous_Race
+		}
+	}
+
+	focus = {
+		id = KOA_Unneccessary_Escalation
+		text = KOA_Unneccessary_Escalation
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Traitorous_Race
+		x = -1
+		y = 2
+		prerequisite = {
+			focus = KOA_Nationalize_Federal_Assets
+		}
+		prerequisite = {
+			focus = KOA_Recall_the_Great_War
+		}
+	}
+
+	focus = {
+		id = KOA_A_Friend_to_Rely_On
+		text = KOA_A_Friend_to_Rely_On
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_Mutual_Settlements
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = KOA_Mutual_Settlements
+		}
+	}
+
+	focus = {
+		id = KOA_Share_Markets
+		text = KOA_Share_Markets
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_A_Friend_to_Rely_On
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = KOA_A_Friend_to_Rely_On
+		}
+	}
+
+	focus = {
+		id = KOA_Armanent_Shipments
+		text = KOA_Armanent_Shipments
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_A_Friend_to_Rely_On
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = KOA_A_Friend_to_Rely_On
+		}
+	}
+
+	focus = {
+		id = KOA_Welcome_to_Accord
+		text = KOA_Welcome_to_Accord
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_A_Friend_to_Rely_On
+		x = 1
+		y = 2
+		prerequisite = {
+			focus = KOA_Share_Markets
+		}
+		prerequisite = {
+			focus = KOA_Armanent_Shipments
 		}
 	}
 }
