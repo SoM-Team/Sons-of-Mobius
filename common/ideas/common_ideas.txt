@@ -1,0 +1,53 @@
+ideas = {
+    country = {
+        Cultural_Exchange = {
+            # Set for KOA and RCR when KOA completes 
+            # focus "Call for the Feast"
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                # TODO: Add modifier
+            }
+        }
+        
+        The_Agreement = {
+            # Set for KOA and RCR when they get event
+            # shared.2 "The Agreement"
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            on_add = {
+                KOA = {
+                    give_guarantee = RCR
+                }
+                RCR = {
+                    give_guarantee = KOA
+                }
+            }
+
+            on_remove = {
+                KOA = {
+                    diplomatic_relation = {
+                        country = RCR
+                        relation = guarantee
+                        active = no
+                    }
+                }
+                RCR = {
+                    diplomatic_relation = {
+                        country = KOA
+                        relation = guarantee
+                        active = no
+                    }
+                }
+            }
+        }
+    }
+}

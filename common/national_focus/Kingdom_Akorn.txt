@@ -4229,8 +4229,13 @@ focus_tree = {
 			focus = KOA_Not_So_Different
 		}
 		completion_reward = {
-			RCR = {
-				Disable_Trade_Embargo = yes
+			set_variable = { opinion_modifier_action = 0 }
+			set_variable = { embargo_initiator = KOA }
+			set_variable = { embargo_target = RCR }	
+			Switch_Trade_Embargo = yes
+			country_event = koa.307
+			UFA = {
+				country_event = ufa.300
 			}
 			# TODO: Add events for KOA, RCR and UFA
 			# TODO: Add removal of embargo trade opinion modifiers
@@ -4258,6 +4263,8 @@ focus_tree = {
 				army_experience = 75
 				add_command_power = 50
 			}
+			add_ideas = KOA_Rethenian_Military_Comission
+			news_event = koa.310
 		}
 	}
 
@@ -4273,8 +4280,12 @@ focus_tree = {
 			focus = KOA_Not_So_Different
 		}
 		completion_reward = {
-			# TODO: Add country event "Love Without Boundaries"
+			add_ideas = Cultural_Exchange
+			country_event = koa.311
 			add_stability = 0.05
+			RCR = {
+				add_ideas = Cultural_Exchange
+			}
 		}
 	}
 
@@ -4296,7 +4307,10 @@ focus_tree = {
 			focus = KOA_Call_For_the_Feast
 		}
 		completion_reward = {
-			# TODO: Add country event for both RCR and KOA "The Agreement"
+			country_event = shared.2
+			RCR = {
+				country_event = shared.2
+			}
 		}
 	}
 
