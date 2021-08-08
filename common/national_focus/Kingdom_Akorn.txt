@@ -2868,14 +2868,14 @@ focus_tree = {
 		cost = 4
 		x = 18
 		y = 14
-		#allow_branch = {
-		#	has_global_flag = KOA_Sally_Queen
-		#}
+		allow_branch = {
+			has_global_flag = KOA_Sally_Queen
+		}
 		completion_reward = {
 			add_political_power = 100
 			set_variable = { nobles_influence = 50 }
 			set_variable = { populist_influence = 50 }
-			set_global_flag = KOA_Sally_Queen
+			#set_global_flag = KOA_Sally_Queen
 			set_global_flag = KOA_Populist_vs_Noble
 			KOA = {
 				country_event = {
@@ -4004,10 +4004,36 @@ focus_tree = {
 			focus = KOA_To_Bright_Tomorrow
 			focus = KOA_To_Glorious_Yesterday
 		}
+		mutually_exclusive = {
+			focus = KOA_To_Retenia_With_Love
+		}
 		completion_reward = {
-			# TODO: Add events "Red Militarism" and "Better Dead Than Red"
-			# TODO: Add news event "Acorns Dennounce Council Retenia"
-			# TODO: Add negative opinion modifier with RCR
+			add_opinion_modifier = {
+				target = RCR
+				modifier = The_Eastern_Blizzard
+			}
+			if = {
+				limit = {
+					has_country_flag = KOA_Sally_Queen
+				}
+				country_event = koa.313
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_country_flag = KOA_Elias_Despot_King
+						has_country_flag = KOA_Elias_Reformer_King
+					}
+					country_event = koa.314
+				}
+			}
+			news_event = koa.315
+			RCR = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = The_Eastern_Blizzard
+				}
+			}
 		}
 	}
 
@@ -4023,6 +4049,15 @@ focus_tree = {
 			focus = KOA_The_Eastern_Blizzard
 		}
 		completion_reward = {
+			any_unit_leader = {
+				limit = {
+					# Need to assign ID 100 to Vladimir later
+					has_id = 100
+				}
+				add_logistics = 1
+				add_attack = 1
+			}
+			country_event = koa.316
 			# TODO: Add skills to general Vladimir (not settled yet)
 			# TODO: Add country event "The Rogue Kniaz"
 		}
@@ -4040,7 +4075,9 @@ focus_tree = {
 			focus = KOA_Old_Good_Dynasty
 		}
 		completion_reward = {
-			# TODO: Add decisions to invite Cordon Sanitaire missions
+			# TODO: Find a way to invite them into the faction or
+			# rewrite effects from the scratch
+			set_global_flag = KOA_Amass_Around_Reds_Enabled
 		}
 	}
 
@@ -4178,6 +4215,9 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_To_Bright_Tomorrow
+		}
+		mutually_exclusive = {
+			focus = KOA_The_Eastern_Blizzard
 		}
 		completion_reward = {
 			add_opinion_modifier = {
@@ -4376,6 +4416,9 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_Northamer_Collective_Security
+		}
+		completion_reward = {
+
 		}
 	}
 
