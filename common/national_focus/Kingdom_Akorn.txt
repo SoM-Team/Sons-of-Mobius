@@ -4107,7 +4107,7 @@ focus_tree = {
 			focus = KOA_To_Glorious_Yesterday
 		}
 		completion_reward = {
-			# TODO: Add country event "The Answer"
+			country_event = koa.317
 			add_war_support = 0.1
 		}
 	}
@@ -4151,7 +4151,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			# TODO: Add country event
+			country_event = koa.319
 		}
 	}
 
@@ -4166,9 +4166,17 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_The_Root_of_All_Evils
 		}
+		available = {
+			OR = {
+				has_completed_focus = KOA_Freedom_Fighters_Structure
+				has_completed_focus = KOA_Grand_Army
+			}
+		}
 		completion_reward = {
-			# TODO: Add effects that depend on current doctrine
-			# TODO: Add country event "The Guerilla Army"
+			country_event = koa.320
+			# TODO: Add decisions to to raise resistance in the 
+			# Eggman Empire and perform operations against his 
+			# industry and bases.
 		}
 	}
 
@@ -4182,6 +4190,11 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = KOA_The_Guerilla_Answered
+		}
+		completion_reward = {
+			# TODO: Add decisions to initiate cyber attacks on 
+			# robotic units and power stations
+			add_ideas = KOA_Hacking_The_Egg
 		}
 	}
 
@@ -4360,6 +4373,28 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_To_Bright_Tomorrow
+		}
+		completion_reward = {
+			add_political_power = 50
+			every_country = {
+				limit = {
+					AND = {
+						# TODO: Add is_on_continent condition
+						# when we add... uh, continents. :)
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+				}
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Security_Incentive
+				}
+				KOA = {
+					target = FROM
+					modifier = Security_Incentive
+				}
+			}
 		}
 	}
 
