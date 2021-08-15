@@ -68,3 +68,44 @@ Invite_Into_Faction = {
     }
 
 }
+
+Fortificate_Borders_Against_Reds = {
+    # Fortificates target country's borders with
+    # another target country;
+    # THIS denotes a country to defend from;
+    # FROM denotes a country that builds up forts
+    # to defent itself;
+    # Call this script, incapsulating it into two
+    # scopes like that:
+    # DEFENDER = { TARGET = { Fortificate_Borders } }
+
+    THIS = {
+        every_owned_state = {
+            limit = {
+                any_neighbor_state = {
+                    OR = {
+                        is_core_of = RCR
+                        is_core_of = NWC
+                        is_core_of = WEC
+                        is_core_of = SOC
+                    }
+                    
+                }
+            }
+            add_building_construction = {
+                type = bunker
+                level = 3
+                instant_build = yes
+                province = {
+                    limit_to_border = yes
+                }
+            }
+            add_building_construction = {
+                type = anti_air_building
+                level = 3
+                instant_build = yes
+            }
+        }
+    }
+
+}
