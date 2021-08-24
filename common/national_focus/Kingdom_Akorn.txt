@@ -4146,7 +4146,11 @@ focus_tree = {
 						is_subject_of = EGG
 						is_puppet_of = EGG
 					}
-					compliance < 30
+					every_state = {
+						limit = {
+							compliance < 30
+						}
+					}
 				}
 			}
 		}
@@ -4174,9 +4178,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = koa.320
-			# TODO: Add decisions to to raise resistance in the 
-			# Eggman Empire and perform operations against his 
-			# industry and bases.
 		}
 	}
 
@@ -4387,12 +4388,14 @@ focus_tree = {
 					}
 				}
 				add_opinion_modifier = {
-					target = KOA
+					tag = KOA
 					modifier = Security_Incentive
 				}
 				KOA = {
-					target = FROM
-					modifier = Security_Incentive
+					add_opinion_modifier = {
+						tag = FROM
+						modifier = Security_Incentive
+					}
 				}
 			}
 		}

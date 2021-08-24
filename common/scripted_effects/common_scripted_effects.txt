@@ -66,7 +66,6 @@ Invite_Into_Faction = {
     THIS = {
         country_event = shared.3
     }
-
 }
 
 Fortificate_Borders_Against_Reds = {
@@ -107,5 +106,35 @@ Fortificate_Borders_Against_Reds = {
             }
         }
     }
+}
 
+Steal_Rings_Random = {
+    randomize_temp_variable = {
+        var = rings_steal_temp
+        distribution = uniform
+        min = 1
+        max = 500
+    }
+    round_temp_variable = rings_steal_temp
+    set_variable = { 
+        rings_steal_amount = rings_steal_temp
+    }
+    THIS = {
+        
+    }
+}
+
+Steal_Rings = {
+    meta_effect = {
+		text = {
+			subtract_from_variable = {
+                THIS.rings = [RINGS_AMOUNT]
+            }
+            add_to_variable = {
+                ROOT.rings = [RINGS_AMOUNT]
+            }
+            clear_variable = steal_rings_amount
+		}
+		RINGS_AMOUNT = "[?steal_rings_amount|.0]"
+	}
 }

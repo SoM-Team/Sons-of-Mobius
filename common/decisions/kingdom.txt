@@ -110,6 +110,95 @@ KOA_Amass_Around_Reds_Decisions = {
 	}
 }
 
+KOA_The_Guerilla_Army_Decisions = {
+
+	KOA_Freedom_Fighters_Support = {
+		complete_effect = {
+			EGG = {
+				add_to_variable = { 
+					ff_activity = 25
+				}
+			}
+			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
+		}
+		days_re_enable = 5
+	}
+
+	KOA_Sabotage_The_Eggmans_Factories = {
+		complete_effect = {
+			EGG = {
+				random_owned_state = {
+					damage_building = {
+						type = arms_factory
+						damage = 0.5
+					}
+				}
+				add_to_variable = { 
+					ff_activity = 10
+				}	
+			}
+		}
+		days_re_enable = 60
+	}
+
+	KOA_Sabotage_The_Eggmans_Infrastructure = {
+		complete_effect = {
+			EGG = {
+				random_owned_state = {
+					damage_building = {
+						type = infrastructure
+						damage = 0.75
+					}
+				}
+				add_to_variable = { 
+					ff_activity = 10
+				}	
+			}
+		}
+		days_re_enable = 60
+	}
+
+	KOA_Cyber_Attack_On_Processing_Plants = {
+		complete_effect = {
+			add_command_power = -25
+			EGG = {
+				add_timed_idea = {
+					idea = EGG_Processing_Plants_Hacked
+					days = 30
+				}
+			}
+		}
+		days_re_enable = 120
+	}
+
+	KOA_Cyber_Attack_On_HQ = {
+		complete_effect = {
+			add_command_power = -25
+			EGG = {
+				add_timed_idea = {
+					idea = EGG_HQ_Hacked
+					days = 90
+				}
+			}
+		}
+
+		days_re_enable = 120
+	}
+
+	KOA_Cyber_Attack_On_Civilian_Factories = {
+		complete_effect = {
+			add_command_power = -25
+			EGG = {
+				Steal_Rings_Random = yes
+				add_timed_idea = {
+					idea = EGG_Civilian_Factories_Hacked
+					days = 90
+				}
+			}
+		}
+	}
+}
+
 KOA_Stop_The_Rev = {
 
 	revolution_looms = {
