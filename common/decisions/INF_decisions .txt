@@ -309,6 +309,45 @@ INF_Bharatsha_Gold = {
 	}
 }
 
+INF_Weakening_Enemies = {
+    
+    INF_Weak_Neighbour = {
+
+        target_trigger = {
+            FROM = {
+                is_neighbor_of = ROOT
+
+                NOT = {
+                    tag = UFA
+					is_puppet_of = ROOT
+					is_in_faction_with = ROOT
+					has_non_aggression_pact_with = ROOT
+				}
+            }
+        }
+        on_map_mode = map_only
+    }
+
+    INF_Sacrifice_for_Energy = {
+
+        fire_only_once = no
+
+        custom_cost_trigger = {
+            has_manpower > 10
+        }
+        custom_cost_text = 10_manpower
+
+        complete_effect = {
+            add_manpower = -10
+            add_variable = {inf_phantom_ruby_energy = 10}
+#            clamp_variable = {
+#                var = inf_phantom_ruby_energy
+#                min = 0
+#                max = 100
+#            }
+        }
+    }
+}	
 INF_Phantom_war = {
 	INF_Verify_your_clock = {
 
@@ -323,7 +362,7 @@ INF_Phantom_war = {
 		is_good = no
 
 		days_mission_timeout = 150
-		
+
 		timeout_effect = {
 			UFA = {
 				create_wargoal = {
