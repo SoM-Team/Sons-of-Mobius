@@ -112,3 +112,111 @@ news_event = {
 		name = shared.5.a
 	}
 }
+
+news_event = {
+	# The Third Robotnik War
+	id = shared.6
+	title = shared.6.t
+	desc = shared.6.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.6.a
+	}
+}
+
+country_event = {
+	# Getting a protection offer
+	id = shared.7
+	title = shared.7.d
+	desc = shared.7.t
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.7.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.7.b
+	}
+}
+
+country_event = {
+	# Getting a protection offer with building
+	# SAM and forts.
+	id = shared.8
+	title = shared.8.d
+	desc = shared.8.t
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.8.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+		FROM = {
+			every_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.8.b
+	}
+}
+
+country_event = {
+	# Getting a non-aggression pact from ROOT
+	id = shared.9
+	title = shared.9.d
+	desc = shared.9.t
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.9.a
+		ROOT = {
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+	option = {
+		# Disagree
+		name = shared.9.b
+	}
+}
