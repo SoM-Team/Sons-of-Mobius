@@ -8,218 +8,707 @@
 		}
 	}
 	continuous_focus_position = { x = 250 y = 5000 }
-	default = no
 	focus = {
-		id = PSR_National_Identity ### Национальная идентичность
+		id = PSR_National_Identity
 		icon = GFX_focus_National_Identity
+		cost = 5
 		x = 4
+		y = 5
+			available_if_capitulated = yes
+			completion_reward = {
+					add_political_power = 100
+					add_stability = +0.05
+					hidden_effect = {
+
+}
+				}
+
+	}
+	focus = {
+		id = PSR_LAST_PARADE
+		icon = GFX_PSR_LAST_PARADE
+		cost = 5
+		x = 15
 		y = 0
-		cost = 7
+			completion_reward = {
+					add_political_power = -50
+				}
 
-		available_if_capitulated = yes
+	}
+	focus = {
+		id = PSR_Rota
+		icon = GFX_PSR_Rota
+		cost = 5
+		x = 15
+		y = 9
+			available = {
+					has_country_flag = WIKTOR_DEAD
+				}
+			completion_reward = {
+					country_event = {
+							id = psr.2
+						}
+				}
 
-		completion_reward = {
-			add_political_power = 100
-			add_stability = +0.05
-			hidden_effect = {
-				### Теперь ты фашистская мразь
-			}
-		}
 	}
 	focus = {
 		id = PSR_Carrot_And_Stick
 		icon = GFX_focus_Carrot_And_Stick
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_National_Identity
 		}
 		mutually_exclusive = {
 			focus = PSR_Equal_Nations
 		}
-		completion_reward = {
-				
-		}
-		x = 3 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
-		y = 1
-	}
-	focus = {
-		id = PSR_Equal_Nations
-		icon = GFX_focus_Equal_Nations
-		cost = 10
-		prerequisite = {
-			focus = PSR_National_Identity
-		}
-		mutually_exclusive = {
-			focus = PSR_Carrot_And_Stick
-		}
-		completion_reward = {
-				
-		}
-		x = 5 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
-		y = 1
-	}
-	focus = {
-		id = PSR_Shoot_Pan_Zhigmich
-		icon = GFX_focus_Shoot_Pan_Zhigmich
-		cost = 10
-		prerequisite = {
-			focus = PSR_Carrot_And_Stick
-			focus = PSR_Equal_Nations
-		}
-		completion_reward = {
-				
-		}
-		x = 4 ### Расстояние между рядом стоящими фокусами НЕ МЕНЬШЕ ДВУХ
-		y = 2
+		x = 3
+		y = 6
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Negotiate_With_Shlachta
 		icon = GFX_focus_Negotiate_With_Shlachta
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Carrot_And_Stick
 		}
-		completion_reward = {
-				
-		}
-		x = 2 
-		y = 2
-	}
-	focus = {
-		id = PSR_Wartsaw_Language
-		icon = GFX_focus_Wartsaw_Language
-		cost = 10
-		prerequisite = {
-			focus = PSR_Equal_Nations
-		}
-		completion_reward = {
-				
-		}
-		x = 6 
-		y = 2
+		x = 2
+		y = 7
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Ban_Non_Native_Press
 		icon = GFX_focus_Ban_Non_Native_Press
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Negotiate_With_Shlachta
 		}
-		completion_reward = {
-				
-		}
 		x = 2
-		y = 3
+		y = 8
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Zybuska_Myrka
 		icon = GFX_focus_Zybuska_Myrka
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Ban_Non_Native_Press
 		}
-		completion_reward = {
-				
-		}
 		x = 1
-		y = 4
+		y = 9
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Witch_hunt
 		icon = GFX_focus_Witch_hunt
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Ban_Non_Native_Press
 		}
-		completion_reward = {
-				
-		}
 		x = 3
-		y = 4
+		y = 9
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Attack_Dvushka_Party
 		icon = GFX_focus_Witch_hunt
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Witch_hunt
 		}
 		prerequisite = {
 			focus = PSR_Zybuska_Myrka
 		}
-		completion_reward = {
-				
-		}
 		x = 2
-		y = 5
+		y = 10
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_Equal_Nations
+		icon = GFX_focus_Equal_Nations
+		cost = 5
+		prerequisite = {
+			focus = PSR_National_Identity
+		}
+		mutually_exclusive = {
+			focus = PSR_Carrot_And_Stick
+		}
+		x = 5
+		y = 6
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_Shoot_Pan_Zhigmich
+		icon = GFX_focus_Shoot_Pan_Zhigmich
+		cost = 5
+		prerequisite = {
+			focus = PSR_Carrot_And_Stick
+			focus = PSR_Equal_Nations
+		}
+		x = 4
+		y = 7
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_Wartsaw_Language
+		icon = GFX_focus_Wartsaw_Language
+		cost = 5
+		prerequisite = {
+			focus = PSR_Equal_Nations
+		}
+		x = 6
+		y = 7
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Unite_Traditions
 		icon = GFX_focus_Unite_Traditions
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Wartsaw_Language
 		}
-		completion_reward = {
-				
-		}
-		x = 6 
-		y = 3
+		x = 6
+		y = 8
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Psarska_Wartsaw_Republic
 		icon = GFX_focus_Psarska_Wartsaw_Republic
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Unite_Traditions
 		}
-		completion_reward = {
-				
-		}
 		x = 5
-		y = 4
+		y = 9
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_Blessed_Life
+		icon = GFX_focus_Integrate_Dwushka
+		cost = 5
+		prerequisite = {
+			focus = PSR_Witch_hunt
+			focus = PSR_Psarska_Wartsaw_Republic
+		}
+		x = 4
+		y = 10
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Two_Nation_Holiday
 		icon = GFX_focus_Two_Nation_Holiday
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Unite_Traditions
 		}
-		completion_reward = {
-				
-		}
 		x = 7
-		y = 4
+		y = 9
+			completion_reward = {
+
+}
+
 	}
 	focus = {
 		id = PSR_Integrate_Dwushka
 		icon = GFX_focus_Integrate_Dwushka
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = PSR_Two_Nation_Holiday
 		}
 		prerequisite = {
 			focus = PSR_Psarska_Wartsaw_Republic
 		}
-		completion_reward = {
-				
-		}
 		x = 6
-		y = 5
+		y = 10
+			completion_reward = {
+
+}
+
 	}
 	focus = {
-		id = PSR_Blessed_Life
-		icon = GFX_focus_Integrate_Dwushka
-		cost = 10
+		id = PSR_Mourn_Father
+		icon = GFX_PSR_Mourn_Father
+		cost = 5
 		prerequisite = {
-			focus = PSR_Witch_hunt
-			focus = PSR_Psarska_Wartsaw_Republic
+			focus = PSR_Rota
 		}
-		completion_reward = {
-				
+		x = 13
+		y = 10
+
+	}
+	focus = {
+		id = PSR_his_last_will
+		icon = GFX_PSR_his_last_will
+		cost = 5
+		prerequisite = {
+			focus = PSR_Mourn_Father
 		}
-		x = 4
+		x = 9
+		y = 11
+
+	}
+	focus = {
+		id = PSR_Party_and_Army
+		icon = GFX_PSR_Party_and_Army
+		cost = 5
+		prerequisite = {
+			focus = PSR_LAST_PARADE
+		}
+		x = 10
+		y = 1
+			completion_reward = {
+					add_war_support = 0.05
+				}
+
+	}
+	focus = {
+		id = PSR_Memories_Of_Waltzslava
+		icon = GFX_PSR_Memories_Of_Waltzslava
+		cost = 5
+		prerequisite = {
+			focus = PSR_Party_and_Army
+		}
+		x = 10
+		y = 4
+			completion_reward = {
+					add_war_support = 0.05
+					add_political_power = 75
+				}
+
+	}
+	focus = {
+		id = PSR_fire_in_cabinets
+		icon = GFX_PSR_fire_in_cabinets
+		cost = 5
+		prerequisite = {
+			focus = PSR_his_last_will
+		}
+		x = 10
+		y = 13
+
+	}
+	focus = {
+		id = PSR_Purge_Robaczeks
+		icon = GFX_PSR_Purge_Robaczeks
+		cost = 5
+		prerequisite = {
+			focus = PSR_Party_and_Army
+		}
+		x = 11
+		y = 2
+			completion_reward = {
+					add_manpower = -10000
+					add_popularity = {
+							neutrality = -0.1
+						}
+				}
+
+	}
+	focus = {
+		id = PSR_Question_Panstwo
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = PSR_Memories_Of_Waltzslava
+		}
+		x = 11
+		y = 6
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_lots_of_lizus
+		icon = GFX_PSR_lots_of_lizus
+		cost = 5
+		prerequisite = {
+			focus = PSR_Mourn_Father
+		}
+		x = 11
+		y = 12
+
+	}
+	focus = {
+		id = PSR_Your_Destiny
+		icon = GFX_PSR_Your_Destiny
+		cost = 5
+		prerequisite = {
+			focus = PSR_LAST_PARADE
+		}
+		x = 15
+		y = 2
+			completion_reward = {
+					add_political_power = 100
+				}
+
+	}
+	focus = {
+		id = PSR_Definition_of_Nation
+		icon = GFX_PSR_Definition_of_Nation
+		cost = 5
+		prerequisite = {
+			focus = PSR_Your_Destiny
+		}
+		x = 13
+		y = 3
+			completion_reward = {
+
+}
+
+	}
+	focus = {
+		id = PSR_Leather_Colonels
+		icon = GFX_PSR_Leather_Colonels
+		cost = 5
+		prerequisite = {
+			focus = PSR_Definition_of_Nation
+		}
+		prerequisite = {
+			focus = PSR_Purge_Robaczeks
+		}
+		x = 12
 		y = 5
+
+	}
+	focus = {
+		id = PSR_celebrate_liberation
+		icon = GFX_PSR_celebrate_liberation
+		cost = 5
+		prerequisite = {
+			focus = PSR_Rota
+		}
+		x = 15
+		y = 11
+
+	}
+	focus = {
+		id = PSR_the_festival
+		icon = GFX_PSR_the_festival
+		cost = 5
+		prerequisite = {
+			focus = PSR_celebrate_liberation
+		}
+		x = 13
+		y = 12
+
+	}
+	focus = {
+		id = PSR_fire_in_mansion
+		icon = GFX_PSR_fire_in_mansion
+		cost = 5
+		prerequisite = {
+			focus = PSR_lots_of_lizus
+		}
+		x = 12
+		y = 14
+
+	}
+	focus = {
+		id = PSR_Definition_of_Language
+		icon = GFX_PSR_Definition_of_Language
+		cost = 5
+		prerequisite = {
+			focus = PSR_Your_Destiny
+		}
+		x = 15
+		y = 4
+
+	}
+	focus = {
+		id = PSR_Definition_of_Economy
+		icon = GFX_PSR_Definition_of_Economy
+		cost = 5
+		prerequisite = {
+			focus = PSR_Your_Destiny
+		}
+		x = 17
+		y = 3
+
+	}
+	focus = {
+		id = PSR_you_must_be_ready
+		icon = GFX_PSR_you_must_be_ready
+		cost = 5
+		prerequisite = {
+			focus = PSR_Definition_of_Nation
+		}
+		prerequisite = {
+			focus = PSR_Definition_of_Language
+		}
+		prerequisite = {
+			focus = PSR_Definition_of_Economy
+		}
+		x = 15
+		y = 6
+
+	}
+	focus = {
+		id = PSR_Our_place
+		icon = GFX_PSR_Our_place
+		cost = 5
+		prerequisite = {
+			focus = PSR_Rota
+		}
+		x = 17
+		y = 10
+
+	}
+	focus = {
+		id = PSR_banket
+		icon = GFX_PSR_banket
+		cost = 5
+		prerequisite = {
+			focus = PSR_celebrate_liberation
+		}
+		x = 17
+		y = 12
+
+	}
+	focus = {
+		id = PSR_Poison_of_Nation
+		icon = GFX_PSR_Poison_of_Nation
+		cost = 5
+		prerequisite = {
+			focus = PSR_LAST_PARADE
+		}
+		x = 20
+		y = 1
+
+	}
+	focus = {
+		id = PSR_Edge_of_Famine
+		icon = GFX_PSR_Edge_of_Famine
+		cost = 5
+		prerequisite = {
+			focus = PSR_Poison_of_Nation
+		}
+		x = 19
+		y = 2
+
+	}
+	focus = {
+		id = PSR_Shield_of_Forests
+		icon = GFX_PSR_Shield_of_Forests
+		cost = 5
+		prerequisite = {
+			focus = PSR_Definition_of_Economy
+		}
+		prerequisite = {
+			focus = PSR_Edge_of_Famine
+		}
+		x = 18
+		y = 5
+
+	}
+	focus = {
+		id = PSR_Strong_Soul
+		icon = GFX_PSR_Strong_Soul
+		cost = 5
+		prerequisite = {
+			focus = PSR_Poison_of_Nation
+		}
+		x = 20
+		y = 4
+
+	}
+	focus = {
+		id = PSR_Can_be_weapon
+		icon = GFX_PSR_Can_be_weapon
+		cost = 5
+		prerequisite = {
+			focus = PSR_Strong_Soul
+		}
+		x = 19
+		y = 6
+
+	}
+	focus = {
+		id = PSR_When_I_Am_no_more
+		icon = GFX_PSR_When_I_Am_no_more
+		cost = 5
+		prerequisite = {
+			focus = PSR_Question_Panstwo
+		}
+		prerequisite = {
+			focus = PSR_Leather_Colonels
+		}
+		prerequisite = {
+			focus = PSR_you_must_be_ready
+		}
+		prerequisite = {
+			focus = PSR_Shield_of_Forests
+		}
+		prerequisite = {
+			focus = PSR_Can_be_weapon
+		}
+		x = 15
+		y = 7
+			completion_reward = {
+					country_event = {
+							id = psr.1
+						}
+				}
+
+	}
+	focus = {
+		id = PSR_to_Criardie
+		icon = GFX_PSR_to_Criardie
+		cost = 5
+		prerequisite = {
+			focus = PSR_Our_place
+		}
+		x = 19
+		y = 12
+
+	}
+	focus = {
+		id = PSR_to_Pirenia
+		icon = GFX_PSR_to_Pirenia
+		cost = 5
+		prerequisite = {
+			focus = PSR_Our_place
+		}
+		x = 21
+		y = 11
+
+	}
+	focus = {
+		id = PSR_Old_Traditions
+		icon = GFX_PSR_Old_Traditions
+		cost = 5
+		prerequisite = {
+			focus = PSR_to_Pirenia
+		}
+		x = 20
+		y = 13
+
+	}
+	focus = {
+		id = PSR_Claims_to_seas
+		icon = GFX_PSR_Claims_to_seas
+		cost = 5
+		prerequisite = {
+			focus = PSR_to_Criardie
+		}
+		x = 18
+		y = 14
+
+	}
+	focus = {
+		id = PSR_the_parade
+		icon = GFX_PSR_the_parade
+		cost = 5
+		prerequisite = {
+			focus = PSR_celebrate_liberation
+		}
+		x = 15
+		y = 13
+
+	}
+	focus = {
+		id = PSR_Glory_of_Psaraska
+		icon = GFX_PSR_Glory_of_Psaraska
+		cost = 5
+		prerequisite = {
+			focus = PSR_banket
+		}
+		prerequisite = {
+			focus = PSR_the_parade
+		}
+		prerequisite = {
+			focus = PSR_the_festival
+		}
+		x = 15
+		y = 15
+
+	}
+	focus = {
+		id = PSR_Night_of_Bullets
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = PSR_fire_in_cabinets
+		}
+		prerequisite = {
+			focus = PSR_fire_in_mansion
+		}
+		prerequisite = {
+			focus = PSR_Glory_of_Psaraska
+		}
+		mutually_exclusive = {
+			focus = PSR_Day_of_Gunpowder
+		}
+		x = 13
+		y = 16
+
+	}
+	focus = {
+		id = PSR_Day_of_Gunpowder
+		icon = GFX_PSR_Day_of_Gunpowder
+		cost = 5
+		prerequisite = {
+			focus = PSR_Glory_of_Psaraska
+		}
+		prerequisite = {
+			focus = PSR_Claims_to_seas
+		}
+		prerequisite = {
+			focus = PSR_Old_Traditions
+		}
+		mutually_exclusive = {
+			focus = PSR_Night_of_Bullets
+		}
+		x = 17
+		y = 16
+
+	}
+	focus = {
+		id = PSR_The_Final_Maskshow
+		icon = GFX_PSR_The_Final_Maskshow
+		cost = 5
+		prerequisite = {
+			focus = PSR_Day_of_Gunpowder
+			focus = PSR_Night_of_Bullets
+		}
+		x = 15
+		y = 17
+
 	}
 }

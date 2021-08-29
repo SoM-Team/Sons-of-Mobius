@@ -1,3 +1,317 @@
+KOA_enable_populist_domination = {
+	KOA = {
+		if = {
+			limit = {
+				has_idea = KOA_Nobles_Domination
+			}
+			remove_ideas = KOA_Nobles_Domination
+		}
+		add_ideas = KOA_Populist_Domination
+	}
+}
+
+KOA_Switch_Populist_Meta = {
+	meta_effect = {
+		text = {
+			KOA = {
+				if = {
+					limit = {
+						check_variable = {
+							KOA_current_populist_idea_level > 0
+						}
+					}
+					if = {
+						limit = {
+							has_idea = [IDEA_NAME]_[OLD_LEVEL]
+						}
+						remove_ideas = [IDEA_NAME]_[OLD_LEVEL]
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = {
+								KOA_new_populist_idea_level > 0
+							}
+							check_variable = {
+								KOA_new_populist_idea_level < 11
+							}
+						}
+					}
+					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
+					set_variable = {
+						KOA_current_populist_idea_level = [NEW_LEVEL]
+					}
+					if = {
+						limit = {
+							has_global_flag = KOA_helped_nobles
+						}
+						add_stability = -0.05
+						clr_global_flag = KOA_helped_nobles
+					}
+					clear_variable = KOA_new_populist_idea_level
+				}
+			}
+		}
+		IDEA_NAME = "KOA_Southern_Pressure"
+		OLD_LEVEL = "[?KOA_current_populist_idea_level|.0]"
+		NEW_LEVEL = "[?KOA_new_populist_idea_level|.0]"
+	}
+}
+
+KOA_Switch_Nobles_Meta = {
+	meta_effect = {
+		text = {
+			KOA = {
+				if = {
+					limit = {
+						check_variable = {
+							KOA_current_nobles_idea_level > 0
+						}
+					}
+					if = {
+						limit = {
+							has_idea = [IDEA_NAME]_[OLD_LEVEL]
+						}
+						remove_ideas = [IDEA_NAME]_[OLD_LEVEL]
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = {
+								KOA_new_nobles_idea_level > 0
+							}
+							check_variable = {
+								KOA_new_nobles_idea_level < 11
+							}
+						}
+					}
+					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
+					set_variable = {
+						KOA_current_nobles_idea_level = [NEW_LEVEL]
+					}
+					if = {
+						limit = {
+							has_global_flag = KOA_helped_populist
+						}
+						add_stability = -0.05
+						clr_global_flag = KOA_helped_populist
+					}
+					clear_variable = KOA_new_nobles_idea_level
+				}
+			}
+		}
+		IDEA_NAME = "KOA_Northern_Winds"
+		OLD_LEVEL = "[?KOA_current_nobles_idea_level|.0]"
+		NEW_LEVEL = "[?KOA_new_nobles_idea_level|.0]"
+	}
+}
+
+KOA_Switch_Populist_Idea = {
+	KOA_Switch_Populist_Meta = yes
+}
+
+KOA_Switch_Nobles_Idea = {
+	KOA_Switch_Nobles_Meta = yes
+}
+
+KOA_enable_nobles_domination = {
+	KOA = {
+		if = {
+			limit = {
+				has_idea = KOA_Populist_Domination
+			}
+			remove_ideas = KOA_Populist_Domination
+		}
+		add_ideas = KOA_Nobles_Domination
+	}
+}
+
+KOA_equalize_opposition = {
+	KOA = { 
+		if = {
+			limit = {
+				has_idea = KOA_Populist_Domination
+			}
+			remove_ideas = KOA_Populist_Domination
+		}
+		if = {
+			limit = {
+				has_idea = KOA_Nobles_Domination
+			}
+			remove_ideas = KOA_Nobles_Domination
+		}
+	}
+}
+
+KOA_compare_opposition = {
+	if = {
+		limit = {
+			check_variable = {
+				nobles_influence < populist_influence
+			}
+		}
+		KOA_enable_populist_domination = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				nobles_influence > populist_influence
+			}
+		}
+		KOA_enable_nobles_domination = yes
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = {
+					var = nobles_influence
+					value = populist_influence
+					compare = equals
+				}
+			}
+			KOA_equalize_opposition = yes
+		}
+	}
+}
+
+KOA_check_populist_levity = {
+	if = {
+		limit = {
+			has_global_flag = KOA_populist_levity_penalty
+		}
+		KOA = {
+			add_stability = -0.1
+		}
+		clr_global_flag = KOA_populist_levity_penalty
+	}
+}
+
+KOA_check_nobles_levity = {
+	if = {
+		limit = {
+			has_global_flag = KOA_nobles_levity_penalty
+		}
+		KOA = {
+			add_stability = -0.1
+		}
+		clr_global_flag = KOA_nobles_levity_penalty
+	}
+}
+
+KOA_increase_populist_influence = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_flag = KOA_Populist_vs_Noble
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = { populist_influence < 100 }
+				check_variable = { nobles_influence > 0 }
+			}
+		}
+		add_to_variable = { populist_influence = 10 }
+		subtract_from_variable = { nobles_influence = 10 }
+	}
+	else = {
+		set_variable = { populist_influence = 100 }
+		set_variable = { nobles_influence = 0 }
+	}
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_nobles_levity = yes
+}
+
+KOA_greatly_increase_populist_influence = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_flag = KOA_Populist_vs_Noble
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = { populist_influence < 100 }
+				check_variable = { nobles_influence > 0 }
+			}
+		}
+		add_to_variable = { populist_influence = 25 }
+		subtract_from_variable = { nobles_influence = 25 }
+	}
+	else = {
+		set_variable = { populist_influence = 100 }
+		set_variable = { nobles_influence = 0 }
+	}
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_nobles_levity = yes
+}
+
+KOA_increase_nobles_influence = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_flag = KOA_Populist_vs_Noble
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = { nobles_influence < 100 }
+				check_variable = { populist_influence > 0 }
+			}
+		}
+		add_to_variable = { nobles_influence = 10 }
+		subtract_from_variable = { populist_influence = 10 }
+	}
+	else = {
+		set_variable = { nobles_influence = 100 }
+		set_variable = { populist_influence = 0 }
+	}
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_populist_levity = yes
+}
+
+KOA_greatly_increase_nobles_influence = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_flag = KOA_Populist_vs_Noble
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				check_variable = { nobles_influence < 100 }
+				check_variable = { populist_influence > 0 }
+			}
+		}
+		add_to_variable = { nobles_influence = 25 }
+		subtract_from_variable = { populist_influence = 25 }
+	}
+	else = {
+		set_variable = { nobles_influence = 100 }
+		set_variable = { populist_influence = 0 }
+	}
+	hidden_effect = {
+		KOA_compare_opposition = yes
+	}
+	KOA_check_populist_levity = yes
+}
+
 KOA_release_SOT = {
 	hidden_effect = {
 		SOT = {

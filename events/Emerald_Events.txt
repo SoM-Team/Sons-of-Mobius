@@ -1,0 +1,1267 @@
+add_namespace = gem
+
+country_event = { # Пришествие первого изумруда
+	id = gem.1
+	title = gem.1.t
+	desc = gem.1.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3236.1.1
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.1.a
+		random_country = {
+		random_state = {
+		limit = {
+		is_coastal = yes
+		}
+		set_state_flag = gem_green
+		}
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = greengemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+news_event = { # Изумруд выпал!
+	id = gem.2
+	title = gem.2.t
+	desc = gem.2.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = yes
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.2.a
+	}
+}
+news_event = { # Найден
+	id = gem.3
+	title = gem.3.t
+	desc = gem.3.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = no
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.3.a
+	}
+}
+news_event = { # Не найден
+	id = gem.4
+	title = gem.4.t
+	desc = gem.4.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = no
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.4.a
+	}
+}
+news_event = { # Пеленг изумруда
+	id = gem.5
+	title = gem.5.t
+	desc = gem.5.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = no
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.5.a
+	}
+}
+country_event = { # Пеленг страны
+	id = gem.6
+	title = gem.6.t
+	desc = gem.6.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = gem.6.a
+		FROM = {
+		news_event = {
+         id = gem.7
+         days = 1
+         random = 1
+         random_days = 1
+       }
+		}
+	}
+}
+news_event = { # Пеленг изумруда
+	id = gem.7
+	title = gem.7.t
+	desc = gem.7.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = no
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.7.a
+	}
+}
+news_event = { # Найден (для всех)
+	id = gem.8
+	title = gem.8.t
+	desc = gem.8.d
+	picture = GFX_news_event_eggman_announcement
+
+	major = yes
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	option = {
+		name = gem.8.a
+	}
+}
+
+country_event = { # Пришествие второго изумруда
+	id = gem.9
+	title = gem.9.t
+	desc = gem.9.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3237.5.2
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.9.a
+		random_state = {
+		limit = {
+		is_coastal = no
+		}
+		set_state_flag = gem_blue
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = bluegemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # Пришествие третьего изумруда
+	id = gem.10
+	title = gem.10.t
+	desc = gem.10.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3238.1.1
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.10.a
+		random_country = {
+		random_state = {
+		set_state_flag = gem_red
+		}
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = redgemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # Пришествие четвертого изумруда
+	id = gem.11
+	title = gem.11.t
+	desc = gem.11.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3239.3.6
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.11.a
+		random_state = {
+		set_state_flag = gem_white
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = whitegemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # Пришествие пятого изумруда
+	id = gem.12
+	title = gem.12.t
+	desc = gem.12.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3240.2.2
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.12.a
+		random_country = {
+		random_state = {
+		set_state_flag = gem_turquoise
+		}
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = turquoisegemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # Пришествие шестого изумруда
+	id = gem.13
+	title = gem.13.t
+	desc = gem.13.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3242.6.1
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.13.a
+		random_state = {
+		set_state_flag = gem_yellow
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = yellowgemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # Пришествие седьмого изумруда
+	id = gem.14
+	title = gem.14.t
+	desc = gem.14.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	date > 3244.1.1
+	is_ai = yes
+	NOT = {has_global_flag = gem_hunt}
+	}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = gem.14.a
+		random_country = {
+		random_state = {
+		set_state_flag = gem_purple
+		}
+		}
+		set_global_flag = gem_hunt
+		set_global_flag = purplegemexist
+		news_event = {
+         id = gem.2
+         days = 1
+         random = 1
+         random_days = 1
+       }
+	}
+}
+
+country_event = { # ИИ ищет изумруды (робот-бобот и семь изумрудов)
+	id = gem.15
+	title = gem.15.t
+	desc = gem.15.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	is_ai = yes
+	has_global_flag = gem_hunt
+	NOT = {has_global_flag = ai_searching}
+	}
+	}
+	hidden = yes
+
+	option = {
+		name = gem.15.a
+		set_global_flag = ai_searching
+		random_list = {
+		99 = {
+		}
+		1 = {
+		random_country = {
+		limit = {
+		AND = {
+		is_ai = yes
+		OR = {
+		TAG = RCR
+	    TAG = KOA
+	    TAG = EGG
+	    TAG = SWA
+	    TAG = UFA
+		}
+		}
+		}
+		if = {
+		limit = {has_global_flag = greengemexist}
+		news_event = {
+         id = gem.8
+         days = 1
+         random = 1
+         random_days = 3
+       }
+		random_state = {
+		limit = {has_state_flag = gem_green}
+		clr_state_flag = gem_green
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = greengemexist
+		THIS = {set_country_flag = green_emerald}
+		random_owned_state = {
+		set_state_flag = green_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = redgemexist}
+		random_state = {
+		limit = {has_state_flag = gem_red}
+		clr_state_flag = gem_red
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = redgemexist
+		THIS = {set_country_flag = red_emerald}
+		random_owned_state = {
+		set_state_flag = red_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = bluegemexist}
+		random_state = {
+		limit = {has_state_flag = gem_blue}
+		clr_state_flag = gem_blue
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = bluegemexist
+		THIS = {set_country_flag = blue_emerald}
+		random_owned_state = {
+		set_state_flag = blue_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = turquoisegemexist}
+		random_state = {
+		limit = {has_state_flag = gem_turquoise}
+		clr_state_flag = gem_turquoise
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = turquoisegemexist
+		THIS = {set_country_flag = turquoise_emerald}
+		random_owned_state = {
+		set_state_flag = turquoise_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = yellowgemexist}
+		random_state = {
+		limit = {has_state_flag = gem_yellow}
+		clr_state_flag = gem_yellow
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = yellowgemexist
+		THIS = {set_country_flag = yellow_emerald}
+		random_owned_state = {
+		set_state_flag = yellow_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = whitegemexist}
+		random_state = {
+		limit = {has_state_flag = gem_white}
+		clr_state_flag = gem_white
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = whitegemexist
+		THIS = {set_country_flag = white_emerald}
+		random_owned_state = {
+		set_state_flag = white_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {has_global_flag = purplegemexist}
+		random_state = {
+		limit = {has_state_flag = gem_purple}
+		clr_state_flag = gem_purple
+		}
+		clr_global_flag = gem_hunt
+		clr_global_flag = purplegemexist
+		THIS = {set_country_flag = purple_emerald}
+		random_owned_state = {
+		set_state_flag = purple_emerald_state
+		}
+		}
+		#
+		}
+		}
+		}
+	}
+}
+
+country_event = { # ИИ отдыхает
+	id = gem.16
+	title = gem.16.t
+	desc = gem.16.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	has_global_flag = ai_searching
+	is_ai = yes
+	}
+	}
+	
+	hidden = yes
+    mean_time_to_happen = {days = 100}
+	option = {
+		name = gem.16.a
+		clr_global_flag = ai_searching
+	}
+}
+
+
+country_event = { # Обнулятор, если потерян изумруд
+	id = gem.17
+	title = gem.17.t
+	desc = gem.17.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	OR = {
+	
+	AND = {
+	has_country_flag = green_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = green_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = red_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = red_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = blue_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = blue_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = white_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = white_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = turquoise_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = turquoise_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = yellow_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = yellow_emerald_state
+	}
+	}
+	}
+	
+	AND = {
+	has_country_flag = purple_emerald
+	NOT = {
+	any_owned_state = {
+	has_state_flag = purple_emerald_state
+	}
+	}
+	}
+	
+	}
+	}
+	
+	hidden = yes
+    mean_time_to_happen = {days = 1}
+	option = {
+		name = gem.17.a
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = green_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = green_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = green_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = white_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = white_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = white_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = red_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = red_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = red_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = blue_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = blue_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = blue_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = turquoise_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = turquoise_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = turquoise_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = yellow_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = yellow_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = yellow_emerald
+		}
+		if = {
+		limit = {
+		AND = {
+		has_country_flag = purple_emerald
+		NOT = {
+		any_owned_state = {
+	    has_state_flag = purple_emerald_state
+	    }
+		}
+		}
+		}
+		clr_country_flag = purple_emerald
+		}
+	}
+}
+
+news_event = { # Изумруд перемещён
+	id = gem.18
+	title = gem.18.t
+	desc = gem.18.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.18.a
+	}
+}
+
+
+country_event = { # Добавлятор, если захвачен изумруд
+	id = gem.19
+	title = gem.19.t
+	desc = gem.19.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	OR = {
+	
+	AND = {
+	NOT = {has_country_flag = green_emerald}
+	any_owned_state = {
+	has_state_flag = green_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = red_emerald}
+	any_owned_state = {
+	has_state_flag = red_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = blue_emerald}
+	any_owned_state = {
+	has_state_flag = blue_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = white_emerald}
+	any_owned_state = {
+	has_state_flag = white_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = turquoise_emerald}
+	any_owned_state = {
+	has_state_flag = turquoise_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = yellow_emerald}
+	any_owned_state = {
+	has_state_flag = yellow_emerald_state
+	}
+	}
+	
+	AND = {
+	NOT = {has_country_flag = purple_emerald}
+	any_owned_state = {
+	has_state_flag = purple_emerald_state
+	}
+	}
+	
+	}
+	}
+	
+	hidden = yes
+    mean_time_to_happen = {days = 1}
+	option = {
+		name = gem.19.a
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = green_emerald}
+		any_owned_state = {
+	    has_state_flag = green_emerald_state
+		}
+		}
+		}
+		set_country_flag = green_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = red_emerald}
+		any_owned_state = {
+	    has_state_flag = red_emerald_state
+		}
+		}
+		}
+		set_country_flag = red_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = blue_emerald}
+		any_owned_state = {
+	    has_state_flag = blue_emerald_state
+		}
+		}
+		}
+		set_country_flag = blue_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = white_emerald}
+		any_owned_state = {
+	    has_state_flag = white_emerald_state
+		}
+		}
+		}
+		set_country_flag = white_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = turquoise_emerald}
+		any_owned_state = {
+	    has_state_flag = turquoise_emerald_state
+		}
+		}
+		}
+		set_country_flag = turquoise_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = yellow_emerald}
+		any_owned_state = {
+	    has_state_flag = yellow_emerald_state
+		}
+		}
+		}
+		set_country_flag = yellow_emerald
+		}
+		
+		if = {
+		limit = {
+		AND = {
+		NOT = {has_country_flag = purple_emerald}
+		any_owned_state = {
+	    has_state_flag = purple_emerald_state
+		}
+		}
+		}
+		set_country_flag = purple_emerald
+		}
+		
+	}
+}
+
+news_event = { # Нетути здесь изумруда
+	id = gem.20
+	title = gem.20.t
+	desc = gem.20.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.20.a
+	}
+}
+
+news_event = { # Похищение не удалось: слишком сложные системы защиты
+	id = gem.21
+	title = gem.21.t
+	desc = gem.21.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.21.a
+	}
+}
+
+news_event = { # Похищение удалось
+	id = gem.22
+	title = gem.22.t
+	desc = gem.22.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.22.a
+	}
+}
+
+news_event = { # Похищение не удалось
+	id = gem.23
+	title = gem.23.t
+	desc = gem.23.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.23.a
+	}
+}
+
+news_event = { # Была попытка похищения!
+	id = gem.24
+	title = gem.24.t
+	desc = gem.24.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.24.a
+	}
+}
+
+news_event = { # Изумруд похищен!
+	id = gem.25
+	title = gem.25.t
+	desc = gem.25.d
+	picture = GFX_report_event_diplomatic_message
+	is_triggered_only = yes 
+	major = no
+	option = {
+		name = gem.25.a
+	}
+}
+
+country_event = { # ИИ охотится на изумруд (обнять и заплакать)
+	id = gem.26
+	title = gem.26.t
+	desc = gem.26.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	AND = {
+	NOT = {has_country_flag = aistealemeralds}
+	is_ai = yes
+	any_country = {
+	AND = {
+	NOT = {TAG = ROOT}
+	any_owned_state = {
+	OR = {
+	has_state_flag = green_emerald_state
+	has_state_flag = red_emerald_state
+	has_state_flag = blue_emerald_state
+	has_state_flag = white_emerald_state
+	has_state_flag = turquoise_emerald_state
+	has_state_flag = yellow_emerald_state
+	has_state_flag = purple_emerald_state
+	}
+	}
+	}
+	}
+	OR = {
+	TAG = RCR
+	TAG = KOA
+	TAG = EGG
+	TAG = SWA
+	TAG = UFA
+	}
+	}
+	}
+	
+	hidden = yes
+	option = {
+		name = gem.26.a
+		random_country = {
+		limit = {
+		AND = {
+		THIS = {NOT = {is_in_faction_with = ROOT}}
+		OR = {
+		AND = {
+		ROOT = {has_tech = basic_decryption}
+		THIS = {NOT = {has_tech = basic_encryption}}
+		}
+		AND = {
+		ROOT = {has_tech = improved_decryption}
+		THIS = { NOT = {has_tech = improved_encryption}}
+		}
+		AND = {
+		ROOT = {has_tech = advanced_decryption}
+		THIS = {NOT = {has_tech = advanced_encryption}}
+		}
+		}
+		NOT = {TAG = ROOT}
+		any_owned_state = {
+		OR = {
+		has_state_flag = green_emerald_state
+		has_state_flag = blue_emerald_state
+		has_state_flag = red_emerald_state
+		has_state_flag = white_emerald_state
+		has_state_flag = turquoise_emerald_state
+		has_state_flag = yellow_emerald_state
+		has_state_flag = purple_emerald_state
+		}
+		}
+		}
+		}
+		
+		
+		random_owned_state = {
+		if = {
+		limit = {
+		OR = {
+		has_state_flag = green_emerald_state
+		has_state_flag = blue_emerald_state
+		has_state_flag = red_emerald_state
+		has_state_flag = white_emerald_state
+		has_state_flag = turquoise_emerald_state
+		has_state_flag = yellow_emerald_state
+		has_state_flag = purple_emerald_state
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = green_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = green_emerald_state
+		owner = {
+		clr_country_flag = green_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = green_emerald_state} set_country_flag = green_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = red_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = red_emerald_state
+		owner = {
+		clr_country_flag = red_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = red_emerald_state} set_country_flag = red_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = blue_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = blue_emerald_state
+		owner = {
+		clr_country_flag = blue_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = blue_emerald_state} set_country_flag = blue_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = white_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = white_emerald_state
+		owner = {
+		clr_country_flag = white_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = white_emerald_state} set_country_flag = white_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = turquoise_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = turquoise_emerald_state
+		owner = {
+		clr_country_flag = turquoise_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = turquoise_emerald_state} set_country_flag = turquoise_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = yellow_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = yellow_emerald_state
+		owner = {
+		clr_country_flag = yellow_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = yellow_emerald_state} set_country_flag = yellow_emerald }
+		}
+		}
+		}
+		#
+		if = {
+		limit = {
+		has_state_flag = purple_emerald_state
+		}
+		random_list = {
+		60 = {
+		THIS = {
+		owner = {
+		news_event = {
+         id = gem.24
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		}
+		}
+		40 = {
+		clr_state_flag = purple_emerald_state
+		owner = {
+		clr_country_flag = purple_emerald
+		news_event = {
+         id = gem.25
+         days = 1
+         random = 1
+         random_days = 1
+        }
+		}
+		ROOT = { capital_scope = {set_state_flag = purple_emerald_state} set_country_flag = purple_emerald }
+		}
+		}
+		}
+		#
+		
+		}
+		}
+	}
+	set_country_flag = aistealemeralds
+  }
+}
+
+country_event = { # Перезапуск похищения ИИ
+	id = gem.27
+	title = gem.27.t
+	desc = gem.27.d
+	picture = GFX_report_event_diplomatic_message
+	trigger = {
+	has_country_flag = aistealemeralds
+	}
+	hidden = yes
+	mean_time_to_happen = {days = 75}
+	option = {
+		name = gem.27.a
+		clr_country_flag = aistealemeralds
+	}
+}

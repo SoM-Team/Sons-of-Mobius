@@ -316,15 +316,16 @@ INF_Weakening_Enemies = {
         target_trigger = {
             FROM = {
                 is_neighbor_of = ROOT
-                
+
                 NOT = {
                     tag = UFA
 					is_puppet_of = ROOT
 					is_in_faction_with = ROOT
 					has_non_aggression_pact_with = ROOT
 				}
-            }        
-        }    
+            }
+        }
+
         on_map_mode = map_only
     }
 
@@ -335,6 +336,7 @@ INF_Weakening_Enemies = {
         custom_cost_trigger = {
             has_manpower > 10
         }
+
         custom_cost_text = 10_manpower       
 
         complete_effect = {
@@ -348,3 +350,29 @@ INF_Weakening_Enemies = {
         }
     }
 }	
+
+INF_Phantom_war = {
+	INF_Verify_your_clock = {
+
+		icon = GFX_decision_Destroy_HQ
+
+		allowed = {
+			tag = INF
+		}
+		activation = {
+			has_completed_focus = INF_the_Phantom_Ruby
+        }
+		is_good = no
+
+		days_mission_timeout = 150
+
+		timeout_effect = {
+			UFA = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = INF
+				}
+			}
+		}
+	}
+}
