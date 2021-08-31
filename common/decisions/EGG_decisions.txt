@@ -2893,4 +2893,106 @@ EGG_Supress_Freedom_Fighters = {
 			}
 		}
 	}
-	
+EGG_DEL_CREATION = {
+	EGG_Expand_DEL_NRD = {
+		target_trigger = {
+			FROM = {
+				tag = NRD
+			}
+		}
+		available = {
+		}
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					AND = {
+						OR = {
+							is_core_of = KUN
+							is_core_of = OLP
+							is_core_of = HIB
+							is_core_of = UMK
+							is_core_of = PSR
+							is_core_of = NEA
+							is_core_of = PIR
+							is_core_of = CRI
+						}
+						is_controlled_by = EGG
+					}
+				}
+				FROM = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+	EGG_Expand_DEL_GDD = {
+		target_trigger = {
+			FROM = {
+				tag = GDD
+			}
+		}
+		available = {
+		}
+		fire_only_once = yes
+		complete_effect = {
+			every_state = {
+				limit = {
+					AND = {
+						is_core_of = GDK
+						is_controlled_by = EGG
+					}
+				}
+				FROM = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+	EGG_Create_DEL_Swartzland = {
+		available = {
+			OR = {
+				SWA = {
+					has_capitulated = yes
+				}
+				NOT = {
+					country_exists = SWA
+				}
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			
+			SWA = {
+				set_politics = {
+					ruling_party = technocratic_despotist
+					elections_allowed = no
+				}
+			}
+			
+			KOA = {
+				release = SWA
+			}
+
+			ROOT = {
+				release_autonomy = {
+					target = SWA
+					autonomy_state = autonomy_integrated_puppet
+					freedom_level = 0.5
+				}
+			}
+
+			every_state = {
+				limit = {
+					AND = {
+						is_core_of = TYY
+						is_controlled_by = EGG
+					}
+				}
+				SWA = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+}
