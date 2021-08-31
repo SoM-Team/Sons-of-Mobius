@@ -131,8 +131,8 @@ news_event = {
 country_event = {
 	# Getting a protection offer
 	id = shared.7
-	title = shared.7.d
-	desc = shared.7.t
+	title = shared.7.t
+	desc = shared.7.d
 
 	fire_only_once = no
 
@@ -156,8 +156,8 @@ country_event = {
 	# Getting a protection offer with building
 	# SAM and forts.
 	id = shared.8
-	title = shared.8.d
-	desc = shared.8.t
+	title = shared.8.t
+	desc = shared.8.d
 
 	fire_only_once = no
 
@@ -197,8 +197,8 @@ country_event = {
 country_event = {
 	# Getting a non-aggression pact from ROOT
 	id = shared.9
-	title = shared.9.d
-	desc = shared.9.t
+	title = shared.9.t
+	desc = shared.9.d
 
 	fire_only_once = no
 
@@ -218,5 +218,83 @@ country_event = {
 	option = {
 		# Disagree
 		name = shared.9.b
+	}
+}
+
+country_event = {
+	# Getting a protection offer with building
+	# SAM and forts.
+	# Contains answer events for the calling country.
+	id = shared.10
+	title = shared.10.t
+	desc = shared.10.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.10.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+		FROM = {
+			every_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.10.b
+		ROOT = {
+			country_event = shared.12
+		}
+	}
+}
+
+country_event = {
+	# They agreed to take our protection!
+	id = shared.11
+	title = shared.11.t
+	desc = shared.11.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.11.a
+	}
+}
+
+country_event = {
+	# They disagreed to take our protection...
+	id = shared.12
+	title = shared.12.t
+	desc = shared.12.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Require a peace
+		name = shared.12.a
+
 	}
 }
