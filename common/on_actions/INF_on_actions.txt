@@ -1,17 +1,26 @@
 on_actions = {
-    on_daily = {
-        INF = {
-            if = {
-                limit = {
-                    tag = INF
-                    has_war_with = UFA
-                    has_global_flag = INF_Fake_Resources_Completed
-                }
+#    on_daily = {
+#        INF = {
+#            if = {
+#                limit = {
+#                    tag = INF
+#                    has_war_with = UFA
+#                    has_global_flag = INF_Fake_Resources_Completed
+#                }
+#            }
+#            UFA = {
+#                consumer_goods_factor = 0.1
+#            }
+#        }
+#    }
+    on_daily_INF = {
+        effect = {
+            add_to_variable = { INF_Phantom_Ruby_Energy = INF_Phantom_Ruby_Energy_refill_passive }
+            clamp_variable = {
+                var = INF_Phantom_Ruby_Energy
+                min = 0
+                max = 100
             }
-            UFA = {
-                consumer_goods_factor = 0.1
-            }
-            add_to_variable = { inf_phantom_ruby_energy = 5 }
         }
     }
 }

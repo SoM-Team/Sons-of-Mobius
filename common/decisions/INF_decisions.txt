@@ -345,7 +345,7 @@ INF_Weakening_Enemies = {
 
         available = {
             check_variable = {
-                var = inf_phantom_ruby_energy
+                var = INF_Phantom_Ruby_Energy
                 value = 80
                 compare = less_than_or_equals
             }
@@ -356,17 +356,53 @@ INF_Weakening_Enemies = {
 
         custom_cost_trigger = {
             has_manpower > 1000
-        }
-
-        custom_cost_text = 1000_manpower       
+        }      
 
         complete_effect = {
             add_manpower = -1000
         }
+
         remove_effect = {
-            add_to_variable = { inf_phantom_ruby_energy = 20 }
+            add_to_variable = { INF_Phantom_Ruby_Energy = 20 }
             clamp_variable = {
-                var = inf_phantom_ruby_energy
+                var = INF_Phantom_Ruby_Energy
+                min = 0
+                max = 100
+            }
+        }
+    }
+
+    INF_Rings_for_Energy = {
+
+        fire_only_once = no
+
+        available = {
+            check_variable = {
+                var = INF_Phantom_Ruby_Energy
+                value = 65
+                compare = less_than_or_equals
+            }
+        }
+
+        days_remove = 3
+        days_re_enable = 14        
+
+        custom_cost_trigger = {
+            check_variable = {
+                var = rings 
+                value = 20000
+                compare = greater_than_or_equals
+            }
+        }      
+
+        complete_effect = {
+            subtract_from_variable = { rings = 20000 }
+        }
+
+        remove_effect = {
+            add_to_variable = { INF_Phantom_Ruby_Energy = INF_Phantom_Ruby_Energy_refill_rings }
+            clamp_variable = {
+                var = INF_Phantom_Ruby_Energy
                 min = 0
                 max = 100
             }
