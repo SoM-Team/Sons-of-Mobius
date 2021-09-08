@@ -185,12 +185,18 @@ country_event = {
 					instant_build = yes
 				}
 			}
+        	set_variable = {
+				FROM.much_obliged = 1
+			}
 		}
 	}
 
 	option = {
 		# Disagree
 		name = shared.8.b
+		set_variable = {
+			FROM.much_obliged = -1
+		}
 	}
 }
 
@@ -295,6 +301,36 @@ country_event = {
 	option = {
 		# Require a peace
 		name = shared.12.a
+	}
+}
 
+country_event = {
+	# Getting a derobotization help offer
+	id = shared.13
+	title = shared.13.t
+	desc = shared.13.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	# TODO: Add events for ROOT.
+
+	option = {
+		# Accept
+		# TODO: There should be some kind of weakening
+		name = shared.13.a
+		FROM = {
+			if = {
+				limit = {
+					# I couldn't find "Legacy of Robotization" idea;
+				}
+				# remove_idee = wtf ??
+			}
+		}
+	}
+	option = {
+		# Decline
+		name = shared.13.b
 	}
 }
