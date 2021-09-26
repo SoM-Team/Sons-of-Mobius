@@ -4727,6 +4727,19 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					SWA = {
+						is_in_faction_with = KOA
+					}
+				}
+				country_event = koa.339
+			}
+			else = {
+				country_event = koa.340
+			}
+		}
 	}
 
 	focus = {
@@ -4737,8 +4750,18 @@ focus_tree = {
 		relative_position_id = KOA_Rally_for_Richard
 		x = -1
 		y = 1
+		available = {
+			SWA = {
+				is_in_faction_with = KOA
+			}
+		}
 		prerequisite = {
 			focus = KOA_Rally_for_Richard
+		}
+		completion_reward = {
+			add_idea = KOA_Reichsmacht_Lessons
+			army_experience = 50
+			country_event = koa.341
 		}
 	}
 
@@ -4753,6 +4776,11 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Reichsmacht_at_Service
 		}
+		completion_reward = {
+			add_idea = KOA_Flugwaffe_Missions
+			air_experience = 75
+			country_event = koa.342
+		}
 	}
 
 	focus = {
@@ -4763,8 +4791,25 @@ focus_tree = {
 		relative_position_id = KOA_Rally_for_Richard
 		x = 1
 		y = 1
+		available = {
+			SWA = {
+				is_in_faction_width = KOA
+			}
+		}
 		prerequisite = {
 			focus = KOA_Rally_for_Richard
+		}
+		completion_reward = {
+			add_ideas = KOA_Industrial_Hegemony
+			every_country = {
+				limit = {
+					AND = {
+						is_in_faction_with = KOA
+						is_faction_leader = NO
+					}
+				}
+				add_ideas = COMMON_Giving_Fruits
+			}
 		}
 	}
 
@@ -4778,6 +4823,9 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = KOA_Industrial_Imperialism
+		}
+		completion_reward = {
+			country_event = koa.345
 		}
 	}
 
@@ -4794,6 +4842,22 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Question_of_Colonies
+		}
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_opinion_modifier = {
+				target = SWA
+				modifier = KOA_SWA_Bloodline_Ties
+			}
+			SWA = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = KOA_SWA_Bloodline_Ties
+				}
+			}
+			country_event = koa.346
 		}
 	}
 
