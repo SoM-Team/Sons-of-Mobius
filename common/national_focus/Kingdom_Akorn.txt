@@ -4759,7 +4759,7 @@ focus_tree = {
 			focus = KOA_Rally_for_Richard
 		}
 		completion_reward = {
-			add_idea = KOA_Reichsmacht_Lessons
+			add_ideas = KOA_Reichsmacht_Lessons
 			army_experience = 50
 			country_event = koa.341
 		}
@@ -4777,7 +4777,7 @@ focus_tree = {
 			focus = KOA_Reichsmacht_at_Service
 		}
 		completion_reward = {
-			add_idea = KOA_Flugwaffe_Missions
+			add_ideas = KOA_Flugwaffe_Missions
 			air_experience = 75
 			country_event = koa.342
 		}
@@ -4793,7 +4793,7 @@ focus_tree = {
 		y = 1
 		available = {
 			SWA = {
-				is_in_faction_width = KOA
+				is_in_faction_with = KOA
 			}
 		}
 		prerequisite = {
@@ -4805,10 +4805,14 @@ focus_tree = {
 				limit = {
 					AND = {
 						is_in_faction_with = KOA
-						is_faction_leader = NO
+						is_faction_leader = no
 					}
 				}
 				add_ideas = COMMON_Giving_Fruits
+				add_opinion_modifier = {
+					target = FROM
+					modifier = KOA_Industrial_Imperialism_Opinion
+				}
 			}
 		}
 	}
@@ -4872,6 +4876,12 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			country_event = koa.347
+			add_political_power = 75
+			set_variable = { KOA_new_empire_idea_level = 1 }
+			KOA_Switch_Empire_Idea_Meta = yes
+		}
 	}
 
 	focus = {
@@ -4884,6 +4894,17 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_Spread_the_Word
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					BHA = {
+						# TODO: Add proper condition
+					}
+				set_variable = { KOA_new_empire_idea_level = 2 }
+				KOA_Switch_Empire_Idea_Meta = yes
+				}
+			}
 		}
 	}
 

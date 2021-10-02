@@ -2286,11 +2286,33 @@ country_event = {
 	option = {
 		# Integrate colonies into Bharatsha
 		name = koa.345.b
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = SWA
+					is_core_of = BHA
+				}
+			}
+			BHA = {
+				transfer_state = PREV
+			}
+		}
 	}
 	option = {
 		# Establish direct Acorn control
 		# over them
 		name = koa.345.c
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = SWA
+					is_core_of = BHA
+				}
+			}
+			KOA = {
+				transfer_state = PREV
+			}
+		}
 	}
 }
 
@@ -2306,5 +2328,20 @@ country_event = {
 
 	option = {
 		name = koa.346.a
+	}
+}
+
+country_event = {
+	# To Distant Shores
+	id = koa.347
+	title = koa.347.t
+	desc = koa.347.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.347.a
 	}
 }

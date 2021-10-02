@@ -620,6 +620,48 @@ KOA_greatly_increase_nobles_influence = {
 	KOA_check_populist_levity = yes
 }
 
+KOA_Switch_Empire_Idea_Meta = {
+	meta_effect = {
+		text = {
+			KOA = {
+				if = {
+					limit = {
+						check_variable = {
+							KOA_current_empire_idea_level > 0
+						}
+					}
+					if = {
+						limit = {
+							has_idea = [IDEA_NAME]_[OLD_LEVEL]
+						}
+						remove_ideas = [IDEA_NAME]_[OLD_LEVEL]
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = {
+								KOA_new_empire_idea_level > 0
+							}
+							check_variable = {
+								KOA_new_empire_idea_level < 7
+							}
+						}
+					}
+					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
+					set_variable = {
+						KOA_current_empire_idea_level = [NEW_LEVEL]
+					}
+					clear_variable = KOA_new_empire_idea_level
+				}
+			}
+		}
+		IDEA_NAME = "KOA_Empire_of_Mobius"
+		OLD_LEVEL = "[?KOA_current_empire_idea_level|.0]"
+		NEW_LEVEL = "[?KOA_new_empire_idea_level|.0]"
+	}
+}
+
 KOA_release_SOT = {
 	hidden_effect = {
 		SOT = {
