@@ -310,14 +310,60 @@ INF_Bharatsha_Gold = {
 }
 
 INF_Weakening_Enemies = {
-    
-    INF_Weak_Neighbour = {
+
+    INF_Weak_Neighbour_On = {
+
+		fire_only_once = no
+
+        visible = {
+            check_variable = {
+                var = INF_Ruby_Energy
+                value = 1
+                compare = greater_than_or_equals
+            }
+        }
+
+	
+    	target_trigger = {
+    		FROM = {
+            	is_neighbor_of = INF
+
+            	NOT = {
+		    		is_puppet_of = INF
+		    		is_in_faction_with = INF
+		    		has_non_aggression_pact_with = INF
+
+					tag = UFA
+					tag = RCR
+					has_country_flag = chaos_rising
+				}
+           }
+       }
+
+#        on_map_mode = map_only
+
+		complete_effect = {
+        	FROM = {
+            	if = {
+                	limit = {
+                    	NOT = {
+                        	has_variable = chaos
+                        }
+                    }
+                    set_variable = { chaos = 0 }
+                }
+                set_country_flag = chaos_rising
+            }
+        }
+    }
+
+    INF_Weak_Neighbour_Off = {
 
         available = {
             check_variable = {
-                var = inf_phantom_ruby_energy
-                value = 80
-                compare = less_than_or_equals
+                var = INF_Ruby_Energy
+                value = 1
+                compare = greater_than_or_equals
             }
         }
 
@@ -326,17 +372,17 @@ INF_Weakening_Enemies = {
         target_trigger = {
             FROM = {
                 is_neighbor_of = INF
-
-                NOT = {
-                    tag = UFA
-					is_puppet_of = INF
-					is_in_faction_with = INF
-					has_non_aggression_pact_with = INF
-				}
+                has_country_flag = chaos_rising
             }
         }
 
 #        on_map_mode = map_only
+
+        complete_effect = {
+            FROM = {
+                clr_country_flag = chaos_rising
+            }            
+        }
     }
 
     INF_Sacrifice_for_Energy = {
@@ -345,7 +391,7 @@ INF_Weakening_Enemies = {
 
         available = {
             check_variable = {
-                var = INF_Phantom_Ruby_Energy
+                var = INF_Ruby_Energy
                 value = 80
                 compare = less_than_or_equals
             }
@@ -358,14 +404,16 @@ INF_Weakening_Enemies = {
             has_manpower > 1000
         }      
 
+		custom_cost_text = 1000_manpower
+
         complete_effect = {
             add_manpower = -1000
         }
 
         remove_effect = {
-            add_to_variable = { INF_Phantom_Ruby_Energy = 20 }
+            add_to_variable = { INF_Ruby_Energy = 20 }
             clamp_variable = {
-                var = INF_Phantom_Ruby_Energy
+                var = INF_Ruby_Energy
                 min = 0
                 max = 100
             }
@@ -378,7 +426,7 @@ INF_Weakening_Enemies = {
 
         available = {
             check_variable = {
-                var = INF_Phantom_Ruby_Energy
+                var = INF_Ruby_Energy
                 value = 65
                 compare = less_than_or_equals
             }
@@ -395,14 +443,16 @@ INF_Weakening_Enemies = {
             }
         }      
 
+		custom_cost_text = 20000_rings
+
         complete_effect = {
             subtract_from_variable = { rings = 20000 }
         }
 
         remove_effect = {
-            add_to_variable = { INF_Phantom_Ruby_Energy = INF_Phantom_Ruby_Energy_refill_rings }
+            add_to_variable = { INF_Ruby_Energy = INF_Ruby_Energy_refill_rings }
             clamp_variable = {
-                var = INF_Phantom_Ruby_Energy
+                var = INF_Ruby_Energy
                 min = 0
                 max = 100
             }
