@@ -4899,13 +4899,20 @@ focus_tree = {
 			if = {
 				limit = {
 					BHA = {
-						# TODO: Add proper condition
+						is_in_faction_with = KOA
 					}
+				}
 				set_variable = { KOA_new_empire_idea_level = 2 }
 				KOA_Switch_Empire_Idea_Meta = yes
-				}
+				country_event = koa.348
+			}
+			else = {
+				country_event = koa.349
 			}
 		}
+
+		# TODO: The game crashes if Bharatsha accepts
+		# faction invitation
 	}
 
 	focus = {
@@ -4918,6 +4925,20 @@ focus_tree = {
 		y = 2
 		prerequisite = {
 			focus = KOA_To_Jewel_of_Bharatsha
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					MER = {
+						is_in_faction_with = KOA
+					}
+				}
+				set_variable = { KOA_new_empire_idea_level = 3 }
+				KOA_Switch_Empire_Idea_Meta = yes
+				country_event = koa.350
+			} else = {
+				country_event = koa.351
+			}
 		}
 	}
 
@@ -4932,6 +4953,20 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Spread_the_Word
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					DOW = {
+						is_in_faction_with = KOA
+					}
+				}
+				set_variable = { KOA_new_empire_idea_level = 4 }
+				KOA_Switch_Empire_Idea_Meta = yes
+				country_event = koa.352
+			} else = {
+				country_event = koa.353
+			}
+		}
 	}
 
 	focus = {
@@ -4945,6 +4980,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_To_Hills_of_Downunda
 		}
+		completion_reward = {
+			country_event = koa.354
+		}
 	}
 
 	focus = {
@@ -4955,11 +4993,23 @@ focus_tree = {
 		relative_position_id = KOA_Spread_the_Word
 		x = 0
 		y = 3
+		available = {
+			KOA = {
+				is_in_faction_with = BHA
+				is_in_faction_with = MER
+				is_in_faction_with = DOW
+			}
+		}
 		prerequisite = {
 			focus = KOA_To_Mercian_Waves
 		}
 		prerequisite = {
 			focus = KOA_To_Jade_Dragon
+		}
+		completion_reward = {
+			set_variable = { KOA_new_empire_idea_level = 5 }
+			KOA_Switch_Empire_Idea_Meta = yes
+			country_event = koa.355
 		}
 	}
 
@@ -4974,6 +5024,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_To_Glorious_Yesterday
 		}
+		completion_reward = {
+			country_event = koa.356
+		}
 	}
 
 	focus = {
@@ -4984,8 +5037,15 @@ focus_tree = {
 		relative_position_id = KOA_Mutual_Settlements
 		x = -1
 		y = 1
+		available = {
+			# TODO: Add condition
+		}
 		prerequisite = {
 			focus = KOA_Mutual_Settlements
+		}
+		completion_reward = {
+			add_political_power = 75
+			country_event = koa.357
 		}
 	}
 
@@ -5000,6 +5060,23 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Traitorous_Race
 		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+				}
+			}
+			UFA = {
+				country_event = ufa.350
+			}
+		}
 	}
 
 	focus = {
@@ -5013,6 +5090,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Traitorous_Race
 		}
+		completion_reward = {
+			add_ideas = KOA_Shoot_The_Bald
+		}
 	}
 
 	focus = {
@@ -5023,11 +5103,20 @@ focus_tree = {
 		relative_position_id = KOA_Traitorous_Race
 		x = -1
 		y = 2
+		available = {
+			NOT = {
+				country_exists = EGG
+			}
+		}		
 		prerequisite = {
 			focus = KOA_Nationalize_Federal_Assets
 		}
 		prerequisite = {
 			focus = KOA_Recall_the_Great_War
+		}
+		completion_reward = {
+			# TODO: Add custom tooltip
+			country_event = koa.358
 		}
 	}
 
@@ -5039,8 +5128,15 @@ focus_tree = {
 		relative_position_id = KOA_Mutual_Settlements
 		x = 1
 		y = 1
+		available = {
+			# TODO: Add condition
+		}
 		prerequisite = {
 			focus = KOA_Mutual_Settlements
+		}
+		completion_reward = {
+			add_political_power = 75
+			country_event = koa.360
 		}
 	}
 
@@ -5055,6 +5151,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_A_Friend_to_Rely_On
 		}
+		completion_reward = {
+			add_ideas = KOA_Good_Old_Business
+			UFA = {
+				add_ideas = UFA_Good_Old_Business
+				country_event = ufa.352
+			}
+		}
 	}
 
 	focus = {
@@ -5067,6 +5170,9 @@ focus_tree = {
 		y = 1
 		prerequisite = {
 			focus = KOA_A_Friend_to_Rely_On
+		}
+		complete_reward = {
+			# TODO: Add decisions
 		}
 	}
 
@@ -5083,6 +5189,11 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = KOA_Armanent_Shipments
+		}
+		completion_reward = {
+			UFA = {
+				country_event = ufa.353
+			}
 		}
 	}
 }
