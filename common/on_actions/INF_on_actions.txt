@@ -1,15 +1,219 @@
 on_actions = {
-    on_daily = {
-        INF = {
+#    on_daily = {
+#        INF = {
+#            if = {
+#                limit = {
+#                    tag = INF
+#                    has_war_with = UFA
+#                    has_global_flag = INF_Fake_Resources_Completed
+#                }
+#            }
+#            UFA = {
+#                consumer_goods_factor = 0.1
+#            }
+#        }
+#    }
+
+    on_daily_INF = {
+        effect = {
+            add_to_variable = { INF_Ruby_Energy = INF_Ruby_Energy_refill }
+            clamp_variable = {
+                var = INF_Ruby_Energy
+                min = 0
+                max = 100
+            }
             if = {
                 limit = {
-                    tag = INF
-                    has_war_with = UFA
-                    has_global_flag = INF_Fake_Resources_Completed
+                    check_variable = {
+                        INF_Ruby_Energy = 0
+                    }
+                }
+                every_neighbor_country = { 
+                    if = {
+                        limit = {
+                            has_country_flag = chaos_rising
+                        }
+                        clr_country_flag = chaos_rising
+                    }
                 }
             }
-            UFA = {
-                consumer_goods_factor = 0.1
+            every_neighbor_country = { 
+                if = {
+                    limit = {
+                        has_country_flag = chaos_rising
+                    }
+                    subtract_from_variable = { INF.INF_Ruby_Energy = 1 }
+                    clamp_variable = {
+                        var = INF.INF_Ruby_Energy
+                        min = 0
+                        max = 100
+                    }
+                    add_to_variable = { chaos = INF.INF_chaos_increment }
+                }
+                else_if = {
+                    limit = {
+                        has_variable = chaos
+                    }
+                    subtract_from_variable = { chaos = 0.5 }
+                }
+                clamp_variable = {
+                    var = chaos
+                    min = 0
+                    max = INF.chaos_limit
+                }
+
+                if = {
+                    limit = {
+                        has_variable = chaos
+                        check_variable = {
+                            chaos < 100
+                        }
+                        has_idea = Phantom_Ruby_chaos_low_unrest_idea
+                    }
+                    remove_ideas = Phantom_Ruby_chaos_low_unrest_idea
+                }
+                if = {
+                    limit = {
+                        has_variable = chaos
+                        check_variable = {
+                            chaos > 100
+                        }
+                        check_variable = {
+                            chaos < 200
+                        }
+                        NOT = {
+                            has_idea = Phantom_Ruby_chaos_low_unrest_idea
+                        }
+                    }
+                    add_ideas = Phantom_Ruby_chaos_low_unrest_idea
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            chaos > 100
+                        }
+                        check_variable = {
+                            chaos < 200
+                        }
+                        has_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                    }
+                    swap_ideas = {
+                        remove_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                        add_idea = Phantom_Ruby_chaos_low_unrest_idea
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            chaos > 200
+                        }
+                        check_variable = {
+                            chaos < 300
+                        }
+                        has_idea = Phantom_Ruby_chaos_low_unrest_idea
+                    }
+                    swap_ideas = {
+                        remove_idea = Phantom_Ruby_chaos_low_unrest_idea
+                        add_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            chaos > 200
+                        }
+                        check_variable = {
+                            chaos < 300
+                        }
+                        has_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                    }
+                    swap_ideas = {
+                        remove_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                        add_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                    }
+                }
+                if = {
+                    limit = {
+                        check_variable = {
+                            chaos > 300
+                        }
+                        has_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                    }
+                    swap_ideas = {
+                        remove_idea = Phantom_Ruby_chaos_serious_unrest_idea
+                        add_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                    }
+                }
+            }
+        } 
+    }
+
+    on_weekly_INF = {
+        effect = {
+            every_neighbor_country = {
+                if = { #It provokes civil war in corrupted by Phantom Ruby country
+                    limit = {
+                        INF = {
+                            has_country_flag = allow_chaos_civil_wars
+                        }
+                        has_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                        check_variable = {
+                            stability < 0.15
+                        }
+                    }
+                    clr_country_flag = chaos_rising
+                    start_civil_war = {
+                        ideology = fascism
+                        size = 0.4
+                    }
+                    INF = {
+                        set_variable = { victim = PREV.id }
+                    }
+                }
+                if = { #It triggers annexation of rebel tag by INF after end of civil war
+                    limit = {
+                        has_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                        has_government = fascism
+                        has_civil_war = no
+
+                        INF = {
+                            has_country_flag = provoked_civil_war 
+                        }
+                    }
+                    INF = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
+                        country_event = {
+                            id = inf.206
+                        }
+                    }
+
+                }
+
+            }
+            every_country = {
+                if = { #Take INF opportunity to intervene in civil war in corrupted country
+                    limit = { 
+                        has_idea = Phantom_Ruby_chaos_critical_disorder_idea
+                        has_government = fascism
+                        has_civil_war = yes
+
+                        INF = {
+                            NOT = {
+                                has_country_flag = provoked_civil_war
+                            }
+                        }
+                    }
+
+                    INF = {
+                        set_variable = { victim_rebels = PREV.id }
+                        country_event = {
+                            id = inf.205
+                        }
+                    }
+                }
             }
         }
     }
