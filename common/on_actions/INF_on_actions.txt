@@ -160,6 +160,9 @@ on_actions = {
                         check_variable = {
                             stability < 0.15
                         }
+                        NOT = {
+                            has_government = fascism
+                        }
                     }
                     clr_country_flag = chaos_rising
                     start_civil_war = {
@@ -172,8 +175,7 @@ on_actions = {
                 }
                 if = { #It triggers annexation of rebel tag by INF after end of civil war
                     limit = {
-                        has_idea = COMMON_Phantom_Ruby_chaos_critical_disorder_idea
-                        has_government = fascism
+                        has_country_flag = rebels
                         has_civil_war = no
 
                         INF = {
@@ -206,7 +208,8 @@ on_actions = {
                             }
                         }
                     }
-
+                    
+                    set_country_flag = rebels
                     INF = {
                         set_variable = { victim_rebels = PREV.id }
                         country_event = {
