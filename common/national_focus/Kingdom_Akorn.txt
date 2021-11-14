@@ -4059,7 +4059,7 @@ focus_tree = {
 			}
 			country_event = koa.316
 			# TODO: Add skills to general Vladimir (not settled yet)
-			# TODO: Add country event "The Rogue Kniaz"
+			# TODO: Add general Vladimir Acorn
 		}
 	}
 
@@ -4090,7 +4090,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			country_event = shared.4
+			RCR = {
+				country_event = shared.4
+			}
 			custom_effect_tooltip = KOA_Global_war_tooltip
+			# TODO: Add super event
+			# TODO: Add news event
 		}
 	}
 
@@ -4102,6 +4107,12 @@ focus_tree = {
 		relative_position_id = KOA_To_Glorious_Yesterday
 		x = 0
 		y = 1
+		available = {
+			OR = {
+				has_completed_focus = KOA_Freedom_Fighters_Structure
+				has_completed_focus = KOA_Grand_Army
+			}
+		}
 		prerequisite = {
 			focus = KOA_To_Bright_Tomorrow
 			focus = KOA_To_Glorious_Yesterday
@@ -4109,6 +4120,18 @@ focus_tree = {
 		completion_reward = {
 			country_event = koa.317
 			add_war_support = 0.1
+			if = {
+				limit = {
+					has_completed_focus = KOA_Freedom_Fighters_Structure
+				}
+				add_ideas = KOA_Sally_Buff
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = KOA_Grand_Army
+				}
+				add_ideas = KOA_Amadeus_Buff
+			}
 		}
 	}
 
@@ -4124,7 +4147,8 @@ focus_tree = {
 			focus = KOA_The_Root_of_All_Evils
 		}
 		completion_reward = {
-			# TODO: Add decisions to affect DEL leadership
+			# TODO: Add custom tooltip
+			country_event = koa.318
 		}
 	}
 
@@ -4151,6 +4175,10 @@ focus_tree = {
 							compliance < 30
 						}
 					}
+					check_variable = {
+						EGG.DEL_3_Submission < 20
+					}
+					# TODO: Add submission-related tooltip
 				}
 			}
 		}
@@ -4262,6 +4290,7 @@ focus_tree = {
 			focus = KOA_Northamer_Collective_Security
 		}
 		completion_reward = {
+			# TODO: Make koa.306 shared.
 			country_event = koa.306
 			add_political_power = 50
 			RCR = {
@@ -4305,6 +4334,7 @@ focus_tree = {
 			focus = KOA_Not_So_Different
 		}
 		completion_reward = {
+			# TODO: Add border-crossing
 			army_experience = 75
 			add_command_power = 50
 			RCR = {
@@ -4312,7 +4342,7 @@ focus_tree = {
 				add_command_power = 50
 				country_event = shared.1
 			}
-			add_ideas = KOA_Rethenian_Military_Comission
+			add_ideas = KOA_Rethenian_Military_Mission
 			news_event = koa.310
 			country_event = shared.1
 		}
@@ -4331,6 +4361,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = Cultural_Exchange
+			# TODO: Make koa.311 shared.
 			country_event = koa.311
 			add_stability = 0.05
 			RCR = {
@@ -4361,7 +4392,7 @@ focus_tree = {
 			RCR = {
 				country_event = shared.2
 			}
-			# TODO: Add news event "The Knothole Treaty"
+			# TODO: Add news event "The Knothole Treaty" for all countries
 		}
 	}
 

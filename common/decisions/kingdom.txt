@@ -545,6 +545,186 @@ KOA_Bills_on_Bills_Decisions = {
 
 }
 
+KOA_Subvert_DELS = {
+	KOA_Nerf_Central_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_1_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Northamer_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_2_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Great_Desert_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_3_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Desert_Kingdom_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_4_Submission = 20
+			}
+		}
+	}
+}
+
+KOA_Resistance_in_EGG = {
+	KOA_Destroy_Arms_Factories = {
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			EGG = {
+				random_controlled_state = {
+					damage_building = {
+						type = arms_factory
+						damage = 2
+					}
+				}
+			}
+			add_to_variable = {
+				EGG.ff_activity = 15
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+
+	KOA_Destroy_Infrastructure = {
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			EGG = {
+				random_controlled_state = {
+					damage_building = {
+						type = infrastructure
+						damage = 2
+					}
+				}
+			}
+			add_to_variable = {
+				EGG.ff_activity = 15
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+
+	KOA_Release_Robotized_Mobians = {
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			EGG = {
+				add_equipment_to_stockpile = {
+					type = robians_equipment_1
+					amount = -5000
+				}
+			}
+			KOA = {
+				add_manpower = 5000
+			}
+			add_to_variable = {
+				EGG.ff_activity = 15
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+
+	KOA_Increase_Guerilla_Activity = {
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				owner = {
+					tag = EGG
+				}
+			}
+		}
+		visible = {
+			check_variable = {
+				EGG.ff_activity > 75
+			}
+		}
+		on_map_mode = map_only
+		custom_cost_text = cost_cc_75
+		days_remove = 21
+		days_re_enable = 90
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -75
+			}
+		}
+		remove_effect = {
+			EGG = {
+				add_to_variable = {
+					EGG.ff_activity = 15
+				}
+			}
+			FROM = {
+				remove_core_of = EGG
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+}
+
 KOA_Stop_The_Rev = {
 
 	revolution_looms = {
@@ -552,7 +732,8 @@ KOA_Stop_The_Rev = {
 	    icon = GFX_decision_kill_delegate
 		
 		available = {
-			AND = {
+			custom_trigger_tooltip = {
+				tooltip = pp_Req
 				has_country_flag = great_compromise
 				check_variable = {
 					var = union_power
@@ -574,8 +755,11 @@ KOA_Stop_The_Rev = {
 					value = 50
 					compare = greater_than
 				}
-				custom_effect_tooltip = pp_Req
 			}
+		}
+
+		activation = {
+			has_country_flag = amadeus_revolt
 		}
 		
 		priority = 10
