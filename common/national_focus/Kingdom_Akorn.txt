@@ -3888,7 +3888,7 @@ focus_tree = {
 				}
 				country_event = koa.300
 			}
-			if_else = {
+			else_if = {
 				limit = {
 					has_global_flag = KOA_Elias_Despot_King
 				}
@@ -4024,8 +4024,8 @@ focus_tree = {
 						has_country_flag = KOA_Elias_Despot_King
 						has_country_flag = KOA_Elias_Reformer_King
 					}
-					country_event = koa.314
 				}
+				country_event = koa.314
 			}
 			news_event = koa.315
 			RCR = {
@@ -4049,17 +4049,14 @@ focus_tree = {
 			focus = KOA_The_Eastern_Blizzard
 		}
 		completion_reward = {
-			any_unit_leader = {
+			country_event = koa.316
+			every_unit_leader = {
 				limit = {
-					# Need to assign ID 100 to Vladimir later
-					has_id = 100
+					has_id = 110
 				}
 				add_logistics = 1
 				add_attack = 1
 			}
-			country_event = koa.316
-			# TODO: Add skills to general Vladimir (not settled yet)
-			# TODO: Add general Vladimir Acorn
 		}
 	}
 
@@ -4074,7 +4071,9 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Old_Good_Dynasty
 		}
-		# TODO: Add custom tooltip
+		completion_reward = {
+			custom_effect_tooltip = KOA_Amass_Around_Reds_Tooltip
+		}
 	}
 
 	focus = {
@@ -4093,9 +4092,14 @@ focus_tree = {
 			RCR = {
 				country_event = shared.4
 			}
+			declare_war_on = {
+				target = RCR
+				type = annex_everything
+			}
+			add_ideas = KOA_Operation_Firework
 			custom_effect_tooltip = KOA_Global_war_tooltip
-			# TODO: Add super event
-			# TODO: Add news event
+			news_event = super.100
+			news_event = shared.5
 		}
 	}
 
@@ -4147,7 +4151,7 @@ focus_tree = {
 			focus = KOA_The_Root_of_All_Evils
 		}
 		completion_reward = {
-			# TODO: Add custom tooltip
+			custom_effect_tooltip = KOA_Not_So_Loyal_Ones_Tooltip
 			country_event = koa.318
 		}
 	}
@@ -4178,13 +4182,13 @@ focus_tree = {
 					check_variable = {
 						EGG.DEL_3_Submission < 20
 					}
-					# TODO: Add submission-related tooltip
 				}
 			}
 		}
 		completion_reward = {
 			country_event = koa.319
 		}
+		# TODO: Explain availability condition to the player... somehow.
 	}
 
 	focus = {
