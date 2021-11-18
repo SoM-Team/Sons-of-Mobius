@@ -121,26 +121,16 @@ RCR_EMP_weapon = {
 	allowed = {
 		original_tag = RCR
 	}
+
+	visible = {
+		has_idea = RCR_Viktor_Gromov_sci_ade
+	}
 	
 	available = {
 		has_country_flag = EMP_weapon_start
 	}
 }
 
-RCR_EMP_weapon = {
-	
-	icon = GFX_decision_category_ger_military_buildup
-	
-	picture = GFX_cat_GULAG
-	
-	allowed = {
-		original_tag = RCR
-	}
-	
-	available = {
-		has_country_flag = EMP_weapon_start
-	}
-}
 
 RCR_space_exploration = {
 	
@@ -203,4 +193,67 @@ RCR_unification_decision = {
 	}
 	allowed = { tag = RCR }
 	scripted_gui = RCSR_Unification
+}
+
+RCR_scorched_earth = {
+	
+	icon = generic_scorched_earth
+	
+	allowed = {
+		original_tag = RCR
+				OR = {
+							has_war_with = EGG
+							has_war_with = KOA
+							has_war_with = UFA
+							has_war_with = SWA
+			}
+	}
+		
+	visible = {
+		has_completed_focus = RCR_contactless_battle_tactics
+				OR = {
+							has_war_with = EGG
+							has_war_with = KOA
+							has_war_with = UFA
+							has_war_with = SWA
+		}
+	}
+}
+
+RCR_Shilov_Conquest = {
+	icon = GFX_decision_category_world_revolution
+
+	picture = GFX_cat_shilov_conquest
+
+	visible = {
+		has_completed_focus = RCR_Revolution_War
+	}	
+
+	scripted_gui = RCR_POLICY_GUI
+
+}
+
+RCR_Pallasov_Revolution = {
+	icon = GFX_decision_category_world_revolution
+
+	picture = GFX_cat_pallasov_revolution
+
+	visible = {
+		has_completed_focus = RCR_Revolution_War
+	}	
+
+	scripted_gui = RCR_POLICY_GUI
+
+}
+
+RCR_Shilov_Conspiracy = {
+
+	icon = GFX_decision_Shilov_Conspiracy
+
+	picture = GFX_cat_Shilov_Conspiracy
+
+	visible = {
+		has_idea = Shilov_Plot
+	}	
+
 }

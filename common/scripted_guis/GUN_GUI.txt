@@ -8,6 +8,153 @@ scripted_gui = {
 		}
 		
 		triggers = {
+			GUI_MAP_BUTTON_click_enabled = {
+				OR = {
+					AND = {
+						check_variable = {
+							UFA_GUN_target = INF
+						}
+						check_variable = {
+							INF.UFA_GUN_presence > 50
+						}
+					}
+					AND = {
+						check_variable = {
+							UFA_GUN_target = EGG
+						}
+						check_variable = {
+							EGG.UFA_GUN_presence > 50
+						}
+					}
+					AND = {
+						check_variable = {
+							UFA_GUN_target = RCR
+						}
+						check_variable = {
+							RCR.UFA_GUN_presence > 50
+						}
+					}
+				}
+			}
+		}
+		
+		effects = {
+			GUN_UFA_click = {
+				set_variable = {
+					UFA_GUN_target = UFA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_ASI_click = {
+				set_variable = {
+					UFA_GUN_target = NIK
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_RCR_click = {
+				set_variable = {
+					UFA_GUN_target = RCR
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_EFR_click = {
+				set_variable = {
+					UFA_GUN_target = INF
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_SSU_click = {
+				set_variable = {
+					UFA_GUN_target = PAT
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_NSU_click = {
+				set_variable = {
+					UFA_GUN_target = SOU
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_DRK_click = {
+				set_variable = {
+					UFA_GUN_target = IRO
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_KOA_click = {
+				set_variable = {
+					UFA_GUN_target = KOA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_EGG_click = {
+				set_variable = {
+					UFA_GUN_target = EGG
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_NUR_click = {
+				set_variable = {
+					UFA_GUN_target = SWA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_MRE_click = {
+				set_variable = {
+					UFA_GUN_target = MER
+				}
+				sound_effect = "click_province_01"
+			}
+			GUI_MAP_BUTTON_click = {
+				set_country_flag = DARK_deployed
+				if = {
+					limit = { 
+						UFA_GUN_target = INF
+					}
+					set_variable = {
+						UFA_DARK_ops = INF
+					}
+				}
+				if = {
+					limit = { 
+						UFA_GUN_target = EGG
+					}
+					set_variable = {
+						UFA_DARK_ops = EGG
+					}
+				}
+				if = {
+					limit = { 
+						UFA_GUN_target = RCR
+					}
+					set_variable = {
+						UFA_DARK_ops = RCR
+					}
+				}
+				delete_unit_template_and_units = {
+					division_template = "Team DARK"
+					disband = no
+				}
+				sound_effect = "click_province_01"
+			}
+		}
+		
+		properties = {
+			
+		}
+	}
+}
+
+scripted_gui = {
+	RCR_POLICY_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "RCR_MAP_GUI"
+	
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
 			
 		}
 		
@@ -98,6 +245,8 @@ scripted_gui = {
 	}
 }
 
+
+
 scripted_gui = {
 	UFA_GG_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
 		context_type = decision_category
@@ -115,6 +264,358 @@ scripted_gui = {
 		properties = {
 			GREAT_GAME_BAR = {
 				frame = RCR.game_progress
+			}
+		}
+	}
+}
+
+scripted_gui = {
+	DARK_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "TEAM_DARK_WINDOW"
+		
+		triggers = {
+			ARK_Heal_Shadow_click_enabled = {
+				has_equipment = {
+					support_equipment > 9
+				}
+				check_variable = {
+					shadow_health < 100
+				}
+			}
+			ARK_Heal_Rouge_click_enabled = {
+				has_equipment = {
+					support_equipment > 9
+				}
+				check_variable = {
+					rouge_health < 100
+				}
+			}
+			ARK_Heal_Omega_click_enabled = {
+				has_equipment = {
+					support_equipment > 9
+				}
+				check_variable = {
+					eomega_health < 100
+				}
+			}
+			ARK_Level_Shadow_click_enabled = {
+				OR = {
+					AND = {
+						check_variable = { shadow_level = 1 }
+						has_army_experience > 24
+					}
+					AND = {
+						check_variable = { shadow_level = 2 }
+						has_army_experience > 49
+					}
+					AND = {
+						check_variable = { shadow_level = 3 }
+						has_army_experience > 74
+					}
+					AND = {
+						check_variable = { shadow_level = 4 }
+						has_army_experience > 99
+					}
+				}
+				check_variable = {
+					shadow_level < 5
+				}
+			}
+			ARK_Level_Rouge_click_enabled = {
+				OR = {
+					AND = {
+						check_variable = { rouge_level = 1 }
+						has_army_experience > 24
+					}
+					AND = {
+						check_variable = { rouge_level = 2 }
+						has_army_experience > 49
+					}
+					AND = {
+						check_variable = { rouge_level = 3 }
+						has_army_experience > 74
+					}
+					AND = {
+						check_variable = { rouge_level = 4 }
+						has_army_experience > 99
+					}
+				}
+				check_variable = {
+					rouge_level < 5
+				}
+			}
+			ARK_Level_Omega_click_enabled = {
+				OR = {
+					AND = {
+						check_variable = { eomega_level = 1 }
+						has_army_experience > 24
+					}
+					AND = {
+						check_variable = { eomega_level = 2 }
+						has_army_experience > 49
+					}
+					AND = {
+						check_variable = { eomega_level = 3 }
+						has_army_experience > 74
+					}
+					AND = {
+						check_variable = { eomega_level = 4 }
+						has_army_experience > 99
+					}
+				}
+				check_variable = {
+					eomega_level < 5
+				}
+			}
+		}
+		
+		effects = {
+			ARK_Heal_Shadow_click = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -10
+				}
+				if = {
+					limit = {
+						check_variable = {
+							shadow_level = 1
+						}
+					}
+					add_to_variable = {
+						shadow_health = 25
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							shadow_level = 2
+						}
+					}
+					add_to_variable = {
+						shadow_health = 35
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							shadow_level = 3
+						}
+					}
+					add_to_variable = {
+						shadow_health = 55
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							shadow_level = 4
+						}
+					}
+					add_to_variable = {
+						shadow_health = 75
+					}
+				}
+				else = {
+					add_to_variable = {
+						shadow_health = 100
+					}
+				}
+				clamp_variable = {
+					var = shadow_health
+					min = 0
+					max = 100
+				}
+			}
+			ARK_Heal_Rouge_click = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -10
+				}
+				if = {
+					limit = {
+						check_variable = {
+							rouge_level = 1
+						}
+					}
+					add_to_variable = {
+						rouge_health = 25
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							rouge_level = 2
+						}
+					}
+					add_to_variable = {
+						rouge_health = 35
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							rouge_level = 3
+						}
+					}
+					add_to_variable = {
+						rouge_health = 55
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							rouge_level = 4
+						}
+					}
+					add_to_variable = {
+						rouge_health = 75
+					}
+				}
+				else = {
+					add_to_variable = {
+						rouge_health = 100
+					}
+				}
+				clamp_variable = {
+					var = rouge_health
+					min = 0
+					max = 100
+				}
+			}
+			ARK_Heal_Omega_click = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -10
+				}
+				if = {
+					limit = {
+						check_variable = {
+							eomega_level = 1
+						}
+					}
+					add_to_variable = {
+						eomega_health = 25
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							eomega_level = 2
+						}
+					}
+					add_to_variable = {
+						eomega_health = 35
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							eomega_level = 3
+						}
+					}
+					add_to_variable = {
+						eomega_health = 55
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							eomega_level = 4
+						}
+					}
+					add_to_variable = {
+						eomega_health = 75
+					}
+				}
+				else = {
+					add_to_variable = {
+						eomega_health = 100
+					}
+				}
+				clamp_variable = {
+					var = eomega_health
+					min = 0
+					max = 100
+				}
+			}
+			ARK_Level_Shadow_click = {
+				set_temp_variable = {
+					a = shadow_level
+				}
+				set_temp_variable = {
+					b = 25
+				}
+				multiply_temp_variable = {
+					a = b
+				}
+				set_temp_variable = {
+					c = 0
+				}
+				subtract_from_temp_variable = {
+					c = a
+				}
+				army_experience = c
+				add_to_variable = {
+					shadow_level = 1
+				}
+			}
+			ARK_Level_Rouge_click = {
+				set_temp_variable = {
+					a = rouge_level
+				}
+				set_temp_variable = {
+					b = 25
+				}
+				multiply_temp_variable = {
+					a = b
+				}
+				set_temp_variable = {
+					c = 0
+				}
+				subtract_from_temp_variable = {
+					c = a
+				}
+				army_experience = c
+				add_to_variable = {
+					rouge_level = 1
+				}
+			}
+			ARK_Level_Omega_click = {
+				set_temp_variable = {
+					a = eomega_level
+				}
+				set_temp_variable = {
+					b = 25
+				}
+				multiply_temp_variable = {
+					a = b
+				}
+				set_temp_variable = {
+					c = 0
+				}
+				subtract_from_temp_variable = {
+					c = a
+				}
+				army_experience = c
+				add_to_variable = {
+					eomega_level = 1
+				}
+			}
+		}
+		
+		properties = {
+			MISSION_BAR = {
+				frame = mission_progress
+			}
+			SHADOW_Health = {
+				frame = shadow_health
+			}
+			SHADOW_Health = {
+				frame = rouge_health
+			}
+			SHADOW_Health = {
+				frame = eomega_health
 			}
 		}
 	}
