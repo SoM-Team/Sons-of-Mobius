@@ -114,18 +114,22 @@ KOA_The_Guerilla_Army_Decisions = {
 
 	KOA_Freedom_Fighters_Support = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
 			EGG = {
 				add_to_variable = { 
 					ff_activity = 25
 				}
 			}
-			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
+		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
 		}
 		days_re_enable = 5
 	}
 
 	KOA_Sabotage_The_Eggmans_Factories = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Arms_Factory_Tooltip
 			EGG = {
 				random_owned_state = {
 					damage_building = {
@@ -138,11 +142,15 @@ KOA_The_Guerilla_Army_Decisions = {
 				}	
 			}
 		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
 		days_re_enable = 60
 	}
 
 	KOA_Sabotage_The_Eggmans_Infrastructure = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Infrastructure_Tooltip
 			EGG = {
 				random_owned_state = {
 					damage_building = {
@@ -155,11 +163,15 @@ KOA_The_Guerilla_Army_Decisions = {
 				}	
 			}
 		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
 		days_re_enable = 60
 	}
 
 	KOA_Cyber_Attack_On_Processing_Plants = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Processing_Plants_Tooltip
 			add_command_power = -25
 			EGG = {
 				add_timed_idea = {
@@ -168,11 +180,15 @@ KOA_The_Guerilla_Army_Decisions = {
 				}
 			}
 		}
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
+		}
 		days_re_enable = 120
 	}
 
 	KOA_Cyber_Attack_On_HQ = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_HQ_Tooltip
 			add_command_power = -25
 			EGG = {
 				add_timed_idea = {
@@ -182,11 +198,15 @@ KOA_The_Guerilla_Army_Decisions = {
 			}
 		}
 
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
+		}
 		days_re_enable = 120
 	}
 
 	KOA_Cyber_Attack_On_Civilian_Factories = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Civilian_Factories_Tooltip
 			add_command_power = -25
 			EGG = {
 				Steal_Rings_Random = yes
@@ -195,6 +215,9 @@ KOA_The_Guerilla_Army_Decisions = {
 					days = 90
 				}
 			}
+		}
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
 		}
 	}
 }
@@ -596,7 +619,62 @@ KOA_Subvert_DELS = {
 }
 
 KOA_Resistance_in_EGG = {
+
+	KOA_Snatch = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+				is_capital = NO
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -75
+			}
+		}
+		remove_effect = {
+			FROM = {
+				remove_core_of = owner
+			}
+		}
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		custom_cost_text = cost_cc_75
+		days_remove = 7
+		days_re_enable = 50
+		icon = GFX_icon_unknown
+	}
+
 	KOA_Destroy_Arms_Factories = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			FROM = {
+				owner = {
+					add_to_variable = {
+						ff_activity = 15
+					}
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 2
+				}
+			}
+		}
 		fire_only_once = no
 		custom_cost_trigger = {
 			command_power > 49
@@ -604,28 +682,17 @@ KOA_Resistance_in_EGG = {
 		custom_cost_text = cost_cc_50
 		days_remove = 7
 		days_re_enable = 50
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -50
-			}
-		}
-		remove_effect = {
-			EGG = {
-				random_controlled_state = {
-					damage_building = {
-						type = arms_factory
-						damage = 2
-					}
-				}
-			}
-			add_to_variable = {
-				EGG.ff_activity = 15
-			}
-			# TODO: Add custom tooltip
-		}
+		icon = GFX_icon_unknown
 	}
 
 	KOA_Destroy_Infrastructure = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
 		fire_only_once = no
 		custom_cost_trigger = {
 			command_power > 49
@@ -639,12 +706,10 @@ KOA_Resistance_in_EGG = {
 			}
 		}
 		remove_effect = {
-			EGG = {
-				random_controlled_state = {
-					damage_building = {
-						type = infrastructure
-						damage = 2
-					}
+			FROM = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
 				}
 			}
 			add_to_variable = {
@@ -655,9 +720,13 @@ KOA_Resistance_in_EGG = {
 	}
 
 	KOA_Release_Robotized_Mobians = {
-		fire_only_once = no
 		custom_cost_trigger = {
 			command_power > 49
+		}
+		visible = {
+			check_variable = {
+				EGG.ff_activity > 75
+			}
 		}
 		custom_cost_text = cost_cc_50
 		days_remove = 7
@@ -689,20 +758,11 @@ KOA_Resistance_in_EGG = {
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				owner = {
-					tag = EGG
-				}
-			}
-		}
 		visible = {
 			check_variable = {
 				EGG.ff_activity > 75
 			}
 		}
-		on_map_mode = map_only
 		custom_cost_text = cost_cc_75
 		days_remove = 21
 		days_re_enable = 90
@@ -714,13 +774,12 @@ KOA_Resistance_in_EGG = {
 		remove_effect = {
 			EGG = {
 				add_to_variable = {
-					EGG.ff_activity = 15
+					ff_activity = 15
 				}
 			}
 			FROM = {
 				remove_core_of = EGG
 			}
-			# TODO: Add custom tooltip
 		}
 	}
 }
