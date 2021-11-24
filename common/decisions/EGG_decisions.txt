@@ -2892,107 +2892,172 @@ EGG_Supress_Freedom_Fighters = {
 				}
 			}
 		}
-	}
-EGG_DEL_CREATION = {
-	EGG_Expand_DEL_NRD = {
-		target_trigger = {
-			FROM = {
-				tag = NRD
-			}
 		}
-		available = {
-		}
-		fire_only_once = yes
-		complete_effect = {
-			every_state = {
-				limit = {
-					AND = {
-						OR = {
-							is_core_of = KUN
-							is_core_of = OLP
-							is_core_of = HIB
-							is_core_of = UMK
-							is_core_of = PSR
-							is_core_of = NEA
-							is_core_of = PIR
-							is_core_of = CRI
-						}
-						is_controlled_by = EGG
-					}
-				}
-				FROM = {
-					transfer_state = PREV
-				}
-			}
-		}
-	}
-	EGG_Expand_DEL_GDD = {
-		target_trigger = {
-			FROM = {
-				tag = GDD
-			}
-		}
-		available = {
-		}
-		fire_only_once = yes
-		complete_effect = {
-			every_state = {
-				limit = {
-					AND = {
-						is_core_of = GDK
-						is_controlled_by = EGG
-					}
-				}
-				FROM = {
-					transfer_state = PREV
-				}
-			}
-		}
-	}
-	EGG_Create_DEL_Swartzland = {
-		available = {
-			OR = {
-				SWA = {
-					has_capitulated = yes
-				}
-				NOT = {
-					country_exists = SWA
-				}
-			}
-		}
-		fire_only_once = yes
-		complete_effect = {
-			
-			SWA = {
-				set_politics = {
-					ruling_party = technocratic_despotist
-					elections_allowed = no
-				}
-			}
-			
-			KOA = {
-				release = SWA
-			}
+		
+		
+		
+		EGG_ROBOBONDS_CAT = {
+		   have_robobond = {
+		   cost = var_robobnds
+		   complete_effect = { hidden_effect = {
+		                       remove_ideas = {EGG_robobonds}
+		                       add_timed_idea = { idea = EGG_robobonds days = 120}
+	                           add_to_variable ={ var_robobnds = 5} 
+                                                                 }	
+                                                                  
+																 }
+                                                                      }
+                                                                    }																	  
+							  
+							  
+							  
+							  
+							  
+	    EGG_DRON_CAT = {
+			 enforce_patrol = {
+			  visible = {
+			             check_variable = { dron_time > 0}
+		              }
+			  days_re_enable = dron_time
+		      cost = dron_cost
+		      complete_effect = { add_stability = 0.03
+                                 add_to_variable ={ dron_cost = 50}                                 
+								 add_to_variable ={ dron_time = -5}								 }
+                                                                      }
+																	  
+			  crack_down = {
+			   available = {has_manpower > 1000}
+			   days_re_enable = 100
+			   cost = 200
+			   complete_effect = { add_stability = 0.05
+			                        add_manpower = -1000}
+									                       }
+														   
+														   
+														   
+				bluff_action = {
+				 available = {has_manpower > 20000}
+         		 days_re_enable = 180
+			     cost = 200
+			     complete_effect = { add_stability = 0.1
+			                        add_manpower = -20000
+									add_war_support = -0.1}		
+									
+			   
+																	  
+																	  
+                                                                   
+																	}
+																	}
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+EGG_CIVIL_WAR = {
+			   send_equip = {		
 
-			ROOT = {
-				release_autonomy = {
-					target = SWA
-					autonomy_state = autonomy_integrated_puppet
-					freedom_level = 0.5
-				}
-			}
+			target_trigger = {		
+			FROM = {
+                    OR = {
+                         tag = KOA
+                         tag = NOR
+                         tag = SOT
+						 tag = UWM
+                    }
+               }
+		}		
 
-			every_state = {
-				limit = {
-					AND = {
-						is_core_of = TYY
-						is_controlled_by = EGG
-					}
-				}
-				SWA = {
-					transfer_state = PREV
-				}
-			}
+		
+		
+		
+		available = { FROM = {surrender_progress > 0.5}
+		              has_equipment = {light_robots_equipment > 999}
+					  has_equipment = {main_battle_tank_equipment > 99}
+	                            }
+		
+		fire_only_once = no		
+		days_re_enable = 5	
+
+		visible = {		
+				
 		}
+		
+		
+			
+
+		
+
+		complete_effect = {		
+			send_equipment = {
+            equipment = main_battle_tank_equipment
+            amount = 100
+            target = FROM
+                    }
+					
+			send_equipment = {
+            equipment = light_robots_equipment
+            amount = 1000
+            target = FROM
+                    }		
+					
+		}
+		
 	}
-}
+	
+	
+	
+	
+	        send_help = {
+				   target_trigger = {		
+			         FROM = {
+                       OR = {
+                         tag = KOA
+                         tag = NOR
+                         tag = SOT
+						 tag = UWM
+                    }
+               }
+			   }
+			   available = { FROM = {surrender_progress > 0.5}}
+			   fire_only_once = no		
+		       days_re_enable = 5	
+
+		         visible = {		
+				
+		                }
+	
+	                custom_cost_trigger = {
+
+                      command_power > 10
+
+                                    }
+
+                  custom_cost_text = command_power_more_than_10
+
+                 complete_effect = {		
+			       FROM = { add_timed_idea = { idea = egg_civil_war_help  days = 30 }
+				   }
+						
+	
+	
+	}
+	}
+	
+	
+	
+
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+																	
+                     			
+	
