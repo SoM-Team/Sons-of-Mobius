@@ -180,6 +180,10 @@ KOA_The_Guerilla_Army_Decisions = {
 				}
 			}
 		}
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
 		visible = {
 			has_completed_focus = KOA_Short_Circuit
 		}
@@ -197,7 +201,10 @@ KOA_The_Guerilla_Army_Decisions = {
 				}
 			}
 		}
-
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
 		visible = {
 			has_completed_focus = KOA_Short_Circuit
 		}
@@ -215,6 +222,10 @@ KOA_The_Guerilla_Army_Decisions = {
 					days = 90
 				}
 			}
+		}
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
 		}
 		visible = {
 			has_completed_focus = KOA_Short_Circuit
@@ -334,7 +345,9 @@ KOA_Assist_in_Deroboticization_Decisions = {
 		fire_only_once = yes
 		cost = 50
 		visible = {
-			check_variable = { CRI.much_obliged = -1 }
+			CRI = {
+				check_variable = { legacy_of_deroboticization_level > 0 }
+			}
 		}
 		complete_effect = {
 			CRI = {
@@ -347,7 +360,7 @@ KOA_Assist_in_Deroboticization_Decisions = {
 		fire_only_once = yes
 		cost = 50
 		visible = {
-			check_variable = { PSR.much_obliged = -1 }
+			check_variable = { PSR.legacy_of_deroboticization_level > 0 }
 		}
 		complete_effect = {
 			PSR = {

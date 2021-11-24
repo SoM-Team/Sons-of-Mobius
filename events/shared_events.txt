@@ -169,8 +169,18 @@ country_event = {
 		ROOT = {
 			give_guarantee = FROM
 		}
-		FROM = {
+		THIS = {
 			every_state = {
+				limit = {
+					any_neighbor_state = {
+						controller = {
+							is_in_faction_with = EGG
+						}
+						owner = {
+							is_in_faction_with = EGG
+						}
+					}
+				}
 				add_building_construction = {
 					type = bunker
 					level = 1
@@ -186,7 +196,7 @@ country_event = {
 				}
 			}
         	set_variable = {
-				FROM.much_obliged = 1
+				THIS.much_obliged = 1
 			}
 		}
 	}
@@ -195,7 +205,7 @@ country_event = {
 		# Disagree
 		name = shared.8.b
 		set_variable = {
-			FROM.much_obliged = -1
+			THIS.much_obliged = -1
 		}
 	}
 }
@@ -245,7 +255,7 @@ country_event = {
 		ROOT = {
 			give_guarantee = FROM
 		}
-		FROM = {
+		THIS = {
 			every_state = {
 				add_building_construction = {
 					type = bunker
@@ -320,12 +330,14 @@ country_event = {
 		# Accept
 		# TODO: There should be some kind of weakening
 		name = shared.13.a
-		FROM = {
+		THIS = {
 			if = {
 				limit = {
-					# I couldn't find "Legacy of Robotization" idea;
+					check_variable = { legacy_of_deroboticization_level > 1 }
 				}
-				# remove_idee = wtf ??
+				set_variable = { legacy_of_deroboticization_level_new = legacy_of_deroboticization_level }
+				Switch_Legacy_of_Deroboticization = yes
+				subtract_from_variable = { legacy_of_deroboticization_level = 1 }
 			}
 		}
 	}

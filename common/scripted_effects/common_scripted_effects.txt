@@ -1,3 +1,33 @@
+Switch_Legacy_of_Deroboticization = {
+	meta_effect = {
+		text = {
+			FROM = {
+				if = {
+					limit = {
+						check_variable = {
+							legacy_of_deroboticization_level > 0
+						}
+					}
+					if = {
+						limit = {
+							has_idea = Legacy_of_Deroboticization_[OLD_LEVEL]
+						}
+						swap_ideas = {
+                            add_idea = Legacy_of_Deroboticization_[NEW_LEVEL]
+                            remove_idea = Legacy_of_Deroboticization_[OLD_LEVEL]
+                        }
+					}
+				}
+                else = {
+                    remove_idea = Legacy_of_Roboticization_1
+                }
+			}
+		}
+		OLD_LEVEL = "[?legacy_of_deroboticization_level|.0]"
+		NEW_LEVEL = "[?legacy_of_deroboticization_level_new|.0]"
+	}
+}
+
 Enable_Trade_Embargo = {
     meta_effect = {
 		text = {
