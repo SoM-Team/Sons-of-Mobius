@@ -1,15 +1,14 @@
-
 name = "Sonic Optional Version 0.17"
 
 path = "mod/sonic017/"
+
+supported_version = "1.11.*"
 
 tags = {
 	"National Focuses"
 	"Gameplay"
 	"Map"
 }
-
-supported_version = "1.10.*"
 
 replace_path = "common/abilities" 
 replace_path = "common/ai_equipment" 
@@ -20,10 +19,12 @@ replace_path = "common/ai_peace"
 replace_path = "common/ai_templates"
 replace_path = "common/autonomous_states" 
 replace_path = "common/bookmarks" 
+replace_path = "common/characters"
 replace_path = "common/countries"
 replace_path = "common/decisions" 
 replace_path = "common/decisions/categories" 
-replace_path = "common/game_rules" 
+replace_path = "common/game_rules"
+replace_path = "common/generation" 
 replace_path = "common/ideas" 
 replace_path = "common/ideologies"  
 replace_path = "common/localisation" 
@@ -49,7 +50,8 @@ replace_path = "common/units/names"
 replace_path = "events"
 replace_path = "gfx/loadingscreens" 
 replace_path = "gfx/flags" 
-replace_path = "history/countries" 
+replace_path = "history/countries"
+replace_path = "history/general" 
 replace_path = "history/states" 
 replace_path = "map/supplyareas" 
 replace_path = "map/strategicregions" 
