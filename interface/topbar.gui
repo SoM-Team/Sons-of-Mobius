@@ -41,7 +41,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "toggle_music_commands_win"
-			position = { x= -259 y = 39}
+			position = { x= -289 y = 39}
 			show_position = { x= -450 y = 39 }
 			show_animation_type = decelerated
 			hide_animation_type = accelerated
@@ -75,7 +75,6 @@ guiTypes = {
 				quadTextureSprite ="GFX_musicplayer_button"
 				position = { x= -130 y = 6 }
 				Orientation = "UPPER_RIGHT"
-				pdx_tooltip = "MUSICPLAYER_OPEN_PLAYER"
 			}			
 				
 		}		
@@ -91,7 +90,7 @@ guiTypes = {
 		buttonType = {
 			name = "player_flag"
 			quadTextureSprite ="GFX_shield_medium"
-			position = { x= 12 y = 15 }
+			position = { x= 12 y = 14 }
 			Orientation = "UPPER_LEFT"
 			clicksound = click_close
 			oversound = ui_menu_over
@@ -116,17 +115,17 @@ guiTypes = {
 		iconType ={
 			name ="pol_power_icon"
 			spriteType = "GFX_pol_power_icon"
-			position = { x= 108 y = 3 }
+			position = { x= 103 y = 3 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name ="pol_power"
-			position = { x= 120 y = 7§§ }
-			font = "century_gothic_22"
+			position = { x= 120 y = 8 }
+			font = "hoi_18mbs"
 			text = "999"
 			format = center
-			maxWidth = 52
+			maxWidth = 50
 			maxHeight = 24
 			fixedsize = yes
 		}
@@ -147,11 +146,11 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name ="manpower"
-			position = { x= 335 y = 8 }
-			font = "century_gothic_20"
+			position = { x= 352 y = 8 }
+			font = "hoi_18mbs"
 			text = "9999"
 			format = center
-			maxWidth = 100
+			maxWidth = 57
 			maxHeight = 24
 			fixedsize = yes
 		}
@@ -166,16 +165,16 @@ guiTypes = {
 		iconType ={
 			name ="stability_icon"
 			spriteType = "GFX_stability_icon"
-			position = { x= 175 y = 5 }
+			position = { x= 174 y = 5 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name ="stability"
-			position = { x= 208 y = 7 }
-			font = "century_gothic_22"
+			position = { x= 180 y = 8 }
+			font = "hoi_18mbs"
 			text = "100%"
-			format = left
+			format = right
 			maxWidth = 57
 			maxHeight = 24
 			fixedsize = yes
@@ -191,119 +190,143 @@ guiTypes = {
 		iconType ={
 			name ="war_support_icon"
 			spriteType = "GFX_war_support_icon"
-			position = { x= 248 y = 6 }
+			position = { x= 247 y = 6 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name ="war_support"
-			position = { x= 278 y = 7 }
-			font = "century_gothic_22"
+			position = { x= 253 y = 8 }
+			font = "hoi_18mbs"
 			text = "100%"
-			format = left
+			format = right
 			maxWidth = 57
 			maxHeight = 24
 			fixedsize = yes
 		}
-		
-		iconType ={
-			name ="experience_value_bg"
-			spriteType = "GFX_generic_box_smallest"
-			position = { x=755 y=5 }
-			Orientation = "UPPER_LEFT"
-		}
-		
-		iconType = {
-			name ="experience_icon"
-			spriteType = "GFX_army_experience_topbar"
-			position = { x= 753 y=5 }
-			Orientation = "UPPER_LEFT"
-		}
-		
-		instantTextBoxType = {
-			name ="experience_value"
-			position = { x=777 y=5 }
-			font = "century_gothic_24"
-			text = "999"
-			format = center
-			maxWidth = 45
-			maxHeight = 24
-			fixedsize = yes
+
+		containerWindowType = {
+			name = "land"
+			position = { x= 796 y = 5}
+			clipping = no
+			size = { width=56 height=30 }
+			Orientation = UPPER_LEFT
+
+			background = {
+				name = "bg"
+				quadTextureSprite ="GFX_mini_tooltip"
+			}
+
+			iconType = {
+				name ="experience_icon"
+				spriteType = "GFX_army_experience"
+				position = { x= 5 y = 7 }
+				Orientation = "UPPER_LEFT"
+			}
+			
+			instantTextBoxType = {
+				name ="experience_value"
+				position = { x= 23 y = 5 }
+				font = "hoi_18mbs"
+				text = "999"
+				format = left
+				maxWidth = 30
+				maxHeight = 24
+				fixedsize = yes
+			}
 		}
 
-		iconType ={
-			name ="navy_experience_value_bg"
-			spriteType = "GFX_generic_box_smallest"
-			position = { x=827 y=5 }
-			Orientation = "UPPER_LEFT"
-		}
-		
-		iconType = {
-			name ="navy_experience_icon"
-			spriteType = "GFX_navy_experience_topbar"
-			position = { x= 825 y = 5 }
-			Orientation = "UPPER_LEFT"
-		}		
-		
-		instantTextBoxType = {
-			name ="navy_experience_value"
-			position = { x= 848 y = 5 }
-			font = "century_gothic_24"
-			text = "999"
-			format = center
-			maxWidth = 46
-			maxHeight = 24
-			fixedsize = yes
-		}		
+		containerWindowType = {
+			name = "navy"
+			position = { x= 854 y = 5}
+			clipping = no
+			size = { width=56 height=30 }
+			Orientation = UPPER_LEFT
+				
+			background = {
+				name = "bg"
+				quadTextureSprite ="GFX_mini_tooltip"
+			}
 
-		iconType ={
-			name ="air_experience_value_bg"
-			spriteType = "GFX_generic_box_smallest"
-			position = { x=899 y=5 }
-			Orientation = "UPPER_LEFT"
+			iconType = {
+				name ="navy_experience_icon"
+				spriteType = "GFX_navy_experience"
+				position = { x= 5 y = 7 }
+				Orientation = "UPPER_LEFT"
+			}		
+			
+			instantTextBoxType = {
+				name ="navy_experience_value"
+				position = { x= 23 y = 5 }
+				font = "hoi_18mbs"
+				text = "999"
+				format = left
+				maxWidth = 30
+				maxHeight = 24
+				fixedsize = yes
+			}
 		}
-		
-		iconType = {
-			name ="air_experience_icon"
-			spriteType = "GFX_air_experience_topbar"
-			position = { x= 900 y = 5 }
-			Orientation = "UPPER_LEFT"
+
+		containerWindowType = {
+			name = "air"
+			position = { x= 912 y = 5}
+			clipping = no
+			size = { width=56 height=30 }
+			Orientation = UPPER_LEFT
+			
+			background = {
+				name = "bg"
+				quadTextureSprite ="GFX_mini_tooltip"
+			}
+
+			iconType = {
+				name ="air_experience_icon"
+				spriteType = "GFX_air_experience"
+				position = { x= 5 y = 7 }
+				Orientation = "UPPER_LEFT"
+			}		
+			
+			instantTextBoxType = {
+				name ="air_experience_value"
+				position = { x= 23 y = 5 }
+				font = "hoi_18mbs"
+				text = "999"
+				format = left
+				maxWidth = 30
+				maxHeight = 24
+				fixedsize = yes
+			}
 		}		
 		
-		instantTextBoxType = {
-			name ="air_experience_value"
-			position = { x= 921 y = 5 }
-			font = "century_gothic_24"
-			text = "999"
-			format = center
-			maxWidth = 46
-			maxHeight = 24
-			fixedsize = yes
-		}
+		containerWindowType = {
+			name = "cp"
+			position = { x= 732 y = 5}
+			clipping = no
+			size = { width=62 height=30 }
+			Orientation = UPPER_LEFT
+
+				background = {
+					name = "bg"
+					quadTextureSprite ="GFX_mini_tooltip"
+				}
 		
-		iconType ={
-			name ="command_power_value_bg"
-			spriteType = "GFX_generic_box_smallest"
-			position = { x=683 y=5 }
-			Orientation = "UPPER_LEFT"
-		}
+			iconType = {
+				name ="command_power_icon"
+				spriteType = "GFX_command_power"
+				position = { x= 5 y = 3 }
+				Orientation = "UPPER_LEFT"
+			}		
 		
-		iconType = {
-			name ="command_power_icon"
-			spriteType = "GFX_command_power"
-			position = { x= 689 y = 2 }
-			Orientation = "UPPER_LEFT"
-		}		
-		
-		instantTextBoxType = {
-			name ="command_power_value"
-			position = { x= 708 y = 5 }
-			font = "century_gothic_24"
-			text = "999"
-			format = center
-			maxWidth = 40
-			maxHeight = 24
-			fixedsize = yes
+			instantTextBoxType = {
+				name ="command_power_value"
+				position = { x= 30 y = 5 }
+				font = "hoi_18mbs"
+				text = "999"
+				format = left
+				maxWidth = 30
+				maxHeight = 24
+				fixedsize = yes
+			}
 		}
 		
 		iconType ={
@@ -316,49 +339,61 @@ guiTypes = {
 		iconType ={
 			name ="industrial_capacity_icon"
 			spriteType = "GFX_industrial_capacity_icon"
-			position = { x= 420 y = 3 } 
+			position = { x= 414 y = 3 } 
 			Orientation = "UPPER_LEFT"
 		}
         
 		instantTextBoxType = {
 			name ="industrial_capacity"
-			position = { x= 433 y = 7 } 
-			font = "century_gothic_22"
+			position = { x= 438 y = 8 } 
+			font = "hoi_18mbs"
 			text = "12/12/12"
 			format = center
-			maxWidth = 66
+			maxWidth = 50
 			maxHeight = 24
 			fixedsize = yes
 		}	
 
+		## convoy
+		
 		iconType ={
 			name ="convoy_text_bg"
-			spriteType = "GFX_generic_box_small"
-			position = { x=574 y=5 }
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=637 y=5 }
 			Orientation = "UPPER_LEFT"
 		}
 		
 		iconType ={
 			name ="convoys_icon"
 			spriteType = "GFX_topbar_convoys"
-			position = { x= 576 y = 4 }
+			position = { x= 636 y = 9 }
 			Orientation = "UPPER_LEFT"
 		}
 		
 		instantTextBoxType = {
 			name ="convoys_count"
-			position = { x= 608 y = 5 }
-			font = "century_gothic_24"
+			position = { x= 662 y = 4 }
+			font = "hoi_18mbs"
 			text = "0"
 			format = center
 			maxWidth = 44
 			maxHeight = 24
 #			fixedsize = yes
 		}
-			
+		
+		iconType = {
+			name ="convoys_ratio_bar"
+			spriteType = "GFX_topbar_fuel_bar"
+			position = { x= 660 y = 20 }
+			frame = 50
+			alwaystransparent = yes
+		}
+		
+		## fuel
+		
 		iconType ={
 			name ="fuel_value_bg"
-			spriteType = "GFX_generic_box_80"
+			spriteType = "GFX_generic_box_smallest"
 			position = { x=491 y=5 }
 			Orientation = "UPPER_LEFT"
 		}
@@ -370,33 +405,61 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 		}		
 		
-		
-		
-		iconType = {
-			name ="fuel_ratio_bar"
-			spriteType = "GFX_topbar_fuel_bar"
-			position = { x= 514 y = 21 }
-			frame = 50
-			alwaystransparent = yes
-		}
 		instantTextBoxType = {
 			name ="fuel_value"
 			position = { x= 513 y = 4 }
-			font = "fuel_font"
-			text = "999"
+			font = "hoi_18mbs"
+			text = "999d"
 			format = center
-			maxWidth = 59
+			maxWidth = 48
 			maxHeight = 24
 			fixedsize = yes
 		}
 		
+		iconType = {
+			name ="fuel_ratio_bar"
+			spriteType = "GFX_topbar_fuel_bar"
+			position = { x= 514 y = 20 }
+			frame = 50
+			alwaystransparent = yes
+		}
+		
+		## supply
+		
 		iconType ={
-			name ="nuke_text_bg"
-			spriteType = "GFX_generic_box_small"
-			position = { x=990 y=5 }
+			name ="supply_value_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=564 y=5 }
 			Orientation = "UPPER_LEFT"
 		}
 		
+		iconType = {
+			name ="supply_icon"
+			spriteType = "GFX_equipment_icon"
+			position = { x= 565 y = 8 }
+			Orientation = "UPPER_LEFT"
+		}		
+		
+		instantTextBoxType = {
+			name ="supply_value"
+			position = { x= 586 y = 4 }
+			font = "hoi_18mbs"
+			text = "999d"
+			format = center
+			maxWidth = 48
+			maxHeight = 24
+			fixedsize = yes
+		}
+		
+		iconType = {
+			name ="supply_ratio_bar"
+			spriteType = "GFX_topbar_fuel_bar"
+			position = { x= 587 y = 20 }
+			frame = 50
+			alwaystransparent = yes
+		}
+		
+		##
 		buttonType ={
 			name ="threat_button"
 			spriteType = "GFX_world_tension_icon_big_strip"
@@ -436,27 +499,27 @@ guiTypes = {
 			alwaystransparent = yes
 		}	
 		
-#		iconType ={
-#			name ="nuke_text_bg"
-#			spriteType = "GFX_generic_w_box"
-#			position = { x=967 y=5 }
-#			Orientation = "UPPER_LEFT"
-#		}
-
+		iconType ={
+			name ="nuke_text_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=1020 y=5 }
+			Orientation = "UPPER_LEFT"
+		}
+		
 		iconType ={
 			name ="nuke_icon"
 			spriteType = "GFX_topbar_nuke"
-			position = { x=993 y=7 }
+			position = { x=1021 y=8 }
 			Orientation = "UPPER_LEFT"
 			scale = 0.8
 		}
 		
 		instantTextBoxType = {
 			name ="nuke_count"
-			position = { x=1013 y=9 }
+			position = { x=1043 y=9 }
 			font = "hoi_18mbs"
 			format = center
-			maxWidth = 64
+			maxWidth = 44
 			maxHeight = 24
 			fixedsize = yes
 		}	
@@ -617,9 +680,16 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "country_menu_window"
-			position = { x=204 y=38 }
+			position = { x=217 y=36 }
 			size = { width=100%% height=30 }
 			
+			iconType = {
+				name ="decision_view_alert_glow"
+				spriteType = "GFX_decisions_glow"	
+				position = { x =-105 y = -3 }
+				alwaystransparent = yes
+			}
+
 			buttonType = {
 				name = "decisionview_button"
 				quadTextureSprite ="GFX_topbar_decisionview_button"
@@ -630,12 +700,7 @@ guiTypes = {
 				shortcut = "shift+q"
 			}
 
-			iconType = {
-				name ="decision_view_alert_glow"
-				spriteType = "GFX_decisions_glow"	
-				position = { x =-104 y = 1 }
-				alwaystransparent = yes
-			}
+
 
 			iconType = {
 				name = "decisionview_amount_timeout_bg"
@@ -726,13 +791,13 @@ guiTypes = {
 			# Here, several buttons are put in the container "after_intel_agency_button", to be easily moved if the player don't have the DLC requiered by "intel_agency_button".
 			containerWindowType = {
 				name = "after_intel_agency_button"
-				position = { x=56 y=0 }			
+				position = { x=56 y=0 }
 				
 				buttonType = {
 					name = "technology_button"
 					quadTextureSprite ="GFX_topbar_technology"
 	#				position = { x= -104 y = 0 }
-					position = { x= -50 y = 0 }
+					position = { x= -49 y = 0 }
 					Orientation = "UPPER_LEFT"
 					shortcut = "w"
 					clicksound = click_close
@@ -742,7 +807,7 @@ guiTypes = {
 				buttonType = {
 					name = "diplomacy_button"
 					quadTextureSprite ="GFX_topbar_diplomacy"
-					position = { x= 5 y = 0 }
+					position = { x= 6 y = 0 }
 					Orientation = "UPPER_LEFT"
 					shortcut = "e"
 					clicksound = click_close
@@ -751,7 +816,7 @@ guiTypes = {
 				
 				buttonType = {
 					name = "trade_button"
-					position = { x= 60 y = 0 }
+					position = { x= 62 y = 0 }
 					quadTextureSprite ="GFX_topbar_trade_button"
 					Orientation = "UPPER_LEFT"
 					shortcut = "r"
@@ -761,7 +826,7 @@ guiTypes = {
 
 				buttonType = {
 					name = "construction_button"
-					position = { x = 115 y = 0 }
+					position = { x = 118 y = 0 }
 					quadTextureSprite ="GFX_construction_button"
 					Orientation = "UPPER_LEFT"
 					shortcut = "t"
@@ -769,9 +834,16 @@ guiTypes = {
 					oversound = ui_menu_over
 				}
 				
+				iconType = {
+					name = "production_button_glow"
+					position = { x = 170 y = -3 }
+					spriteType = "GFX_decisions_glow_yellow"
+					alwaystransparent = yes
+				}
+				
 				buttonType = {
 					name = "production_button"
-					position = { x = 170 y = 0 }
+					position = { x = 173 y = 0 }
 					quadTextureSprite ="GFX_topbar_production"
 					Orientation = "UPPER_LEFT"
 					shortcut = "y"
@@ -781,7 +853,7 @@ guiTypes = {
 				
 				buttonType = {
 					name = "deployment_button"
-					position = { x = 225 y = 0 }
+					position = { x = 228 y = 0 }
 					quadTextureSprite ="GFX_deployment_button"
 					Orientation = "UPPER_LEFT"
 					shortcut = "u"
@@ -791,10 +863,20 @@ guiTypes = {
 				
 				buttonType = {
 					name = "logistics_button"
-					position = { x = 280 y = 0 }
+					position = { x = 284 y = 0 }
 					quadTextureSprite ="GFX_ledger_button"
 					Orientation = "UPPER_LEFT"
 					shortcut = "i"
+					clicksound = click_close
+					oversound = ui_menu_over
+				}
+				
+				buttonType = {
+					name = "officer_corp_button"
+					position = { x = 340 y = 0 }
+					quadTextureSprite ="GFX_staff_office_button"
+					Orientation = "UPPER_LEFT"
+					shortcut = "shift+e"
 					clicksound = click_close
 					oversound = ui_menu_over
 				}

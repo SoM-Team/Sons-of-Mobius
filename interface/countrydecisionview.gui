@@ -28,7 +28,7 @@ guiTypes = {
 			name = "decisionview_title"
 			position = { x = 45 y = 8 }
 			textureFile = ""
-			font = "impact_32"
+			font = "hoi_36header"
 			borderSize = {x = 0 y = 0}
 			text = "DECISIONVIEW_TITLE"
 			maxWidth = 440
@@ -52,8 +52,10 @@ guiTypes = {
 			position = {x=5 y=45}
 			size = {width=-1 height=-10 } # Y Set in code to match the window size, but initial value is used as extra space in height
 			Orientation = upper_left
-
 			verticalScrollbar = "right_vertical_slider"
+			vertical_scroll_step = 41
+			scroll_wheel_factor = 40
+			smooth_scrolling = yes
 
 			background = {
 				name = "Background"
@@ -99,7 +101,7 @@ guiTypes = {
 			name = "name_text"
 			position = { x = 74 y = 26 }
 			textureFile = ""
-			font = "futura_20"
+			font = "hoi_20b"
 			borderSize = { x = 0 y = 0 }
 			text = ""
 			maxWidth = 365
@@ -121,7 +123,7 @@ guiTypes = {
 			name = "category_collapse_btn"
 			position = { x=475 y=25 }
 			quadTextureSprite = "GFX_conveyor_collapse_btn"
-			buttonFont = "century_gothic_18"
+			buttonFont = "hoi_18mbs"
 			clicksound = click_default
 			alwaystransparent = yes
 			frame = 1
@@ -134,16 +136,16 @@ guiTypes = {
 		size = { width=510 height=8 }
 		clipping = no
 		
-		#background = {
-		#	name = "Background"
-		#	position = { x=0 y=-1 }
-		#	quadTextureSprite="GFX_tiled_decisions_bg_small"
-		#	clicksound = click_default
-		#}
+		background = {
+			name = "Background"
+			position = { x=0 y=-1 }
+			quadTextureSprite="GFX_tiled_decisions_bg_small"
+			clicksound = click_default
+		}
 		
 		iconType = {
 			name = "picture"
-			position = { x=0 y=3 }
+			position = { x=3 y=3 }
 			spriteType = "GFX_d_category_empty_picture"
 			frame = 1
 			alwaystransparent = yes
@@ -151,9 +153,9 @@ guiTypes = {
 		
 		instantTextboxType = {
 			name = "full_text"
-			position = { x = 20 y = 6 }
+			position = { x = 14 y = 6 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
 			maxWidth = 470
@@ -163,7 +165,7 @@ guiTypes = {
 			name = "short_text"
 			position = { x = 125 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
 			maxWidth = 380
@@ -186,8 +188,8 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "value"
-			position = { x = 200 y = 3 }
-			font = "century_gothic_16"
+			position = { x = 212 y = 3 }
+			font = "hoi_16mbs"
 			borderSize = {x = 0 y = 0}
 			text = "33"	
 			maxWidth = 50
@@ -199,7 +201,7 @@ guiTypes = {
 		iconType = {
 			name = "target_flag"
 			quadTextureSprite ="GFX_flag_small"
-			position = { x= 215 y = 0}
+			position = { x= 185 y = 0}
 		}	
 	}
 
@@ -244,13 +246,14 @@ guiTypes = {
 				position = { x = -11 y = -7 }
 				quadTextureSprite = "GFX_generic_checkbox3"
 				clicksound = decisions_ui_button
+				pdx_tooltip = "EVENT_POPUP_CHECKBOX_TOOLTIP"
 			}
 
 			instantTextboxType = {
 				name = "events_popup_text"
 				position = { x = 23 y = -5 }
 				textureFile = ""
-				font = "century_gothic_16"
+				font = "hoi_16mbs"
 				borderSize = { x = 0 y = 0 }
 				text = "POPUP_EVENTS"
 				maxWidth = 110
@@ -262,7 +265,7 @@ guiTypes = {
 		#Grouped text and checkbox for easier positioning
 		containerWindowType = {
 			name = "news_checkbox_window"
-			position = {x=235 y=45}
+			position = {x=215 y=45}
 			Orientation = upper_right
 
 
@@ -271,13 +274,14 @@ guiTypes = {
 				position = { x = -11 y = -7 }
 				quadTextureSprite = "GFX_generic_checkbox3"
 				clicksound = decisions_ui_button
+				pdx_tooltip = "NEWS_POPUP_CHECKBOX_TOOLTIP"
 			}
 
 			instantTextboxType = {
 				name = "news_popup_text"
 				position = { x = 23 y = -5 }
 				textureFile = ""
-				font = "century_gothic_16"
+				font = "hoi_16mbs"
 				borderSize = { x = 0 y = 0 }
 				text = "POPUP_NEWS"
 				maxWidth = 110
@@ -345,13 +349,13 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "timer_text"
-			position = { x = 350 y = 8 }
+			position = { x = 350 y = 9 }
 			textureFile = ""
 			font = "hoi4_typewriter16"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 150
-			maxHeight = 20
+			maxHeight = 32
 			format = right
 		}
 	}
@@ -393,25 +397,40 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "name_text"
-			position = { x = 63 y = 0 }
+			position = { x = 63 y = 2 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
-			maxWidth = 300
-			maxHeight = 20
+			maxWidth = 330
+			maxHeight = 32
 			format = left
+			vertical_alignment = center
+		}
+
+		iconType = {
+			name = "target_flag"	
+			position = { x= 32 y = 17 }			
+			quadTextureSprite = "GFX_flag_small2_not_masked"
+			scale = 0.5
+		}
+		iconType = {
+			name = "target_flag_frame"
+			quadTextureSprite = "GFX_small_flag_frame_thin2"
+			position = { x= 30 y = 15 }
+			alwaystransparent = yes
+			scale = 0.5
 		}
 
 		instantTextboxType = {
 			name = "cost_and_timer_text"
-			position = { x = 112 y = 8 }
+			position = { x = 112 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 320
-			maxHeight = 35
+			maxHeight = 32
 			format = right
 		}
 		
@@ -440,7 +459,7 @@ guiTypes = {
 
 		iconType = {
 			name = "btn_bg"
-			position = {x=-1 y=-1}
+			position = {x=0 y=0}
 			spriteType = "GFX_decision_item_bg"
 		}
 
@@ -464,14 +483,15 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "name_text"
-			position = { x = 62 y = 9 }
+			position = { x = 62 y = 2 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
 			maxWidth = 280
-			maxHeight = 20
+			maxHeight = 32
 			format = left
+			vertical_alignment = center
 		}
 
 		iconType = {
@@ -491,25 +511,25 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "timer_text"
-			position = { x = 405 y = 8 }
+			position = { x = 405 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 70
-			maxHeight = 20
+			maxHeight = 32
 			format = right
 		}
 
 		instantTextboxType = {
 			name = "cost_and_timer_text"
-			position = { x = 112 y = 8 }
+			position = { x = 112 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 320
-			maxHeight = 35
+			maxHeight = 32
 			format = right
 		}
 		
@@ -534,7 +554,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "timed_decision_item"
 		position = { x=0 y=0 }
-		size = { width=100% height=41 }
+		size = { width=100% height=40 }
 		clipping = no
 
 		iconType = {
@@ -562,16 +582,31 @@ guiTypes = {
 			centerposition = yes
 		}
 
+		iconType = {
+			name = "target_flag"	
+			position = { x= 32 y = 17 }			
+			quadTextureSprite = "GFX_flag_small2_not_masked"
+			scale = 0.5
+		}
+		iconType = {
+			name = "target_flag_frame"
+			quadTextureSprite = "GFX_small_flag_frame_thin2"
+			position = { x= 30 y = 15 }
+			alwaystransparent = yes
+			scale = 0.5
+		}
+
 		instantTextboxType = {
 			name = "name_text"
-			position = { x = 62 y = 12 }
+			position = { x = 62 y = 2 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
-			maxWidth = 200
-			maxHeight = 20
+			maxWidth = 300
+			maxHeight = 32
 			format = left
+			vertical_alignment = center
 		}
 
 		iconType = {
@@ -585,25 +620,25 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "timer_text"
-			position = { x = 405 y = 8 }
+			position = { x = 405 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 70
-			maxHeight = 20
+			maxHeight = 32
 			format = right
 		}
 
 		instantTextboxType = {
 			name = "cost_and_timer_text"
-			position = { x = 135 y = 8 }
+			position = { x = 135 y = 9 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = "999"
 			maxWidth = 320
-			maxHeight = 35
+			maxHeight = 32
 			format = right
 		}
 
@@ -641,7 +676,7 @@ guiTypes = {
 			name = "name_text"
 			position = { x = 62 y = 12 }
 			textureFile = ""
-			font = "century_gothic_16"
+			font = "hoi_16mbs"
 			borderSize = { x = 0 y = 0 }
 			text = ""
 			maxWidth = 395
@@ -654,7 +689,6 @@ guiTypes = {
 			name = "zoom_icon"
 			position = {x=462 y=4}
 			spriteType = "GFX_locator_item_icon"
-			alwaystransparent = yes
 		}
 	}
 }
