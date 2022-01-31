@@ -14,8 +14,7 @@ characters = {
 		}
 
 		country_leader = {
-			id = -1
-			desc = "POLITICS_RCR_PALLASOV_DESCRIPTION"
+			desc = POLITICS_RCR_PALLASOV_DESCRIPTION
 			expire = "3265.1.1"
 			ideology = katzerist_pallasovist
 			traits = {
@@ -42,13 +41,10 @@ characters = {
 		}
 
 		country_leader = {
-			id = -1
-			desc = "POLITICS_KING_ZOG_DESC"
+			desc = POLITICS_KING_ZOG_DESC
 			expire = "3265.1.1"
 			ideology = syndicalist
-			traits = {
-
-			}
+			traits = {  }
 		}
 	}
 
@@ -61,46 +57,14 @@ characters = {
 		}
 
 		country_leader = {
-			id = -1
-			desc = "POLITICS_KING_ZOG_DESC"
+			desc = POLITICS_KING_ZOG_DESC
 			expire = "3265.1.1"
-			ideology = neosocialist
-			traits = {
-
-			}
+			ideology = neosocialist_subtype
+			traits = {  }
 		}
 	}
 
-	RCR_Gennadiy_Shilov = {
-		name = RCR_Gennadiy_Shilov_name
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
-			}
-			army = {
-				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
-			}
-		}
-
-		corps_commander = {
-			traits = { offensive_doctrine trickster commando career_officer }
-			skill = 4
-			attack_skill = 4
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = 202
-		}
-
-		country_leader = {
-			id = -1
-			desc = "SHILOV_desc"
-			expire = "3265.1.1"
-			ideology = militarist_socialist
-			traits = {}
-		}
-	}
-
+	#HEAD OF GOVERNMENT
 	RCR_Leona_Eismesser = {
 		name = RCR_Leona_Eismesser_name
 		gender = female
@@ -110,29 +74,53 @@ characters = {
 			}
 		}
 
-	}
-
-	RCR_Fyodor_Shubin = {
-		name = RCR_Fyodor_Shubin_name
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
+		advisor = {
+			slot = head_of_government
+			idea_token = RCR_leona_eismesser_hog
+			traits = {
+				ideological_crusader
 			}
-			army = {
-				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
-			}
-		}
-
-		corps_commander = {
-			traits = { offensive_doctrine politically_connected war_hero commando }
-			skill = 5
-			attack_skill = 4
-    		defense_skill = 2
-    		planning_skill = 3
-    		logistics_skill = 3
 		}
 	}
 
+	RCR_Dmitriy_Sadalov = {
+		name = RCR_Dmitriy_Sadalov_name
+
+		advisor = {
+			slot = head_of_government
+			idea_token = RCR_dmitriy_sadalov_hog
+			traits = {
+				silent_workhorse
+			}
+		}
+	}
+
+	#ECONOMY MINISTERS
+	RCR_Oleg_Vaddenfer = {
+		name = RCR_Oleg_Vaddenfer_name
+
+		advisor = {
+			slot = economic_minister
+			idea_token = RCR_oleg_vaddenfer_eco
+			traits = {
+				captain_of_industry
+			}
+		}
+	}
+
+	RCR_Boris_Dubovoy = {
+		name = RCR_Boris_Dubovoy_name
+
+		advisor = {
+			slot = economic_minister
+			idea_token = RCR_boris_dubovoy_eco
+			traits = {
+				war_industrialist
+			}
+		}
+	}
+
+	#INTERIOR MINISTERS
 	RCR_Nikolay_Koliuchkin = {
 		name = RCR_Nikolay_Koliuchkin_name
 		portraits = {
@@ -140,8 +128,29 @@ characters = {
 				large = "gfx/leaders/RCR/Portrait_Nikolai_Kolyuchkin.dds"
 			}
 		}
+
+		advisor = {
+			slot = interior_minister
+			idea_token = RCR_nikolay_koliuchkin_int
+			traits = {
+				prince_of_terror
+			}
+		}
 	}
 
+	RCR_Leonid_Angelovski = {
+		name = RCR_Leonid_Angelovski_name
+
+		advisor = {
+			slot = interior_minister
+			idea_token = RCR_leonid_angelovski_int
+			traits = {
+				silent_workhorse
+			}
+		}
+	}
+
+	#HEADS OF ACADEMY
 	RCR_Viktor_Gromov = {
 		name = RCR_Viktor_Gromov_name
 		portraits = {
@@ -149,29 +158,26 @@ characters = {
 				large = "gfx/leaders/RCR/Portrait_Viktor_Gromov_premier.dds"
 			}
 		}
+
+		advisor = {
+			slot = scientific_leader
+			idea_token = RCR_viktor_gromov_sci
+			traits = {
+				sci_robotics_genius
+			}
+		}
 	}
 
-	#HEAD OF GOVERNMENT
-	RCR_Dmitriy_Sadalov = {
-		name = RCR_Dmitriy_Sadalov_name
-
-	}
-
-	#ECONOMY MINISTERS
-	RCR_Oleg_Vaddenfer = {
-		name = RCR_Oleg_Vaddenfer_name
-
-	}
-
-	RCR_Boris_Dubovoy = {
-		name = RCR_Boris_Dubovoy_name
-	}
-
-	#INTERIOR MINISTERS
-
-	#HEADS OF ACADEMY
 	RCR_Pavel_Ugryumov = {
 		name = RCR_Pavel_Ugryumov_name
+
+		advisor = {
+			slot = scientific_leader
+			idea_token = RCR_viktor_gromov_sci
+			traits = {
+				sci_unrecognized_genius
+			}
+		}
 	}
 
 	#ARMY LEADERS
@@ -231,6 +237,49 @@ characters = {
 	}
 
 	#CORPS COMMANDERS
+	RCR_Gennadiy_Shilov = {
+		name = RCR_Gennadiy_Shilov_name
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
+			}
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { offensive_doctrine trickster commando career_officer }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = 202
+		}
+	}
+
+	RCR_Fyodor_Shubin = {
+		name = RCR_Fyodor_Shubin_name
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
+			}
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { offensive_doctrine politically_connected war_hero commando }
+			skill = 5
+			attack_skill = 4
+    		defense_skill = 2
+    		planning_skill = 3
+    		logistics_skill = 3
+		}
+	}
+
 	RCR_Mikhail_Mokanu = {
 		name = RCR_Mikhail_Mokanu_name
 		portraits = {
