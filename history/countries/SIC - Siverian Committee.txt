@@ -4,6 +4,28 @@ oob = "SIC_3236"
 
 recruit_character = SIC_Vladimir_Irkatan
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	RCR = {
+		set_autonomy = {
+			target = SIC
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		RCR = {
+			puppet = SIC
+		}
+		
+	}
+}
+
 set_technology = {
 	hand_tools = 1
 	welding_method = 1
@@ -20,7 +42,7 @@ set_technology = {
 set_convoys = 0
 
 set_politics = {
-	ruling_party = communism
+	ruling_party = katzerism
 	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
@@ -28,7 +50,7 @@ set_politics = {
 
 set_popularities = {
 	neosocialism = 5
-	communism = 80
+	katzerism = 80
 	autonomous_socialism = 10
 	progressism = 5
 	progressive_liberalism = 0

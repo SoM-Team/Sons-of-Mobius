@@ -5,6 +5,28 @@ oob = "NEA_3236"
 recruit_character = NEA_Arch_Chestnut
 recruit_character = NEA_Jeff_Mewes
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	KOA = {
+		set_autonomy = {
+			target = NEA
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		KOA = {
+			puppet = NEA
+		}
+		
+	}
+}
+
 set_technology = {
 	hand_tools = 1
 	welding_method = 1
@@ -40,7 +62,7 @@ set_politics = {
 
 set_popularities = {
 	neosocialism = 0
-	communism = 0
+	katzerism = 0
 	autonomous_socialism = 10
 	progressism = 0
 	progressive_liberalism = 0

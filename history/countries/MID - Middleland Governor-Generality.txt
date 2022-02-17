@@ -4,6 +4,28 @@ oob = "MID_3236"
 
 recruit_character = MID_Jacob_Carles_Sweeney
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	KOA = {
+		set_autonomy = {
+			target = MID
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		KOA = {
+			puppet = MID
+		}
+		
+	}
+}
+
 # Starting tech
 set_technology = {
 	hand_tools = 1
@@ -40,7 +62,7 @@ set_politics = {
 
 set_popularities = {
 	neosocialism = 0
-	communism = 0
+	katzerism = 0
 	autonomous_socialism = 10
 	progressism = 0
 	progressive_liberalism = 0

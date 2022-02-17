@@ -8,6 +8,28 @@ recruit_character = RSE_Ulrik_von_Pradd
 
 recruit_character = RSE_Kurt_von_Wissman
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	SWA = {
+		set_autonomy = {
+			target = RSE
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		SWA = {
+			puppet = RSE
+		}
+		
+	}
+}
+
 set_technology = {
 	hand_tools = 1
 	welding_method = 1
@@ -43,7 +65,7 @@ set_politics = {
 
 set_popularities = {
 	neosocialism = 0
-	communism = 0
+	katzerism = 0
 	autonomous_socialism = 10
 	progressism = 0
 	progressive_liberalism = 0

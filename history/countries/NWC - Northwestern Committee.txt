@@ -4,6 +4,28 @@ oob = "NWC_3236"
 
 recruit_character = NWC_Pavel_Liushkin
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	RCR = {
+		set_autonomy = {
+			target = NWC
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		RCR = {
+			puppet = NWC
+		}
+		
+	}
+}
+
 set_technology = {
 	welding_method = 1
 	hand_tools = 1
@@ -50,7 +72,7 @@ set_technology = {
 set_convoys = 10
 
 set_politics = {
-	ruling_party = neosocialism
+	ruling_party = autonomous_socialism
 	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
@@ -58,7 +80,7 @@ set_politics = {
 
 set_popularities = {
 	neosocialism = 10
-	communism = 35
+	katzerism = 35
 	autonomous_socialism = 50
 	progressism = 5
 	progressive_liberalism = 0
