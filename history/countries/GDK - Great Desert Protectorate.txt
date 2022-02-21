@@ -4,6 +4,28 @@ oob = "GDK_3236"
 
 recruit_character = GDK_Logan_Allen
 
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	KOA = {
+		set_autonomy = {
+			target = GDK
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		KOA = {
+			puppet = GDK
+		}
+		
+	}
+}
+
 set_technology = {
 	hand_tools = 1
 	welding_method = 1
@@ -31,7 +53,7 @@ set_technology = {
 set_convoys = 5
 
 set_politics = {
-	ruling_party = autocracy
+	ruling_party = legalism
 	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
@@ -45,8 +67,8 @@ set_popularities = {
 	progressive_liberalism = 10
 	orthodox_liberalism = 10
 	conservatism = 20
-	legalism = 20
-	autocracy = 30
+	legalism = 30
+	autocracy = 20
 	technocratic_despotism = 0
 	purificationism = 0
 }
