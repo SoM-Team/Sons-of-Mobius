@@ -744,7 +744,7 @@ ideas = {
             }
         }
 
-        KOA_Southern_Pressure_1 = {
+        KOA_Age_of_Reforms_2 = {
             allowed = {
                 always = no
             }
@@ -753,7 +753,39 @@ ideas = {
 
             modifier = {
                 political_power_gain = 0.05
-                stability_weekly = -0.01
+            }
+
+            on_add = {
+                subtract_from_variable = {
+                    gov_corruption_growth = -0.025
+                }
+            }
+        }
+
+        KOA_Age_of_Reforms_3 = {
+            allowed = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = 0.15
+            }
+        }
+
+        KOA_Southern_Pressure_1 = {
+            allowed = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = -0.15
+                local_resources_factor = -0.05
+                consumer_goods_factor = 0.05
+                conscription_factor = -0.125
             }
         }
 
@@ -1046,6 +1078,8 @@ ideas = {
                 }
             }
 
+            removal_cost = -1
+
             modifier = {
                 stability_factor = 0.05
                 research_speed_factor = -0.05
@@ -1068,6 +1102,8 @@ ideas = {
                 }
             }
 
+            removal_cost = -1
+
             modifier = {
                 consumer_goods_factor = -0.05
                 army_infantry_attack_factor = 0.05
@@ -1088,6 +1124,8 @@ ideas = {
                 always = no
             }
 
+            removal_cost = -1
+
             modifier = {
                 land_reinforce_rate = 0.05
                 conscription_factor = 0.01
@@ -1098,6 +1136,8 @@ ideas = {
             available = {
                 always = no
             }
+
+            removal_cost = -1
 
             modifier = {
                 encryption = 2
@@ -1112,6 +1152,8 @@ ideas = {
                 always = no
             }
 
+            removal_cost = -1
+
             modifier = {
                 army_org = 5
                 army_morale_factor = 0.05
@@ -1124,9 +1166,195 @@ ideas = {
                 always = no
             }
 
+            removal_cost = -1
+
             modifier = {
                 army_speed_factor = 0.25
                 army_attack_factor = 0.25
+            }
+        }
+
+        # Sally's ideas
+
+        KOA_Down_with_Warlords = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = -0.01
+                command_power_gain = 0.075
+            }
+
+            on_remove = {
+                add_war_support = 0.1
+            }
+        }
+
+        KOA_The_Closer_Eye = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                encryption = 0.25
+                root_out_resistance_effectiveness_factor = 0.25
+                civilian_intel_to_others = -10
+                intelligence_agency_defense = 0.3
+            }
+        }
+
+        KOA_Court_Reform = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = -0.15
+                political_power_cost = 0.5
+            }
+
+            on_add = {
+                subtract_from_variable = {
+                    gov_corruption_growth = 0.02
+                }
+            }
+
+            on_remove = {
+                add_to_variable = {
+                    gov_corruption_growth = 0.02
+                }
+                add_ideas = KOA_Courts_of_Equals_Idea
+            }
+        }
+
+        KOA_Courts_of_Equals_Idea = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_growth = 0.1
+                stability_factor = 0.1
+            }
+        }
+
+        KOA_Egalitarian_Services = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                research_speed_factor = 0.1
+                monthly_population = 0.05
+                consumer_goods_factor = -0.075
+            }
+        }
+
+        KOA_Thousand_Lights_Campaign_Idea = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = -3
+                stability_weekly = -0.01
+            }
+
+            on_add = {
+                subtract_from_variable = {
+                    gov_corruption_growth = -0.05
+                }
+            }
+
+            on_remove = {
+                add_to_variable = {
+                    gov_corruption_growth = 0.05
+                }
+                add_political_power = 500
+                country_event = {
+                    id = koa.155
+                }
+                add_stability = 0.35
+            }
+        }
+
+        KOA_Rethenian_Military_Comission = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                winter_attrition = -0.3
+                army_armor_attack_factor = 0.15
+            }
+        }
+
+        KOA_Operation_Firework = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            targeted_modifier = {
+                tag = RCR
+                attack_bonus_against = 0.25
+            }
+
+            modifier = {
+                army_org_regain = 0.2
+                army_org_factor = 0.15
+            }
+        }
+
+        KOA_Hacking_The_Egg = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                decryption = 0.5
+            }
+        }
+
+        KOA_Operation_Downfall = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            targeted_modifier = {
+                # QUESTION: Should it be RCR?
+                tag = RCR
+                attack_bonus_against = 0.25
+            }
+
+            targeted_modifier = {
+                tag = EGG
+                defence_bonus_against = 0.25
+            }
+
+            modifier = {
+                army_org_regain = 0.2
+                army_speed_factor = 0.15
             }
         }
 	} 

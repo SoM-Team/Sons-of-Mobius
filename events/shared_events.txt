@@ -1,0 +1,336 @@
+add_namespace = shared
+
+country_event = {
+    # Exercise Zapad
+    # Fired from KOA "Rethenian Military Comission" focus
+
+    id = shared.1
+    title = shared.1.t
+    desc = shared.1.d
+
+    fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.1.a
+	}
+}
+
+country_event = {
+	# The Agreement
+	id = shared.2
+	title = shared.2.t
+	desc = shared.2.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    immediate = {
+        add_timed_idea = {
+            idea = The_Agreement
+            days = 1825
+        }
+    }
+
+	option = {
+		name = shared.2.a
+	}
+}
+
+country_event = {
+	# Invitation into a faction
+	id = shared.3
+	title = shared.3.t
+	desc = shared.3.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		ROOT = {
+			add_to_faction = THIS
+		}
+		name = shared.3.a
+	}
+	option = {
+		# Diagree
+		name = shared.3.b
+	}
+}
+
+country_event = {
+	# Red Dusk
+	id = shared.4
+	title = shared.4.t
+	desc = shared.4.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# For KOA
+		name = shared.4.a
+		trigger = {
+			tag = KOA
+		}
+		KOA = {
+			declare_war_on = {
+				target = RCR
+				type = annex_everything
+			}
+			add_timed_idea = { 
+				idea = KOA_Operation_Firework
+				days = 90
+			}
+		}
+	}
+	option = {
+		# For RCR
+		name = shared.4.b
+		trigger = {
+			tag = RCR
+		}
+	}
+}
+
+news_event = {
+	# The Second Great War
+	id = shared.5
+	title = shared.5.t
+	desc = shared.5.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.5.a
+	}
+}
+
+news_event = {
+	# The Third Robotnik War
+	id = shared.6
+	title = shared.6.t
+	desc = shared.6.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.6.a
+	}
+}
+
+country_event = {
+	# Getting a protection offer
+	id = shared.7
+	title = shared.7.t
+	desc = shared.7.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.7.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.7.b
+	}
+}
+
+country_event = {
+	# Getting a protection offer with building
+	# SAM and forts.
+	id = shared.8
+	title = shared.8.t
+	desc = shared.8.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.8.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+		FROM = {
+			every_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air
+					level = 1
+					instant_build = yes
+				}
+			}
+        	set_variable = {
+				FROM.much_obliged = 1
+			}
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.8.b
+		set_variable = {
+			FROM.much_obliged = -1
+		}
+	}
+}
+
+country_event = {
+	# Getting a non-aggression pact from ROOT
+	id = shared.9
+	title = shared.9.t
+	desc = shared.9.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.9.a
+		ROOT = {
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+	option = {
+		# Disagree
+		name = shared.9.b
+	}
+}
+
+country_event = {
+	# Getting a protection offer with building
+	# SAM and forts.
+	# Contains answer events for the calling country.
+	id = shared.10
+	title = shared.10.t
+	desc = shared.10.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = shared.10.a
+		ROOT = {
+			give_guarantee = FROM
+		}
+		FROM = {
+			every_state = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = anti_air
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		# Disagree
+		name = shared.10.b
+		ROOT = {
+			country_event = shared.12
+		}
+	}
+}
+
+country_event = {
+	# They agreed to take our protection!
+	id = shared.11
+	title = shared.11.t
+	desc = shared.11.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.11.a
+	}
+}
+
+country_event = {
+	# They disagreed to take our protection...
+	id = shared.12
+	title = shared.12.t
+	desc = shared.12.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Require a peace
+		name = shared.12.a
+	}
+}
+
+country_event = {
+	# Getting a derobotization help offer
+	id = shared.13
+	title = shared.13.t
+	desc = shared.13.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	# TODO: Add events for ROOT.
+
+	option = {
+		# Accept
+		# TODO: There should be some kind of weakening
+		name = shared.13.a
+		FROM = {
+			if = {
+				limit = {
+					# I couldn't find "Legacy of Robotization" idea;
+				}
+				# remove_idee = wtf ??
+			}
+		}
+	}
+	option = {
+		# Decline
+		name = shared.13.b
+	}
+}
