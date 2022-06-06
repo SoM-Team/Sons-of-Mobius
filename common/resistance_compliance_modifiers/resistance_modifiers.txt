@@ -169,10 +169,10 @@ resistance_90 = {
 				}
 				
 				# booleans that will be allowed to change ideology
-				set_temp_variable = { allowed_party_neutrality = 1 }
-				set_temp_variable = { allowed_party_democratic = 1 }
-				set_temp_variable = { allowed_party_fascism = 1 }
-				set_temp_variable = { allowed_party_communism = 1 }
+				set_temp_variable = { allowed_party_autocracy = 1 }
+				set_temp_variable = { allowed_party_conservatism = 1 }
+				set_temp_variable = { allowed_party_purificationism = 1 }
+				set_temp_variable = { allowed_party_katzerism = 1 }
 				
 				# do not change ideology of occupier country
 				var:occupier_country = {
@@ -195,48 +195,48 @@ resistance_90 = {
 						limit = { 
 							OR = {
 								AND = {
-									has_government = democratic
-									check_variable = { allowed_party_democratic = 0 }
+									has_government = conservatism
+									check_variable = { allowed_party_conservatism = 0 }
 								}
 								AND = {
-									has_government = fascism
-									check_variable = { allowed_party_fascism = 0 }
+									has_government = purificationism
+									check_variable = { allowed_party_purificationism = 0 }
 								}
 								AND = {
-									has_government = communism
-									check_variable = { allowed_party_communism = 0 }
+									has_government = katzerism
+									check_variable = { allowed_party_katzerism = 0 }
 								}
 								AND = { 
-									has_government = neutrality
-									check_variable = { allowed_party_neutrality = 0 }
+									has_government = autocracy
+									check_variable = { allowed_party_autocracy = 0 }
 								}
 							}
 						}
 						
 						random_list = {
-							allowed_party_democratic = {
+							allowed_party_conservatism = {
 								set_popularities = {
-									democratic = 100
+									conservatism = 100
 								}
-								set_politics = { ruling_party = democratic elections_allowed = yes }
+								set_politics = { ruling_party = conservatism elections_allowed = yes }
 							}
-							allowed_party_fascism = {
+							allowed_party_purificationism = {
 								set_popularities = {
-									fascism = 100
+									purificationism = 100
 								}
-								set_politics = { ruling_party = fascism elections_allowed = no }
+								set_politics = { ruling_party = purificationism elections_allowed = no }
 							}
-							allowed_party_communism = {
+							allowed_party_katzerism = {
 								set_popularities = {
-									communism = 100
+									katzerism = 100
 								}
-								set_politics = { ruling_party = communism elections_allowed = no }
+								set_politics = { ruling_party = katzerism elections_allowed = no }
 							}
-							allowed_party_neutrality = {
+							allowed_party_autocracy = {
 								set_popularities = {
-									neutrality = 100
+									autocracy = 100
 								}
-								set_politics = { ruling_party = neutrality elections_allowed = no }
+								set_politics = { ruling_party = autocracy elections_allowed = no }
 							}
 						}
 					}

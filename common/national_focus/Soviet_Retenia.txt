@@ -74,14 +74,13 @@ focus_tree = {
 		cost = 8
 		x = 40
 		y = 10
-			completion_reward = {
-					add_political_power = 90
-					add_timed_idea = {
-							idea = culturian_rebuilding
-							days = 365
-						}
-				}
-
+		completion_reward = {
+			add_political_power = 90
+			add_timed_idea = {
+				idea = culturian_rebuilding
+				days = 365
+			}
+		}
 	}
 	focus = {
 		id = RCR_ouliver_doctrine
@@ -126,21 +125,165 @@ focus_tree = {
 		id = RCR_miloradovich_doctrine
 		icon = GFX_focus_miloradovich_doctrine
 		cost = 0
+		x = 23
+		y = 10
 		mutually_exclusive = {
 			focus = RCR_ouliver_doctrine
 			focus = RCR_shilov_doctrine
 			focus = RCR_mokanu_doctrine
 		}
-		x = 23
+		completion_reward = {
+			RCR_Dmitriy_Kunduzov = {
+				promote_leader = yes
+			}
+		}
+	}
+	focus = {
+		id = RCR_Red_fleet
+		icon = GFX_focus_RCR_Red_Fleet
+		cost = 0
+		x = 30
 		y = 10
 
 	}
 	focus = {
-		id = RCR_Red_fleet
-		icon = GFX_focus_Red_fleet
+		id = RCR_Gorokhov_Doctrine
+		icon = GFX_focus_RCR_Gorokhov_Doctrine
 		cost = 0
+		prerequisite = {
+			focus = RCR_Red_fleet
+		}
+		mutually_exclusive = {
+			focus = RCR_Pistoletov_Doctrine
+		}
+		x = 29
+		y = 11
+
+	}
+	focus = {
+		id = RCR_Carriers_Development
+		icon = GFX_focus_RCR_Project_Hive
+		cost = 0
+		prerequisite = {
+			focus = RCR_Gorokhov_Doctrine
+		}
+		x = 27
+		y = 12
+
+	}
+	focus = {
+		id = RCR_Missile_Cruiser_Development
+		icon = GFX_focus_RCR_Project_Thunder
+		cost = 0
+		prerequisite = {
+			focus = RCR_Gorokhov_Doctrine
+		}
+		x = 29
+		y = 12
+
+	}
+	focus = {
+		id = RCR_Open_Sea_Academy
+		icon = GFX_focus_RCR_Open_sea_Academy
+		cost = 0
+		prerequisite = {
+			focus = RCR_Missile_Cruiser_Development
+		}
+		prerequisite = {
+			focus = RCR_Carriers_Development
+		}
+		x = 29
+		y = 13
+
+	}
+	focus = {
+		id = RCR_Pistoletov_Doctrine
+		icon = GFX_focus_RCR_Pistoletov_Doctrine
+		cost = 0
+		prerequisite = {
+			focus = RCR_Red_fleet
+		}
+		mutually_exclusive = {
+			focus = RCR_Gorokhov_Doctrine
+		}
+		x = 31
+		y = 11
+
+	}
+	focus = {
+		id = RCR_Destroyer_Development
+		icon = GFX_focus_RCR_Project_Orca
+		cost = 0
+		prerequisite = {
+			focus = RCR_Pistoletov_Doctrine
+		}
+		x = 33
+		y = 12
+
+	}
+	focus = {
+		id = RCR_Submarines_Development
+		icon = GFX_focus_RCR_Project_Piranha
+		cost = 0
+		prerequisite = {
+			focus = RCR_Pistoletov_Doctrine
+		}
+		x = 31
+		y = 12
+
+	}
+	focus = {
+		id = RCR_Pirate_Academy
+		icon = GFX_focus_RCR_Pirate_Academy
+		cost = 0
+		prerequisite = {
+			focus = RCR_Destroyer_Development
+		}
+		prerequisite = {
+			focus = RCR_Submarines_Development
+		}
+		x = 31
+		y = 13
+
+	}
+	focus = {
+		id = RCR_Vpered_Krasnoflotzy
+		icon = GFX_focus_RCR_Red_Marines
+		cost = 0
+		prerequisite = {
+			focus = RCR_Pirate_Academy
+			focus = RCR_Open_Sea_Academy
+		}
 		x = 30
-		y = 10
+		y = 14
+
+	}
+	focus = {
+		id = RCR_Heavy_fleet
+		icon = GFX_focus_RCR_Heavy_Fleet
+		cost = 0
+		prerequisite = {
+			focus = RCR_Vpered_Krasnoflotzy
+		}
+		prerequisite = {
+			focus = RCR_Carriers_Development
+		}
+		x = 28
+		y = 15
+
+	}
+	focus = {
+		id = RCR_Light_fleet
+		icon = GFX_focus_RCR_Light_Fleet
+		cost = 0
+		prerequisite = {
+			focus = RCR_Vpered_Krasnoflotzy
+		}
+		prerequisite = {
+			focus = RCR_Destroyer_Development
+		}
+		x = 32
+		y = 15
 
 	}
 	focus = {
@@ -237,7 +380,7 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_popularity = {
-							ideology = autonomous_socialist
+							ideology = autonomous_socialism
 							popularity = 0.1
 						}
 					add_political_power = 100
@@ -291,7 +434,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_popularity = {
-							ideology = autonomous_socialist
+							ideology = autonomous_socialism
 							popularity = 0.03
 						}
 					add_stability = 0.04
@@ -522,7 +665,7 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_popularity = {
-							ideology = communism
+							ideology = katzerism
 							popularity = 0.1
 						}
 					add_political_power = 100
@@ -944,7 +1087,7 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_popularity = {
-							ideology = neosocialist
+							ideology = neosocialism
 							popularity = 0.1
 						}
 					add_political_power = 100
@@ -973,7 +1116,7 @@ focus_tree = {
 							remove_idea = national_empire_crugin
 						}
 					add_popularity = {
-							ideology = communism
+							ideology = katzerism
 							popularity = -0.1
 						}
 				}
@@ -1120,11 +1263,11 @@ focus_tree = {
 					if = {
 							limit = {
 									NOT = {
-											has_government = neosocialist
+											has_government = neosocialism
 										}
-									neosocialist > 0.75
+									neosocialism > 0.75
 								}
-							set_country_leader_ideology = neosocialist
+							set_country_leader_ideology = neosocialism
 						}
 					add_political_power = 100
 					army_experience = 25
@@ -1375,31 +1518,6 @@ focus_tree = {
 		}
 		x = 30
 		y = 3
-
-	}
-	focus = {
-		id = RCR_Pistoletov_Doctrine
-		icon = GFX_focus_red_pirate
-		cost = 0
-		prerequisite = {
-			focus = RCR_Red_fleet
-		}
-		mutually_exclusive = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 31
-		y = 11
-
-	}
-	focus = {
-		id = RCR_Destroyer_Development
-		icon = GFX_focus_missile_destroyers
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 33
-		y = 12
 
 	}
 	focus = {
@@ -2463,36 +2581,36 @@ focus_tree = {
 					if = {
 							limit = {
 									OR = {
-											has_government = communism
+											has_government = katzerism
 											has_completed_focus = RCR_Line_Pallasov
 										}
 								}
 							add_popularity = {
-									ideology = communism
+									ideology = katzerism
 									popularity = 0.05
 								}
 						}
 					if = {
 							limit = {
 									OR = {
-											has_government = autonomous_socialist
+											has_government = autonomous_socialism
 											has_completed_focus = RCR_In_Hnikin_Open
 										}
 								}
 							add_popularity = {
-									ideology = autonomous_socialist
+									ideology = autonomous_socialism
 									popularity = 0.05
 								}
 						}
 					if = {
 							limit = {
 									OR = {
-											has_government = neosocialist
+											has_government = neosocialism
 											has_completed_focus = RCR_Director_Crygina
 										}
 								}
 							add_popularity = {
-									ideology = neosocialist
+									ideology = neosocialism
 									popularity = 0.05
 								}
 						}
@@ -3340,19 +3458,19 @@ focus_tree = {
 		y = 7
 			available = {
 					OR = {
-							communism < 0.35
-							autonomous_socialist > 0.40
+							katzerism < 0.35
+							autonomous_socialism > 0.40
 						}
 				}
 			completion_reward = {
 					if = {
 							limit = {
 									NOT = {
-											has_government = autonomous_socialist
+											has_government = autonomous_socialism
 										}
 								}
 							add_popularity = {
-									ideology = autonomous_socialist
+									ideology = autonomous_socialism
 									popularity = 0.15
 								}
 						}
@@ -3840,121 +3958,6 @@ focus_tree = {
 			focus = RCR_Political_comissars
 		}
 		x = 20
-		y = 15
-
-	}
-	focus = {
-		id = RCR_Gorokhov_Doctrine
-		icon = GFX_focus_red_might
-		cost = 0
-		prerequisite = {
-			focus = RCR_Red_fleet
-		}
-		mutually_exclusive = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 29
-		y = 11
-
-	}
-	focus = {
-		id = RCR_Carriers_Development
-		icon = GFX_focus_carrier_development
-		cost = 0
-		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 27
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Missile_Cruiser_Development
-		icon = GFX_focus_missile_cruisers
-		cost = 0
-		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 29
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Open_Sea_Academy
-		icon = GFX_focus_open_sea_academy
-		cost = 0
-		prerequisite = {
-			focus = RCR_Missile_Cruiser_Development
-		}
-		prerequisite = {
-			focus = RCR_Carriers_Development
-		}
-		x = 29
-		y = 13
-
-	}
-	focus = {
-		id = RCR_Submarines_Development
-		icon = GFX_focus_submarines
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 31
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Pirate_Academy
-		icon = GFX_focus_red_pirate_academy
-		cost = 0
-		prerequisite = {
-			focus = RCR_Destroyer_Development
-		}
-		prerequisite = {
-			focus = RCR_Submarines_Development
-		}
-		x = 31
-		y = 13
-
-	}
-	focus = {
-		id = RCR_Vpered_Krasnoflotzy
-		icon = GFX_focus_Red_Marines
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pirate_Academy
-			focus = RCR_Open_Sea_Academy
-		}
-		x = 30
-		y = 14
-
-	}
-	focus = {
-		id = RCR_Heavy_fleet
-		icon = GFX_focus_grand_fleet
-		cost = 0
-		prerequisite = {
-			focus = RCR_Vpered_Krasnoflotzy
-		}
-		prerequisite = {
-			focus = RCR_Carriers_Development
-		}
-		x = 28
-		y = 15
-
-	}
-	focus = {
-		id = RCR_Light_fleet
-		icon = GFX_focus_small_fleet
-		cost = 0
-		prerequisite = {
-			focus = RCR_Vpered_Krasnoflotzy
-		}
-		prerequisite = {
-			focus = RCR_Destroyer_Development
-		}
-		x = 32
 		y = 15
 
 	}

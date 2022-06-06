@@ -10,16 +10,17 @@ characters = {
 			}
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Yuri_Pallasov_marshal.dds"
+				small = "gfx/interface/government/RCR_Yuriy_Pallasov_hmc.dds"
 			}
 		}
 
 		country_leader = {
-			desc = POLITICS_RCR_PALLASOV_DESCRIPTION
-			expire = "3265.1.1"
-			ideology = katzerist_pallasovist
+			ideology = katzerism_pallasovism_subtype
 			traits = {
 				Leader_of_the_proletarian_revolution
 			}
+			desc = POLITICS_RCR_PALLASOV_DESCRIPTION
+			expire = "3265.1.1"
 		}
 
 		field_marshal = {
@@ -41,10 +42,10 @@ characters = {
 		}
 
 		country_leader = {
+			ideology = autonomous_socialism_syndicalism_subtype
+			traits = {  }
 			desc = POLITICS_KING_ZOG_DESC
 			expire = "3265.1.1"
-			ideology = syndicalist
-			traits = {  }
 		}
 	}
 
@@ -52,15 +53,15 @@ characters = {
 		name = RCR_Uchkats_Proryvitskiy_name
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/Portrait_generic_neosocialist.dds"
+				large = "gfx/leaders/RCR/Portrait_Uchkats_Proryvitskiy.dds"
 			}
 		}
 
 		country_leader = {
+			ideology = neosocialism_proryvism_subtype
+			traits = {  }
 			desc = POLITICS_KING_ZOG_DESC
 			expire = "3265.1.1"
-			ideology = neosocialist_subtype
-			traits = {  }
 		}
 	}
 
@@ -71,13 +72,19 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/RCR/Portrait_Leona_Eismesser.dds"
+				small = "gfx/interface/government/RCR_Leona_Eismesser_hog.dds"
 			}
 		}
 
 		advisor = {
 			slot = head_of_government
+			ledger = civilian
 			idea_token = RCR_leona_eismesser_hog
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				head_of_government
 				ideological_crusader
 			}
 		}
@@ -85,11 +92,21 @@ characters = {
 
 	RCR_Dmitriy_Sadalov = {
 		name = RCR_Dmitriy_Sadalov_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Dmitriy_Sadalov_hog.dds"
+			}
+		}
 
 		advisor = {
 			slot = head_of_government
+			ledger = civilian
 			idea_token = RCR_dmitriy_sadalov_hog
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				head_of_government
 				silent_workhorse
 			}
 		}
@@ -98,11 +115,21 @@ characters = {
 	#ECONOMY MINISTERS
 	RCR_Oleg_Vaddenfer = {
 		name = RCR_Oleg_Vaddenfer_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Oleg_Waddenfer_eco.dds"
+			}
+		}
 
 		advisor = {
 			slot = economic_minister
+			ledger = civilian
 			idea_token = RCR_oleg_vaddenfer_eco
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				economic_minister
 				captain_of_industry
 			}
 		}
@@ -110,11 +137,21 @@ characters = {
 
 	RCR_Boris_Dubovoy = {
 		name = RCR_Boris_Dubovoy_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Boris_Dubovoy_eco.dds"
+			}
+		}
 
 		advisor = {
 			slot = economic_minister
+			ledger = civilian
 			idea_token = RCR_boris_dubovoy_eco
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				economic_minister
 				war_industrialist
 			}
 		}
@@ -125,26 +162,63 @@ characters = {
 		name = RCR_Nikolay_Koliuchkin_name
 		portraits = {
 			civilian = {
-				large = "gfx/leaders/RCR/Portrait_Nikolai_Kolyuchkin.dds"
+				large = "gfx/leaders/RCR/Portrait_Nikolay_Kolyuchkin.dds"
+				small = "gfx/interface/government/RCR_Nikolay_Koliuchkin_int.dds"
 			}
 		}
 
 		advisor = {
 			slot = interior_minister
+			ledger = civilian
 			idea_token = RCR_nikolay_koliuchkin_int
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				interior_minister
 				prince_of_terror
+			}
+		}
+	}
+
+	RCR_Vladislav_Andreev = {
+		name = RCR_Vladislav_Andreev_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Vladislav_Andreev_int.dds"
+			}
+		}
+
+		advisor = {
+			slot = interior_minister
+			ledger = civilian
+			idea_token = RCR_vladislav_andreev_int
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				interior_minister
 			}
 		}
 	}
 
 	RCR_Leonid_Angelovski = {
 		name = RCR_Leonid_Angelovski_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Vladislav_Andreev_int.dds"
+			}
+		}
 
 		advisor = {
 			slot = interior_minister
+			ledger = civilian
 			idea_token = RCR_leonid_angelovski_int
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				interior_minister
 				silent_workhorse
 			}
 		}
@@ -156,13 +230,19 @@ characters = {
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/RCR/Portrait_Viktor_Gromov_premier.dds"
+				small = "gfx/interface/government/RCR_Viktor_Gromov_sci.dds"
 			}
 		}
 
 		advisor = {
 			slot = scientific_leader
+			ledger = civilian
 			idea_token = RCR_viktor_gromov_sci
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				scientific_leader
 				sci_robotics_genius
 			}
 		}
@@ -170,23 +250,34 @@ characters = {
 
 	RCR_Pavel_Ugryumov = {
 		name = RCR_Pavel_Ugryumov_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Pavel_Ugryumov_sci.dds"
+			}
+		}
 
 		advisor = {
 			slot = scientific_leader
+			ledger = civilian
 			idea_token = RCR_viktor_gromov_sci
+			allowed = {
+				tag = RCR
+			}
 			traits = {
+				scientific_leader
 				sci_unrecognized_genius
 			}
 		}
 	}
 
 	#ARMY LEADERS
-	#FIELD MARSHALS
+	#CHIEFS OF ARMY
 	RCR_Rudolph_Owler = {
 		name = RCR_Rudolph_Owler_name
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Rudolph_Owler.dds"
+				small = "gfx/interface/government/RCR_Rudolph_Owler_army.dds"
 			}
 		}
 
@@ -198,13 +289,128 @@ characters = {
     		planning_skill = 3
     		logistics_skill = 3
 		}
+
+		advisor = {
+			cost = 9999
+			slot = army_chief
+			idea_token = RCR_rudolph_owler_army
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_army
+			}
+		}
 	}
 
+	RCR_Fyodor_Shubin = {
+		name = RCR_Fyodor_Shubin_name
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin.dds"
+			}
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin.dds"
+				small = "gfx/interface/government/RCR_Fyodor_Shubin_army.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { offensive_doctrine politically_connected war_hero commando }
+			skill = 5 
+			attack_skill = 5 
+			defense_skill = 3 
+			planning_skill = 4 
+			logistics_skill = 4 
+		}
+
+		advisor = {
+			cost = 9999
+			slot = army_chief
+			idea_token = RCR_fyodor_shubin_army
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_army
+				air_airborne_2
+			}
+		}
+	}
+	
+	RCR_Gennadiy_Shilov = {
+		name = RCR_Gennadiy_Shilov_name
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
+			}
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
+				small = "gfx/interface/government/RCR_Gennadiy_Shilov_army.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { offensive_doctrine trickster commando career_officer }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = 202
+		}
+
+		advisor = {
+			cost = 9999
+			slot = army_chief
+			idea_token = RCR_gennadiy_shilov_army
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_army
+			}
+		}
+	}
+
+	RCR_Dmitriy_Kunduzov = {
+		name = RCR_Dmitriy_Kunduzov_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Dmitriy_Kunduzov.dds"
+				small = "gfx/interface/government/RCR_Dmitriy_Kunduzov_army.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { old_guard war_hero trait_cautious }
+			skill = 4 
+			attack_skill = 2 
+			defense_skill = 3 
+			planning_skill = 4 
+			logistics_skill = 4 
+		}
+
+		advisor = {
+			cost = 9999
+			slot = army_chief
+			idea_token = RCR_dmitriy_kunduzov_army
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_army
+			}
+		}
+	}
+
+	#FIELD MARSHALS
 	RCR_Potap_Chenkov = {
 		name = RCR_Potap_Chenkov_name
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Potap_Chenkov.dds"
+				small = "gfx/interface/government/RCR_Potap_Chenkov_hmc.dds"
 			}
 		}
 
@@ -223,6 +429,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Roman_Pozharskiy.dds"
+				small = "gfx/interface/government/RCR_Roman_Pozharskiy_hmc.dds"
 			}
 		}
 
@@ -237,49 +444,6 @@ characters = {
 	}
 
 	#CORPS COMMANDERS
-	RCR_Gennadiy_Shilov = {
-		name = RCR_Gennadiy_Shilov_name
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
-			}
-			army = {
-				large = "gfx/leaders/RCR/Portrait_Gennadiy_Shilov.dds"
-			}
-		}
-
-		corps_commander = {
-			traits = { offensive_doctrine trickster commando career_officer }
-			skill = 4
-			attack_skill = 4
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = 202
-		}
-	}
-
-	RCR_Fyodor_Shubin = {
-		name = RCR_Fyodor_Shubin_name
-		portraits = {
-			civilian = {
-				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
-			}
-			army = {
-				large = "gfx/leaders/RCR/Portrait_Fyodor_Shubin_premier.dds"
-			}
-		}
-
-		corps_commander = {
-			traits = { offensive_doctrine politically_connected war_hero commando }
-			skill = 5
-			attack_skill = 4
-    		defense_skill = 2
-    		planning_skill = 3
-    		logistics_skill = 3
-		}
-	}
-
 	RCR_Mikhail_Mokanu = {
 		name = RCR_Mikhail_Mokanu_name
 		portraits = {
@@ -302,7 +466,8 @@ characters = {
 		name = RCR_Nikolay_Volkov_name
 		portraits = {
 			army = {
-				large = "gfx/leaders/RCR/Portrait_Nikolai_Volkov.dds"
+				large = "gfx/leaders/RCR/Portrait_Nikolay_Volkov.dds"
+				small = "gfx/interface/government/RCR_Nikolay_Volkov_hmc.dds"
 			}
 		}
 
@@ -321,6 +486,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Boris_Novikov.dds"
+				small = "gfx/interface/government/RCR_Boris_Novikov_hmc.dds"
 			}
 		}
 
@@ -340,6 +506,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Zoya_Shubina.dds"
+				small = "gfx/interface/government/RCR_Zoya_Shubina_hmc.dds"
 			}
 		}
 
@@ -356,6 +523,10 @@ characters = {
 	RCR_Konstantin_Vilsharovich = {
 		name = RCR_Konstantin_Vilsharovich_name
 		portraits = {
+			civilian = {
+				large = "gfx/leaders/RCR/Portrait_Konstantin_Vilsharovich.dds"
+				small = "gfx/interface/government/PSR_Konstantin_Vilsharovich_hog.dds"
+			}
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Konstantin_Vilsharovich.dds"
 			}
@@ -376,6 +547,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Adomas_Guboriavichus.dds"
+				small = "gfx/interface/government/RCR_Adomas_Guboriavichus_hmc.dds"
 			}
 		}
 
@@ -387,6 +559,25 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 1
 		}
+	}
+
+	RCR_Sergei_Gvozdichenko = {
+		name = RCR_Sergei_Gvozdichenko_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Sergei_Gvozdichenko.dds"
+				small = "gfx/interface/government/RCR_Sergei_Gvozdichenko_hmc.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = {  }
+			skill = 3 
+			attack_skill = 2 
+			defense_skill = 3 
+			planning_skill = 3 
+			logistics_skill = 2 
+		}		
 	}
 
 	RCR_Semyon_Akvilov = {
@@ -403,25 +594,7 @@ characters = {
 			attack_skill = 2
 			defense_skill = 2
 			planning_skill = 1
-			logistics_skill = 1
-		}
-	}
-
-	RCR_Ivan_Turbin = {
-		name = RCR_Ivan_Turbin_name
-		portraits = {
-			army = {
-				large = "gfx/leaders/RCR/Portrait_Ivan_Turbin.dds"
-			}
-		}
-
-		corps_commander = {
-			traits = {  }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 1
+			logistics_skill = 2
 		}
 	}
 
@@ -430,13 +603,14 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Nikita_Kovrizhnykh.dds"
+				small = "gfx/interface/government/RCR_Nikita_Kovrizhnykh_hmc.dds"
 			}
 		}
 
 		corps_commander = {
 			traits = { trickster }
 			skill = 2
-			attack_skill = 1
+			attack_skill = 2
 			defense_skill = 1
 			planning_skill = 2
 			logistics_skill = 2
@@ -448,6 +622,7 @@ characters = {
 		portraits = {
 			army = {
 				large = "gfx/leaders/RCR/Portrait_Stas_Kobzarin.dds"
+				small = "gfx/interface/government/RCR_Stas_Kobzarin_hmc.dds"
 			}
 		}
 
@@ -455,11 +630,187 @@ characters = {
 			traits = { armor_officer }
 			skill = 2
 			attack_skill = 1
-			defense_skill = 1
+			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
 		}
 	}
 
+	RCR_Ivan_Turbin = {
+		name = RCR_Ivan_Turbin_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Ivan_Turbin.dds"
+				small = "gfx/interface/government/RCR_Ivan_Turbin_hmc.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = {  }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+
+	RCR_Sergei_Tolmatskikh = {
+		name = RCR_Sergei_Tolmatskikh_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Sergei_Tolmatskikh.dds"
+				small = "gfx/interface/government/RCR_Sergei_Tolmatskikh_hmc.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = {  }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+
+	RCR_Semyon_Zamoiskikh = {
+		name = RCR_Semyon_Zamoiskikh_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Semyon_Zamoiskikh.dds"
+				small = "gfx/leaders/RCR/Portrait_Semyon_Zamoiskikh_hmc.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = { armor_officer }
+			skill = 2 
+			attack_skill = 2 
+			defense_skill = 1 
+			planning_skill = 2 
+			logistics_skill = 2
+		}
+	}
+
+	RCR_Maria_Rakhmaninova = {
+		name = RCR_Maria_Rakhmaninova_name
+		portraits = {
+			army = {
+				large = "gfx/leaders/RCR/Portrait_Maria_Rakhmaninova.dds"
+				small = "gfx/interface/government/RCR_Maria_Rakhmaninova_hmc.dds"
+			}
+		}
+
+		corps_commander = {
+			traits = {  }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+
+	#CHIEFS OF AIR
+	RCR_Grigoriy_Metelin = {
+		name = RCR_Grigoriy_Metelin_name
+		portraits = {
+			army = {
+				small = "gfx/interface/government/RCR_Grigoriy_Metelin_air.dds"
+			}
+		}
+
+		advisor = {
+			cost = 9999
+			slot = air_chief
+			idea_token = RCR_grigoriy_metelin_air
+			allowable = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_air
+			}
+		}
+	}
+
+	RCR_Gavriil_Akvilov = {
+		name = RCR_Gavriil_Akvilov_name
+		portraits = {
+			army = {
+				small = "gfx/interface/government/RCR_Gavriil_Akvilov_air.dds"
+			}
+		}
+
+		advisor = {
+			cost = 9999
+			slot = air_chief
+			idea_token = RCR_gavriil_akvilov_air
+			allowable = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_air
+			}
+		}
+	}
+
 	#NAVY LEADERS
+	RCR_Konstantin_Gorokhov = {
+		name = RCR_Konstantin_Gorokhov_name
+		portraits = {
+			navy = {
+				large = "gfx/leaders/RCR/Portrait_Konstantin_Gorokhov.dds"
+				small = "gfx/interface/government/RCR_Konstantin_Gorokhov_navy.dds"
+			}
+		}
+
+		navy_leader = {
+			traits = { naval_lineage }
+			skill = 3 
+			attack_skill = 3 
+			defense_skill = 3 
+			maneuvering_skill = 2 
+			coordination_skill = 2
+			visible = {
+				NOT = {
+					country_exists = NWC
+				}
+			}
+		}
+
+		advisor = {
+			cost = 9999
+			slot = navy_chief
+			idea_token = RCR_konstantin_gorokhov_navy
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_navy
+			}
+		}
+	}
+
+	RCR_Andrei_Verkhovskiy = {
+		name = RCR_Andrei_Verkhovskiy_name
+		navy = {
+			large = "gfx/leaders/RCR/Portrait_Andrei_Verkhovskiy.dds"
+			small = "gfx/interface/government/RCR_Andrei_Verkhovskiy_hmc.dds"
+		}
+
+		navy_leader = {
+			traits = {  }
+			skill = 3 
+			attack_skill = 3 
+			defense_skill = 3 
+			maneuvering_skill = 3 
+			coordination_skill = 1 
+			visible = {
+				NOT = {
+					country_exists = FEC
+				}
+			}
+		}
+	}
 }
