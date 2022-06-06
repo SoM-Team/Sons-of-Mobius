@@ -1,0 +1,184 @@
+Enable_Trade_Embargo = {
+    meta_effect = {
+		text = {
+			[EMBARGO_TARGET] = {
+                add_opinion_modifier = {
+                    target = [EMBARGO_INITIATOR]
+                    modifier = Trade_Embargo
+                }
+            }
+            [EMBARGO_INITIATOR] = {
+                add_opinion_modifier = {
+                    target = [EMBARGO_TARGET]
+                    modifier = Trade_Embargo_Opinion
+                }
+            }
+		}
+		EMBARGO_TARGET = "[?embargo_target.GetTag]"
+		EMBARGO_INITIATOR = "[?embargo_initiator.GetTag]"
+	}
+}
+
+Disable_Trade_Embargo = {
+    meta_effect = {
+		text = {
+			[EMBARGO_TARGET] = {
+                remove_opinion_modifier = {
+                    target = [EMBARGO_INITIATOR]
+                    modifier = Trade_Embargo
+                }
+            }
+            [EMBARGO_INITIATOR] = {
+                remove_opinion_modifier = {
+                    target = [EMBARGO_TARGET]
+                    modifier = Trade_Embargo_Opinion
+                }
+            }
+		}
+		EMBARGO_TARGET = "[?embargo_target.GetTag]"
+		EMBARGO_INITIATOR = "[?embargo_initiator.GetTag]"
+	}
+}
+
+Switch_Trade_Embargo = {
+    if = {
+        limit = {
+            check_variable = {
+                opinion_modifier_action = 0
+            }
+        }
+        Disable_Trade_Embargo = yes
+    }
+    else = {
+        Enable_Trade_Embargo = yes
+    }
+    clear_variable = opinion_modifier_action
+    clear_variable = embargo_target
+    clear_variable = embargo_initiator
+}
+
+Invite_Into_Faction = {
+    # ROOT denotes a faction leader scope;
+    # THIS denotes a target;
+    # Call this script from the target scope,
+    # incapsulating it into faction leader scope.
+    
+    THIS = {
+        country_event = shared.3
+    }
+}
+
+Guarantee_Independence = {
+    # ROOT denotes a guarantee country;
+    # THIS denotes a target;
+    # Call this script from the target scope,
+    # incapsulating it into guarantee scope.
+
+    THIS = {
+        country_event = shared.7
+    }
+}
+
+Guarantee_Independence_And_Build_Structures = {
+    # ROOT denotes a guarantee country;
+    # THIS denotes a target;
+    # Call this script from the target scope,
+    # incapsulating it into guarantee scope.
+
+    THIS = {
+        country_event = shared.8
+    }
+}
+
+Negotiate_About_Non_Aggression = {
+    # ROOT denotes a non-aggression pact proposer;
+    # THIS denotes a target;
+    # Call this script from the target scope,
+    # incapsulating it into the proposer scope.
+
+    THIS = {
+        country_event = shared.9
+    }
+}
+
+Offer_Derobotization = {
+    # ROOT denotes a derobotization proposer;
+    # THIS denotes a target;
+    # Call this script from the target scope,
+    # incapsulation it into ROOT scope.
+
+    THIS = {
+        country_event = shared.13
+    }
+}
+
+Fortificate_Borders_Against_Reds = {
+    # Fortificates target country's borders with
+    # another target country;
+    # THIS denotes a country to defend from;
+    # FROM denotes a country that builds up forts
+    # to defent itself;
+    # Call this script, incapsulating it into two
+    # scopes like that:
+    # DEFENDER = { TARGET = { Fortificate_Borders } }
+
+    THIS = {
+        every_owned_state = {
+            limit = {
+                any_neighbor_state = {
+                    OR = {
+                        is_core_of = RCR
+                        is_core_of = NWC
+                        is_core_of = WEC
+                        is_core_of = SOC
+                    }
+                    
+                }
+            }
+            add_building_construction = {
+                type = bunker
+                level = 3
+                instant_build = yes
+                province = {
+                    limit_to_border = yes
+                }
+            }
+            add_building_construction = {
+                type = anti_air_building
+                level = 3
+                instant_build = yes
+            }
+        }
+    }
+}
+
+Steal_Rings_Random = {
+    randomize_temp_variable = {
+        var = rings_steal_temp
+        distribution = uniform
+        min = 1
+        max = 500
+    }
+    round_temp_variable = rings_steal_temp
+    set_variable = { 
+        rings_steal_amount = rings_steal_temp
+    }
+    THIS = {
+        
+    }
+}
+
+Steal_Rings = {
+    meta_effect = {
+		text = {
+			subtract_from_variable = {
+                THIS.rings = [RINGS_AMOUNT]
+            }
+            add_to_variable = {
+                ROOT.rings = [RINGS_AMOUNT]
+            }
+            clear_variable = steal_rings_amount
+		}
+		RINGS_AMOUNT = "[?steal_rings_amount|.0]"
+	}
+}

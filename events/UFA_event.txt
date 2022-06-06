@@ -32,3 +32,36 @@ country_event = {
 		add_ideas = UFA_Widespread_Rioting
 	}
 }
+
+country_event = {
+	# Should we remove trade embargo from RCR?
+	id = ufa.300
+	title = ufa.300.t
+	desc = uda.300.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# No
+		name = ufa.300.a
+		KOA = {
+			country_event = koa.308
+		}
+		add_opinion_modifier = {
+			target = KOA
+			modifier = KOA_Commie_Collaborants
+		}
+	}
+	option = {
+		# Yes
+		name = ufa.300.b
+		KOA = {
+			country_event = koa.309
+		}
+		RCR = {
+			Disable_Trade_Embargo = yes
+		}
+	}
+}
