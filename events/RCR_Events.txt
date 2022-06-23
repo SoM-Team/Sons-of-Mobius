@@ -7,10 +7,10 @@ add_namespace = rcr
 add_namespace = rcr_ufa
 add_namespace = rcrspace
 add_namespace = rcr_border_conflict
+add_namespace = rcrwar
 ######################################
 # hello everybody i am old communist 
 ######################################
-
 country_event = {
 	id = rcr.1
 	title = rcr.1.t
@@ -169,45 +169,17 @@ country_event = { ### Шилов охуел ###
 	desc = rcr.7.d
 	picture = GFX_report_event_military_mutiny
 
-	trigger = {
-		tag = RCR
-		date > 3236.02.8
-		date < 3236.02.30
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
-	option = { ### Арестовать эту мразь ###
+	option = { ### Ну охуел и охуел... ###
 		name = rcr.7.a
-		add_political_power = -100
-		hidden_effect = {
-			country_event = {
-				id = rcr.9
-				days = 3
-			}
-		}
+		add_political_power = -50
+		add_ideas = Shilov_Plot
+		custom_effect_tooltip = decision_Shilov_tt
 	}
 	
-	option = { ### Выйти с ним на переговоры ###
-		name = rcr.7.b
-		add_stability = -0.05
-		hidden_effect = {
-			country_event = {
-				id = rcr.8
-				days = 3
-			}
-		}
-	}
-	
-	option = { ### Игнорим лошка ###
-		name = rcr.7.c
-		hidden_effect = {
-			country_event = {
-				id = rcr.10
-				days = 21
-			}
-		}
-	}
 }
 
 country_event = { ### Переговоры с Шиловым ###
@@ -223,11 +195,6 @@ country_event = { ### Переговоры с Шиловым ###
 		add_political_power = -20
 	}
 	
-	option = { ### Убить ###
-		name = rcr.8.b
-		add_stability = 0.1
-		remove_unit_leader = 102
-	}
 }
 
 country_event = { ### Арест Шилова! ###
@@ -260,18 +227,6 @@ country_event = { ### Переворот Шилова! ###
 
 	is_triggered_only = yes
 	
-	option = { ### Take it boy ###
-		name = rcr.10.a
-		add_stability = -0.1
-		remove_unit_leader = 102
-		hidden_effect = {
-			country_event = {
-				id = rcr.12
-				days = 1
-			}
-		}
-	}
-	
 	option = { ### I don't feel so good... ###
 		name = rcr.10.b
 		add_stability = -0.3
@@ -280,6 +235,7 @@ country_event = { ### Переворот Шилова! ###
 		set_politics = {
 			ruling_party = neosocialist
 		}
+		mark_focus_tree_layout_dirty = yes
 		create_country_leader = {
 			name = "Gennadiy Shilov"
 			desc = "SHILOV_desc"
@@ -549,6 +505,7 @@ country_event = { ### Победа Палласова ###
 		remove_ideas = Political_Infighting_wnat
 		remove_ideas = Political_Infighting_fin
 		set_country_flag = RCR_chairman_Pallasov_is_elected
+		mark_focus_tree_layout_dirty = yes
 		set_variable = {
 			var = RCR_automation_progress
 			value = 0
@@ -790,13 +747,6 @@ country_event = {### Недостаток продовольствия ###
 		name = rcr.34.b
 		add_timed_idea =  { idea = Cope_with_famine days = 60 }
 		add_political_power = -75
-		hidden_effect = {
-			country_event = {
-				id = rcr.36
-				days = 7
-				}
-			}	
-		}
 	}
 country_event = {### Забастовка ###
 	id = rcr.35
@@ -2181,6 +2131,183 @@ country_event = { ### WAR
 	}
 }
 
+country_event = { # Judge System starts
+	id = rcr.99
+	title = rcr.99.t
+	desc = rcr.99.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = rcr.100
+				days = 140
+			}
+		}
+	}
+	
+	option = {
+		name = rcr.99.a 
+		ai_chance = { factor = 100 }
+	    add_stability = -0.1
+		add_timed_idea = { idea = Not_People_Judgement days = 140 }
+	}
+}	
+
+country_event = { # Judge System stabilisated
+	id = rcr.100
+	title = rcr.100.t
+	desc = rcr.100.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = rcr.100.a 
+		ai_chance = { factor = 100 }
+	    add_stability = 0.05
+		add_ideas = People_Judgement
+	}
+}
+
+country_event = { ### Shilov_const
+	id = rcr.101
+	title = rcr.101.t
+	desc = rcr.101.d
+	
+    trigger = {
+        tag = RCR
+    }
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = rcr.101.a
+	    add_ideas = Socialism_barracks
+		add_war_support = 0.02
+		add_political_power = 40
+	}
+	option = {
+		name = rcr.101.b
+	    add_ideas = Socialism_trench
+		add_command_power = 40
+		army_experience = 40
+	}
+	option = {
+		name = rcr.101.c
+	    add_ideas = Socialism_bunker
+		add_stability = 0.02
+		add_political_power = 40
+	}
+}
+
+country_event = { ### 5th genius
+	id = rcr.102
+	title = rcr.102.t
+	desc = rcr.102.d
+	
+    trigger = {
+        tag = RCR
+    }
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = rcr.102.a
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = robot_techs
+			}
+	}
+	option = {
+		name = rcr.102.b
+		add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+	}
+	option = {
+		name = rcr.102.c
+		add_tech_bonus = {
+				bonus = 0.6
+				uses = 1
+				category = nuclear
+			}
+	}
+	option = {
+		name = rcr.102.e
+		add_timed_idea = {
+			idea = 5_exp_genius
+			days = 60
+		}
+	}
+	option = {
+		name = rcr.102.f
+		add_timed_idea = {
+			idea = 5_industry_genius
+			days = 60
+		}
+	}
+}
+
+country_event = {
+	id = rcr.103
+	title = rcr.103.t
+	desc = rcr.103.d
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.103.a
+		INF = {
+			add_equipment_to_stockpile = {
+				type = main_battle_tank_equipment_2
+				amount = 500
+				producer = RCR
+			}
+			country_event = {
+				id = inf.101
+			}
+		}
+	}
+
+	option = {
+		name = rcr.103.b
+		INF = {
+			country_event = {
+				id = inf.102
+			}
+		}
+	}
+}
+
+
 country_event = { ### Start
 	id = rcrspace.1
 	title = rcrspace.1.t
@@ -2328,44 +2455,524 @@ country_event = { ### DRAW
 		
 	}
 }
-
 ##############################
 # what about some communism? #
 ##############################
-
-##############################
-# yeah, viva la revolution!! #
-##############################
-
-country_event = {
-	id = rcr.100
-	title = rcr.100.t
-	desc = rcr.100.d
-
+country_event = { ### HOLOSKA
+	id = rcrwar.1
+	title = rcrwar.1.t
+	desc = rcrwar.1.d
+	picture = GFX_report_event_red_army
+	
 	is_triggered_only = yes
-
+	
 	fire_only_once = yes
 
+	
 	option = {
-		name = rcr.100.a
-		INF = {
-			add_equipment_to_stockpile = {
-				type = main_battle_tank_equipment_2
-				amount = 500
-				producer = RCR
+		name = rcrwar.1.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### DOMINION
+	id = rcrwar.2
+	title = rcrwar.2.t
+	desc = rcrwar.2.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.2.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### CHERNIWSCHINA
+	id = rcrwar.3
+	title = rcrwar.3.t
+	desc = rcrwar.3.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.3.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### KURGAKISTAN
+	id = rcrwar.4
+	title = rcrwar.4.t
+	desc = rcrwar.4.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.4.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### MERCIA
+	id = rcrwar.5
+	title = rcrwar.5.t
+	desc = rcrwar.5.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.5.a
+		custom_effect_tooltip = rcr_pizdec
+		if = {
+			is_in_faction_with = KOA
+			KOA = {
+				country_event = rcrwar.6
 			}
-			country_event = {
-				id = inf.101
+		}
+		if = {
+			is_in_faction_with = UFA
+			KOA = {
+				country_event = rcrwar.7
 			}
 		}
 	}
 
+}
+
+country_event = { ### ACORN - ALLY THREATENED
+	id = rcrwar.6
+	title = rcrwar.6.t
+	desc = rcrwar.6.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
 	option = {
-		name = rcr.100.b
-		INF = {
-			country_event = {
-				id = inf.102
+		name = rcrwar.6.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### UFA - ALLY THREATENED
+	id = rcrwar.7
+	title = rcrwar.7.t
+	desc = rcrwar.7.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.7.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+country_event = { ### UFA
+	id = rcrwar.8
+	title = rcrwar.8.t
+	desc = rcrwar.8.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.8.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### INFINITE
+	id = rcrwar.9
+	title = rcrwar.9.t
+	desc = rcrwar.9.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.9.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### SVETLALES
+	id = rcrwar.10
+	title = rcrwar.10.t
+	desc = rcrwar.10.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.10.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### SWARTZLAND
+	id = rcrwar.11
+	title = rcrwar.11.t
+	desc = rcrwar.11.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.11.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### PSARSKA
+	id = rcrwar.12
+	title = rcrwar.12.t
+	desc = rcrwar.12.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.12.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### UMKIRIA
+	id = rcrwar.13
+	title = rcrwar.13.t
+	desc = rcrwar.13.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.13.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### KUNGARIA
+	id = rcrwar.14
+	title = rcrwar.14.t
+	desc = rcrwar.14.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.14.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### ACORNS
+	id = rcrwar.15
+	title = rcrwar.15.t
+	desc = rcrwar.15.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.15.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### EGGMAN
+	id = rcrwar.16
+	title = rcrwar.16.t
+	desc = rcrwar.16.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.16.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### NIKKO
+	id = rcrwar.17
+	title = rcrwar.17.t
+	desc = rcrwar.17.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.17.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### AIGUOJUN
+	id = rcrwar.18
+	title = rcrwar.18.t
+	desc = rcrwar.18.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.18.a
+		custom_effect_tooltip = rcr_pizdec
+	}
+
+}
+
+country_event = { ### DEMAND_CHERNIWSCHINA
+	id = rcrwar.19
+	title = rcrwar.19.t
+	desc = rcrwar.19.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = rcrwar.19.a
+		ai_chance = 70
+		RCR = {
+			country_event = rcrwar.21
+		}
+	}
+	option = {
+		name = rcrwar.19.b
+		ai_chance = 30
+		RCR = {
+			country_event = rcrwar.20
+		}
+	}
+
+}
+
+country_event = { ### APPROVE
+	id = rcrwar.20
+	title = rcrwar.20.t
+	desc = rcrwar.20.d
+	picture = GFX_report_event_cher_village
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.20.a
+		annex_country = {
+			target = CHE
+			transfer_troops = yes
+		}
+	}
+
+}
+
+country_event = { ### REJECT
+	id = rcrwar.21
+	title = rcrwar.21.t
+	desc = rcrwar.21.d
+	picture = GFX_report_event_cher_village
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.21.a
+		add_opinion_modifier = {
+			target = CHE
+			modifier = not_brother_nation
+		}
+	}
+
+}
+
+country_event = { ### ILZA TOUR
+	id = rcrwar.22
+	title = rcrwar.22.t
+	desc = rcrwar.22.d
+	picture = GFX_report_event_ilsa
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.22.a
+	}
+
+}
+
+country_event = { ### MERCIA DANGEROUS
+	id = rcrwar.23
+	title = rcrwar.23.t
+	desc = rcrwar.23.d
+	picture = GFX_report_event_kingdom_of_mercia
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.23.a
+		set_country_flag = Mercia_Protected
+	}
+
+}
+
+country_event = { ### MERCIA NOT DANGEROUS
+	id = rcrwar.24
+	title = rcrwar.24.t
+	desc = rcrwar.24.d
+	picture = GFX_report_event_kingdom_of_mercia
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.24.a
+		set_country_flag = Mercia_alone
+	}
+
+}
+
+country_event = { ### MERCIA FATE
+	id = rcrwar.25
+	title = rcrwar.25.t
+	desc = rcrwar.25.d
+	picture = GFX_report_event_kingdom_of_mercia
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.25.a
+		release_puppet = MER
+		MER = {
+			set_politics = {
+				ruling_party = neosocialist
+				elections_allowed = no
+			}
+			create_country_leader = {
+				name = "Sergey Gvozdichenko"
+				desc = "Sergey_Gvozdichenko_desc"
+				picture = "portrait_Sergey_Gvozdichenko.dds"
+				ideology = militarist_socialist
 			}
 		}
+	}
+	option = {
+		name = rcrwar.25.b
+		release_puppet = MER
+		### WRITE ABOUT TRANSFERS
+		MER = {
+			set_politics = {
+				ruling_party = neosocialist
+				elections_allowed = no
+			}
+			create_country_leader = {
+				name = "Sergey Gvozdichenko"
+				desc = "Sergey_Gvozdichenko_desc"
+				picture = "portrait_Sergey_Gvozdichenko.dds"
+				ideology = militarist_socialist
+			}
+		}
+	}
+	option = {
+		name = rcrwar.25.c
+		add_political_power = -50
+		add_stability = -0.05
+		add_war_support = -0.05
+	}
+}
+
+country_event = { ### DEATH TO UNITED FEDERATION!
+	id = rcrwar.26
+	title = rcrwar.26.t
+	desc = rcrwar.26.d
+	picture = GFX_report_event_red_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = rcrwar.26.a
 	}
 }
