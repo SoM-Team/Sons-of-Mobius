@@ -8,11 +8,47 @@ on_actions = {
 	on_annex = {
 		effect = {
 			add_to_variable = { ROOT.rings = FROM.rings }
-			subtract_from_variable = { FROm.rings = FROM.rings }
+			subtract_from_variable = { FROM.rings = FROM.rings }
 		}
 	}
 	on_startup = {
 		effect = {
+			set_variable = {
+				rings_growth = 0
+			}
+			set_variable = {
+				army_rings = 50
+			}
+			multiply_variable = {
+				army_rings = num_battalions
+			}
+			set_variable = {
+				energy_rings = 0
+			}
+			set_variable = {
+				puppet_rings = 10000
+			}
+			multiply_variable = {
+				puppet_rings = num_subjects
+			}
+			set_variable = {
+				industrial_multiplier = 200
+			}
+			set_variable = {
+				industrial_rings = industrial_multiplier
+			}
+			multiply_variable = {
+				industrial_rings = num_of_civilian_factories
+			}
+			set_variable = {
+				trade_rings = 0
+			}
+			set_variable = {
+				science_rings = 0
+			}
+			set_variable = {
+				unique_puppets_rings = 0
+			}
 			KOA = {
 				set_country_flag = { flag = leader_has_bio value = 1}
 				set_variable = {
@@ -23,6 +59,9 @@ on_actions = {
 				}
 				set_variable = {
 					gov_corruption_growth = 3.5
+				}
+				set_variable = {
+					rings = 75000
 				}
 			}
 			RCR = {
@@ -68,6 +107,9 @@ on_actions = {
 				}
 				set_variable = {
 					gov_corruption_growth = 1.5
+				}
+				set_variable = {
+					rings = 65000
 				}
 			}
 			EGG = { 
@@ -126,6 +168,9 @@ on_actions = {
 				set_variable = {
 					gov_corruption_growth = 0.5
 				}
+				set_variable = {
+					rings = 120000
+				}
 			}
 			UFA = {
 				set_variable = {
@@ -145,6 +190,9 @@ on_actions = {
 				}
 				set_variable = {
 					federal_unity = 75
+				}
+				set_variable = {
+					rings = 130000
 				}
 			}
 			PAT = {
@@ -173,6 +221,9 @@ on_actions = {
 				set_variable = {
 					gov_corruption_growth = 3.5
 				}
+				set_variable = {
+					rings = 85000
+				}
 			}
 			MER = {
 				set_variable = {
@@ -193,6 +244,113 @@ on_actions = {
 				set_variable = {
 					UFA_GUN_presence = 15
 				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = {
+						sci_month_block > 0
+					}
+				}
+				subtract_from_variable = {
+					sci_month_block = 1
+				}
+				
+			}
+			if = {
+				limit = {
+					check_variable = {
+						trade_month_block > 0
+					}
+				}
+				subtract_from_variable = {
+					trade_month_block = 1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						energy_month_block > 0
+					}
+				}
+				subtract_from_variable = {
+					energy_month_block = 1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						energy_month_block = 0
+					}
+				}
+				add_to_variable = {
+					energy_rings = 75000
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						trade_month_block_ind > 0
+					}
+				}
+				subtract_from_variable = {
+					trade_month_block_ind = 1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						nuke_block_ind > 0
+					}
+				}
+				subtract_from_variable = {
+					nuke_block_ind = 1
+				}
+			}
+			set_variable = {
+				industrial_rings = industrial_multiplier
+			}
+			multiply_variable = {
+				industrial_rings = num_of_civilian_factories
+			}
+			set_variable = {
+				army_rings = 50
+			}
+			multiply_variable = {
+				army_rings = num_battalions
+			}
+			add_to_variable = {
+				rings_growth = industrial_rings
+			}
+			add_to_variable = {
+				rings_growth = trade_rings
+			}
+			set_variable = {
+				puppet_rings = 10000
+			}
+			multiply_variable = {
+				puppet_rings = num_subjects
+			}
+			add_to_variable = {
+				puppet_rings = unique_puppets_rings
+			}
+			add_to_variable = {
+				rings_growth = puppet_rings
+			}
+			subtract_from_variable = {
+				rings_growth = army_rings
+			}
+			subtract_from_variable = {
+				rings_growth = energy_rings
+			}
+			subtract_from_variable = {
+				rings_growth = science_rings
+			}
+			subtract_from_variable = {
+				rings = rings_growth
 			}
 		}
 	}

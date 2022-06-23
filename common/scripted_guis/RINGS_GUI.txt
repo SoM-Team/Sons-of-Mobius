@@ -7,5 +7,919 @@ scripted_gui = {
 		visible = {
 			always = yes
 		}
+		effects = {
+			rings_value_bg_click = {
+				set_variable = {
+					ring_gui_visible = 1
+				}
+				set_variable = {
+					ring_screen_mode = 0
+				}
+			}
+			RING_close_button_click = {
+				set_variable = {
+					ring_gui_visible = 0
+				}
+			}
+		}
+    }
+	RINGS_BALANCE = {
+        context_type = player_context
+		window_name = "rings_window"
+		parent_window_token = top_bar
+
+		visible = {
+			check_variable = {
+				ring_gui_visible = 1
+			}
+		}
+		triggers = {
+			buttons_panel_visible = {
+				check_variable = {
+					ring_screen_mode = 0
+				}
+			}
+			buy_panel_visible = {
+				check_variable = {
+					ring_screen_mode = 1
+				}
+			}
+			nuke_panel_visible = {
+				check_variable = {
+					ring_screen_mode = 2
+				}
+			}
+			sell_panel_visible = {
+				check_variable = {
+					ring_screen_mode = 3
+				}
+			}
+			common_trade_visible = {
+				check_variable = {
+					ring_screen_mode > 0
+				}
+			}
+			RING_SCIENCE_click_enabled = {
+				check_variable = {
+					rings > 999999
+				}
+				check_variable = {
+					sci_month_block = 0
+				}
+			}
+			RING_TRADE_PLUS_click_enabled = {
+				check_variable = {
+					trade_month_block = 0
+				}
+			}
+			ALUMINIUM_MINUS_click_enabled = {
+				check_variable = {
+					alum_buy > 0
+				}
+			}
+			TUNGSTEN_MINUS_click_enabled = {
+				check_variable = {
+					tung_buy > 0
+				}
+			}
+			STEEL_MINUS_click_enabled = {
+				check_variable = {
+					steel_buy > 0
+				}
+			}
+			CHROMIUM_MINUS_click_enabled = {
+				check_variable = {
+					chrom_buy > 0
+				}
+			}
+			RUBBER_MINUS_click_enabled = {
+				check_variable = {
+					rub_buy > 0
+				}
+			}
+			BUTTON_CONFIRM_click_enabled = {
+				check_variable = {
+					rings_gain > rings_minus
+				}
+				NOT = {
+					check_variable = {
+						rings_gain = 0
+					}
+				}
+			}
+			RING_ENERGY_click_enabled = {
+				check_variable = {
+					rings > 149999
+				}
+				check_variable = {
+					energy_month_block = 0
+				}
+			}
+			RING_POLITICAL_click_enabled = {
+				check_variable = {
+					rings > 149999
+				}
+				check_variable = {
+					energy_political_block = 0
+				}
+			}
+			RING_TRADE_MINUS_click_enabled = {
+				check_variable = {
+					trade_month_block_ind = 0
+				}
+			}
+			BUY_CIV_MINUS_click_enabled = {
+				check_variable = {
+					civilian_to_sell > 0
+				}
+			}
+			SELL_MIL_MINUS_click_enabled = {
+				check_variable = {
+					arms_to_sell > 0
+				}
+			}
+			SELL_DOCK_MINUS_click_enabled = {
+				check_variable = {
+					docks_to_sell > 0
+				}
+			}
+			BUY_CIV_PLUS_click_enabled = {
+				check_variable = {
+					civilian_to_sell < num_of_civilian_factories_available_for_projects
+				}
+				check_variable = {
+					civilian_to_sell < 5
+				}
+			}
+			SELL_MIL_PLUS_click_enabled = {
+				check_variable = {
+					arms_to_sell < num_of_available_military_factories
+				}
+				check_variable = {
+					arms_to_sell < 5
+				}
+			}
+			SELL_DOCK_PLUS_click_enabled = {
+				check_variable = {
+					docks_to_sell < num_of_available_naval_factories
+				}
+				check_variable = {
+					docks_to_sell < 5
+				}
+			}
+			RING_NUKE_click_enabled = {
+				check_variable = {
+					nuke_block_ind = 0
+				}
+				has_tech = thermonuclear_fusion
+			}
+			BUY_NUKE_MINUS_click_enabled = {
+				check_variable = {
+					nukes_to_buy > 0
+				}
+			}
+			SELL_NUKE_MINUS_click_enabled = {
+				check_variable = {
+					nukes_to_sell > 0
+				}
+			}
+			SELL_NUKE_PLUS_click_enabled = {
+				check_variable = {
+					nukes_to_sell < mbr
+				}
+				check_variable = {
+					rings_gain < 2000000
+				}
+				check_variable = {
+					nukes_to_sell < num_of_nukes
+				}
+			}
+		}
+		effects = {
+			rings_value_bg_click = {
+				set_variable = {
+					ring_gui_visible = 1
+				}
+			}
+			RING_close_button_click = {
+				set_variable = {
+					ring_gui_visible = 0
+				}
+			}
+			RING_SCIENCE_click = {
+				add_research_slot = 1
+				set_variable = {
+					sci_month_block = 12
+				}
+			}
+			### Open resource buy window
+			RING_TRADE_PLUS_click = {
+				set_variable = {
+					ring_screen_mode = 1
+				}
+				set_variable = {
+					rings_gain = 0
+				}
+				set_variable = {
+					alum_buy = 0
+				}
+				set_variable = {
+					tung_buy = 0
+				}
+				set_variable = {
+					steel_buy = 0
+				}	
+				set_variable = {
+					chrom_buy = 0
+				}
+				set_variable = {
+					rub_buy = 0
+				}
+				set_variable = {
+					rings_minus = 0
+				}
+				subtract_from_variable = {
+					rings_minus = rings
+				}
+			}
+			### Close any trade window
+			RING_panel_close_button_click = {
+				set_variable = {
+					ring_screen_mode = 0
+				}
+				set_variable = {
+					rings_gain = 0
+				}
+				set_variable = {
+					alum_buy = 0
+				}
+				set_variable = {
+					tung_buy = 0
+				}
+				set_variable = {
+					steel_buy = 0
+				}	
+				set_variable = {
+					chrom_buy = 0
+				}
+				set_variable = {
+					rub_buy = 0
+				}
+				set_variable = {
+					nukes_to_sell = 0
+				}
+				set_variable = {
+					nukes_to_buy = 0
+				}
+				set_variable = {
+					civilian_to_sell = 0
+				}
+				set_variable = {
+					arms_to_sell = 0
+				}
+				set_variable = {
+					docks_to_sell = 0
+				}
+			}
+			ALUMINIUM_MINUS_click = {
+				subtract_from_variable = {
+					alum_buy = 10
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			ALUMINIUM_PLUS_click = {
+				add_to_variable = {
+					alum_buy = 10
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			TUNGSTEN_MINUS_click = {
+				subtract_from_variable = {
+					tung_buy = 10
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			TUNGSTEN_PLUS_click = {
+				add_to_variable = {
+					tung_buy = 10
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			STEEL_MINUS_click = {
+				subtract_from_variable = {
+					steel_buy = 10
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			STEEL_PLUS_click = {
+				add_to_variable = {
+					steel_buy = 10
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			CHROMIUM_MINUS_click = {
+				subtract_from_variable = {
+					chrom_buy = 10
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			CHROMIUM_PLUS_click = {
+				add_to_variable = {
+					chrom_buy = 10
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			RUBBER_MINUS_click = {
+				subtract_from_variable = {
+					rub_buy = 10
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			RUBBER_PLUS_click = {
+				add_to_variable = {
+					rub_buy = 10
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			### Confirm all the transactions
+			BUTTON_CONFIRM_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = {
+								ring_screen_mode = 2
+							}
+						}
+					}
+					add_to_variable = {
+						trade_rings = rings_gain
+					}
+				}
+				else = {
+					add_to_variable = {
+						rings = rings_gain
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							rub_buy > 0
+						}
+					}
+					random_owned_state = {
+						add_resource = {
+							type = aluminium
+							amount = alum_buy
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							tung_buy > 0
+						}
+					}
+					random_owned_state = {
+						add_resource = {
+							type = tungsten
+							amount = tung_buy
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							steel_buy > 0
+						}
+					}
+					random_owned_state = {
+						add_resource = {
+							type = steel
+							amount = tung_buy
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							chrom_buy > 0
+						}
+					}
+					random_owned_state = {
+						add_resource = {
+							type = chromium
+							amount = chrom_buy
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							rub_buy > 0
+						}
+					}
+					random_owned_state = {
+						add_resource = {
+							type = rubber
+							amount = rub_buy
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							civilian_to_sell > 0 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							industrial_complex > 0
+						}
+						remove_building = {
+							type = industrial_complex 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							civilian_to_sell > 1 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							industrial_complex > 0
+						}
+						remove_building = {
+							type = industrial_complex 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							civilian_to_sell > 2 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							industrial_complex > 0
+						}
+						remove_building = {
+							type = industrial_complex 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							civilian_to_sell > 3 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							industrial_complex > 0
+						}
+						remove_building = {
+							type = industrial_complex 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							civilian_to_sell > 4 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							industrial_complex > 0
+						}
+						remove_building = {
+							type = industrial_complex 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							arms_to_sell > 0 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							arms_factory > 0
+						}
+						remove_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							arms_to_sell > 1 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							arms_factory > 0
+						}
+						remove_building = {
+							type = arms_factory 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							arms_to_sell > 2 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							arms_factory > 0
+						}
+						remove_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							arms_to_sell > 3 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							arms_factory > 0
+						}
+						remove_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							arms_to_sell > 4 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							arms_factory > 0
+						}
+						remove_building = {
+							type = arms_factory 
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							docks_to_sell > 0 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							docks_to_sell > 1 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							docks_to_sell > 2 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							docks_to_sell > 3 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							docks_to_sell > 4 
+						}
+					}
+					random_owned_state = {
+						limit = {
+							dockyard > 0
+						}
+						remove_building = {
+							type = dockyard
+							level = 1
+						}
+					}
+				}
+				set_variable = {
+					ring_screen_mode = 0
+				}
+				if = {
+					limit = {
+						check_variable = {
+							ring_screen_mode = 1
+						}
+					}
+					set_variable = {
+						trade_month_block = 1
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = {
+							ring_screen_mode = 3
+						}
+					}
+					set_variable = {
+						trade_month_block_ind = 1
+					}
+				}
+				else = {
+					set_variable = {
+						nuke_block_ind = 3
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							nukes_to_sell > 0
+						}
+					}
+					subtract_from_variable = {
+						mbr = nukes_to_sell
+					}
+					set_temp_variable = {
+						minus_nuke = 0
+					}
+					subtract_from_temp_variable = {
+						minus_nuke = nukes_to_sell
+					}
+					add_nuclear_bombs = minus_nuke
+				}
+				if = {
+					limit = {
+						check_variable = {
+							nukes_to_buy > 0
+						}
+					}
+					add_to_variable = {
+						mbr = nukes_to_buy
+					}
+					add_nuclear_bombs = nukes_to_buy
+				}
+				set_variable = {
+					ring_screen_mode = 0
+				}
+				set_variable = {
+					rings_gain = 0
+				}
+				set_variable = {
+					alum_buy = 0
+				}
+				set_variable = {
+					tung_buy = 0
+				}
+				set_variable = {
+					steel_buy = 0
+				}	
+				set_variable = {
+					chrom_buy = 0
+				}
+				set_variable = {
+					rub_buy = 0
+				}
+				set_variable = {
+					nukes_to_sell = 0
+				}
+				set_variable = {
+					nukes_to_buy = 0
+				}
+				set_variable = {
+					civilian_to_sell = 0
+				}
+				set_variable = {
+					arms_to_sell = 0
+				}
+				set_variable = {
+					docks_to_sell = 0
+				}
+				
+			}
+			RING_ENERGY_click = {
+				set_variable = {
+					energy_month_block = 12
+				}
+				subtract_from_variable = {
+					rings = 150000
+				}
+				subtract_from_variable = {
+					energy_rings = 75000
+				}
+				add_timed_idea = {
+					idea = Infinite_fuel
+					days = 365
+				} 
+				add_fuel = 10000
+			}
+			RING_POLITICAL_click = {
+				set_variable = {
+					pol_month_block = 3
+				}
+				subtract_from_variable = {
+					rings = 150000
+				}
+				add_political_power = 125
+				add_stability = 0.1
+				add_war_support = 0.1
+				add_command_power = 100
+			}
+			### Open sell industrial stuff window
+			RING_TRADE_MINUS_click = {
+				set_variable = {
+					ring_screen_mode = 3
+				}
+				set_variable = {
+					civilian_to_sell = 0
+				}
+				set_variable = {
+					arms_to_sell = 0
+				}
+				set_variable = {
+					docks_to_sell = 0
+				}
+				set_variable = {
+					rings_gain = 0
+				}
+			}
+			BUY_CIV_MINUS_click = {
+				subtract_from_variable = {
+					civilian_to_sell = 1
+				}
+				subtract_from_variable = {
+					rings_gain = 10000
+				}
+			}
+			SELL_MIL_MINUS_click = {
+				subtract_from_variable = {
+					arms_to_sell = 1
+				}
+				subtract_from_variable = {
+					rings_gain = 15000
+				}
+			}
+			SELL_DOCK_MINUS_click = {
+				subtract_from_variable = {
+					docks_to_sell = 1
+				}
+				subtract_from_variable = {
+					rings_gain = 12500
+				}
+			}
+			BUY_CIV_PLUS_click = {
+				add_to_variable = {
+					civilian_to_sell = 1
+				}
+				add_to_variable = {
+					rings_gain = 10000
+				}
+			}
+			SELL_MIL_PLUS_click = {
+				add_to_variable = {
+					arms_to_sell = 1
+				}
+				add_to_variable = {
+					rings_gain = 15000
+				}
+			}
+			SELL_DOCK_PLUS_click = {
+				add_to_variable = {
+					docks_to_sell = 1
+				}
+				add_to_variable = {
+					rings_gain = 12500
+				}
+			}
+			### NUKE TRADING
+			RING_NUKE_click = {
+				set_variable = {
+					ring_screen_mode = 2
+				}
+				set_variable = {
+					nukes_to_sell = 0
+				}
+				set_variable = {
+					nukes_to_buy = 0
+				}
+				set_variable = {
+					rings_gain = 0
+				}
+			}
+			BUY_NUKE_MINUS_click = {
+				subtract_from_variable = {
+					nukes_to_buy = 1
+				}
+				add_to_variable = {
+					rings_gain = 250000
+				}
+			}
+			BUY_NUKE_PLUS_click = {
+				add_to_variable = {
+					nukes_to_buy = 1
+				}
+				subtract_from_variable = {
+					rings_gain = 250000
+				}
+			}
+			SELL_NUKE_MINUS_click = {
+				subtract_from_variable = {
+					nukes_to_sell = 1
+				}
+				subtract_from_variable = {
+					rings_gain = 200000
+				}
+			}
+			SELL_NUKE_PLUS_click = {
+				add_to_variable = {
+					nukes_to_sell = 1
+				}
+				add_to_variable = {
+					rings_gain = 200000
+				}
+			}
+		}
     }
 }

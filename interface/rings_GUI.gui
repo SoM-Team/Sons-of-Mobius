@@ -2,33 +2,522 @@ guiTypes = {
     containerWindowType = {
 		name = "rings_window"
 		position = { x=1043 y=5 }	
-
-		iconType ={
+		
+		buttonType ={
 			name ="rings_value_bg"
 			spriteType = "GFX_generic_box_smallest"
 			position = { x=0 y=0 }
 			Orientation = "UPPER_LEFT"
-			pdx_tooltip = RINGS_INFO
 		}
-
+		
 		iconType = {
 			name ="rings_icon"
 			spriteType = "GFX_rings"
-			position = { x= 4 y = 0 }
+			position = { x= 4 y = 3 }
 			Orientation = "UPPER_LEFT"
-			pdx_tooltip = RINGS_INFO
+			alwaystransparent = yes
 		}		
-
+		
 		instantTextBoxType = {
 			name ="rings_value"
-			position = { x= 22 y = 0 }
-			font = "century_gothic_24"
+			position = { x= 22 y = 4 }
+			font = "century_gothic_18"
 			text = COUNTRY_RINGS
 			format = center
 			maxWidth = 57
 			maxHeight = 24
 			fixedsize = yes
 			pdx_tooltip = RINGS_INFO
+			alwaystransparent = yes
+		}
+	}
+	containerWindowType = {
+		name = "rings_screen"
+		position = { x=1043 y= 35 }	
+		### MAIN
+		iconType ={
+			name ="RING_SCREEN"
+			spriteType = "GFX_Ring_Screen_Big"
+			position = { x=0 y=0 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		buttonType = {
+			name = "RING_close_button"
+			position = { x = 346 y = 0 }
+			spriteType ="GFX_closebutton"
+			shortcut = "ESCAPE"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		instantTextboxType = {
+			name = "RING_TITLE"
+			position = { x = 37 y = 39 }
+			font = "futura_22"
+			text = POWER_BALANCE
+			maxWidth = 320
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "NET_GROWTH"
+			position = { x = 70 y = 84 }
+			font = "futura_22"
+			text = GROWTH_RINGS
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "IND_GROWTH"
+			position = { x = 45 y = 167 }
+			font = "futura_22"
+			text = IND_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = INDGROWTH
+		}
+		instantTextboxType = {
+			name = "TRADE_GROWTH"
+			position = { x = 156 y = 167 }
+			font = "futura_22"
+			text = TRADE_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = TRADEGROWTH
+		}
+		instantTextboxType = {
+			name = "PUPPET_GROWTH"
+			position = { x = 258 y = 167 }
+			font = "futura_22"
+			text = PUPPET_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = PUPPETGROWTH
+		}
+		instantTextboxType = {
+			name = "ARMY_GROWTH"
+			position = { x = 45 y = 247 }
+			font = "futura_22"
+			text = ARMY_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = ARMYGROWTH
+		}
+		instantTextboxType = {
+			name = "SCI_GROWTH"
+			position = { x = 156 y = 247 }
+			font = "futura_22"
+			text = SCI_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = SCIENCEGROWTH
+		}
+		instantTextboxType = {
+			name = "ENERGY_GROWTH"
+			position = { x = 258 y = 247 }
+			font = "futura_22"
+			text = ENERGY_RINGS
+			format = left
+			alwaystransparent = yes
+			pdx_tooltip = ENERGYGROWTH
+		}
+		### BUTTONS
+		containerWindowType = {
+			name = "buttons_panel"
+			position = { x=0 y= 0 }
+
+			buttonType = {
+				name = "RING_SCIENCE"
+				position = { x = 38 y = 313 }
+				spriteType ="GFX_Ring_science_button"
+				clicksound = click_menu
+				pdx_tooltip = BUY_SLOT
+			}
+			buttonType = {
+				name = "RING_TRADE_PLUS"
+				position = { x = 145 y = 313 }
+				spriteType ="GFX_Ring_trade_button"
+				clicksound = click_menu
+				pdx_tooltip = BUY_RINGS
+			}
+			buttonType = {
+				name = "RING_ENERGY"
+				position = { x = 255 y = 313 }
+				spriteType ="GFX_Ring_energy_button"
+				clicksound = click_menu
+				pdx_tooltip = BUY_ENERGY
+			}
+			buttonType = {
+				name = "RING_POLITICAL"
+				position = { x = 38 y = 421 }
+				spriteType ="GFX_Ring_politic_button"
+				clicksound = click_menu
+				pdx_tooltip = BUY_POLS
+			}
+			buttonType = {
+				name = "RING_TRADE_MINUS"
+				position = { x = 145 y = 419 }
+				spriteType ="GFX_Ring_trade_minus_button"
+				clicksound = click_menu
+				pdx_tooltip = RINGSELL
+			}
+			buttonType = {
+				name = "RING_NUKE"
+				position = { x = 255 y = 417 }
+				spriteType ="GFX_Ring_nukes_button"
+				clicksound = click_menu
+				pdx_tooltip = NUKEBUY
+			}
+			instantTextboxType = {
+				name = "SCI_PRICE"
+				position = { x = 64 y = 390 }
+				font = "futura_20"
+				text = PRICE_SCI
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "BUY_RINGS"
+				position = { x = 171 y = 390 }
+				font = "futura_20"
+				text = RINGS_BUY
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "ENERGY_BOOST"
+				position = { x = 281 y = 390 }
+				font = "futura_20"
+				text = BUY_BOOST
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "POL_PRICE"
+				position = { x = 64 y = 499 }
+				font = "futura_20"
+				text = PRICE_POL
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "SELL_RINGS"
+				position = { x = 171 y = 499 }
+				font = "futura_20"
+				text = RINGS_SELL
+				format = left
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "NUKE_BUY"
+				position = { x = 281 y = 499 }
+				font = "futura_20"
+				text = BUY_NUCLEAR
+				format = left
+				alwaystransparent = yes
+			}
+		}	
+		### TRADE RESOURCES
+		containerWindowType = {
+			name = "buy_panel"
+			position = { x=0 y= 0 }
+
+			iconType ={
+				name ="RESOURCE_BUY"
+				spriteType = "GFX_resource_buy"
+				position = { x=56 y=300 }
+				Orientation = "UPPER_LEFT"
+			}
+			buttonType = {
+				name = "ALUMINIUM_MINUS"
+				position = { x = 47 y = 368 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "TUNGSTEN_MINUS"
+				position = { x = 153 y = 368 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "STEEL_MINUS"
+				position = { x = 259 y = 368 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "CHROMIUM_MINUS"
+				position = { x = 86 y = 464 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "RUBBER_MINUS"
+				position = { x = 218 y = 464 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "ALUMINIUM_PLUS"
+				position = { x = 121 y = 361 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "TUNGSTEN_PLUS"
+				position = { x = 227 y = 361 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "STEEL_PLUS"
+				position = { x = 333 y = 361 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "CHROMIUM_PLUS"
+				position = { x = 160 y = 457 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "RUBBER_PLUS"
+				position = { x = 292 y = 457 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			instantTextboxType = {
+				name = "QUANTITY_ALUM"
+				position = { x = 71 y = 356 }
+				font = "futura_20"
+				text = ALUM_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_TUNG"
+				position = { x = 177 y = 356 }
+				font = "futura_20"
+				text = TUNG_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_STEEL"
+				position = { x = 283 y = 356 }
+				font = "futura_20"
+				text = STEEL_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_CHROM"
+				position = { x = 110 y = 452 }
+				font = "futura_20"
+				text = CHROM_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_RUB"
+				position = { x = 241 y = 452 }
+				font = "futura_20"
+				text = RUB_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+		}
+		### COMMON FOR TRADING
+		containerWindowType = {
+			name = "common_trade"
+			position = { x=0 y= 0 }
+			iconType ={
+				name ="SMALL_RING"
+				spriteType = "GFX_small_ring"
+				position = { x=51 y=499 }
+				Orientation = "UPPER_LEFT"
+			}
+			buttonType = {
+				name = "BUTTON_CONFIRM"
+				position = { x = 166 y = 487 }
+				spriteType ="GFX_button_186x37_blue"
+				clicksound = click_ok
+				pdx_tooltip = SUBMIT_TT
+				buttonText = CONFIRM
+				buttonFont = "futura_22"
+			}
+			instantTextboxType = {
+				name = "COST_GAIN_RINGS"
+				position = { x = 83 y = 478 }
+				font = "futura_20"
+				text = RINGS_COST
+				format = left
+				alwaystransparent = yes
+			}
+			buttonType = {
+				name = "RING_panel_close_button"
+				position = { x = 322 y = 301 }
+				spriteType ="GFX_closebutton"
+				shortcut = "ESCAPE"
+				clicksound = click_close
+				pdx_tooltip = "CLOSE"
+			}
+		}
+		### NUCLEAR TRADE
+		containerWindowType = {
+			name = "nuke_panel"
+			position = { x=0 y= 0 }
+
+			iconType ={
+				name ="NUCLEAR_TRADING"
+				spriteType = "GFX_nukes_trade"
+				position = { x=51 y=335 }
+				Orientation = "UPPER_LEFT"
+			}
+			buttonType = {
+				name = "BUY_NUKE_MINUS"
+				position = { x = 50 y = 416 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "SELL_NUKE_MINUS"
+				position = { x = 246 y = 416 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "BUY_NUKE_PLUS"
+				position = { x = 124 y = 409 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "SELL_NUKE_PLUS"
+				position = { x = 320 y = 409 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			instantTextboxType = {
+				name = "QUANTITY_NUKE1"
+				position = { x = 74 y = 404 }
+				font = "futura_20"
+				text = NUK1_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_NUKE2"
+				position = { x = 270 y = 404 }
+				font = "futura_20"
+				text = NUK2_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+		}
+		### INDUSTRIAL TRADE
+		containerWindowType = {
+			name = "sell_panel"
+			position = { x=0 y= 0 } 
+
+			iconType ={
+				name ="INDUSTRIAL_TRADING"
+				spriteType = "GFX_rings_sell"
+				position = { x=75 y=331 }
+				Orientation = "UPPER_LEFT"
+			}
+			buttonType = {
+				name = "BUY_CIV_MINUS"
+				position = { x = 52 y = 403 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "SELL_MIL_MINUS"
+				position = { x = 250 y = 403 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "SELL_DOCK_MINUS"
+				position = { x = 149 y = 456 }
+				spriteType ="GFX_smaller_minus"
+				clicksound = click_menu
+				pdx_tooltip = DOWN_10
+			}
+			buttonType = {
+				name = "BUY_CIV_PLUS"
+				position = { x = 126 y = 396 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "SELL_MIL_PLUS"
+				position = { x = 324 y = 396 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			buttonType = {
+				name = "SELL_DOCK_PLUS"
+				position = { x = 223 y = 449 }
+				spriteType ="GFX_smaller_plus"
+				clicksound = click_menu
+				pdx_tooltip = UP_10
+			}
+			instantTextboxType = {
+				name = "QUANTITY_CIV"
+				position = { x = 76 y = 391 }
+				font = "futura_20"
+				text = CIV_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_MIL"
+				position = { x = 76 y = 274 }
+				font = "futura_20"
+				text = MIL_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "QUANTITY_DOCK"
+				position = { x = 173 y = 444 }
+				font = "futura_20"
+				text = DOCK_SELECT
+				format = center
+				maxWidth = 40
+				alwaystransparent = yes
+			}
 		}
 	}
 }
