@@ -1810,6 +1810,12 @@ country_event = {
 				target = GDD
 				transfer_troops = yes
 			}
+			EGG = {
+				# TODO: Add country event with two choices
+				# 1) Declare war to KOA
+				# 2) Do nothing (-25 stability, -100 pp)
+				# AI will do 50/50
+			}
 		}
 	}
 	option = {
@@ -1817,6 +1823,7 @@ country_event = {
 		GDD = {
 			retire_ideology_leader = technocratic_despotist
 			set_country_leader_ideology = anarchist
+			# TODO: Add bad country leader with nerfs
 		}
 	}
 }
@@ -1902,5 +1909,699 @@ country_event = {
 
 	option = {
 		name = koa.323.a
+	}
+}
+
+country_event = {
+	# Kungarian Waltz
+	id = koa.324
+	title = koa.324.t
+	desc = koa.324.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.324.a
+	}
+}
+
+country_event = {
+	# Cloudy, isn't it?
+	id = koa.325
+	title = koa.325.t
+	desc = koa.325.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		# Financial overcome
+		name = koa.325.a
+		set_temp_variable = { studiopolis_success = random }
+		if = {
+			limit = {
+				check_variable = { studiopolis_success > 0.5 }
+			}
+			set_country_flag = studiopolis_success
+			clr_country_flag = studiopolis_failed
+			puppet = STD
+			country_event = koa.326
+		}
+		else = {
+			set_country_flag = studiopolis_failed
+			country_event = koa.327
+		}
+	}
+	option = {
+		# Sabotage
+		name = koa.325.b
+		set_temp_variable = { studiopolis_success = random }
+		if = {
+			limit = {
+				check_variable = { studiopolis_success > 0.5 }
+			}
+			set_country_flag = studiopolis_success
+			clr_country_flag = studiopolis_failed
+			puppet = STD
+			country_event = koa.328
+		}
+		else = {
+			set_country_flag = studiopolis_failed
+			country_event = koa.329
+		}
+	}
+}
+
+country_event = {
+	# Stonks! Succeed to puppet Studiopolis
+	id = koa.326
+	title = koa.326.t
+	desc = koa.326.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.326.a
+	}
+}
+
+country_event = {
+	# Stinks. Failed to puppet Studiopolis
+	id = koa.327
+	title = koa.327.t
+	desc = koa.327.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.327.a
+	}
+}
+
+contry_event = {
+	# Burned 'em! Succeed to paralyze Studiopolis management
+	id = koa.328
+	title = koa.328.d
+	desc = koa.328.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.328.a
+	}
+}
+
+country_event = {
+	# Blackmailed. Failed to paralyze Studiopolis management
+	id = koa.329
+	title = koa.329.t
+	desc = koa.329.d
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.329.a
+	}
+}
+
+country_event = {
+	# Persuaded Otto von Stangen to rejoin the Freedom Accord
+	id = koa.330
+	title = koa.330.t
+	desc = koa.330
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.330.a
+	}
+}
+
+country_event = {
+	# Toppled Eliza von Stangen for being a TechDesp tyrant
+	id = koa.331
+	title = koa.331.t
+	desc = koa.331
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.331.a
+	}
+}
+
+country_event = {
+	# Richard Acorn develops economic cooperation
+	id = koa.332
+	title = koa.332.t
+	desc = koa.332
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.332.a
+	}
+}
+
+country_event = {
+	# Republicans being pressured 
+	id = koa.333
+	title = koa.333.t
+	desc = koa.333
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.333.a
+	}
+}
+
+country_event = {
+	# The fate of Socialist regimes will be decided by Rethenian vector
+	id = koa.334
+	title = koa.334.t
+	desc = koa.334
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.334.a
+	}
+}
+
+country_event = {
+	# Konrad Harrer can only be overthrown by war
+	id = koa.335
+	title = koa.335.t
+	desc = koa.335
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.335.a
+	}
+}
+
+country_event = {
+	# Presidential Call
+	id = koa.336
+	title = koa.336.t
+	desc = koa.336.d
+
+	# That's questionable
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.336.a
+	}
+}
+
+country_event = {
+	# Load the G.U.N.
+	id = koa.337
+	title = koa.337.t
+	desc = koa.337.d
+
+	# That's questionable
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.337.a
+	}
+}
+
+country_event = {
+	# Who's the Ultimate?
+	id = koa.338
+	title = koa.338.t
+	desc = koa.338.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.338.a
+	}
+}
+
+country_event = {
+	# Heil, Kaiser, dir!
+	id = koa.339
+	title = koa.339.t
+	desc = koa.339.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.339.a
+	}
+}
+
+country_event = {
+	# The Rogue Knight
+	id = koa.340
+	title = koa.340.t
+	desc = koa.340.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.340.a
+	}
+}
+
+country_event = {
+	# Wenn die Soldaten
+	id = koa.341
+	title = koa.341.t
+	desc = koa.341.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.341.a
+	}
+}
+
+country_event = {
+	# Ich will hoch fliegen
+	id = koa.342
+	title = koa.342.t
+	desc = koa.342.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# Agree
+		name = koa.342.a
+		set_temp_variable = { bombing_chance = random }
+		if = {
+			limit = {
+				check_variable = { bombing_chance > 0.4 }
+			}
+			country_event = koa.343
+		}
+		else = {
+			country_event = koa.344
+		}
+	}
+	option = {
+		# Decline
+		name = koa.342.b
+	}
+}
+
+country_event = {
+	# Manfred von Vogelberg succeed
+	id = koa.343
+	title = koa.343.t
+	desc = koa.343.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.343.a
+	}
+}
+
+country_event = {
+	# Manfred von Vogelberg crashed to death
+	id = koa.344
+	title = koa.344.t
+	desc = koa.344.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.344.a
+	}
+}
+
+country_event = {
+	# Nach Efrika
+	id = koa.345
+	title = koa.345.t
+	desc = koa.345.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	# TODO: Add detailed options
+
+	option = {
+		# Remain Status Quo
+		name = koa.345.a
+	}
+	option = {
+		# Integrate colonies into Bharatsha
+		name = koa.345.b
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = SWA
+					is_core_of = BHA
+				}
+			}
+			BHA = {
+				transfer_state = PREV
+			}
+		}
+	}
+	option = {
+		# Establish direct Acorn control
+		# over them
+		name = koa.345.c
+		every_state = {
+			limit = {
+				AND = {
+					is_owned_by = SWA
+					is_core_of = BHA
+				}
+			}
+			KOA = {
+				transfer_state = PREV
+			}
+		}
+	}
+}
+
+country_event = {
+	# Der Siegeskranz
+	id = koa.346
+	title = koa.346.t
+	desc = koa.346.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.346.a
+	}
+}
+
+country_event = {
+	# To Distant Shores
+	id = koa.347
+	title = koa.347.t
+	desc = koa.347.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.347.a
+	}
+}
+
+country_event = {
+	# Our Jewel
+	id = koa.348
+	title = koa.348.t
+	desc = koa.348.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.348.a
+	}
+}
+
+country_event = {
+	# Broken Jewel
+	id = koa.349
+	title = koa.349.t
+	desc = koa.349.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.349.a
+	}
+}
+
+country_event = {
+	# Land of Hope
+	id = koa.350
+	title = koa.350.t
+	desc = koa.350.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.350.a
+	}
+}
+
+country_event = {
+	# Land of Hate
+	id = koa.351
+	title = koa.351.t
+	desc = koa.351.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.351.a
+	}
+}
+
+country_event = {
+	# You Are the Trouble
+	id = koa.352
+	title = koa.352.t
+	desc = koa.352.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.352.a
+	}
+}
+
+country_event = {
+	# Eat the Traitor
+	id = koa.353
+	title = koa.353.t
+	desc = koa.353.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.353.a
+	}
+}
+
+country_event = {
+	# The Lotus King
+	id = koa.354
+	title = koa.354.t
+	desc = koa.354.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.354.a
+	}
+}
+
+country_event = {
+	# The Exhibition
+	id = koa.355
+	title = koa.355.t
+	desc = koa.355.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.355.a
+	}
+}
+
+country_event = {
+	# Awkward Letter
+	id = koa.356
+	title = koa.356.t
+	desc = koa.356.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.356.a
+	}
+}
+
+country_event = {
+	# Echo of the Great War
+	id = koa.357
+	title = koa.357.t
+	desc = koa.357.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.357.a
+		add_opinion_modifier = {
+			target = UFA
+			modifier = KOA_Historical_Hostility
+		}
+		UFA = {
+			add_opinion_modifier = {
+				target = KOA
+				modifier = KOA_Historical_Hostility
+			}
+		}
+	}
+}
+
+country_event = {
+	# Walking the Human
+	id = koa.358
+	title = koa.358.t
+	desc = koa.358.d
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		# Provoke UFA to declare a war
+		name = koa.358.a
+		UFA = {
+			country_event = ufa.351
+		}
+	}
+
+	option = {
+		# Decare a war
+		name = koa.358.b
+		declare_war_on = {
+			target = UFA
+			type = annex_everything
+		}
+		news_event = shared.17
+		country_event = super.100
+	}
+}
+
+country_event = {
+	# The Longest Hour
+	id = koa.359
+	title = koa.359.t
+	desc = koa.359.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# Attack
+		name = koa.359.a
+		declare_war_on = {
+			target = UFA
+			type = annex_everything
+		}
+		news_event = shared.17
+		country_event = super.100
+	}
+	option = {
+		# Postpone a war
+		name = koa.359.b
+		create_wargoal = {
+			target = UFA
+			type = annex_everything
+		}
+	}
+}
+
+country_event = {
+	# Get Down to Business
+	id = koa.360
+	title = koa.360.t
+	desc = koa.360.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.360.a
+	}
+}
+
+country_event = {
+	# The Presidental Rejection
+	id = koa.361
+	title = koa.361.t
+	desc = koa.361.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.361.a
 	}
 }

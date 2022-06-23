@@ -114,6 +114,7 @@ KOA_The_Guerilla_Army_Decisions = {
 
 	KOA_Freedom_Fighters_Support = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
 			EGG = {
 				add_to_variable = { 
 					ff_activity = 25
@@ -121,11 +122,15 @@ KOA_The_Guerilla_Army_Decisions = {
 			}
 			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
 		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
 		days_re_enable = 5
 	}
 
 	KOA_Sabotage_The_Eggmans_Factories = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Arms_Factory_Tooltip
 			EGG = {
 				random_owned_state = {
 					damage_building = {
@@ -138,11 +143,15 @@ KOA_The_Guerilla_Army_Decisions = {
 				}	
 			}
 		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
 		days_re_enable = 60
 	}
 
 	KOA_Sabotage_The_Eggmans_Infrastructure = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Infrastructure_Tooltip
 			EGG = {
 				random_owned_state = {
 					damage_building = {
@@ -155,11 +164,15 @@ KOA_The_Guerilla_Army_Decisions = {
 				}	
 			}
 		}
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
 		days_re_enable = 60
 	}
 
 	KOA_Cyber_Attack_On_Processing_Plants = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Processing_Plants_Tooltip
 			add_command_power = -25
 			EGG = {
 				add_timed_idea = {
@@ -168,11 +181,19 @@ KOA_The_Guerilla_Army_Decisions = {
 				}
 			}
 		}
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
+		}
 		days_re_enable = 120
 	}
 
 	KOA_Cyber_Attack_On_HQ = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_HQ_Tooltip
 			add_command_power = -25
 			EGG = {
 				add_timed_idea = {
@@ -182,11 +203,19 @@ KOA_The_Guerilla_Army_Decisions = {
 			}
 		}
 
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
+		}
 		days_re_enable = 120
 	}
 
 	KOA_Cyber_Attack_On_Civilian_Factories = {
 		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Civilian_Factories_Tooltip
 			add_command_power = -25
 			EGG = {
 				Steal_Rings_Random = yes
@@ -195,6 +224,13 @@ KOA_The_Guerilla_Army_Decisions = {
 					days = 90
 				}
 			}
+		}
+		custom_cost_text = cost_cc_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		visible = {
+			has_completed_focus = KOA_Short_Circuit
 		}
 	}
 }
@@ -312,6 +348,9 @@ KOA_Assist_in_Deroboticization_Decisions = {
 		cost = 50
 		visible = {
 			check_variable = { CRI.much_obliged = -1 }
+			CRI = {
+				check_variable = { legacy_of_deroboticization_level > 0 }
+			}
 		}
 		complete_effect = {
 			CRI = {
@@ -325,6 +364,7 @@ KOA_Assist_in_Deroboticization_Decisions = {
 		cost = 50
 		visible = {
 			check_variable = { PSR.much_obliged = -1 }
+			check_variable = { PSR.legacy_of_deroboticization_level > 0 }
 		}
 		complete_effect = {
 			PSR = {
@@ -386,6 +426,381 @@ KOA_Assist_in_Deroboticization_Decisions = {
 	}
 }
 
+KOA_Pacify_the_Region_Decisions = {
+
+	KOA_Invite_Psarska = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			PSR = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+
+	KOA_Invite_Kungaria = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			KUN = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+
+	KOA_Invite_Umkiria = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			UMK = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+
+	KOA_Invite_Pirenia = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			PIR = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+
+	KOA_Invite_Criardie = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			CRI = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+
+	KOA_Invite_Olppalon = {
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			OLP = {
+				Invite_Into_Faction = yes
+			}
+		}
+	}
+}
+
+KOA_Infiltrate_Studiopolis_Decisions = {
+	
+	KOA_Studiopolis_Try_Again = {
+		# Try to infiltrate Studiopolis again
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.325
+		}
+	}
+}
+
+KOA_Swartzland_Brothers_Decisions = {
+
+	KOA_Persuade_Otto = {
+		# Otto von Stangen can be persuaded
+		# to rejoin the Freedom Accord
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.330
+		}
+	}
+
+	KOA_Topple_Eliza = {
+		# Eliza von Stangen can be stoppled
+		# as a TechDesp tyrant
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.331
+		}
+	}
+
+	KOA_Economic_Cooperation = {
+		# Richard Acorn can develop
+		# economic cooperation
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.332
+		}
+	}
+
+	KOA_Destroy_Republicans = {
+		# Republicans being pressured for
+		# military access
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.333
+		}
+	}
+
+	KOA_Socialists_Destiny = {
+		# The fate of Socialist regimes
+		# will be decided by Rethenian
+		# vector
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.334
+		}
+	}
+
+	KOA_Ovethrow_Konrad = {
+		# Konrad Harrer can be overthrown by war
+		fire_only_once = yes
+		cost = 100
+		complete_effect = {
+			country_event = koa.335
+		}
+	}
+}
+
+KOA_Bills_on_Bills_Decisions = {
+	
+	KOA_Pay_Our_Debts = {
+		# Pay debts to UFA
+		fire_only_once = yes
+		cost = 100
+		days_remove = 365
+		complete_effect = {
+			UFA = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = UFA_KOA_Paid_Debts
+				}
+				remove_ideas = UFA_Federation_Debts_Loom
+			}
+			remove_ideas = KOA_Federation_Debts_Loom
+		}
+	}
+
+}
+
+KOA_Subvert_DELS = {
+	KOA_Nerf_Central_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_1_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Northamer_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_2_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Great_Desert_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_3_Submission = 20
+			}
+		}
+	}
+
+	KOA_Nerf_Desert_Kingdom_DEL = {
+		fire_only_once = no
+		cost = 100
+		days_remove = 7
+		days_re_enable = 45
+		complete_effect = {
+			subtract_from_variable = {
+				EGG.DEL_4_Submission = 20
+			}
+		}
+	}
+}
+
+KOA_Resistance_in_EGG = {
+
+	KOA_Snatch = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+				is_capital = NO
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -75
+			}
+		}
+		remove_effect = {
+			FROM = {
+				remove_core_of = owner
+			}
+		}
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		custom_cost_text = cost_cc_75
+		days_remove = 7
+		days_re_enable = 50
+		icon = GFX_icon_unknown
+	}
+
+	KOA_Destroy_Arms_Factories = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			FROM = {
+				owner = {
+					add_to_variable = {
+						ff_activity = 15
+					}
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 2
+				}
+			}
+		}
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		icon = GFX_icon_unknown
+	}
+
+	KOA_Destroy_Infrastructure = {
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = EGG
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			FROM = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			add_to_variable = {
+				EGG.ff_activity = 15
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+
+	KOA_Release_Robotized_Mobians = {
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		visible = {
+			check_variable = {
+				EGG.ff_activity > 75
+			}
+		}
+		custom_cost_text = cost_cc_50
+		days_remove = 7
+		days_re_enable = 50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		remove_effect = {
+			EGG = {
+				add_equipment_to_stockpile = {
+					type = robians_equipment_1
+					amount = -5000
+				}
+			}
+			KOA = {
+				add_manpower = 5000
+			}
+			add_to_variable = {
+				EGG.ff_activity = 15
+			}
+			# TODO: Add custom tooltip
+		}
+	}
+
+	KOA_Increase_Guerilla_Activity = {
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 74
+		}
+		visible = {
+			check_variable = {
+				EGG.ff_activity > 75
+			}
+		}
+		custom_cost_text = cost_cc_75
+		days_remove = 21
+		days_re_enable = 90
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -75
+			}
+		}
+		remove_effect = {
+			EGG = {
+				add_to_variable = {
+					ff_activity = 15
+				}
+			}
+			FROM = {
+				remove_core_of = EGG
+			}
+		}
+	}
+}
+
 KOA_Stop_The_Rev = {
 
 	revolution_looms = {
@@ -393,7 +808,8 @@ KOA_Stop_The_Rev = {
 	    icon = GFX_decision_kill_delegate
 		
 		available = {
-			AND = {
+			custom_trigger_tooltip = {
+				tooltip = pp_Req
 				has_country_flag = great_compromise
 				check_variable = {
 					var = union_power
@@ -415,8 +831,11 @@ KOA_Stop_The_Rev = {
 					value = 50
 					compare = greater_than
 				}
-				custom_effect_tooltip = pp_Req
 			}
+		}
+
+		activation = {
+			has_country_flag = amadeus_revolt
 		}
 		
 		priority = 10
