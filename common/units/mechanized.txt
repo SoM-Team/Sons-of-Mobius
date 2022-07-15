@@ -10,17 +10,17 @@ sub_units = {
 		type = {
 			motorized
 		}
-		
+
 		group = mobile
-		
+
 		categories = {
 			category_front_line
 			category_all_infantry
 			category_army
 		}
-		
+
 		combat_width = 2
-		
+
 		#Size Definitions
 		max_strength = 25
 		max_organisation = 60
@@ -32,10 +32,10 @@ sub_units = {
 		suppression = 2.2
 		weight = 0.75
 		supply_consumption = 0.11
-	
+
 		# this is what moves us and sets speed
 		transport = motorized_equipment
-	
+
 		need = {
 			infantry_equipment = 100
 			motorized_equipment = 50
@@ -79,9 +79,9 @@ sub_units = {
 		type = {
 			mechanized
 		}
-		
+
 		group = mobile
-		
+
 		categories = {
 			category_front_line
 			category_all_infantry
@@ -93,7 +93,7 @@ sub_units = {
 		#Offensive Abilities
 		#soft_attack = 0.1
 		#hard_attack = 4.0
-		
+
 		#Size Definitions
 		max_strength = 15
 		max_organisation = 25
@@ -104,9 +104,9 @@ sub_units = {
 		training_time = 120
 		suppression = 2.5
 		weight = 1
-		
+
 		supply_consumption = 0.18
-		
+
 		# needed since we give so much bonus to infantry even with no mech equipment
 		essential = {
 			infantry_equipment
@@ -160,9 +160,9 @@ sub_units = {
 		type = {
 			mechanized
 		}
-		
+
 		group = mobile
-		
+
 		categories = {
 			category_front_line
 			category_all_infantry
@@ -174,7 +174,7 @@ sub_units = {
 		#Offensive Abilities
 		#soft_attack = 0.1
 		#hard_attack = 4.0
-		
+
 		#Size Definitions
 		max_strength = 30
 		max_organisation = 60
@@ -185,9 +185,9 @@ sub_units = {
 		training_time = 120
 		suppression = 2.5
 		weight = 0.75
-		
+
 		supply_consumption = 0.10
-		
+
 		# needed since we give so much bonus to infantry even with no mech equipment
 		essential = {
 			infantry_equipment
@@ -241,9 +241,9 @@ sub_units = {
 		sprite = mechanized
 		map_icon_category = infantry
 		special_forces = yes
-		mountaineers = yes
-		marines = yes
 
+		can_be_parachuted = yes
+		
 		priority = 599
 		ai_priority = 200
 		active = yes
@@ -251,9 +251,9 @@ sub_units = {
 		type = {
 			mechanized
 		}
-		
+
 		group = mobile
-		
+
 		categories = {
 			category_front_line
 			category_all_infantry
@@ -267,7 +267,7 @@ sub_units = {
 		#soft_attack = 0.1
 		#hard_attack = 4.0
 		breakthrough = 0.3
-		
+
 		#Size Definitions
 		max_strength = 25
 		max_organisation = 70
@@ -278,9 +278,9 @@ sub_units = {
 		training_time = 180
 		suppression = 1
 		weight = 1
-		
+
 		supply_consumption = 0.09
-		
+
 		# needed since we give so much bonus to infantry even with no mech equipment
 		essential = {
 			infantry_equipment
@@ -291,7 +291,7 @@ sub_units = {
 		transport = bmd_mechanized_equipment
 
 		need = {
-			bmd_mechanized_equipment = 50
+			bmd_mechanized_equipment = 48
 			infantry_equipment = 100
 		}
 
@@ -299,15 +299,15 @@ sub_units = {
 			attack = -0.05
 		}
 		mountain = {
-			attack = 0.25
-			defence = 0.1
-			movement = 0.2
+			attack = 0.15
+			defence = 0.05
+			movement = 0.1
 		}
 		jungle = {
 			attack = -0.10
 		}
 		marsh = {
-			attack = 0.15
+			attack = 0.10
 			movement = 0.1
 		}
 		hills = {
@@ -320,11 +320,100 @@ sub_units = {
 			movement = 0.05
 		}
 		river = {
-			attack = 0.4
+			attack = 0.3
 			movement = 0.15
 		}
 		amphibious = {
-			attack = 0.7
+			attack = 0.5
+		}
+
+		#hardness = 0.2 moving these buffs to unit stats
+	}
+
+	airborne_artillery = {
+		sprite = anti_tank
+		map_icon_category = infantry
+		special_forces = yes
+
+		can_be_parachuted = yes
+		
+		priority = 599
+		ai_priority = 200
+		active = yes
+
+		type = {
+			mechanized
+		}
+
+		group = mobile
+
+		categories = {
+			category_front_line
+			category_line_artillery
+			category_army
+			category_special_forces
+		}
+
+		combat_width = 2
+
+		#Offensive Abilities
+		#soft_attack = 0.1
+		#hard_attack = 4.0
+		breakthrough = 0.3
+
+		#Size Definitions
+		max_strength = 15
+		max_organisation = 30
+		default_morale = 0.4
+		manpower = 500
+
+		#Misc Abilities
+		training_time = 180
+		suppression = 1
+		weight = 1
+
+		supply_consumption = 0.09
+
+		# needed since we give so much bonus to infantry even with no mech equipment
+		essential = {
+			airborne_artillery_equipment
+		}
+
+		# this is what moves us and sets speed
+		transport = airborne_artillery_equipment
+
+		need = {
+			airborne_artillery_equipment = 36
+		}
+
+		forest = {
+			attack = -0.05
+		}
+		mountain = {
+			movement = -0.15
+		}
+		jungle = {
+			attack = -0.10
+			movement = -0.4
+		}
+		marsh = {
+			movement = 0.1
+		}
+		hills = {
+			movement = 0.10
+			attack = 0.15
+			defence = 0.05
+		}
+		urban = {
+			defence = 0.05
+			movement = 0.05
+		}
+		river = {
+			attack = 0.3
+			movement = 0.15
+		}
+		amphibious = {
+			attack = 0.66
 		}
 
 		#hardness = 0.2 moving these buffs to unit stats

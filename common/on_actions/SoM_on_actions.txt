@@ -1,4 +1,16 @@
 on_actions = {
+	on_capitulation = {
+		effect = {
+			add_to_variable = { FROM.rings = ROOT.rings }
+			subtract_from_variable = { ROOT.rings = ROOT.rings }
+		}
+	}
+	on_annex = {
+		effect = {
+			add_to_variable = { ROOT.rings = FROM.rings }
+			subtract_from_variable = { FROm.rings = FROM.rings }
+		}
+	}
 	on_startup = {
 		effect = {
 			KOA = {
@@ -646,15 +658,15 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					has_government = communism
+					has_government = katzerism
 				}
 				set_politics = {
-					ruling_party = neosocialist
+					ruling_party = neosocialism
 				}
 			}
 			else = {
 				set_politics = {
-					ruling_party = communism
+					ruling_party = katzerism
 				}
 			}	
 		}
