@@ -150,6 +150,136 @@ country_event = {
 }
 
 country_event = {
+    id = inf.200
+    title = inf.200.t
+    desc = inf.200.d
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = inf.200.a
+
+		set_variable = { chaos_limit = 199 }
+		set_variable = { INF_chaos_increment = 3 }
+    }
+}
+
+country_event = {
+    id = inf.201
+    title = inf.201.t
+    desc = inf.201.d
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = inf.201.a
+
+        set_variable = { chaos_limit = 299 }
+    }
+}
+
+country_event = {
+    id = inf.202
+    title = inf.202.t
+    desc = inf.202.d
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = inf.202.a
+
+        set_variable = { chaos_limit = 999 }
+    }
+}
+
+country_event = {
+    id = inf.203
+    title = inf.203.t
+    desc = inf.203.d
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = inf.203.a
+
+        set_country_flag = allow_chaos_civil_wars
+		set_variable = { INF_chaos_increment = 5 }
+    }
+}
+
+country_event = {
+    id = inf.204
+    title = inf.204.t
+    desc = inf.204.d
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = {
+        name = inf.204.a
+
+        set_variable = { INF_Ruby_Energy_refill_rings = 50 }
+        set_variable = { INF_Ruby_Energy_refill_rings_limit = 50 }
+    }
+}
+
+country_event = {
+    id = inf.205
+    title = inf.205.t
+    desc = inf.205.d
+
+    is_triggered_only = yes
+
+	option = {
+		name = inf.205.a
+
+		set_country_flag = provoked_civil_war
+
+		give_military_access = var:victim_rebels
+		var:victim_rebels = {
+			give_military_access = INF
+		}
+
+		declare_war_on = {
+			target = var:victim
+			type = annex_everything
+		}
+	}
+	option = {
+		name = inf.205.b
+
+		set_country_flag = provoked_civil_war
+		add_political_power = -100
+		add_war_support = -0.1
+	}
+}
+
+country_event = {
+    id = inf.206
+    title = inf.206.t
+    desc = inf.206.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = inf.206.b
+
+		clr_country_flag = provoked_civil_war
+		clear_variable = var:victim
+		clear_variable = var:victim_rebels
+	}
+}
+
+country_event = {
 	id = inf_border_conflict.1
 	title = inf_border_conflict.1.t
 	desc = inf_border_conflict.1.d

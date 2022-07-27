@@ -310,44 +310,152 @@ INF_Bharatsha_Gold = {
 }
 
 INF_Weakening_Enemies = {
-    
-    INF_Weak_Neighbour = {
+
+    INF_Weak_Neighbour_On = {
+
+		fire_only_once = no
+
+        visible = {
+            check_variable = {
+                var = INF_Ruby_Energy
+                value = 1
+                compare = greater_than_or_equals
+            }
+        }
+
+
+    	target_trigger = {
+    		FROM = {
+            	is_neighbor_of = INF
+
+            	NOT = {
+		    		is_puppet_of = INF
+		    		is_in_faction_with = INF
+		    		has_non_aggression_pact_with = INF
+
+					tag = UFA
+					tag = RCR
+					has_country_flag = chaos_rising
+				}
+           }
+       }
+
+		complete_effect = {
+        	FROM = {
+            	if = {
+                	limit = {
+                    	NOT = {
+                        	has_variable = chaos
+                        }
+                    }
+                    set_variable = { chaos = 0 }
+                }
+                set_country_flag = chaos_rising
+            }
+        }
+    }
+
+    INF_Weak_Neighbour_Off = {
+
+        available = {
+            check_variable = {
+                var = INF_Ruby_Energy
+                value = 1
+                compare = greater_than_or_equals
+            }
+        }
+
+        fire_only_once = no
 
         target_trigger = {
             FROM = {
-                is_neighbor_of = ROOT
-
-                NOT = {
-                    tag = UFA
-					is_puppet_of = ROOT
-					is_in_faction_with = ROOT
-					has_non_aggression_pact_with = ROOT
-				}
+                is_neighbor_of = INF
+                has_country_flag = chaos_rising
             }
         }
-        on_map_mode = map_only
+
+        complete_effect = {
+            FROM = {
+                clr_country_flag = chaos_rising
+            }            
+        }
     }
 
     INF_Sacrifice_for_Energy = {
 
         fire_only_once = no
 
-        custom_cost_trigger = {
-            has_manpower > 10
+        available = {
+            check_variable = {
+                var = INF_Ruby_Energy
+                value = 80
+                compare = less_than_or_equals
+            }
         }
-        custom_cost_text = 10_manpower
+
+        days_remove = 7
+        days_re_enable = 30        
+
+        custom_cost_trigger = {
+            has_manpower > 1000
+        }      
+
+		custom_cost_text = 1000_manpower
 
         complete_effect = {
-            add_manpower = -10
-            add_variable = {inf_phantom_ruby_energy = 10}
-#            clamp_variable = {
-#                var = inf_phantom_ruby_energy
-#                min = 0
-#                max = 100
-#            }
+            add_manpower = -1000
+        }
+
+        remove_effect = {
+            add_to_variable = { INF_Ruby_Energy = 20 }
+            clamp_variable = {
+                var = INF_Ruby_Energy
+                min = 0
+                max = 100
+            }
         }
     }
-}	
+
+    INF_Rings_for_Energy = {
+
+        fire_only_once = no
+
+        available = {
+            check_variable = {
+                var = INF_Ruby_Energy
+                value = 65
+                compare = less_than_or_equals
+            }
+        }
+
+        days_remove = 3
+        days_re_enable = 14        
+
+        custom_cost_trigger = {
+            check_variable = {
+                var = rings 
+                value = 20000
+                compare = greater_than_or_equals
+            }
+        }      
+
+		custom_cost_text = 20000_rings
+
+        complete_effect = {
+            subtract_from_variable = { rings = 20000 }
+        }
+
+        remove_effect = {
+            add_to_variable = { INF_Ruby_Energy = INF_Ruby_Energy_refill_rings }
+            clamp_variable = {
+                var = INF_Ruby_Energy
+                min = 0
+                max = 100
+            }
+        }
+    }
+}
+
 INF_Phantom_war = {
 	INF_Verify_your_clock = {
 
