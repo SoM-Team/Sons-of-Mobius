@@ -33,7 +33,7 @@ division_template = {
 		infantry = { x = 2 y = 2 }
 	}
 	support = {
-		recon = { x = 0 y = 0 } 		
+		mot_recon = { x = 0 y = 0 } 		
 		engineer = { x = 0 y = 1 } 		
 		artillery = { x = 0 y = 2 } 	
 		anti_air = { x = 0 y = 3 }
@@ -56,7 +56,7 @@ division_template = {
 	}
 	support = {
 		engineer = { x = 0 y = 0 } 
-		recon = { x = 0 y = 1 }	
+		mot_recon = { x = 0 y = 1 }	
 		anti_tank = { x = 0 y = 2 } 	
 	}
 }
@@ -76,7 +76,7 @@ division_template = {
 	}
 	support = {
 		engineer = { x = 0 y = 0 }
-		recon = { x = 0 y = 1 }	
+		mot_recon = { x = 0 y = 1 }	
 		anti_tank = { x = 0 y = 2 } 
 		artillery = { x = 0 y = 3 } 
 	}
@@ -84,7 +84,6 @@ division_template = {
 division_template = {
 	name = "Motostrelkovaya Diviziya"		
 
-	template_counter= 3
 	regiments = {
 		apc_mechanized = { x = 0 y = 0 }		
 		apc_mechanized = { x = 0 y = 1 }
@@ -119,7 +118,7 @@ division_template = {
 	}
 	support = {
 		engineer = { x = 0 y = 0 } 
-		recon = { x = 0 y = 1 } 
+		mot_recon = { x = 0 y = 1 } 
 	}
 }
 division_template = {
@@ -133,11 +132,11 @@ division_template = {
 	}
 	support = {
 		engineer = { x = 0 y = 0 } 
-		recon = { x = 0 y = 1 } 
+		mot_recon = { x = 0 y = 1 } 
 	}
 }
 division_template = {
-	name = "Tankovay Korpus" 			
+	name = "Tankovy Korpus" 			
 	regiments = {
 		main_battle_armor = { x = 0 y = 0 }	
 		main_battle_armor = { x = 0 y = 1 }
@@ -160,12 +159,45 @@ division_template = {
 		apc_mechanized = { x = 3 y = 3 }
 	}
 	support = {
-		armored_reconnaissance_vehicle = { x = 0 y = 0 } 	'	
+		armored_reconnaissance_vehicle = { x = 0 y = 0 } 		
 		engineer = { x = 0 y = 1 } 		
 		artillery = { x = 0 y = 1 } 	
 	}
 	priority = 2
 }
+
+division_template = {
+	name = "Gvardeyskiy Tankovy Korpus" 			
+	regiments = {
+		hovertank_armor = { x = 0 y = 0 }	
+		hovertank_armor = { x = 0 y = 1 }
+		hovertank_armor = { x = 0 y = 2 }	
+
+		hovertank_armor = { x = 1 y = 0 }	
+		hovertank_armor = { x = 1 y = 1 }		
+		hovertank_armor = { x = 1 y = 2 }
+
+		
+		apc_mechanized = { x = 2 y = 0 }		
+		apc_mechanized = { x = 2 y = 1 }		
+		apc_mechanized = { x = 2 y = 2 }		
+		apc_mechanized = { x = 2 y = 3 }		
+		ifv_mechanized = { x = 2 y = 4 }
+		
+		motorized_rocket_brigade = { x = 3 y = 0 }
+		motorized_rocket_brigade = { x = 3 y = 1 }		
+		apc_mechanized = { x = 3 y = 2 }		
+		apc_mechanized = { x = 3 y = 3 }
+	}
+	support = {
+		armored_reconnaissance_vehicle = { x = 0 y = 0 }	
+		engineer = { x = 0 y = 1 } 		
+		artillery = { x = 0 y = 1 } 	
+	}
+	priority = 2
+	template_counter = 32
+}
+
 division_template = {
 	name = "Tankovaya Brigada" 			
 	regiments = {
@@ -195,6 +227,27 @@ division_template = {
 		engineer = { x = 0 y = 0 }
 	}
 	priority = 2
+}
+
+division_template = {
+	name = "Brigada Istrebiteleiy Tankov"
+	regiments = {
+		armored_anti_tank_brigade = { x = 0 y = 0 }
+		armored_anti_tank_brigade = { x = 0 y = 1 }	
+		armored_anti_tank_brigade = { x = 1 y = 0 }
+		armored_anti_tank_brigade = { x = 1 y = 1 }
+		main_battle_armor = { x = 1 y = 2 }
+		apc_mechanized = { x = 2 y = 0 }		
+		apc_mechanized = { x = 2 y = 1 }
+		apc_mechanized = { x = 2 y = 2 }		
+		ifv_mechanized = { x = 2 y = 3 }		
+		ifv_mechanized = { x = 2 y = 4 }		
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	priority = 2
+	template_counter = 28
 }
 
 division_template = {
@@ -296,7 +349,7 @@ units = {
 		location = 7996
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.17
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 10728
@@ -317,6 +370,41 @@ units = {
 		start_equipment_factor = 0.8
 	}
 	division = {
+		location = 10779
+		name = "5aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 10779
+		division_template = "4aya Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 10779
+		name = "3aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 10779
+		name = "2aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 10779
+		name = "1aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	
+	division = {
 		location = 10023
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.3
@@ -333,6 +421,48 @@ units = {
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.3
 		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 8688
+		name = "6aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 8688
+		name = "7aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 8688
+		name = "8aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 8688
+		name = "9aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 8688
+		name = "10aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 8688
+		name = "11aya Brigada Istrebiteleiy Tankov"
+		division_template = "Brigada Istrebiteleiy Tankov"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 7570
@@ -439,13 +569,13 @@ units = {
 		location = 7969	
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.2 # trained
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 7969	
 		division_template = "Strelkovaya Diviziya"
 		start_experience_factor = 0.2 # trained
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9521	
@@ -477,19 +607,19 @@ units = {
 		location = 10621
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9902	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9902	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 8829	
@@ -543,13 +673,13 @@ units = {
 		location = 8926	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 8926	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 10113	
@@ -567,7 +697,7 @@ units = {
 		location = 10023	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 10113	
@@ -585,7 +715,7 @@ units = {
 		location = 10023	
 		division_template = "Motostrelkovaya Diviziya"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 7826	
@@ -635,6 +765,30 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 1
 	}
+	division = { ######################################
+		location = 8182	
+		division_template = "Bronirovanaya Vozdushno-Desantnaya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division = { ######################################
+		location = 8182	
+		division_template = "Bronirovanaya Vozdushno-Desantnaya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division = { ######################################
+		location = 8182	
+		division_template = "Bronirovanaya Vozdushno-Desantnaya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division = { ######################################
+		location = 8182	
+		division_template = "Bronirovanaya Vozdushno-Desantnaya"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
 	division = {
 		location = 6567	
 		division_template = "Motostrelkovaya Diviziya"
@@ -655,7 +809,7 @@ units = {
 	}
 	division = {
 		location = 7826
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
 	}
@@ -673,9 +827,9 @@ units = {
 	}
 	division = {
 		location = 6951
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 8982	
@@ -686,21 +840,21 @@ units = {
 	}
 	division = {
 		location = 9520
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9183
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9208
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.3
-		start_equipment_factor = 0.6
+		start_equipment_factor = 0.8
 	}
 	division = {
 		location = 9065
@@ -716,19 +870,19 @@ units = {
 	}
 	division = {
 		location = 8841
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.35
 		start_equipment_factor = 0.9
 	}
 	division = {
 		location = 8841
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.35
 		start_equipment_factor = 0.9
 	}
 	division = {
 		location = 9054
-		division_template = "Tankovay Korpus"
+		division_template = "Tankovy Korpus"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
 	}
@@ -758,10 +912,47 @@ units = {
 	}
 	division = {
 		location = 9914
-		division_template = "Tankovaya Brigada"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
+		name = "1iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
 	}
+	division = {
+		location = 9914
+		name = "2iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 9914
+		name = "3iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 9914
+		name = "5iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 9914
+		name = "5iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 9914
+		name = "6iy Gvardeyskiy Tankovy Korpus"
+		division_template = "Gvardeyskiy Tankovy Korpus"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	
 	division = {
 		location = 9914
 		division_template = "Tankovaya Brigada"

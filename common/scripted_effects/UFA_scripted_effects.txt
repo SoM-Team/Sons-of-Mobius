@@ -1,0 +1,158 @@
+dark_mission_count = { ### Mission Success Mechanic
+	set_temp_variable = {
+		a = shadow_factor
+	}
+	set_temp_variable = {
+		b = rouge_factor
+	}
+	set_temp_variable = {
+		c = omega_factor
+	}
+	set_temp_variable = {
+		aa = shadow_level
+	}
+	set_temp_variable = {
+		bb = rouge_level
+	}
+	set_temp_variable = {
+		cc = eomega_level
+	}
+	divide_temp_variable = {
+		aa = a
+	}
+	divide_temp_variable = {
+		bb = b
+	}
+	divide_temp_variable = {
+		cc = c
+	}
+	add_to_temp_variable = {
+		aa = bb
+	}
+	add_to_temp_variable = {
+		bb = cc
+	}
+	### Take mean variable from power difference
+	divide_temp_variable = {
+		aa = 3
+	}
+	set_variable = {
+		m = aa
+	}
+	set_variable = {
+		e_max = 25
+	}
+	set_variable = {
+		f_min = 75
+	}
+	set_temp_variable = {
+		ee = 2
+	}
+	subtract_from_temp_variable = {
+		ee = m
+	}
+	multiply_temp_variable = {
+		ee = 35
+	}
+	add_to_variable = {
+		e_max = ee
+	}
+	subtract_from_variable = {
+		f_min = ee
+	}
+	randomize_variable = { ### Variable of Damage
+		var = e
+		distribution = binomial
+		min = 0 
+		max = e_max 
+	}
+	randomize_variable = { ### Variable of Success
+		var = f
+		distribution = binomial
+		min = f_min 
+		max = 100 
+	}
+	if = {
+		limit = {
+			check_variable = {
+				f > e
+			}
+		}
+		country_event = {
+			id = ufa.dark.64
+		}
+		set_variable = {
+			dark_success = 1
+		}
+	}
+	else = {
+		country_event = {
+			id = ufa.dark.65
+		}
+		set_variable = {
+			dark_success = 0
+		}
+	}
+	### Health damage to each Team DARK member
+	randomize_variable = { 
+		var = shadow_damage
+		distribution = binomial
+		min = 0
+		max = e
+	}
+	randomize_variable = { 
+		var = rouge_damage
+		distribution = binomial
+		min = 0
+		max = e
+	}
+	randomize_variable = { 
+		var = omega_damage
+		distribution = binomial
+		min = 0
+		max = e
+	}
+	### Apply the damage
+	subtract_from_variable = {
+		shadow_health = shadow_damage
+	}
+	subtract_from_variable = {
+		rouge_health = rouge_damage
+	}
+	subtract_from_variable = {
+		eomega_health = omega_damage
+	}
+	clamp_variable = {
+		var = shadow_health
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = rouge_health
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = eomega_health
+		min = 0
+		max = 100
+	}
+	if = {
+		limit = {
+			OR = {
+				check_variable = {
+					shadow_health = 0
+				}
+				check_variable = {
+					rouge_health = 0
+				}
+				check_variable = {
+					eomega_health = 0
+				}
+			}
+		}
+		country_event = {
+			id = ufa.dark.66
+		}
+	}
+}
