@@ -28,6 +28,39 @@ Switch_Legacy_of_Deroboticization = {
 	}
 }
 
+Switch_Idea_Level = {
+    # Variables:
+    # si_idea: Idea name token
+    # si_idea_level_var: Idea level variable
+    # si_new_level: New idea level
+	meta_effect = {
+		text = {
+			FROM = {
+                if = {
+                    limit = {
+                        check_variable = {
+                            [IDEA_LEVEL_NAME] > 0
+                        }
+                    }
+
+                    remove_ideas = [IDEA_NAME]_[CURRENT_LEVEL]
+                    add_ideas = [IDEA_NAME]_[NEW_LEVEL]
+                    
+                }
+                else = {
+                    remove_ideas = [IDEA_NAME]_[CURRENT_LEVEL]
+                }
+                set_variable = { [IDEA_LEVEL_NAME] = [NEW_LEVEL] }
+			}
+		}
+
+        IDEA_NAME = "[?si_idea.GetIdeaName]"
+        IDEA_LEVEL_NAME = "[?si_idea_level_var.GetIdeaLevelVariable]"
+        CURRENT_LEVEL = "[?si_idea_level_var|.0]"
+		NEW_LEVEL = "[?si_new_level|.0]"
+	}
+}
+
 Enable_Trade_Embargo = {
     meta_effect = {
 		text = {
