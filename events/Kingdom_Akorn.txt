@@ -17,10 +17,6 @@ country_event = {
 			id = koa.2
 			days = 7
 		}
-		country_event = {
-			id = koa.3
-			days = 10
-		}
 		news_event = {
 			id = mobiannews.1
 			days = 3
@@ -88,10 +84,14 @@ country_event = {
 	option = {
 		name = koa.3.a 
 		remove_ideas = Two_War_Robotnik
+		KOA_Armistice_EGG = yes
 		hidden_effect = {
 			country_event = {
 				id = koa.4
 				days = 10
+			}
+			news_event = {
+				id = mobiannews.2
 			}
 		}
 	}
@@ -295,7 +295,41 @@ country_event = { #### Убийство Хонга провалилось!
 		custom_effect_tooltip = minus_15_elias
 		subtract_from_variable = { loyalty_elias = 15 }
 	}
-}	
+}
+
+country_event = { #### Sonic is BACK
+	id = koa.300
+	title = koa.300.t
+	desc = koa.300.d
+	picture = GFX_report_event_new_knothole
+	
+	fire_only_once = yes
+	
+	trigger = {
+		AND = {
+			date > 3236.05.01
+			tag = KOA
+		}
+	}
+	
+	option = {
+		name = koa.300.a
+		add_political_power = 100
+		create_corps_commander = {
+			name = "Sonic the Hedgehog"
+			portrait_path = "gfx/leaders/KOA/sonic.tga"
+			traits = { trait_reckless infantry_expert ranger }
+			skill = 1
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		set_global_flag = Sonic_is_back ### SUPER EVENT
+		remove_ideas = KOA_sonic_dead
+		load_oob = "KOA_Sonic_back"
+	}
+}		
 
 country_event = { ####THE SOUTH SHALL RISE AGAIN
 	id = koa.88
@@ -533,9 +567,9 @@ country_event = { ####United Front
 }
 
 country_event = { #### Неждан
-	id = koa.100
-	title = koa.100.t
-	desc = koa.100.d
+	id = koa.301
+	title = koa.301.t
+	desc = koa.301.d
 	picture = GFX_report_event_Sally_crowning
 	
 	fire_only_once = yes
@@ -543,7 +577,7 @@ country_event = { #### Неждан
 	is_triggered_only = yes
 	
 	option = {
-		name = koa.100.a
+		name = koa.301.a
 		set_politics = {
 			ruling_party = autonomous_socialism
 		}
@@ -665,6 +699,7 @@ country_event = {
     id = koa.100
     title = koa.100.t
     desc = koa.100.d
+	picture = GFX_report_event_cursed_king
     fire_only_once = yes
 
     is_triggered_only = yes
@@ -679,7 +714,7 @@ country_event = {
     title = koa.101.t
     desc = koa.101.d
     fire_only_once = yes
-
+	picture = GFX_report_event_socialist_rebels
     is_triggered_only = yes
 
     option = {
@@ -692,7 +727,7 @@ country_event = {
     title = koa.102.t
     desc = koa.102.d
     fire_only_once = yes
-
+	picture = GFX_report_event_unloyal_generals
     is_triggered_only = yes
 
     option = {
@@ -705,7 +740,7 @@ country_event = {
     title = koa.103.t
     desc = koa.103.d
     fire_only_once = yes
-
+	picture = GFX_report_event_legacy_of_source
     is_triggered_only = yes
 
     option = {
@@ -718,7 +753,7 @@ country_event = {
     title = koa.104.t
     desc = koa.104.d
     fire_only_once = yes
-
+	picture = GFX_report_event_new_mobotropolis
     is_triggered_only = yes
 
     option = {
@@ -731,7 +766,7 @@ country_event = {
     title = koa.105.t
     desc = koa.105.d
     fire_only_once = yes
-
+	picture = GFX_report_event_rabbit_rednecks
     is_triggered_only = yes
 
     option = {
@@ -744,7 +779,7 @@ country_event = {
     title = koa.106.t
     desc = koa.106.d
     fire_only_once = yes
-
+	picture = GFX_report_event_downunda_del
     is_triggered_only = yes
 
     option = {
@@ -757,7 +792,7 @@ country_event = {
     title = koa.107.t
     desc = koa.107.d
     fire_only_once = yes
-
+	picture = GFX_report_event_unloyal_generals
     is_triggered_only = yes
 
     option = {
@@ -770,7 +805,7 @@ country_event = {
     title = koa.108.t
     desc = koa.108.d
     fire_only_once = yes
-
+	picture = GFX_report_event_mercian_folks
     is_triggered_only = yes
 
     option = {
@@ -783,7 +818,7 @@ country_event = {
     title = koa.109.t
     desc = koa.109.d
     fire_only_once = yes
-
+	picture = GFX_report_event_president_wilson
     is_triggered_only = yes
 
     option = {
@@ -796,7 +831,7 @@ country_event = {
     title = koa.110.t
     desc = koa.110.d
     fire_only_once = yes
-
+	picture = GFX_report_event_cursed_king
     is_triggered_only = yes
 
     option = {

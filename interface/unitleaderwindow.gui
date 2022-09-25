@@ -9,22 +9,28 @@ guiTypes = {
 		moveable = yes
 		fade_time = 500
 		fade_type = linear
-		click_to_front = yes		
-				
+		click_to_front = yes
+
+		positionType = {
+			name = "pos_roster_overview_orientation_top_left"
+			position = { x = 540 y = 80 }
+		}
+
 		background = {
-			name = "Background"		
+			name = "Background"
 			spriteType ="GFX_leader_selection_bg"
 		}
-		
+
 		instantTextboxType = {
 			name = "header_text"
-			position = { x = 20 y = 2 }
+			position = { x = 20 y = 9 }
 			textureFile = ""
-			font = "impact_32"
+			font = "century_gothic_20"
 			borderSize = {x = 0 y = 0}
 			text = "CHOOSE_LEADER"
-			maxWidth = 470
+			maxWidth = 340
 			maxHeight = 20
+			fixedsize = yes
 			format = left
 		}	
 
@@ -53,9 +59,16 @@ guiTypes = {
 			
 		ButtonType = {
 			name = "sort_skills"
-			position = {x=13 y=39}
-			spriteType = "GFX_sort_up_down_button_83x29"
-			buttonText = UNIT_LEADER_SKILL_SORT
+			position = {x=16 y=39}
+			spriteType = "GFX_sort_skill"
+			buttonFont = "century_gothic_16"
+			clicksound = click_scroll
+			frame = 1
+		}
+		ButtonType = {
+			name = "sort_advisor"
+			position = {x=42 y=39}
+			spriteType = "GFX_sort_adviser"
 			buttonFont = "century_gothic_16"
 			clicksound = click_scroll
 			frame = 1
@@ -109,10 +122,11 @@ guiTypes = {
 		containerWindowType = {
 			name = "leaders"
 			position = { x = 0 y = 60 }
-			size = { width = 100%% height = 487 }
+			size = { width = 100%% height = 507 }
 			verticalScrollbar = "right_vertical_slider"
-			margin = { top = 14 bottom = 2}
+			margin = { top = 14 bottom = 22}
 			scroll_wheel_factor = 98
+			smooth_scrolling = yes
 			
 			background = {
 				name = "Background"		
@@ -121,7 +135,7 @@ guiTypes = {
 			
 			gridBoxType = {
 				name = "leaders_grid"
-				position = { x = 13 y = 15 }
+				position = { x = 13 y = 1 }
 				size = { width = 100%% height = 100%% }
 				slotsize = { width = 510 height = 98 }
 				max_slots_horizontal = 1
@@ -196,20 +210,49 @@ guiTypes = {
 		
 		buttonType = {
 			name = "leader_button"
-			position = {x=56 y=6}	
+			position = {x=56 y=5}	
 			quadTextureSprite ="GFX_leader_unknown"
-			scale = 0.41
+			scale = 0.42
+		}
+		
+		iconType = {
+			name = "clip_icon"
+			position = {x=55 y=0}	
+			quadTextureSprite ="GFX_clip"
+			alwaystransparent = yes			
 		}
 		
 		iconType = {
 			name = "skill_tooltip_icon"
-			position = {x=10 y=6}	
-			quadTextureSprite ="GFX_skill_transparent"		
+			position = {x=0 y=6}
+			quadTextureSprite ="GFX_skill_transparent"
 		}	
-		
+
+		buttonType = {
+			name = "generate_advisor_button"
+			position = {x=13 y=65}	
+			quadTextureSprite ="GFX_give_role_leader_strip"
+			buttonFont = "century_gothic_16"	
+			clicksound = click_default
+			frame = 1
+		}
+		iconType = {
+			name = "advisor_role_icon"
+			position = {x=3 y=45}	
+			spriteType = "GFX_empty_paper"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "advisor_role_traits_icon"
+			position = { x = 28 y = 70 }
+			spriteType = "GFX_idea_traits_strip"
+			centerposition = yes
+			alwaystransparent = yes
+			frame = 1
+		}
 		buttonType = {
 			name = "promote_btn"
-			position = {x=420 y=56}	
+			position = {x=414 y=56}	
 			quadTextureSprite ="GFX_leader_selection_button"
 			buttonText = UNIT_LEADER_PROMOTE
 			buttonFont = "century_gothic_16"	
@@ -251,14 +294,15 @@ guiTypes = {
 			position = { x = 128 y = 30 }
 			font = "century_gothic_16"
 			text = "name"
-			maxWidth = 225
+			fixedsize = yes
+			maxWidth = 180
 			maxHeight = 18
 		}
 		
 		instantTextboxType = {
 			name = "skill"
-			position = { x = 3 y = 27 }
-			font = "futura_32"
+			position = { x = 1 y = 19 }
+			font = "hoi_30header"
 			text = "skill"
 			maxWidth = 50
 			maxHeight = 18
@@ -278,7 +322,7 @@ guiTypes = {
 		iconType = {
 			name = "leader_stat_attack_bg"
 			spriteType = "GFX_trait_attack"
-			position = { x=316 y=11 }
+			position = { x=315 y=11 }
 		}
 		
 		instantTextboxType = {
@@ -294,7 +338,7 @@ guiTypes = {
 		iconType = {
 			name = "leader_stat_defense_bg"
 			spriteType = "GFX_trait_defense"
-			position = { x=342 y=13 }
+			position = { x=342 y=10s }
 		}
 		
 		instantTextboxType = {
@@ -310,7 +354,7 @@ guiTypes = {
 		iconType = {
 			name = "leader_stat_planning_bg"
 			spriteType = "GFX_trait_planning"
-			position = { x=369 y=8 }
+			position = { x=368 y=7 }
 		}
 		
 		instantTextboxType = {
@@ -348,20 +392,25 @@ guiTypes = {
 		size = { width=550 height=590 }
 		orientation = center
 		moveable = yes
-				
+
+		positionType = {
+			name = "pos_roster_overview_orientation_top_left"
+			position = { x = 540 y = 80 }
+		}
+
 		background = {
-			name = "Background"		
+			name = "Background"
 			spriteType ="GFX_leader_selection_bg"
 		}
-		
+
 		instantTextboxType = {
 			name = "header_text"
 			position = { x = 20 y = 9 }
 			textureFile = ""
-			font = "century_gothic_20s"
+			font = "century_gothic_20"
 			borderSize = {x = 0 y = 0}
 			text = "CHOOSE_LEADER"
-			maxWidth = 360
+			maxWidth = 340
 			maxHeight = 20
 			fixedsize = yes
 			format = left
@@ -369,7 +418,7 @@ guiTypes = {
 		
 		ButtonType = {
 			name = "sort_name"
-			position = {x=95 y=37}
+			position = {x=95 y=39}
 			spriteType = "GFX_sort_up_down_button_83x29"
 			buttonText = UNIT_LEADER_NAME_SORT
 			buttonFont = "century_gothic_16"
@@ -379,7 +428,7 @@ guiTypes = {
 		
 		editBoxType = {
 			name = "leader_view_search"
-			position = { x = 200 y = 42 }
+			position = { x = 201 y = 44 }
 			size = {x=267 y=20}
 			#textureFile = ""
 			font = "century_gothic_20"
@@ -392,13 +441,22 @@ guiTypes = {
 			
 		ButtonType = {
 			name = "sort_skills"
-			position = {x=13 y=37}
-			spriteType = "GFX_sort_up_down_button_83x29"
-			buttonText = UNIT_LEADER_SKILL_SORT
+			position = {x=16 y=39}
+			spriteType = "GFX_sort_skill"
 			buttonFont = "century_gothic_16"
 			clicksound = click_scroll
+			frame = 1
 		}
 
+		ButtonType = {
+			name = "sort_advisor"
+			position = {x=42 y=39}
+			spriteType = "GFX_sort_adviser"
+			buttonFont = "century_gothic_16"
+			clicksound = click_scroll
+			frame = 1
+		}
+		
 		ButtonType = {
 			name = "sort_capacity"
 			position = {x=440 y=39}
@@ -450,8 +508,9 @@ guiTypes = {
 			position = { x = 0 y = 60 }
 			size = { width = 100%% height = 507 }
 			verticalScrollbar = "right_vertical_slider"
-			margin = { top = 14 bottom = 22}			
 			scroll_wheel_factor = 98
+			smooth_scrolling = yes
+			margin = { top = 14 bottom = 22}			
 			
 			background = {
 				name = "Background"		
@@ -507,7 +566,7 @@ guiTypes = {
 			font = "century_gothic_18"
 			borderSize = {x = 0 y = 0}
 			text = "SHOW_ACTIVE"
-			maxWidth = 470
+			maxWidth = 100
 			maxHeight = 20
 			format = left
 		}
@@ -550,8 +609,8 @@ guiTypes = {
 		
 		iconType = {
 			name = "skill_tooltip_icon"
-			position = {x=10 y=6}	
-			quadTextureSprite ="GFX_skill_transparent"		
+			position = {x=0 y=6}
+			quadTextureSprite ="GFX_skill_transparent"
 		}
 
 		buttonType = {
@@ -564,7 +623,16 @@ guiTypes = {
 			clicksound = click_default
 			frame = 1
 		}
-		
+	
+		buttonType = {
+			name = "generate_advisor_button"
+			position = {x=13 y=65}	
+			quadTextureSprite ="GFX_give_role_leader_strip"
+			buttonFont = "century_gothic_16"	
+			clicksound = click_default
+			frame = 1
+		}
+
 		instantTextboxType = {
 			name = "divisions_count"
 			position = {x=424 y=17}
@@ -589,7 +657,7 @@ guiTypes = {
 			position = { x = 128 y = 30 }
 			font = "century_gothic_16"
 			text = "name"
-			maxWidth = 210
+			maxWidth = 180
 			maxHeight = 18
 			fixedsize = yes
 			alwaystransparent = yes
@@ -597,8 +665,8 @@ guiTypes = {
 		
 		instantTextboxType = {
 			name = "skill"
-			position = { x = 22 y = 21 }
-			font = "futura_32"
+			position = { x = 20 y = 19 }
+			font = "hoi_30header"
 			text = "skill"
 			maxWidth = 50
 			maxHeight = 18
@@ -612,7 +680,20 @@ guiTypes = {
 			max_slots_vertical = 1			
 			format = "UPPER_LEFT"
 		}
-
+		iconType = {
+			name = "advisor_role_icon"
+			position = {x=3 y=45}	
+			spriteType = "GFX_empty_paper"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "advisor_role_traits_icon"
+			position = { x = 28 y = 70 }
+			spriteType = "GFX_idea_traits_strip"
+			centerposition = yes
+			alwaystransparent = yes
+			frame = 1
+		}
 		iconType = {
 			name = "leader_stat_attack_bg"
 			spriteType = "GFX_trait_attack"
@@ -697,7 +778,7 @@ guiTypes = {
 			name = "header_text"
 			position = { x = 20 y = 9 }
 			textureFile = ""
-			font = "century_gothic_20s"
+			font = "century_gothic_20"
 			borderSize = {x = 0 y = 0}
 			text = "CHOOSE_LEADER"
 			maxWidth = 360
@@ -742,9 +823,10 @@ guiTypes = {
 			name = "leaders"
 			position = { x = 0 y = 60 }
 			size = { width = 100%% height = 507 }
-			verticalScrollbar = "som_bio_scroll"
+			verticalScrollbar = "right_vertical_slider"
 			margin = { top = 14 bottom = 22}			
 			scroll_wheel_factor = 98
+			smooth_scrolling = yes
 			
 			background = {
 				name = "Background"		
@@ -848,7 +930,7 @@ guiTypes = {
 		
 		iconType = {
 			name = "skill_tooltip_icon"
-			position = {x=10 y=6}
+			position = {x=0 y=6}
 			quadTextureSprite ="GFX_skill_transparent"
 		}
 
@@ -875,7 +957,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "skill"
 			position = { x = 20 y = 19 }
-			font = "futura_32"
+			font = "hoi_30header"
 			text = "skill"
 			maxWidth = 50
 			maxHeight = 18
@@ -920,14 +1002,14 @@ guiTypes = {
 
 		iconType = {
 			name = "exile_flag"
-			quadTextureSprite ="GFX_flag_smallest"
-			position = { x = 0 y = 0 }
+			quadTextureSprite ="GFX_flag_small"
+			position = { x = 0 y = 2 }
 		}
 		
 		iconType = {
 			name = "exile_flag_frame"
 			quadTextureSprite ="GFX_div_designer_exile_flag_frame2"
-			position = { x = 0 y = -3 }
+			position = { x = 2 y = -2 }
 			alwaystransparent = yes
 		}
 	}

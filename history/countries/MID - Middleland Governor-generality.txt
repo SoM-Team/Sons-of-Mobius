@@ -2,6 +2,30 @@ capital = 541
 
 oob = "MID_3236"
 
+recruit_character = MID_Jacob_Carles_Sweeney
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	KOA = {
+		set_autonomy = {
+			target = MID
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		KOA = {
+			puppet = MID
+		}
+		
+	}
+}
+
 # Starting tech
 set_technology = {
 	hand_tools = 1
@@ -14,6 +38,9 @@ set_technology = {
 	radio = 1
 	infantry_weapons = 1
 	magazine_rifle = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
 	assault_complex = 1
 	personal_equipment = 1
 	steel_helmet = 1
@@ -30,24 +57,26 @@ set_technology = {
 set_convoys = 20
 
 set_politics = {
-	ruling_party = social_liberal
-	last_election = "3236.1.1"
+	ruling_party = autocracy
+	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	neosocialist = 0
-	communism = 0
-	autonomous_socialist = 10
-	social_democrat = 15
-	social_liberal = 35
-	market_liberal = 15
-	democratic = 25
-	democratic_dictatorship = 0
-	neutrality = 0
-	technocratic_despotist = 0
-	fascism = 0
+	neosocialism = 0
+	katzerism = 0
+	autonomous_socialism = 10
+	progressism = 0
+	progressive_liberalism = 0
+	orthodox_liberalism = 15
+	conservatism = 7
+	legalism = 21
+	autocracy = 30
+	technocratic_despotism = 0
+	purificationism = 17
 }
 
-add_ideas = { medium_tech }
+add_ideas = {
+	medium_tech
+}
