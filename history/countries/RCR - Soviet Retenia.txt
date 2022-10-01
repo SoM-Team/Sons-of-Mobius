@@ -140,61 +140,130 @@ add_ideas = {
 
 create_faction = Internationale
 add_to_faction = RCR
-add_to_faction = NWC
-add_to_faction = WEC
 add_to_faction = BRC
-add_to_faction = SOC
-add_to_faction = NOC
-add_to_faction = SIC
 add_to_faction = FEC
+add_to_faction = NOC
+add_to_faction = NWC
+add_to_faction = SIC
+add_to_faction = SOC
+add_to_faction = WEC
 add_to_faction = HIB
 add_to_faction = AVI
 
-#if = {
-#	limit = {
-#		OR = {
-#			has_dlc = "Together for Victory"
-#			has_dlc = "Man the Guns"
-#		}
-#	}
-#	set_autonomy = {
-#		target = NWC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = WEC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = BRC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = SOC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = NOC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = SIC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = FEC
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	else = {
-#		puppet = NWC
-#		puppet = WEC
-#		puppet = BRC
-#		puppet = SOC
-#		puppet = NOC
-#		puppet = SIC
-#		puppet = FEC
-#	}
-#}
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = BRC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = FEC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = NOC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = NWC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = SIC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = SOC
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = WEC
+		autonomous_state = autonomy_integrated_puppet
+	}
+
+	else = {
+		puppet = BRC
+		puppet = FEC
+		puppet = NOC
+		puppet = NWC
+		puppet = SIC
+		puppet = SOC
+		puppet = WEC
+	}
+}
+
+BRC = {
+	set_popularities = {
+		neosocialism = 10
+		katzerism = 60
+		autonomous_socialism = 25
+		progressism = 5
+		progressive_liberalism = 0
+		orthodox_liberalism = 0
+		conservatism = 0
+		legalism = 0
+		autocracy = 0
+		technocratic_despotism = 0
+		purificationism = 0
+	}
+}
+FEC = {
+	set_popularities = {
+		neosocialism = 30
+		katzerism = 70
+		autonomous_socialism = 0
+		progressism = 0
+		progressive_liberalism = 0
+		orthodox_liberalism = 0
+		conservatism = 0
+		legalism = 0
+		autocracy = 0
+		technocratic_despotism = 0
+		purificationism = 0
+	}
+}
+NOC = {
+	set_popularities = {
+		neosocialism = 25
+		katzerism = 60
+		autonomous_socialism = 10
+		progressism = 5
+		progressive_liberalism = 0
+		orthodox_liberalism = 0
+		conservatism = 0
+		legalism = 0
+		autocracy = 0
+		technocratic_despotism = 0
+		purificationism = 0
+	}
+}
+NWC = {
+	set_politics = {
+		ruling_party = autonomous_socialism
+		last_election = "3233.3.5"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	set_popularities = {
+		neosocialism = 10
+		katzerism = 35
+		autonomous_socialism = 50
+		progressism = 5
+		progressive_liberalism = 0
+		orthodox_liberalism = 0
+		conservatism = 0
+		legalism = 0
+		autocracy = 0
+		technocratic_despotism = 0
+		purificationism = 0
+	}
+}
 
 if = {
 	limit = {

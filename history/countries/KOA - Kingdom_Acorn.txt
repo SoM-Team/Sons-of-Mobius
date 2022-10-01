@@ -119,14 +119,15 @@ set_popularities = {
 
 create_faction = Freedom_Accord
 add_to_faction = KOA
-add_to_faction = NEA
 add_to_faction = BHA
-add_to_faction = MID
+add_to_faction = CNS
 add_to_faction = DOW
 add_to_faction = GDK
-add_to_faction = CNS
-add_to_faction = SWA
+add_to_faction = MID
+add_to_faction = NEA
 add_to_faction = RSE
+add_to_faction = SWA
+
 
 add_ideas = {
 	good_tech
@@ -165,33 +166,65 @@ add_equipment_to_stockpile = {
 	producer = KOA
 }
 
-#if = {
-#	limit = {
-#		OR = {
-#			has_dlc = "Together for Victory"
-#			has_dlc = "Man the Guns"
-#		}
-#	}
-#	set_autonomy = {
-#		target = NEA
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = BHA
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = MID
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	set_autonomy = {
-#		target = DOW
-#		autonomous_state = autonomy_integrated_puppet
-#	}
-#	else = {
-#		puppet = NEA
-#		puppet = BHA
-#		puppet = MID
-#		puppet = DOW
-#	}
-#}
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_autonomy = {
+		target = BHA
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = DOW
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = MID
+		autonomous_state = autonomy_integrated_puppet
+	}
+	set_autonomy = {
+		target = NEA
+		autonomous_state = autonomy_integrated_puppet
+	}
+	else = {
+		puppet = BHA
+		puppet = DOW
+		puppet = MID
+		puppet = NEA
+	}
+}
+
+BHA = {
+	set_popularities = {
+		neosocialism = 0
+		katzerism = 0
+		autonomous_socialism = 25
+		progressism = 15
+		progressive_liberalism = 0
+		orthodox_liberalism = 0
+		conservatism = 10
+		legalism = 0
+		autocracy = 42
+		technocratic_despotism = 0
+		purificationism = 8
+	}
+}
+
+DOW = {
+	set_popularities = {
+		neosocialism = 5
+		katzerism = 5
+		autonomous_socialism = 5
+		progressism = 5
+		progressive_liberalism = 5
+		orthodox_liberalism = 5
+		conservatism = 5
+		legalism = 5
+		autocracy = 50
+		technocratic_despotism = 5
+		purificationism = 5
+	}
+}
