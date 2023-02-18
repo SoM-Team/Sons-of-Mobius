@@ -1,0 +1,694 @@
+on_actions = {
+	on_capitulation = {
+		effect = {
+			add_to_variable = { FROM.rings = ROOT.rings }
+			subtract_from_variable = { ROOT.rings = ROOT.rings }
+		}
+	}
+	on_annex = {
+		effect = {
+			add_to_variable = { ROOT.rings = FROM.rings }
+			subtract_from_variable = { FROm.rings = FROM.rings }
+		}
+	}
+	on_startup = {
+		effect = {
+			KOA = {
+				set_country_flag = { flag = leader_has_bio value = 1}
+				set_variable = {
+					UFA_GUN_presence = 40
+				}
+				set_variable = {
+					gov_corruption = 65
+				}
+				set_variable = {
+					gov_corruption_growth = 3.5
+				}
+				set_variable = { embargo_target = RCR }
+				set_variable = { embargo_initiator = KOA }
+				set_variable = { opinion_modifier_action = 1 }
+				Switch_Trade_Embargo = yes
+			}
+			RCR = {
+				country_event = {
+					id = rcr.1
+				}
+				set_variable = {
+					RCR_unif_inter = 7
+				}
+				set_variable = {
+					CNT_Political_Capital = 1
+				}
+				set_country_flag = { flag = leader_has_bio value = 1}
+				set_variable = {
+					RCR_FEC_Loyalty = 50
+				}
+				set_variable = {
+					RCR_SOC_Loyalty = 69
+				}
+				set_variable = {
+					RCR_NOC_Loyalty = 55
+				}
+				set_variable = {
+					RCR_NWC_Loyalty = 19
+				}
+				set_variable = {
+					RCR_SIC_Loyalty = 75
+				}
+				set_variable = {
+					RCR_WEC_Loyalty = 48
+				}
+				set_variable = {
+					UFA_GUN_presence = 0
+				}
+				set_variable = {
+					puppet_score = 0
+				}
+				set_variable = {
+					game_progress = 50
+				}
+				set_variable = {
+					gov_corruption = 48
+				}
+				set_variable = {
+					gov_corruption_growth = 1.5
+				}
+			}
+			EGG = { 
+				country_event = {
+					id = egg.intro.1
+				}
+				set_variable = {
+					EGG.METAL_SONIC_Influence = 10
+				}
+				set_variable = {
+					EGG.SNIV_Influence = 32
+				}
+				set_variable = {
+					EGG.Regime_Stability = 50
+				}
+				set_variable = {
+					var = ff_activity
+					value = 100
+				}
+				set_variable = {
+					EGG.DEL_1_Submission = 84
+				}
+				set_variable = {
+					EGG.DEL_2_Submission = 56
+				}
+				set_variable = {
+					EGG.DEL_3_Submission = 41
+				}
+				set_variable = {
+					EGG.DEL_4_Submission = 63
+				}
+				set_variable = {
+					EGG.DEL_1_Submission_rate = -0.15
+				}
+				set_variable = {
+					EGG.DEL_2_Submission_rate = -0.35
+				}
+				set_variable = {
+					EGG.DEL_3_Submission_rate = -0.5
+				}
+				set_variable = {
+					EGG.DEL_4_Submission_rate = -0.25
+				}
+				set_variable = {
+					EGG_DEL_see = 1
+				}
+				set_variable = {
+					EGG_DEL_deeds = 0
+				}
+				set_variable = {
+					UFA_GUN_presence = 0
+				}
+				set_variable = {
+					gov_corruption = 52
+				}
+				set_variable = {
+					gov_corruption_growth = 0.5
+				}
+			}
+			UFA = {
+				set_variable = {
+					UFA_GUN_target = UFA
+				}
+				set_variable = {
+					UFA_GUN_presence = 100
+				}
+				set_variable = {
+					puppet_score = 0
+				}
+				set_variable = {
+					gov_corruption = 36
+				}
+				set_variable = {
+					gov_corruption_growth = 2.5
+				}
+				set_variable = {
+					federal_unity = 75
+				}
+			}
+			PAT = {
+				set_variable = {
+					UFA_GUN_presence = 0
+				}
+			}
+			SOU = {
+				set_variable = {
+					UFA_GUN_presence = 0
+				}
+			}
+			INF = {
+				set_variable = {
+					UFA_GUN_presence = 25
+				}
+				set_variable = {
+					INF_Ruby_Energy = 100
+				}
+				set_variable = {
+					INF_Ruby_Energy_refill = 5
+				}
+				set_variable = {
+					gov_corruption = 82
+				}
+				set_variable = {
+					gov_corruption_growth = 3.5
+				}
+			}
+			MER = {
+				set_variable = {
+					UFA_GUN_presence = 50
+				}
+			}
+			SWA = {
+				set_variable = {
+					UFA_GUN_presence = 35
+				}
+			}
+			NIK = {
+				set_variable = {
+					UFA_GUN_presence = 20
+				}
+			}
+			IRO = {
+				set_variable = {
+					UFA_GUN_presence = 15
+				}
+			}
+		}
+	}
+	on_monthly_RCR = {
+		effect = {
+			monthly_effects = yes
+		}
+	}
+	on_daily_RCR = {
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Far_Eastern_Committee_bad
+						}
+					}
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee
+						add_idea = Far_Eastern_Committee_bad
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_FEC_Loyalty < 66
+						}
+						has_idea = Far_Eastern_Committee_good
+					}
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee_good
+						add_idea = Far_Eastern_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_FEC_Loyalty < 66
+						}
+						has_idea = Far_Eastern_Committee_bad
+					}
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee_bad
+						add_idea = Far_Eastern_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_FEC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Far_Eastern_Committee_good
+						}
+					}
+				}
+				FEC = {
+					swap_ideas = {
+						remove_idea = Far_Eastern_Committee
+						add_idea = Far_Eastern_Committee_good
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Western_Committee_bad
+						}
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee
+						add_idea = Western_Committee_bad
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_WEC_Loyalty < 66
+						}
+						has_idea = Western_Committee_good
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee_good
+						add_idea = Western_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_WEC_Loyalty < 66
+						}
+						has_idea = Western_Committee_bad
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee_bad
+						add_idea = Western_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_WEC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Western_Committee_good
+						}
+					}
+				}
+				WEC = {
+					swap_ideas = {
+						remove_idea = Western_Committee
+						add_idea = Western_Committee_good
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Northern_Committee_bad
+						}
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee
+						add_idea = Northern_Committee_bad
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NOC_Loyalty < 66
+						}
+						has_idea = Northern_Committee_good
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee_good
+						add_idea = Northern_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NOC_Loyalty < 66
+						}
+						has_idea = Northern_Committee_bad
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee_bad
+						add_idea = Northern_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NOC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Northern_Committee_good
+						}
+					}
+				}
+				NOC = {
+					swap_ideas = {
+						remove_idea = Northern_Committee
+						add_idea = Northern_Committee_good
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Siverian_Committee_bad
+						}
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_neutral
+						add_idea = Siverian_Committee_bad
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SIC_Loyalty < 66
+						}
+						has_idea = Siverian_Committee
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee
+						add_idea = Siverian_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SIC_Loyalty < 66
+						}
+						has_idea = Siverian_Committee_bad
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_bad
+						add_idea = Siverian_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SIC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Siverian_Committee
+						}
+					}
+				}
+				SIC = {
+					swap_ideas = {
+						remove_idea = Siverian_Committee_neutral
+						add_idea = Siverian_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Southern_Committee_bad
+						}
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_neutral
+						add_idea = Southern_Committee_bad
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SOC_Loyalty < 66
+						}
+						has_idea = Southern_Committee_1
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_1
+						add_idea = Southern_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_SOC_Loyalty < 66
+						}
+						has_idea = Southern_Committee_bad
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_bad
+						add_idea = Southern_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_SOC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Southern_Committee_1
+						}
+					}
+				}
+				SOC = {
+					swap_ideas = {
+						remove_idea = Southern_Committee_neutral
+						add_idea = Southern_Committee_1
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty < 33
+						}
+						NOT = {
+							has_idea = Northwestern_Committee
+						}
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_neutral
+						add_idea = Northwestern_Committee
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NWC_Loyalty < 66
+						}
+						has_idea = Northwestern_Committee_good
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_good
+						add_idea = Northwestern_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 32
+						}
+						check_variable = {
+							RCR_NWC_Loyalty < 66
+						}
+						has_idea = Northwestern_Committee
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee
+						add_idea = Northwestern_Committee_neutral
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							RCR_NWC_Loyalty > 65
+						}
+						NOT = {
+							has_idea = Northwestern_Committee_good
+						}
+					}
+				}
+				NWC = {
+					swap_ideas = {
+						remove_idea = Northwestern_Committee_neutral
+						add_idea = Northwestern_Committee_good
+					}
+				}
+			}
+		}
+	}
+	on_monthly_EGG = {
+		effect = {
+			#EGG_monthly_effects = yes
+		}
+	}
+	on_monthly_NOC = {
+		effect = {
+			if = {
+				limit = {
+					has_government = katzerism
+				}
+				set_politics = {
+					ruling_party = neosocialism
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+				}
+			}	
+		}
+	}
+	on_daily_KOA = {
+		effect = {
+			if = {
+				limit = {
+					#KOA_occupation_ended = yes
+				}
+				country_event = {
+					id = koa.3
+				}
+				#EGG = {
+				#	country event = {
+				#	id = egg.200
+				#}
+				}
+			}
+	}
+}

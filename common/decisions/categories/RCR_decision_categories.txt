@@ -70,7 +70,7 @@ RCR_red_army_buildup = {
 	}
 }
 
-RCR_GULAG = {
+RCR_GOOLAG = {
 	
 	icon = GFX_decision_category_GULAG
 	
@@ -82,6 +82,7 @@ RCR_GULAG = {
 	
 	available = {
 		has_idea = GULAG_yes
+		always = yes
 	}
 }
 
@@ -92,4 +93,114 @@ RCR_war_and_peace_cat = {
 	allowed = {
 		original_tag = RCR
 	}
+}
+
+
+RCR_Shilov_Campaign = {
+	
+	icon = GFX_decision_category_ger_military_buildup
+	
+	picture = GFX_cat_GULAG
+	
+	allowed = {
+		original_tag = RCR
+	}
+	
+	available = {
+		always = yes
+	}
+}
+
+
+RCR_EMP_weapon = {
+	
+	icon = GFX_decision_category_ger_military_buildup
+	
+	picture = GFX_cat_GULAG
+	
+	allowed = {
+		original_tag = RCR
+	}
+	
+	available = {
+		has_country_flag = EMP_weapon_start
+	}
+}
+
+RCR_EMP_weapon = {
+	
+	icon = GFX_decision_category_ger_military_buildup
+	
+	picture = GFX_cat_GULAG
+	
+	allowed = {
+		original_tag = RCR
+	}
+	
+	available = {
+		has_country_flag = EMP_weapon_start
+	}
+}
+
+RCR_space_exploration = {
+	
+	icon = GFX_decision_category_space_rcsr
+	
+	picture = GFX_cat_space_explore
+	
+	allowed = {
+		original_tag = RCR
+	}
+	
+	available = {
+		has_completed_focus = RCR_Red_Air_Forces
+	}
+}
+
+RCR_Molokh_Project = {
+	
+	icon = GFX_decision_category_bio_war
+	
+	picture = GFX_cat_biologic_warfare
+	
+	visible = {
+		has_country_flag = RCR_Started_Molokh
+	}
+	
+	allowed = {
+		original_tag = RCR
+	}
+	
+	available = {
+		has_country_flag = RCR_Started_Molokh
+	}
+}
+
+RCR_automation_decision = {
+	icon = GFX_decision_category_space_rcsr
+	
+	picture = GFX_cat_automation
+	
+	visible = {
+		has_idea = automation_focus
+	}
+	allowed = { tag = RCR }
+	scripted_gui = RCR_AUTOMATION_WINDOW
+}
+
+RCR_unification_decision = {
+	icon = GFX_decision_category_rethenia_reunify
+	
+	picture = GFX_cat_rethenia_reunify
+	
+	visible = {
+		AND = {
+			NOT = { has_idea = Political_Infighting }
+			NOT = { has_idea = Political_Infighting_waut }
+			NOT = { has_idea = Political_Infighting_wnat }
+			NOT = { has_idea = Political_Infighting_fin }
+		}
+	}
+	allowed = { tag = RCR }
+	scripted_gui = RCSR_Unification
 }

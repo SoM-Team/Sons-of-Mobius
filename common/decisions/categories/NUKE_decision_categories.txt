@@ -1,0 +1,65 @@
+
+NUCLEAR_WAR = {
+	
+	icon = GFX_decision_category_NUKE
+	
+	picture = GFX_cat_MBR
+	
+	allowed = {
+	}
+	
+	available = {
+	AND = {
+	OR = { 
+		is_major = yes
+		tag = INF
+	}
+	has_tech = thermonuclear_fusion 
+	has_tech = ballistic_missiles 
+	}
+	}
+	
+	visible = {
+	AND = {
+	has_tech = thermonuclear_fusion
+	has_tech = ballistic_missiles  
+	OR = { 
+		is_major = yes
+		tag = INF
+	}
+	}
+	}
+}
+ANTI_MISSILE_DEFENCE = {
+
+icon = GFX_decision_category_NUKE
+	
+	picture = GFX_cat_SMD
+	
+	allowed = {
+	}
+	
+	available = {
+	AND = {
+		OR = { 
+			is_major = yes
+			tag = INF
+		}
+		has_tech = thermonuclear_fusion
+		has_tech = ballistic_missiles 
+	# has_tech = Anti-Missile_missiles - нужна технология на ПРО (и сами ракеты ПРО)
+	}
+	}
+	
+	visible = {
+	AND = {
+		has_tech = thermonuclear_fusion 
+		has_tech = ballistic_missiles
+	OR = { 
+		is_major = yes
+		tag = INF
+	}
+	}
+	}
+	
+}

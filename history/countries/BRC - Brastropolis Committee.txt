@@ -1,334 +1,82 @@
 capital = 238
 
-OOB = "C2_3236"
+oob = "BRC_3236"
+
+recruit_character = BRC_Alexandr_Pistoletov
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Together for Victory"
+			has_dlc = "Man the Guns"
+		}
+	}
+	RCR = {
+		set_autonomy = {
+			target = BRC
+			autonomous_state = autonomy_integrated_puppet
+		}
+	}
+	
+	else = {
+		RCR = {
+			puppet = BRC
+		}
+	}
+}
 
 set_technology = {
-	infantry_weapons = 1
-	magazine_rifle = 1
-	assault_complex = 1
-	first_energy_weapon = 1
-	personal_equipment = 1
-	steel_helmet = 1
-	infantry_support_equipment_1 = 1
-	antitank_equipment_1 = 1
-	spec_camo = 1
-	motorised_infantry = 1
-	mechanised_infantry_on_apc_1 = 1
-	mechanised_infantry_on_ifv_1 = 1
 	hand_tools = 1
 	welding_method = 1
 	gov_industrial_revolution = 1
-	drawing_standard = 1
-	mine_improvement = 1
-	сonstruction_machinery = 1
+	basic_machine_tools = 1
+	sonicinfweapon = 1
+	programmed_electronics = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	infantry_weapons = 1
+	magazine_rifle = 1
 	tech_support = 1
 	tech_engineers = 1
 	tech_recon = 1
-	tech_main_battle_tank_1 = 1
-	tech_armored_rockets_vehicle = 1
-	tech_armored_anti_tank_1 = 1
-	tech_armored_anti_air_1 = 1
-	
-	sonicinfweapon = 1 
-	infantry_artillery_1 = 1
-	infantry_ATGM_1 = 1
-	infantry_SAM_1 = 1
-	
+	assault_complex = 1
+	personal_equipment = 1
+	steel_helmet = 1
+	antitank_equipment_1 = 1
+	motorised_infantry = 1
+	mechanised_infantry_on_apc_1 = 1
 	early_fighter = 1
-	fighter1 = 1
-	CAS1 = 1
-	bomber1 = 1
-	scout_plane0 = 1
-	transport_plane0 = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	tech_main_battle_tank_1 = 1
+	tech_main_battle_tank_2 = 1
 }
 
 set_politics = {
-	ruling_party = communism
-	last_election = "3236.1.1"
+	ruling_party = katzerism
+	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 
-set_popularities = {
-	neosocialist = 10
-	communism = 60
-	autonomous_socialist = 25
-	social_democrat = 5
-	social_liberal = 0
-	market_liberal = 0
-	democratic = 0
-	democratic_dictatorship = 0
-	neutrality = 0
-	technocratic_despotist = 0
-	fascism = 0
-}
-
-
-add_ideas = {
-	Echo_Civil_War
-	Robotnik_Industry
-}
-
 set_convoys = 5
 
-create_country_leader = {
-	name = "Mikhail Krugin"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Mikhail_Krugin.dds"
-	expire = "3265.1.1"
-	ideology = social_nationalist
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
+set_popularities = {
+	neosocialism = 10
+	katzerism = 60
+	autonomous_socialism = 25
+	progressism = 5
+	progressive_liberalism = 0
+	orthodox_liberalism = 0
+	conservatism = 0
+	legalism = 0
+	autocracy = 0
+	technocratic_despotism = 0
+	purificationism = 0
 }
 
-create_country_leader = {
-	name = "Alexandr Pistoletov"
-	desc = "POLITICS_PISTOLETOV_DESCRIPTION"
-	picture = "gfx/leaders/BRC/Portrait_Alexandr_Pistoletov.dds"
-	expire = "3265.1.1"
-	ideology = katzerist_pallasovist
-	traits = {
-	}
-}
-
-create_country_leader = {
-	name = "Pavel Liushkin"
-	desc = "POLITICS_Liushkin_DESC"
-	picture = "gfx/leaders/NWC/Portrait_Pavel_Liushkin.dds"
-	expire = "3265.1.1"
-	ideology = anarchist
-	traits = {
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = social_democrat_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = social_liberal_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = market_liberal_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = social_conservative_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = democratic_dictatorship
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = technocratic_despotist_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = national_populist_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_country_leader = {
-	name = "Yuri Pallasov"
-	desc = "POLITICS_KING_ZOG_DESC"
-	picture = "gfx/leaders/RCR/Portrait_Yuri_Pallasov.dds"
-	expire = "3265.1.1"
-	ideology = national_populist_subtype
-	traits = {
-		Leader_of_the_proletarian_revolution
-	}
-}
-
-create_field_marshal = {
-	name = "Yuri Pallasov"
-	portrait_path = "gfx/leaders/RCR/Yuri_Pallasov_marshal.dds"
-	traits = { brilliant_strategist offensive_doctrine trait_reckless politically_connected }
-	skill = 7
-	attack_skill = 5
-    defense_skill = 4
-    planning_skill = 4
-    logistics_skill = 3
-}
-
-create_field_marshal = {
-	name = "Leona Eismesser"
-	portrait_path = "gfx/leaders/RCR/Leona_Eismesser_marshal.dds"
-	traits = { brilliant_strategist defensive_doctrine politically_connected }
-	skill = 4
-	attack_skill = 2
-    defense_skill = 5
-    planning_skill = 3
-    logistics_skill = 4
-}
-
-create_field_marshal = {
-	name = "Rudolf Owler"
-	portrait_path = "gfx/leaders/RCR/Rudolf_Owler_marshal.dds"
-	traits = { brilliant_strategist career_officer offensive_doctrine armor_officer }
-	skill = 4
-	attack_skill = 4
-    defense_skill = 2
-    planning_skill = 3
-    logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Fyodor Shubin"
-	portrait_path = "gfx/leaders/RCR/Fyodor_Shubin_general.dds"
-	traits = { offensive_doctrine politically_connected war_hero commando }
-	skill = 5
-	attack_skill = 4
-    defense_skill = 2
-    planning_skill = 3
-    logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Gennadiy Shilov"
-	portrait_path = "gfx/leaders/RCR/Gennadiy_Shilov_general.dds"
-	traits = { offensive_doctrine trickster commando career_officer }
-	skill = 4
-	attack_skill = 4
-    defense_skill = 3
-    planning_skill = 3
-    logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Franciszek Vilszarovicz"
-	portrait_path = "gfx/leaders/RCR/Franciszek_Vilszarovicz_general.dds"
-	traits = { infantry_officer trickster armor_officer }
-	skill = 3
-	attack_skill = 2
-    defense_skill = 4
-    planning_skill = 4
-    logistics_skill = 3
-}
-
-create_corps_commander = {
-	name = "Nikolai Volkov"
-	portrait_path = "gfx/leaders/RCR/Nikolai_Volkov_general.dds"
-	traits = { war_hero offensive_doctrine armor_officer }
-	skill = 4
-	attack_skill = 3
-    defense_skill = 4
-    planning_skill = 3
-    logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Mikhail Mokanu"
-	portrait_path = "gfx/leaders/RCR/Mikhail_Mokanu_general.dds"
-	traits = { war_hero infantry_officer brilliant_strategist }
-	skill = 5
-	attack_skill = 4
-    defense_skill = 4
-    planning_skill = 3
-    logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Valeriy Zhmyshenko"
-	portrait_path = "gfx/leaders/RCR/Valeriy_Zhmyshenko_general.dds"
-	traits = { armor_officer brilliant_strategist media_personality }
-	skill = 3
-	attack_skill = 3
-    defense_skill = 2
-    planning_skill = 3
-    logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Adamkus Guboriavicius"
-	portrait_path = "gfx/leaders/RCR/Adamkus_Guboriavicius_general.dds"
-	traits = { armor_officer drunkard }
-	skill = 3
-	attack_skill = 3
-    defense_skill = 1
-    planning_skill = 2
-    logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Zoya Shubina"
-	portrait_path = "gfx/leaders/RCR/Zoya_Shubina_general.dds"
-	traits = { armor_officer media_personality }
-	skill = 3
-	attack_skill = 4
-    defense_skill = 2
-    planning_skill = 1
-    logistics_skill = 2
-}
-
-create_corps_commander = {
-	name = "Boris Novikov"
-	portrait_path = "gfx/leaders/RCR/Boris_Novikov_general.dds"
-	traits = { winter_specialist infantry_officer }
-	skill = 4
-	attack_skill = 4
-    defense_skill = 3
-    planning_skill = 2
-    logistics_skill = 1
-}
-
-create_corps_commander = {
-	name = "Semyon Akvilov"
-	portrait_path = "gfx/leaders/RCR/Semyon_Akvilov_general.dds"
-	traits = { winter_specialist infantry_officer trait_reckless }
-	skill = 2
-	attack_skill = 2
-    defense_skill = 2
-    planning_skill = 1
-    logistics_skill = 1
+add_ideas = {
+	medium_tech
+	Echo_Civil_War
+	Robotnik_Industry
 }

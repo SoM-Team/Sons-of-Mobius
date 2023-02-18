@@ -1,6 +1,31 @@
 capital = 396
 
-OOB = "UFA_3236"
+oob = "UFA_3236"
+
+recruit_character = UFA_Herbert_Willson
+recruit_character = UFA_Shadow_the_Hedgehog
+
+recruit_character = UFA_Abraham_Tower
+recruit_character = UFA_Amanda_Tower
+recruit_character = UFA_Hugo_Brass
+recruit_character = UFA_Melissa_Rotach
+recruit_character = UFA_Daniel_Murer
+recruit_character = UFA_Sperry_Doberman
+
+recruit_character = UFA_Hoss_Dixon
+recruit_character = UFA_Dutch_Free
+recruit_character = UFA_Honch_Dubois
+recruit_character = UFA_Rico_Gilliard
+recruit_character = UFA_Archibald_Andrews
+recruit_character = UFA_Catharina_Yarntail
+recruit_character = UFA_Charles_Clayton
+recruit_character = UFA_Elizabeth_Cooper
+recruit_character = UFA_Esmagar_Pinto
+recruit_character = UFA_Francis_Sabatino
+recruit_character = UFA_Knievel_Goode
+recruit_character = UFA_Proto_Cole
+recruit_character = UFA_Richard_Cheung
+recruit_character = UFA_Veronica_Lodge
 
 set_technology = {
 	infantry_weapons = 1
@@ -16,7 +41,7 @@ set_technology = {
 	antitank_equipment_1 = 1
 	spec_camo = 1
 	kevlar = 1
-	night_equipment_1
+	night_equipment_1 = 1
 	motorised_infantry = 1
 	mechanised_infantry_on_apc_1 = 1
 	mechanised_infantry_on_ifv_1 = 1
@@ -90,105 +115,58 @@ set_technology = {
 	transport_helicopter1 = 1
 }
 
+add_ideas = {
+	very_good_tech
+	nascent_corruption
+	no_mbr
+
+	Oil_Crisis_3235
+	Under_Banners_GUN
+	Stronghold_of_Democracy
+	Patchwork_Federation
+}
+
+load_focus_tree = United_Federation_startup
+
+set_convoys = 5
+
 set_politics = {
-	ruling_party = social_liberal
-	last_election = "1933.3.5"
+	ruling_party = progressive_liberalism
+	last_election = "3233.3.5"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	neosocialist = 0
-	communism = 0
-	autonomous_socialist = 10
-	social_democrat = 15
-	social_liberal = 35
-	market_liberal = 15
-	democratic = 25
-	democratic_dictatorship = 0
-	neutrality = 0
-	technocratic_despotist = 0
-	fascism = 0
+	neosocialism = 0
+	katzerism = 0
+	autonomous_socialism = 10
+	progressism = 15
+	progressive_liberalism = 30
+	orthodox_liberalism = 15
+	conservatism = 25
+	legalism = 5
+	autocracy = 0
+	technocratic_despotism = 0
+	purificationism = 0
 }
 
-add_ideas = {
-
-}
-
-set_convoys = 5
-
-create_country_leader = {
-	name = "Herbert Willson"
-	desc = "POLITICS_WILLSON_DESC"
-	picture = "gfx/leaders/UFA/Portrait_Herbert_Willson.dds"
-	expire = "1965.1.1"
-	ideology = social_liberal_subtype
-	traits = {
-		
+if = {
+	limit = {
+		has_dlc = "La Resistance"
 	}
-}
-create_country_leader = {
-	name = "Shadow the Hedgehog"
-	desc = "POLITICS_SHADOW"
-	picture = "gfx/leaders/UFA/Portrait_Premier_Shadow.dds"
-	expire = "1965.1.1"
-	ideology = katzerist_pallasovist
-	traits = {
-		
+	create_operative_leader = {
+		name = "Rouge the Bat"
+		picture = "Portrait_Rouge_the_Bat_ufa.tga"
+		traits = {
+			operative_infiltrator
+			operative_seducer
+			operative_double_agent
+			operative_safe_cracker
+		}
+		bypass_recruitmentment = no
+		available_to_spy_master = yes
+		nationalities = { UFA EGG }
 	}
-}
-create_country_leader = {
-	name = "Shadow the Hedgehog"
-	desc = "POLITICS_SHADOW"
-	picture = "gfx/leaders/UFA/Portrait_Premier_Shadow.dds"
-	expire = "1965.1.1"
-	ideology = social_nationalist
-	traits = {
-		
-	}
-}
-create_country_leader = {
-	name = "Shadow the Hedgehog"
-	desc = "POLITICS_SHADOW"
-	picture = "gfx/leaders/UFA/Portrait_King_Shadow.dds"
-	expire = "1965.1.1"
-	ideology = paternal_autocrat_subtype
-	traits = {
-		
-	}
-}
-create_country_leader = {
-	name = "Shadow the Hedgehog"
-	desc = "POLITICS_SHADOW"
-	picture = "gfx/leaders/UFA/Portrait_Protector_Shadow.dds"
-	expire = "1965.1.1"
-	ideology = democratic_dictatorship
-	traits = {
-		
-	}
-}
-create_country_leader = {
-	name = "Shadow the Hedgehog"
-	desc = "POLITICS_SHADOW"
-	picture = "gfx/leaders/UFA/Portrait_Supreme_Shadow.dds"
-	expire = "1965.1.1"
-	ideology = national_populist_subtype
-	traits = {
-		
-	}
-}
-
-create_operative_leader = {
-	name = "Rouge the Bat"
-	picture = "Portrait_ufa_Rouge_the_Bat.tga"
-	traits = {
-		operative_infiltrator
-		operative_seducer
-		operative_double_agent
-		operative_safe_cracker
-	}
-	bypass_recruitmentment = no
-	available_to_spy_master = yes
-	nationalities = { UFA EGG }
 }
 

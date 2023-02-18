@@ -1,0 +1,122 @@
+scripted_gui = {
+	UFA_GUN_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "UFA_MAP_GUI"
+	
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
+			
+		}
+		
+		effects = {
+			GUN_UFA_click = {
+				set_variable = {
+					UFA_GUN_target = UFA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_ASI_click = {
+				set_variable = {
+					UFA_GUN_target = NIK
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_RCR_click = {
+				set_variable = {
+					UFA_GUN_target = RCR
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_EFR_click = {
+				set_variable = {
+					UFA_GUN_target = INF
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_SSU_click = {
+				set_variable = {
+					UFA_GUN_target = PAT
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_NSU_click = {
+				set_variable = {
+					UFA_GUN_target = SOU
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_DRK_click = {
+				set_variable = {
+					UFA_GUN_target = IRO
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_KOA_click = {
+				set_variable = {
+					UFA_GUN_target = KOA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_EGG_click = {
+				set_variable = {
+					UFA_GUN_target = EGG
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_NUR_click = {
+				set_variable = {
+					UFA_GUN_target = SWA
+				}
+				sound_effect = "click_province_01"
+			}
+			GUN_MRE_click = {
+				set_variable = {
+					UFA_GUN_target = MER
+				}
+				sound_effect = "click_province_01"
+			}
+			GUI_MAP_BUTTON_click = {
+				set_country_flag = DARK_deployed
+				if = {
+					limit = { 
+						check_variable = { UFA_GUN_target = INF }
+					}
+					set_variable = {
+						UFA_DARK_ops = INF
+					}
+				}
+				sound_effect = "click_province_01"
+			}
+		}
+		
+		properties = {
+			
+		}
+	}
+}
+
+scripted_gui = {
+	UFA_GG_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "GREAT_GAME_WINDOW"
+	
+		visible = {
+
+		}
+		
+		triggers = {
+			
+		}
+		
+		
+		properties = {
+			GREAT_GAME_BAR = {
+				frame = RCR.game_progress
+			}
+		}
+	}
+}
+

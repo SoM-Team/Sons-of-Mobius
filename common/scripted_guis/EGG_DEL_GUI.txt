@@ -1,0 +1,96 @@
+scripted_gui = {
+	EGG_DEL_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
+		context_type = decision_category
+		window_name = "EGG_DEL_SUBMIT_GUI"
+	
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
+			GUI_ARROW_DOWN_1_visible = {
+				check_variable = {
+					EGG.DEL_1_Submission_rate < 0
+				}
+			}
+			GUI_ARROW_DOWN_2_visible = {
+				check_variable = {
+					EGG.DEL_2_Submission_rate < 0
+				}
+			}
+			GUI_ARROW_DOWN_3_visible = {
+				check_variable = {
+					EGG.DEL_3_Submission_rate < 0
+				}
+			}
+			GUI_ARROW_DOWN_4_visible = {
+				check_variable = {
+					EGG.DEL_4_Submission_rate < 0
+				}
+			}
+			GUI_ARROW_UP_1_visible = {
+				check_variable = {
+					EGG.DEL_1_Submission_rate > 0
+				}
+			}
+			GUI_ARROW_UP_2_visible = {
+				check_variable = {
+					EGG.DEL_2_Submission_rate > 0
+				}
+			}
+			GUI_ARROW_UP_3_visible = {
+				check_variable = {
+					EGG.DEL_3_Submission_rate > 0
+				}
+			}
+			GUI_ARROW_UP_4_visible = {
+				check_variable = {
+					EGG.DEL_4_Submission_rate > 0
+				}
+			}
+		}
+		
+		effects = {
+			GUI_LEADER_BUTTON_1_click = {
+				set_variable = {
+					EGG_DEL_see = 1
+				}
+				sound_effect = "click_province_01"
+			}
+			GUI_LEADER_BUTTON_2_click = {
+				set_variable = {
+					EGG_DEL_see = 2
+				}
+				sound_effect = "click_province_01"
+			}
+			GUI_LEADER_BUTTON_3_click = {
+				set_variable = {
+					EGG_DEL_see = 3
+				}
+				sound_effect = "click_province_01"
+			}
+			GUI_LEADER_BUTTON_4_click = {
+				set_variable = {
+					EGG_DEL_see = 4
+				}
+				sound_effect = "click_province_01"
+			}
+		}
+		
+		properties = {
+			EGG_DEL_BAR_1 = {
+				frame = EGG.DEL_1_Submission
+			}
+			EGG_DEL_BAR_2 = {
+				frame = EGG.DEL_2_Submission
+			}
+			EGG_DEL_BAR_3 = {
+				frame = EGG.DEL_3_Submission
+			}
+			EGG_DEL_BAR_4 = {
+				frame = EGG.DEL_4_Submission
+			}
+		}
+	}
+}
+

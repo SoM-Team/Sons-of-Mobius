@@ -1,0 +1,123 @@
+HERO_DECISIONS = {
+    tails_create = { 
+		icon = generic_nationalism
+
+		allowed = {
+		}
+
+		available = {
+		NOT = {
+		has_global_flag = TAILS
+		}
+		}
+		
+		cost = 1000
+        days_re_enable = 100
+		#fire_only_once = yes
+		days_remove = 1
+
+		modifier = {
+		}
+
+		visible = {
+		NOT = {
+		has_global_flag = TAILS
+		}
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		ROOT = {
+		set_country_flag = TOO_FLUFFY
+	   division_template = {
+	   name = "Mails ''Tails'' Prower"  	
+	   regiments = {
+	   	tails_mech_hero = { x = 0 y = 0 }
+	   }
+	   support = {
+	   }
+	   is_locked = yes
+	   }
+	   capital_scope = {
+	   create_unit = {
+					division = "name = \"Mails ''Tails'' Prower Mech\" division_template = \"Mails ''Tails'' Prower\" start_experience_factor = 1.0" 
+					owner = PREV
+				}
+	   
+      }
+	  }
+	}
+	}
+	
+	
+	tails_disband = { 
+		icon = generic_nationalism
+
+		allowed = {
+		}
+
+		available = {
+		has_country_flag = TOO_FLUFFY
+		}
+		
+		cost = 0
+        days_re_enable = 1
+		#fire_only_once = yes
+		days_remove = 1
+
+		modifier = {
+		}
+
+		visible = {
+		has_country_flag = TOO_FLUFFY
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		ROOT = {
+		delete_unit_template_and_units = {
+		division_template = "Mails ''Tails'' Prower"
+		disband = yes
+		}
+		}
+		clr_country_flag = TOO_FLUFFY
+		clr_global_flag = TAILS
+	}
+	}
+
+	tails_support = { 
+		icon = generic_nationalism
+
+		allowed = {
+		}
+
+		available = {
+		has_country_flag = TOO_FLUFFY
+		}
+		
+		cost = 100
+        days_re_enable = 1
+		#fire_only_once = yes
+		days_remove = 1
+
+		modifier = {
+		}
+
+		visible = {
+		has_country_flag = TOO_FLUFFY
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+		add_equipment_to_stockpile = {
+			tails_mech_equipment = 1000
+		}
+	}
+	}
+}

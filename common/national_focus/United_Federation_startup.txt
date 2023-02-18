@@ -1,0 +1,2149 @@
+focus_tree = {
+
+	id = United_Federation_startup
+	country = {
+	
+		factor = 0
+		modifier = {
+			add = 10
+			tag = UFA
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 5000 }
+	
+	focus = {
+		id = UFA_Crisis_Worsens
+		icon = GFX_focus_UFA_Crisis_Worsens
+		cost = 4
+		x = 25
+		y = 0
+
+		completion_reward = {
+			country_event = {	id = ufa_oil.1 }
+			custom_effect_tooltip = NEED_HURRY
+		}
+	}
+	focus = {
+		id = UFA_Announce_Fuel_Rationing
+		icon = GFX_focus_UFA_Announce_Fuel_Rationing
+		prerequisite = { focus = UFA_Crisis_Worsens }
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 1
+
+		cost = 4
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Oil_Crisis_3235
+				add_idea = Oil_Crisis_3235_1
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_political_power = -50
+		}
+	}
+	focus = {
+		id = UFA_Develop_Synthetic_Alternatives
+		icon = GFX_UFA_Develop_Synthetic_Alternatives
+		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		relative_position_id = UFA_Crisis_Worsens
+		x = -2
+		y = 3
+
+		cost = 4
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = synth_resources
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 60
+			}
+		}
+	}
+	focus = {
+		id = UFA_Search_Alternate_Energy_Supplies
+		icon = GFX_UFA_Search_Alternate_Energy_Supplies
+		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 2
+
+		cost = 4
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 50
+				state = 394
+			}
+			swap_ideas = {
+				remove_idea = Oil_Crisis_3235_1
+				add_idea = Oil_Crisis_3235_2
+			}
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			custom_effect_tooltip = Decision_RCR_Embargo
+		}
+	}
+	focus = {
+		id = UFA_Move_into_Renewables
+		icon = GFX_UFA_Move_into_Renewables
+		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		relative_position_id = UFA_Crisis_Worsens
+		x = 2
+		y = 3
+
+		cost = 4
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = nuclear
+			}
+			custom_effect_tooltip = UFA_Renewable_decisions
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 60
+			}
+		}
+	}
+	focus = {
+		id = UFA_Purchase_Power_Rings
+		icon = GFX_UFA_Purchase_Power_Rings
+		prerequisite = { focus = UFA_Search_Alternate_Energy_Supplies }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 3
+
+		cost = 4
+
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_timed_idea = {
+				idea = Buy_Rings
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = UFA_Calm_Populace
+		icon = GFX_UFA_Calm_Populace
+		prerequisite = { focus = UFA_Purchase_Power_Rings }
+		prerequisite = { focus = UFA_Develop_Synthetic_Alternatives }
+		prerequisite = { focus = UFA_Move_into_Renewables }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 4
+
+		cost = 4
+
+		completion_reward = {
+			add_days_mission_timeout = {
+				mission = UFA_Oil_Worsens
+				days = 30
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = UFA_Situation_Stabilizes
+		icon = GFX_UFA_Situation_Stabilizes
+		prerequisite = { focus = UFA_Calm_Populace }
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 5
+
+		cost = 4
+
+		completion_reward = {
+			remove_ideas = Oil_Crisis_3235_2
+		}
+	}
+	focus = {
+		id = UFA_Return_the_Embargo
+		icon = GFX_UFA_Return_the_Embargo
+		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = 2
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Looking_East
+		icon = GFX_UFA_Looking_East
+		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = -6
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Spectre_Haunting_Yurashia
+		icon = GFX_UFA_Spectre_Haunting_Yurashia
+		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = -16
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Game_Theory
+		icon = GFX_UFA_Game_Theory
+		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Spectre_Haunting_Yurashia
+		x = 6
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Reinforce_the_Cordon
+		icon = GFX_UFA_Reinforce_the_Cordon
+		prerequisite = { focus =  UFA_Game_Theory }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Game_Theory
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Digging_It
+		icon = GFX_UFA_Digging_It
+		prerequisite = { focus =  UFA_Reinforce_the_Cordon }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Game_Theory
+		x = 1
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Empire_Line
+		icon = GFX_UFA_Empire_Line
+		prerequisite = { focus =  UFA_Digging_It }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Digging_It
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Transylvanian_Line
+		icon = GFX_UFA_Transylvanian_Line
+		prerequisite = { focus =  UFA_Digging_It }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Digging_It
+		x = 3
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Great_Game
+		icon = GFX_UFA_The_Great_Game
+		prerequisite = { focus =  UFA_Reinforce_the_Cordon }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Reinforce_the_Cordon
+		x = -1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_A_Once_and_Future_Ally
+		icon = GFX_UFA_A_Once_and_Future_Ally
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Knights_of_the_Conference_Table
+		icon = GFX_UFA_Knights_of_the_Conference_Table
+		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_A_Once_and_Future_Ally
+		x = -2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Beastly_Anachronism
+		icon = GFX_UFA_Beastly_Anachronism
+		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_A_Once_and_Future_Ally
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Castling
+		icon = GFX_UFA_Castling
+		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_A_Once_and_Future_Ally
+		x = 2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Bullet_Chess
+		icon = GFX_UFA_Bullet_Chess
+		prerequisite = { focus =  UFA_Knights_of_the_Conference_Table }
+		prerequisite = { focus =  UFA_Beastly_Anachronism }
+		prerequisite = { focus =  UFA_Castling }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_A_Once_and_Future_Ally
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_United_Justice
+		icon = GFX_UFA_United_Justice
+		prerequisite = { focus =  UFA_Bullet_Chess }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_A_Once_and_Future_Ally
+		x = 0
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Pawns_Gambit
+		icon = GFX_UFA_Pawns_Gambit
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = -6
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Pawn_Storm
+		icon = GFX_UFA_Pawn_Storm
+		prerequisite = { focus =  UFA_Pawns_Gambit }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Pawns_Gambit
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Topple_the_King
+		icon = GFX_UFA_Topple_the_King
+		prerequisite = { focus =  UFA_Pawn_Storm }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Pawns_Gambit
+		x = 2
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Outpost
+		icon = GFX_UFA_Outpost
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = -8
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Breakthrough
+		icon = GFX_UFA_Breakthrough
+		prerequisite = { focus =  UFA_Outpost }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Outpost
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Cold_Comfort
+		icon = GFX_UFA_Cold_Comfort
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = -10
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Ancorage
+		icon = GFX_UFA_Ancorage
+		prerequisite = { focus =  UFA_Cold_Comfort }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Cold_Comfort
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Together_for_Warmth
+		icon = GFX_UFA_Together_for_Warmth
+		prerequisite = { focus =  UFA_Ancorage }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Cold_Comfort
+		x = 2
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Win_the_Exchange
+		icon = GFX_UFA_Win_the_Exchange
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = 3
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_First_Mover_Advantage
+		icon = GFX_UFA_First_Mover_Advantage
+		prerequisite = { focus =  UFA_Win_the_Exchange }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Expand_the_Embargo
+		icon = GFX_UFA_Expand_the_Embargo
+		prerequisite = { focus =  UFA_First_Mover_Advantage }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_En_Passant
+		icon = GFX_UFA_En_Passant
+		prerequisite = { focus =  UFA_Expand_the_Embargo }
+		mutually_exclusive = {
+			focus = UFA_Control_the_Center
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Control_the_Center 
+		icon = GFX_UFA_Control_the_Center 
+		prerequisite = { focus =  UFA_Expand_the_Embargo }
+		mutually_exclusive = {
+			focus = UFA_En_Passant
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = 1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Exhibition_Match
+		icon = GFX_UFA_Exhibition_Match
+		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
+		prerequisite = { focus = UFA_United_Justice }
+		mutually_exclusive = {
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -7
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Maroczy_Bind
+		icon = GFX_UFA_Maroczy_Bind
+		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
+		prerequisite = { focus = UFA_United_Justice }
+		mutually_exclusive = {
+			focus = UFA_Check
+			focus = UFA_Fortress
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -5
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Fortress
+		icon = GFX_UFA_Fortress
+		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
+		prerequisite = { focus = UFA_United_Justice }
+		mutually_exclusive = {
+			focus = UFA_Check
+			focus = UFA_Maroczy_Bind
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -3
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Check
+		icon = GFX_UFA_Check
+		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
+		prerequisite = { focus = UFA_United_Justice }
+		mutually_exclusive = {
+			focus = UFA_Fortress
+			focus = UFA_Maroczy_Bind
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -1
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Checkmate
+		icon = GFX_UFA_Checkmate
+		prerequisite = { focus =  UFA_Fortress focus = UFA_United_Justice focus =  UFA_Check }
+		mutually_exclusive = {
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -3
+		y = 5
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Zugzwang
+		icon = GFX_UFA_Zugzwang
+		prerequisite = { focus = UFA_Checkmate }
+		mutually_exclusive = {
+			focus = UFA_Run_Out_the_Clock
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -4
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Run_Out_the_Clock
+		icon = GFX_UFA_Run_Out_the_Clock
+		prerequisite = { focus = UFA_Checkmate }
+		mutually_exclusive = {
+			focus = UFA_Zugzwang
+		}
+		relative_position_id = UFA_Win_the_Exchange
+		x = -2
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Pawn_Promotion
+		icon = GFX_UFA_Pawn_Promotion
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = 5
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Blockade
+		icon = GFX_UFA_Blockade
+		prerequisite = { focus =  UFA_Pawn_Promotion }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Pawn_Promotion
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Mechanical_Tuk
+		icon = GFX_UFA_Mechanical_Tuk
+		prerequisite = { focus =  UFA_The_Great_Game }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Great_Game
+		x = 7
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Men_From_CLIP
+		icon = GFX_UFA_The_Men_From_CLIP
+		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Spectre_Haunting_Yurashia
+		x = -3
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Emeralds_are_Forever
+		icon = GFX_UFA_Emeralds_are_Forever
+		prerequisite = { focus =  UFA_The_Men_From_CLIP }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Men_From_CLIP
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_A_Lighter_Shade_of_Red
+		icon = GFX_UFA_A_Lighter_Shade_of_Red
+		prerequisite = { focus =  UFA_The_Men_From_CLIP }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Men_From_CLIP
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Teach_Them_Better
+		icon = GFX_UFA_Teach_Them_Better
+		prerequisite = { focus =  UFA_A_Lighter_Shade_of_Red }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Men_From_CLIP
+		x = -1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Welcome_Defectors
+		icon = GFX_UFA_Welcome_Defectors
+		prerequisite = { focus =  UFA_A_Lighter_Shade_of_Red }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Men_From_CLIP
+		x = 1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_AntiUnity_Affairs_Committee
+		icon = GFX_UFA_The_AntiUnity_Affairs_Committee
+		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Spectre_Haunting_Yurashia
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Root_Out_Subversives
+		icon = GFX_UFA_The_Root_Out_Subversives
+		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		mutually_exclusive = {
+			focus = UFA_Shades_of_Grey
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Shades_of_Grey
+		icon = GFX_UFA_Shades_of_Grey
+		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		mutually_exclusive = {
+			focus = UFA_The_Root_Out_Subversives
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Radio_Free_Rethenia
+		icon = GFX_UFA_Radio_Free_Rethenia
+		prerequisite = { focus =  UFA_Shades_of_Grey focus =  UFA_The_Root_Out_Subversives }
+		
+		mutually_exclusive = {
+			focus = UFA_The_Root_Out_Subversives
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_A_Moral_Media
+		icon = GFX_UFA_A_Moral_Media
+		prerequisite = { focus =  UFA_Radio_Free_Rethenia }
+		
+		mutually_exclusive = {
+			focus = UFA_Humming_the_Baseline
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = -1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Humming_the_Baseline
+		icon = GFX_UFA_Humming_the_Baseline
+		prerequisite = { focus =  UFA_Radio_Free_Rethenia }
+		
+		mutually_exclusive = {
+			focus = UFA_A_Moral_Media
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Red_Menace
+		icon = GFX_UFA_The_Red_Menace
+		prerequisite = { focus =  UFA_A_Moral_Media focus =  UFA_Humming_the_Baseline }
+		prerequisite = { focus =  UFA_Demonize_the_Katz }
+		
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 4
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Pressure_the_Pinks
+		icon = GFX_UFA_Pressure_the_Pinks
+		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 2
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Outsource_Order
+		icon = GFX_UFA_Outsource_Order
+		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 3
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Demonize_the_Katz
+		icon = GFX_UFA_Demonize_the_Katz
+		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
+		x = 4
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Dragon_Roads
+		icon = GFX_UFA_Dragon_Roads
+		prerequisite = { focus =  UFA_Looking_East }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = -2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Great_Walls
+		icon = GFX_UFA_Great_Walls
+		prerequisite = { focus =  UFA_Looking_East }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = 2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Proximate_Wars
+		icon = GFX_UFA_Proximate_Wars
+		prerequisite = { focus =  UFA_Looking_East }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = 1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Halt_the_Dominoes
+		icon = GFX_UFA_Halt_the_Dominoes
+		prerequisite = { focus =  UFA_Proximate_Wars }
+		prerequisite = { focus =  UFA_Arm_the_Free_Peoples }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = 0
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Technopathetic
+		icon = GFX_UFA_Technopathetic
+		prerequisite = { focus =  UFA_Halt_the_Dominoes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = 1
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Dim_the_Red_Star
+		icon = GFX_UFA_Dim_the_Red_Star
+		prerequisite = { focus =  UFA_Halt_the_Dominoes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = -1
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Arm_the_Free_Peoples
+		icon = GFX_UFA_Arm_the_Free_Peoples
+		prerequisite = { focus =  UFA_Looking_East }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Looking_East
+		x = -1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Investigate_Jackalstan
+		icon = GFX_UFA_Investigate_Jackalstan
+		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Crisis_Worsens
+		x = 0
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Expand_Mobian_Agents
+		icon = GFX_UFA_Expand_Mobian_Agents
+		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = -2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Start_of_Infinity
+		icon = GFX_UFA_The_Start_of_Infinity
+		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Publicize_the_Madness
+		icon = GFX_UFA_Publicize_the_Madness
+		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = 2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Infiltrate_Jackalstan
+		icon = GFX_UFA_Infiltrate_Jackalstan
+		prerequisite = { focus =  UFA_Expand_Mobian_Agents }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = -1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Contact_the_Resistance
+		icon = GFX_UFA_Contact_the_Resistance
+		prerequisite = { focus =  UFA_Expand_Mobian_Agents }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = 1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Operation_Phantom_Thief
+		icon = GFX_UFA_Operation_Phantom_Thief
+		prerequisite = { focus =  UFA_Contact_the_Resistance }
+		prerequisite = { focus =  UFA_Publicize_the_Madness }
+		prerequisite = { focus =  UFA_Infiltrate_Jackalstan }
+		mutually_exclusive = { focus = UFA_Storm_the_Desert }
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = -2
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Storm_the_Desert
+		icon = GFX_UFA_Storm_the_Desert
+		prerequisite = { focus =  UFA_Publicize_the_Madness }
+		prerequisite = { focus =  UFA_Contact_the_Resistance }
+		mutually_exclusive = { focus =  UFA_Operation_Phantom_Thief }
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = 2
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Limit_Approaches_Infinity
+		icon = GFX_UFA_The_Limit_Approaches_Infinity
+		prerequisite = { focus =  UFA_Operation_Phantom_Thief focus =  UFA_Storm_the_Desert }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_Investigate_Jackalstan
+		x = 0
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	
+	
+	
+	focus = {
+		id = UFA_The_Race_Begins
+		icon = GFX_UFA_The_Race_Begins
+		mutually_exclusive = {
+			
+		}
+		x = 37
+		y = 0
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Tour_the_Country
+		icon = GFX_UFA_Tour_the_Country
+		prerequisite = { focus = UFA_The_Race_Begins }
+		mutually_exclusive = {
+			
+		}
+		relative_position_id = UFA_The_Race_Begins
+		x = 0
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Get_Our_Hands_Dirty
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Tour_the_Country }
+		mutually_exclusive = { focus = UFA_Keeping_it_Clean 
+		}
+		relative_position_id = UFA_The_Race_Begins
+		x = -4
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Keeping_it_Clean
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Tour_the_Country }
+		mutually_exclusive = { focus = UFA_Get_Our_Hands_Dirty }
+		relative_position_id = UFA_The_Race_Begins
+		x = 4
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Wiretap_our_Opponents
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		relative_position_id = UFA_The_Race_Begins
+		x = -6
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Start_Smear_Campaigns
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		relative_position_id = UFA_The_Race_Begins
+		x = -4
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Redistrict_Spagonia
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		relative_position_id = UFA_The_Race_Begins
+		x = -2
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Leak_Evidence
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Wiretap_our_Opponents }
+		prerequisite = { focus = UFA_Start_Smear_Campaigns }
+		relative_position_id = UFA_The_Race_Begins
+		x = -5
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Tricky_Mick
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Redistrict_Spagonia }
+		prerequisite = { focus = UFA_Leak_Evidence }
+		relative_position_id = UFA_The_Race_Begins
+		x = -4
+		y = 5
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Defend_Democracy
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Keeping_it_Clean }
+		relative_position_id = UFA_The_Race_Begins
+		x = 3
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Rally_Round_the_Flag
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Keeping_it_Clean }
+		relative_position_id = UFA_The_Race_Begins
+		x = 5
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_I_Like_Mike
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Defend_Democracy }
+		prerequisite = { focus = UFA_Rally_Round_the_Flag }
+		relative_position_id = UFA_The_Race_Begins
+		x = 4
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Bulwark_of_Freedom
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_I_Like_Mike }
+		relative_position_id = UFA_The_Race_Begins
+		x = 4
+		y = 5
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Choose_a_Running_Mate
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Tour_the_Country }
+		relative_position_id = UFA_The_Race_Begins
+		x = 0
+		y = 5
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Hold_Fundraising_Galas
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		relative_position_id = UFA_The_Race_Begins
+		x = -3
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Ms_Reliable
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		mutually_exclusive = { focus = UFA_The_Fixer }
+		relative_position_id = UFA_The_Race_Begins
+		x = -1
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Fixer
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		mutually_exclusive = { focus = UFA_Ms_Reliable }
+		relative_position_id = UFA_The_Race_Begins
+		x = 1
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Start_Issue_Campaigns
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		relative_position_id = UFA_The_Race_Begins
+		x = 3
+		y = 6
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_And_the_Winner_Is
+		icon = GFX_goal_generic_cavalry
+		prerequisite = { focus = UFA_Ms_Reliable focus = UFA_The_Fixer }
+		prerequisite = { focus = UFA_Hold_Fundraising_Galas }
+		prerequisite = { focus = UFA_Start_Issue_Campaigns }
+		prerequisite = { focus = UFA_Tricky_Mick focus = UFA_Bulwark_of_Freedom }
+		relative_position_id = UFA_The_Race_Begins
+		x = 0
+		y = 7
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	
+	### Army Tree ###
+	
+	
+	focus = {
+		id = UFA_Review_GUN_Command
+		icon = GFX_UFA_Review_GUN_Command
+		x = 52
+		y = 0
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Tower
+		icon = GFX_UFA_The_Tower
+		prerequisite = { focus = UFA_Review_GUN_Command }
+		mutually_exclusive = { focus = UFA_The_Brass }
+		relative_position_id = UFA_Review_GUN_Command
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Brass
+		icon = GFX_UFA_The_Brass
+		prerequisite = { focus = UFA_Review_GUN_Command }
+		mutually_exclusive = { focus = UFA_The_Tower }
+		relative_position_id = UFA_Review_GUN_Command
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Robotics_Focus
+		icon = GFX_UFA_Robotics_Focus
+		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		relative_position_id = UFA_Review_GUN_Command
+		mutually_exclusive = { focus = UFA_Ranged_Focus }
+		x = -7
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_F6t_Big_Foot
+		icon = GFX_UFA_F6t_Big_Foot
+		prerequisite = { focus = UFA_Robotics_Focus }
+		relative_position_id = UFA_Robotics_Focus
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_R1A_Flying_Dog
+		icon = GFX_UFA_R1A_Flying_Dog
+		prerequisite = { focus = UFA_F6t_Big_Foot }
+		relative_position_id = UFA_Robotics_Focus
+		x = 0
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Develop_the_Giga_Trooper
+		icon = GFX_UFA_Develop_the_Giga_Trooper
+		prerequisite = { focus = UFA_R1A_Flying_Dog }
+		prerequisite = { focus = UFA_Expand_GUN_Troopers }
+		relative_position_id = UFA_Robotics_Focus
+		x = -1
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Keep_the_Damn_Things_Working
+		icon = GFX_UFA_Keep_the_Damn_Things_Working
+		prerequisite = { focus = UFA_Robotics_Focus }
+		relative_position_id = UFA_Robotics_Focus
+		x = 2
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Built_to_Last
+		icon = GFX_UFA_Built_to_Last
+		prerequisite = { focus = UFA_Develop_the_Giga_Trooper }
+		prerequisite = { focus = UFA_Keep_the_Damn_Things_Working }
+		relative_position_id = UFA_Robotics_Focus
+		x = 0
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Expand_GUN_Troopers
+		icon = GFX_UFA_Expand_GUN_Troopers
+		prerequisite = { focus = UFA_Robotics_Focus }
+		relative_position_id = UFA_Robotics_Focus
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Ranged_Focus
+		icon = GFX_UFA_Ranged_Focus
+		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		relative_position_id = UFA_Review_GUN_Command
+		mutually_exclusive = { focus = UFA_Robotics_Focus }
+		x = -2
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Manage_the_Supply_Train
+		icon = GFX_UFA_Manage_the_Supply_Train
+		prerequisite = { focus = UFA_Ranged_Focus }
+		relative_position_id = UFA_Ranged_Focus
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Modern_Armor
+		icon = GFX_UFA_The_Modern_Armor
+		prerequisite = { focus = UFA_Ranged_Focus }
+		relative_position_id = UFA_Ranged_Focus
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Save_Every_Soldier
+		icon = GFX_UFA_Save_Every_Soldier
+		prerequisite = { focus = UFA_Ranged_Focus }
+		relative_position_id = UFA_Ranged_Focus
+		x = -1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Annihilation_Battle
+		icon = GFX_UFA_Annihilation_Battle
+		prerequisite = { focus = UFA_The_Modern_Armor }
+		relative_position_id = UFA_Ranged_Focus
+		x = 1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Dear_Grid_Coordinates
+		icon = GFX_UFA_Dear_Grid_Coordinates
+		prerequisite = { focus = UFA_Save_Every_Soldier }
+		prerequisite = { focus = UFA_Annihilation_Battle }
+		relative_position_id = UFA_Ranged_Focus
+		x = 0
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Disengagement_Protocols
+		icon = GFX_UFA_Disengagement_Protocols
+		prerequisite = { focus = UFA_Dear_Grid_Coordinates }
+		relative_position_id = UFA_Ranged_Focus
+		x = 0
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Covert_Operations
+		icon = GFX_UFA_Covert_Operations
+		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		relative_position_id = UFA_Review_GUN_Command
+		x = 4
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Organize_Team_Dark
+		icon = GFX_UFA_Organize_Team_Dark
+		prerequisite = { focus = UFA_Covert_Operations }
+		relative_position_id = UFA_Covert_Operations
+		x = -2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Ultimate_Lifeform
+		icon = GFX_UFA_The_Ultimate_Lifeform
+		prerequisite = { focus = UFA_Organize_Team_Dark }
+		relative_position_id = UFA_Covert_Operations
+		x = -3
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Midnight_Theif
+		icon = GFX_UFA_The_Midnight_Theif
+		prerequisite = { focus = UFA_Organize_Team_Dark }
+		relative_position_id = UFA_Covert_Operations
+		x = -1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Living_Arsenal
+		icon = GFX_UFA_The_Living_Arsenal
+		prerequisite = { focus = UFA_Organize_Team_Dark }
+		relative_position_id = UFA_Covert_Operations
+		x = -2
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_The_Bright_Spark
+		icon = GFX_UFA_The_Bright_Spark
+		prerequisite = { focus = UFA_The_Ultimate_Lifeform }
+		prerequisite = { focus = UFA_The_Living_Arsenal }
+		prerequisite = { focus = UFA_The_Midnight_Theif }
+		relative_position_id = UFA_Covert_Operations
+		x = -2
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Paladin_Teams
+		icon = GFX_UFA_Paladin_Teams
+		prerequisite = { focus = UFA_Covert_Operations }
+		relative_position_id = UFA_Covert_Operations
+		x = 2
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Expand_Survival_Training
+		icon = GFX_UFA_Expand_Survival_Training
+		prerequisite = { focus = UFA_Paladin_Teams }
+		relative_position_id = UFA_Covert_Operations
+		x = 1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_BOLT_Action
+		icon = GFX_UFA_BOLT_Action
+		prerequisite = { focus = UFA_Paladin_Teams }
+		relative_position_id = UFA_Covert_Operations
+		x = 3
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Homeland_Security
+		icon = GFX_UFA_Homeland_Security
+		prerequisite = { focus = UFA_BOLT_Action }
+		prerequisite = { focus = UFA_Expand_Survival_Training  }
+		relative_position_id = UFA_Covert_Operations
+		x = 2
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Agents_of_GUN
+		icon = GFX_UFA_Agents_of_GUN
+		prerequisite = { focus = UFA_BOLT_Action }
+		prerequisite = { focus = UFA_Expand_Survival_Training  }
+		relative_position_id = UFA_Covert_Operations
+		x = 2
+		y = 4
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Just_Shoot_Them
+		icon = GFX_UFA_Just_Shoot_Them
+		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		relative_position_id = UFA_Review_GUN_Command
+		x = 10
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_HMMWV_Transport
+		icon = GFX_UFA_HMMWV_Transport
+		prerequisite = { focus = UFA_Just_Shoot_Them }
+		relative_position_id = UFA_Just_Shoot_Them
+		x = -1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Armor_Advancements
+		icon = GFX_UFA_Armor_Advancements
+		prerequisite = { focus = UFA_HMMWV_Transport }
+		relative_position_id = UFA_Just_Shoot_Them
+		x = -1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Specialist_Mechanization
+		icon = GFX_UFA_Specialist_Mechanization
+		prerequisite = { focus = UFA_Armor_Advancements }
+		prerequisite = { focus = UFA_Walking_on_Eggshells }
+		relative_position_id = UFA_Just_Shoot_Them
+		x = 0
+		y = 3
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_A_Few_New_Toys
+		icon = GFX_UFA_A_Few_New_Toys
+		prerequisite = { focus = UFA_Just_Shoot_Them }
+		relative_position_id = UFA_Just_Shoot_Them
+		x = 1
+		y = 1
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+	focus = {
+		id = UFA_Walking_on_Eggshells
+		icon = GFX_UFA_Walking_on_Eggshells
+		prerequisite = { focus = UFA_Just_Shoot_Them }
+		relative_position_id = UFA_Just_Shoot_Them
+		x = 1
+		y = 2
+
+		cost = 10
+
+		completion_reward = {
+			country_event = {   }
+		}
+	}
+}

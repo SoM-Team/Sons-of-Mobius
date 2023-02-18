@@ -15,7 +15,7 @@ idea_categories = {
 	}
 
 	country = {
-		national_spirit = yes
+		type = national_spirit
 		
 		cost = 0
 		removal_cost = -1
@@ -24,13 +24,14 @@ idea_categories = {
 	}
 	
 	minister = {
-		slot = head_of_government
-		slot = economic_minister
-		slot = interior_minister
-		slot = scientific_leader
+		character_slot = head_of_government
+		character_slot = economic_minister
+		character_slot = interior_minister
+		character_slot = scientific_leader
 
 		ledger = civilian
 
+		cost = 9999
 		removal_cost = -1 # works
 	}
 	
@@ -38,6 +39,9 @@ idea_categories = {
 		slot = mobilization_laws
 		slot = trade_laws
 		slot = economy
+		slot = tech_progress
+		slot = mbr_rule
+		slot = corruption_rule
 		
 		ledger = civilian
 		
@@ -60,19 +64,20 @@ idea_categories = {
 	}
 	
 	military_staff = {
-		slot = army_chief 
-		slot = navy_chief 
-		slot = air_chief
-		slot = high_command
-		slot = high_command
-		slot = high_command
+		character_slot = army_chief 
+		character_slot = navy_chief 
+		character_slot = air_chief
+		character_slot = high_command
+		character_slot = high_command
+		character_slot = high_command
 		
 		ledger = invalid # must be overridden
 		
 		cost = 150
 		removal_cost = 0
 	}
-		Chaos_Emeralds = {
+	
+	Chaos_Emeralds = {
 		
 		slot = green_emerald 
 		slot = red_emerald 
@@ -83,6 +88,20 @@ idea_categories = {
 		slot = purple_emerald
 
 		ledger = invalid # must be overridden
+				
+		cost = 0
+		removal_cost = 0
+	}
+	
+	Spy_Agency = {
+		
+		slot = GemHunt_HQ 
+		slot = GemSteal_HQ 
+		slot = GemTech_HQ 
+		slot = GemResistance_HQ 
+		slot = GemDefend_HQ 
+
+		ledger = civilian # must be overridden
 				
 		cost = 0
 		removal_cost = 0
@@ -102,7 +121,5 @@ slot_ledgers = {
 	theorist = invalid # must be overridden
 	high_command = invalid # must be overridden
 	
-	
 	mobilization_laws = civilian
 }
-

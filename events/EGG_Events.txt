@@ -2,10 +2,56 @@
 # I AM THE EGGMAN I HAVE A MASTER PLAN
 ############################
 
-add_namespace = egg
+add_namespace = egg 
+add_namespace = egg.intro
 ######################################
 # hello everybody i am old communist 
 ######################################
+
+country_event = {
+	id = egg.intro.1
+	title = egg.intro.1.t
+	desc = egg.intro.1.d
+	picture = GFX_report_event_eggman_empire
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = egg.intro.1.a 
+		country_event = {
+			id = egg.intro.2
+		}
+	}
+	option = {
+		name = egg.intro.1.b
+		
+	}
+}
+## 
+country_event = {
+	id = egg.intro.2
+	title = egg.intro.2.t
+	desc = egg.intro.2.d
+	picture = GFX_report_event_eggman_empire
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = egg.intro.2.a 
+		
+	}
+	option = {
+		name = egg.intro.2.b
+		country_event = {
+			id = egg.intro.1
+		}
+	}
+}
+
 country_event = {
 	id = egg.1
 	title = egg.1.t
@@ -13,51 +59,12 @@ country_event = {
 	picture = GFX_report_event_soviet_rethenia
 	
 	fire_only_once = yes
-	
-	trigger = {
-	tag = egg
-	}
-	
-	mean_time_to_happen = {
-	days = 1
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = egg.1.a 
-		ai_chance = { factor = 100 } 
-		trigger = {tag = egg}
-		set_cosmetic_tag = SNIV_EGG
-		create_country_leader = {
-			name = "Snively Robotnik"
-			desc = "SNIVLEY_IS_PIDOR"
-			picture = "Portrait_Snicley_Robotnik.dds"
-			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
-			traits = {
-			}
-		}
 	}
-	option = {
-		name = egg.1.b 
-		ai_chance = { factor = 100 } 
-		trigger = {tag = egg}
-		
-		set_cosmetic_tag = METAL_EGG
-		country_event = {
-				id = egg.2
-				days = 3
-			}
-	}
-	option = {
-		name = egg.1.c 
-		ai_chance = { factor = 100 } 
-		trigger = {tag = egg}
-		set_country_flag = EGG_start_repressions
-		set_variable = {
-			var = ff_activity
-			value = 100
-		}
-	}
+	
 }
 
 country_event = {
@@ -66,21 +73,13 @@ country_event = {
 	desc = egg.2.d
 	picture = GFX_report_event_neo_metal_sonic
 	
-	fire_only_once = yes
-	
-	trigger = {
-	tag = egg
-	}
-	
-	mean_time_to_happen = {
-	days = 1
-	}
-	
+	fire_only_once = yes	
+	is_triggered_only = yes
 	
 	option = {
 		name = egg.2.a 
 		ai_chance = { factor = 100 } 
-		trigger = {tag = egg}
+		trigger = { tag = EGG }
 		create_country_leader = {
 			name = "Neo Metal Sonic"
 			desc = "METAL_SONIC"
@@ -90,8 +89,12 @@ country_event = {
 			traits = {
 			}
 		}
+		set_global_flag = EGGMetal
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = EGG_Rise_of_Metal_Sonic
 	}
 }
+
 country_event = {
 	id = egg.3
 	title = egg.3.t
@@ -120,6 +123,11 @@ country_event = {
 			add_to_variable = {
 					ff_activity = 22
 				}	
+			clamp_variable = {
+				var = ff_activity
+				min = 0
+				max = 100
+			}
 			limit = {
 						has_idea = Freedom_fighters_saboteurs
 					}
@@ -194,6 +202,11 @@ country_event = {
 			add_to_variable = {
 					ff_activity = 20
 					}
+			clamp_variable = {
+				var = ff_activity
+				min = 0
+				max = 100
+			}
 			event_target:sabotage_state = {
 				damage_building = {
 					type = industrial_complex
@@ -265,6 +278,11 @@ country_event = {
 			add_to_variable = {
 					ff_activity = 15
 				}
+			clamp_variable = {
+				var = ff_activity
+				min = 0
+				max = 100
+			}
 			event_target:sabotage_state = {
 				damage_building = {
 					type = industrial_complex
@@ -336,6 +354,11 @@ country_event = {
 			add_to_variable = {
 					ff_activity = 12
 				}
+			clamp_variable = {
+				var = ff_activity
+				min = 0
+				max = 100
+			}
 			event_target:sabotage_state = {
 				damage_building = {
 					type = industrial_complex
@@ -659,7 +682,1088 @@ country_event = {
 		name = egg.11.a 
 		add_stability = 0.1
 		add_political_power = 125
+		clr_country_flag = EGG_destroy_HQ
+		clr_country_flag = EGG_start_repressions
+		remove_ideas = EGG_campaign_one
 	}
 }
 
+country_event = {
+	id = egg.12
+	title = egg.12.t
+	desc = egg.12.d
+	picture = GFX_report_event_attack_on_ff
 	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.12.a 
+		set_country_flag = EGG_start_repressions
+		custom_effect_tooltip = egg.12.tt
+	}
+}
+
+country_event = {
+	id = egg.13
+	title = egg.13.t
+	desc = egg.13.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.13.a 
+		add_stability = -0.15
+		add_war_support = -0.2
+		custom_effect_tooltip = egg.13.tt
+		add_ideas = EGG_Crisis_Empire
+	}
+}
+
+country_event = {
+	id = egg.14
+	title = egg.14.t
+	desc = egg.14.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.14.a 
+		add_manpower = -10000
+		
+	}
+}
+
+country_event = { ### ADAM
+	id = egg.15
+	title = egg.15.t
+	desc = egg.15.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.15.a 
+		set_variable = {
+			EGG.AI_Choice = 1
+		}
+		custom_effect_tooltip = egg.15.att
+		country_event = {
+			id = egg.22
+		}
+		add_political_power = -50
+	}
+	option = {
+		name = egg.15.b 
+		set_variable = {
+			EGG.AI_Choice = 2
+		}
+		custom_effect_tooltip = egg.15.btt
+		country_event = {
+			id = egg.22
+		}
+	}
+}
+
+country_event = { ### Eggman insane lol 
+	id = egg.16
+	title = egg.16.t
+	desc = egg.16.d
+	picture = GFX_report_event_eggman_durka
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.16.a 
+		custom_effect_tooltip = Snively_takes_over
+		set_cosmetic_tag = SNIV_EGG
+		set_global_flag = EGGSnively
+		create_country_leader = {
+			name = "Snively Robotnik"
+			desc = "SNIVLEY_IS_PIDOR"
+			picture = "Portrait_Snicley_Robotnik.dds"
+			expire = "1965.1.1"
+			ideology = technocratic_despotist_subtype
+			traits = {
+			}
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = EGG_Snively_Rise
+		}
+	}
+}
+
+country_event = { ### FIGHT
+	id = egg.17
+	title = egg.17.t
+	desc = egg.17.d
+	picture = GFX_report_event_ff_on_march
+	
+	immediate = {
+		57 = {
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = industrial_complex
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = arms_factory
+				damage = 1
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 4
+			}
+			add_manpower = -75000
+		}
+	}
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.17.a 
+		custom_effect_tooltip = Snively_takes_over
+		set_cosmetic_tag = SNIV_EGG
+		set_global_flag = EGGSnively
+		create_country_leader = {
+			name = "Snively Robotnik"
+			desc = "SNIVLEY_IS_PIDOR"
+			picture = "Portrait_Snicley_Robotnik.dds"
+			expire = "1965.1.1"
+			ideology = technocratic_despotist_subtype
+			traits = {
+			}
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = EGG_Snively_Rise
+		}
+	}
+	option = {
+		name = egg.17.b
+		custom_effect_tooltip = METAL_takes_over
+		country_event = {
+			id = egg.2
+		}
+	}
+}
+
+country_event = { ### Eggman cool
+	id = egg.18
+	title = egg.18.t
+	desc = egg.18.d
+	picture = GFX_report_event_eggman_triumphant
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.18.a 
+		set_global_flag = EGGEggman
+		mark_focus_tree_layout_dirty = yes
+		complete_national_focus = EGG_Ensure_Control
+	}
+}
+
+country_event = { ### REWORK PROJECTS
+	id = egg.19
+	title = egg.19.t
+	desc = egg.19.d
+	picture = GFX_report_event_eggman_triumphant
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.19.a 
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 3
+			category = robot_techs
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = electronics
+		}
+		add_timed_idea = { 
+			idea = EGG_back_to_blueprints
+			days = 365 
+		}
+	}
+}
+
+country_event = { ### KILL SABOTEURS
+	id = egg.20
+	title = egg.20.t
+	desc = egg.20.d
+	picture = GFX_report_event_eggman_triumphant
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.20.a 
+		add_manpower = -15000
+	}
+}
+
+country_event = { ### DEL RESPOND
+	id = egg.21
+	title = egg.21.t
+	desc = egg.21.d
+	picture = GFX_report_event_eggman_triumphant
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.21.a 
+	}
+}
+
+country_event = { ### ADAM: PART 2
+	id = egg.22
+	title = egg.22.t
+	desc = egg.22.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.22.a ### FIX
+		if = {
+			limit = {
+				check_variable = {
+					EGG.AI_Choice = 1
+				}
+			}
+			country_event = {
+				id = egg.23
+			}
+		}
+		else = {
+			country_event = {
+				id = egg.24
+			}
+		}
+	}
+	option = {
+		name = egg.22.b ### DESTROY
+		if = {
+			limit = {
+				check_variable = {
+					EGG.AI_Choice = 1
+				}
+			}
+			country_event = {
+				id = egg.25
+			}
+		}
+		else = {
+			country_event = {
+				id = egg.26
+			}
+		}
+	}
+}
+
+country_event = { ### ADAM: PART 3.1
+	id = egg.23
+	title = egg.23.t
+	desc = egg.23.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.23.a ### FIX
+		swap_ideas = {
+			remove_idea = Ai_failure 
+			add_idea = Ai_LOYAL
+		}
+		add_to_variable = { 
+			EGG.METAL_SONIC_Influence = 20
+		}
+		add_to_variable = {
+			EGG.Regime_Stability = 10
+		}
+		custom_effect_tooltip = MS_increase
+		custom_effect_tooltip = ST_increase
+	}
+}
+
+country_event = { ### ADAM: PART 3.2
+	id = egg.24
+	title = egg.24.t
+	desc = egg.24.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.24.a ### FIX
+		swap_ideas = {
+			remove_idea = Ai_failure 
+			add_idea = Ai_LOYAL
+		}
+		add_to_variable = { 
+			EGG.METAL_SONIC_Influence = 30
+		}
+		custom_effect_tooltip = MS_increase
+	}
+}
+
+country_event = { ### ADAM: PART 3.3
+	id = egg.25
+	title = egg.25.t
+	desc = egg.25.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.25.a ### DESTROY
+		remove_ideas = Ai_failure
+		add_to_variable = {
+			EGG.Regime_Stability = 30
+		}
+		custom_effect_tooltip = ST_increase
+	}
+}
+
+country_event = { ### ADAM: PART 3.4
+	id = egg.26
+	title = egg.26.t
+	desc = egg.26.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.26.a ### DESTROY
+		remove_ideas = Ai_failure
+		add_to_variable = {
+			EGG.Regime_Stability = 15
+		}
+		add_to_variable = {
+			EGG.METAL_SONIC_Influence = 15
+		}
+		custom_effect_tooltip = MS_increase
+		custom_effect_tooltip = ST_increase
+	}
+}
+
+country_event = { ### CHIPS
+	id = egg.27
+	title = egg.27.t
+	desc = egg.27.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.27.a 
+		if = {
+			limit = { 
+				has_idea = Robian_Disobedience_1
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_1
+				add_idea = Robian_Disobedience_2
+			}
+		}
+		else_if = { 
+			limit = { 
+				has_idea = Robian_Disobedience_2
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_2
+				add_idea = Robian_Disobedience_3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_3
+				add_idea = Robian_Disobedience_4
+			}
+		}
+	}
+}
+
+country_event = { ### LABOR
+	id = egg.28
+	title = egg.28.t
+	desc = egg.28.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.28.a 
+		if = {
+			limit = { 
+				has_idea = Robian_Disobedience_2
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_2
+				add_idea = Robian_Disobedience_3
+			}
+		}
+		else_if = { 
+			limit = { 
+				has_idea = Robian_Disobedience_3
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_3
+				add_idea = Robian_Disobedience_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_4
+				add_idea = Robian_Disobedience_5
+			}
+		}
+	}
+}
+
+country_event = { ### HAIL
+	id = egg.29
+	title = egg.29.t
+	desc = egg.29.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.29.a 
+		if = {
+			limit = { 
+				has_idea = Robian_Disobedience_1
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_1
+				add_idea = Robian_Disobedience_2
+				}
+		}
+		else_if = { 
+			limit = { 
+				has_idea = Robian_Disobedience_2
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_2
+				add_idea = Robian_Disobedience_3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_3
+				add_idea = Robian_Disobedience_4
+			}
+		}
+	}
+}
+
+country_event = { ### DEMORALIZE
+	id = egg.30
+	title = egg.30.t
+	desc = egg.30.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.30.a 
+		if = {
+			limit = { 
+				has_idea = Robian_Disobedience_2
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_2
+				add_idea = Robian_Disobedience_3
+			}
+		}
+		else_if = { 
+			limit = { 
+				has_idea = Robian_Disobedience_3
+			}
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_3
+				add_idea = Robian_Disobedience_4
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Robian_Disobedience_4
+				add_idea = Robian_Disobedience_5
+			}
+		}
+	}
+}
+
+country_event = { ### END PERSONALITY
+	id = egg.31
+	title = egg.31.t
+	desc = egg.31.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.31.a 
+		swap_ideas = {
+			remove_idea = Robian_Disobedience_5
+			add_idea = Robian_Obedience
+		}
+	}
+}
+
+country_event = { ### BIOENGINEERING
+	id = egg.32
+	title = egg.32.t
+	desc = egg.32.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.32.a 
+		add_timed_idea = {
+			idea = EGG_bio_innovations
+			days = 365
+		}
+		add_to_variable = {
+			EGG.SNIV_Influence = 25
+		}
+		custom_effect_tooltip = SNIV_increase
+	}
+}
+
+country_event = { ### METAL WORKS
+	id = egg.33
+	title = egg.33.t
+	desc = egg.33.d
+	picture = GFX_report_event_ff_on_march
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.33.a 
+		add_timed_idea = { 
+			idea = EGG_military_investments
+			days = 365 
+		}
+		70 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+			instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		add_to_variable = {
+			EGG.METAL_SONIC_Influence = 25
+		}
+		custom_effect_tooltip = MS_increase
+	}
+}
+
+### TRAITORS!
+country_event = { ### LIEN DA 
+	id = egg.34
+	title = egg.34.t
+	desc = egg.34.d
+	picture = GFX_report_event_dark_egg_legion
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.34.a 
+		custom_effect_tooltip = HAHA_TRAITORS
+		#delete_unit_template_and_units = {
+		#	division_template = "D.E.L. Regiment"
+		#	disband = no #will refund equipment and manpower
+		#}
+	}
+}	
+
+country_event = { ### CLOVE
+	id = egg.35
+	title = egg.35.t
+	desc = egg.35.d
+	picture = GFX_report_event_dark_egg_legion
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.35.a 
+		custom_effect_tooltip = HAHA_TRAITORS
+		end_puppet = NRD
+		NRD = {
+			leave_faction = yes
+		}
+	}
+	option = {
+		name = egg.35.b 
+		custom_effect_tooltip = HAHA_TRAITORS
+		NRD = {
+			leave_faction = yes
+		}
+		end_puppet = NRD
+		declare_war_on = {
+			target = NRD
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { ### RABBIT
+	id = egg.36
+	title = egg.36.t
+	desc = egg.36.d
+	picture = GFX_report_event_dark_egg_legion
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.36.a 
+		custom_effect_tooltip = HAHA_TRAITORS
+		GDD = {
+			leave_faction = yes
+		}
+		end_puppet = GDD
+	}
+	option = {
+		name = egg.36.b 
+		custom_effect_tooltip = HAHA_TRAITORS
+		GDD = {
+			leave_faction = yes
+		}
+		end_puppet = GDD
+		declare_war_on = {
+			target = GDD
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { ### THUNDERPUSSY!
+	id = egg.37
+	title = egg.37.t
+	desc = egg.37.d
+	picture = GFX_report_event_dark_egg_legion
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.37.a 
+		custom_effect_tooltip = HAHA_TRAITORS
+		SOU = {
+			leave_faction = yes
+		}
+		end_puppet = SOU
+	}
+	option = {
+		name = egg.37.b 
+		custom_effect_tooltip = HAHA_TRAITORS
+		SOU = {
+			leave_faction = yes
+		}
+		end_puppet = SOU
+		declare_war_on = {
+			target = SOU
+			type = annex_everything
+		}
+	}
+}
+	
+country_event = { ### Oil subversion!
+	id = egg.308
+	title = egg.308.t
+	desc = egg.308.d
+	picture = GFX_report_event_eggman_durka
+	
+	fire_only_once = yes		
+	is_triggered_only = yes 
+			
+	option = {
+		name = egg.308.a 
+		random_list = {
+			40 = { 
+				random_owned_state = {
+					limit = {
+						has_resources_amount = {
+							resource = oil
+							amount > 49
+						}
+					}
+					destroy_resource = {
+						type = oil
+						amount = 50
+					}
+				}
+			}
+			30 = {
+				random_owned_state = {
+					limit = {
+						has_resources_amount = {
+							resource = oil
+							amount > 49
+						}
+					}
+					destroy_resource = {
+						type = oil
+						amount = 75
+					}
+				}
+			}
+			30 = {
+				random_owned_state = {
+					limit = {
+						has_resources_amount = {
+							resource = oil
+							amount > 49
+						}
+					}
+					destroy_resource = {
+						type = oil
+						amount = 100
+					}
+				}
+			}	
+		}
+	}
+}
+	
+### Eggman focus events
+country_event = { 
+	id = egg.38
+	title = egg.38.t
+	desc = egg.38.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.38.a 
+	}
+}
+
+country_event = { 
+	id = egg.39
+	title = egg.39.t
+	desc = egg.39.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.39.a 
+	}
+}
+
+country_event = { 
+	id = egg.40
+	title = egg.40.t
+	desc = egg.40.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.40.a 
+	}
+}
+	
+country_event = { 
+	id = egg.41
+	title = egg.41.t
+	desc = egg.41.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.41.a 
+	}
+}
+		
+country_event = { 
+	id = egg.42
+	title = egg.42.t
+	desc = egg.42.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.42.a 
+	}
+}
+	
+country_event = { 
+	id = egg.43
+	title = egg.43.t
+	desc = egg.43.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.43.a 
+	}
+}
+		
+country_event = { 
+	id = egg.44
+	title = egg.44.t
+	desc = egg.44.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.44.a 
+	}
+}
+		
+country_event = { 
+	id = egg.45
+	title = egg.45.t
+	desc = egg.45.d
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.45.a 
+	}
+}
+
+    
+country_event = { 
+	id = egg.46
+	title = egg.46.t
+	desc = egg.46.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.46.a 
+	}
+}
+	
+country_event = { 
+	id = egg.47
+	title = egg.47.t
+	desc = egg.47.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.47.a 
+	}
+}
+	
+country_event = { 
+	id = egg.48
+	title = egg.48.t
+	desc = egg.48.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.48.a 
+	}
+}
+		
+country_event = { 
+	id = egg.49
+	title = egg.49.t
+	desc = egg.49.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.49.a 
+	}
+}
+  
+country_event = { 
+	id = egg.50
+	title = egg.50.t
+	desc = egg.50.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.50.a 
+	}
+}
+	
+country_event = { 
+	id = egg.51
+	title = egg.51.t
+	desc = egg.51.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.51.a 
+	}
+}
+	
+country_event = { 
+	id = egg.alliance
+	title = egg.alliance.t
+	desc = egg.alliance.d
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.alliance.a 
+		EGG  = {country_event = {id = egg.52} }
+	}
+	option = {
+		name = egg.alliance.b 
+		EGG  = {country_event = {id = egg.53} }
+	}
+	
+}
+	
+country_event = { 
+	id = egg.52
+	title = egg.52.t
+	desc = egg.52.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.52.a
+		EGG = { add_to_faction = IRO }
+		ROOT =  {add_to_tech_sharing_group = robotech_research}
+		IRO = {add_to_tech_sharing_group = robotech_research}
+         		
+	}
+}
+    
+country_event = { 
+	id = egg.53
+	title = egg.53.t
+	desc = egg.53.d
+	
+	fire_only_once = yes	
+	is_triggered_only = yes 
+		
+	option = {
+		name = egg.53.a 
+		give_guarantee = IRO
+		IRO = {give_military_access = EGG}
+		ROOT =  {add_to_tech_sharing_group = robotech_research}
+		IRO = {add_to_tech_sharing_group = robotech_research}
+	}
+}
+
+country_event = {
+	# Manfred von Vogelberg succeed
+	id = egg.100
+	title = egg.100.t
+	desc = egg.100.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = egg.100.a
+	}
+}
+
+country_event = {
+	# Manfred von Vogelberg crashed to death
+	id = egg.101
+	title = egg.101.t
+	desc = egg.101.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = egg.101.a
+	}
+}
