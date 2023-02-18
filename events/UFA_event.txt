@@ -32,3 +32,127 @@ country_event = {
 		add_ideas = UFA_Widespread_Rioting
 	}
 }
+
+country_event = {
+	# Should we remove trade embargo from RCR?
+	id = ufa.300
+	title = ufa.300.t
+	desc = uda.300.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# No
+		name = ufa.300.a
+		KOA = {
+			country_event = koa.308
+		}
+		add_opinion_modifier = {
+			target = KOA
+			modifier = KOA_Commie_Collaborants
+		}
+	}
+	option = {
+		# Yes
+		name = ufa.300.b
+		KOA = {
+			country_event = koa.309
+		}
+		RCR = {
+			Disable_Trade_Embargo = yes
+		}
+	}
+}
+
+country_event = {
+	# The Crowned Raider
+	id = ufa.350
+	title = ufa.350.t
+	desc = ufa.350.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ufa.350.a
+		add_opinion_modifier = {
+			target = KOA
+			modifier = UFA_Seized_Our_Assets
+		}
+	}
+}
+
+country_event = {
+	# Path of Danger
+	id = ufa.351
+	title = ufa.351.t
+	desc = ufa.350.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# Declare war
+		name = ufa.351.a
+		declare_war_on = {
+			target = KOA
+			type = annex_everything
+		}
+		add_ideas = UFA_Mobian_Turmolis
+		news_event = shared.17
+		country_event = super.100
+	}
+	option = {
+		# Hold on
+		name = ufa.351.b
+		KOA = {
+			country_event = koa.359
+		}
+	}
+}
+
+country_event = {
+	# Good Old Business
+	id = ufa.352
+	title = ufa.352.t
+	desc = ufa.352.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = ufa.352.a
+	}
+}
+
+country_event = {
+	# The Royal Suggestion
+	id = ufa.353
+	title = ufa.353.t
+	desc = ufa.353.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# Accept to join the Accord
+		name = ufa.353.a
+		leave_faction = yes
+		KOA = {
+			add_to_faction = UFA
+		}
+	}
+	option = {
+		# Decline
+		name = ufa.353.b
+		KOA = {
+			country_event = koa.361
+		}
+	}
+}
