@@ -83,7 +83,7 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				remove_ideas = { 
-					EGG_military_investments
+					idea = EGG_military_investments
 				}
 				add_timed_idea = {
 					idea = EGG_military_investments_1
@@ -235,11 +235,11 @@ focus_tree = {
 			focus = EGG_agression_failed
 		}
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1.0
-				uses = 2
-				category = tech_military_police
-			}
+			# add_tech_bonus = {
+			# 	bonus = 1.0
+			# 	uses = 2
+			# 	category = tech_military_police
+			# }
 			add_ideas = EGG_campaign_one
 			country_event = {
 				id = egg.20
@@ -1017,6 +1017,14 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Pursue_Knothole_Rats
 		}
+		id = EGG_Destroy_Knothole_Again
+		icon = GFX_focus_Destroy_Knothole_Again
+		cost = 0
+		x = 33
+		y = 13
+		prerequisite = {
+			focus = EGG_Pursue_Knothole_Rats
+		}
 	}
 
 	focus = {
@@ -1065,6 +1073,42 @@ focus_tree = {
 		y = 12
 		prerequisite = {
 			focus = EGG_Global_Desinformation
+		id = EGG_Develop_Forest_Warfare
+		icon = GFX_focus_Develop_Forest_Warfare
+		cost = 8
+		x = 31
+		y = 12
+		prerequisite = {
+			focus = EGG_Establish_New_DELS
+		}
+		completion_reward = {
+			set_technology = {
+				forest_warfare = 1
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_All_Terrain_Modifications
+		icon = GFX_focus_All_Terrain_Modifications
+		cost = 0
+		x = 31
+		y = 13
+		prerequisite = {
+			focus = EGG_Develop_Forest_Warfare
+		}
+		completion_reward = {add_ideas = adaptive_army}
+	}
+
+	focus = {
+		id = EGG_Global_Desinformation
+		icon = GFX_focus_Global_Desinformation
+		cost = 8
+		x = 30
+		y = 11
+		prerequisite = {
+			focus = EGG_Spy_Media
+		}
 		id = EGG_Develop_Forest_Warfare
 		icon = GFX_focus_Develop_Forest_Warfare
 		cost = 8
@@ -1390,6 +1434,8 @@ focus_tree = {
         	            province = {
         		            all_provinces = yes
                 		    limit_to_border = yes
+						}
+					}
               		remove_idea = spy_media
               		add_idea = mass_desinform
             	}
@@ -1518,6 +1564,9 @@ focus_tree = {
 					limit = { is_controlled_by = ROOT }
 					add_building_construction = {
                     	type = bunker
+					}
+				}
+			}
 				
 			71 = {
 				if = {
@@ -1533,7 +1582,6 @@ focus_tree = {
                 	}
 				}
 			}
-
         	75 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
@@ -1543,8 +1591,6 @@ focus_tree = {
                         }
                     }
 				}
-			}
-					
 			72 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
@@ -1565,12 +1611,10 @@ focus_tree = {
 					limit = { is_controlled_by = ROOT }
 					add_building_construction = {
                     	type = bunker
-                    		limit_to_coastal = yes
-                        }
+                    	limit_to_coastal = yes
                     }
 				}
 			}
-				
 			65 = {
 				if = {
 					limit = { is_controlled_by = ROOT }
@@ -1612,6 +1656,10 @@ focus_tree = {
             	        province = {
             		        all_provinces = yes
             		        limit_to_border = yes
+						}
+					}
+				}
+			}
 					
 			54 = {
 				if = {
@@ -1693,6 +1741,9 @@ focus_tree = {
 					limit = { is_controlled_by = ROOT }
 					add_building_construction = {
                     	type = bunker
+					}
+				}
+			}
 				
 
 			51 = {
@@ -2046,6 +2097,10 @@ focus_tree = {
                 }
 			}
 			country_event = { id = egg.42 }
+		}
+	}
+
+	focus = {
 		id = EGG_Cities_For_the_people
 		icon = GFX_focus_Cities_For_the_people
 		cost = 8
