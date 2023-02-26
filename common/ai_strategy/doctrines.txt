@@ -1,18 +1,3 @@
-# stop_making_horsies = {
-# 	enable = {
-# 		num_of_factories > 20
-# 		date > 1938.1.1
-# 	}
-# 	abort = {
-# 		always = no
-# 	}
-
-# 	ai_strategy = {
-# 		type = role_ratio
-# 		id = cavalry
-# 		value = -100 # -100% cav
-# 	}		
-# }
 
 ############
 ### LAND ###
@@ -29,24 +14,8 @@
 #marines
 #mountaineer
 
-# No cav if we have motor inf
-no_cavalry = {
-	enable = {
-		has_tech = motorised_infantry
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = role_ratio
-		id = cavalry
-		value = -100 
-	}
-}
-
-#Maneuver Warfare branch
-maneuver_warfare_ratios = {
+#Mobile Warfare branch
+maneuver_warfare_theory_ratios = {
 	enable = {
 		has_tech = maneuver_warfare_theory
 	}
@@ -67,12 +36,12 @@ maneuver_warfare_ratios = {
 	}
 }
 
-contactless_warfare_ratios = {
+contactless_warfare_theory_ratios = {
 	enable = {
 		has_tech = contactless_warfare_theory
 	}
 	abort = {
-		has_tech = massed_rocket_fire
+		has_tech = diversification_of_exposure
 	}
 	
 	ai_strategy = {
@@ -89,10 +58,10 @@ contactless_warfare_ratios = {
 	
 }
 
-## Later in superior_firepower tree
-massed_rocket_fire_ratios = {
+## Later in contactless_warfare_theory tree
+diversification_of_exposure_ratios = {
 	enable = {
-		has_tech = massed_rocket_fire
+		has_tech = diversification_of_exposure
 	}
 	abort = {
 		always = no
@@ -119,19 +88,19 @@ massed_rocket_fire_ratios = {
 }
 
 
-# grand_battle_plan_ratios = {
-# 	enable = {
-# 		has_tech = trench_warfare
-# 	}
-# 	abort = {
-# 		always = no
-# 	}
+automated_warfare_theory_ratios = {
+	enable = {
+		has_tech = automated_warfare_theory
+	}
+	abort = {
+		always = no
+	}
 	
-# 	ai_strategy = {
-# 		type = role_ratio
-# 		id = infantry
-# 		value = 10
-# 	}
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = 10
+	}
 	
 # 	ai_strategy = {
 # 		type = role_ratio
@@ -142,10 +111,12 @@ massed_rocket_fire_ratios = {
 	
 # }
 
-# TODO: Check replacements availability for large_front_operations
 unrestricted_warfare_theory_ratios = {
 	enable = {
 		has_tech = unrestricted_warfare_theory
+	}
+	abort = {
+		has_tech = t_peoples_war
 	}
 	# abort = {
 	# 	has_tech = large_front_operations
@@ -165,7 +136,20 @@ unrestricted_warfare_theory_ratios = {
 
 }
 
-# TODO: Same thing.
+#Later in  unrestricted_warfare_theory tree
+t_peoples_war_ratios = {
+	enable = {
+		has_tech = t_peoples_war
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -10
+	}
 
 #Later in  mass_assault tree
 # large_front_operations_ratios = {
@@ -190,154 +174,3 @@ unrestricted_warfare_theory_ratios = {
 	
 # }
 
-
-##############
-### NAVAL ####
-##############
-#capital_ship
-#submarine
-#screen_ship
-#convoy
-#carrier
-
-# NOTE: We don't have fleet doctrines yet.
-
-#Fleet in being tree
-# fleet_in_being_ratios = {
-# 	enable = {
-# 		has_tech = fleet_in_being
-# 	}
-# 	abort = {
-# 		always = no
-# 	}
-
-# 	ai_strategy = {
-# 		type = unit_ratio
-# 		id = capital_ship
-# 		value = 5
-# 	}
-# }
-
-#Trade Interdiction tree
-# trade_interdiction_ratios = {
-# 	enable = {
-# 		has_tech = trade_interdiction
-# 	}
-# 	abort = {
-# 		always = no
-# 	}
-
-# 	ai_strategy = {
-# 		type = unit_ratio
-# 		id = submarine
-# 		value = 200
-# 	}
-# }
-
-
-#Base Strike tree
-# base_strike_ratios = {
-# 	enable = {
-# 		has_tech = base_strike
-# 	}
-# 	abort = {
-# 		always = no
-# 	}
-
-# 	ai_strategy = {
-# 		type = unit_ratio
-# 		id = carrier
-# 		value = 40
-# 	}
-
-# 	ai_strategy = {
-# 		type = unit_ratio
-# 		id = naval_bomber
-# 		value = 20
-# 	}
-# }
-
-##############
-###  AIR  ####
-##############
-#rocket
-#fighter
-#cas
-#interceptor
-#tactical_bomber
-#strategic_bomber
-#naval_bomber
-
-#Strategic Destruction tree
-air_superiority_ratios = {
-	enable = {
-		has_tech = air_superiority
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 50
-	}
-}
-
-air_night_day_bombing_ratios = {
-	enable = {
-		OR = {
-			has_tech = night_bombing
-			has_tech = day_bombing		
-		}
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = strategic_bomber
-		value = 50
-	}
-	
-}
-
-#Battlefield Support tree
-formation_flying = {
-	enable = {
-		has_tech = formation_flying
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = interceptor
-		value = 20
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = cas
-		value = 50
-	}
-}
-
-#Operational Integrity tree
-force_rotation = {
-	enable = {
-		has_tech = force_rotation
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 30
-	}
-	
-}
