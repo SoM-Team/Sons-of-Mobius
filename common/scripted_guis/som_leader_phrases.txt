@@ -10,8 +10,16 @@ scripted_gui = {
 		window_name = "KOA_phrase_container"
 		parent_window_name = leader_bio_text_container_gui
 		visible = {
-			ROOT = {check_variable = { KOAisview = 1 }}
-			RCR = { has_country_flag = { flag = leader_has_bio value = 0} }
+			AND = {
+				ROOT = { 
+					check_variable = { KOAisview = 1 }
+				}
+				RCR = { 
+					NOT = {
+						has_country_flag = { flag = leader_has_bio} 
+					}
+				}
+			}
 		}
 	}
 ###script_point_start

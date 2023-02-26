@@ -6,7 +6,7 @@ scripted_gui = {
 		window_name = "leader_bio_button_container"
 		
 		visible = {
-			THIS = { has_country_flag = { flag = leader_has_bio value >0} }
+			THIS = { has_country_flag = leader_has_bio }
 		}
 		effects = {
 			leader_bio_button_click = {
@@ -22,8 +22,14 @@ scripted_gui = {
 				}
 				
 				if = {
-					limit = {THIS = { has_country_flag = { flag = leader_has_bio value >0} } }
-					ROOT = {set_variable = { leader_bio_visible = 1 }}
+					limit = {
+						THIS = { 
+							has_country_flag = leader_has_bio 
+						} 
+					}
+					ROOT = {
+						set_variable = { leader_bio_visible = 1 }
+					}
 				}
 			}
 		}
@@ -36,7 +42,7 @@ scripted_gui = {
 		window_name = "leader_bio_button_second_container"
 		
 		visible = {
-			THIS = { has_country_flag = { flag = leader_has_bio value >0} }
+			THIS = { has_country_flag = leader_has_bio  }
 		}
 		effects = {
 			leader_bio_button_click = {
@@ -52,7 +58,7 @@ scripted_gui = {
 				}
 				
 				if = {
-					limit = {THIS = { has_country_flag = { flag = leader_has_bio value >0} } }
+					limit = {THIS = { has_country_flag = leader_has_bio } }
 					ROOT = {set_variable = { leader_bio_visible = 1 }}
 				}
 			}
