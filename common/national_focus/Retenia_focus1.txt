@@ -163,154 +163,6 @@ focus_tree = {
 
 	}
 	focus = {
-		id = RCR_Red_fleet
-		icon = GFX_focus_RCR_Red_Fleet
-		cost = 0
-		x = 22
-		y = 8
-
-	}
-	focus = {
-		id = RCR_Gorokhov_Doctrine
-		icon = GFX_focus_RCR_Gorokhov_Doctrine
-		cost = 0
-		prerequisite = {
-			focus = RCR_Red_fleet
-		}
-		mutually_exclusive = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 29
-		y = 11
-
-	}
-	focus = {
-		id = RCR_Carriers_Development
-		icon = GFX_focus_RCR_Project_Hive
-		cost = 0
-		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 27
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Missile_Cruiser_Development
-		icon = GFX_focus_RCR_Project_Thunder
-		cost = 0
-		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 29
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Open_Sea_Academy
-		icon = GFX_focus_RCR_Open_sea_Academy
-		cost = 0
-		prerequisite = {
-			focus = RCR_Missile_Cruiser_Development
-		}
-		prerequisite = {
-			focus = RCR_Carriers_Development
-		}
-		x = 29
-		y = 13
-
-	}
-	focus = {
-		id = RCR_Pistoletov_Doctrine
-		icon = GFX_focus_RCR_Pistoletov_Doctrine
-		cost = 0
-		prerequisite = {
-			focus = RCR_Red_fleet
-		}
-		mutually_exclusive = {
-			focus = RCR_Gorokhov_Doctrine
-		}
-		x = 31
-		y = 11
-
-	}
-	focus = {
-		id = RCR_Destroyer_Development
-		icon = GFX_focus_RCR_Project_Orca
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 33
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Submarines_Development
-		icon = GFX_focus_RCR_Project_Piranha
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pistoletov_Doctrine
-		}
-		x = 31
-		y = 12
-
-	}
-	focus = {
-		id = RCR_Pirate_Academy
-		icon = GFX_focus_RCR_Pirate_Academy
-		cost = 0
-		prerequisite = {
-			focus = RCR_Destroyer_Development
-		}
-		prerequisite = {
-			focus = RCR_Submarines_Development
-		}
-		x = 31
-		y = 13
-
-	}
-	focus = {
-		id = RCR_Vpered_Krasnoflotzy
-		icon = GFX_focus_RCR_Red_Marines
-		cost = 0
-		prerequisite = {
-			focus = RCR_Pirate_Academy
-			focus = RCR_Open_Sea_Academy
-		}
-		x = 30
-		y = 14
-
-	}
-	focus = {
-		id = RCR_Heavy_fleet
-		icon = GFX_focus_RCR_Heavy_Fleet
-		cost = 0
-		prerequisite = {
-			focus = RCR_Vpered_Krasnoflotzy
-		}
-		prerequisite = {
-			focus = RCR_Carriers_Development
-		}
-		x = 28
-		y = 15
-
-	}
-	focus = {
-		id = RCR_Light_fleet
-		icon = GFX_focus_RCR_Light_Fleet
-		cost = 0
-		prerequisite = {
-			focus = RCR_Vpered_Krasnoflotzy
-		}
-		prerequisite = {
-			focus = RCR_Destroyer_Development
-		}
-		x = 32
-		y = 15
-
-	}
-	focus = {
 		id = RCR_Red_Air_Forces
 		icon = GFX_focus_KVVS
 		cost = 0
@@ -456,13 +308,14 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = RCR_discussion_of_planning
-			completion_reward = {
-					custom_effect_tooltip = WIP
-					country_event = rcr.88
-					random_list = {
-							90 = {
-
-}
+		mutually_exclusive = {
+			focus = RCR_teleologist_victory
+		}
+		completion_reward = {
+			custom_effect_tooltip = WIP
+			country_event = rcr.88
+			random_list = {
+							90 = { 	}
 							10 = {
 									add_timed_idea = {
 											idea = war_teleology
@@ -927,6 +780,7 @@ focus_tree = {
 			add_popularity = {
 					ideology = katzerism
 					popularity = 0.1
+			}
 			swap_ideas = {
 					remove_idea = Pallasov_vision_1
 					add_idea = Pallasov_vision_2
@@ -1068,7 +922,6 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_ouliver_doctrine
 			focus = RCR_shilov_doctrine
-			focus = RCR_ouliver_doctrine
 			focus = RCR_mokanu_doctrine
 			focus = RCR_miloradovich_doctrine
 		}
@@ -1349,50 +1202,58 @@ focus_tree = {
 
 	}
 	focus = {
+		id = RCR_Red_fleet
+		icon = GFX_focus_RCR_Red_Fleet
+		cost = 0
+		x = 22
+		y = 8
+
+	}
+	focus = {
 		id = RCR_Gorokhov_Doctrine
 		icon = GFX_focus_RCR_Gorokhov_Doctrine
 		cost = 0
 		prerequisite = {
-			focus = RCR_Red_fleet
+		  focus = RCR_Red_fleet
 		}
 		mutually_exclusive = {
-			focus = RCR_Pistoletov_Doctrine
+		  focus = RCR_Pistoletov_Doctrine
 		}
 		x = 21
 		y = 9
-
-	}
-	focus = {
+	
+	  }
+	  focus = {
 		id = RCR_Carriers_Development
 		icon = GFX_focus_RCR_Project_Hive
 		cost = 0
 		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
+		  focus = RCR_Gorokhov_Doctrine
 		}
 		x = 19
 		y = 10
-
-	}
-	focus = {
+	
+	  }
+	  focus = {
 		id = RCR_Missile_Cruiser_Development
 		icon = GFX_focus_RCR_Project_Thunder
 		cost = 0
 		prerequisite = {
-			focus = RCR_Gorokhov_Doctrine
+		  focus = RCR_Gorokhov_Doctrine
 		}
 		x = 21
 		y = 10
-
-	}
-	focus = {
+	
+	  }
+	  focus = {
 		id = RCR_Open_Sea_Academy
 		icon = GFX_focus_RCR_Open_sea_Academy
 		cost = 0
 		prerequisite = {
-			focus = RCR_Missile_Cruiser_Development
+		  focus = RCR_Missile_Cruiser_Development
 		}
 		prerequisite = {
-			focus = RCR_Carriers_Development
+		  focus = RCR_Carriers_Development
 		}
 		x = 21
 		y = 11
@@ -1456,7 +1317,7 @@ focus_tree = {
 				}
 			}
 		}
-	}
+	
 	focus = {
 		id = RCR_new_estrade
 		icon = GFX_focus_new_estrade
@@ -3788,6 +3649,9 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = RCR_discussion_of_planning
+		mutually_exclusive = {
+			focus = RCR_genetics_victory
+		}
 			completion_reward = {
 					country_event = rcr.87
 					random_list = {
@@ -4976,27 +4840,8 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Political_comissars
 		}
-		x = 20
-		y = 15
-
-	}
-	focus = {
-		id = RCR_analyze_wars
-		icon = GFX_focus_analyzing_frw
-		cost = 0
-		prerequisite = {
-			focus = RCR_armor_offensive
-			focus = RCR_R_D
-			focus = RCR_artillery_school
-			focus = RCR_contactless_battle_tactics
 		x = 12
 		y = 13
-			completion_reward = {
-					swap_ideas = {
-							add_idea = Red_Army
-							remove_idea = Red_Army_unprepared1
-						}
-				}
 
 	}
 	focus = {

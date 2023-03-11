@@ -53,6 +53,50 @@ focus_tree = {
 	}
 
 	focus = {
+		id = EGG_punish_the_saboteurs
+		icon = GFX_focus_punish_the_saboteurs
+		cost = 5
+		x = 33
+		y = 1
+		prerequisite = {
+			focus = EGG_agression_failed
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = military_police_tech
+			}
+			add_stability = 0.05
+			add_ideas = EGG_campaign_one
+			country_event = {
+				id = egg.20
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_robotize_the_prisoners
+		icon = GFX_focus_robotize_the_prisoners
+		cost = 5
+		x = 35
+		y = 1
+		prerequisite = {
+			focus = EGG_agression_failed
+		}
+		completion_reward = {
+			custom_effect_tooltip = can_roboticize
+			swap_ideas = {
+				remove_idea = Robian_Disobedience
+				add_idea = Robian_Disobedience_1
+			}
+			country_event = {
+				id = egg.14
+			}
+		}
+	}
+
+	focus = {
 		id = EGG_Invest_in_Metal_Series
 		icon = GFX_focus_Invest_in_Metal_Series
 		cost = 5
@@ -69,47 +113,6 @@ focus_tree = {
 				id = egg.33
 			}
 		}
-	}
-
-	focus = {
-		id = EGG_expand_E_series
-		icon = GFX_focus_expand_E_series
-		cost = 7
-		x = 29
-		y = 3
-		prerequisite = {
-			focus = EGG_Invest_in_Metal_Series
-		}
-		completion_reward = {
-			hidden_effect = {
-				remove_ideas = { 
-					EGG_military_investments
-				}
-				add_timed_idea = {
-					idea = EGG_military_investments_1
-					days = 300
-				}
-			}
-			random_owned_state = {
-				limit = {
-					is_core_of = EGG
-					is_controlled_by = EGG
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = air_base
-					level = 1
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = EGG_expanded_eseries
-		}
-
 	}
 
 	focus = {
@@ -132,6 +135,112 @@ focus_tree = {
 	}
 
 	focus = {
+		id = EGG_expand_E_series
+		icon = GFX_focus_expand_E_series
+		cost = 7
+		x = 29
+		y = 3
+		prerequisite = {
+			focus = EGG_Invest_in_Metal_Series
+		}
+		completion_reward = {
+			custom_effect_tooltip = We_will_expand_production_for_this
+				remove_ideas = { 
+					EGG_military_investments
+				}
+				add_timed_idea = {
+					idea = EGG_military_investments_1
+					days = 300
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = EGG
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = EGG
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = EGG
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = EGG
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = EGG
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+	}
+
+		focus = {
 		id = EGG_upgrade_Robians
 		icon = GFX_focus_upgrade_Robians
 		cost = 7
@@ -196,18 +305,65 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			70 = {
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 3
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 			random_owned_state = {
 				limit = {
@@ -222,28 +378,19 @@ focus_tree = {
 					instant_build = yes
 				}
 			}	
-		}
-	}
-
-	focus = {
-		id = EGG_punish_the_saboteurs
-		icon = GFX_focus_punish_the_saboteurs
-		cost = 5
-		x = 33
-		y = 1
-		prerequisite = {
-			focus = EGG_agression_failed
-		}
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1.0
-				uses = 2
-				category = tech_military_police
-			}
-			add_ideas = EGG_campaign_one
-			country_event = {
-				id = egg.20
-			}
+			random_owned_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = EGG
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}	
 		}
 	}
 
@@ -329,6 +476,81 @@ focus_tree = {
 				}
 			}
 			add_ideas = EGG_SUPER_MONO
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = EGG
+						add = 2
+					}
+				}
+				fallback = yes
+				path = { 5130 5162 5180 5055 4999 4880 4785 4679 }
+				start_province = 5130
+				target_province = 4679
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = EGG
+						add = 2
+					}
+				}
+				fallback = yes
+				path = { 4679 4656 4607 4492 4360 4259 }
+				start_province = 4679 
+				target_province = 4259
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = EGG
+						add = 2
+					}
+				}
+				fallback = yes
+				path = { 4691 4699 4673 4692 4656 4679 }
+				start_province = 4691
+				target_province = 4679
+			}
+			build_railway = {
+				level = 3
+				build_only_on_allied = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = EGG
+						add = 2
+					}
+				}
+				fallback = yes
+				path = { 5392 5516 5712 5781 }
+				start_province = 5392
+				target_province = 5781
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				controller_priority = {
+					base = 1
+					modifier = {
+						tag = EGG
+						add = 2
+					}
+				}
+				fallback = yes
+				path = { 5392 5206 5055 }
+				start_province = 5392
+				target_province = 5055
+			}
 		}
 	}
 
@@ -344,27 +566,6 @@ focus_tree = {
 		completion_reward = {
 			country_event = {
 				id = egg.15
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_robotize_the_prisoners
-		icon = GFX_focus_robotize_the_prisoners
-		cost = 5
-		x = 35
-		y = 1
-		prerequisite = {
-			focus = EGG_agression_failed
-		}
-		completion_reward = {
-			custom_effect_tooltip = can_roboticize
-			swap_ideas = {
-				remove_idea = Robian_Disobedience
-				add_idea = Robian_Disobedience_1
-			}
-			country_event = {
-				id = egg.14
 			}
 		}
 	}
@@ -479,7 +680,7 @@ focus_tree = {
 			focus = EGG_boost_industrial_production
 		}
 		completion_reward = {
-			custom_effect_tooltip = Robotropolis_build
+			custom_effect_tooltip = Robotropolis_will_be_renovated
 			hidden_effect = {
 				70 = {
 					add_building_construction = {
@@ -488,24 +689,8 @@ focus_tree = {
 						instant_build = yes
 					}
 					add_building_construction = {
-						type = infrastructure
-						level = 3
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = anti_air_building
-						level = 3
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = air_base
-						level = 3
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = radar_station 
+						type = industrial_complex
 						level = 1
-						instant_build = yes
 					}
 					add_building_construction = {
 						type = bunker
@@ -516,7 +701,15 @@ focus_tree = {
 							limit_to_border = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 4
+					add_extra_state_shared_building_slots = 2
+					add_resource = {
+						type = tungsten
+						amount = 50
+					}
+					add_resource = {
+						type = steel
+						amount = 40
+					}
 				}
 			}
 		}
@@ -612,7 +805,7 @@ focus_tree = {
 			focus = EGG_prepare_for_the_revenge
 		}
 		completion_reward = {
-			add_country_leader_trait = Charismatic_despot
+			add_country_leader_trait = Charismatic_Despot
 			country_event = {
 				id = egg.38 
 			}
@@ -641,6 +834,191 @@ focus_tree = {
 	}
 
 	focus = {
+		id = EGG_Cities_For_the_people
+		icon = GFX_focus_Cities_For_the_people
+		cost = 8
+		x = 22
+		y = 11
+		prerequisite = {
+			focus = EGG_Promise_Prosperity
+		}
+        completion_reward = {
+			every_owned_state = { add_extra_state_shared_building_slots = 1 }
+		    custom_effect_tooltip = Better_life
+			hidden_effect = {
+		    	swap_ideas = { 
+            		remove_idea = EGG_good_life 
+            		add_idea = EGG_good_life_1
+            	}
+			}  	
+		}
+	}
+
+	focus = {
+		id = EGG_Discredit_Sonic
+		icon = GFX_focus_Discredit_Sonic
+		cost = 5
+		x = 20
+		y = 12
+		prerequisite = {
+			focus = EGG_Cities_For_the_people
+		}
+		completion_reward = {
+			hidden_effect = {
+				KOA = {
+					country_event = { id = koa.16 }
+			        add_stability = -0.1
+		        	add_war_support = -0.1
+					add_political_power = -100
+				} 
+			}
+			country_event = { id = egg.41 }				
+		}					
+	}
+
+	focus = {
+		id = EGG_Eggmanland
+		icon = GFX_focus_Eggmanland
+		cost = 8
+		x = 24
+		y = 12
+		prerequisite = {
+			focus = EGG_Cities_For_the_people
+		}
+		completion_reward = {
+			custom_effect_tooltip = Better_life
+			hidden_effect = {
+				swap_ideas = { 
+	            	remove_idea = EGG_good_life_1 
+            		add_idea = EGG_good_life_2
+            	}
+			}
+			country_event = { id = egg.40 }
+		}
+	}
+
+	focus = {
+		id = EGG_Robobonds
+		icon = GFX_focus_Robobonds
+		cost = 8
+		x = 20
+		y = 13
+		prerequisite = {
+			focus = EGG_Discredit_Sonic
+		}
+		completion_reward = {
+			custom_effect_tooltip = robobonds_tt
+        	set_variable = { var_robobnds = 100 }   		
+        }
+	}
+
+	focus = {
+		id = EGG_Combat_Criminals
+		icon = GFX_focus_Combat_Criminals
+		cost = 8
+		x = 22
+		y = 13
+		prerequisite = {
+			focus = EGG_Discredit_Sonic
+		}
+		prerequisite = {
+			focus = EGG_Eggmanland
+		}
+		completion_reward = {
+			add_popularity = {
+	    		ideology = technocratic_despotism
+	      		popularity = 0.1
+			}
+			custom_effect_tooltip = Better_life
+		  	hidden_effect = {
+				if = {
+					limit = {
+						has_idea = EGG_good_life_2
+					}
+					swap_ideas = { 
+              			remove_idea = EGG_good_life_2
+              			add_idea = EGG_good_life_3
+            			}
+					}
+				else_if = {
+					limit = {
+						has_idea = EGG_good_life_3
+					}
+					swap_ideas = {
+						remove_idea = EGG_good_life_3
+						add_idea = EGG_good_life_4
+					}
+				}
+			} 
+		}
+	}
+
+	focus = {
+		id = EGG_Honor_the_Loyal
+		icon = GFX_focus_Honor_the_Loyal
+		cost = 8
+		x = 24
+		y = 13
+		prerequisite = {
+			focus = EGG_Eggmanland
+		}
+		prerequisite = {
+			focus = EGG_Combat_Criminals
+		}
+		completion_reward = {
+			custom_effect_tooltip = Better_life
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = EGG_good_life_2
+					}
+					swap_ideas = { 
+              			remove_idea = EGG_good_life_2
+              			add_idea = EGG_good_life_3
+            			}
+					}
+				else_if = {
+					limit = {
+						has_idea = EGG_good_life_3
+					}
+					swap_ideas = {
+						remove_idea = EGG_good_life_3
+						add_idea = EGG_good_life_4
+					}
+				}
+			}
+			country_event = { id = egg.42 }
+		}
+	}
+
+	focus = {
+		id = EGG_Eggman_Paradise
+		icon = GFX_focus_Eggman_Paradise
+		cost = 8
+		x = 22
+		y = 14
+		prerequisite = {
+			focus = EGG_Honor_the_Loyal
+		}
+		prerequisite = {
+			focus = EGG_Combat_Criminals
+		}
+		prerequisite = {
+			focus = EGG_Robobonds
+		}
+		completion_reward = {
+			custom_effect_tooltip = Better_life
+			hidden_effect = {
+				swap_ideas = { 
+					remove_idea = EGG_good_life_4
+					add_idea = EGG_good_life_5
+                }
+			}
+			country_event = { id = egg.43 }
+		}
+	}
+
+	focus = {
 		id = EGG_Show_Helplessness
 		icon = GFX_focus_Show_Helplessness
 		cost = 5
@@ -659,6 +1037,235 @@ focus_tree = {
 				id = egg.44
 			}
 		}
+	}
+
+	focus = {
+		id = EGG_Maximum_Terror
+		icon = GFX_focus_Maximum_Terror
+		cost = 8
+		x = 44
+		y = 11
+		prerequisite = {
+			focus = EGG_Show_Helplessness
+		}
+		completion_reward = {
+			custom_effect_tooltip = show_death
+			country_event = { id = egg.45 }
+			hidden_effect = {
+				if = { 
+           			limit = { has_dlc = "La Resistance" }
+           			swap_ideas = { 
+	            		remove_idea = EGG_death_guarantee
+              			add_idea = EGG_death_guarantee_1a
+                	}
+					else = {
+			 		swap_ideas = { 
+              			remove_idea = EGG_death_guarantee
+              			add_idea = EGG_death_guarantee_1b
+                    	}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Benefit_from_Gang
+		icon = GFX_focus_Benefit_from_Gang
+		cost = 8
+		x = 42
+		y = 12
+		prerequisite = {
+			focus = EGG_Maximum_Terror
+		}
+		completion_reward = {
+			custom_effect_tooltip = show_death
+			hidden_effect = {
+				random_owned_state = {
+					add_resource = {
+                	    type = oil
+                        amount = 5
+                    }
+					add_resource = {
+						type = steel
+            			amount = 2
+					}
+      				add_resource = {
+						type = Aluminium
+            			amount = 3
+					}	
+				}
+				random_owned_state = {
+					add_resource = {
+                    	type = oil
+                        amount = 5
+                    }
+					add_resource = {
+						type = steel
+            			amount = 2
+					}
+      				add_resource = {
+						type = chromium
+            			amount = 3
+					}	
+				}
+				random_owned_state = {
+					add_resource = {
+                    	type = oil
+                        amount = 5
+                    }
+					add_resource = {
+						type = steel
+            			amount = 2
+					}
+      				add_resource = {
+						type = tungsten
+            			amount = 3
+					}	
+				}									
+				if = { 
+        			limit = {has_dlc = "La Resistance"  }
+           			swap_ideas = { 
+              			remove_idea = EGG_death_guarantee_1a
+              			add_idea = EGG_death_guarantee_2a
+                	}
+					else = {
+			 			swap_ideas = { 
+              				remove_idea = EGG_death_guarantee_1b
+              				add_idea = EGG_death_guarantee_2b
+                    	}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Industrial_duty
+		icon = GFX_focus_Industrial_duty
+		cost = 8
+		x = 44
+		y = 12
+		prerequisite = {
+			focus = EGG_Maximum_Terror
+		}
+		completion_reward = { 
+			custom_effect_tooltip = egg_explotation
+			country_event = egg.46
+		    hidden_effect = {
+		    	add_stability = -0.05
+		        add_ideas = EGG_obey_guarantee
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Turrets_on_the_streets
+		icon = GFX_focus_Turrets_on_the_streets
+		cost = 8
+		x = 46
+		y = 12
+		prerequisite = {
+			focus = EGG_Maximum_Terror
+		}
+		completion_reward = {
+			custom_effect_tooltip = drone_control
+            set_variable = { dron_cost = 100 }   		
+			set_variable = { dron_time = 50 }
+		}
+	}
+
+	focus = {
+		id = EGG_Barracks_of_Robians
+		icon = GFX_focus_Barracks_of_Robians
+		cost = 8
+		x = 42
+		y = 13
+		prerequisite = {
+			focus = EGG_Benefit_from_Gang
+		}
+		prerequisite = {
+			focus = EGG_Industrial_duty
+		}
+		completion_reward = { 
+			every_owned_state = { add_extra_state_shared_building_slots = 1 }
+			custom_effect_tooltip = egg_explotation
+			country_event = egg.48
+            hidden_effect = {
+				swap_ideas = {
+					remove_idea = EGG_obey_guarantee
+					add_idea = EGG_obey_guarantee_1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Every_Mobian_a_Hostage
+		icon = GFX_focus_Every_Mobian_a_Hostage
+		cost = 8
+		x = 46
+		y = 13
+		prerequisite = {
+			focus = EGG_Turrets_on_the_streets
+		}
+		prerequisite = {
+			focus = EGG_Industrial_duty
+		}
+		completion_reward = {
+			custom_effect_tooltip = show_death
+		    custom_effect_tooltip = free_ability
+            country_event = egg.47							 
+		    set_country_flag = egg_free_ability
+			hidden_effect = {
+				if = { 
+                	limit = { has_dlc = "La Resistance" }
+                    swap_ideas = { 
+                        remove_idea = EGG_death_guarantee_2a
+                    	add_idea = EGG_death_guarantee_3a
+                    }
+			        else = {
+			            swap_ideas = { 
+                            remove_idea = EGG_death_guarantee_2b
+                            add_idea = EGG_death_guarantee_3b
+                        }
+                    }
+		        }                                  
+		    }
+		}
+	}
+	
+	focus = {
+		id = EGG_No_More_Hypocricy
+		icon = GFX_focus_No_More_Hypocricy
+		cost = 8
+		x = 44
+		y = 14
+		prerequisite = {
+			focus = EGG_Barracks_of_Robians
+		}
+		prerequisite = {
+			focus = EGG_Every_Mobian_a_Hostage
+		}
+		completion_reward = {
+			custom_effect_tooltip = show_death
+			country_event = egg.49
+			hidden_effect = {
+				if = { 
+                	limit = { has_dlc = "La Resistance" }
+                    swap_ideas = {
+                        remove_idea = EGG_death_guarantee_3a
+                        add_idea = EGG_death_guarantee_4a
+                    }
+			        else = {
+			            swap_ideas = { 
+                            remove_idea = EGG_death_guarantee_3b
+                            add_idea = EGG_death_guarantee_4b
+                        }
+                    }
+                }                                  
+            }
+        }
 	}
 
 	focus = {
@@ -806,7 +1413,12 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Northamer_Recruits
 		}
-		completion_reward = { add_ideas = modern_fleet }  
+		completion_reward = { 
+			add_ideas = modern_fleet
+			country_event = {
+				id = egg.54
+			}					
+		}  
 	}
 
 	focus = {
@@ -828,11 +1440,23 @@ focus_tree = {
 				else = {
             		add_ideas = spy_media_1
             	}
-			}	 
+			}	
+			if = {
+				limit = {
+					RCR = {
+					RCR_Yuriy_Pallasov = {
+						is_country_leader = yes 
+					}
+				}
+				}
+				country_event = {
+					id = egg.55
+				}
+				}
+			}
 		}
-		
+	
 
-	}
 	focus = {
 		id = EGG_Empower_Armor
 		icon = GFX_focus_Empower_Armor
@@ -876,27 +1500,499 @@ focus_tree = {
 	}
 
 	focus = {
-		id = EGG_Legionization_Methods
-		icon = GFX_focus_Legionization_Methods
+		id = EGG_Prevent_Naval_Landing
+		icon = GFX_focus_Prevent_Naval_Landing
 		cost = 8
-		x = 38
+		x = 28
 		y = 11
 		prerequisite = {
-			focus = EGG_Echidna_Science
+			focus = EGG_Upgrade_Egg_Fleet
 		}
-		completion_reward = { add_ideas = legionization }
+		completion_reward = {
+			navy_experience = 100
+			air_experience = 40
+			104 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                    	}
+                    }
+				}
+			}	
+			102 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                    	}
+                    }
+				}
+			}						
+            100 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                    	}
+                    }
+				}
+			}
+            92 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}	
+				
+			75 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+				
+			71 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+					
+			72 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+				
+			65 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+					
+			54 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+					
+			53 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                    	}
+                	}
+				}
+			}
+				
+			52 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+				
+
+			51 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+	
+			50 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+					
+			49 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = coastal_bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_coastal = yes
+                        }
+                    }
+				}
+			}
+				
+			48 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+            	        type = coastal_bunker
+                	    level = 2
+                    	instant_build = yes
+                    	province = {
+                	    	all_provinces = yes
+                		    limit_to_coastal = yes
+                        }
+                    }
+				}
+			}								
+		}
 	}
 
 	focus = {
-		id = EGG_Compulsion_on_Legion
-		icon = GFX_focus_Compulsion_on_Legion
-		cost = 0
-		x = 40
+		id = EGG_Eggman_Line
+		icon = GFX_focus_Eggman_Line
+		cost = 8
+		x = 26
 		y = 12
 		prerequisite = {
-			focus = EGG_Legionization_Methods
+			focus = EGG_Prevent_Naval_Landing
 		}
-		completion_reward = { add_political_power = 200 }
+		completion_reward = {
+			103 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+        	    	    type = bunker
+            	        level = 2
+            	        instant_build = yes
+            	        province = {
+            	    	    all_provinces = yes
+            	    	    limit_to_border = yes
+                	    }
+                    }
+				}
+			}
+
+        	99 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+        	            type = bunker
+        	            level = 2
+        	            instant_build = yes
+        	            province = {
+        		            all_provinces = yes
+                		    limit_to_border = yes
+                        }
+                    }
+				}
+			}
+
+        	91 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_border = yes
+                    	}
+                	}
+				}
+			}
+
+        	75 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_border = yes
+                    	}
+                    }
+				}
+			}
+
+        	68 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_border = yes
+                        }
+                    }
+				}
+			}
+
+        	66 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+            	        type = bunker
+            	        level = 2
+            	        instant_build = yes
+            	        province = {
+            		        all_provinces = yes
+            		        limit_to_border = yes
+                        }
+                    }
+			    }
+			}
+
+        	60 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                	    type = bunker
+            	        level = 2
+            	        instant_build = yes
+            	        province = {
+            		        all_provinces = yes
+            		        limit_to_border = yes
+                        }
+                    }
+				}
+			}
+
+       		56 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+            	        type = bunker
+            	        level = 2
+            	        instant_build = yes
+            	        province = {
+            		        all_provinces = yes
+            		        limit_to_border = yes
+                    	}
+                	}
+				}
+			}
+
+        	48 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+            	        type = bunker
+                	    level = 2
+                    	instant_build = yes
+                    	province = {
+		                    all_provinces = yes
+		                    limit_to_border = yes
+                        }
+                    }
+                }
+			}
+
+        	104 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+                    	type = bunker
+                    	level = 2
+                    	instant_build = yes
+                    	province = {
+                    		all_provinces = yes
+                    		limit_to_border = yes
+                        }
+                    }
+				}
+			}
+
+			country_event = {
+				id = egg.63
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Forceshield_Developement
+		icon = GFX_focus_Forceshield_Developement
+		cost = 8
+		x = 26
+		y = 14
+		prerequisite = {
+			focus = EGG_Eggman_Line
+		}
+		completion_reward = { 
+			add_ideas = force_shield 
+			country_event = {
+				id = egg.75 
+			}
+		} 
+	}
+
+	focus = {
+		id = EGG_Global_Desinformation
+		icon = GFX_focus_Global_Desinformation
+		cost = 8
+		x = 30
+		y = 11
+		prerequisite = {
+			focus = EGG_Spy_Media
+		}
+		completion_reward = {
+			if = { 
+        		limit = { has_dlc = "La Resistance" }
+           		swap_ideas = { 
+              		remove_idea = spy_media
+              		add_idea = mass_desinform
+            	}
+				else = {
+					swap_ideas = { 
+              			remove_idea = spy_media_1
+              			add_idea = mass_desinform_1
+            		}
+				}
+			}
+			country_event = {
+				id = egg.61
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Restore_Satellites_Control
+		icon = GFX_focus_Restore_Satellites_Control
+		cost = 8
+		x = 29
+		y = 12
+		prerequisite = {
+			focus = EGG_Global_Desinformation
+		}
+		completion_reward = {
+			if = { 
+        		limit = { has_dlc = "La Resistance" }
+           		swap_ideas = { 
+              		remove_idea = mass_desinform
+              		add_idea = satellites_control
+            	}
+				else = {
+			 		swap_ideas = { 
+              			remove_idea = mass_desinform_1
+              			add_idea = satellites_control_1
+                    }
+				}
+		
+			}
+			country_event = {
+				id = egg.62
+			}
+		}	
+	}
+
+	focus = {
+		id = EGG_Death_Egg_2
+		icon = GFX_focus_Death_Egg_2
+		cost = 4
+		x = 29
+		y = 14
+		prerequisite = {
+			focus = EGG_Restore_Satellites_Control
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.64
+			}
+			add_war_support = 0.05
+		}
 	}
 
 	focus = {
@@ -935,1603 +2031,9 @@ focus_tree = {
 				remove_idea = modernization_army_1
                 add_idea = modernization_army_2
 			}
-		}
-	}
-
-	focus = {
-		id = EGG_Establish_New_DELS
-		icon = GFX_focus_Establish_New_DELS
-		cost = 0
-		x = 33
-		y = 11
-		prerequisite = {
-			focus = EGG_Spy_Media
-		}
-		prerequisite = {
-			focus = EGG_Empower_Armor
-		}
-	}
-
-	focus = {
-		id = EGG_Industrialize_Rural
-		icon = GFX_focus_Industrialize_Rural
-		cost = 0
-		x = 35
-		y = 12
-		prerequisite = {
-			focus = EGG_Establish_New_DELS
-		}
-	}
-
-	focus = {
-		id = EGG_Produce_Energy
-		icon = GFX_focus_Produce_Energy
-		cost = 0
-		x = 35
-		y = 13
-		prerequisite = {
-			focus = EGG_Industrialize_Rural
-		}
-	}
-
-	focus = {
-		id = EGG_Pursue_Knothole_Rats
-		icon = GFX_focus_Pursue_Knothole_Rats
-		cost = 0
-		x = 33
-		y = 12
-		prerequisite = {
-			focus = EGG_Establish_New_DELS
-		}
-	}
-
-	focus = {
-		id = EGG_Destroy_Knothole_Again
-		icon = GFX_focus_Destroy_Knothole_Again
-		cost = 0
-		x = 33
-		y = 13
-		prerequisite = {
-			focus = EGG_Pursue_Knothole_Rats
-		}
-	}
-
-	focus = {
-		id = EGG_Develop_Forest_Warfare
-		icon = GFX_focus_Develop_Forest_Warfare
-		cost = 8
-		x = 31
-		y = 12
-		prerequisite = {
-			focus = EGG_Establish_New_DELS
-		}
-		completion_reward = {
-			set_technology = {
-				forest_warfare = 1
+			country_event = {
+				id = egg.58
 			}
-		id = EGG_Destroy_Knothole_Again
-		icon = GFX_focus_Destroy_Knothole_Again
-		cost = 0
-		x = 33
-		y = 13
-		prerequisite = {
-			focus = EGG_Pursue_Knothole_Rats
-		}
-	}
-
-	focus = {
-		id = EGG_All_Terrain_Modifications
-		icon = GFX_focus_All_Terrain_Modifications
-		cost = 0
-		x = 31
-		y = 13
-		prerequisite = {
-			focus = EGG_Develop_Forest_Warfare
-		}
-		completion_reward = {add_ideas = adaptive_army}
-	}
-
-	focus = {
-		id = EGG_Global_Desinformation
-		icon = GFX_focus_Global_Desinformation
-		cost = 8
-		x = 30
-		y = 11
-		prerequisite = {
-			focus = EGG_Spy_Media
-		}
-		completion_reward = {
-			if = { 
-        		limit = { has_dlc = "La Resistance" }
-           		swap_ideas = { 
-              		remove_idea = spy_media
-              		add_idea = mass_desinform
-            	}
-				else = {
-					swap_ideas = { 
-              			remove_idea = spy_media_1
-              			add_idea = mass_desinform_1
-            		}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_Restore_Satellites_Control
-		icon = GFX_focus_Restore_Satellites_Control
-		cost = 8
-		x = 29
-		y = 12
-		prerequisite = {
-			focus = EGG_Global_Desinformation
-		id = EGG_Develop_Forest_Warfare
-		icon = GFX_focus_Develop_Forest_Warfare
-		cost = 8
-		x = 31
-		y = 12
-		prerequisite = {
-			focus = EGG_Establish_New_DELS
-		}
-		completion_reward = {
-			set_technology = {
-				forest_warfare = 1
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_All_Terrain_Modifications
-		icon = GFX_focus_All_Terrain_Modifications
-		cost = 0
-		x = 31
-		y = 13
-		prerequisite = {
-			focus = EGG_Develop_Forest_Warfare
-		}
-		completion_reward = {add_ideas = adaptive_army}
-	}
-
-	focus = {
-		id = EGG_Global_Desinformation
-		icon = GFX_focus_Global_Desinformation
-		cost = 8
-		x = 30
-		y = 11
-		prerequisite = {
-			focus = EGG_Spy_Media
-		}
-		completion_reward = {
-			if = { 
-        		limit = { has_dlc = "La Resistance" }
-           		swap_ideas = { 
-              		remove_idea = mass_desinform
-              		add_idea = satellites_control
-            	}
-				else = {
-			 		swap_ideas = { 
-              			remove_idea = mass_desinform_1
-              			add_idea = satellites_control_1
-                    }
-				}
-		
-			}
-		}	
-	}
-
-	focus = {
-		id = EGG_Prevent_Naval_Landing
-		icon = GFX_focus_Prevent_Naval_Landing
-		cost = 8
-		x = 28
-		y = 11
-		prerequisite = {
-			focus = EGG_Upgrade_Egg_Fleet
-		}
-		completion_reward = {
-			navy_experience = 100
-		    104 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-			102 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                    }
-				}
-			}						
-            100 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                    }
-				}
-			}
-            92 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}	
-				
-			75 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-				
-			71 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			72 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-				
-			65 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			54 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			53 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                	}
-				}
-			}
-				
-			52 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-				
-
-			51 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-	
-			50 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			49 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-				
-			48 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = coastal_bunker
-                	    level = 2
-                    	instant_build = yes
-                    	province = {
-                	    	all_provinces = yes
-                		    limit_to_coastal = yes
-                        }
-                    }
-				}
-			}								
-		}
-	}
-
-	focus = {
-		id = EGG_Eggman_Line
-		icon = GFX_focus_Eggman_Line
-		cost = 8
-		x = 26
-		y = 12
-		prerequisite = {
-			focus = EGG_Prevent_Naval_Landing
-		}
-		completion_reward = {
-			103 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
-				}
-			}
-
-        	99 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-        	            type = bunker
-        	            level = 2
-        	            instant_build = yes
-        	            province = {
-        		            all_provinces = yes
-                		    limit_to_border = yes
-              		remove_idea = spy_media
-              		add_idea = mass_desinform
-            	}
-				else = {
-					swap_ideas = { 
-              			remove_idea = spy_media_1
-              			add_idea = mass_desinform_1
-            		}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_Restore_Satellites_Control
-		icon = GFX_focus_Restore_Satellites_Control
-		cost = 8
-		x = 29
-		y = 12
-		prerequisite = {
-			focus = EGG_Global_Desinformation
-		}
-		completion_reward = {
-			if = { 
-        		limit = { has_dlc = "La Resistance" }
-           		swap_ideas = { 
-              		remove_idea = mass_desinform
-              		add_idea = satellites_control
-            	}
-				else = {
-			 		swap_ideas = { 
-              			remove_idea = mass_desinform_1
-              			add_idea = satellites_control_1
-                    }
-				}
-		
-			}
-		}	
-	}
-
-	focus = {
-		id = EGG_Prevent_Naval_Landing
-		icon = GFX_focus_Prevent_Naval_Landing
-		cost = 8
-		x = 28
-		y = 11
-		prerequisite = {
-			focus = EGG_Upgrade_Egg_Fleet
-		}
-		completion_reward = {
-			navy_experience = 100
-		    104 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-						add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-			102 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                    }
-				}
-			}						
-            100 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                    }
-				}
-			}
-            92 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}	
-				
-			75 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-
-        	91 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-				
-			71 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    	}
-                	}
-				}
-			}
-
-        	75 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			72 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    	}
-                    }
-				}
-			}
-
-        	68 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-				
-			65 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-
-        	66 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-                        }
-                    }
-			    }
-			}
-
-        	60 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-					
-			54 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			53 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                    	}
-                	}
-				}
-			}
-				
-			52 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-
-       		56 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-                    	}
-                	}
-				}
-			}
-
-        	48 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-                	    level = 2
-                    	instant_build = yes
-                    	province = {
-		                    all_provinces = yes
-		                    limit_to_border = yes
-                        }
-                    }
-                }
-			}
-
-        	104 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-				
-
-			51 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-	
-			50 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-					
-			49 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = coastal_bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    		limit_to_coastal = yes
-                        }
-                    }
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = EGG_Cities_For_the_people
-		icon = GFX_focus_Cities_For_the_people
-		cost = 8
-		x = 22
-		y = 11
-		prerequisite = {
-			focus = EGG_Promise_Prosperity
-		}
-        completion_reward = {
-			every_owned_state = { add_extra_state_shared_building_slots = 1 }
-		    custom_effect_tooltip = Better_life
-			hidden_effect = {
-		    	swap_ideas = { 
-            		remove_idea = EGG_good_life 
-            		add_idea = EGG_good_life_1
-            	}
-			}  	
-				
-			48 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = coastal_bunker
-                	    level = 2
-                    	instant_build = yes
-                    	province = {
-                	    	all_provinces = yes
-                		    limit_to_coastal = yes
-                        }
-                    }
-				}
-			}								
-		}
-	}
-
-	focus = {
-		id = EGG_Eggman_Line
-		icon = GFX_focus_Eggman_Line
-		cost = 8
-		x = 26
-		y = 12
-		prerequisite = {
-			focus = EGG_Prevent_Naval_Landing
-		}
-		completion_reward = {
-			103 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
-				}
-			}
-
-        	99 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-        	            type = bunker
-        	            level = 2
-        	            instant_build = yes
-        	            province = {
-        		            all_provinces = yes
-                		    limit_to_border = yes
-                        }
-                    }
-				}
-			}
-
-        	91 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    	}
-                	}
-				}
-			}
-
-        	75 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                    	}
-                    }
-				}
-			}
-
-        	68 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                        }
-                    }
-				}
-			}
-
-        	66 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-                        }
-                    }
-			    }
-			}
-
-        	60 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-                        }
-                    }
-				}
-			}
-
-       		56 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            		        all_provinces = yes
-            		        limit_to_border = yes
-                    	}
-                	}
-				}
-			}
-
-        	48 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-            	        type = bunker
-                	    level = 2
-                    	instant_build = yes
-                    	province = {
-		                    all_provinces = yes
-		                    limit_to_border = yes
-                        }
-                    }
-                }
-			}
-
-        	104 = {
-				if = {
-					limit = { is_controlled_by = ROOT }
-					add_building_construction = {
-                    	type = bunker
-                    	level = 2
-                    	instant_build = yes
-                    	province = {
-                    		all_provinces = yes
-                    		limit_to_border = yes
-                        }
-                    }
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = EGG_Eggmanland
-		icon = GFX_focus_Eggmanland
-		cost = 8
-		x = 24
-		y = 12
-		prerequisite = {
-			focus = EGG_Cities_For_the_people
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-	            	remove_idea = EGG_good_life_1 
-            		add_idea = EGG_good_life_2
-            	}
-			}
-			country_event = { id = egg.40 }
-		}
-	}
-
-	focus = {
-		id = EGG_Discredit_Sonic
-		icon = GFX_focus_Discredit_Sonic
-		cost = 5
-		x = 20
-		y = 12
-		prerequisite = {
-			focus = EGG_Cities_For_the_people
-		}
-		completion_reward = {
-			hidden_effect = {
-				KOA = {
-					country_event = { id = koa.16 }
-			        add_stability = -0.1
-		        	add_war_support = -0.1
-				} 
-			}
-			country_event = { id = egg.41 }				
-		}					
-	}
-
-	focus = {
-		id = EGG_Robobonds
-		icon = GFX_focus_Robobonds
-		cost = 8
-		x = 20
-		y = 13
-		prerequisite = {
-			focus = EGG_Discredit_Sonic
-		}
-		completion_reward = {
-			custom_effect_tooltip = robobonds_tt
-        	set_variable = { var_robobnds = 100 }   		
-        }
-	}
-
-	focus = {
-		id = EGG_Combat_Criminals
-		icon = GFX_focus_Combat_Criminals
-		cost = 8
-		x = 22
-		y = 13
-		prerequisite = {
-			focus = EGG_Discredit_Sonic
-		}
-		prerequisite = {
-			focus = EGG_Eggmanland
-		}
-		completion_reward = {
-			add_popularity = {
-	    		ideology = technocratic_despotist
-	      		popularity = 0.1
-			}
-			custom_effect_tooltip = Better_life
-		  	hidden_effect = {
-				swap_ideas = { 
-              		remove_idea = EGG_good_life_2
-              		add_idea = EGG_good_life_3
-            	}
-			} 
-		}
-	}
-
-	focus = {
-		id = EGG_Honor_the_Loyal
-		icon = GFX_focus_Honor_the_Loyal
-		cost = 8
-		x = 24
-		y = 13
-		prerequisite = {
-			focus = EGG_Eggmanland
-		}
-		prerequisite = {
-			focus = EGG_Combat_Criminals
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-              		remove_idea = EGG_good_life_3
-              		add_idea = EGG_good_life_4
-                }
-			}
-			country_event = { id = egg.42 }
-		id = EGG_Cities_For_the_people
-		icon = GFX_focus_Cities_For_the_people
-		cost = 8
-		x = 22
-		y = 11
-		prerequisite = {
-			focus = EGG_Promise_Prosperity
-		}
-        completion_reward = {
-			every_owned_state = { add_extra_state_shared_building_slots = 1 }
-		    custom_effect_tooltip = Better_life
-			hidden_effect = {
-		    	swap_ideas = { 
-            		remove_idea = EGG_good_life 
-            		add_idea = EGG_good_life_1
-            	}
-			}  	
-		}
-	}
-	
-	focus = {
-		id = EGG_Eggmanland
-		icon = GFX_focus_Eggmanland
-		cost = 8
-		x = 24
-		y = 12
-		prerequisite = {
-			focus = EGG_Cities_For_the_people
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-	            	remove_idea = EGG_good_life_1 
-            		add_idea = EGG_good_life_2
-            	}
-			}
-			country_event = { id = egg.40 }
-		}
-	}
-
-	focus = {
-		id = EGG_Discredit_Sonic
-		icon = GFX_focus_Discredit_Sonic
-		cost = 5
-		x = 20
-		y = 12
-		prerequisite = {
-			focus = EGG_Cities_For_the_people
-		}
-		completion_reward = {
-			hidden_effect = {
-				KOA = {
-					country_event = { id = koa.16 }
-			        add_stability = -0.1
-		        	add_war_support = -0.1
-				} 
-			}
-			country_event = { id = egg.41 }				
-		}					
-	}
-
-	focus = {
-		id = EGG_Robobonds
-		icon = GFX_focus_Robobonds
-		cost = 8
-		x = 20
-		y = 13
-		prerequisite = {
-			focus = EGG_Discredit_Sonic
-		}
-		completion_reward = {
-			custom_effect_tooltip = robobonds_tt
-        	set_variable = { var_robobnds = 100 }   		
-        }
-	}
-
-	focus = {
-		id = EGG_Combat_Criminals
-		icon = GFX_focus_Combat_Criminals
-		cost = 8
-		x = 22
-		y = 13
-		prerequisite = {
-			focus = EGG_Discredit_Sonic
-		}
-		prerequisite = {
-			focus = EGG_Eggmanland
-		}
-		completion_reward = {
-			add_popularity = {
-	    		ideology = technocratic_despotist
-	      		popularity = 0.1
-			}
-			custom_effect_tooltip = Better_life
-		  	hidden_effect = {
-				swap_ideas = { 
-              		remove_idea = EGG_good_life_2
-              		add_idea = EGG_good_life_3
-            	}
-			} 
-		}
-	}
-
-	focus = {
-		id = EGG_Eggman_Paradise
-		icon = GFX_focus_Eggman_Paradise
-		cost = 8
-		x = 22
-		y = 14
-		prerequisite = {
-			focus = EGG_Honor_the_Loyal
-		}
-		prerequisite = {
-			focus = EGG_Combat_Criminals
-		}
-		prerequisite = {
-			focus = EGG_Robobonds
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-					remove_idea = EGG_good_life_4
-					add_idea = EGG_good_life_5
-                }
-			}
-			country_event = { id = egg.43 }
-		}
-	}
-
-	focus = {
-		id = EGG_Maximum_Terror
-		icon = GFX_focus_Maximum_Terror
-		cost = 8
-		x = 44
-		y = 11
-		prerequisite = {
-			focus = EGG_Show_Helplessness
-		}
-		completion_reward = {
-			custom_effect_tooltip = show_death
-			country_event = { id = egg.45 }
-			hidden_effect = {
-				if = { 
-           			limit = { has_dlc = "La Resistance" }
-           			swap_ideas = { 
-	            		remove_idea = EGG_death_guarantee
-              			add_idea = EGG_death_guarantee_1a
-                	}
-					else = {
-			 		swap_ideas = { 
-              			remove_idea = EGG_death_guarantee
-              			add_idea = EGG_death_guarantee_1b
-                    	}
-					}
-				}
-			}
-		}
-		id = EGG_Honor_the_Loyal
-		icon = GFX_focus_Honor_the_Loyal
-		cost = 8
-		x = 24
-		y = 13
-		prerequisite = {
-			focus = EGG_Eggmanland
-		}
-		prerequisite = {
-			focus = EGG_Combat_Criminals
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-              		remove_idea = EGG_good_life_3
-              		add_idea = EGG_good_life_4
-                }
-			}
-			country_event = { id = egg.42 }
-		}
-	}
-
-	focus = {
-		id = EGG_Eggman_Paradise
-		icon = GFX_focus_Eggman_Paradise
-		cost = 8
-		x = 22
-		y = 14
-		prerequisite = {
-			focus = EGG_Honor_the_Loyal
-		}
-		prerequisite = {
-			focus = EGG_Combat_Criminals
-		}
-		prerequisite = {
-			focus = EGG_Robobonds
-		}
-		completion_reward = {
-			custom_effect_tooltip = Better_life
-			hidden_effect = {
-				swap_ideas = { 
-					remove_idea = EGG_good_life_4
-					add_idea = EGG_good_life_5
-                }
-			}
-			country_event = { id = egg.43 }
-		}
-	}
-
-	focus = {
-		id = EGG_Maximum_Terror
-		icon = GFX_focus_Maximum_Terror
-		cost = 8
-		x = 44
-		y = 11
-		prerequisite = {
-			focus = EGG_Show_Helplessness
-		}
-		completion_reward = {
-			custom_effect_tooltip = show_death
-			country_event = { id = egg.45 }
-			hidden_effect = {
-				if = { 
-           			limit = { has_dlc = "La Resistance" }
-           			swap_ideas = { 
-	            		remove_idea = EGG_death_guarantee
-              			add_idea = EGG_death_guarantee_1a
-                	}
-					else = {
-			 		swap_ideas = { 
-              			remove_idea = EGG_death_guarantee
-              			add_idea = EGG_death_guarantee_1b
-                    	}
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_Benefit_from_Gang
-		icon = GFX_focus_Benefit_from_Gang
-		cost = 8
-		x = 42
-		y = 12
-		prerequisite = {
-			focus = EGG_Maximum_Terror
-		}
-		completion_reward = {
-			custom_effect_tooltip = show_death
-			hidden_effect = {
-				random_owned_state = {
-					add_resource = {
-                	    type = oil
-                        amount = 5
-                    }
-					add_resource = {
-						type = steel
-            			amount = 2
-					}
-      				add_resource = {
-						type = Aluminium
-            			amount = 1
-					}	
-				}
-				random_owned_state = {
-					add_resource = {
-                    	type = oil
-                        amount = 5
-                    }
-					add_resource = {
-						type = steel
-            			amount = 2
-					}
-      				add_resource = {
-						type = Aluminium
-            			amount = 1
-					}	
-				}
-				random_owned_state = {
-					add_resource = {
-                    	type = oil
-                        amount = 5
-                    }
-					add_resource = {
-						type = steel
-            			amount = 2
-					}
-      				add_resource = {
-						type = Aluminium
-            			amount = 1
-					}	
-				}									
-				if = { 
-        			limit = {has_dlc = "La Resistance"  }
-           			swap_ideas = { 
-              			remove_idea = EGG_death_guarantee_1a
-              			add_idea = EGG_death_guarantee_2a
-                	}
-					else = {
-			 			swap_ideas = { 
-              				remove_idea = EGG_death_guarantee_1b
-              				add_idea = EGG_death_guarantee_2b
-                    	}
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_Industrial_duty
-		icon = GFX_focus_Industrial_duty
-		cost = 8
-		x = 44
-		y = 12
-		prerequisite = {
-			focus = EGG_Maximum_Terror
-		}
-		completion_reward = { 
-			custom_effect_tooltip = egg_explotation
-			country_event = egg.46
-		    hidden_effect = {
-		    	add_stability = -0.05
-		        add_ideas = EGG_obey_guarantee
-			}
-		}
-	}
-
-	focus = {
-		id = EGG_Turrets_on_the_streets
-		icon = GFX_focus_Turrets_on_the_streets
-		cost = 8
-		x = 46
-		y = 12
-		prerequisite = {
-			focus = EGG_Maximum_Terror
-		}
-		completion_reward = {
-			custom_effect_tooltip = drone_control
-            set_variable = { dron_cost = 100 }   		
-			set_variable = { dron_time = 50 }
-		}
-	}
-
-	focus = {
-		id = EGG_Every_Mobian_a_Hostage
-		icon = GFX_focus_Every_Mobian_a_Hostage
-		cost = 8
-		x = 46
-		y = 13
-		prerequisite = {
-			focus = EGG_Turrets_on_the_streets
-		}
-		prerequisite = {
-			focus = EGG_Industrial_duty
-		}
-		completion_reward = {
-			custom_effect_tooltip = show_death
-		    custom_effect_tooltip = free_ability
-            country_event = egg.47							 
-		    set_country_flag = egg_free_ability
-			hidden_effect = {
-				if = { 
-                	limit = { has_dlc = "La Resistance" }
-                    swap_ideas = { 
-                        remove_idea = EGG_death_guarantee_2a
-                    	add_idea = EGG_death_guarantee_3a
-                    }
-			        else = {
-			            swap_ideas = { 
-                            remove_idea = EGG_death_guarantee_2b
-                            add_idea = EGG_death_guarantee_3b
-                        }
-                    }
-		        }                                  
-		    }
-		}
-	}
-	
-	focus = {
-		id = EGG_Barracks_of_Robians
-		icon = GFX_focus_Barracks_of_Robians
-		cost = 8
-		x = 42
-		y = 13
-		prerequisite = {
-			focus = EGG_Benefit_from_Gang
-		}
-		prerequisite = {
-			focus = EGG_Industrial_duty
-		}
-		completion_reward = { 
-			every_owned_state = { add_extra_state_shared_building_slots = 1 }
-			custom_effect_tooltip = egg_explotation
-			country_event = egg.48
-            hidden_effect = {
-				swap_ideas = {
-					remove_idea = EGG_obey_guarantee
-					add_idea = EGG_obey_guarantee_1
-				}
-			}
-		}
-	}
-	
-	focus = {
-		id = EGG_No_More_Hypocricy
-		icon = GFX_focus_No_More_Hypocricy
-		cost = 8
-		x = 44
-		y = 14
-		prerequisite = {
-			focus = EGG_Barracks_of_Robians
-		}
-		prerequisite = {
-			focus = EGG_Every_Mobian_a_Hostage
-		}
-		completion_reward = {
-			custom_effect_tooltip = show_death
-			country_event = egg.49
-			hidden_effect = {
-				if = { 
-                	limit = { has_dlc = "La Resistance" }
-                    swap_ideas = {
-                        remove_idea = EGG_death_guarantee_3a
-                        add_idea = EGG_death_guarantee_4a
-                    }
-			        else = {
-			            swap_ideas = { 
-                            remove_idea = EGG_death_guarantee_3b
-                            add_idea = EGG_death_guarantee_4b
-                        }
-                    }
-                }                                  
-            }
-        }
-	}
-
-	focus = {
-		id = EGG_Forceshield_Developement
-		icon = GFX_focus_Forceshield_Developement
-		cost = 8
-		x = 26
-		y = 14
-		prerequisite = {
-			focus = EGG_Eggman_Line
-		}
-		completion_reward = { add_ideas = force_shield } 
-	}
-
-	focus = {
-		id = EGG_Death_Egg_2
-		icon = GFX_focus_Death_Egg_2
-		cost = 0
-		x = 29
-		y = 14
-		prerequisite = {
-			focus = EGG_Restore_Satellites_Control
-		}
-	}
-
-	focus = {
-		id = EGG_Tundra_Operations
-		icon = GFX_focus_EGG_Tundra_Operations
-		cost = 0
-		x = 31
-		y = 14
-		prerequisite = {
-			focus = EGG_All_Terrain_Modifications
-		}
-		completion_reward = {
-			swap_ideas = { 
-                remove_idea = adaptive_army
-                add_idea = adaptive_army_1
-            }
-		}
-	}
-
-	focus = {
-		id = EGG_Emerald_Detection
-		icon = GFX_focus_Emerald_Detection
-		cost = 0
-		x = 35
-		y = 14
-		prerequisite = {
-			focus = EGG_Produce_Energy
 		}
 	}
 
@@ -2558,21 +2060,189 @@ focus_tree = {
 	}
 
 	focus = {
+		id = EGG_Legionization_Methods
+		icon = GFX_focus_Legionization_Methods
+		cost = 8
+		x = 38
+		y = 11
+		prerequisite = {
+			focus = EGG_Echidna_Science
+		}
+		completion_reward = { 
+			add_ideas = legionization 
+			random_list = {
+				90 = {
+					country_event = { 
+						id = egg.56
+					}
+				}
+				10 = {
+					country_event = {
+						id = egg.57
+					}			
+				}			
+			}		
+		}
+	}
+
+	focus = {
+		id = EGG_Compulsion_on_Legion #Must add decisions instead of pp
+		icon = GFX_focus_Compulsion_on_Legion
+		cost = 7
+		x = 40
+		y = 12
+		prerequisite = {
+			focus = EGG_Legionization_Methods
+		}
+		completion_reward = { add_political_power = 200 }
+	}
+
+	focus = {
 		id = EGG_Albion_Operation
 		icon = GFX_focus_Albion_Operation
-		cost = 0
+		cost = 8
 		x = 40
 		y = 14
 		prerequisite = {
 			focus = EGG_Compulsion_on_Legion
 		}
-		completion_reward = { add_ideas = EGG_test }
+		completion_reward = { 
+			add_ideas = EGG_test 
+			country_event = {
+				id = egg.65
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Establish_New_DELS
+		icon = GFX_focus_Establish_New_DELS
+		cost = 5
+		x = 33
+		y = 11
+		prerequisite = {
+			focus = EGG_Spy_Media
+		}
+		prerequisite = {
+			focus = EGG_Empower_Armor
+		}
+	}
+
+	focus = {
+		id = EGG_Develop_Forest_Warfare
+		icon = GFX_focus_Develop_Forest_Warfare
+		cost = 8
+		x = 31
+		y = 12
+		prerequisite = {
+			focus = EGG_Establish_New_DELS
+		}
+		completion_reward = {
+			set_technology = {
+				forest_warfare = 1
+			}
+			army_experience = 60
+		}
+	}
+
+	focus = {
+		id = EGG_Pursue_Knothole_Rats
+		icon = GFX_focus_Pursue_Knothole_Rats
+		cost = 6
+		x = 33
+		y = 12
+		prerequisite = {
+			focus = EGG_Establish_New_DELS
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.59
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Industrialize_Rural #Must add decisions 
+		icon = GFX_focus_Industrialize_Rural
+		cost = 8
+		x = 35
+		y = 12
+		prerequisite = {
+			focus = EGG_Establish_New_DELS
+		}
+	}
+
+	focus = {
+		id = EGG_All_Terrain_Modifications
+		icon = GFX_focus_All_Terrain_Modifications
+		cost = 7
+		x = 31
+		y = 13
+		prerequisite = {
+			focus = EGG_Develop_Forest_Warfare
+		}
+		completion_reward = {add_ideas = adaptive_army}
+	}
+
+	focus = {
+		id = EGG_Destroy_Knothole_Again
+		icon = GFX_focus_Destroy_Knothole_Again
+		cost = 7
+		x = 33
+		y = 13
+		prerequisite = {
+			focus = EGG_Pursue_Knothole_Rats
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.60
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Produce_Energy
+		icon = GFX_focus_Produce_Energy
+		cost = 7
+		x = 35
+		y = 13
+		prerequisite = {
+			focus = EGG_Industrialize_Rural
+		}
+	}
+
+	focus = {
+		id = EGG_Tundra_Operations
+		icon = GFX_focus_EGG_Tundra_Operations
+		cost = 8
+		x = 31
+		y = 14
+		prerequisite = {
+			focus = EGG_All_Terrain_Modifications
+		}
+		completion_reward = {
+			swap_ideas = { 
+                remove_idea = adaptive_army
+                add_idea = adaptive_army_1
+            }
+		}
+	}
+
+	focus = {
+		id = EGG_Emerald_Detection
+		icon = GFX_focus_Emerald_Detection
+		cost = 7
+		x = 35
+		y = 14
+		prerequisite = {
+			focus = EGG_Produce_Energy
+		}
 	}
 
 	focus = {
 		id = EGG_Empire_Marches_on
 		icon = GFX_focus_Empire_Marches_on
-		cost = 0
+		cost = 5
 		x = 33
 		y = 15
 		prerequisite = {
@@ -2597,45 +2267,65 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Albion_Operation
 		}
+		completion_reward = {
+			country_event = {
+				id = egg.66
+			}
+		}
 	}
 
 	focus = {
 		id = EGG_Nuclear_Threat
 		icon = GFX_focus_Nuclear_Threat
-		cost = 0
+		cost = 8
 		x = 31
 		y = 16
 		prerequisite = {
 			focus = EGG_Empire_Marches_on
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.67
+			}
 		}
 	}
 
 	focus = {
 		id = EGG_Explore_Alien_Weaponry
 		icon = GFX_focus_Explore_Alien_Weaponry
-		cost = 0
+		cost = 8
 		x = 33
 		y = 16
 		prerequisite = {
 			focus = EGG_Empire_Marches_on
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.68
+			}
 		}
 	}
 
 	focus = {
 		id = EGG_Expand_Robosphere
 		icon = GFX_focus_Expand_Robosphere
-		cost = 0
+		cost = 6
 		x = 35
 		y = 16
 		prerequisite = {
 			focus = EGG_Empire_Marches_on
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.69
+			}
 		}
 	}
 
 	focus = {
 		id = EGG_Station_Square_Landing
 		icon = GFX_focus_Station_Square_Landing
-		cost = 0
+		cost = 6
 		x = 32
 		y = 17
 		prerequisite = {
@@ -2644,23 +2334,17 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Nuclear_Threat
 		}
-	}
-
-	focus = {
-		id = EGG_Jackalstan_Issue
-		icon = GFX_focus_Jackalstan_Issue
-		cost = 0
-		x = 32
-		y = 18
-		prerequisite = {
-			focus = EGG_Station_Square_Landing
+		completion_reward = {
+			country_event = {
+				id = egg.70
+			}
 		}
 	}
 
 	focus = {
 		id = EGG_Destroy_RCSR
 		icon = GFX_focus_Destroy_RCSR
-		cost = 0
+		cost = 5
 		x = 34
 		y = 17
 		prerequisite = {
@@ -2669,24 +2353,50 @@ focus_tree = {
 		prerequisite = {
 			focus = EGG_Expand_Robosphere
 		}
+		completion_reward = {
+			country_event = {
+				id = egg.71
+			}
+		}
+	}
+
+	focus = {
+		id = EGG_Jackalstan_Issue
+		icon = GFX_focus_Jackalstan_Issue
+		cost = 5
+		x = 32
+		y = 18
+		prerequisite = {
+			focus = EGG_Station_Square_Landing
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.72
+			}
+		}
+
 	}
 
 	focus = {
 		id = EGG_Iron_Dominion_Issue
 		icon = GFX_focus_Iron_Dominion_Issue
-		cost = 0
+		cost = 5
 		x = 34
 		y = 18
 		prerequisite = {
 			focus = EGG_Destroy_RCSR
 		}
-		
-
+		completion_reward = {
+			country_event = {
+				id = egg.73
+			}
+		}
 	}
+
 	focus = {
 		id = EGG_Pax_Robotnik
 		icon = GFX_focus_Pax_Robotnik
-		cost = 0
+		cost = 8
 		x = 33
 		y = 19
 		prerequisite = {
@@ -2694,6 +2404,11 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = EGG_Iron_Dominion_Issue
+		}
+		completion_reward = {
+			country_event = {
+				id = egg.74
+			}
 		}
 	}
 

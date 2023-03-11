@@ -22,7 +22,7 @@ focus_tree = {
 		y = 0
 
 		completion_reward = {
-			country_event = {	id = ufa_oil.1 }
+			country_event = { id = ufa_oil.1 }
 			custom_effect_tooltip = NEED_HURRY
 		}
 	}
@@ -32,7 +32,7 @@ focus_tree = {
 		prerequisite = { focus = UFA_Crisis_Worsens }
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
-		y = 1
+		y = 3
 
 		cost = 4
 
@@ -52,9 +52,9 @@ focus_tree = {
 		id = UFA_Develop_Synthetic_Alternatives
 		icon = GFX_UFA_Develop_Synthetic_Alternatives
 		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = -2
-		y = 3
+		y = 2
 
 		cost = 4
 
@@ -77,9 +77,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 0
-		y = 2
+		y = 1
 
 		cost = 4
 
@@ -104,9 +104,9 @@ focus_tree = {
 		id = UFA_Move_into_Renewables
 		icon = GFX_UFA_Move_into_Renewables
 		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 2
-		y = 3
+		y = 2
 
 		cost = 4
 
@@ -130,9 +130,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 0
-		y = 3
+		y = 2
 
 		cost = 4
 
@@ -156,9 +156,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 0
-		y = 4
+		y = 3
 
 		cost = 4
 
@@ -174,14 +174,18 @@ focus_tree = {
 		id = UFA_Situation_Stabilizes
 		icon = GFX_UFA_Situation_Stabilizes
 		prerequisite = { focus = UFA_Calm_Populace }
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 0
-		y = 5
+		y = 4
 
 		cost = 4
 
 		completion_reward = {
-			remove_ideas = Oil_Crisis_3235_2
+			if = {
+				limit = { has_idea = Oil_Crisis_3235_2 }
+				remove_ideas = Oil_Crisis_3235_2
+			}
+			else = { custom_effect_tooltip = "The oil crisis will end." }
 		}
 	}
 	focus = {
@@ -191,9 +195,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 2
-		y = 6
+		y = 5
 
 		cost = 10
 
@@ -208,9 +212,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = -6
-		y = 6
+		y = 5
 
 		cost = 10
 
@@ -225,9 +229,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
-		x = -16
-		y = 6
+		relative_position_id = UFA_Announce_Fuel_Rationing
+		x = -15
+		y = 5
 
 		cost = 10
 
@@ -278,7 +282,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Game_Theory
 		x = 1
-		y = 4
+		y = 3
 
 		cost = 10
 
@@ -311,7 +315,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Digging_It
-		x = 3
+		x = -1
 		y = 1
 
 		cost = 10
@@ -449,7 +453,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Great_Game
-		x = -6
+		x = -5
 		y = 1
 
 		cost = 10
@@ -466,7 +470,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Pawns_Gambit
-		x = 1
+		x = 0
 		y = 1
 
 		cost = 10
@@ -483,7 +487,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Pawns_Gambit
-		x = 2
+		x = 0
 		y = 2
 
 		cost = 10
@@ -500,7 +504,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Great_Game
-		x = -8
+		x = -7
 		y = 1
 
 		cost = 10
@@ -517,7 +521,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Outpost
-		x = 1
+		x = 0
 		y = 1
 
 		cost = 10
@@ -534,7 +538,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Great_Game
-		x = -10
+		x = -9
 		y = 1
 
 		cost = 10
@@ -551,7 +555,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Cold_Comfort
-		x = 1
+		x = 0
 		y = 1
 
 		cost = 10
@@ -568,7 +572,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Cold_Comfort
-		x = 2
+		x = 0
 		y = 2
 
 		cost = 10
@@ -619,7 +623,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_Win_the_Exchange
-		x = 0
+		x = -1
 		y = 2
 
 		cost = 10
@@ -636,7 +640,7 @@ focus_tree = {
 			focus = UFA_Control_the_Center
 		}
 		relative_position_id = UFA_Win_the_Exchange
-		x = -1
+		x = -2
 		y = 3
 
 		cost = 10
@@ -653,7 +657,7 @@ focus_tree = {
 			focus = UFA_En_Passant
 		}
 		relative_position_id = UFA_Win_the_Exchange
-		x = 1
+		x = 0
 		y = 3
 
 		cost = 10
@@ -665,13 +669,12 @@ focus_tree = {
 	focus = {
 		id = UFA_Exhibition_Match
 		icon = GFX_UFA_Exhibition_Match
-		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
 		prerequisite = { focus = UFA_United_Justice }
 		mutually_exclusive = {
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -7
-		y = 4
+		relative_position_id = UFA_United_Justice
+		x = -1
+		y = 1
 
 		cost = 10
 
@@ -688,9 +691,9 @@ focus_tree = {
 			focus = UFA_Check
 			focus = UFA_Fortress
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -5
-		y = 4
+		relative_position_id = UFA_United_Justice
+		x = 1
+		y = 1
 
 		cost = 10
 
@@ -707,9 +710,9 @@ focus_tree = {
 			focus = UFA_Check
 			focus = UFA_Maroczy_Bind
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -3
-		y = 4
+		relative_position_id = UFA_United_Justice
+		x = 3
+		y = 1
 
 		cost = 10
 
@@ -726,9 +729,9 @@ focus_tree = {
 			focus = UFA_Fortress
 			focus = UFA_Maroczy_Bind
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -1
-		y = 4
+		relative_position_id = UFA_United_Justice
+		x = 5
+		y = 1
 
 		cost = 10
 
@@ -739,11 +742,15 @@ focus_tree = {
 	focus = {
 		id = UFA_Checkmate
 		icon = GFX_UFA_Checkmate
-		prerequisite = { focus =  UFA_Fortress focus = UFA_United_Justice focus =  UFA_Check }
+		prerequisite = {
+			focus = UFA_Fortress 
+			focus = UFA_Maroczy_Bind
+			focus = UFA_Check
+		}
 		mutually_exclusive = {
 		}
 		relative_position_id = UFA_Win_the_Exchange
-		x = -3
+		x = -1
 		y = 5
 
 		cost = 10
@@ -759,9 +766,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UFA_Run_Out_the_Clock
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -4
-		y = 6
+		relative_position_id = UFA_Checkmate
+		x = -1
+		y = 1
 
 		cost = 10
 
@@ -776,9 +783,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UFA_Zugzwang
 		}
-		relative_position_id = UFA_Win_the_Exchange
-		x = -2
-		y = 6
+		relative_position_id = UFA_Checkmate
+		x = 1
+		y = 1
 
 		cost = 10
 
@@ -862,7 +869,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
-		x = -1
+		x = 0
 		y = 1
 
 		cost = 10
@@ -879,7 +886,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
-		x = 0
+		x = -1
 		y = 2
 
 		cost = 10
@@ -896,7 +903,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
-		x = -1
+		x = -2
 		y = 3
 
 		cost = 10
@@ -913,7 +920,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
-		x = 1
+		x = 0
 		y = 3
 
 		cost = 10
@@ -1037,7 +1044,7 @@ focus_tree = {
 			
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
-		x = 4
+		x = 3
 		y = 4
 
 		cost = 10
@@ -1109,7 +1116,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = -2
-		y = 1
+		y = 2
 
 		cost = 10
 
@@ -1126,7 +1133,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = 2
-		y = 1
+		y = 2
 
 		cost = 10
 
@@ -1143,7 +1150,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = 1
-		y = 2
+		y = 1
 
 		cost = 10
 
@@ -1161,7 +1168,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = 0
-		y = 3
+		y = 2
 
 		cost = 10
 
@@ -1178,7 +1185,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = 1
-		y = 4
+		y = 3
 
 		cost = 10
 
@@ -1195,7 +1202,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = -1
-		y = 4
+		y = 3
 
 		cost = 10
 
@@ -1212,7 +1219,7 @@ focus_tree = {
 		}
 		relative_position_id = UFA_Looking_East
 		x = -1
-		y = 2
+		y = 1
 
 		cost = 10
 
@@ -1227,9 +1234,9 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		relative_position_id = UFA_Crisis_Worsens
+		relative_position_id = UFA_Announce_Fuel_Rationing
 		x = 0
-		y = 6
+		y = 5
 
 		cost = 10
 
@@ -1381,7 +1388,7 @@ focus_tree = {
 		mutually_exclusive = {
 			
 		}
-		x = 37
+		x = 34
 		y = 0
 
 		cost = 10
@@ -1471,7 +1478,7 @@ focus_tree = {
 		icon = GFX_goal_generic_cavalry
 		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
 		relative_position_id = UFA_The_Race_Begins
-		x = -2
+		x = -3
 		y = 4
 
 		cost = 10
@@ -1502,7 +1509,7 @@ focus_tree = {
 		prerequisite = { focus = UFA_Leak_Evidence }
 		relative_position_id = UFA_The_Race_Begins
 		x = -4
-		y = 5
+		y = 6
 
 		cost = 10
 
@@ -1559,7 +1566,7 @@ focus_tree = {
 		prerequisite = { focus = UFA_I_Like_Mike }
 		relative_position_id = UFA_The_Race_Begins
 		x = 4
-		y = 5
+		y = 6
 
 		cost = 10
 
@@ -1573,7 +1580,7 @@ focus_tree = {
 		prerequisite = { focus = UFA_Tour_the_Country }
 		relative_position_id = UFA_The_Race_Begins
 		x = 0
-		y = 5
+		y = 3
 
 		cost = 10
 
@@ -1586,8 +1593,8 @@ focus_tree = {
 		icon = GFX_goal_generic_cavalry
 		prerequisite = { focus = UFA_Choose_a_Running_Mate }
 		relative_position_id = UFA_The_Race_Begins
-		x = -3
-		y = 6
+		x = -2
+		y = 5
 
 		cost = 10
 
@@ -1602,7 +1609,7 @@ focus_tree = {
 		mutually_exclusive = { focus = UFA_The_Fixer }
 		relative_position_id = UFA_The_Race_Begins
 		x = -1
-		y = 6
+		y = 4
 
 		cost = 10
 
@@ -1617,7 +1624,7 @@ focus_tree = {
 		mutually_exclusive = { focus = UFA_Ms_Reliable }
 		relative_position_id = UFA_The_Race_Begins
 		x = 1
-		y = 6
+		y = 4
 
 		cost = 10
 
@@ -1630,8 +1637,8 @@ focus_tree = {
 		icon = GFX_goal_generic_cavalry
 		prerequisite = { focus = UFA_Choose_a_Running_Mate }
 		relative_position_id = UFA_The_Race_Begins
-		x = 3
-		y = 6
+		x = 2
+		y = 5
 
 		cost = 10
 
@@ -1663,7 +1670,7 @@ focus_tree = {
 	focus = {
 		id = UFA_Review_GUN_Command
 		icon = GFX_UFA_Review_GUN_Command
-		x = 52
+		x = 10
 		y = 0
 
 		cost = 10
