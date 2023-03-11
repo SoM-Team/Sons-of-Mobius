@@ -89,13 +89,13 @@ focus_tree = {
 		cost = 8
 		x = 28
 		y = 0
-			completion_reward = {
-					add_political_power = 90
-					add_timed_idea = {
-							idea = culturian_rebuilding
-							days = 365
-						}
-				}
+		completion_reward = {
+				add_political_power = 90
+				add_timed_idea = {
+						idea = culturian_rebuilding
+						days = 365
+					}
+			}
 
 	}
 	focus = {
@@ -157,9 +157,9 @@ focus_tree = {
 		}
 		x = 15
 		y = 8
-			completion_reward = {
-					add_ideas = Doctrine_Kunduzov
-				}
+		completion_reward = {
+				add_ideas = Doctrine_Kunduzov
+			}
 
 	}
 	focus = {
@@ -397,7 +397,7 @@ focus_tree = {
 				}
 			completion_reward = {
 					add_popularity = {
-							ideology = autonomous_socialist
+							ideology = autonomous_socialism
 							popularity = 0.1
 						}
 					add_political_power = 100
@@ -435,7 +435,7 @@ focus_tree = {
 		y = 4
 			completion_reward = {
 					add_popularity = {
-							ideology = autonomous_socialist
+							ideology = autonomous_socialism
 							popularity = 0.03
 						}
 					add_stability = 0.04
@@ -783,15 +783,19 @@ focus_tree = {
 		}
 		x = 7
 		y = 4
-			completion_reward = {
-					swap_ideas = {
-							remove_idea = Pallasov_vision_1
-							add_idea = Pallasov_vision_2
-						}
-					country_event = {
-							id = rcr.53
-						}
+		completion_reward = {
+			add_popularity = {
+					ideology = katzerism
+					popularity = 0.1
+			}
+			swap_ideas = {
+					remove_idea = Pallasov_vision_1
+					add_idea = Pallasov_vision_2
 				}
+			country_event = {
+					id = rcr.53
+				}
+		}
 
 	}
 	focus = {
@@ -1140,12 +1144,16 @@ focus_tree = {
 		}
 		x = 17
 		y = 10
-			completion_reward = {
-					swap_ideas = {
-							remove_idea = Doctrine_Kunduzov1
-							add_idea = Doctrine_Kunduzov2
-						}
-				}
+		completion_reward = {
+			add_popularity = {
+				ideology = neosocialism
+				popularity = 0.1
+			}
+			swap_ideas = {
+				remove_idea = Doctrine_Kunduzov1
+				add_idea = Doctrine_Kunduzov2
+			}
+		}
 
 	}
 	focus = {
@@ -1159,6 +1167,20 @@ focus_tree = {
 		x = 16
 		y = 11
 			completion_reward = {
+					add_political_power = 100
+					add_war_support = 0.1
+					swap_ideas = {
+							remove_idea = Echo_Civil_War
+							add_idea = Echo_Civil_War_1
+						}
+					swap_ideas = {
+							add_idea = national_empire_crugin_2
+							remove_idea = national_empire_crugin
+						}
+					add_popularity = {
+							ideology = katzerism
+							popularity = -0.1
+						}
 					add_timed_idea = {
 							idea = Best_Rifle
 							days = 100
@@ -1272,21 +1294,30 @@ focus_tree = {
 		}
 		x = 24
 		y = 2
-			completion_reward = {
-					custom_effect_tooltip = massolit_tooltip
-					if = {
-							limit = {
-									has_stability < 0.2
-								}
-							add_stability = 0.05
-						}
-					add_popularity = {
-							ideology = ROOT
-							popularity = 0.05
-						}
+		completion_reward = {
+			custom_effect_tooltip = massolit_tooltip
+			if = {
+				limit = {
+						has_stability < 0.2
+					}
+				add_stability = 0.05
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_government = neosocialism
+					}
+					neosocialism > 0.75
 				}
-
+				set_country_leader_ideology = neosocialism
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.05
+				}
+			}
+		}
 	}
+	
 	focus = {
 		id = RCR_new_estrade
 		icon = GFX_focus_new_estrade
@@ -1512,16 +1543,15 @@ focus_tree = {
 		}
 		x = 29
 		y = 3
-			completion_reward = {
-					add_popularity = {
-							ideology = ROOT
-							popularity = 0.05
-						}
-					every_owned_state = {
-							add_manpower = 10000
-						}
-				}
-
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			every_owned_state = {
+				add_manpower = 10000
+			}
+		}
 	}
 	focus = {
 		id = RCR_Red_Ceaser
