@@ -1,4 +1,5 @@
 focus_tree = {
+
 	id = Jackal_focus
 	country = {
 		factor = 0
@@ -23,6 +24,7 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = INF_steal_the_Gold
 		icon = GFX_focus_steal_the_Gold
@@ -38,6 +40,7 @@ focus_tree = {
 		x = 12
 		y = 1
 	}
+
 	focus = {
 		id = INF_brain_washing
 		icon = GFX_focus_brain_washing
@@ -51,6 +54,7 @@ focus_tree = {
 		x = 10
 		y = 1
 	}
+
 	focus = {
 		id = INF_purge_our_enemies
 		icon = GFX_focus_purge_enemies
@@ -71,19 +75,26 @@ focus_tree = {
 		x = 14
 		y = 1
 	}
+
 	focus = {
 		id = INF_loyal_soldiers
 		icon = GFX_focus_loyal_soldiers
 		cost = 7
-		available = {
-			command_power > 69
-		}
 		prerequisite = {
 			focus = INF_brain_washing
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1 
+				category = land_doctrine
+			}
+			add_ideas = INF_Loyal_Military
 		}
 		x = 9
 		y = 2
 	}
+
 	focus = {
 		id = INF_Enslave_workers
 		icon = GFX_focus_fucking_slaves
@@ -94,9 +105,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_steal_the_Gold
 		}
+		completion_reward = {
+			add_ideas = INF_Slave_Industry
+		}
 		x = 11
 		y = 2
 	}
+
 	focus = {
 		id = INF_build_factories
 		icon = GFX_focus_build_factories
@@ -114,17 +129,18 @@ focus_tree = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
+				 }
+				 add_building_construction = {
+					 type = industrial_complex
+					 level = 3
+					 instant_build = yes
+				 }
 			}
 		}
 		x = 13
 		y = 2
 	}
+
 	focus = {
 		id = INF_buy_Eggman_weapon
 		icon = GFX_focus_buy_Eggman_weapon
@@ -145,32 +161,41 @@ focus_tree = {
 		x = 15
 		y = 2
 	}
+
 	focus = {
 		id = INF_I_cant_resist
 		icon = GFX_focus_i_cant_resist
-		cost = 7
+		cost = 1
 		prerequisite = {
 			focus = INF_buy_Eggman_weapon
 		}
 		prerequisite = {
 			focus = INF_build_factories
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 13
 		y = 3
 	}
+
 	focus = {
 		id = INF_this_pain_persists
 		icon = GFX_focus_pain
-		cost = 7
+		cost = 1
 		prerequisite = {
 			focus = INF_Enslave_workers
 		}
 		prerequisite = {
 			focus = INF_loyal_soldiers
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 11
 		y = 3
 	}
+
 	focus = {
 		id = INF_But_thats_what_it_takes_to_be_Infinite
 		icon = GFX_focus_be_infinite
@@ -181,12 +206,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_this_pain_persists
 		}
-		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
+                completion_reward = {
+			add_political_power = 150
 		}
 		x = 12
 		y = 4
 	}
+
 	focus = {
 		id = INF_I_am_the_sharpest_of_blades
 		icon = GFX_focus_sharpest_of_blades
@@ -194,12 +220,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
 		}
-		allow_branch = {
-			has_completed_focus = INF_But_thats_what_it_takes_to_be_Infinite
+                completion_reward = {
+			add_threat = 5
 		}
 		x = 12
 		y = 5
 	}
+
 	focus = {
 		id = INF_operation_Kraken
 		icon = GFX_focus_steal_minds
@@ -212,7 +239,8 @@ focus_tree = {
 		}
 		x = 14
 		y = 6
-	}	
+	}
+	
 	focus = {
 		id = INF_operation_Metal
 		icon = GFX_focus_take_their_robots
@@ -220,9 +248,17 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_I_am_the_sharpest_of_blades
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+			}
+		}
 		x = 12
 		y = 6
 	}
+
 	focus = {
 		id = INF_reroot_Federation
 		icon = GFX_focus_distract_federation
@@ -230,9 +266,16 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_I_am_the_sharpest_of_blades
 		}
+		completion_reward = {
+			add_decryption = {
+                            target = UFA
+                            amount = 5
+                        }
+		}
 		x = 10
 		y = 6
 	}
+
 	focus = {
 		id = INF_trophy_divisions
 		icon = GFX_focus_trophy_divisions
@@ -243,9 +286,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_reroot_Federation
 		}
+		completion_reward = {
+			add_ideas = INF_Chinks_In_Their_Armour
+		}
 		x = 11
 		y = 7
 	}
+
 	focus = {
 		id = INF_stolen_blueprints
 		icon = GFX_focus_stolen_blueprints
@@ -262,6 +309,7 @@ focus_tree = {
 		x = 13
 		y = 7
 	}
+
 	focus = {
 		id = INF_Ruby_Radar
 		icon = GFX_focus_ruby_radar
@@ -272,9 +320,26 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_stolen_blueprints
 		}
+		completion_reward = {
+			add_decryption = {
+				target = UFA
+				amount = 0.5
+			}
+			every_owned_state = {
+				add_building_construction = {
+					type = radar_station 
+					level = 1 
+					instant_build = yes
+				} 
+			}
+			set_technology = {
+				radio_detection = 1
+			}
+		}
 		x = 12
 		y = 8
 	}
+
 	focus = {
 		id = INF_like_a_tidal_wave
 		icon = GFX_focus_tidal_wave
@@ -282,9 +347,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Ruby_Radar
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 12
 		y = 9
 	}
+
 	focus = {
 		id = INF_I_am_a_dangerous_weapon
 		icon = GFX_focus_dangerous_weapon
@@ -292,9 +361,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 6
 		y = 5
 	}
+
 	focus = {
 		id = INF_Fury_road
 		icon = GFX_focus_fury_road
@@ -314,6 +387,7 @@ focus_tree = {
 		x = 4
 		y = 6
 	}
+
 	focus = {
 		id = INF_Motorized_death
 		icon = GFX_focus_motorized_death
@@ -321,9 +395,22 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				bonus = 0.5 
+				uses = 2 
+				category = cat_mechanized_equipment
+			}
+		}
 		x = 6
 		y = 6
 	}
+
 	focus = {
 		id = INF_Rubber_and_oil
 		icon = GFX_focus_oil_and_rubber
@@ -331,9 +418,42 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
 		}
+                completion_reward = {
+			add_resource = {
+                            type = oil
+                            amount = 5
+                            state = 716
+                        }
+			add_resource = {
+                            type = oil
+                            amount = 5
+                            state = 713
+                        }
+			add_resource = {
+                            type = oil
+                            amount = 5
+                            state = 540
+                        }
+			add_resource = {
+                            type = rubber
+                            amount = 2
+                            state = 716
+                        }
+			add_resource = {
+                            type = rubber
+                            amount = 2
+                            state = 713
+                        }
+			add_resource = {
+                            type = rubber
+                            amount = 2
+                            state = 540
+                        }
+		}
 		x = 8
 		y = 6
 	}
+
 	focus = {
 		id = INF_Foxtrot_plan
 		icon = GFX_focus_foxtrot_plan
@@ -347,9 +467,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = INF_Tango_plan
 		}
+		completion_reward = {
+			add_ideas = INF_Foxtrot_Plan
+		}
 		x = 7
 		y = 7
 	}
+
 	focus = {
 		id = INF_Tango_plan
 		icon = GFX_focus_tango_plan
@@ -363,9 +487,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = INF_Foxtrot_plan
 		}
+		completion_reward = {
+			add_ideas = INF_Tango_Plan
+		}
 		x = 5
 		y = 7
 	}
+
 	focus = {
 		id = INF_introduce_ICV
 		icon = GFX_focus_introduce_ICV
@@ -383,6 +511,7 @@ focus_tree = {
 		x = 3
 		y = 8
 	}
+
 	focus = {
 		id = INF_Infinite_Guard
 		icon = GFX_focus_infinite_guard
@@ -412,6 +541,7 @@ focus_tree = {
 		x = 6
 		y = 8
 	}
+
 	focus = {
 		id = INF_Boost_motorized_production
 		icon = GFX_focus_boost_motorized_production
@@ -425,6 +555,7 @@ focus_tree = {
 		x = 9
 		y = 8
 	}
+
 	focus = {
 		id = INF_Bharatsha_raid
 		icon = GFX_focus_bharatsha_raid
@@ -458,6 +589,7 @@ focus_tree = {
 		x = 6
 		y = 9
 	}
+
 	focus = {
 		id = INF_Plan_Anvil
 		icon = GFX_focus_plan_anvil
@@ -465,9 +597,45 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_introduce_ICV
 		}
+		completion_reward = {
+			203 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+				}
+			}	
+            716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}	
+            718 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}	
+        	}
+		}
 		x = 2
 		y = 9
 	}
+
 	focus = {
 		id = INF_head_to_head
 		icon = GFX_focus_head_to_head
@@ -478,9 +646,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Infinite_Guard
 		}
+		completion_reward = {
+			add_ideas = INF_Improved_Training
+		}
 		x = 4
 		y = 9
 	}
+
 	focus = {
 		id = INF_infiltration_school
 		icon = GFX_focus_infiltration_squad
@@ -491,9 +663,16 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Infinite_Guard
 		}
+		completion_reward = {
+			add_decryption = {
+				target = BHA
+				amount = 0.5
+			}
+		}
 		x = 8
 		y = 9
 	}
+
 	focus = {
 		id = INF_Plan_Snake
 		icon = GFX_focus_plan_snake
@@ -501,9 +680,28 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Boost_motorized_production
 		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = INF
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 		x = 10
 		y = 9
 	}
+
 	focus = {
 		id = INF_cut_you_down
 		icon = GFX_focus_cut_down
@@ -511,9 +709,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 19
 		y = 5
 	}
+
 	focus = {
 		id = INF_demoralize_army
 		icon = GFX_focus_demoralize_army
@@ -532,6 +734,7 @@ focus_tree = {
 		x = 17
 		y = 6
 	}
+
 	focus = {
 		id = INF_demoralize_society
 		icon = GFX_focus_demoralize_society
@@ -550,6 +753,7 @@ focus_tree = {
 		x = 21
 		y = 6
 	}
+
 	focus = {
 		id = INF_steal_resourses
 		icon = GFX_focus_fake_resourses
@@ -564,6 +768,7 @@ focus_tree = {
 		x = 23
 		y = 7
 	}
+
 	focus = {
 		id = INF_take_hostages
 		icon = GFX_focus_take_hostages
@@ -574,6 +779,7 @@ focus_tree = {
 		x = 21
 		y = 7
 	}
+
 	focus = {
 		id = INF_prepare_mutinies
 		icon = GFX_focus_prepare_mutinies
@@ -582,9 +788,15 @@ focus_tree = {
 			focus = INF_demoralize_society
 			focus = INF_demoralize_army
 		}
+		completion_reward = {
+			UFA = {
+				add_stability = -0.1
+			}
+		}
 		x = 19
 		y = 7
 	}
+
 	focus = {
 		id = INF_arrange_desertion
 		icon = GFX_focus_arrange_desertion
@@ -612,6 +824,7 @@ focus_tree = {
 		x = 17
 		y = 7
 	}
+
 	focus = {
 		id = INF_brainwash_our_troops
 		icon = GFX_focus_brainwash_troops
@@ -639,6 +852,7 @@ focus_tree = {
 		x = 15
 		y = 7
 	}
+
 	focus = {
 		id = INF_entice_divisions
 		icon = GFX_focus_entice_divisions
@@ -652,6 +866,7 @@ focus_tree = {
 		x = 16
 		y = 8
 	}
+
 	focus = {
 		id = INF_riots_everywhere
 		icon = GFX_focus_riots_everythere
@@ -669,6 +884,7 @@ focus_tree = {
 		x = 19
 		y = 8
 	}
+
 	focus = {
 		id = INF_steal_industry
 		icon = GFX_focus_steal_factories
@@ -679,9 +895,20 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_take_hostages
 		}
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
 		x = 22
 		y = 8
 	}
+
 	focus = {
 		id = INF_this_is_an_illusion
 		icon = GFX_focus_this_is_an_illusion
@@ -693,9 +920,13 @@ focus_tree = {
 			focus = INF_steal_industry
 			focus = INF_entice_divisions
 		}
+                completion_reward = {
+			add_threat = 5
+		}
 		x = 19
 		y = 9
 	}
+
 	focus = {
 		id = INF_take_whats_mine
 		icon = GFX_focus_take_whats_mine
@@ -709,9 +940,19 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_this_is_an_illusion
 		}
+		completion_reward = {
+			declare_war_on = {
+				target = BHA
+			}
+			leave_faction = BHA
+			country_event = {
+				id = inf.106
+			}
+		}
 		x = 12
 		y = 10
 	}
+
 	focus = {
 		id = INF_and_start_this_war
 		icon = GFX_focus_start_this_war
@@ -719,9 +960,17 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_take_whats_mine
 		}
+                completion_reward = {
+			declare_war_on = {
+                          target = UFA
+                          type = annex_everything
+                        }
+						set_major = yes
+		}
 		x = 12
 		y = 11
 	}
+
 	focus = {
 		id = INF_Huranjan_direction
 		icon = GFX_focus_huranjan
@@ -738,6 +987,7 @@ focus_tree = {
 		x = 3
 		y = 12
 	}
+
 	focus = {
 		id = INF_build_AA
 		icon = GFX_focus_install_AA
@@ -757,6 +1007,7 @@ focus_tree = {
 		x = 2
 		y = 13
 	}
+
 	focus = {
 		id = INF_ATGM_stock
 		icon = GFX_focus_ATGM
@@ -778,6 +1029,7 @@ focus_tree = {
 		x = 4
 		y = 13
 	}
+
 	focus = {
 		id = INF_west_wall
 		icon = GFX_focus_west_frontier
@@ -817,6 +1069,7 @@ focus_tree = {
 		x = 3
 		y = 14
 	}
+
 	focus = {
 		id = INF_integrating_Bharatshan_land
 		icon = GFX_focus_bharatsha_integration
@@ -843,6 +1096,7 @@ focus_tree = {
 		x = 8
 		y = 12
 	}
+
 	focus = {
 		id = INF_enslave_bharatshans
 		icon = GFX_focus_bharatsha_slaves
@@ -850,9 +1104,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_integrating_Bharatshan_land
 		}
+		completion_reward = {
+			add_ideas = INF_Enslaved_Bharatshans
+		}
 		x = 6
 		y = 13
 	}
+
 	focus = {
 		id = INF_Bharatshan_divisions
 		icon = GFX_focus_bharatsha_divisions
@@ -891,6 +1149,7 @@ focus_tree = {
 		x = 8
 		y = 13
 	}
+
 	focus = {
 		id = INF_local_authority
 		icon = GFX_focus_local_autority
@@ -904,6 +1163,7 @@ focus_tree = {
 		x = 10
 		y = 13
 	}
+
 	focus = {
 		id = INF_Bharatshan_maths
 		icon = GFX_focus_bharatshan_math
@@ -923,6 +1183,7 @@ focus_tree = {
 		x = 7
 		y = 14
 	}
+
 	focus = {
 		id = INF_Bharatshan_railroad
 		icon = GFX_focus_bharatsha_railroad
@@ -944,6 +1205,7 @@ focus_tree = {
 		x = 9
 		y = 14
 	}
+
 	focus = {
 		id = INF_Jackal_Pride
 		icon = GFX_focus_jackal_proud
@@ -951,9 +1213,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_and_start_this_war
 		}
+		completion_reward = {
+			add_ideas = INF_Rapid_Expansionism
+		}
 		x = 11
 		y = 12
 	}
+
 	focus = {
 		id = INF_hail_the_leader
 		icon = GFX_focus_hail_leader
@@ -967,6 +1233,7 @@ focus_tree = {
 		x = 13
 		y = 12
 	}
+
 	focus = {
 		id = INF_Infinite_Empire
 		icon = GFX_focus_infinite_empire
@@ -983,6 +1250,7 @@ focus_tree = {
 		x = 12
 		y = 13
 	}
+
 	focus = {
 		id = INF_Requisition
 		icon = GFX_focus_requisition
@@ -990,9 +1258,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_Infinite_Empire
 		}
+		completion_reward = {
+			add_ideas = INF_Temporary_Requisition
+		}
 		x = 11
 		y = 14
 	}
+
 	focus = {
 		id = INF_Conscription
 		icon = GFX_focus_conscription
@@ -1006,6 +1278,7 @@ focus_tree = {
 		x = 13
 		y = 14
 	}
+
 	focus = {
 		id = INF_Long_March
 		icon = GFX_focus_long_war
@@ -1025,6 +1298,7 @@ focus_tree = {
 		x = 12
 		y = 15
 	}
+
 	focus = {
 		id = INF_plunder_banks
 		icon = GFX_focus_plunder_banks
@@ -1041,6 +1315,7 @@ focus_tree = {
 		x = 8
 		y = 15
 	}
+
 	focus = {
 		id = INF_finish_industrialization
 		icon = GFX_focus_finish_industrialization
@@ -1064,6 +1339,7 @@ focus_tree = {
 		x = 9
 		y = 16
 	}
+
 	focus = {
 		id = INF_revanchist_restitution
 		icon = GFX_focus_revanchist_restitution
@@ -1074,9 +1350,19 @@ focus_tree = {
 		mutually_exclusive = {
 			focus =  INF_plunder_banks
 		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = INF
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = INF_Revanchist_Exploitation
+		}
 		x = 10
 		y = 15
 	}
+
 	focus = {
 		id = INF_zomby_overlander
 		icon = GFX_focus_zomby_humanity
@@ -1087,9 +1373,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus =  INF_slash_overlander
 		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Extinct
+		}
 		x = 14
 		y = 15
 	}
+
 	focus = {
 		id = INF_enforce_collaborationism
 		icon = GFX_focus_collaborationism
@@ -1100,9 +1390,15 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_zomby_overlander
 		}
+		completion_reward = {
+			every_owned_state = {
+				add_compliance = 15
+			}
+		}
 		x = 12
 		y = 16
 	}
+
 	focus = {
 		id = INF_slash_overlander
 		icon = GFX_focus_slash_overlander
@@ -1113,9 +1409,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus =  INF_zomby_overlander
 		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Extinct
+		}
 		x = 16
 		y = 15
 	}
+
 	focus = {
 		id = INF_experimental_squads
 		icon = GFX_focus_experimantal_squad
@@ -1123,9 +1423,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_slash_overlander
 		}
+		completion_reward = {
+			add_ideas = INF_9-14-6_Squad
+		}
 		x = 15
 		y = 16
 	}
+
 	focus = {
 		id = INF_its_only_me_and_you
 		icon = GFX_focus_its_only_me_and_you
@@ -1135,9 +1439,17 @@ focus_tree = {
 			focus = INF_enforce_collaborationism
 			focus = INF_finish_industrialization
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = nuclear
+			}
+		}
 		x = 12
 		y = 17
 	}
+
 	focus = {
 		id = INF_who_is_gonna_save_you_know
 		icon = GFX_focus_who_is_gonna_save_you_now
@@ -1148,6 +1460,7 @@ focus_tree = {
 		x = 12
 		y = 18
 	}
+
 	focus = {
 		id = INF_great_Jackal
 		icon = GFX_focus_great_jackal
@@ -1163,6 +1476,7 @@ focus_tree = {
 		x = 16
 		y = 12
 	}
+
 	focus = {
 		id = INF_Wonsung_fleet
 		icon = GFX_focus_wonsung_fleet
@@ -1170,9 +1484,22 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_great_Jackal
 		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_equipment
+			}
+		}
 		x = 14
 		y = 13
 	}
+
 	focus = {
 		id = INF_Industrial_Sun
 		icon = GFX_focus_industrial_sun
@@ -1180,9 +1507,25 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_great_Jackal
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1 
+				category = industry
+			}
+			203 = { 
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
 		x = 16
 		y = 13
 	}
+
 	focus = {
 		id = INF_rice_meal
 		icon = GFX_focus_rice_meal
@@ -1190,9 +1533,13 @@ focus_tree = {
 		prerequisite = {
 			focus =  INF_great_Jackal
 		}
+		completion_reward = {
+			add_ideas = INF_Fresh_Food
+		}
 		x = 18
 		y = 13
 	}
+
 	focus = {
 		id = INF_Wonsung_electronics
 		icon = GFX_focus_wonsung_electronics
@@ -1213,6 +1560,7 @@ focus_tree = {
 		x = 15
 		y = 14
 	}
+
 	focus = {
 		id = INF_project_Kamikaze
 		icon = GFX_focus_project_kamikaze
@@ -1231,6 +1579,7 @@ focus_tree = {
 		x = 17
 		y = 14
 	}
+
 	focus = {
 		id = INF_Rethenian_agreement
 		icon = GFX_focus_rethenian_agreement
@@ -1248,6 +1597,7 @@ focus_tree = {
 		x = 21
 		y = 12
 	}
+
 	focus = {
 		id = INF_buy_their_tanks
 		icon = GFX_focus_buy_rethenian_tanks
@@ -1265,6 +1615,7 @@ focus_tree = {
 		x = 20
 		y = 13
 	}
+
 	focus = {
 		id = INF_prisoner_exchange
 		icon = GFX_focus_prisoner_exchange
@@ -1290,6 +1641,7 @@ focus_tree = {
 		x = 22
 		y = 13
 	}
+
 	focus = {
 		id = INF_eat_the_Red
 		icon = GFX_focus_eat_the_red
@@ -1309,5 +1661,4 @@ focus_tree = {
 		x = 21
 		y = 14
 	}
-}	
-	
+}

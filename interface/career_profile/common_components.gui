@@ -9,13 +9,11 @@ guiTypes = {
 
 	@StatContainerSideW = 170
 	@StatContainerH = 80
-	@StatContainerCenterW = 342
+	@StatContainerCenterW = 300
 
 	@StatContainerLeftX = 14
 	@StatContainerRightX = -14
 	@StatContainerCenterX = 0
-
-	@RatioContainerH = 50
 
 	# 4 rows layout
 	@StatsRow1of4 = 60
@@ -30,34 +28,14 @@ guiTypes = {
 	@StatsRow4of5 = 260
 	@StatsRow5of5 = 345
 
-	# 3 rows ratio layout
-	@RatioRow1of3 = 120
-	@RatioRow2of3 = 233
-	@RatioRow3of3 = 345
-
-	# 4 rows ratio layout
-	@RatioRow1of4 = 120
-	@RatioRow2of4 = 195
-	@RatioRow3of4 = 270
-	@RatioRow4of4 = 345
-
-	# 6 rows ratio layout
-	@RatioRow1of6 = 100
-	@RatioRow2of6 = 155
-	@RatioRow3of6 = 210
-	@RatioRow4of6 = 265
-	@RatioRow5of6 = 320
-	@RatioRow6of6 = 375
-
 	# DLC layouts are all 3 rows
 	@DlcStatsRow1Y = 120
 	@DlcStatsRow2Y = 230
 	@DlcStatsRow3Y = 340
 
 	@DlcTitleW = 300
-	@DlcTitleH = 73 # Make this 1 px larger than the height of two text lines
 	@DlcTitleX = -150 # Negative half of the text width, because text don't have origin
-	@DlcTitleY = 20
+	@DlcTitleY = 40
 
 	@StatNumberTextW = 134
 	@StatNumberTextLeftX = 34
@@ -77,11 +55,6 @@ guiTypes = {
 
 	@StatTextCenterW = 300
 	@StatTextCenterX = -150 # Negative half of the text width, because text don't have origin
-
-	@RatioLabelTextW = 260
-
-	@StatBarX = 30
-	@StatBarY = 4
 
 	@StarCenterX = 0
 	@StarCenterY = 30
@@ -114,7 +87,7 @@ guiTypes = {
 				### Game Years ###
 
 				containerWindowType = {
-					name = "game_time"
+					name = "game_years_container"
 					position = { x = 0 y = 0 }
 					size = { width = @ColumnWidth height = 147 }
 
@@ -123,13 +96,8 @@ guiTypes = {
 						position = { x = @ColumnWidth y = 222 }
 					}
 
-					positionType = {
-						name = "playthrough_stats_size_mp"
-						position = { x = @ColumnWidth y = @ColumnHeight }
-					}
-
 					background = {
-						name = "background"
+						name = "Background"
 						quadTextureSprite ="GFX_tiled_stats_bg"
 					}
 
@@ -141,96 +109,74 @@ guiTypes = {
 						Orientation = center
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = -18 y = 22 }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = center
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
-						position = { x = -170 y = -35 }
+						name = "game_time"
+						position = { x = -110 y = -35 }
 						font = "hoi_30"
 						text = "XXX"
-						maxWidth = 340
+						maxWidth = 220
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "game_time_label"
 						position = { x = -100 y = 5 }
 						font = "hoi_18"
-						text = "CAREER_PROFILE_GAME_TIME_LABEL"
+						text = "Time Label"
 						maxWidth = 200
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				### Playthroughs ###
 
 				containerWindowType = {
-					name = "playthroughs"
+					name = "playthroughs_container"
 					position = { x = 0 y = 150 }
 					size = { width = @ColumnWidth height = 147 }
 
 					background = {
-						name = "background"
+						name = "Background"
 						quadTextureSprite = "GFX_tiled_stats_bg"
 					}
 
-					# Playthroughs counter is not showed in Playthrough Overview, so no star needed
-					#
-					# iconType = {
-					# 	name = "best_in_career_icon"
-					# 	position = { x = -18 y = 22 }
-					# 	spriteType = "GFX_icon_best_in_career"
-					# 	tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-					# 	Orientation = center
-					# }
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = -18 y = 22 }
-						spriteType = "GFX_icon_compare_stats_difference"
-						alwaysTransparent = yes
-						Orientation = center
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "playthroughs"
 						position = { x = -110 y = -35 }
 						font = "hoi_30"
 						text = "XXX"
 						maxWidth = 220
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "playthroughs_label"
 						position = { x = -100 y = 5 }
 						font = "hoi_18"
 						text = CAREER_PROFILE_PLAYTHROUGHS_LABEL
 						maxWidth = 200
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				### Hours Played ###
 
 				containerWindowType = {
-					name = "hours_played"
+					name = "hours_played_container"
 					position = { x = 0 y = 301 }
 					size = { width = @ColumnWidth height = 147 }
 
@@ -245,7 +191,7 @@ guiTypes = {
 					}
 
 					background = {
-						name = "background"
+						name = "Background"
 						quadTextureSprite ="GFX_tiled_stats_bg"
 					}
 
@@ -257,35 +203,29 @@ guiTypes = {
 						Orientation = center
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = -18 y = 22 }
-						spriteType = "GFX_icon_compare_stats_difference"
-						alwaysTransparent = yes
-						Orientation = center
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "hours_played"
 						position = { x = -110 y = -35 }
 						font = "hoi_30"
 						text = "XXX"
 						maxWidth = 220
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "hours_played_label"
 						position = { x = -100 y = 5 }
 						font = "hoi_18"
 						text = CAREER_PROFILE_HOURS_LABEL
 						maxWidth = 200
+						maxHeight = 18
 						format = center
+						alwaystransparent = yes
 						Orientation = center
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 			}
@@ -300,22 +240,21 @@ guiTypes = {
 				origo = center_up
 
 				background = {
-					name = "background"
+					name = "Background"
 					quadTextureSprite = "GFX_tiled_war_bg_overlay"
 				}
 
 				### Warfare Row 1 ###
 
 				containerWindowType = {
-					name = "longest_battle_duration"
+					name = "longest_battle_duration_container"
 					position = { x = @StatContainerLeftX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -325,48 +264,37 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "longest_battle_duration"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "longest_battle_duration_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LONGEST_BATTLE_DURATION_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "largest_manpower_battle"
+					name = "largest_manpower_battle_container"
 					position = { x = @StatContainerRightX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -377,28 +305,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "largest_manpower_battle"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "largest_manpower_battle_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LARGEST_MANPOWER_BATTLE_LABEL
@@ -406,22 +324,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				### Warfare Row 2 ###
 
 				containerWindowType = {
-					name = "highest_casualty_war"
+					name = "highest_casualty_war_container"
 					position = { x = @StatContainerLeftX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -430,49 +346,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference_negative"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "highest_casualty_war"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "highest_casualty_war_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_HIGHEST_CASUALTY_WAR_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "highest_enemy_casualty_war"
+					name = "highest_enemy_casualty_war_container"
 					position = { x = @StatContainerRightX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -483,28 +387,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "highest_enemy_casualty_war"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "highest_enemy_casualty_war_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_HIGHEST_ENEMY_CASUALTY_WAR_LABEL
@@ -512,7 +406,6 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
@@ -520,15 +413,14 @@ guiTypes = {
 				#### Warfare Row 3 ###
 
 				containerWindowType = {
-					name = "largest_tanks_battle"
+					name = "largest_tanks_battle_container"
 					position = { x = @StatContainerLeftX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -538,48 +430,37 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "largest_tanks_battle"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "largest_tanks_battle_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LARGEST_TANKS_BATTLE_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "largest_army"
+					name = "largest_army_container"
 					position = { x = @StatContainerRightX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -590,28 +471,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "largest_army"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "largest_army_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LARGEST_ARMY_LABEL
@@ -619,22 +490,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Warfare Row 4 ###
 
 				containerWindowType = {
-					name = "largest_navy"
+					name = "largest_navy_container"
 					position = { x = @StatContainerLeftX y = @StatsRow4of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -643,49 +512,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "largest_navy"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "largest_navy_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LARGEST_NAVY_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "largest_airforce"
+					name = "largest_airforce_container"
 					position = { x = @StatContainerRightX y = @StatsRow4of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -696,28 +553,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "largest_airforce"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "largest_airforce_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LARGEST_AIRFORCE_LABEL
@@ -725,7 +572,6 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 			}
@@ -740,24 +586,23 @@ guiTypes = {
 				origo = center_up
 
 				background = {
-					name = "background"
+					name = "Background"
 					quadTextureSprite = "GFX_tiled_stats_bg"
 				}
 
 				### Detailed Row 1 ###
 
 				containerWindowType = {
-					name = "conquered_percentage"
+					name = "conquered_percentage_container"
 					position = { x = 0 y = @StatsRow1of5 }
 					size = { width = @StatContainerCenterW height = @StatContainerH }
 					Orientation = center_up
 					Origo = center_up
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -768,17 +613,8 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarCenterWideX y = @StarCenterWideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "conquered_percentage"
 						position = { x = @StatNumberTextWideX y = @StatNumberTextWideY }
 						font = "hoi_30"
 						text = "0000000000000000000"
@@ -786,11 +622,10 @@ guiTypes = {
 						maxWidth = @StatNumberTextWideW
 						multiline = no
 						Orientation = center_up
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "conquered_percentage_label"
 						position = { x = @StatLabelTextWideX y = @StatLabelTextWideY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_CONQUERED_PERCENTAGE_LABEL
@@ -800,22 +635,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextWideW
 						text_color_code = L
 						Orientation = center_up
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "liberated_nations"
+					name = "liberated_nations_container"
 					position = { x = 0 y = @StatsRow2of5 }
 					size = { width = @StatContainerCenterW height = @StatContainerH }
 					Orientation = center_up
 					Origo = center_up
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -826,17 +659,8 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarCenterWideX y = @StarCenterWideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "liberated_nations"
 						position = { x = @StatNumberTextWideX y = @StatNumberTextWideY }
 						font = "hoi_30"
 						text = "0000000000000000000000"
@@ -844,11 +668,10 @@ guiTypes = {
 						maxWidth = @StatNumberTextWideW
 						multiline = no
 						Orientation = center_up
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "liberated_nations_label"
 						position = { x = @StatLabelTextWideX y = @StatLabelTextWideY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_LIBERATED_NATIONS_LABEL
@@ -858,7 +681,6 @@ guiTypes = {
 						maxWidth = @StatLabelTextWideW
 						text_color_code = L
 						Orientation = center_up
-						alwaysTransparent = yes
 					}
 				}
 
@@ -866,15 +688,14 @@ guiTypes = {
 				### Detailed Row 2 ###
 
 				containerWindowType = {
-					name = "most_factories_built"
+					name = "most_factories_built_container"
 					position = { x = @StatContainerLeftX y = @StatsRow3of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -884,48 +705,37 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "most_factories_built"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "most_factories_built_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text =  CAREER_PROFILE_MOST_FACTORIES_BUILT_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "built_ships"
+					name = "built_ships_container"
 					position = { x = @StatContainerRightX y = @StatsRow3of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -935,29 +745,18 @@ guiTypes = {
 						Orientation = upper_right
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "built_ships"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "built_ships_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BUILT_SHIPS_LABEL
@@ -965,22 +764,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Detailed Row 3 ###
 
 				containerWindowType = {
-					name = "built_tanks"
+					name = "built_tanks_container"
 					position = { x = @StatContainerLeftX y = @StatsRow4of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -989,49 +786,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "built_tanks"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "built_tanks_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BUILT_TANKS_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "successful_coups"
+					name = "successful_coups_container"
 					position = { x = @StatContainerRightX y = @StatsRow4of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1042,28 +827,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "successful_coups"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "successful_coups_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_SUCCESSFUL_COUPS_LABEL
@@ -1071,22 +846,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Detailed Row 4 ###
 
 				containerWindowType = {
-					name = "sunk_pride_of_the_fleet"
+					name = "sunk_pride_of_the_fleet_container"
 					position = { x = @StatContainerLeftX y = @StatsRow5of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1096,48 +869,37 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "sunk_pride_of_the_fleet"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "sunk_pride_of_the_fleet_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_SUNK_PRIDE_OF_THE_FLEET_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "shot_aces"
+					name = "shot_aces_container"
 					position = { x = @StatContainerRightX y = @StatsRow5of5 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1148,28 +910,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "shot_aces"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "shot_aces_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_SHOT_ACES_LABEL
@@ -1177,7 +929,6 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 			}
@@ -1199,78 +950,21 @@ guiTypes = {
 				origo = center_up
 
 				background = {
-					name = "background"
+					name = "Background"
 					quadTextureSprite = "GFX_tiled_stats_bg"
 				}
 
-				containerWindowType = {
-					name = "average_air_superiority"
-					position = { x = 0 y = @StatsRow1of5 }
-					size = { width = @StatContainerCenterW height = @StatContainerH }
-					Orientation = center_up
-					Origo = center_up
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarCenterWideX y = @StarCenterWideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						Orientation = upper_right
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarCenterWideX y = @StarCenterWideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextWideX y = @StatNumberTextWideY }
-						font = "hoi_30"
-						text = "0000000000000000000"
-						format = right
-						maxWidth = @StatNumberTextWideW
-						multiline = no
-						Orientation = center_up
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextWideX y = @StatLabelTextWideY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_AIRSPACE_SUPERIORITY_RATING_LABEL
-						format = left
-						vertical_alignment = CENTER
-						maxHeight = 36
-						maxWidth = @StatLabelTextWideW
-						text_color_code = L
-						Orientation = center_up
-						alwaysTransparent = yes
-					}
-				}
+				#### Warfare Row 1 ###
 
 				containerWindowType = {
-					name = "offensive_battles"
-					position = { x = @StatContainerLeftX y = @StatsRow2of5 }
+					name = "offensive_battles_container"
+					position = { x = @StatContainerLeftX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1279,49 +973,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "offensive_battles"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "offensive_battles_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_OFFENSIVE_BATTLES_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "defensive_battles"
-					position = { x = @StatContainerRightX y = @StatsRow2of5 }
+					name = "defensive_battles_container"
+					position = { x = @StatContainerRightX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1332,28 +1014,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "defensive_battles"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "defensive_battles_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_DEFENSIVE_BATTLES_LABEL
@@ -1361,22 +1033,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Warfare Row 2 ###
 
 				containerWindowType = {
-					name = "total_battles"
-					position = { x = @StatContainerLeftX y = @StatsRow3of5 }
+					name = "total_battles_container"
+					position = { x = @StatContainerLeftX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1385,49 +1055,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "total_battles"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "total_battles_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_TOTAL_BATTLES_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "offensive_battles_ratio"
-					position = { x = @StatContainerRightX y = @StatsRow3of5 }
+					name = "offensive_battles_ratio_container"
+					position = { x = @StatContainerRightX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1438,28 +1096,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "offensive_battles_ratio"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "offensive_battles_ratio_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_OFFENSIVE_BATTLES_RATIO_LABEL
@@ -1467,22 +1115,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Warfare Row 3 ###
 
 				containerWindowType = {
-					name = "battles_against_encircled"
-					position = { x = @StatContainerLeftX y = @StatsRow4of5 }
+					name = "battles_against_encircled_container"
+					position = { x = @StatContainerLeftX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1491,49 +1137,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "battles_against_encircled"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "battles_against_encircled_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BATTLES_AGAINST_ENCIRCLED_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "battles_against_encircled_ratio"
-					position = { x = @StatContainerRightX y = @StatsRow4of5 }
+					name = "battles_against_encircled_ratio_container"
+					position = { x = @StatContainerRightX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1544,28 +1178,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "battles_against_encircled_ratio"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "battles_against_encircled_ratio_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BATTLES_AGAINST_ENCIRCLED_RATIO_LABEL
@@ -1573,22 +1197,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
 				#### Warfare Row 4 ###
 
 				containerWindowType = {
-					name = "battles_with_air_support"
-					position = { x = @StatContainerLeftX y = @StatsRow5of5 }
+					name = "battles_with_air_support_container"
+					position = { x = @StatContainerLeftX y = @StatsRow4of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1597,49 +1219,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "battles_with_air_support"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "battles_with_air_support_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BATTLES_WITH_AIR_SUPPORT_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "battles_with_air_support_ratio"
-					position = { x = @StatContainerRightX y = @StatsRow5of5 }
+					name = "battles_with_air_support_ratio_container"
+					position = { x = @StatContainerRightX y = @StatsRow4of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1650,28 +1260,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "battles_with_air_support_ratio"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "battles_with_air_support_ratio_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_BATTLES_WITH_AIR_SUPPORT_RATIO_LABEL
@@ -1679,7 +1279,6 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
@@ -1695,22 +1294,21 @@ guiTypes = {
 				origo = center_up
 
 				background = {
-					name = "background"
+					name = "Background"
 					quadTextureSprite = "GFX_tiled_war_bg_overlay"
 				}
 
-				#### Row 1 ###
+				#### Detailed Row 1 ###
 
 				containerWindowType = {
-					name = "time_at_war"
+					name = "time_at_war_container"
 					position = { x = @StatContainerLeftX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1719,49 +1317,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "time_at_war"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "time_at_war_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
-						text = CAREER_PROFILE_YEARS_AT_WAR_LABEL
+						text = CAREER_PROFILE_TIME_AT_WAR_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "provinces_gained"
+					name = "provinces_gained_container"
 					position = { x = @StatContainerRightX y = @StatsRow1of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1772,28 +1358,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "provinces_gained"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "provinces_gained_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_PROVINCES_GAINED_LABEL
@@ -1801,22 +1377,20 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
-				#### Row 2 ###
+				#### Detailed Row 2 ###
 
 				containerWindowType = {
-					name = "provinces_lost"
+					name = "provinces_lost_container"
 					position = { x = @StatContainerLeftX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1825,49 +1399,37 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference_negative"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "provinces_lost"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "provinces_lost_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_PROVINCES_LOST_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "provinces_gained_per_year"
+					name = "provinces_gained_per_year_container"
 					position = { x = @StatContainerRightX y = @StatsRow2of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
 
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
+					#background = {
+					#	name = "background"
+					#	quadTextureSprite = "GFX_tiled_stats_bg"
+					#}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1878,28 +1440,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "provinces_gained_per_year"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "provinces_gained_per_year_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_PROVINCES_GAINED_PER_YEAR_LABEL
@@ -1907,22 +1459,13 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
-				#### Row 3 ###
-
 				containerWindowType = {
-					name = "total_own_casualties"
+					name = "total_own_casualties_container"
 					position = { x = @StatContainerLeftX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1931,49 +1474,32 @@ guiTypes = {
 						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 						centerposition = yes
 					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference_negative"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "total_own_casualties"
 						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = left
 						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "total_own_casualties_label"
 						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_TOTAL_OWN_CASUALTIES_LABEL
 						format = left
 						maxWidth = @StatLabelTextW
 						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 
 				containerWindowType = {
-					name = "enemy_casualties"
+					name = "enemy_casualties_container"
 					position = { x = @StatContainerRightX y = @StatsRow3of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -1984,28 +1510,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "enemy_casualties"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "enemy_casualties_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_ENEMY_CASUALTIES_LABEL
@@ -2013,24 +1529,15 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 				}
 
-				#### Row 4 ###
-
 				containerWindowType = {
-					name = "casualties_per_week"
+					name = "casualties_per_week_container"
 					position = { x = @StatContainerRightX y = @StatsRow4of4 }
 					size = { width = @StatContainerSideW height = @StatContainerH }
 					Orientation = upper_right
 					Origo = upper_right
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
 
 					iconType = {
 						name = "best_in_career_icon"
@@ -2041,28 +1548,18 @@ guiTypes = {
 						centerposition = yes
 					}
 
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarRightX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						Orientation = upper_right
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
 					instantTextboxType = {
-						name = "value"
+						name = "casualties_per_week"
 						position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 						font = "hoi_30"
 						text = "XXX"
 						format = right
 						maxWidth = @StatNumberTextW
 						Orientation = upper_right
-						alwaysTransparent = yes
 					}
 
 					instantTextboxType = {
-						name = "label"
+						name = "casualties_per_week_label"
 						position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 						font = "hoi_18"
 						text = CAREER_PROFILE_CASUALTIES_PER_WEEK_LABEL
@@ -2070,2607 +1567,15 @@ guiTypes = {
 						maxWidth = @StatLabelTextW
 						text_color_code = L
 						Orientation = upper_right
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "most_used_combat_width"
-					position = { x = @StatContainerLeftX y = @StatsRow4of4 }
-					size = { width = @StatContainerSideW height = @StatContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MOST_USED_COMBAT_WIDTH_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
 					}
 				}
 			}
 
 			### Right Container ###
-			containerWindowType = {
-				name = "right_numbers"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_MILITARY_PRODUCTION"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "military_production_equipment"
-					position = { x = @StatContainerLeftX y = @RatioRow1of3 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_PRODUCTION_OTHER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "military_production_vehicles"
-					position = { x = @StatContainerLeftX y = @RatioRow2of3 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_PRODUCTION_LAND_VEHICLES_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "military_production_air"
-					position = { x = @StatContainerLeftX y = @RatioRow3of3 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_PRODUCTION_AIRCRAFT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-			}
-		}
-
-		containerWindowType = {
-			name = "page2"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
-
-			containerWindowType = {
-				name = "left_numbers"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_AIR_PRODUCTION"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "air_production_fighter"
-					position = { x = @StatContainerLeftX y = @RatioRow1of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_FIGHTER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "air_production_cas"
-					position = { x = @StatContainerLeftX y = @RatioRow2of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CAS_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "air_production_tactical_bomber"
-					position = { x = @StatContainerLeftX y = @RatioRow3of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_TACTICAL_BOMBER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "air_production_strategic_bomber"
-					position = { x = @StatContainerLeftX y = @RatioRow4of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_STRATEGIC_BOMBER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "air_production_naval_bomber"
-					position = { x = @StatContainerLeftX y = @RatioRow5of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_NAVAL_BOMBER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "air_production_other"
-					position = { x = @StatContainerLeftX y = @RatioRow6of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_OTHER_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Middle Container ###
-
-			containerWindowType = {
-				name = "middle_numbers"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_war_bg_overlay"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_TANK_PRODUCTION"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "tank_production_light"
-					position = { x = @StatContainerLeftX y = @RatioRow1of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_LIGHT_TANK_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "tank_production_medium"
-					position = { x = @StatContainerLeftX y = @RatioRow2of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MEDIUM_TANK_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "tank_production_heavy"
-					position = { x = @StatContainerLeftX y = @RatioRow3of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_HEAVY_TANK_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "tank_production_super_heavy"
-					position = { x = @StatContainerLeftX y = @RatioRow4of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_SUPER_HEAVY_TANK_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "tank_production_modern"
-					position = { x = @StatContainerLeftX y = @RatioRow5of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MODERN_TANK_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Right Container ###
-
-			containerWindowType = {
-				name = "right_numbers"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_NAVAL_PRODUCTION"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "naval_production_submarine"
-					position = { x = @StatContainerLeftX y = @RatioRow1of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_SUBMARINE_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "naval_production_screen"
-					position = { x = @StatContainerLeftX y = @RatioRow2of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_SCREENING_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "naval_production_capital_ship"
-					position = { x = @StatContainerLeftX y = @RatioRow3of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CAPITAL_SHIP_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "naval_production_carrier"
-					position = { x = @StatContainerLeftX y = @RatioRow4of6 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CARRIERS_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-		}
-
-		containerWindowType = {
-			name = "page3"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
-
-			containerWindowType = {
-				name = "left_numbers"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_BEFORE_1940"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "civilian_factories_built_1936"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CIVILIAN_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "military_factories_built_1936"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "dockyards_built_1936"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_DOCKYARDS_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "rocket_sites_built_1936"
-					position = { x = @StatContainerLeftX y = @RatioRow4of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_ROCKET_SITES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Middle Container ###
-
-			containerWindowType = {
-				name = "middle_numbers"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_war_bg_overlay"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_1940_TO_1944"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "civilian_factories_built_1940"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CIVILIAN_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "military_factories_built_1940"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "dockyards_built_1940"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_DOCKYARDS_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "rocket_sites_built_1940"
-					position = { x = @StatContainerLeftX y = @RatioRow4of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_ROCKET_SITES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Right Container ###
-
-			containerWindowType = {
-				name = "right_numbers"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_1945_AND_LATER"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "civilian_factories_built_1945"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_CIVILIAN_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "military_factories_built_1945"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MILITARY_FACTORIES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "dockyards_built_1945"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_DOCKYARDS_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "rocket_sites_built_1945"
-					position = { x = @StatContainerLeftX y = @RatioRow4of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_ROCKET_SITES_BUILT_LABEL
-						format = left
-						maxWidth = @RatioLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-			}
-
-		}
-
-		containerWindowType = {
-			name = "page4"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
-
-			containerWindowType = {
-				name = "left_numbers"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					format = center
-					text = "CAREER_PROFILE_LAND_DOCTRINE"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "mobile_warfare_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MOBILE_WARFARE_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "superior_firepower_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_SUPERIOR_FIREPOWER_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "grand_battleplan_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_GRAND_BATTLEPLAN_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "mass_assault_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow4of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_MASS_ASSAULT_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Middle Container ###
-
-			containerWindowType = {
-				name = "middle_numbers"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_war_bg_overlay"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_NAVAL_DOCTRINE"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "fleet_in_being_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_FLEET_IN_BEING_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "trade_interdiction_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_TRADE_INTERDICTION_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "base_strike_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_BASE_STRIKE_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-			}
-
-			### Right Container ###
-
-			containerWindowType = {
-				name = "right_numbers"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
-				size = { width = @ColumnWidth height = @ColumnHeight }
-				orientation = center_up
-				origo = center_up
-
-				background = {
-					name = "background"
-					quadTextureSprite = "GFX_tiled_stats_bg"
-				}
-
-				instantTextboxType = {
-					name = "title"
-					position = { x = @DlcTitleX y = @DlcTitleY }
-					font = "hoi_36header"
-					borderSize = { x = 0 y = 0 }
-					maxWidth = @DlcTitleW
-					maxHeight = @DlcTitleH
-					format = center
-					vertical_alignment = bottom
-					text = "CAREER_PROFILE_AIR_DOCTRINE"
-					Orientation = center_up
-				}
-
-				containerWindowType = {
-					name = "strategic_destruction_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow1of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_STRATEGIC_DESTRUCTION_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "battlefield_support_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow2of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_BATTLEFIELD_SUPPORT_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-
-				containerWindowType = {
-					name = "operational_integrity_xp"
-					position = { x = @StatContainerLeftX y = @RatioRow3of4 }
-					size = { width = @StatContainerCenterW height = @RatioContainerH }
-					clipping = no
-
-					background = {
-						name = "background"
-						quadTextureSprite = "GFX_tiled_window_transparent"
-					}
-
-					iconType = {
-						name = "best_in_career_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_best_in_career"
-						tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
-						centerposition = yes
-					}
-
-					iconType = {
-						name = "compare_stats_difference_icon"
-						position = { x = @StarLeftX y = @StarSideY }
-						spriteType = "GFX_icon_compare_stats_difference"
-						centerposition = yes
-						alwaysTransparent = yes
-					}
-
-					iconType = {
-						name = "bar"
-						position = { x = @StatBarX y = @StatBarY }
-						spriteType = "GFX_profile_stats_bar"
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "value"
-						position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
-						font = "hoi_30"
-						text = "XXX"
-						format = left
-						maxWidth = @StatNumberTextW
-						alwaysTransparent = yes
-					}
-
-					instantTextboxType = {
-						name = "label"
-						position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
-						font = "hoi_18"
-						text = CAREER_PROFILE_OPERATIONAL_INTEGRITY_XP_LABEL
-						format = left
-						maxWidth = @StatLabelTextW
-						text_color_code = L
-						alwaysTransparent = yes
-					}
-				}
-			}
-		}
-
-		containerWindowType = {
-			name = "page5"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
 
 			containerWindowType = {
 				name = "column_dlc036"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
+				position = { x = @RightColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -4691,28 +1596,20 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "BY_BLOOD_ALONE"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "designed_planes"
+						name = "designed_planes_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
-
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
 
 						instantTextboxType = {
-							name = "value"
+							name = "designed_planes"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = DESIGNED_PLANES
@@ -4720,11 +1617,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "designed_planes_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_DESIGNED_PLANES_LABEL
@@ -4732,7 +1628,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -4742,28 +1637,18 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							Orientation = center
 							centerposition = yes
-						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "field_officers_promoted"
+						name = "field_officers_promoted_container"
 						position = { x = @StatContainerLeftX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -4773,48 +1658,37 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarLeftX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "field_officers_promoted"
 							position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = left
 							maxWidth = @StatNumberTextW
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "field_officers_promoted_label"
 							position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_FIELD_OFFICERS_PROMOTED_LABEL
 							format = left
 							maxWidth = @StatLabelTextW
 							text_color_code = L
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "mussolini_missions"
+						name = "mussolini_missions_container"
 						position = { x = @StatContainerRightX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
 						Orientation = upper_right
 						Origo = upper_right
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -4825,28 +1699,18 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarRightX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = upper_right
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "mussolini_missions"
 							position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = right
 							maxWidth = @StatNumberTextW
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "mussolini_missions_label"
 							position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_MUSSOLINI_MISSIONS_LABEL
@@ -4854,25 +1718,23 @@ guiTypes = {
 							maxWidth = @StatLabelTextW
 							text_color_code = L
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "ships_sunk_by_maritime"
+						name = "ships_sunk_by_maritime_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow3Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "ships_sunk_by_maritime"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = SHIPS_SUNK_BY_MARITIME
@@ -4880,11 +1742,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "ships_sunk_by_maritime_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_SHIPS_SUNK_BY_MARITIME_LABEL
@@ -4892,7 +1753,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -4903,24 +1763,21 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 				}
 			}
+		}
 
-			### Middle Container ###
+		containerWindowType = {
+			name = "page2"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+
+			### Left Container ###
 
 			containerWindowType = {
 				name = "column_dlc034"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
+				position = { x = @LeftColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -4941,28 +1798,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "NO_STEP_BACK"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "designed_tanks"
+						name = "designed_tanks_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "designed_tanks"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = DESIGNED_TANKS
@@ -4970,11 +1824,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "designed_tanks_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_DESIGNED_TANKS_LABEL
@@ -4982,7 +1835,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -4993,32 +1845,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "built_railway_guns"
+						name = "built_railway_guns_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "built_railway_guns"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = BUILT_RAILWAY_GUNS
@@ -5026,11 +1868,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "built_railway_guns_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_BUILT_RAILWAY_GUNS_LABEL
@@ -5038,7 +1879,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 
 						}
 
@@ -5050,32 +1890,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "bombed_trains"
+						name = "bombed_trains_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow3Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "bombed_trains"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = BOMBED_TRAINS
@@ -5083,11 +1913,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "bombed_trains_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_BOMBED_TRAINS_LABEL
@@ -5095,7 +1924,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5106,26 +1934,17 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 				}
 
 
 			}
 
-			### Right Container ###
+			### Middle Container ###
 
 			containerWindowType = {
 				name = "column_dlc031"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
+				position = { x = @MiddleColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -5146,28 +1965,20 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "BATTLE_FOR_THE_BOSPORUS"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "fought_civil_wars"
+						name = "fought_civil_wars_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
-
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
 
 						instantTextboxType = {
-							name = "value"
+							name = "fought_civil_wars"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = FOUGHT_CIVIL_WARS
@@ -5175,11 +1986,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "fought_civil_wars_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_FOUGHT_CIVIL_WARS_LABEL
@@ -5187,7 +1997,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5197,28 +2006,18 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							Orientation = center
 							centerposition = yes
-						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "highest_casualty_civil_war"
+						name = "highest_casualty_civil_war_container"
 						position = { x = @StatContainerLeftX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -5228,48 +2027,37 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarLeftX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference_negative"
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "highest_casualty_civil_war"
 							position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = left
 							maxWidth = @StatNumberTextW
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "highest_casualty_civil_war_label"
 							position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_HIGHEST_CASUALTY_CIVIL_WAR_LABEL
 							format = left
 							maxWidth = @StatLabelTextW
 							text_color_code = L
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "highest_enemy_casualty_civil_war"
+						name = "highest_enemy_casualty_civil_war_container"
 						position = { x = @StatContainerRightX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
 						Orientation = upper_right
 						Origo = upper_right
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -5280,28 +2068,18 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarRightX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = upper_right
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "highest_enemy_casualty_civil_war"
 							position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = right
 							maxWidth = @StatNumberTextW
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "highest_enemy_casualty_civil_war_label"
 							position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_HIGHEST_ENEMY_CASUALTY_CIVIL_WAR_LABEL
@@ -5309,23 +2087,16 @@ guiTypes = {
 							maxWidth = @StatLabelTextW
 							text_color_code = L
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 					}
 				}
 			}
-		}
 
-		containerWindowType = {
-			name = "page6"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
+			### Right Container ###
 
 			containerWindowType = {
 				name = "column_dlc028"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
+				position = { x = @RightColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -5346,28 +2117,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "LA_RESISTANCE"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "successful_operations"
+						name = "successful_operations_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "successful_operations"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = SUCCESSFUL_OPERATIONS
@@ -5375,11 +2143,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "successful_operations_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_SUCCESSFUL_OPERATIONS_LABEL
@@ -5387,7 +2154,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5398,32 +2164,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "recruited_operatives"
+						name = "recruited_operatives_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "recruited_operatives"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = RECRUITED_OPERATIVES
@@ -5431,11 +2187,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "recruited_operatives_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_RECRUITED_OPERATIVES_LABEL
@@ -5443,7 +2198,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5454,32 +2208,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "captured_operatives"
+						name = "captured_operatives_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow3Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "captured_operatives"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = CAPTURED_OPERATIVES
@@ -5487,11 +2231,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "captured_operatives_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_CAPTURED_OPERATIVES_LABEL
@@ -5499,7 +2242,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5510,24 +2252,21 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 				}
 			}
+		}
 
-			### Middle Container ###
+		containerWindowType = {
+			name = "page3"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+
+			### Left Container ###
 
 			containerWindowType = {
 				name = "column_dlc023"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
+				position = { x = @LeftColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -5548,28 +2287,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "MAN_THE_GUNS"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "designed_ships"
+						name = "designed_ships_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "designed_ships"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = DESIGNED_SHIPS
@@ -5577,11 +2313,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "designed_ships_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_DESIGNED_SHIPS_LABEL
@@ -5589,7 +2324,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5599,28 +2333,18 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							Orientation = center
 							centerposition = yes
-						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "admiral_traits_unlocked"
+						name = "admiral_traits_unlocked_container"
 						position = { x = @StatContainerLeftX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -5629,49 +2353,37 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarLeftX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "admiral_traits_unlocked"
 							position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = left
 							maxWidth = @StatNumberTextW
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "admiral_traits_unlocked_label"
 							position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_ADMIRAL_TRAITS_UNLOCKED_LABEL
 							format = left
 							maxWidth = @StatLabelTextW
 							text_color_code = L
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "sunk_convoys"
+						name = "sunk_convoys_container"
 						position = { x = @StatContainerRightX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
 						Orientation = upper_right
 						Origo = upper_right
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -5682,28 +2394,18 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarRightX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = upper_right
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "sunk_convoys"
 							position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = right
 							maxWidth = @StatNumberTextW
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "sunk_convoys_label"
 							position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_SUNK_CONVOYS_LABEL
@@ -5711,25 +2413,23 @@ guiTypes = {
 							maxWidth = @StatLabelTextW
 							text_color_code = L
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "hosted_governments"
+						name = "hosted_governments_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow3Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "hosted_governments"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = HOSTED_GOVERNMENTS
@@ -5737,11 +2437,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "hosted_governments_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_HOSTED_GOVERNMENTS_LABEL
@@ -5749,7 +2448,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5760,24 +2458,15 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 				}
 			}
 
-			### Right Container ###
+			### Middle Container ###
 
 			containerWindowType = {
 				name = "column_dlc022"
-				position = { x = @RightColumnPosX y = @ColumnPosY }
+				position = { x = @MiddleColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -5798,28 +2487,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "WAKING_THE_TIGER"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "general_traits_unlocked"
+						name = "general_traits_unlocked_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "general_traits_unlocked"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = GENERAL_TRAITS_UNLOCKED
@@ -5827,11 +2513,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "general_traits_unlocked_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_GENERAL_TRAITS_UNLOCKED_LABEL
@@ -5839,7 +2524,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5850,32 +2534,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "planes_sent_as_volunteer_force"
+						name = "planes_sent_as_volunteer_force_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "planes_sent_as_volunteer_force"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = PLANES_SENT_AS_VOLUNTEER_FORCE
@@ -5883,11 +2557,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "planes_sent_as_volunteer_force_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_PLANES_SENT_AS_VOLUNTEER_FORCE_LABEL
@@ -5895,7 +2568,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5906,32 +2578,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "captured_equipment"
+						name = "captured_equipment_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow3Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "captured_equipment"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = CAPTURED_EQUIPMENT
@@ -5939,11 +2601,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "captured_equipment_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_CAPTURED_EQUIPMENT_LABEL
@@ -5951,7 +2612,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -5962,30 +2622,15 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 				}
 			}
-		}
 
-		containerWindowType = {
-			name = "page7"
-			position = { x = 0 y = 0 }
-			size = { width = 100% height = 100% }
-
-			### Left Container ###
+			### Right Container ###
 
 			containerWindowType = {
 				name = "column_dlc020"
-				position = { x = @LeftColumnPosX y = @ColumnPosY }
+				position = { x = @RightColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -6006,28 +2651,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "DEATH_OR_DISHONOR"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "puppeted_countries"
+						name = "puppeted_countries_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "puppeted_countries"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = PUPPETED_COUNTRIES
@@ -6035,11 +2677,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "puppeted_countries_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_PUPPETED_COUNTRIES_LABEL
@@ -6047,7 +2688,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -6057,28 +2697,18 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							Orientation = center
 							centerposition = yes
-						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "licensed_foreign_military_tech"
+						name = "licensed_foreign_military_tech_container"
 						position = { x = @StatContainerLeftX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -6087,49 +2717,37 @@ guiTypes = {
 							tooltip = "CAREER_PROFILE_BEST_IN_CAREER_TOOLTIP"
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarLeftX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "licensed_foreign_military_tech"
 							position = { x = @StatNumberTextLeftX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = left
 							maxWidth = @StatNumberTextW
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "licensed_foreign_military_tech_label"
 							position = { x = @StatLabelTextLeftX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_LICENSED_FOREIGN_MILITARY_TECH_LABEL
 							format = left
 							maxWidth = @StatLabelTextW
 							text_color_code = L
-							alwaysTransparent = yes
 						}
 					}
 
 					containerWindowType = {
-						name = "converted_vehicles"
+						name = "converted_vehicles_container"
 						position = { x = @StatContainerRightX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerSideW height = @StatContainerH }
 						Orientation = upper_right
 						Origo = upper_right
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						iconType = {
 							name = "best_in_career_icon"
@@ -6140,28 +2758,18 @@ guiTypes = {
 							centerposition = yes
 						}
 
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarRightX y = @StarSideY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = upper_right
-							centerposition = yes
-							alwaysTransparent = yes
-						}
-
 						instantTextboxType = {
-							name = "value"
+							name = "converted_vehicles"
 							position = { x = @StatNumberTextRightX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = "XXX"
 							format = right
 							maxWidth = @StatNumberTextW
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "converted_vehicles_label"
 							position = { x = @StatLabelTextRightX y = @StatLabelTextY }
 							font = "hoi_18"
 							text = CAREER_PROFILE_CONVERTED_VEHICLES_LABEL
@@ -6169,17 +2777,22 @@ guiTypes = {
 							maxWidth = @StatLabelTextW
 							text_color_code = L
 							Orientation = upper_right
-							alwaysTransparent = yes
 						}
 					}
 				}
 			}
+		}
 
-			### Middle Container ###
+		containerWindowType = {
+			name = "page4"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+
+			### Left Container ###
 
 			containerWindowType = {
 				name = "column_dlc018"
-				position = { x = @MiddleColumnPosX y = @ColumnPosY }
+				position = { x = @LeftColumnPosX y = @ColumnPosY }
 				size = { width = @ColumnWidth height = @ColumnHeight }
 				orientation = center_up
 				origo = center_up
@@ -6200,28 +2813,25 @@ guiTypes = {
 						font = "hoi_36header"
 						borderSize = { x = 0 y = 0 }
 						maxWidth = @DlcTitleW
-						maxHeight = @DlcTitleH
 						format = center
-						vertical_alignment = bottom
 						text = "TOGETHER_FOR_VICTORY"
 						Orientation = center_up
 					}
 
 					containerWindowType = {
-						name = "vehicles_received_by_lease"
+						name = "vehicles_received_by_lease_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow1Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "vehicles_received_by_lease"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = VEHICLES_RECEIVED_BY_LEASE
@@ -6229,11 +2839,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "vehicles_received_by_lease_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_VEHICLES_RECEIVED_BY_LEASE_LABEL
@@ -6241,7 +2850,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -6252,32 +2860,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
 
 					containerWindowType = {
-						name = "vehicles_sent_by_lease"
+						name = "vehicles_sent_by_lease_container"
 						position = { x = @StatContainerCenterX y = @DlcStatsRow2Y }
 						size = { width = @StatContainerCenterW height = @StatContainerH }
 						Orientation = center_up
 						Origo = center_up
-						clipping = no
 
-						background = {
-							name = "background"
-							quadTextureSprite = "GFX_tiled_window_transparent"
-						}
+						#background = {
+						#	name = "background"
+						#	quadTextureSprite = "GFX_tiled_stats_bg"
+						#}
 
 						instantTextboxType = {
-							name = "value"
+							name = "vehicles_sent_by_lease"
 							position = { x = @StatTextCenterX y = @StatNumberTextY }
 							font = "hoi_30"
 							text = VEHICLES_SENT_BY_LEASE
@@ -6285,11 +2883,10 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							multiline = no
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						instantTextboxType = {
-							name = "label"
+							name = "vehicles_sent_by_lease_label"
 							position = { x = @StatTextCenterX y = @StatLabelTextY }
 							font = "hoi_18"
 							text =  CAREER_PROFILE_VEHICLES_SENT_BY_LEASE_LABEL
@@ -6297,7 +2894,6 @@ guiTypes = {
 							maxWidth = @StatTextCenterW
 							text_color_code = L
 							Orientation = center_up
-							alwaysTransparent = yes
 						}
 
 						iconType = {
@@ -6308,16 +2904,22 @@ guiTypes = {
 							Orientation = center
 							centerposition = yes
 						}
-
-						iconType = {
-							name = "compare_stats_difference_icon"
-							position = { x = @StarCenterX y = @StarCenterY }
-							spriteType = "GFX_icon_compare_stats_difference"
-							Orientation = center
-							centerposition = yes
-							alwaysTransparent = yes
-						}
 					}
+				}
+			}
+
+			### Middle Container ###
+
+			containerWindowType = {
+				name = "middle_numbers"
+				position = { x = @MiddleColumnPosX y = @ColumnPosY }
+				size = { width = @ColumnWidth height = @ColumnHeight }
+				orientation = center_up
+				origo = center_up
+
+				background = {
+					name = "background"
+					quadTextureSprite = "GFX_tiled_war_bg_overlay"
 				}
 			}
 
@@ -6342,7 +2944,7 @@ guiTypes = {
 		buttonType = {
 			name = "previous_page_button"
 			Orientation = "center_down"
-			position = { x = -75 y = -15 }
+			position = { x = -65 y = -15 }
 			quadTextureSprite = "GFX_profile_button_navigation_left"
 			centerposition = yes
 		}
@@ -6350,14 +2952,14 @@ guiTypes = {
 		containerWindowType = {
 			name = "page_dots_container"
 			position = { x = 2 y = -15 }
-			size = { width = 120 height = 16 }
+			size = { width = 100 height = 16 }
 			Orientation = center_down
 			Origo = center
 
 			overlappingElementsBoxType = {
 				name = "page_dots"
 				position = { x = 0 y = 0 }
-				size = { x = 120 y = 16 }
+				size = { x = 100 y = 16 }
 				format = center
 				spacing = 1.0
 			}
@@ -6366,7 +2968,7 @@ guiTypes = {
 		buttonType = {
 			name = "next_page_button"
 			Orientation = "center_down"
-			position = { x = 75 y = -15 }
+			position = { x = 65 y = -15 }
 			quadTextureSprite = "GFX_profile_button_navigation_right"
 			centerposition = yes
 		}
