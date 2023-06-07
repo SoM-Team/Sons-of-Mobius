@@ -104,6 +104,33 @@ guiTypes = {
 				max_slots_horizontal = 9
 			}
 		}
+		
+		containerWindowType = {
+			name = "profile_background_grid_container"
+			size = { width = 100% height = 1000} # Height is automatically changed to fit the grid. No need to change it here.
+			position = { x = 0 y = 1120 }
+
+			instantTextboxType = {
+				name = "section_title"
+				position = { x = 20 y = 35 }
+				font = "hoi_30"
+				text = "CAREER_PROFILE_BACKGROUNDS"
+				maxWidth = 1000
+				maxHeight = 50
+				format = left
+			}
+
+			# Always keep the grid last in this container, so the auto-resizing works.
+			gridboxtype = {
+				name = "profile_background_grid"
+				position = { x = 2 y = 90 } # The x position is -(width / 2 - slot margin / 2) to add some margin to the left
+
+				size = { width = 1134 height = 100%% } # The width is slotsize.width * max_slots_horizontal
+				slotsize = { width = 378 height = 150 } # The slot size adds margins between the items
+				format = "UPPER_LEFT"
+				max_slots_horizontal = 3
+			}
+		}
 	}
 
 	containerWindowType = {
@@ -140,6 +167,31 @@ guiTypes = {
 				position = { x = 0 y = 0 }
 				spriteType = "GFX_profile_picture_lock"
 				centerposition = yes
+			}
+
+			containerWindowType = {
+				name = "lock_overlay"
+				position = { x = 0 y = 0 }
+				size = { width = 112 height = 112 }
+				orientation = center
+				origo = center
+
+				background = {
+					name = "background"
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_profile_picture_bg_default" 
+					orientation = center
+					centerposition = yes
+				}
+
+				iconType = {
+					name = "lock"
+					position = { x = -30 y = -30 }
+					spriteType = "GFX_icon_padlock"
+					scale = 0.75
+					centerposition = yes
+					orientation = lower_right
+				}
 			}
 
 			containerWindowType = {
