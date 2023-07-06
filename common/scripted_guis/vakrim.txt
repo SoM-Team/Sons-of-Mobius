@@ -1,0 +1,34 @@
+scripted_gui = {
+    vakrim_button = {
+        window_name = "VakrimButtonWinCont"
+        context_type = player_context
+        parent_window_token = politics_tab
+        
+        visible = {
+            always = yes
+        }
+
+        effects = {
+            VakrimButton_click = {
+                set_country_flag = open_vakrim_panel
+            }
+        }
+    }
+
+    vakrim_panel = { 
+        window_name = "VakrimMainWinCont"
+        context_type = player_context
+        parent_window_token = politics_tab
+        
+        visible = {
+            has_country_flag = open_vakrim_panel
+        }
+
+        effects = {
+            VakrimCloseButton_click = {
+                clr_country_flag = open_vakrim_panel
+            }
+        }
+    }
+       
+}
