@@ -7,14 +7,14 @@ scripted_gui = {
         visible = {
             always = yes
         }
-
+        
         effects = {
             VakrimButton_click = {
                 set_country_flag = open_vakrim_panel
             }
         }
     }
-
+    
     vakrim_panel = { 
         window_name = "VakrimMainWinCont"
         context_type = player_context
@@ -23,17 +23,47 @@ scripted_gui = {
         visible = {
             has_country_flag = open_vakrim_panel
         }
-
+        
         effects = {
             VakrimCloseButton_click = {
                 clr_country_flag = open_vakrim_panel
             }
         }
-
+        
+        effects = {
+            VakrimWinButton1_click = {
+                if = {
+                    limit = {
+                        check_variable = {
+							Vakrim_bar > 49
+						}
+                    }
+                    subtract_from_variable = {
+                        Vakrim_bar = 50
+                    }
+                    
+                    division_template = {
+                        name = "Vakrim"
+                        regiments = {
+                            light_armor = { x = 0 y = 0 }
+                        }
+                    }
+                    
+                    capital_scope = {
+                        create_unit = {
+                            division = "division_template = \"Vakrim\" start_experience_factor = 0.5" 
+                            owner = PREV
+                        }
+                    }
+                }
+            }
+        }     
+        
         properties = {
             VakrimBar1 = {
                 frame = Vakrim_bar
             }
+        }
+        
     }
-       
 }
