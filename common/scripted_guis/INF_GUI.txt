@@ -1,21 +1,50 @@
 scripted_gui = {
-	INF_RUBY_GUI = { # Свойства объектов ГУИ-объектов и название гуишки, которую можно прикрепить к решениям
-		context_type = decision_category
-		window_name = "INF_RUBY_SCHEME"
-	
+	INF_RUBY_BUTTON = {
+		window_name = "INF_RUBY_BUTTON_CONT"
+		context_type = player_context
+		parent_window_token = politics_tab
+		
 		visible = {
-			always = yes
+			has_variable = INF_Ruby_Energy
 		}
 		
+		effects = {
+			INF_RUBY_BUTTON_click = {
+				set_country_flag = INF_show_ruby_panel
+			}
+		}
+	}
+	
+	
+	
+	
+	INF_RUBY_GUI = { 
+		# context_type = decision_category
+		context_type = player_context
+		window_name = "INF_RUBY_SCHEME"
+		parent_window_token = top_bar
+		
+		visible = {
+			has_country_flag = INF_show_ruby_panel
+		}
+
 		triggers = {
-			
+			GUI_RUBY_click_enabled = {
+				check_variable = {
+					INF_Ruby_Energy > 24
+				}
+			}
 		}
-		
+
 		effects = {
 			GUI_RUBY_click = {
 				subtract_from_variable = {
 					INF_Ruby_Energy = 25
 				}
+			}
+
+			INF_RUBY_CloseButton_click = {
+				clr_country_flag = INF_show_ruby_panel
 			}
 		}
 		
