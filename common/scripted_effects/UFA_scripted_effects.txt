@@ -156,3 +156,51 @@ dark_mission_count = { ### Mission Success Mechanic
 		}
 	}
 }
+
+# function to make the sum of parties equal to 1
+normalize_parties = {
+	set_temp_variable = {
+		sum = 0
+	}
+
+	for_each_loop = {
+		array = THIS.party_popularity
+		value = v
+
+		add_to_temp_variable = {
+			sum = v
+		}
+	}
+
+	for_each_loop = {
+		array = THIS.party_popularity
+		value = v
+		index = i
+
+		divide_temp_variable = {
+			v = sum
+		}
+
+		set_variable = {
+			THIS.party_popularity^i = v
+		}
+	}
+}
+
+# for testing purposes
+print_parties = {
+	every_state = {
+		limit = {
+			state_is_election_state = yes
+		}
+
+		log = "[THIS.GetName]:"
+		for_each_loop = {
+			array = THIS.party_popularity
+			value = v
+			index = i
+
+			log = "[?i]: [?v]"
+		}
+	}
+}

@@ -1,0 +1,23 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_state = {
+				limit = {
+					state_is_election_state = yes
+				}
+				resize_array = {
+					party_popularity = 4
+				}
+
+				for_loop_effect = {
+					end = 4
+					value = v
+
+					set_variable_to_random = party_popularity^v
+				}
+
+				normalize_parties = yes
+			}
+		}
+	}
+}
