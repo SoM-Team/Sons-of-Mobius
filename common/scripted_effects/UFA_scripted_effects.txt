@@ -1,4 +1,5 @@
-dark_mission_count = { ### Mission Success Mechanic
+dark_mission_count = {
+	### Mission Success Mechanic
 	set_temp_variable = {
 		a = shadow_factor
 	}
@@ -60,17 +61,19 @@ dark_mission_count = { ### Mission Success Mechanic
 	subtract_from_variable = {
 		f_min = ee
 	}
-	randomize_variable = { ### Variable of Damage
+	randomize_variable = {
+		### Variable of Damage
 		var = e
 		distribution = binomial
-		min = 0 
-		max = e_max 
+		min = 0
+		max = e_max
 	}
-	randomize_variable = { ### Variable of Success
+	randomize_variable = {
+		### Variable of Success
 		var = f
 		distribution = binomial
-		min = f_min 
-		max = 100 
+		min = f_min
+		max = 100
 	}
 	if = {
 		limit = {
@@ -94,19 +97,19 @@ dark_mission_count = { ### Mission Success Mechanic
 		}
 	}
 	### Health damage to each Team DARK member
-	randomize_variable = { 
+	randomize_variable = {
 		var = shadow_damage
 		distribution = binomial
 		min = 0
 		max = e
 	}
-	randomize_variable = { 
+	randomize_variable = {
 		var = rouge_damage
 		distribution = binomial
 		min = 0
 		max = e
 	}
-	randomize_variable = { 
+	randomize_variable = {
 		var = omega_damage
 		distribution = binomial
 		min = 0
@@ -157,50 +160,16 @@ dark_mission_count = { ### Mission Success Mechanic
 	}
 }
 
-# function to make the sum of parties equal to 1
-normalize_parties = {
-	set_temp_variable = {
-		sum = 0
-	}
-
-	for_each_loop = {
-		array = THIS.party_popularity
-		value = v
-
-		add_to_temp_variable = {
-			sum = v
-		}
-	}
-
-	for_each_loop = {
-		array = THIS.party_popularity
-		value = v
-		index = i
-
-		divide_temp_variable = {
-			v = sum
-		}
-
-		set_variable = {
-			THIS.party_popularity^i = v
-		}
-	}
-}
-
 # for testing purposes
 print_parties = {
 	every_state = {
 		limit = {
 			state_is_election_state = yes
 		}
-
 		log = "[THIS.GetName]:"
-		for_each_loop = {
-			array = THIS.party_popularity
-			value = v
-			index = i
-
-			log = "[?i]: [?v]"
-		}
+		log = "popularity_con = [?popularity_con]"
+		log = "popularity_war = [?popularity_war]"
+		log = "popularity_pac = [?popularity_pac]"
+		log = "popularity_prog = [?popularity_prog]"
 	}
 }
