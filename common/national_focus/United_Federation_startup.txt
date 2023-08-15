@@ -1378,16 +1378,23 @@ focus_tree = {
 	focus = {
 		id = UFA_The_Race_Begins
 		icon = GFX_focus_UFA_The_Race_Begins
+
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
+		}
+
 		mutually_exclusive = {
 			
 		}
 		x = 37
 		y = 0
 
-		cost = 10
+		cost = 1
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.7
+			}
 		}
 	}
 	focus = {
@@ -1401,26 +1408,27 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost = 10
+		cost = 5
+
+		allow_branch = {
+			has_completed_focus = UFA_The_Race_Begins
+		}
 
 		completion_reward = {
-			country_event = {   }
 		}
 	}
 	focus = {
 		id = UFA_Get_Our_Hands_Dirty
 		icon = GFX_focus_UFA_Get_Our_Hands_Dirty
 		prerequisite = { focus = UFA_Tour_the_Country }
-		mutually_exclusive = { focus = UFA_Keeping_it_Clean 
-		}
+		mutually_exclusive = { focus = UFA_Keeping_it_Clean }
 		relative_position_id = UFA_The_Race_Begins
 		x = -4
 		y = 2
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
 			add_to_variable = {
 				corruption = 2
 			}
@@ -1435,10 +1443,10 @@ focus_tree = {
 		x = 4
 		y = 2
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_political_power = -20
 		}
 	}
 	focus = {
@@ -1449,10 +1457,16 @@ focus_tree = {
 		x = -6
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.42
+			}
+			add_to_variable = {
+				corruption = 3
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -1463,10 +1477,10 @@ focus_tree = {
 		x = -4
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -1477,10 +1491,23 @@ focus_tree = {
 		x = -2
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.48
+			}
+			add_to_variable = {
+				corruption = 1
+			}
+			390 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+				add_to_variable = {
+					popularity_prog = -1
+				}
+			}
 		}
 	}
 	focus = {
@@ -1492,7 +1519,7 @@ focus_tree = {
 		x = -5
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -1507,7 +1534,7 @@ focus_tree = {
 		x = -4
 		y = 5
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -1521,10 +1548,10 @@ focus_tree = {
 		x = 3
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_stability = -0.05
 		}
 	}
 	focus = {
@@ -1535,10 +1562,20 @@ focus_tree = {
 		x = 5
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			347 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+			}
+
+			396 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+			}
 		}
 	}
 	focus = {
@@ -1550,7 +1587,7 @@ focus_tree = {
 		x = 4
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -1564,7 +1601,7 @@ focus_tree = {
 		x = 4
 		y = 5
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -1578,10 +1615,12 @@ focus_tree = {
 		x = 0
 		y = 5
 
-		cost = 10
+		cost = 2
 
 		completion_reward = {
-			country_event = {   }
+			country_event = { 
+				id = ufa.70
+			}
 		}
 	}
 	focus = {
@@ -1592,10 +1631,13 @@ focus_tree = {
 		x = -3
 		y = 6
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.11
+			}
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -1607,7 +1649,7 @@ focus_tree = {
 		x = -1
 		y = 6
 
-		cost = 10
+		cost = 1
 
 		completion_reward = {
 			country_event = {   }
@@ -1622,7 +1664,7 @@ focus_tree = {
 		x = 1
 		y = 6
 
-		cost = 10
+		cost = 1
 
 		completion_reward = {
 			country_event = {   }
@@ -1636,11 +1678,9 @@ focus_tree = {
 		x = 3
 		y = 6
 
-		cost = 10
+		cost = 3
 
-		completion_reward = {
-			country_event = {   }
-		}
+		completion_reward = {}
 	}
 	focus = {
 		id = UFA_And_the_Winner_Is
@@ -1653,10 +1693,10 @@ focus_tree = {
 		x = 0
 		y = 7
 
-		cost = 10
+		cost = 0
 
 		completion_reward = {
-			country_event = {   }
+			set_country_flag = UFA_election_is_over
 		}
 	}
 	
