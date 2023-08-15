@@ -1,5 +1,4 @@
 UFA_team_DARK = {
-    
 	#send_dark_on_front = { 
 	#	icon = GFX_decision_kill_big
 	#	
@@ -32,12 +31,11 @@ UFA_team_DARK = {
 	#	remove_effect = {
 	#	}
 	#}
-	operation_REDSHIFT = { # RCSR operation
+	operation_REDSHIFT = {
+		# RCSR operation
 		icon = generic_nationalism
-
 		allowed = {
 		}
-		 
 		visible = {
 			AND = {
 				has_country_flag = DARK_deployed
@@ -46,40 +44,34 @@ UFA_team_DARK = {
 				}
 			}
 		}
-
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
-			subtract_from_variable = { team_dark_readyness = -2 }
+			subtract_from_variable = {
+				team_dark_readyness = -2
+			}
 			custom_effect_tooltip = team_dark_operation
 		}
-		
 		fire_only_once = yes
 		days_remove = 1
-
 		remove_effect = {
 		}
 	}
-	
-	operation_DARKSUN = { # Jackalstan operation
+	operation_DARKSUN = {
+		# Jackalstan operation
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		visible = {
 			AND = {
 				has_country_flag = DARK_deployed
@@ -88,40 +80,34 @@ UFA_team_DARK = {
 				}
 			}
 		}
-
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
-			subtract_from_variable = { team_dark_readyness = -2 }
+			subtract_from_variable = {
+				team_dark_readyness = -2
+			}
 			custom_effect_tooltip = team_dark_operation
 		}
-		
 		fire_only_once = yes
 		days_remove = 1
-
 		remove_effect = {
 		}
 	}
-	
-	operation_WHIRLWIND = { # Swartzland operation
+	operation_WHIRLWIND = {
+		# Swartzland operation
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		visible = {
 			AND = {
 				has_country_flag = DARK_deployed
@@ -130,104 +116,90 @@ UFA_team_DARK = {
 				}
 			}
 		}
-
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
-			subtract_from_variable = { team_dark_readyness = -2 }
+			subtract_from_variable = {
+				team_dark_readyness = -2
+			}
 			custom_effect_tooltip = team_dark_operation
 		}
-		
 		fire_only_once = yes
 		days_remove = 1
-
 		remove_effect = {
 		}
 	}
-	
-	operation_IRONSTROM = { # Iron Dominion operation
+	operation_IRONSTROM = {
+		# Iron Dominion operation
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
-			subtract_from_variable = { team_dark_readyness = -2 }
+			subtract_from_variable = {
+				team_dark_readyness = -2
+			}
 			custom_effect_tooltip = team_dark_operation
 		}
-		
 		fire_only_once = yes
 		days_remove = 1
-
 		remove_effect = {
 		}
 	}
-	
-	operation_MOONLIGHT = { # Eggman operation
+	operation_MOONLIGHT = {
+		# Eggman operation
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
 			check_variable = {
 				team_dark_readyness = 1
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
-			subtract_from_variable = { team_dark_readyness = -2 }
+			subtract_from_variable = {
+				team_dark_readyness = -2
+			}
 			custom_effect_tooltip = team_dark_operation
 		}
-		
 		fire_only_once = yes
 		days_remove = 1
-
 		remove_effect = {
 		}
 	}
-}	
+}
+
 UFA_GUN_ops = {
 	UFA_WIP = {
 		icon = GFX_decision_sweat
-		
 		visible = {
 			OR = {
 				check_variable = {
@@ -247,59 +219,45 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		fire_only_once = no
-
 		cost = 10
-		
-		fire_only_once = yes 		#collision is possible
+		fire_only_once = yes		#collision is possible
 		days_remove = 1
-
 		remove_effect = {
 			add_political_power = 10
 		}
 	}
-	
 	UFA_find_the_computer_room = {
 		icon = GFX_decision_computer
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			NOT = {
 				has_country_flag = GUN_active
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 10
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -307,7 +265,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 15
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -319,24 +277,19 @@ UFA_GUN_ops = {
 			}
 		}
 	}
-
 	UFA_Glitch_EGG = {
 		icon = GFX_decision_computer
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				check_variable = {
@@ -347,24 +300,19 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 10
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -372,7 +320,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 5
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -380,24 +328,19 @@ UFA_GUN_ops = {
 			}
 		}
 	}
-	
 	UFA_rescue_robians = {
 		icon = GFX_decision_roboticize
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -413,23 +356,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		days_remove = 15
 		days_re_enable = 35
-
 		remove_effect = {
 			FROM = {
 				add_equipment_to_stockpile = {
@@ -448,24 +386,19 @@ UFA_GUN_ops = {
 			add_manpower = 10000
 		}
 	}
-	
 	UFA_sabotage_DEL = {
 		icon = GFX_decision_eggman_medium
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -481,50 +414,40 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 20
 		days_re_enable = 55
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_minus_del_obedience
-			FROM = {	
-				subtract_from_variable = { 
+			FROM = {
+				subtract_from_variable = {
 					EGG.DEL_1_Submission = 25
 				}
 			}
 		}
 	}
-
 	UFA_sabotage_DEL_2 = {
 		icon = GFX_decision_eggman_medium
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -540,47 +463,38 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 20
 		days_re_enable = 55
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_minus_del_obedience
-			subtract_from_variable = { 
+			subtract_from_variable = {
 				EGG.DEL_2_Submission = 25
 			}
 		}
 	}
 	UFA_sabotage_DEL_3 = {
 		icon = GFX_decision_eggman_medium
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -596,47 +510,38 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 20
 		days_re_enable = 55
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_minus_del_obedience
-			subtract_from_variable = { 
+			subtract_from_variable = {
 				EGG.DEL_3_Submission = 25
 			}
 		}
 	}
 	UFA_sabotage_DEL_4 = {
 		icon = GFX_decision_eggman_medium
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -652,48 +557,38 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 20
 		days_re_enable = 55
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_minus_del_obedience
-			subtract_from_variable = { 
+			subtract_from_variable = {
 				EGG.DEL_4_Submission = 25
 			}
 		}
 	}
-	
 	UFA_arm_freedom_fighters = {
 		icon = GFX_decision_Sonic
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -709,23 +604,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 25
 		days_re_enable = 60
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_plus_freedom_fighters_power
 			add_equipment_to_stockpile = {
@@ -736,43 +626,39 @@ UFA_GUN_ops = {
 			hidden_effect = {
 				FROM = {
 					random_list = {
-						40 = { 
-							add_to_variable = { 
+						40 = {
+							add_to_variable = {
 								ff_activity = 15
 							}
 						}
 						30 = {
-							add_to_variable = { 
+							add_to_variable = {
 								ff_activity = 25
 							}
 						}
 						30 = {
-							add_to_variable = { 
+							add_to_variable = {
 								ff_activity = 30
 							}
 						}
-					}	
+					}
 				}
 			}
 		}
 	}
 	UFA_infiltrate_military_complex = {
 		icon = GFX_decision_kill_delegate
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -788,23 +674,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 35
 		days_re_enable = 70
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			add_tech_bonus = {
@@ -818,12 +699,12 @@ UFA_GUN_ops = {
 						UFA_GUN_presence = 30
 					}
 					clamp_variable = {
-						var = UFA_GUN_presence 
+						var = UFA_GUN_presence
 						min = 0
 						max = 100
 					}
 					random_list = {
-						40 = { 
+						40 = {
 							random_owned_state = {
 								limit = {
 									num_of_military_factories > 0
@@ -856,28 +737,24 @@ UFA_GUN_ops = {
 								}
 							}
 						}
-					}	
+					}
 				}
 			}
 		}
 	}
 	UFA_burn_oil_sea = {
 		icon = GFX_decision_oil_burn
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = EGG
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = EGG
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -893,23 +770,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 35
 		days_re_enable = 70
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -917,7 +789,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 30
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -929,43 +801,34 @@ UFA_GUN_ops = {
 	}
 	UFA_paradrop_saboteurs = {
 		icon = GFX_decision_bomber
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = INF
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = INF
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			NOT = {
 				has_country_flag = GUN_active
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -50
 			}
 		}
-		
 		days_remove = 15
 		days_re_enable = 45
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -977,21 +840,17 @@ UFA_GUN_ops = {
 	}
 	UFA_slave_uprising = {
 		icon = GFX_decision_shackles
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = INF
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = INF
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1007,23 +866,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -50
 			}
 		}
-		
 		days_remove = 25
 		days_re_enable = 35
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -1041,50 +895,41 @@ UFA_GUN_ops = {
 	}
 	UFA_airdrop_propaganda_leaflets = {
 		icon = GFX_decision_bomber
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = RCR
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = RCR
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			NOT = {
 				has_country_flag = GUN_active
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		days_remove = 10
 		days_re_enable = 40
-
 		remove_effect = {
 			FROM = {
 				add_to_variable = {
 					UFA_GUN_presence = 10
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1094,43 +939,34 @@ UFA_GUN_ops = {
 	}
 	UFA_send_spy_workers = {
 		icon = GFX_decision_bunnie
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = RCR
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = RCR
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			NOT = {
 				has_country_flag = GUN_active
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		days_remove = 15
 		days_re_enable = 35
-
 		remove_effect = {
 			add_manpower = -10000
 			custom_effect_tooltip = GUN_add_presense
@@ -1139,7 +975,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 15
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1154,21 +990,17 @@ UFA_GUN_ops = {
 	}
 	UFA_fund_factions = {
 		icon = GFX_decision_bribe
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = RCR
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = RCR
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1192,23 +1024,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 20
 		days_re_enable = 55
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_support_faction
 			hidden_effect = {
@@ -1217,12 +1044,12 @@ UFA_GUN_ops = {
 						UFA_GUN_presence = 10
 					}
 					clamp_variable = {
-						var = UFA_GUN_presence 
+						var = UFA_GUN_presence
 						min = 0
 						max = 100
 					}
 					random_list = {
-						40 = { 
+						40 = {
 							add_popularity = {
 								ideology = autonomous_socialism
 								popularity = 0.05
@@ -1235,13 +1062,13 @@ UFA_GUN_ops = {
 						30 = {
 							add_popularity = {
 								ideology = neosocialism
-								popularity = 0.10
+								popularity = 0.1
 							}
 						}
 						30 = {
 							add_popularity = {
 								ideology = autonomous_socialism
-								popularity = 0.10
+								popularity = 0.1
 							}
 						}
 					}
@@ -1251,21 +1078,17 @@ UFA_GUN_ops = {
 	}
 	UFA_radio_free_Rethenia = {
 		icon = GFX_decision_populism
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = RCR
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = RCR
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1281,23 +1104,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -50
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 25
 		days_re_enable = 60
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -1306,30 +1124,26 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 10
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
-			}	
+			}
 		}
 	}
 	UFA_turmoil_committees = {
 		icon = GFX_decision_ilza
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = RCR
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = RCR
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1344,30 +1158,25 @@ UFA_GUN_ops = {
 					has_country_flag = GUN_active
 				}
 				custom_trigger_tooltip = {
-					tooltip = not_united_RCSR	
+					tooltip = not_united_RCSR
 					FROM = {
 						Rethenia_is_unified = no
 					}
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 74
 		}
-		
 		custom_cost_text = cost_cc_75
-
 		complete_effect = {
 			hidden_effect = {
 				add_command_power = -75
 			}
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 35
 		days_re_enable = 70
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_Committees_away
 			custom_effect_tooltip = GUN_add_presense
@@ -1377,12 +1186,12 @@ UFA_GUN_ops = {
 						UFA_GUN_presence = 25
 					}
 					clamp_variable = {
-						var = UFA_GUN_presence 
+						var = UFA_GUN_presence
 						min = 0
 						max = 100
 					}
 					random_list = {
-						25 = { 
+						25 = {
 							subtract_from_variable = {
 								RCR_NOC_Loyalty = 20
 							}
@@ -1402,28 +1211,24 @@ UFA_GUN_ops = {
 								RCR_NWC_Loyalty = 20
 							}
 						}
-					}	
+					}
 				}
 			}
 		}
 	}
 	UFA_invest_mercian_construction = {
 		icon = GFX_decision_generic_construction
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = MER
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				NOT = {
@@ -1434,18 +1239,14 @@ UFA_GUN_ops = {
 						is_subject_of = RCR
 					}
 				}
-		 	}
+			}
 		}
-		
 		cost = 50
-
 		complete_effect = {
 			set_country_flag = GUN_active
 		}
-		
 		days_remove = 50
 		days_re_enable = 50
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -1453,7 +1254,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 5
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1483,21 +1284,17 @@ UFA_GUN_ops = {
 	}
 	UFA_train_Mercian_army = {
 		icon = GFX_decision_sweat
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = MER
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1518,23 +1315,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		days_remove = 30
 		days_re_enable = 20
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -1542,7 +1334,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 10
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1552,21 +1344,17 @@ UFA_GUN_ops = {
 	}
 	UFA_suppress_mercian_opposition = {
 		icon = GFX_decision_gabnya
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = MER
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				FROM = {
@@ -1587,23 +1375,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -50
 			}
 		}
-		
 		days_remove = 40
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			FROM = {
@@ -1611,7 +1394,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 15
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1621,21 +1404,17 @@ UFA_GUN_ops = {
 	}
 	UFA_support_svyatlales_nationalists = {
 		icon = GFX_decision_giveup
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = SVT
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				MER = {
@@ -1656,31 +1435,26 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -25
 			}
 		}
-		
 		days_remove = 25
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
-			MER = { 
+			MER = {
 				add_to_variable = {
 					UFA_GUN_presence = 5
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1705,21 +1479,17 @@ UFA_GUN_ops = {
 	}
 	UFA_invest_chernivian_oil_gas = {
 		icon = GFX_decision_nuclear_program
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = CHE
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				MER = {
@@ -1740,12 +1510,9 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		cost = 75
-
 		days_remove = 25
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			MER = {
@@ -1753,7 +1520,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 5
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1770,21 +1537,17 @@ UFA_GUN_ops = {
 	}
 	UFA_arm_cherniwian_troops = {
 		icon = GFX_decision_icv
-		
 		target_trigger = {
-            FROM = {
+			FROM = {
 				tag = CHE
-            }
-        }
-		
+			}
+		}
 		visible = {
 			check_variable = {
 				UFA_GUN_target = MER
 			}
 		}
-		
 		fire_only_once = no
-		
 		available = {
 			AND = {
 				MER = {
@@ -1805,23 +1568,18 @@ UFA_GUN_ops = {
 				}
 			}
 		}
-		
 		custom_cost_trigger = {
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50
-
 		complete_effect = {
 			set_country_flag = GUN_active
 			hidden_effect = {
 				add_command_power = -50
 			}
 		}
-
 		days_remove = 40
 		days_re_enable = 40
-
 		remove_effect = {
 			custom_effect_tooltip = GUN_add_presense
 			MER = {
@@ -1829,7 +1587,7 @@ UFA_GUN_ops = {
 					UFA_GUN_presence = 10
 				}
 				clamp_variable = {
-					var = UFA_GUN_presence 
+					var = UFA_GUN_presence
 					min = 0
 					max = 100
 				}
@@ -1859,20 +1617,16 @@ UFA_GUN_ops = {
 		}
 	}
 }
-UFA_Great_Game = { 
+
+UFA_Great_Game = {
 	End_game_UFA = {
 		icon = GFX_decision_icv
-			
 		fire_only_once = yes
-			
 		available = {
 			has_global_flag = Great_game_ended
 		}
-			
 		cost = 100
-			
 		days_remove = 35
-		
 		complete_effect = {
 			if = {
 				limit = {
@@ -1892,7 +1646,6 @@ UFA_Great_Game = {
 				}
 			}
 		}
-
 		remove_effect = {
 			if = {
 				limit = {
@@ -1910,23 +1663,20 @@ UFA_Great_Game = {
 				}
 			}
 		}
-	}	
+	}
 }
 
-UFA_Oil_Crisis = { 
+UFA_Oil_Crisis = {
 	UFA_Oil_Worsens = {
 		icon = GFX_decision_oil_burn
-
 		allowed = {
 			tag = UFA
 		}
 		activation = {
 			has_completed_focus = UFA_Crisis_Worsens
-        }
+		}
 		is_good = no
-
 		days_mission_timeout = 60
-		
 		timeout_effect = {
 			custom_effect_tooltip = OIL_WORSE
 			hidden_effect = {
@@ -1950,15 +1700,11 @@ UFA_Oil_Crisis = {
 		allowed = {
 			tag = UFA
 		}
-		
 		visible = {
 			has_completed_focus = UFA_Search_Alternate_Energy_Supplies
 		}
-		
 		cost = 100
-
 		days_remove = 7
-
 		remove_effect = {
 			FROM = {
 				country_event = {
@@ -1974,299 +1720,252 @@ UFA_National_Tour = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 396
-            }
-        }
-        complete_effect = {
-			396 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			396
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Apotos = {
+	UFA_Tour_Apotos = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 404
-            }
-        }
-        complete_effect = {
-			404 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			404
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Spagonia = {
+	UFA_Tour_Spagonia = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 390
-            }
-        }
-        complete_effect = {
-			390 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			390
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Empire_City = {
+	UFA_Tour_Empire_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 347
-            }
-        }
-        complete_effect = {
-			347 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			347
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Sunset_City = {
+	UFA_Tour_Sunset_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 344
-            }
-        }
-        complete_effect = {
-			344 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			344
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Soleanna = {
+	UFA_Tour_Soleanna = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 340
-            }
-        }
-        complete_effect = {
-			340 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			340
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Sylvania = {
+	UFA_Tour_Sylvania = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 369
-            }
-        }
-        complete_effect = {
-			369 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			369
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Chun_nan = {
+	UFA_Tour_Chun_nan = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 519
-            }
-        }
-        complete_effect = {
-			519 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			519
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Mazuri = {
+	UFA_Tour_Mazuri = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 405
-            }
-        }
-        complete_effect = {
-			405 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			405
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Shamar = {
+	UFA_Tour_Shamar = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 677
-            }
-        }
-        complete_effect = {
-			677 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			677
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_To_Kyoto = {
+	UFA_Tour_To_Kyoto = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 687
-            }
-        }
-        complete_effect = {
-			687 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			687
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Station_Square = {
+	UFA_Tour_Station_Square = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 548
-            }
-        }
-        complete_effect = {
-			548 = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			548
+		}
+		complete_effect = {
+			FROM = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
 }
@@ -2276,311 +1975,264 @@ UFA_Issue_Campaigns = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 396
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			396
+		}
+		complete_effect = {
 			396 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Apotos = {
+	UFA_Campaign_in_Apotos = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 404
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			404
+		}
+		complete_effect = {
 			404 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Spagonia = {
+	UFA_Campaign_in_Spagonia = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 390
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			390
+		}
+		complete_effect = {
 			390 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Empire_City = {
+	UFA_Campaign_in_Empire_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 347
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			347
+		}
+		complete_effect = {
 			347 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Sunset_City = {
+	UFA_Campaign_in_Sunset_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 344
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			344
+		}
+		complete_effect = {
 			344 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Soleanna = {
+	UFA_Campaign_in_Soleanna = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 340
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			340
+		}
+		complete_effect = {
 			340 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Sylvania = {
+	UFA_Campaign_in_Sylvania = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 369
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			369
+		}
+		complete_effect = {
 			369 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Chun_nan = {
+	UFA_Campaign_in_Chun_nan = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 519
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			519
+		}
+		complete_effect = {
 			519 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Mazuri = {
+	UFA_Campaign_in_Mazuri = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 405
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			405
+		}
+		complete_effect = {
 			405 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Shamar = {
+	UFA_Campaign_in_Shamar = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 677
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			677
+		}
+		complete_effect = {
 			677 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_To_Kyoto = {
+	UFA_Campaign_in_To_Kyoto = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 687
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			687
+		}
+		complete_effect = {
 			687 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Station_Square = {
+	UFA_Campaign_in_Station_Square = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-                state = 548
-            }
-        }
-        complete_effect = {
+		state_target = yes
+		on_map_mode = map_only
+		targets = {
+			548
+		}
+		complete_effect = {
 			548 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
 }
