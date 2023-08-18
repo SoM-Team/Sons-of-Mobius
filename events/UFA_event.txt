@@ -339,18 +339,35 @@ country_event = {
 			}
 			mark_focus_tree_layout_dirty = yes
 		}
+		country_event = {
+			# TODO: actual days
+			id = ufa.12
+			days = 20
+		}
 	}
 	option = {
 		# name of option
 		name = ufa.10.b
+		country_event = {
+			id = ufa.12
+			days = 20
+		}
 	}
 	option = {
 		# name of option
 		name = ufa.10.c
+		country_event = {
+			id = ufa.12
+			days = 20
+		}
 	}
 	option = {
 		# name of option
 		name = ufa.10.e
+		country_event = {
+			id = ufa.12
+			days = 20
+		}
 	}
 }
 
@@ -384,6 +401,12 @@ country_event = {
 	option = {
 		# name of option
 		name = ufa.12.a
+
+		country_event = {
+			id = ufa.71
+
+			days = 30
+		}
 	}
 }
 
@@ -1314,3 +1337,128 @@ country_event = {
 		name = ufa.70.a
 	}
 }
+
+# event for finishing the election
+country_event = {
+	id = ufa.71
+	title = ufa.71.t
+	desc = ufa.71.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		# name of option
+		name = ufa.71.a
+		
+		hidden_effect = {
+			set_temp_variable = {
+				total_con = 0
+			}
+			set_temp_variable = {
+				total_war = 0
+			}
+			set_temp_variable = {
+				total_prog = 0
+			}
+			set_temp_variable = {
+				total_pac = 0
+			}
+
+			every_state = {
+				limit = {
+					state_is_election_state = yes
+				}
+				
+				set_temp_variable = {
+					p = THIS.popularity_con
+				}
+
+				multiply_temp_variable = {
+					p = THIS.election_coeff
+				}
+
+				add_to_temp_variable = {
+					total_con = p
+				}
+				
+				set_temp_variable = {
+					p = THIS.popularity_war
+				}
+
+				multiply_temp_variable = {
+					p = THIS.election_coeff
+				}
+
+				add_to_temp_variable = {
+					total_war = p
+				}
+				
+				set_temp_variable = {
+					p = THIS.popularity_prog
+				}
+
+				multiply_temp_variable = {
+					p = THIS.election_coeff
+				}
+
+				add_to_temp_variable = {
+					total_prog = p
+				}
+				
+				set_temp_variable = {
+					p = THIS.popularity_pac
+				}
+
+				multiply_temp_variable = {
+					p = THIS.election_coeff
+				}
+
+				add_to_temp_variable = {
+					total_pac = p
+				}
+			}
+
+			ROOT = {
+				if = {
+					limit = {
+						check_variable = { total_con > total_war }
+						check_variable = { total_con > total_prog }
+						check_variable = { total_con > total_pac }
+					}
+
+					set_country_flag = UFA_winner_is_con
+				}
+				else_if = {
+					limit = {
+						check_variable = { total_war > total_con }
+						check_variable = { total_war > total_prog }
+						check_variable = { total_war > total_pac }
+					}
+
+					set_country_flag = UFA_winner_is_war
+				}
+				else_if = {
+					limit = {
+						check_variable = { total_prog > total_war }
+						check_variable = { total_prog > total_con }
+						check_variable = { total_prog > total_pac }
+					}
+
+					set_country_flag = UFA_winner_is_prog
+				}
+				else = {
+					set_country_flag = UFA_winner_is_pac
+				}
+			}
+
+			set_country_flag = UFA_election_complete
+
+			country_event = {
+				id = ufa.36
+				days = 10
+			}
+		}
+	}
+} 
