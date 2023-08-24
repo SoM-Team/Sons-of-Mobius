@@ -195,16 +195,16 @@ focus_tree = {
 	focus = {
 		id = UFA_The_Race_Begins
 		icon = GFX_focus_UFA_The_Race_Begins
-		mutually_exclusive = {
-			
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
 		}
 		x = 37
 		y = 0
-
-		cost = 10
-
+		cost = 1
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.7
+			}
 		}
 	}
 
@@ -212,17 +212,16 @@ focus_tree = {
 		id = UFA_Tour_the_Country
 		icon = GFX_focus_UFA_Tour_the_Country
 		prerequisite = { focus = UFA_The_Race_Begins }
-		mutually_exclusive = {
-			
+		mutually_exclusive = {			
 		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 0
 		y = 1
-
-		cost = 10
-
+		cost = 5
+		allow_branch = {
+			has_completed_focus = UFA_The_Race_Begins
+		}
 		completion_reward = {
-			country_event = {   }
 		}
 	}
 
@@ -234,10 +233,12 @@ focus_tree = {
 		x = 0
 		y = 5
 
-		cost = 10
+		cost = 2
 
 		completion_reward = {
-			country_event = {   }
+			country_event = { 
+				id = ufa.70
+			}
 		}
 	}
 
@@ -253,7 +254,7 @@ focus_tree = {
 		cost = 10
 
 		completion_reward = {
-			country_event = {   }
+			#Available as Head of State: Christina Cooper Ms. Reliable Stability +10% −10% political advisor cost
 		}
 	}
 
@@ -269,7 +270,7 @@ focus_tree = {
 		cost = 10
 
 		completion_reward = {
-			country_event = {   }
+			#Available as Head of State: Jerome Wise: Ambitious Spin Doctor: Monthly Corruption -.1 Daily political power +10% Stability -5%
 		}
 	}
 
@@ -281,10 +282,13 @@ focus_tree = {
 		x = -3
 		y = 6
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.11
+			}
+			add_political_power = 100
 		}
 	}
 
@@ -299,7 +303,7 @@ focus_tree = {
 		cost = 10
 
 		completion_reward = {
-			country_event = {   }
+			#
 		}
 	}
 
@@ -313,10 +317,10 @@ focus_tree = {
 		x = -4
 		y = 2
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			#
 			add_to_variable = {
 				corruption = 2
 			}
@@ -331,10 +335,16 @@ focus_tree = {
 		x = -6
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.42
+			}
+			add_to_variable = {
+				corruption = 3
+			}
+			add_political_power = 100
 		}
 	}
 
@@ -346,10 +356,10 @@ focus_tree = {
 		x = -4
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_stability = -0.05
 		}
 	}
 
@@ -361,10 +371,23 @@ focus_tree = {
 		x = -2
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			country_event = {
+				id = ufa.48
+			}
+			add_to_variable = {
+				corruption = 1
+			}
+			390 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+				add_to_variable = {
+					popularity_prog = -1
+				}
+			}
 		}
 	}
 
@@ -377,7 +400,7 @@ focus_tree = {
 		x = -5
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -409,10 +432,10 @@ focus_tree = {
 		x = 4
 		y = 2
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_political_power = -20
 		}
 	}
 
@@ -424,10 +447,10 @@ focus_tree = {
 		x = 3
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			add_stability = -0.05
 		}
 	}
 
@@ -439,10 +462,20 @@ focus_tree = {
 		x = 5
 		y = 3
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
-			country_event = {   }
+			347 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+			}
+
+			396 = {
+				add_to_variable = {
+					popularity_con = 1
+				}
+			}
 		}
 	}
 
@@ -455,7 +488,7 @@ focus_tree = {
 		x = 4
 		y = 4
 
-		cost = 10
+		cost = 3
 
 		completion_reward = {
 			country_event = {   }
@@ -488,22 +521,32 @@ focus_tree = {
 		x = 0
 		y = 7
 
-		cost = 10
+		cost = 0
+
+		bypass = {
+			has_country_flag = UFA_election_complete
+		}
 
 		completion_reward = {
-			country_event = {   }
+			#
 		}
 	}
 
 	focus = {
 		id = UFA_President_Michael
-		icon = GFX_goal_unknown
-		prerequisite = { focus = UFA_And_the_Winner_Is }
-		relative_position_id = UFA_The_Race_Begins
-		x = 0
-		y = 8
+		prerequisite = {
+			focus = UFA_And_the_Winner_Is
+		}
 
-		cost = 10
+		available = {
+			has_country_flag = UFA_winner_is_con
+		}
+		relative_position_id = UFA_And_the_Winner_Is
+
+		x = 0
+		y = 1
+
+		cost = 0
 
 		completion_reward = {
 			set_politics = {
