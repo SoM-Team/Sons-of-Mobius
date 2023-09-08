@@ -338,6 +338,7 @@ country_event = {
 				keep_completed = yes
 			}
 			mark_focus_tree_layout_dirty = yes
+			set_country_flag = UFA_conservative_path
 		}
 		country_event = {
 			# TODO: actual days
@@ -345,30 +346,30 @@ country_event = {
 			days = 20
 		}
 	}
-	option = {
-		# name of option
-		name = ufa.10.b
-		country_event = {
-			id = ufa.12
-			days = 20
-		}
-	}
-	option = {
-		# name of option
-		name = ufa.10.c
-		country_event = {
-			id = ufa.12
-			days = 20
-		}
-	}
-	option = {
-		# name of option
-		name = ufa.10.e
-		country_event = {
-			id = ufa.12
-			days = 20
-		}
-	}
+#	option = {
+#		# name of option
+#		name = ufa.10.b
+#		country_event = {
+#			id = ufa.12
+#			days = 20
+#		}
+#	}
+#	option = {
+#		# name of option
+#		name = ufa.10.c
+#		country_event = {
+#			id = ufa.12
+#			days = 20
+#		}
+#	}
+#	option = {
+#		# name of option
+#		name = ufa.10.e
+#		country_event = {
+#			id = ufa.12
+#			days = 20
+#		}
+#	}
 }
 
 country_event = {
@@ -1462,3 +1463,64 @@ country_event = {
 		}
 	}
 } 
+
+country_event = {
+	# Scandals
+	id = ufa.500
+	title = ufa.500.t
+	desc = ufa.500.d
+
+	is_triggered_only = yes
+
+	option = {
+		# name of option
+		name = ufa.500.a
+		random_list = {
+			var:corruption = {
+				set_variable = {
+					UFA_Scandals = 1
+				}
+			}
+			1 = {
+				set_variable = {
+					UFA_Scandals = 0
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Scandals
+	id = ufa.501
+	title = ufa.501.t
+	desc = ufa.501.d
+
+	is_triggered_only = yes
+
+	option = {
+		# name of option
+		name = ufa.501.a
+		if = {
+				limit = { check_variable = {
+					UFA_Scandals = 0
+				} 
+			}
+			add_political_power = var:corruption
+		}
+		else_if = {
+				limit = { check_variable = {
+					UFA_Scandals = 1
+				}
+			}
+			set_temp_variable = {
+				UFA501Reward = var:corruption
+			}
+			multiply_temp_variable = {
+				var = UFA501Reward 
+				value = -2
+			}
+			add_political_power = temp_var:UFA501Reward
+		}
+	}
+}
