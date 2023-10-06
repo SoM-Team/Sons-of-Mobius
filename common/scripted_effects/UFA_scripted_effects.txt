@@ -173,3 +173,30 @@ print_parties = {
 		log = "popularity_prog = [?popularity_prog]"
 	}
 }
+
+UFA_Eggman_Robots_on_Riot = {
+	hidden_effect = {
+		RBR = {
+			add_state_core = 70
+			add_state_core = 53
+			add_state_core = 100
+			add_state_core = 71
+			add_state_core = 65
+			add_state_core = 57
+			add_state_core = 56
+			add_state_core = 75
+			add_state_core = 69
+			every_owned_state = {
+				limit = { is_core_of = RBR }
+				RBR = { transfer_state = PREV }
+				teleport_armies = {
+					limit = { tag = EGG }
+					to_state_array = owned_controlled_states
+				}
+			}
+		}
+		EGG = {
+			RBR = { transfer_technology = yes }
+		}
+	}
+}

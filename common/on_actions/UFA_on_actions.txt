@@ -173,6 +173,7 @@ on_actions = {
 		}
 	}
 }
+
 #TODO: actual coeffs
 on_actions = {
 	on_startup = {
@@ -381,6 +382,39 @@ on_actions = {
 					election_coeff = 1
 				}
 			}
+		}
+	}
+}
+
+on_startup = {
+	set_variable = {
+		var = UFA_Federal_Unity
+		value = 100
+	}
+}
+
+on_daily_UFA = {
+	effect = {
+		if = {
+			limit = {
+				check_variable = {
+					stability > UFA_Federal_Unity
+				}
+			}
+			set_stability = federal_unity
+		}
+	}
+}
+
+on_daily_UFA = {
+	effect = {
+		if = {
+			limit = {
+				check_variable = {
+					war_support > UFA_Federal_Unity
+				}
+			}
+			set_war_support = federal_unity
 		}
 	}
 }
