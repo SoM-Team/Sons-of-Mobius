@@ -1713,6 +1713,116 @@ UFA_Oil_Crisis = {
 			}
 		}
 	}
+	UFA_Invest_In_Solar_Power = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Move_into_Renewables
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 0
+		modifier = {
+			civilian_factory_use = 10
+		}
+		remove_effect = {
+			set_country_flag = UFA_Has_Solar_Power
+		}
+		days_remove = 60
+	}
+	UFA_Invest_In_Wind_Power = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Move_into_Renewables
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 0
+		modifier = {
+			civilian_factory_use = 10
+		}
+		remove_effect = {
+			set_country_flag = UFA_Has_Wind_Power
+		}
+		days_remove = 60
+	}
+	UFA_Invest_In_Hydro_Power = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Move_into_Renewables
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 0
+		modifier = {
+			civilian_factory_use = 10
+		}
+		remove_effect = {
+			set_country_flag = UFA_Has_Hydro_Power
+		}
+		days_remove = 60
+	}
+	UFA_Build_More_Nuclear_Power_Plants = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Move_into_Renewables
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 0
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			set_country_flag = UFA_Has_Nuclear_Power
+		}
+		days_remove = 90
+	}
+	UFA_Encourage_Power_Conservation = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Move_into_Renewables
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 100
+		complete_effect = {
+			set_country_flag = UFA_Rationalised_Energy_Consumption
+		}
+	}
+	UFA_Announce_Energy_Independence = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Rationalised_Energy_Consumption
+			has_country_flag = UFA_Has_Hydro_Power
+			has_country_flag = UFA_Has_Nuclear_Power
+			has_country_flag = UFA_Has_Solar_Power
+			has_country_flag = UFA_Has_Wind_Power
+		}
+		visible = {
+			has_completed_focus = UFA_Crisis_Worsens
+		}
+		cost = 0
+		complete_effect = {
+			remove_ideas = Oil_Crisis_3235_2
+		}
+	}
 }
 
 UFA_National_Tour = {
@@ -1720,299 +1830,252 @@ UFA_National_Tour = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 396
-            }
-        }
-        complete_effect = {
+				state = 396
+			}
+		}
+		complete_effect = {
 			396 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Apotos = {
+	UFA_Tour_Apotos = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 404
-            }
-        }
-        complete_effect = {
+				state = 404
+			}
+		}
+		complete_effect = {
 			404 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Spagonia = {
+	UFA_Tour_Spagonia = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 390
-            }
-        }
-        complete_effect = {
+				state = 390
+			}
+		}
+		complete_effect = {
 			390 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Empire_City = {
+	UFA_Tour_Empire_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 347
-            }
-        }
-        complete_effect = {
+				state = 347
+			}
+		}
+		complete_effect = {
 			347 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Sunset_City = {
+	UFA_Tour_Sunset_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 344
-            }
-        }
-        complete_effect = {
+				state = 344
+			}
+		}
+		complete_effect = {
 			344 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Soleanna = {
+	UFA_Tour_Soleanna = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 340
-            }
-        }
-        complete_effect = {
+				state = 340
+			}
+		}
+		complete_effect = {
 			340 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Sylvania = {
+	UFA_Tour_Sylvania = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 369
-            }
-        }
-        complete_effect = {
+				state = 369
+			}
+		}
+		complete_effect = {
 			369 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Chun_nan = {
+	UFA_Tour_Chun_nan = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 519
-            }
-        }
-        complete_effect = {
+				state = 519
+			}
+		}
+		complete_effect = {
 			519 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Mazuri = {
+	UFA_Tour_Mazuri = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 405
-            }
-        }
-        complete_effect = {
+				state = 405
+			}
+		}
+		complete_effect = {
 			405 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Shamar = {
+	UFA_Tour_Shamar = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 677
-            }
-        }
-        complete_effect = {
+				state = 677
+			}
+		}
+		complete_effect = {
 			677 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_To_Kyoto = {
+	UFA_Tour_To_Kyoto = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 687
-            }
-        }
-        complete_effect = {
+				state = 687
+			}
+		}
+		complete_effect = {
 			687 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
-
-    UFA_Tour_Station_Square = {
+	UFA_Tour_Station_Square = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Tour_the_Country
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 548
-            }
-        }
-        complete_effect = {
+				state = 548
+			}
+		}
+		complete_effect = {
 			548 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
 		fire_only_once = yes
 	}
 }
@@ -2022,373 +2085,2406 @@ UFA_Issue_Campaigns = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 396
-            }
-        }
-        complete_effect = {
+				state = 396
+			}
+		}
+		complete_effect = {
 			396 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Apotos = {
+	UFA_Campaign_in_Apotos = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 404
-            }
-        }
-        complete_effect = {
+				state = 404
+			}
+		}
+		complete_effect = {
 			404 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Spagonia = {
+	UFA_Campaign_in_Spagonia = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 390
-            }
-        }
-        complete_effect = {
+				state = 390
+			}
+		}
+		complete_effect = {
 			390 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Empire_City = {
+	UFA_Campaign_in_Empire_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 347
-            }
-        }
-        complete_effect = {
+				state = 347
+			}
+		}
+		complete_effect = {
 			347 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Sunset_City = {
+	UFA_Campaign_in_Sunset_City = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 344
-            }
-        }
-        complete_effect = {
+				state = 344
+			}
+		}
+		complete_effect = {
 			344 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Soleanna = {
+	UFA_Campaign_in_Soleanna = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 340
-            }
-        }
-        complete_effect = {
+				state = 340
+			}
+		}
+		complete_effect = {
 			340 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Sylvania = {
+	UFA_Campaign_in_Sylvania = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 369
-            }
-        }
-        complete_effect = {
+				state = 369
+			}
+		}
+		complete_effect = {
 			369 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Chun_nan = {
+	UFA_Campaign_in_Chun_nan = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 519
-            }
-        }
-        complete_effect = {
+				state = 519
+			}
+		}
+		complete_effect = {
 			519 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Mazuri = {
+	UFA_Campaign_in_Mazuri = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 405
-            }
-        }
-        complete_effect = {
+				state = 405
+			}
+		}
+		complete_effect = {
 			405 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Shamar = {
+	UFA_Campaign_in_Shamar = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 677
-            }
-        }
-        complete_effect = {
+				state = 677
+			}
+		}
+		complete_effect = {
 			677 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_To_Kyoto = {
+	UFA_Campaign_in_To_Kyoto = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 687
-            }
-        }
-        complete_effect = {
+				state = 687
+			}
+		}
+		complete_effect = {
 			687 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
-
-    UFA_Campaign_in_Station_Square = {
+	UFA_Campaign_in_Station_Square = {
 		allowed = {
 			tag = UFA
 		}
-
 		visible = {
 			has_completed_focus = UFA_Start_Issue_Campaigns
 		}
-
 		highlight_states = {
 			highlight_state_targets = {
-                state = 548
-            }
-        }
-        complete_effect = {
+				state = 548
+			}
+		}
+		complete_effect = {
 			548 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
-            }
+			}
 		}
-
-        cost = 10
-        days_re_enable = 30
+		cost = 10
+		days_re_enable = 30
 	}
 }
 
-#UFA_Scandals = {
-#	UFA_Local_Election_Fraud = {
-#		activation = {
-#			check_variable = {
-#				UFA_Scandals = 1
-#			}
-#		}
-#		allowed = {
-#			tag = UFA
-#		}
-#		available = {
-#			always = no
-#		}
-#		visible = {
-#			always = yes
-#		}
-#		icon = x
-#		is_good = no
-#		days_mission_timeout = 3
-#		selectable_mission = no
-#		complete_effect = {
-#			add_political_power = 50
-#		}
-#		timeout_effect = {
-#			add_political_power = -50
-#		}
-#	}
+UFA_Assault_Opponents = {
+	UFA_Assault_the_Warhawks = {
+		allowed = {
+			tag = UFA
+		}
+		visible = {
+			has_completed_focus = UFA_Get_Our_Hands_Dirty
+		}
+		complete_effect = {
+			random_list = {
+				10 = {
+					396 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					404 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					390 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					347 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					344 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					340 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					369 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					519 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					405 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					677 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					687 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+				10 = {
+					548 = {
+						add_to_variable = {
+							popularity_war = -1
+						}
+					}
+				}
+			}
+		}
+		cost = 25
+		days_re_enable = 30
+	}
+	UFA_Assault_the_Liberals = {
+		allowed = {
+			tag = UFA
+		}
+		visible = {
+			has_completed_focus = UFA_Get_Our_Hands_Dirty
+		}
+		complete_effect = {
+			random_list = {
+				10 = {
+					396 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					404 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					390 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					347 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					344 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					340 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					369 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					519 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					405 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					677 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					687 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+				10 = {
+					548 = {
+						add_to_variable = {
+							popularity_pac = -1
+						}
+					}
+				}
+			}
+		}
+		cost = 25
+		days_re_enable = 30
+	}
+	UFA_Assault_the_Progressives = {
+		allowed = {
+			tag = UFA
+		}
+		visible = {
+			has_completed_focus = UFA_Get_Our_Hands_Dirty
+		}
+		complete_effect = {
+			random_list = {
+				10 = {
+					396 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					404 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					390 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					347 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					344 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					340 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					369 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					519 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					405 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					677 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					687 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+				10 = {
+					548 = {
+						add_to_variable = {
+							popularity_prog = -1
+						}
+					}
+				}
+			}
+		}
+		cost = 25
+		days_re_enable = 30
+	}
+}
 
-#	UFA_Seagate_Scandal = {
-#		activation = {
-#			has_completed_focus = UFA_Wiretap_our_Opponents
-#		}
-#		allowed = {
-#			tag = UFA
-#		}
-#		available = {
-#			always = no
-#		}
-#		visible = {
-#			always = yes
-#		}
-#		icon = x
-#		is_good = no
-#		days_mission_timeout = 3
-#		selectable_mission = no
-#		complete_effect = {
-#			add_political_power = 50
-#		}
-#		timeout_effect = {
-#			add_popularity = {
-#				ideology = conservatism
-#				popularity = -0.05
-#			}
-#			add_to_variable = {
-#				federal_unity = -10
-#			}
-#		}
-#		fire_only_once = yes
-		#Lose 5% Conservative Popularity, Lose 10 Federal Unity, Gain National Spirit ‘Seagate Revelations’ for 720 days, effect: -.1 Federal Unity/month
-#	}
-#}
+UFA_Jackalstan_Ops = {
+	UFA_Investigate_Jackalstan = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Investigate_Jackalstan
+			command_power > 14
+		}
+		visible = {
+			has_completed_focus = UFA_Investigate_Jackalstan
+		}
+		complete_effect = {
+			set_country_flag = UFA_Jackalstan_Ops
+		}
+		cost = 0		#operations success mechanic
+	}
+	UFA_Zero_Hour = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Jackalstan_Ops
+			has_completed_focus = UFA_The_Start_of_Infinity
+		}
+		visible = {
+			has_completed_focus = UFA_Investigate_Jackalstan
+		}
+		complete_effect = {
+			country_event = ufa.25
+		}
+		cost = 0		#operations success mechanic
+	}
+	UFA_Desert_Underground = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Jackalstan_Ops
+			has_completed_focus = UFA_Contact_the_Resistance
+		}
+		visible = {
+			has_completed_focus = UFA_Investigate_Jackalstan
+		}
+		complete_effect = {
+			country_event = ufa.26
+		}
+		cost = 0		#operations success mechanic
+	}
+	UFA_Phantom_Thief = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Jackalstan_Ops
+			has_completed_focus = UFA_Operation_Phantom_Thief
+		}
+		visible = {
+			has_completed_focus = UFA_Investigate_Jackalstan
+		}
+		complete_effect = {
+			#Jackalstan loses all bonuses from Phantom Ruby 
+		}
+		cost = 0		#operations success mechanic
+	}
+}
+
+UFA_Eggman_Ops = {
+	UFA_Steal_Chaos_Emeralds = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			#chance to steal the Chaos Emeralds
+		}
+		cost = 0
+		days_re_enable = 90
+	}
+	UFA_Scramble_Technology = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Son_of_a_Glitch
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			EGG = {
+				add_timed_idea = {
+					idea = EGG_Scrambled
+					days = 90
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 180
+	}
+	UFA_Poach_Technology = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Poaching_Eggheads
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			random_list = {
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = industry
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = electronics
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = infantry_weapons
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = support_tech
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = artillery
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = robot_techs
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = air_equipment
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = naval_equipment
+					}
+				}
+				1 = {
+					add_tech_bonus = {
+						name = Poached_Eggheads
+						bonus = 0.25
+						uses = 1
+						category = heavy_air
+					}
+				}
+			}
+		}
+		cost = 0
+	}
+	UFA_Son_of_a_Glitch = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Son_of_a_Glitch
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			EGG = {
+				add_timed_idea = {
+					idea = EGG_Glitching_Communications
+					days = 60
+				}
+			}
+		}
+		cost = 0
+	}
+	UFA_Burn_the_Oil_Ocean = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Burn_the_Oil_Ocean
+			has_equipment = {
+				support_equipment = 2000
+			}
+			has_equipment = {
+				infantry_equipment = 12000
+			}
+			has_equipment = {
+				transport_plane_equipment = 50
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			EGG = {
+				add_resource = {
+					type = oil
+					amount = -50
+					state = 56
+				}
+				56 = {
+					add_state_modifier = {
+						modifier = {
+							disable_strategic_redeployment = 1
+							local_factories = -4
+							local_building_slots = -1
+							local_supplies = -0.3
+							local_manpower = -25000
+							army_speed_factor = -0.2
+							army_defence_factor = -0.2
+							army_attack_factor = -0.05
+						}
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 60
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 80
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 80
+					}
+					damage_building = {
+						type = radar_station
+						damage = 40
+					}
+					damage_building = {
+						type = air_base
+						damage = 100
+					}
+					damage_building = {
+						type = synthetic_refinery
+						damage = 100
+					}
+					damage_building = {
+						type = rocket_site
+						damage = 100
+					}
+					damage_building = {
+						type = nuclear_reactor
+						damage = 20
+					}
+					damage_building = {
+						type = anti_air_building
+						damage = 60
+					}
+					damage_building = {
+						type = fuel_silo
+						damage = 100
+					}
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -2000
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -12000
+				}
+				add_equipment_to_stockpile = {
+					type = transport_plane_equipment
+					amount = -50
+				}
+			}
+		}
+		cost = 0
+	}
+	UFA_Destroy_Fuel_Reserves = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Burn_the_Oil_Ocean
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			EGG = {
+				add_fuel = -10000
+			}
+		}
+		cost = 0
+		days_re_enable = 120
+	}
+	UFA_Decrease_Northamer_DEL_Loyalty = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			NRD = {
+				add_to_variable = {
+					var = DEL_2_Submission
+					value = -5
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 120
+	}
+	UFA_Decrease_Great_Desert_DEL_Loyalty = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			NRD = {
+				add_to_variable = {
+					var = DEL_3_Submission
+					value = -5
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 120
+	}
+	UFA_Decrease_Soumerica_DEL_Loyalty = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			NRD = {
+				add_to_variable = {
+					var = DEL_4_Submission
+					value = -5
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 120
+	}
+	UFA_Decrease_Central_DEL_Loyalty = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		visible = {
+			has_completed_focus = UFA_Keep_Him_Busy
+		}
+		complete_effect = {
+			NRD = {
+				add_to_variable = {
+					var = DEL_1_Submission
+					value = -5
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 120
+	}
+}
+
+UFA_Legacy_of_Gamma = {
+	UFA_Light_Up_the_Night = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+			num_of_civilian_factories_available_for_projects > 14
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			set_country_flag = UFA_Light_Up_the_Night
+		}
+		cost = 0
+		days_remove = 90
+	}
+	UFA_Set_Beacon_in_Robotropolis = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Robotropolis
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Robotropolis
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Cyber_City = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Cyber_City
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Cyber_City
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Cosmopolis = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Cosmopolis
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Cosmopolis
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Titanhog = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Titanhog
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Titanhog
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Scrap_Brain = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Scrap_Brain
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Scrap_Brain
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Bullet_City = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Bullet_City
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Bullet_City
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Chemical_Brain = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Chemical_Brain
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Chemical_Brain
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Sand_Blast = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Sand_Blast
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Sand_Blast
+		}
+		cost = 0
+	}
+	UFA_Set_Beacon_in_Oil_Ocean = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Light_Up_the_Night
+			NOT = {
+				has_country_flag = UFA_Set_Beacon_in_Oil_Ocean
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Legacy_of_Gamma
+		}
+		complete_effect = {
+			set_country_flag = UFA_Set_Beacon_in_Oil_Ocean
+		}
+		cost = 0
+	}
+	UFA_A_Beacon_of_Light_from_a_Burning_Screen = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_country_flag = UFA_Set_Beacon_in_Robotropolis
+			has_country_flag = UFA_Set_Beacon_in_Cyber_City
+			has_country_flag = UFA_Set_Beacon_in_Cosmopolis
+			has_country_flag = UFA_Set_Beacon_in_Titanhog
+			has_country_flag = UFA_Set_Beacon_in_Scrap_Brain
+			has_country_flag = UFA_Set_Beacon_in_Bullet_City
+			has_country_flag = UFA_Set_Beacon_in_Chemical_Brain
+			has_country_flag = UFA_Set_Beacon_in_Sand_Blast
+			has_country_flag = UFA_Set_Beacon_in_Oil_Ocean
+		}
+		visible = {
+			has_completed_focus = UFA_Empathy_Plague
+		}
+		complete_effect = {
+			RBR = {
+				load_oob = "RBR_3236"
+			}
+			country_event = ufa.64
+		}
+		cost = 0
+	}
+}
+
+UFA_Rethenia_Ops = {
+	UFA_Immigration_Infiltration = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			add_ideas = UFA_Anti_Rethenian_Spies
+		}
+		cost = 0
+		days_re_enable = 60
+	}
+	UFA_Fund_Party_Opposition = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_A_Lighter_Shade_of_Red
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			RCR = {
+				add_popularity = {
+					ideology = progressism
+					popularity = 0.025
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 60
+	}
+	UFA_Incite_Separatism = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_A_Lighter_Shade_of_Red
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			#Decreases unity in rethenian committies (you may want to make one of these for each council)
+			random_list = {
+				10 = {
+					add_to_variable = {
+						var = RCR_NOC_Loyalty
+						value = -1
+					}
+				}
+				10 = {
+					add_to_variable = {
+						var = RCR_SOC_Loyalty
+						value = -1
+					}
+				}
+				10 = {
+					add_to_variable = {
+						var = RCR_NWC_Loyalty
+						value = -1
+					}
+				}
+				10 = {
+					add_to_variable = {
+						var = RCR_FED_Loyalty
+						value = -1
+					}
+				}
+				10 = {
+					add_to_variable = {
+						var = RCR_SIC_Loyalty
+						value = -1
+					}
+				}
+				10 = {
+					add_to_variable = {
+						var = RCR_WEC_Loyalty
+						value = -1
+					}
+				}
+			}
+		}
+		cost = 0
+		days_re_enable = 60
+	}
+	UFA_Airdrop_Propaganda = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Teach_Them_Better
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			RCR = {
+				add_stability = -0.025
+				add_political_power = -25
+			}
+		}
+		cost = 0
+		days_re_enable = 60
+	}
+	UFA_Sneakman = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_A_Moral_Media
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			add_stability = 0.05
+		}
+		cost = 0
+	}
+	UFA_Steal_Chaos_Emeralds = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Emeralds_are_Forever
+		}
+		visible = {
+			has_completed_focus = UFA_The_Men_From_CLIP
+		}
+		complete_effect = {
+			#Steals some of the chaos emeralds or other items rethenia has
+		}
+		cost = 0
+		days_re_enable = 180
+	}
+}
+
+UFA_Infrastructure_Development = {
+	UFA_Develop_Battle_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Link_the_Capital
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			396 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			395 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Radical_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Link_the_Capital
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			383 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			382 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			398 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5616 5539 5522 5706 5796 5797 5787 5762 5617 5524 5397 5284 5238 5144 5061 5008 4906 }
+				start_province = 5616
+				target_province = 4906
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Lethal_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Link_the_Capital
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			384 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			385 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			387 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4651 4799 4847 4924 5006 5095 5109 5224 5395 5544 5649 5589 5553 5603 }
+				start_province = 4651
+				target_province = 5603
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Route_101 = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Cross_the_Sunset_Straits
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			346 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			343 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5274 5157 5040 4897 4751 }
+				start_province = 5274
+				target_province = 4751
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Red_Gate_Bridge = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Cross_the_Sunset_Straits
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			344 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			345 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4907 5021 5111 5226 5359 5493 5619 5730 5811 5823 5824 }
+				start_province = 4907
+				target_province = 5824
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Route_280 = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Cross_the_Sunset_Straits
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			347 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			348 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Route_99 = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Cross_the_Sunset_Straits
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			349 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			371 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5824 5763 5832 5840 5883 5884 5965 5902 5924 5974 6073 6089 6159 6236 }
+				start_province = 5824
+				target_province = 6236
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Tempest_Waterway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Cross_the_Sunset_Straits
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			404 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			392 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			406 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Speed_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Expand_the_Elerail_System
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			546 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			548 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 3252 3187 3186 3204 3152 }
+				start_province = 3252
+				target_province = 3152
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Expand_Elerail_to_Border_Settlements = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Expand_the_Elerail_System
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			547 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			545 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			544 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 2941 2975 3042 3105 3146 3152 3106 3088 3059 2986 2916 2842 2805 2686 2713 2714 2656 2647 2571 2555 2584 2635 2674 2628 }
+				start_province = 2941
+				target_province = 2628 
+			}
+		}
+		
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Mirage_Road = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Build_the_Bullet_Train
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			677 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			679 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			678 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			680 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 2326 2416 2443 2470 2465 2477 2542 2543 2601 2625 2664 2626 2608 2627 2643 2658 2707 2752 2788 2744 2796 }
+				start_province = 2326
+				target_province = 2796
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Bullet_Station = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Build_the_Bullet_Train
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			684 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			683 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			676 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 2326 2340 2362 2401 2361 2442 2520 2591 2692 2787 2886 2997 3071 3148 3147 }
+				start_province = 2326
+				target_province = 3147
+			}
+		}
+		
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Treeshade_Station = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Build_the_Bullet_Train
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			405 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			694 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			692 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 3719 3653 3537 3550 3456 3393 3312 3227 3147 }
+				start_province = 3719
+				target_province = 3147
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Crisis_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Over_Sea_Overland
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			342 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			341 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			340 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			400 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5135 5159 5096 5183 5113 5177 5101 5075 4957 4868 4839 4821 4810 }
+				start_province = 5135
+				target_province = 4810
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Stardust_Speedway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Over_Sea_Overland
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			397 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			393 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			394 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4274 4275 4227 4215 4181 4251 4303 4383 4453 4523 4631 4729 4831 4906 }
+				start_province = 4274
+				target_province = 4906
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Colosseum_Highway = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Over_Sea_Overland
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			388 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			390 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4651 4683 4728 4659 4585 4475 4391 4308 4266 4233 4207 4260 4314 4329 4281 4274 }
+				start_province = 4651
+				target_province = 4274
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Highway_Zero = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Invest_In_Dragon_Road
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			687 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			697 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			698 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			686 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4810 4719 4708 4587 4609 4652 4506 4515 4373 4286 4222 4246 4288 4404 4516 4646 4741 4884 5011 5146 5239 }
+				start_province = 4810
+				target_province = 5239
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+	UFA_Develop_Dragon_Road = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_Invest_In_Dragon_Road
+			num_of_civilian_factories_available_for_projects > 4
+		}
+		visible = {
+			has_completed_focus = UFA_Link_the_Capital
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			704 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			706 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			707 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			708 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 3596 3527 3501 3571 3655 3708 3793 3860 3981 4063 4176 4343 4553 4720 4898 4943 5012 5023 5064 5184 5239 }
+				start_province = 3596
+				target_province = 5239
+			}
+		}
+		cost = 0
+		days_remove = 30
+	}
+}
+UFA_BOLT_Actions = {
+	#	UFA_Control_Weather = {
+	#		allowed = {
+	#			tag = UFA
+	#		}
+	#		available = {
+	#			
+	#		}
+	#		visible = {
+	#			
+	#		}
+	#		remove_effect = {
+	#			randomize_weather = x #no, that would take too much to write it 
+	#		}
+	#		days_remove = 7
+	#	}
+	UFA_Resource_Dowsing = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		visible = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = UFA_Resource_Dowsing
+				days = 120
+			}
+		}
+		days_remove = 7
+		days_re_enable = 120
+	}
+	UFA_Arcane_Artillery = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		visible = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = UFA_Arcane_Artillery
+				days = 60
+			}
+		}
+		days_remove = 7
+		days_re_enable = 60
+	}
+	UFA_Mystic_Research = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		visible = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = UFA_Mystic_Research
+				days = 60
+			}
+		}
+		days_remove = 7
+		days_re_enable = 60
+	}
+	UFA_Fireball_Bombing = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		visible = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = UFA_Fireball_Bombing
+				days = 60
+			}
+		}
+		days_remove = 7
+		days_re_enable = 60
+	}
+	UFA_Explosive_Runes = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		visible = {
+			has_completed_focus = UFA_BOLT_Action
+		}
+		remove_effect = {
+			random_enemy_country = {
+				random_core_state = {
+					damage_building = {
+						type = anti_air_building
+						damage = 75
+					}
+					damage_building = {
+						type = arms_factory
+						damage = 75
+					}
+					damage_building = {
+						type = industrial_complex
+						damage = 75
+					}
+					damage_building = {
+						type = infrastructure
+						damage = 75
+					}
+					damage_building = {
+						type = fuel_silo
+						damage = 75
+					}
+					damage_building = {
+						type = synthetic_refinery
+						damage = 75
+					}
+					damage_building = {
+						type = rocket_site
+						damage = 75
+					}
+					damage_building = {
+						type = radar_station
+						damage = 75
+					}
+					damage_building = {
+						type = rail_way
+						damage = 75
+					}
+					damage_building = {
+						type = nuclear_reactor
+						damage = 75
+					}
+					damage_building = {
+						type = bunker
+						damage = 75
+					}
+					damage_building = {
+						type = air_base
+						damage = 75
+					}
+					damage_building = {
+						type = naval_base
+						damage = 75
+					}
+					damage_building = {
+						type = coastal_bunker
+						damage = 75
+					}
+					damage_building = {
+						type = nuclear_bunker
+						damage = 75
+					}
+					damage_building = {
+						type = dockyard
+						damage = 75
+					}
+					damage_building = {
+						type = supply_node
+						damage = 75
+					}
+				}
+			}
+		}
+		days_remove = 7
+		days_re_enable = 60
+	}
+}
+
+UFA_Federal_Collapse = {
+	UFA_Federal_Collapse = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			always = yes
+		}
+		visible = {
+			check_variable = {
+				var = UFA_Federal_Unity
+				value < 0.2
+			}
+		}
+		days_mission_timeout = 180
+		activation = {
+			check_variable = {
+				var = UFA_Federal_Unity
+				value < 0.2
+			}
+		}
+		cancel_trigger = {
+			check_variable = {
+				var = UFA_Federal_Unity
+				value > 0.2
+			}
+		}
+		timeout_effect = {
+			add_stability = -1
+			add_war_support = -1
+			country_event = ufa.999
+		}
+	}
+}
