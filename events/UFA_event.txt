@@ -1193,6 +1193,10 @@ country_event = {
 		# name of option
 		name = ufa.70.a
 	}
+	option = {
+		# name of option
+		name = ufa.70.b
+	}
 }
 
 # event for finishing the election
@@ -1368,6 +1372,43 @@ country_event = {
 }
 
 country_event = {
+	# Forty Days and Forty Nights
+	id = ufa.75
+	title = ufa.75.t
+	desc = ufa.75.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ufa.75.a
+		add_political_power = -100
+		add_popularity = {
+			ideology = conservatism
+			popularity = -0.04
+		}
+	}
+	option = {
+		name = ufa.75.b
+		add_to_variable = {
+			var = corruption
+			value = 3
+		}
+		add_political_power = -75
+		add_popularity = {
+			ideology = conservatism
+			popularity = -0.02
+		}
+	}
+	option = {
+		name = ufa.75.c
+		add_to_variable = {
+			var = corruption
+			value = 6
+		}
+		set_country_flag = Colony_Drop_available
+	}
+}
+
+country_event = {
 	# Foreign Legions
 	id = ufa.76
 	title = ufa.76.t
@@ -1398,12 +1439,48 @@ country_event = {
 }
 
 country_event = {
+	# Cloven in Twain
+	id = ufa.78
+	title = ufa.78.t
+	desc = ufa.78.d
+	is_triggered_only = yes
+	option = {
+		name = ufa.78.a
+	}
+}
+
+country_event = {
+	# Late Nite Broadcast
+	id = ufa.79
+	title = ufa.79.t
+	desc = ufa.79.d
+	is_triggered_only = yes
+	option = {
+		name = ufa.79.a
+	}
+}
+
+country_event = {
+	# Corporate Retreat
+	id = ufa.80
+	title = ufa.80.t
+	desc = ufa.80.d
+	is_triggered_only = yes
+	option = {
+		name = ufa.80.a
+	}
+}
+
+country_event = {
 	#Randomizer of scandalous events
 	id = ufa.500
 	title = ufa.500.t
 	desc = ufa.500.d
 	trigger = {
 		# Add conditions based on your needs
+	}
+	mean_time_to_happen = {
+		days = 180
 	}
 	option = {
 		name = ufa.500.a
@@ -1432,6 +1509,7 @@ country_event = {
 						NOT = {
 							has_country_flag = Colony_Drop_happened
 						}
+						has_country_flag = Colony_Drop_available
 					}
 					country_event = ufa.72
 				}
@@ -1468,12 +1546,13 @@ country_event = {
 							has_country_flag = Seagate_Scandal_happened
 						}
 						has_completed_focus = UFA_Wiretap_our_Opponents
+						has_country_flag = Seagate_Scandal_available
 					}
 					country_event = ufa.42
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Seagate_Scandal_happened
 					}
 					random_list = {
 						10 = {
@@ -1504,12 +1583,13 @@ country_event = {
 							has_country_flag = Salamandering_happened
 						}
 						has_completed_focus = UFA_Redistrict_Spagonia
+						has_country_flag = Salamandering_available
 					}
 					country_event = ufa.48
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Salamandering_happened
 					}
 					random_list = {
 						10 = {
@@ -1539,12 +1619,13 @@ country_event = {
 						NOT = {
 							has_country_flag = Black_Ocean_happened
 						}
+						has_country_flag = Black_Ocean_available
 					}
 					country_event = ufa.49
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Black_Ocean_happened
 					}
 					random_list = {
 						10 = {
@@ -1574,12 +1655,13 @@ country_event = {
 						NOT = {
 							has_country_flag = Letters_From_a_Parma_Jean_Jail_happened
 						}
+						has_country_flag = Letters_From_a_Parma_Jean_Jail_available
 					}
 					country_event = ufa.73
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Letters_From_a_Parma_Jean_Jail_happened
 					}
 					random_list = {
 						10 = {
@@ -1609,12 +1691,13 @@ country_event = {
 						NOT = {
 							has_country_flag = Worker's_Strike_happened
 						}
+						has_country_flag = Worker's_Strike_available
 					}
 					country_event = ufa.47
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Worker's_Strike_happened
 					}
 					random_list = {
 						10 = {
@@ -1644,12 +1727,13 @@ country_event = {
 						NOT = {
 							has_country_flag = Foreign_Legions_happened
 						}
+						has_country_flag = Foreign_Legions_available
 					}
 					country_event = ufa.76
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Foreign_Legions_happened
 					}
 					random_list = {
 						10 = {
@@ -1679,12 +1763,13 @@ country_event = {
 						NOT = {
 							has_country_flag = Agent_Green_happened
 						}
+						has_country_flag = Agent_Green_available
 					}
 					country_event = ufa.77
 				}
 				else_if = {
 					limit = {
-						has_country_flag = Colony_Drop_happened
+						has_country_flag = Agent_Green_happened
 					}
 					random_list = {
 						10 = {
