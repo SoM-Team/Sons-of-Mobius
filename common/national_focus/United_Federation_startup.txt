@@ -1,42 +1,40 @@
 focus_tree = {
-
 	id = United_Federation_startup
 	country = {
-	
 		factor = 0
 		modifier = {
 			add = 10
 			tag = UFA
 		}
 	}
-	
 	default = no
-	
-	continuous_focus_position = { x = 50 y = 5000 }
-	
+	continuous_focus_position = {
+		x = 50
+		y = 5000
+	}
 	focus = {
 		id = UFA_Crisis_Worsens
 		icon = GFX_focus_UFA_Crisis_Worsens
 		cost = 4
 		x = 25
 		y = 0
-
 		completion_reward = {
-			country_event = {	id = ufa_oil.1 }
+			country_event = {
+				id = ufa_oil.1
+			}
 			custom_effect_tooltip = NEED_HURRY
 		}
 	}
-
 	focus = {
 		id = UFA_Announce_Fuel_Rationing
 		icon = GFX_focus_UFA_Announce_Fuel_Rationing
-		prerequisite = { focus = UFA_Crisis_Worsens }
+		prerequisite = {
+			focus = UFA_Crisis_Worsens
+		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 1
-
 		cost = 4
-
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Oil_Crisis_3235
@@ -49,20 +47,18 @@ focus_tree = {
 			add_political_power = -50
 		}
 	}
-
 	focus = {
 		id = UFA_Search_Alternate_Energy_Supplies
 		icon = GFX_UFA_Search_Alternate_Energy_Supplies
-		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		prerequisite = {
+			focus = UFA_Announce_Fuel_Rationing
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 2
-
 		cost = 4
-
 		completion_reward = {
 			add_resource = {
 				type = oil
@@ -80,20 +76,18 @@ focus_tree = {
 			custom_effect_tooltip = Decision_RCR_Embargo
 		}
 	}
-
 	focus = {
 		id = UFA_Purchase_Power_Rings
 		icon = GFX_UFA_Purchase_Power_Rings
-		prerequisite = { focus = UFA_Search_Alternate_Energy_Supplies }
+		prerequisite = {
+			focus = UFA_Search_Alternate_Energy_Supplies
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 3
-
 		cost = 4
-
 		completion_reward = {
 			add_days_mission_timeout = {
 				mission = UFA_Oil_Worsens
@@ -105,17 +99,16 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Move_into_Renewables
 		icon = GFX_UFA_Move_into_Renewables
-		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		prerequisite = {
+			focus = UFA_Announce_Fuel_Rationing
+		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 2
 		y = 3
-
 		cost = 4
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Move_Into_Renewables
@@ -130,17 +123,16 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Develop_Synthetic_Alternatives
 		icon = GFX_UFA_Develop_Synthetic_Alternatives
-		prerequisite = { focus = UFA_Announce_Fuel_Rationing }
+		prerequisite = {
+			focus = UFA_Announce_Fuel_Rationing
+		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = -2
 		y = 3
-
 		cost = 4
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Develop_Synthetic_Alternatives
@@ -154,22 +146,24 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Calm_Populace
 		icon = GFX_UFA_Calm_Populace
-		prerequisite = { focus = UFA_Purchase_Power_Rings }
-		prerequisite = { focus = UFA_Develop_Synthetic_Alternatives }
-		prerequisite = { focus = UFA_Move_into_Renewables }
+		prerequisite = {
+			focus = UFA_Purchase_Power_Rings
+		}
+		prerequisite = {
+			focus = UFA_Develop_Synthetic_Alternatives
+		}
+		prerequisite = {
+			focus = UFA_Move_into_Renewables
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 4
-
 		cost = 4
-
 		completion_reward = {
 			add_days_mission_timeout = {
 				mission = UFA_Oil_Worsens
@@ -178,22 +172,20 @@ focus_tree = {
 			add_political_power = 50
 		}
 	}
-
 	focus = {
 		id = UFA_Situation_Stabilizes
 		icon = GFX_UFA_Situation_Stabilizes
-		prerequisite = { focus = UFA_Calm_Populace }
+		prerequisite = {
+			focus = UFA_Calm_Populace
+		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 5
-
 		cost = 4
-
 		completion_reward = {
 			remove_ideas = Oil_Crisis_3235_2
 		}
 	}
-
 	focus = {
 		id = UFA_The_Race_Begins
 		icon = GFX_focus_UFA_The_Race_Begins
@@ -209,12 +201,13 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Tour_the_Country
 		icon = GFX_focus_UFA_Tour_the_Country
-		prerequisite = { focus = UFA_The_Race_Begins }
-		mutually_exclusive = {			
+		prerequisite = {
+			focus = UFA_The_Race_Begins
+		}
+		mutually_exclusive = {
 		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 0
@@ -228,66 +221,66 @@ focus_tree = {
 			#Unlocks National Tour Decisions
 		}
 	}
-
 	focus = {
 		id = UFA_Choose_a_Running_Mate
 		icon = GFX_focus_UFA_Choose_a_Running_Mate
-		prerequisite = { focus = UFA_Tour_the_Country }
+		prerequisite = {
+			focus = UFA_Tour_the_Country
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 0
 		y = 5
-
 		cost = 2
-
 		completion_reward = {
-			country_event = { 
+			country_event = {
 				id = ufa.70
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Ms_Reliable
 		icon = GFX_focus_UFA_Ms_Reliable
-		prerequisite = { focus = UFA_Choose_a_Running_Mate }
-		mutually_exclusive = { focus = UFA_The_Fixer }
+		prerequisite = {
+			focus = UFA_Choose_a_Running_Mate
+		}
+		mutually_exclusive = {
+			focus = UFA_The_Fixer
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -1
 		y = 6
-
 		cost = 1
-
 		completion_reward = {
 			#Available as Head of State: Christina Cooper Ms. Reliable Stability +10% −10% political advisor cost
 		}
 	}
-
 	focus = {
 		id = UFA_The_Fixer
 		icon = GFX_focus_UFA_The_Fixer
-		prerequisite = { focus = UFA_Choose_a_Running_Mate }
-		mutually_exclusive = { focus = UFA_Ms_Reliable }
+		prerequisite = {
+			focus = UFA_Choose_a_Running_Mate
+		}
+		mutually_exclusive = {
+			focus = UFA_Ms_Reliable
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 1
 		y = 6
-
 		cost = 1
-
 		completion_reward = {
 			#Available as Head of State: Jerome Wise: Ambitious Spin Doctor: Monthly Corruption -.1 Daily political power +10% Stability -5%
 		}
 	}
-
 	focus = {
 		id = UFA_Hold_Fundraising_Galas
 		icon = GFX_focus_UFA_Hold_Fundraising_Galas
-		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		prerequisite = {
+			focus = UFA_Choose_a_Running_Mate
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -3
 		y = 6
-
 		cost = 3
-
 		completion_reward = {
 			country_event = {
 				id = ufa.11
@@ -295,34 +288,33 @@ focus_tree = {
 			add_political_power = 100
 		}
 	}
-
 	focus = {
 		id = UFA_Start_Issue_Campaigns
 		icon = GFX_focus_UFA_Start_Issue_Campaigns
-		prerequisite = { focus = UFA_Choose_a_Running_Mate }
+		prerequisite = {
+			focus = UFA_Choose_a_Running_Mate
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 3
 		y = 6
-
 		cost = 3
-
 		completion_reward = {
 			#Unlocks local Campaigning decisions
 		}
 	}
-
 	focus = {
 		id = UFA_Get_Our_Hands_Dirty
 		icon = GFX_focus_UFA_Get_Our_Hands_Dirty
-		prerequisite = { focus = UFA_Tour_the_Country }
-		mutually_exclusive = { focus = UFA_Keeping_it_Clean 
+		prerequisite = {
+			focus = UFA_Tour_the_Country
+		}
+		mutually_exclusive = {
+			focus = UFA_Keeping_it_Clean
 		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -4
 		y = 2
-
 		cost = 3
-
 		completion_reward = {
 			#Unlocks Operations to assault our political rivals
 			add_to_variable = {
@@ -330,17 +322,16 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Wiretap_our_Opponents
 		icon = GFX_focus_UFA_Wiretap_our_Opponents
-		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		prerequisite = {
+			focus = UFA_Get_Our_Hands_Dirty
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -6
 		y = 3
-
 		cost = 3
-
 		completion_reward = {
 			country_event = {
 				id = ufa.42
@@ -351,33 +342,31 @@ focus_tree = {
 			add_political_power = 100
 		}
 	}
-
 	focus = {
 		id = UFA_Start_Smear_Campaigns
 		icon = GFX_focus_UFA_Start_Smear_Campaigns
-		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		prerequisite = {
+			focus = UFA_Get_Our_Hands_Dirty
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -4
 		y = 3
-
 		cost = 3
-
 		completion_reward = {
 			add_stability = -0.05
 			#local campaigning decisions are now more effective
 		}
 	}
-
 	focus = {
 		id = UFA_Redistrict_Spagonia
 		icon = GFX_focus_UFA_Redistrict_Spagonia
-		prerequisite = { focus = UFA_Get_Our_Hands_Dirty }
+		prerequisite = {
+			focus = UFA_Get_Our_Hands_Dirty
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -2
 		y = 4
-
 		cost = 3
-
 		completion_reward = {
 			country_event = {
 				id = ufa.48
@@ -395,18 +384,19 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Leak_Evidence
 		icon = GFX_focus_UFA_Leak_Evidence
-		prerequisite = { focus = UFA_Wiretap_our_Opponents }
-		prerequisite = { focus = UFA_Start_Smear_Campaigns }
+		prerequisite = {
+			focus = UFA_Wiretap_our_Opponents
+		}
+		prerequisite = {
+			focus = UFA_Start_Smear_Campaigns
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -5
 		y = 4
-
 		cost = 3
-
 		completion_reward = {
 			hidden_effect = {
 				random_list = {
@@ -414,7 +404,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -422,7 +412,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -430,7 +420,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -438,7 +428,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -446,7 +436,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -454,7 +444,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -462,7 +452,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -470,7 +460,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -478,7 +468,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -486,7 +476,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -494,7 +484,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -502,7 +492,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -512,7 +502,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -520,7 +510,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -528,7 +518,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -536,7 +526,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -544,7 +534,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -552,7 +542,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -560,7 +550,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -568,7 +558,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -576,7 +566,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -584,7 +574,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -592,7 +582,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -600,7 +590,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_pac
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -610,7 +600,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -618,7 +608,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -626,7 +616,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -634,7 +624,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -642,7 +632,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -650,7 +640,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -658,7 +648,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -666,7 +656,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -674,7 +664,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -682,7 +672,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -690,7 +680,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -698,7 +688,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -708,7 +698,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -716,7 +706,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -724,7 +714,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -732,7 +722,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -740,7 +730,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -748,7 +738,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -756,7 +746,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -764,7 +754,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -772,7 +762,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -780,7 +770,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -788,7 +778,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -796,7 +786,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_war
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -806,7 +796,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -814,7 +804,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -822,7 +812,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -830,7 +820,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -838,7 +828,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -846,7 +836,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -854,7 +844,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -862,7 +852,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -870,7 +860,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -878,7 +868,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -886,7 +876,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -894,7 +884,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -904,7 +894,7 @@ focus_tree = {
 						396 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -912,7 +902,7 @@ focus_tree = {
 						404 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -920,7 +910,7 @@ focus_tree = {
 						390 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -928,7 +918,7 @@ focus_tree = {
 						347 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -936,7 +926,7 @@ focus_tree = {
 						344 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -944,7 +934,7 @@ focus_tree = {
 						340 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -952,7 +942,7 @@ focus_tree = {
 						369 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -960,7 +950,7 @@ focus_tree = {
 						519 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -968,7 +958,7 @@ focus_tree = {
 						405 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -976,7 +966,7 @@ focus_tree = {
 						677 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -984,7 +974,7 @@ focus_tree = {
 						687 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -992,7 +982,7 @@ focus_tree = {
 						548 = {
 							add_to_variable = {
 								var = popularity_prog
-								value = -2 
+								value = -2
 							}
 						}
 					}
@@ -1000,49 +990,50 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Tricky_Mick
 		icon = GFX_focus_UFA_Tricky_Mick
-		prerequisite = { focus = UFA_Redistrict_Spagonia }
-		prerequisite = { focus = UFA_Leak_Evidence }
+		prerequisite = {
+			focus = UFA_Redistrict_Spagonia
+		}
+		prerequisite = {
+			focus = UFA_Leak_Evidence
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = -4
 		y = 5
-
 		cost = 3
-
 		completion_reward = {
 			#R. K. Michael gains leader trait: Tricky Mick −25% Trade Laws cost Political Power Gain: +5.0% Foreign subversive activities efficiency: -30.0% Civilian Intelligence +15%
 		}
 	}
-
 	focus = {
 		id = UFA_Keeping_it_Clean
 		icon = GFX_focus_UFA_Keeping_it_Clean
-		prerequisite = { focus = UFA_Tour_the_Country }
-		mutually_exclusive = { focus = UFA_Get_Our_Hands_Dirty }
+		prerequisite = {
+			focus = UFA_Tour_the_Country
+		}
+		mutually_exclusive = {
+			focus = UFA_Get_Our_Hands_Dirty
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 4
 		y = 2
-
 		cost = 3
-
 		completion_reward = {
 			add_political_power = -20
 		}
 	}
-
 	focus = {
 		id = UFA_Defend_Democracy
 		icon = GFX_focus_UFA_Defend_Democracy
-		prerequisite = { focus = UFA_Keeping_it_Clean }
+		prerequisite = {
+			focus = UFA_Keeping_it_Clean
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 3
 		y = 3
-
 		cost = 3
-
 		completion_reward = {
 			add_stability = -0.05
 			add_popularity = {
@@ -1071,24 +1062,22 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Rally_Round_the_Flag
 		icon = GFX_focus_UFA_Rally_Round_the_Flag
-		prerequisite = { focus = UFA_Keeping_it_Clean }
+		prerequisite = {
+			focus = UFA_Keeping_it_Clean
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 5
 		y = 3
-
 		cost = 3
-
 		completion_reward = {
 			347 = {
 				add_to_variable = {
 					popularity_con = 1
 				}
 			}
-
 			396 = {
 				add_to_variable = {
 					popularity_con = 1
@@ -1096,88 +1085,86 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_I_Like_Mike
 		icon = GFX_focus_UFA_I_Like_Mike
-		prerequisite = { focus = UFA_Defend_Democracy }
-		prerequisite = { focus = UFA_Rally_Round_the_Flag }
+		prerequisite = {
+			focus = UFA_Defend_Democracy
+		}
+		prerequisite = {
+			focus = UFA_Rally_Round_the_Flag
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 4
 		y = 4
-
 		cost = 3
-
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Bulwark_of_Freedom
 		icon = GFX_focus_UFA_Bulwark_of_Freedom
-		prerequisite = { focus = UFA_I_Like_Mike }
+		prerequisite = {
+			focus = UFA_I_Like_Mike
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 4
 		y = 5
-
 		cost = 3
-
 		completion_reward = {
 			#R. K. Michael gains ‘Bulwark of Democracy’: Stability +5%, War Support +5%, +2 opinion gain monthly same ideology, Division Defense on Core territory +5%
 		}
 	}
-
 	focus = {
 		id = UFA_And_the_Winner_Is
 		icon = GFX_focus_UFA_Start_Issue_Campaigns
-		prerequisite = { focus = UFA_Ms_Reliable focus = UFA_The_Fixer }
-		prerequisite = { focus = UFA_Hold_Fundraising_Galas }
-		prerequisite = { focus = UFA_Start_Issue_Campaigns }
-		prerequisite = { focus = UFA_Tricky_Mick focus = UFA_Bulwark_of_Freedom }
+		prerequisite = {
+			focus = UFA_Ms_Reliable
+			focus = UFA_The_Fixer
+		}
+		prerequisite = {
+			focus = UFA_Hold_Fundraising_Galas
+		}
+		prerequisite = {
+			focus = UFA_Start_Issue_Campaigns
+		}
+		prerequisite = {
+			focus = UFA_Tricky_Mick
+			focus = UFA_Bulwark_of_Freedom
+		}
 		relative_position_id = UFA_The_Race_Begins
 		x = 0
 		y = 7
-
 		cost = 0
-
 		bypass = {
 			has_country_flag = UFA_election_complete
 		}
-
 		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_President_Michael
 		icon = GFX_goal_unknown
 		prerequisite = {
 			focus = UFA_And_the_Winner_Is
 		}
-
 		bypass = {
 			has_country_flag = UFA_election_complete
 		}
-
 		available = {
 			has_country_flag = UFA_winner_is_con
 		}
 		relative_position_id = UFA_And_the_Winner_Is
-
 		x = 0
 		y = 1
-
 		cost = 0
-
 		completion_reward = {
 			set_politics = {
 				ruling_party = conservatism
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Internal_Affairs
 		icon = GFX_goal_unknown
@@ -1188,10 +1175,8 @@ focus_tree = {
 			has_completed_focus = UFA_President_Michael
 		}
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Unite_for_Humanity
 		icon = GFX_goal_unknown
@@ -1202,12 +1187,12 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = UFA_Unite_for_Democracy
 		}
-		prerequisite = { focus = UFA_Internal_Affairs }
+		prerequisite = {
+			focus = UFA_Internal_Affairs
+		}
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Celebrate_Our_History
 		icon = GFX_goal_unknown
@@ -1215,16 +1200,20 @@ focus_tree = {
 		y = 3
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Unite_for_Humanity }
+		prerequisite = {
+			focus = UFA_Unite_for_Humanity
+		}
 		completion_reward = {
 			add_political_power = 25
-			#+5 Federal Unity
-#			country_event = {
-				#a lesson in history
-#			}
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = 0.05
+			}
+			#			country_event = {
+			#				a lesson in history
+			#			}
 		}
 	}
-
 	focus = {
 		id = UFA_Resurrect_the_Heritage_Program
 		icon = GFX_goal_unknown
@@ -1232,7 +1221,9 @@ focus_tree = {
 		y = 3
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Unite_for_Humanity }
+		prerequisite = {
+			focus = UFA_Unite_for_Humanity
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				name = Resurrect_the_Heritage_Program
@@ -1240,10 +1231,10 @@ focus_tree = {
 				uses = 1
 				category = rocketry
 			}
+			add_ideas = UFA_A_New_Heritage_Program_1
 			#Gain national spirit ‘A New Heritage Program’ Effect: +.2 daily Political Power
 		}
 	}
-
 	focus = {
 		id = UFA_Human_Scientific_Genius
 		icon = GFX_goal_unknown
@@ -1251,12 +1242,16 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Resurrect_the_Heritage_Program }
+		prerequisite = {
+			focus = UFA_Resurrect_the_Heritage_Program
+		}
 		completion_reward = {
-			#Adjust national spirit ‘A New Heritage Program’; Effective Change: gain +10% research speed
+			swap_ideas = {
+				remove_idea = UFA_A_New_Heritage_Program_1
+				add_idea = UFA_A_New_Heritage_Program_2
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Decry_Megaopolis_Annexation
 		icon = GFX_goal_unknown
@@ -1264,13 +1259,23 @@ focus_tree = {
 		y = 3
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Unite_for_Humanity }
+		prerequisite = {
+			focus = UFA_Unite_for_Humanity
+		}
 		completion_reward = {
 			add_political_power = 100
-			#Reward:KoA trade opinion -20% Gain claims on former Overlander territory
+			add_ideas = UFA_Megaopolis_Issues
+			add_state_claim = 9
+			add_state_claim = 10
+			add_state_claim = 11
+			add_state_claim = 14
+			add_state_claim = 8
+			add_state_claim = 39
+			add_state_claim = 38
+			add_state_claim = 30
+			add_state_claim = 31
 		}
 	}
-
 	focus = {
 		id = UFA_Court_the_Warhawks
 		icon = GFX_goal_unknown
@@ -1278,7 +1283,9 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Decry_Megaopolis_Annexation }
+		prerequisite = {
+			focus = UFA_Decry_Megaopolis_Annexation
+		}
 		completion_reward = {
 			add_popularity = {
 				ideology = orthodox_liberalism
@@ -1286,7 +1293,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Legacy_of_Charlemagne
 		icon = GFX_goal_unknown
@@ -1294,13 +1300,17 @@ focus_tree = {
 		y = 5
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Court_the_Warhawks }
+		prerequisite = {
+			focus = UFA_Court_the_Warhawks
+		}
 		completion_reward = {
-			#Gain National Spirit: Honor of Charlemagne, Effect: +5% Division Organization, +5% Division Attack
-			#Lose 3 Federal Unity
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = -0.03
+			}
+			add_ideas = UFA_Honor_of_Charlemagne
 		}
 	}
-
 	focus = {
 		id = UFA_Prioritize_Native_Promotions
 		icon = GFX_goal_unknown
@@ -1308,15 +1318,16 @@ focus_tree = {
 		y = 3
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Unite_for_Humanity }
+		prerequisite = {
+			focus = UFA_Unite_for_Humanity
+		}
 		completion_reward = {
-			#Reduces chances of RSCR successful operations by 5%
-			#Gain National Spirit: Discriminatory Government, Effect: -.25 Federal Unity/Month
+			set_country_flag = UFA_Prioritize_Native_Promotions
+			add_ideas = UFA_Discriminatory_Government
 			#Get Event: Duty Under Duress
 			#Certain Members of your organization may strongly disapprove of this (a later event will prevent you from getting several leaders)
 		}
 	}
-
 	focus = {
 		id = UFA_Sideline_Foreign_Influences
 		icon = GFX_goal_unknown
@@ -1324,7 +1335,9 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Prioritize_Native_Promotions }
+		prerequisite = {
+			focus = UFA_Prioritize_Native_Promotions
+		}
 		completion_reward = {
 			#Modify Fractious Diversity by +.1 Fed Unity/month
 			add_popularity = {
@@ -1338,9 +1351,9 @@ focus_tree = {
 			add_to_variable = {
 				corruption = 3
 			}
+			set_country_flag = UFA_Sideline_Foreign_Influences
 		}
 	}
-
 	focus = {
 		id = UFA_Protect_Core_Regions
 		icon = GFX_goal_unknown
@@ -1348,16 +1361,18 @@ focus_tree = {
 		y = 5
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Sideline_Foreign_Influences }
+		prerequisite = {
+			focus = UFA_Sideline_Foreign_Influences
+		}
 		completion_reward = {
 			#Gain 3 Federal Unity
 			#Modify Fractious Diversity by +.2 Fed Unity/ month, +.2 Corruption/ month
 			add_to_variable = {
 				corruption = 2
 			}
+			set_country_flag = UFA_Protect_Core_Regions
 		}
 	}
-
 	focus = {
 		id = UFA_Humans_for_Humanity
 		icon = GFX_goal_unknown
@@ -1365,17 +1380,27 @@ focus_tree = {
 		y = 6
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Human_Scientific_Genius }
-		prerequisite = { focus = UFA_Legacy_of_Charlemagne }
-		prerequisite = { focus = UFA_Protect_Core_Regions }
-		prerequisite = { focus = UFA_Celebrate_Our_History }
-		completion_reward = {
-		#Modify Fractious Diversity by +.1 Fed Unity/Month Rename Fractious Diversity to ‘Sidelined Diversity’
-		#R.K. Michael gains trait: Human Demagogue, Effect: Political Power +.2/day, War Support +5%, Stability -5%
-		#Lose 1 Federal Unity
+		prerequisite = {
+			focus = UFA_Human_Scientific_Genius
 		}
-	}	
-
+		prerequisite = {
+			focus = UFA_Legacy_of_Charlemagne
+		}
+		prerequisite = {
+			focus = UFA_Protect_Core_Regions
+		}
+		prerequisite = {
+			focus = UFA_Celebrate_Our_History
+		}
+		completion_reward = {
+			set_country_flag = UFA_Humans_for_Humanity
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = -1
+			}
+			add_country_leader_trait = Human_Demagogue
+		}
+	}
 	focus = {
 		id = UFA_Unite_for_Democracy
 		icon = GFX_goal_unknown
@@ -1383,15 +1408,16 @@ focus_tree = {
 		y = 2
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Internal_Affairs }
+		prerequisite = {
+			focus = UFA_Internal_Affairs
+		}
 		mutually_exclusive = {
 			focus = UFA_Unite_for_Humanity
 		}
 		completion_reward = {
-		#
+			#
 		}
-	}	
-
+	}
 	focus = {
 		id = UFA_The_Oldest_Democracy_On_Mobius
 		icon = GFX_goal_unknown
@@ -1399,12 +1425,17 @@ focus_tree = {
 		y = 3
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Unite_for_Democracy }
+		prerequisite = {
+			focus = UFA_Unite_for_Democracy
+		}
 		completion_reward = {
-		#Gain +50 political power Gain 2 federal unity
+			add_political_power = 50
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = 0.02
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_the_Franchise
 		icon = GFX_goal_unknown
@@ -1412,13 +1443,16 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_The_Oldest_Democracy_On_Mobius }
+		prerequisite = {
+			focus = UFA_The_Oldest_Democracy_On_Mobius
+		}
 		completion_reward = {
-		#Lose -50 political power
-		#Modify National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month
+			add_political_power = -50
+			set_country_flag = UFA_Expand_the_Franchise
+			#Lose -50 political power
+			#Modify National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month
 		}
 	}
-
 	focus = {
 		id = UFA_Defend_Minority_Rights
 		icon = GFX_goal_unknown
@@ -1426,12 +1460,13 @@ focus_tree = {
 		y = 5
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Expand_the_Franchise }
+		prerequisite = {
+			focus = UFA_Expand_the_Franchise
+		}
 		completion_reward = {
-		#Modify National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month
+			set_country_flag = UFA_Defend_Minority_Rights
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_Federalism
 		icon = GFX_goal_unknown
@@ -1439,12 +1474,14 @@ focus_tree = {
 		y = 6
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Defend_Minority_Rights }
+		prerequisite = {
+			focus = UFA_Defend_Minority_Rights
+		}
 		completion_reward = {
-		#Modify National Spirit Fractious Diversity, Effective change +.2 Federal Unity/Month
+			set_country_flag = UFA_Expand_Federalism
+			add_stability = -0.1
 		}
 	}
-
 	focus = {
 		id = UFA_Develop_Rural_Areas
 		icon = GFX_goal_unknown
@@ -1452,12 +1489,317 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_The_Oldest_Democracy_On_Mobius }
+		prerequisite = {
+			focus = UFA_The_Oldest_Democracy_On_Mobius
+		}
 		completion_reward = {
-		#Mazuri, Sylvania and Chun-Nan: A state within them gains 1 infrastructure
+			hidden_effect = {
+				random_list = {
+					10 = {
+						405 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						401 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						695 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						685 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						694 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						684 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						692 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						689 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						691 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						671 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						674 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						675 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						690 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						683 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						676 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						677 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						667 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+				}
+				random_list = {
+					10 = {
+						369 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						338 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						333 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						334 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						337 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+				}
+				random_list = {
+					10 = {
+						700 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						701 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						699 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						702 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						519 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						711 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						706 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						712 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						710 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						709 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						707 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						705 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						704 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						708 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+					10 = {
+						703 = {
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+							}
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = UFA_Develop_Rural_Areas
 		}
 	}
-
 	focus = {
 		id = UFA_Environmental_Conservatism
 		icon = GFX_goal_unknown
@@ -1465,13 +1807,19 @@ focus_tree = {
 		y = 5
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_The_Oldest_Democracy_On_Mobius }
+		prerequisite = {
+			focus = UFA_The_Oldest_Democracy_On_Mobius
+		}
 		completion_reward = {
-		#Lose production of 5 Oil in a Shammar state
-		#Modify National Spirit Fractious Diversity, Effective change Factory Output -5% Production efficiency +5%
+			680 = {
+				add_resource = {
+					type = oil
+					amount = -5
+				}
+			}
+			add_ideas = UFA_Fractious_Diversity_1
 		}
 	}
-
 	focus = {
 		id = UFA_Breadth_of_Ideas
 		icon = GFX_goal_unknown
@@ -1479,12 +1827,14 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_The_Oldest_Democracy_On_Mobius }
+		prerequisite = {
+			focus = UFA_The_Oldest_Democracy_On_Mobius
+		}
 		completion_reward = {
-		#Gain national spirit: Synthesis of Ideas, Effect: +5% research speed Modify  National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month
+			add_ideas = UFA_Breadth_of_Ideas
+			set_country_flag = UFA_Breadth_of_Ideas
 		}
 	}
-
 	focus = {
 		id = UFA_Lift_the_Lamp
 		icon = GFX_goal_unknown
@@ -1492,12 +1842,13 @@ focus_tree = {
 		y = 5
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Breadth_of_Ideas }
+		prerequisite = {
+			focus = UFA_Breadth_of_Ideas
+		}
 		completion_reward = {
-		#Gain national spirit Growing Immigration, effect: Manpower +1000/month
+			add_ideas = UFA_Growing_Immigration
 		}
 	}
-
 	focus = {
 		id = UFA_Fight_for_Freedom
 		icon = GFX_goal_unknown
@@ -1505,12 +1856,13 @@ focus_tree = {
 		y = 4
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_The_Oldest_Democracy_On_Mobius }
+		prerequisite = {
+			focus = UFA_The_Oldest_Democracy_On_Mobius
+		}
 		completion_reward = {
-		#Gain National Spirit ‘Human Freedom Fighters’, Effect: Division Attack +5%, Division Defense on Core territory +10%
+			add_ideas = UFA_Human_Freedom_Fighters
 		}
 	}
-
 	focus = {
 		id = UFA_A_New_Colossus
 		icon = GFX_goal_unknown
@@ -1518,15 +1870,22 @@ focus_tree = {
 		y = 7
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Fight_for_Freedom }
-		prerequisite = { focus = UFA_Expand_Federalism }
-		prerequisite = { focus = UFA_Environmental_Conservatism }
-		prerequisite = { focus = UFA_Lift_the_Lamp }
+		prerequisite = {
+			focus = UFA_Fight_for_Freedom
+		}
+		prerequisite = {
+			focus = UFA_Expand_Federalism
+		}
+		prerequisite = {
+			focus = UFA_Environmental_Conservatism
+		}
+		prerequisite = {
+			focus = UFA_Lift_the_Lamp
+		}
 		completion_reward = {
-		#Alter National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month Rename Fractious Diversity to Strength in Diversity
+			set_country_flag = UFA_A_New_Colossus
 		}
 	}
-
 	focus = {
 		id = UFA_Broaden_C.L.I.P._Oversight
 		icon = GFX_goal_unknown
@@ -1534,12 +1893,13 @@ focus_tree = {
 		y = 1
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Internal_Affairs }
-		completion_reward = {
-		#Gain National Spirit: Expanded C.L.I.P., Effect: -.1 Corruption/month
+		prerequisite = {
+			focus = UFA_Internal_Affairs
 		}
-	}	
-
+		completion_reward = {
+			set_country_flag = UFA_Broaden_C.L.I.P._Oversight
+		}
+	}
 	focus = {
 		id = UFA_Enshrine_Our_Traditions
 		icon = GFX_goal_unknown
@@ -1547,12 +1907,13 @@ focus_tree = {
 		y = 1
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Internal_Affairs }
-		completion_reward = {
-		#Modify national spirit Bastion of Democracy, effective change: Daily conservative democracy drift +.01
+		prerequisite = {
+			focus = UFA_Internal_Affairs
 		}
-	}	
-
+		completion_reward = {
+			add_ideas = UFA_Bastion_of_Democracy
+		}
+	}
 	focus = {
 		id = UFA_Stabilize_the_Nation
 		icon = GFX_goal_unknown
@@ -1560,12 +1921,13 @@ focus_tree = {
 		y = 1
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Internal_Affairs }
-		completion_reward = {
-		add_stability = 0.1
+		prerequisite = {
+			focus = UFA_Internal_Affairs
 		}
-	}	
-
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
 	focus = {
 		id = UFA_Virtual_Reality
 		icon = GFX_goal_unknown
@@ -1573,10 +1935,10 @@ focus_tree = {
 		y = 1
 		cost = 4
 		relative_position_id = UFA_Internal_Affairs
-		prerequisite = { focus = UFA_Internal_Affairs }
+		prerequisite = {
+			focus = UFA_Internal_Affairs
+		}
 		completion_reward = {
-		#Michael Hardy and James Cools, Virtua Cops; Effect: Compliance Gain +.25
-		#2x 50% Research bonus for computing
 			add_tech_bonus = {
 				name = Virtual_Reality
 				bonus = 0.5
@@ -1585,12 +1947,18 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Investigate_Jackalstan
 		icon = GFX_focus_UFA_Investigate_Jackalstan
-		prerequisite = { focus =  UFA_Situation_Stabilizes }
-				relative_position_id = UFA_Crisis_Worsens
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
+		}
+		bypass = {
+			NOT = {
+				country_exists = INF
+			}
+		}
+		relative_position_id = UFA_Crisis_Worsens
 		x = 0
 		y = 6
 		cost = 2
@@ -1598,148 +1966,149 @@ focus_tree = {
 			country_event = ufa.24
 		}
 	}
-
 	focus = {
 		id = UFA_Return_the_Embargo
 		icon = GFX_UFA_Return_the_Embargo
-		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
+		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = 2
 		y = 6
-
 		cost = 4
-
 		completion_reward = {
 			INF = {
-				add_ideas = { INF_United_Federation_Embargo }
+				add_ideas = {
+					INF_United_Federation_Embargo
+				}
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_Mobian_Agents
 		icon = GFX_focus_UFA_Expand_Mobian_Agents
-		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		prerequisite = {
+			focus = UFA_Investigate_Jackalstan
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = -1
 		y = 1
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			add_ideas = UFA_More_Mobian_Agents
 		}
 	}
-
 	focus = {
 		id = UFA_Infiltrate_Jackalstan
 		icon = GFX_focus_UFA_Infiltrate_Jackalstan
-		prerequisite = { focus =  UFA_Expand_Mobian_Agents }
+		prerequisite = {
+			focus = UFA_Expand_Mobian_Agents
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = -1
 		y = 2
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 		}
 	}
-
 	focus = {
 		id = UFA_The_Start_of_Infinity
 		icon = GFX_focus_UFA_The_Start_of_Infinity
-		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		prerequisite = {
+			focus = UFA_Investigate_Jackalstan
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = 3
 		y = 1
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 		}
 	}
-
 	focus = {
 		id = UFA_Publicize_the_Madness
 		icon = GFX_focus_UFA_Publicize_the_Madness
-		prerequisite = { focus =  UFA_Investigate_Jackalstan }
+		prerequisite = {
+			focus = UFA_Investigate_Jackalstan
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = 1
 		y = 3
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 		}
 	}
-
 	focus = {
 		id = UFA_Contact_the_Resistance
 		icon = GFX_focus_UFA_Contact_the_Resistance
-		prerequisite = { focus =  UFA_Infiltrate_Jackalstan }
+		prerequisite = {
+			focus = UFA_Infiltrate_Jackalstan
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = -1
 		y = 3
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			country_event = ufa.26
 		}
 	}
 	focus = {
 		id = UFA_Operation_Phantom_Thief
 		icon = GFX_focus_UFA_Operation_Phantom_Thief
-		prerequisite = { focus =  UFA_Contact_the_Resistance }
-		prerequisite = { focus =  UFA_Publicize_the_Madness }
-		mutually_exclusive = { focus = UFA_Storm_the_Desert }
+		prerequisite = {
+			focus = UFA_Contact_the_Resistance
+		}
+		prerequisite = {
+			focus = UFA_Publicize_the_Madness
+		}
+		mutually_exclusive = {
+			focus = UFA_Storm_the_Desert
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = -2
 		y = 4
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 		}
 	}
-
 	focus = {
-		id = UFA_Storm_the_Desert #Sneak Attack
+		id = UFA_Storm_the_Desert		#Sneak Attack
 		icon = GFX_focus_UFA_Storm_the_Desert
-		prerequisite = { focus =  UFA_Publicize_the_Madness }
-		prerequisite = { focus =  UFA_Contact_the_Resistance }
-		mutually_exclusive = { focus =  UFA_Operation_Phantom_Thief }
+		prerequisite = {
+			focus = UFA_Publicize_the_Madness
+		}
+		prerequisite = {
+			focus = UFA_Contact_the_Resistance
+		}
+		mutually_exclusive = {
+			focus = UFA_Operation_Phantom_Thief
+		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = 2
 		y = 4
-
 		cost = 4
-
 		completion_reward = {
-#			country_event = {   }
+			load_oob = "UFA_Militia_in_Jackalstan"
 		}
 	}
-
 	focus = {
 		id = UFA_The_Limit_Approaches_Infinity
 		icon = GFX_focus_UFA_The_Limit_Approaches_Infinity
-		prerequisite = { focus =  UFA_Operation_Phantom_Thief focus =  UFA_Storm_the_Desert }
+		prerequisite = {
+			focus = UFA_Operation_Phantom_Thief
+			focus = UFA_Storm_the_Desert
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Investigate_Jackalstan
 		x = 0
 		y = 5
-
 		cost = 4
-
 		completion_reward = {
 			declare_war_on = {
 				target = INF
@@ -1747,18 +2116,19 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Reaffirm_Commitments
 		icon = GFX_goal_unknown
 		cost = 1
 		x = 55
 		y = 10
-		completion_reward = { 
-			#Guarantee Kingdom of Acorn
+		completion_reward = {
+			diplomatic_relation = {
+				country = KOA
+				relation = guarantee
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_An_Eternal_Branch
 		icon = GFX_goal_unknown
@@ -1769,11 +2139,14 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Reaffirm_Commitments
 		}
-		completion_reward = { 
-			#Reward: Gain +50 Political Power, KoA opinion of UF +25
+		completion_reward = {
+			add_political_power = 50
+			add_opinion_modifier = {
+				target = KOA
+				modifier = An_Eternal_Branch
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Tend_the_Sapling
 		icon = GFX_goal_unknown
@@ -1788,11 +2161,10 @@ focus_tree = {
 			focus = UFA_An_Eternal_Branch
 			#The Acorn Civil War has been avoided
 		}
-		completion_reward = { 
+		completion_reward = {
 			#none
 		}
 	}
-
 	focus = {
 		id = UFA_Send_Constitutional_Advisors
 		icon = GFX_goal_unknown
@@ -1803,11 +2175,14 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Tend_the_Sapling
 		}
-		completion_reward = { 
-			#KoA gains +50 Political Power, KoA opinion of UF increases by 25
+		completion_reward = {
+			add_opinion_modifier = {
+				target = KOA
+				modifier = Advisers_from_United_Federation
+			}
+			add_political_power = 50
 		}
 	}
-
 	focus = {
 		id = UFA_Stand_Against_the_Storm
 		icon = GFX_goal_unknown
@@ -1818,11 +2193,30 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Send_Constitutional_Advisors
 		}
-		completion_reward = { 
+		completion_reward = {
+			KOA = {
+				add_tech_bonus = {
+					name = Stand_Against_the_Storm
+					category = computing_tech
+					uses = 1
+					bonus = 0.5
+				}
+				add_tech_bonus = {
+					name = Stand_Against_the_Storm
+					category = industry
+					uses = 1
+					bonus = 0.5
+				}
+				add_tech_bonus = {
+					name = Stand_Against_the_Storm
+					category = infantry_tech
+					uses = 1
+					bonus = 0.5
+				}
+			}
 			#KoA gains 1x 50% research bonus to computers, industry, and infantry equipment
 		}
 	}
-
 	focus = {
 		id = UFA_Poisoned_Oak
 		icon = GFX_goal_unknown
@@ -1836,12 +2230,20 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_An_Eternal_Branch
 		}
-		completion_reward = { 
-			#Get Event: Splitting Wood
-			#Cancel the guarantee of KoA, cancel non-agression pact with KoA
+		completion_reward = {
+			country_event = ufa.50
+			diplomatic_relation = {
+				country = KOA
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = KOA
+				relation = non_aggression_pact
+				active = no
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Support_the_Legitimate_Government
 		icon = GFX_goal_unknown
@@ -1857,11 +2259,10 @@ focus_tree = {
 			focus = UFA_Divide_the_Grove
 			focus = UFA_Tend_Our_Garden
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to aid the KoA
 		}
 	}
-
 	focus = {
 		id = UFA_A_New_Republic
 		icon = GFX_goal_unknown
@@ -1877,11 +2278,10 @@ focus_tree = {
 			focus = UFA_Divide_the_Grove
 			focus = UFA_Tend_Our_Garden
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to aid the Republic of Acorn
 		}
 	}
-
 	focus = {
 		id = UFA_Let_Freedom_Ring
 		icon = GFX_goal_unknown
@@ -1893,11 +2293,10 @@ focus_tree = {
 			focus = UFA_A_New_Republic
 			#Has completed focus 'Unite For Democracy'; Republic of Acorn has won the civil war, The Republic has not been destabilized
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to protect RoA stability
 		}
 	}
-
 	focus = {
 		id = UFA_Divide_the_Grove
 		icon = GFX_goal_unknown
@@ -1914,11 +2313,10 @@ focus_tree = {
 			focus = UFA_A_New_Republic
 			focus = UFA_Tend_Our_Garden
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to aid the Southern Baronies
 		}
 	}
-
 	focus = {
 		id = UFA_Not_What_We_Expected
 		icon = GFX_goal_unknown
@@ -1930,11 +2328,10 @@ focus_tree = {
 			focus = UFA_Divide_the_Grove
 			#Has completed focus 'Divide the Grove', the south has risen again
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to aid Huey Long and weaken the Golden Legion
 		}
 	}
-
 	focus = {
 		id = UFA_Tend_Our_Garden
 		icon = GFX_goal_unknown
@@ -1950,11 +2347,10 @@ focus_tree = {
 			focus = UFA_A_New_Republic
 			focus = UFA_Divide_the_Grove
 		}
-		completion_reward = { 
+		completion_reward = {
 			#N/A, lets players ignore Acorn Civil War and continue down tree if they wish, can align with any of the other three factions if they live but risk of undesirable faction taking power.
 		}
 	}
-
 	focus = {
 		id = UFA_Red_Leaf
 		icon = GFX_goal_unknown
@@ -1965,11 +2361,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Poisoned_Oak
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Operations to harm the Northamer Communal Union
 		}
 	}
-
 	focus = {
 		id = UFA_Keep_Him_Busy
 		icon = GFX_goal_unknown
@@ -1980,11 +2375,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Poisoned_Oak
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Generic Anti-Eggman Operations
 		}
 	}
-
 	focus = {
 		id = UFA_Poaching_Eggheads
 		icon = GFX_goal_unknown
@@ -1995,11 +2389,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks Repeatable Operation to steal Eggman Technology
 		}
 	}
-
 	focus = {
 		id = UFA_Son_of_a_Glitch
 		icon = GFX_goal_unknown
@@ -2010,11 +2403,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks repeatable mission to apply research speed debuff to eggman for a brief period.
 		}
 	}
-
 	focus = {
 		id = UFA_Crack_the_Coding
 		icon = GFX_goal_unknown
@@ -2025,11 +2417,16 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Poaching_Eggheads
 		}
-		completion_reward = { 
+		completion_reward = {
 			#2x 100% bonus for robotics
+			add_tech_bonus = {
+				name = Crack_the_Coding
+				category = robot_techs
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Burn_the_Oil_Ocean
 		icon = GFX_goal_unknown
@@ -2040,11 +2437,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks a repeatable and several one-time Operations to damage Eggman’s oil reserves.
 		}
 	}
-
 	focus = {
 		id = UFA_Fortify_Station_Square
 		icon = GFX_goal_unknown
@@ -2055,11 +2451,153 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
-			#outer edge of Station Square state gains 2 land forts All ports in station square area gain 2 coastal forts
+		completion_reward = {
+			547 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			546 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			545 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			544 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			543 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			673 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			669 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			670 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			672 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Protect_Our_Investments
 		icon = GFX_goal_unknown
@@ -2070,11 +2608,17 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
-			#Guarantee Bananas Republic Guarantee Kovoso Republic
+		completion_reward = {
+			diplomatic_relation = {
+				country = BAN
+				relation = guarantee
+			}
+			diplomatic_relation = {
+				country = GKR
+				relation = guarantee
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Approach_the_DEL
 		icon = GFX_goal_unknown
@@ -2085,11 +2629,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Keep_Him_Busy
 		}
-		completion_reward = { 
+		completion_reward = {
 			#none
 		}
 	}
-
 	focus = {
 		id = UFA_Promise_Power
 		icon = GFX_goal_unknown
@@ -2100,13 +2643,15 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Approach_the_DEL
 		}
-		completion_reward = { 
-			#Gain 1 Corruption
-			#Get Event: The Heir Apparent
-			#Add scandal: Foreign Legions to the scandal pool Gain repeating Operation to reduce Central D.E.L. unity
+		completion_reward = {
+			add_to_variable = {
+				var = corruption
+				value = 1
+			}
+			country_event = ufa.33
+			set_country_flag = Foreign_Legions_available
 		}
 	}
-
 	focus = {
 		id = UFA_Promise_Hope
 		icon = GFX_goal_unknown
@@ -2117,12 +2662,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Approach_the_DEL
 		}
-		completion_reward = { 
-			#Cloven in Twain
-			#Repeating Operation to weaken Northamer D.E.L. compliance
+		completion_reward = {
+			country_event = ufa.78
 		}
 	}
-
 	focus = {
 		id = UFA_Promise_Freedom
 		icon = GFX_goal_unknown
@@ -2133,12 +2676,10 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Approach_the_DEL
 		}
-		completion_reward = { 
-			#Get Event: I Do Declare
-			#Repeating Operation to weaken Great Desert D.E.L. compliance
+		completion_reward = {
+			country_event = ufa.34
 		}
 	}
-
 	focus = {
 		id = UFA_Promise_Free_Reign
 		icon = GFX_goal_unknown
@@ -2149,14 +2690,16 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Approach_the_DEL
 		}
-		completion_reward = { 
-			#Get Event: Tropic Thunder
-			#Add Scandal: Agent Green to the scandals list Repeating Operation to weaken Southamer DEL compliance
-			#Gain 3 Corruption
+		completion_reward = {
+			country_event = ufa.35
+			set_country_flag = Agent_Green_available
+			add_to_variable = {
+				var = corruption
+				value = 3
+			}
 		}
 	}
-
-focus = {
+	focus = {
 		id = UFA_For_Freedom
 		icon = GFX_goal_unknown
 		cost = 1
@@ -2176,12 +2719,11 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_On_Our_Own
 		}
-		completion_reward = { 
-			#United Federation joins Freedom Accord Faction In future any nations aligning with the UF will join the Freedom Accord faction
+		completion_reward = {
+			add_to_faction = KOA
 		}
 	}
-
-focus = {
+	focus = {
 		id = UFA_On_Our_Own
 		icon = GFX_goal_unknown
 		cost = 1
@@ -2201,12 +2743,11 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_For_Freedom
 		}
-		completion_reward = { 
-			#Create faction: United Federation In future any nations aligning with the UF will join the United Federation faction
+		completion_reward = {
+			create_faction = UFA
 		}
 	}
-
-focus = {
+	focus = {
 		id = UFA_Break_Some_Eggs
 		icon = GFX_goal_unknown
 		cost = 1
@@ -2219,16 +2760,18 @@ focus = {
 		}
 		bypass = {
 			OR = {
-			has_war_with = EGG
-			NOT = {	country_exists = EGG }
+				has_war_with = EGG
+				NOT = {
+					country_exists = EGG
+				}
 			}
-
 		}
-		completion_reward = { 
-			#United Federation Declares war on Eggman Empire
+		completion_reward = {
+			declare_war_on = {
+				target = EGG
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Legacy_of_Gamma
 		icon = GFX_goal_unknown
@@ -2245,12 +2788,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_A_New_Colossus
 		}
-		completion_reward = { 
-			#Get Event: Alpha and Omega
-			#Unlocks Special Project: Light up the Night
+		completion_reward = {
+			country_event = ufa.58
 		}
 	}
-
 	focus = {
 		id = UFA_Empathy_Plague
 		icon = GFX_goal_unknown
@@ -2261,12 +2802,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Legacy_of_Gamma
 		}
-		completion_reward = { 
-			#Get Event: Hope Rides Alone
-			#Unlocks Operation: A Beacon of Light from a Burning Screen
+		completion_reward = {
+			country_event = ufa.59
 		}
 	}
-
 	focus = {
 		id = UFA_Scrambled
 		icon = GFX_goal_unknown
@@ -2277,11 +2816,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Break_Some_Eggs
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Unlocks one-time operation to sabotage Eggman’s communications
 		}
 	}
-
 	focus = {
 		id = UFA_Make_an_Omelette
 		icon = GFX_goal_unknown
@@ -2292,11 +2830,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Break_Some_Eggs
 		}
-		completion_reward = { 
-			#Gain National Spirit 'Break the Egg':Attack Bonus vs Eggman Empire +10%
+		completion_reward = {
+			add_ideas = UFA_Break_the_Egg
 		}
 	}
-
 	focus = {
 		id = UFA_A_New_People
 		icon = GFX_goal_unknown
@@ -2315,805 +2852,776 @@ focus = {
 				country_exists = EGG
 			}
 		}
-		completion_reward = { 
-			#Gain National Spirit 'Break the Egg':Attack Bonus vs Eggman Empire +10%
+		completion_reward = {
+			#Super Event
 		}
 	}
-
 	focus = {
 		id = UFA_Spectre_Haunting_Yurashia
 		icon = GFX_focus_UFA_Spectre_Haunting_Yurashia
-		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = -16
 		y = 6
-
 		cost = 10
-
 		completion_reward = {
 			#Get Event: Containment Theories
 		}
 	}
-
 	focus = {
 		id = UFA_The_Men_From_CLIP
 		icon = GFX_focus_UFA_The_Men_From_CLIP
-		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		prerequisite = {
+			focus = UFA_Spectre_Haunting_Yurashia
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Spectre_Haunting_Yurashia
 		x = -3
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks repeatable anti-rethenia operation to send C.L.I.P. men posing as immigrant workers
 		}
 	}
-
 	focus = {
 		id = UFA_A_Lighter_Shade_of_Red
 		icon = GFX_focus_UFA_A_Lighter_Shade_of_Red
-		prerequisite = { focus =  UFA_The_Men_From_CLIP }
+		prerequisite = {
+			focus = UFA_The_Men_From_CLIP
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Unlock repeatable operations to fund party opposition and incite separatism in committees in rethenia
 		}
 	}
-
 	focus = {
 		id = UFA_Teach_Them_Better
 		icon = GFX_focus_UFA_Teach_Them_Better
-		prerequisite = { focus =  UFA_A_Lighter_Shade_of_Red }
+		prerequisite = {
+			focus = UFA_A_Lighter_Shade_of_Red
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
 		x = -1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks repeatable operation to airdrop propaganda pamphlets in rethenia
 		}
 	}
-
 	focus = {
 		id = UFA_Welcome_Defectors
 		icon = GFX_focus_UFA_Welcome_Defectors
-		prerequisite = { focus =  UFA_A_Lighter_Shade_of_Red }
+		prerequisite = {
+			focus = UFA_A_Lighter_Shade_of_Red
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
 		x = 1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
-			#Gain monthly population +5%, gain political power +50
+			add_political_power = 50
+			add_ideas = UFA_Welcoming_Defectors
 		}
 	}
-
 	focus = {
 		id = UFA_The_AntiUnity_Affairs_Committee
 		icon = GFX_focus_UFA_The_AntiUnity_Affairs_Committee
-		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		prerequisite = {
+			focus = UFA_Spectre_Haunting_Yurashia
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Spectre_Haunting_Yurashia
 		x = 0
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
-			#Gain +5% War Support -5% Stability +50 Political Power
+			add_stability = -0.05
+			add_war_support = 0.05
+			add_political_power = 50
 		}
 	}
-
 	focus = {
 		id = UFA_The_Root_Out_Subversives
 		icon = GFX_focus_UFA_The_Root_Out_Subversives
-		prerequisite = { focus = UFA_The_AntiUnity_Affairs_Committee }
+		prerequisite = {
+			focus = UFA_The_AntiUnity_Affairs_Committee
+		}
 		mutually_exclusive = {
 			focus = UFA_Shades_of_Grey
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
-			#Renthenia has a -10% mission success chance for missions infiltrating your administration.
+			RCR = {
+				add_ideas = UFA_Counter_Spying
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Shades_of_Grey
 		icon = GFX_focus_UFA_Shades_of_Grey
-		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
+		prerequisite = {
+			focus = UFA_The_AntiUnity_Affairs_Committee
+		}
 		mutually_exclusive = {
 			focus = UFA_The_Root_Out_Subversives
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
-			#Eggman AND Rethenian Operations in UF Success chance reduced by 5%
+			EGG = {
+				add_ideas = UFA_Shades_of_Grey
+			}
+			RCR = {
+				add_ideas = UFA_Shades_of_Grey
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Outsource_Order
 		icon = GFX_focus_UFA_Outsource_Order
-		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
-		
+		prerequisite = {
+			focus = UFA_The_AntiUnity_Affairs_Committee
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 3
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
-			#Improve Operations success rate in UF region by 10% Gain 3 corruption
-			#Black Ocean to Scandals list
+			add_to_variable = {
+				var = corruption
+				value = 3
+			}
+			add_ideas = UFA_Outsource_Order
+			set_country_flag = Black_Ocean_available
 		}
 	}
-
 	focus = {
 		id = UFA_Pressure_the_Pinks
 		icon = GFX_focus_UFA_Pressure_the_Pinks
-		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
-		
+		prerequisite = {
+			focus = UFA_The_AntiUnity_Affairs_Committee
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 2
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
-			#Add Scandal: Letters From a Parma Jean Jail to the scandals pool
-			#Social Democrats lose 10% party popularity Gain 4 Corruption
+			set_country_flag = Letters_From_a_Parma_Jean_Jail_available
+			add_popularity = {
+				ideology = progressism
+				popularity = -0.1
+			}
+			add_to_variable = {
+				var = corruption
+				value = 4
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Demonize_the_Katz
 		icon = GFX_focus_UFA_Demonize_the_Katz
-		prerequisite = { focus =  UFA_The_AntiUnity_Affairs_Committee }
-		
+		prerequisite = {
+			focus = UFA_The_AntiUnity_Affairs_Committee
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 4
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
-			#Political Power +25 Gain +5% War Support
+			add_political_power = 25
+			add_war_support = 0.05
 		}
 	}
-
 	focus = {
 		id = UFA_Radio_Free_Rethenia
 		icon = GFX_focus_UFA_Radio_Free_Rethenia
-		prerequisite = { focus =  UFA_Shades_of_Grey focus =  UFA_The_Root_Out_Subversives }
-		
+		prerequisite = {
+			focus = UFA_Shades_of_Grey
+			focus = UFA_The_Root_Out_Subversives
+		}
 		mutually_exclusive = {
 			focus = UFA_The_Root_Out_Subversives
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
-			#Gain 1x 50% research speed bonus for radio technology.
-			#Gain Event: Late Nite Broadcast
-			#Gain repeatable mission to broadcast ‘Radio Free Rethenia’ to Rethenian Peoples
-			#Available as advisor: Nite the Owl; Soft-Hearted Broadcaster. Effect: +10% Radar research speed, +.1/day Political Power
+			add_tech_bonus = {
+				name = Radio_Free_Rethenia
+				technology = radio
+				uses = 1
+				bonus = 0.5
+			}
+			country_event = ufa.79
 		}
 	}
-
 	focus = {
 		id = UFA_A_Moral_Media
 		icon = GFX_focus_UFA_A_Moral_Media
-		prerequisite = { focus =  UFA_Radio_Free_Rethenia }
-		
+		prerequisite = {
+			focus = UFA_Radio_Free_Rethenia
+		}
 		mutually_exclusive = {
 			focus = UFA_Humming_the_Baseline
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = -1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
-			#Gain Access to one-time Operation: Sneakman
-			#Available as advisor: Captain Onishima, Chief of Police Brutality, Political Power -.1/day, Resistance Growth -.1
+			
 		}
 	}
-
 	focus = {
 		id = UFA_Humming_the_Baseline
 		icon = GFX_focus_UFA_Humming_the_Baseline
-		prerequisite = { focus =  UFA_Radio_Free_Rethenia }
-		
+		prerequisite = {
+			focus = UFA_Radio_Free_Rethenia
+		}
 		mutually_exclusive = {
 			focus = UFA_A_Moral_Media
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
-			#Get Event: The Concept of Love
-			#Available as advisor: DJ Professor K: Master of Ceremonies: Daily Political power +.15, stability -5%, Radio tower construction speed + 25%
+			country_event = ufa.38
 		}
 	}
-
 	focus = {
 		id = UFA_The_Red_Menace
 		icon = GFX_focus_UFA_The_Red_Menace
-		prerequisite = { focus =  UFA_A_Moral_Media focus =  UFA_Humming_the_Baseline }
-		prerequisite = { focus =  UFA_Demonize_the_Katz }
-		
+		prerequisite = {
+			focus = UFA_A_Moral_Media
+			focus = UFA_Humming_the_Baseline
+		}
+		prerequisite = {
+			focus = UFA_Demonize_the_Katz
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_AntiUnity_Affairs_Committee
 		x = 4
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
-			#Gain National Spirit: The Red Menace, granting +5% attack and defense against Rethenia.
+			add_ideas = UFA_The_Red_Menace
 		}
 	}
-
 	focus = {
 		id = UFA_Game_Theory
 		icon = GFX_focus_UFA_Game_Theory
-		prerequisite = { focus =  UFA_Spectre_Haunting_Yurashia }
+		prerequisite = {
+			focus = UFA_Spectre_Haunting_Yurashia
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Spectre_Haunting_Yurashia
 		x = 6
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Reinforce_the_Cordon
 		icon = GFX_focus_UFA_Reinforce_the_Cordon
-		prerequisite = { focus =  UFA_Game_Theory }
+		prerequisite = {
+			focus = UFA_Game_Theory
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Game_Theory
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Digging_It
 		icon = GFX_focus_UFA_Digging_It
-		prerequisite = { focus =  UFA_Reinforce_the_Cordon }
+		prerequisite = {
+			focus = UFA_Reinforce_the_Cordon
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Game_Theory
 		x = 1
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			add_ideas = UFA_Fortification_Effort
 		}
 	}
-
 	focus = {
 		id = UFA_Empire_Line
 		icon = GFX_focus_UFA_Empire_Line
-		prerequisite = { focus =  UFA_Digging_It }
+		prerequisite = {
+			focus = UFA_Digging_It
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Digging_It
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			348 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			349 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			370 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			371 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Transylvanian_Line
 		icon = GFX_focus_UFA_Transylvanian_Line
-		prerequisite = { focus =  UFA_Digging_It }
+		prerequisite = {
+			focus = UFA_Digging_It
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Digging_It
 		x = 3
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			369 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			338 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			333 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			348 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_The_Great_Game
 		icon = GFX_focus_UFA_The_Great_Game
-		prerequisite = { focus =  UFA_Reinforce_the_Cordon }
+		prerequisite = {
+			focus = UFA_Reinforce_the_Cordon
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Reinforce_the_Cordon
 		x = -1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks decisions to begin influencing border nations with the RSCR
 			add_political_power = 25
 			#gain +25 political power UF, RSCR, and the nation itself will compete to see whose sphere (and eventually faction) these border nations join: ally with one, the other, or stay neutral.
 		}
 	}
-
 	focus = {
 		id = UFA_A_Once_and_Future_Ally
 		icon = GFX_focus_UFA_A_Once_and_Future_Ally
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks Mercian Game decisions
 		}
 	}
-
 	focus = {
 		id = UFA_Knights_of_the_Conference_Table
 		icon = GFX_focus_UFA_Knights_of_the_Conference_Table
-		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		prerequisite = {
+			focus = UFA_A_Once_and_Future_Ally
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_A_Once_and_Future_Ally
 		x = -2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#UF gains influence over Mercia
 		}
 	}
-
 	focus = {
 		id = UFA_Beastly_Anachronism
 		icon = GFX_focus_UFA_Beastly_Anachronism
-		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		prerequisite = {
+			focus = UFA_A_Once_and_Future_Ally
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_A_Once_and_Future_Ally
 		x = 0
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain 2 offmap civilian factories, UF gains slight influence over Mercia. Mercia gains 2 offmap military factories
 		}
 	}
-
 	focus = {
 		id = UFA_Castling
 		icon = GFX_focus_UFA_Castling
-		prerequisite = { focus =  UFA_A_Once_and_Future_Ally }
+		prerequisite = {
+			focus = UFA_A_Once_and_Future_Ally
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_A_Once_and_Future_Ally
 		x = 2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain influence over Mercia Mercia gains 3 land forts in certain locations
 		}
 	}
-
 	focus = {
 		id = UFA_Bullet_Chess
 		icon = GFX_focus_UFA_Bullet_Chess
-		prerequisite = { focus =  UFA_Knights_of_the_Conference_Table }
-		prerequisite = { focus =  UFA_Beastly_Anachronism }
-		prerequisite = { focus =  UFA_Castling }
+		prerequisite = {
+			focus = UFA_Knights_of_the_Conference_Table
+		}
+		prerequisite = {
+			focus = UFA_Beastly_Anachronism
+		}
+		prerequisite = {
+			focus = UFA_Castling
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_A_Once_and_Future_Ally
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_United_Justice
 		icon = GFX_focus_UFA_United_Justice
-		prerequisite = { focus =  UFA_Bullet_Chess }
+		prerequisite = {
+			focus = UFA_Bullet_Chess
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_A_Once_and_Future_Ally
 		x = 0
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Mercia joins UF sphere
 		}
 	}
-
 	focus = {
 		id = UFA_Win_the_Exchange
 		icon = GFX_focus_UFA_Win_the_Exchange
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = 3
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain Influence over Cherniwschina
 			#Gain National Spirit: Outbidding Cherniwschinan Production, Consumer Goods +10% for 180 days
 			#Unlocks Cherniwchinan Game decisions
 		}
 	}
-
 	focus = {
 		id = UFA_First_Mover_Advantage
 		icon = GFX_focus_UFA_First_Mover_Advantage
-		prerequisite = { focus =  UFA_Win_the_Exchange }
+		prerequisite = {
+			focus = UFA_Win_the_Exchange
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = 0
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain influence over Cherniwshina, Cherniwshina gains 2x 100% research speed for trucks and tanks
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_the_Embargo
 		icon = GFX_focus_UFA_Expand_the_Embargo
-		prerequisite = { focus =  UFA_First_Mover_Advantage }
+		prerequisite = {
+			focus = UFA_First_Mover_Advantage
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Embargo Cherniwshina until and unless you are victorious in the Cherniwshinan Game (trade relations -1000)
 		}
 	}
-
 	focus = {
-		id = UFA_Control_the_Center 
-		icon = GFX_focus_UFA_Control_the_Center 
-		prerequisite = { focus =  UFA_Expand_the_Embargo }
+		id = UFA_Control_the_Center
+		icon = GFX_focus_UFA_Control_the_Center
+		prerequisite = {
+			focus = UFA_Expand_the_Embargo
+		}
 		mutually_exclusive = {
 			focus = UFA_En_Passant
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = 1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Cherniwshina joins the UF sphere
 		}
 	}
-
 	focus = {
 		id = UFA_En_Passant
 		icon = GFX_focus_UFA_En_Passant
-		prerequisite = { focus =  UFA_Expand_the_Embargo }
+		prerequisite = {
+			focus = UFA_Expand_the_Embargo
+		}
 		mutually_exclusive = {
 			focus = UFA_Control_the_Center
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = -1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Guarantee Cherniwshina
 		}
 	}
-
 	focus = {
 		id = UFA_Pawn_Promotion
 		icon = GFX_focus_UFA_Pawn_Promotion
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = 5
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Lose 30 Political Power, Gain influence in Svyetlales, Svyetlales politics will be destabilized
 			#Gain access to Svyetlales Game decisions
 		}
 	}
-
 	focus = {
 		id = UFA_Blockade
 		icon = GFX_focus_UFA_Blockade
-		prerequisite = { focus =  UFA_Pawn_Promotion }
+		prerequisite = {
+			focus = UFA_Pawn_Promotion
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Pawn_Promotion
 		x = 0
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Svyetlales annexes Brastopolis, Svyetlales joins the UF sphere, UF guarantees Svyetlales
 		}
 	}
-
 	focus = {
 		id = UFA_Mechanical_Tuk
 		icon = GFX_focus_UFA_Mechanical_Tuk
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = 7
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Tukmania gains 2x bonus to industry
 		}
 	}
-
 	focus = {
 		id = UFA_Pawns_Gambit
 		icon = GFX_focus_UFA_Pawns_Gambit
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = -6
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain influence in Tunnimia
 			#Unlocks Tunnimian Game decisions 
 		}
 	}
-
 	focus = {
 		id = UFA_Pawn_Storm
 		icon = GFX_focus_UFA_Pawn_Storm
-		prerequisite = { focus =  UFA_Pawns_Gambit }
+		prerequisite = {
+			focus = UFA_Pawns_Gambit
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Pawns_Gambit
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Lose 500 of infantry weapons, 200 of support equipment, old ones go first, Gain influence in Tuunimia
 		}
@@ -3121,16 +3629,15 @@ focus = {
 	focus = {
 		id = UFA_Topple_the_King
 		icon = GFX_focus_UFA_Topple_the_King
-		prerequisite = { focus =  UFA_Pawn_Storm }
+		prerequisite = {
+			focus = UFA_Pawn_Storm
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Pawns_Gambit
 		x = 2
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Tuunimia joins the UF’s sphere
 		}
@@ -3138,16 +3645,15 @@ focus = {
 	focus = {
 		id = UFA_Outpost
 		icon = GFX_focus_UFA_Outpost
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = -8
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain Influence in Latgalia
 			#Unlocks latgalian game decisions
@@ -3156,44 +3662,49 @@ focus = {
 	focus = {
 		id = UFA_Breakthrough
 		icon = GFX_focus_UFA_Breakthrough
-		prerequisite = { focus =  UFA_Outpost }
+		prerequisite = {
+			focus = UFA_Outpost
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Outpost
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Latgalia joins the UF sphere
 		}
 	}
-
 	focus = {
 		id = UFA_Exhibition_Match
 		icon = GFX_focus_UFA_Exhibition_Match
-		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
-		prerequisite = { focus = UFA_United_Justice }
+		prerequisite = {
+			focus = UFA_En_Passant
+			focus = UFA_Control_the_Center
+		}
+		prerequisite = {
+			focus = UFA_United_Justice
+		}
 		mutually_exclusive = {
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = -7
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Gain 30 army experience
 		}
 	}
-
 	focus = {
 		id = UFA_Maroczy_Bind
 		icon = GFX_focus_UFA_Maroczy_Bind
-		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
-		prerequisite = { focus = UFA_United_Justice }
+		prerequisite = {
+			focus = UFA_En_Passant
+			focus = UFA_Control_the_Center
+		}
+		prerequisite = {
+			focus = UFA_United_Justice
+		}
 		mutually_exclusive = {
 			focus = UFA_Check
 			focus = UFA_Fortress
@@ -3201,19 +3712,21 @@ focus = {
 		relative_position_id = UFA_Win_the_Exchange
 		x = -5
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Gain +100 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
-
 	focus = {
 		id = UFA_Fortress
 		icon = GFX_focus_UFA_Fortress
-		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
-		prerequisite = { focus = UFA_United_Justice }
+		prerequisite = {
+			focus = UFA_En_Passant
+			focus = UFA_Control_the_Center
+		}
+		prerequisite = {
+			focus = UFA_United_Justice
+		}
 		mutually_exclusive = {
 			focus = UFA_Check
 			focus = UFA_Maroczy_Bind
@@ -3221,19 +3734,21 @@ focus = {
 		relative_position_id = UFA_Win_the_Exchange
 		x = -3
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Gain +50 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
-
 	focus = {
 		id = UFA_Check
 		icon = GFX_focus_UFA_Check
-		prerequisite = { focus =  UFA_En_Passant focus =  UFA_Control_the_Center }
-		prerequisite = { focus = UFA_United_Justice }
+		prerequisite = {
+			focus = UFA_En_Passant
+			focus = UFA_Control_the_Center
+		}
+		prerequisite = {
+			focus = UFA_United_Justice
+		}
 		mutually_exclusive = {
 			focus = UFA_Fortress
 			focus = UFA_Maroczy_Bind
@@ -3241,346 +3756,334 @@ focus = {
 		relative_position_id = UFA_Win_the_Exchange
 		x = -1
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Lose -50 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
-
 	focus = {
 		id = UFA_Checkmate
 		icon = GFX_focus_UFA_Checkmate
-		prerequisite = { focus =  UFA_Fortress focus = UFA_United_Justice focus =  UFA_Check }
+		prerequisite = {
+			focus = UFA_Fortress
+			focus = UFA_United_Justice
+			focus = UFA_Check
+		}
 		mutually_exclusive = {
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = -3
 		y = 5
-
 		cost = 10
-
 		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_Zugzwang
 		icon = GFX_focus_UFA_Zugzwang
-		prerequisite = { focus = UFA_Checkmate }
+		prerequisite = {
+			focus = UFA_Checkmate
+		}
 		mutually_exclusive = {
 			focus = UFA_Run_Out_the_Clock
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = -4
 		y = 6
-
 		cost = 10
-
 		completion_reward = {
 			#Rethenia gains event: The Final Straw (will likely lead to war)
 		}
 	}
-
 	focus = {
 		id = UFA_Run_Out_the_Clock
 		icon = GFX_focus_UFA_Run_Out_the_Clock
-		prerequisite = { focus = UFA_Checkmate }
+		prerequisite = {
+			focus = UFA_Checkmate
+		}
 		mutually_exclusive = {
 			focus = UFA_Zugzwang
 		}
 		relative_position_id = UFA_Win_the_Exchange
 		x = -2
 		y = 6
-
 		cost = 10
-
 		completion_reward = {
 			#Gain new Operations to delay a Rethenian invasion
 		}
 	}
-
 	focus = {
 		id = UFA_Emeralds_are_Forever
 		icon = GFX_focus_UFA_Emeralds_are_Forever
-		prerequisite = { focus =  UFA_The_Men_From_CLIP }
+		prerequisite = {
+			focus = UFA_The_Men_From_CLIP
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Men_From_CLIP
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks action to steal any Chaos Emeralds or other artifacts Rethenia may have
 		}
 	}
-
 	focus = {
 		id = UFA_Cold_Comfort
 		icon = GFX_focus_UFA_Cold_Comfort
-		prerequisite = { focus =  UFA_The_Great_Game }
+		prerequisite = {
+			focus = UFA_The_Great_Game
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_The_Great_Game
 		x = -10
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_Ancorage
 		icon = GFX_focus_UFA_Ancorage
-		prerequisite = { focus =  UFA_Cold_Comfort }
+		prerequisite = {
+			focus = UFA_Cold_Comfort
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Cold_Comfort
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Gain Fleet Basing Rights from Holoska
 		}
 	}
-
 	focus = {
 		id = UFA_Together_for_Warmth
 		icon = GFX_focus_UFA_Together_for_Warmth
-		prerequisite = { focus =  UFA_Ancorage }
+		prerequisite = {
+			focus = UFA_Ancorage
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Cold_Comfort
 		x = 2
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Holoska joins the UF sphere
 		}
 	}
-
 	focus = {
 		id = UFA_Looking_East
 		icon = GFX_focus_UFA_Looking_East
-		prerequisite = { focus =  UFA_Situation_Stabilizes }
+		prerequisite = {
+			focus = UFA_Situation_Stabilizes
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Crisis_Worsens
 		x = -6
 		y = 6
-
 		cost = 10
-
 		completion_reward = {
-
 		}
 	}
-
 	focus = {
 		id = UFA_Dragon_Roads
 		icon = GFX_focus_UFA_Dragon_Roads
-		prerequisite = { focus =  UFA_Looking_East }
+		prerequisite = {
+			focus = UFA_Looking_East
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = -2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Several provinces in Chun-Nan: gain 3 infrastructure
 		}
 	}
-
 	focus = {
 		id = UFA_Arm_the_Free_Peoples
 		icon = GFX_focus_UFA_Arm_the_Free_Peoples
-		prerequisite = { focus =  UFA_Looking_East }
+		prerequisite = {
+			focus = UFA_Looking_East
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = -1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Gain operations to aid Aiguojun
 		}
 	}
-
 	focus = {
 		id = UFA_Great_Walls
 		icon = GFX_focus_UFA_Great_Walls
-		prerequisite = { focus =  UFA_Looking_East }
+		prerequisite = {
+			focus = UFA_Looking_East
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = 2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			701 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			702 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			711 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			710 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			709 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 			708 = {
 				if = {
-					limit = { is_controlled_by = ROOT }
+					limit = {
+						is_controlled_by = ROOT
+					}
 					add_building_construction = {
-        	    	    type = bunker
-            	        level = 2
-            	        instant_build = yes
-            	        province = {
-            	    	    all_provinces = yes
-            	    	    limit_to_border = yes
-                	    }
-                    }
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
 				}
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Proximate_Wars
 		icon = GFX_focus_UFA_Proximate_Wars
-		prerequisite = { focus =  UFA_Looking_East }
+		prerequisite = {
+			focus = UFA_Looking_East
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = 1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Add a group of decisions, each of which is available when certain target of proximate war is at war. 
 			#These decisions give national spirit, which increases max number of volunteers, reduces world tension requirement and reduces requirement for number of divisions.
 			#This spirit will be deleted automatically, once the target nation is at peace or ceased to exist. 
 		}
 	}
-
 	focus = {
 		id = UFA_Halt_the_Dominoes
 		icon = GFX_focus_UFA_Halt_the_Dominoes
-		prerequisite = { focus =  UFA_Proximate_Wars }
-		prerequisite = { focus =  UFA_Arm_the_Free_Peoples }
+		prerequisite = {
+			focus = UFA_Proximate_Wars
+		}
+		prerequisite = {
+			focus = UFA_Arm_the_Free_Peoples
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = 0
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 		}
 	}
-
 	focus = {
 		id = UFA_Dim_the_Red_Star
 		icon = GFX_focus_UFA_Dim_the_Red_Star
-		prerequisite = { focus =  UFA_Halt_the_Dominoes }
+		prerequisite = {
+			focus = UFA_Halt_the_Dominoes
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = -1
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			declare_war_on = {
 				target = PSG
@@ -3588,20 +4091,18 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Technopathetic
 		icon = GFX_focus_UFA_Technopathetic
-		prerequisite = { focus =  UFA_Halt_the_Dominoes }
+		prerequisite = {
+			focus = UFA_Halt_the_Dominoes
+		}
 		mutually_exclusive = {
-			
 		}
 		relative_position_id = UFA_Looking_East
 		x = 1
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			declare_war_on = {
 				target = IRO
@@ -3609,18 +4110,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_No_New_Taxes
 		icon = GFX_goal_unknown
 		cost = 1
 		x = 80
 		y = 0
-		completion_reward = { 
+		completion_reward = {
 			add_political_power = 100
 		}
 	}
-
 	focus = {
 		id = UFA_For_the_Many
 		icon = GFX_goal_unknown
@@ -3631,11 +4130,13 @@ focus = {
 		prerequisite = {
 			focus = UFA_No_New_Taxes
 		}
-		completion_reward = { 
-			#Gain National Spirit ‘Consumer Spending’ for 300 days, effect: Construction speed +10%, Consumer Goods factories requirements +5%
+		completion_reward = {
+			add_timed_idea = {
+				idea = UFA_Consumer_Spending
+				days = 300
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_For_the_Few
 		icon = GFX_goal_unknown
@@ -3646,12 +4147,15 @@ focus = {
 		prerequisite = {
 			focus = UFA_No_New_Taxes
 		}
-		completion_reward = { 
-			#Gain National Spirit: Supply Side Economics for 300 days, effect: Consumer Goods factories requirements +10%, Production efficiency growth +10%
-			#Gain 150 Political Power, Gain 1 corruption
+		completion_reward = {
+			add_ideas = UFA_Supply_Side_Economics
+			add_political_power = 150
+			add_to_variable = {
+				var = corruption
+				value = 1
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_For_the_Industry
 		icon = GFX_goal_unknown
@@ -3662,11 +4166,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_No_New_Taxes
 		}
-		completion_reward = { 
-			#Gain National Spirit ‘Targeted Subsidies’ for 150 days, effect: -5% Consumer Goods Factories, +5% Military Factory construction speed
+		completion_reward = {
+			add_ideas = UFA_Targeted_Subsidies
 		}
 	}
-
 	focus = {
 		id = UFA_Support_Small_Business
 		icon = GFX_goal_unknown
@@ -3682,12 +4185,16 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Corporate_Integration
 		}
-		completion_reward = { 
-			#1x 50% bonus for flexible line production
-			#Gain National Spirit ‘Entrepreneurial Industry’, effect: +5% Production retention, +10% production efficiency growth
+		completion_reward = {
+			add_ideas = UFA_Entrepreneurial_Industry
+			add_tech_bonus = {
+				name = Support_Small_Business
+				category = dispersed_industry_category
+				uses = 1
+				bonus = 0.5
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Corporate_Integration
 		icon = GFX_goal_unknown
@@ -3703,12 +4210,16 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Support_Small_Business
 		}
-		completion_reward = { 
-			#Gain National Spirit ‘Economies of Scale’, effect: +10% Production efficiency cap
-			#1x 50% bonus for concentrated line production
+		completion_reward = {
+			add_tech_bonus = {
+				name = Support_Small_Business
+				category = concentrated_industry_category
+				uses = 1
+				bonus = 0.5
+			}
+			add_ideas = UFA_Economies_of_Scale
 		}
 	}
-
 	focus = {
 		id = They_Are_Not_Taxes
 		icon = GFX_goal_unknown
@@ -3723,11 +4234,13 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Close_Loopholes
 		}
-		completion_reward = { 
-			#Popularity of Social Conservatives: -5%
+		completion_reward = {
+			add_popularity = {
+				ideology = conservatism
+				popularity = -0.05
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Close_Loopholes
 		icon = GFX_goal_unknown
@@ -3737,16 +4250,15 @@ focus = {
 		y = 3
 		prerequisite = {
 			focus = UFA_Support_Small_Business
-			focus = UFA_Corporate_Integration
+			focus = UFA_Corporate_Integration	
 		}
 		mutually_exclusive = {
 			focus = They_Are_Not_Taxes
 		}
-		completion_reward = { 
-			#Political Power -100
+		completion_reward = {
+			add_political_power = -100
 		}
 	}
-
 	focus = {
 		id = UFA_The_Freest_Market
 		icon = GFX_goal_unknown
@@ -3759,11 +4271,10 @@ focus = {
 			focus = UFA_For_the_Many
 			focus = UFA_For_the_Few
 		}
-		completion_reward = { 
-			#Change Economy law to Free Trade
+		completion_reward = {
+			add_ideas = free_trade
 		}
 	}
-
 	focus = {
 		id = UFA_Establish_the_Speed_Team
 		icon = GFX_goal_unknown
@@ -3776,12 +4287,10 @@ focus = {
 			focus = UFA_For_the_Many
 			focus = UFA_For_the_Few
 		}
-		completion_reward = { 
-			#Get Event: Speed, I am Speed
-			#Available as Advisor: Sam Speed, Highway Star: Division speed +10%
+		completion_reward = {
+			country_event = ufa.37
 		}
 	}
-
 	focus = {
 		id = UFA_The_Federal_Game
 		icon = GFX_goal_unknown
@@ -3792,12 +4301,11 @@ focus = {
 		prerequisite = {
 			focus = UFA_No_New_Taxes
 		}
-		completion_reward = { 
-			#Gain +50 Political Power
+		completion_reward = {
+			add_political_power = 50
 			#Get Event: Take Me Out to the Ball Game
 		}
 	}
-
 	focus = {
 		id = UFA_Central_Labs_Sponsorship
 		icon = GFX_goal_unknown
@@ -3809,11 +4317,15 @@ focus = {
 			focus = UFA_Close_Loopholes
 			focus = They_Are_Not_Taxes
 		}
-		completion_reward = { 
-			#2x 50% bonus for computing
+		completion_reward = {
+			add_tech_bonus = {
+				name = Central_Labs_Sponsorship
+				category = computing_tech
+				uses = 2
+				bonus = 0.5
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Hundred_Moons_of_Mobius
 		icon = GFX_goal_unknown
@@ -3824,11 +4336,15 @@ focus = {
 		prerequisite = {
 			focus = UFA_Central_Labs_Sponsorship
 		}
-		completion_reward = { 
-			#2x 100% bonus for rocketry, ARK decisions command costs -10%
+		completion_reward = {
+			add_tech_bonus = {
+				name = Hundred_Moons_of_Mobius
+				category = rocketry
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Artificial_Defences
 		icon = GFX_goal_unknown
@@ -3839,11 +4355,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Central_Labs_Sponsorship
 		}
-		completion_reward = { 
+		completion_reward = {
 			#1x100 bonus for antimissile technology 2x 100% bonus for bombardment protection
 		}
 	}
-
 	focus = {
 		id = UFA_Advanced_Computing
 		icon = GFX_goal_unknown
@@ -3854,11 +4369,21 @@ focus = {
 		prerequisite = {
 			focus = UFA_Central_Labs_Sponsorship
 		}
-		completion_reward = { 
-			#2x 100% bonus to computing, 2x 50% bonus to industry automation/regional automation
+		completion_reward = {
+			add_tech_bonus = {
+				name = Advanced_Computing
+				category = computing_tech
+				uses = 2
+				bonus = 1
+			}
+			add_tech_bonus = {
+				name = Advanced_Computing
+				category = industry
+				uses = 2
+				bonus = 0.5
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Polytechnic_Integration
 		icon = GFX_goal_unknown
@@ -3875,11 +4400,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Artificial_Defences
 		}
-		completion_reward = { 
-			#2x 100% bonus to computing, 2x 50% bonus to industry automation/regional automation
+		completion_reward = {
+			add_research_slot = 1
 		}
 	}
-
 	focus = {
 		id = UFA_Robotics_Assembly
 		icon = GFX_goal_unknown
@@ -3890,11 +4414,15 @@ focus = {
 		prerequisite = {
 			focus = UFA_Advanced_Computing
 		}
-		completion_reward = { 
-			#1x 100% bonus for assembly line production
+		completion_reward = {
+			add_tech_bonus = {
+				name = Robotics_Assembly
+				category = industry
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_New_Communities
 		icon = GFX_goal_unknown
@@ -3906,11 +4434,19 @@ focus = {
 			focus = UFA_Close_Loopholes
 			focus = They_Are_Not_Taxes
 		}
-		completion_reward = { 
-			#2x 50% bonus for Construction Gain, 1 Federal Unity
+		completion_reward = {
+			add_tech_bonus = {
+				name = New_Communities
+				category = construction_tech
+				uses = 2
+				bonus = 0.5
+			}
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = 0.01
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Factory_Farms
 		icon = GFX_goal_unknown
@@ -3924,11 +4460,21 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Learn_From_The_Mobians
 		}
-		completion_reward = { 
-			#1x 100% bonus for agriculture, 1x 100% bonus for excavation
+		completion_reward = {
+			add_tech_bonus = {
+				name = Factory_Farms
+				category = agriculture_tech_group
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				name = Factory_Farms
+				category = excavation_tech
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Learn_From_The_Mobians
 		icon = GFX_goal_unknown
@@ -3942,11 +4488,15 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Factory_Farms
 		}
-		completion_reward = { 
-			#Reward: 4x 50% bonus for agriculture
+		completion_reward = {
+			add_tech_bonus = {
+				name = Factory_Farms
+				category = agriculture_tech_group
+				uses = 4
+				bonus = 0.5
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Consumer_Goods
 		icon = GFX_goal_unknown
@@ -3958,11 +4508,23 @@ focus = {
 			focus = UFA_Factory_Farms
 			focus = UFA_Learn_From_The_Mobians
 		}
-		completion_reward = { 
-			#Two owned states: Gains 2 Civilian Factories Each
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Home_Front_Heroes
 		icon = GFX_goal_unknown
@@ -3973,11 +4535,23 @@ focus = {
 		prerequisite = {
 			focus = UFA_Consumer_Goods
 		}
-		completion_reward = { 
-			#Two owned states: Gains 2 Military Factories Each
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Power_Broker
 		icon = GFX_goal_unknown
@@ -3989,11 +4563,10 @@ focus = {
 			focus = UFA_Factory_Farms
 			focus = UFA_Learn_From_The_Mobians
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Add production of 10 energy to Station Square, 1x 100% bonus for energy 
 		}
 	}
-
 	focus = {
 		id = UFA_Resource_Aquisition
 		icon = GFX_goal_unknown
@@ -4004,11 +4577,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Power_Broker
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Available as Industrial Concerns: Hexaeco company- Power Authority; Infrastructure construction speed +10%, Resource Gain Efficiency +5%, Ramada Refineries, Inc- Oil Oligarchy; Resource gain efficiency +10%, Synthetic Oil research speed +10%
 		}
 	}
-
 	focus = {
 		id = UFA_Up_With_Mad_Dog
 		icon = GFX_goal_unknown
@@ -4022,11 +4594,10 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Turn_The_Beat_Down
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Available  as industrial concern: Majima Construction- Underworld Builder; Construction Speed +15%, Political Power -.15/day
 		}
 	}
-
 	focus = {
 		id = UFA_Turn_The_Beat_Down
 		icon = GFX_goal_unknown
@@ -4040,11 +4611,10 @@ focus = {
 		mutually_exclusive = {
 			focus = UFA_Up_With_Mad_Dog
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain as industrial concern: Rokkaku Group- Downbeat Construction Corporation; +10% Construction Speed, -10% construction research speed, -20% Radar construction speed
 		}
 	}
-
 	focus = {
 		id = UFA_Military_Industrial_Partnerships
 		icon = GFX_goal_unknown
@@ -4056,13 +4626,12 @@ focus = {
 			focus = UFA_Up_With_Mad_Dog
 			focus = UFA_Turn_The_Beat_Down
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Available as Materiel Design companies: Rimlight Corporation- Energy Researcher; Excavation Research Speed +15%, 
 			#Meteortech- Suspicious Security Solutions; Factory Output +5%, Infantry Weapons research speed +10%, Robots production cost -10%, Robotics Research speed -10%, Enemy operations in UF +5% Success Chance, 
 			#Starship Soft- Digital Real Estate; Computer research Speed +15%, Construction research speed +10%
 		}
 	}
-
 	focus = {
 		id = UFA_City_Escape
 		icon = GFX_goal_unknown
@@ -4074,11 +4643,10 @@ focus = {
 			focus = UFA_Close_Loopholes
 			focus = They_Are_Not_Taxes
 		}
-		completion_reward = { 
+		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_Link_the_Capital
 		icon = GFX_goal_unknown
@@ -4089,13 +4657,12 @@ focus = {
 		prerequisite = {
 			focus = UFA_City_Escape
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: Develop Battle Highway 
 			#Develop Radical Highway 
 			#Develop Lethal Highway
 		}
 	}
-
 	focus = {
 		id = UFA_Cross_the_Sunset_Straits
 		icon = GFX_goal_unknown
@@ -4106,7 +4673,7 @@ focus = {
 		prerequisite = {
 			focus = UFA_Link_the_Capital
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: Sunset City Develop Route 101 
 			#Develop Red Gate Bridge Empire City 
 			#Develop Route 280 
@@ -4114,7 +4681,6 @@ focus = {
 			#Develop Tempest Waterway
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_the_Elerail_System
 		icon = GFX_goal_unknown
@@ -4125,11 +4691,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Link_the_Capital
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: Station square Develop Speed Highway Expand Elerail to Border Settlements
 		}
 	}
-
 	focus = {
 		id = UFA_Build_the_Bullet_Train
 		icon = GFX_goal_unknown
@@ -4140,11 +4705,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Cross_the_Sunset_Straits
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: Shammar Develop Mirage Road Develop Bullet Station Mazuri Develop Treeshade Station
 		}
 	}
-
 	focus = {
 		id = UFA_Over_Sea_Overland
 		icon = GFX_goal_unknown
@@ -4155,11 +4719,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Expand_the_Elerail_System
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: Soleanna Develop Crisis Highway Spagonia Develop Stardust Speedway Develop Colosseum Highway
 		}
 	}
-
 	focus = {
 		id = UFA_Invest_In_Dragon_Road
 		icon = GFX_goal_unknown
@@ -4173,11 +4736,10 @@ focus = {
 		prerequisite = {
 			focus = UFA_Build_the_Bullet_Train
 		}
-		completion_reward = { 
+		completion_reward = {
 			#Gain Decisions: To-Kyoto Develop Highway Zero Chun-Nan Develop Dragon Road
 		}
 	}
-
 	focus = {
 		id = UFA_All_Roads_Lead_To_Home
 		icon = GFX_goal_unknown
@@ -4188,11 +4750,13 @@ focus = {
 		prerequisite = {
 			focus = UFA_Invest_In_Dragon_Road
 		}
-		completion_reward = { 
-			#Gain 5 Federal Unity
+		completion_reward = {
+			add_to_variable = {
+				var = UFA_Federal_Unity
+				value = 0.05
+			}
 		}
 	}
-
 	focus = {
 		id = UFA_Triumph_Of_Capitalism
 		icon = GFX_goal_unknown
@@ -4209,39 +4773,39 @@ focus = {
 		prerequisite = {
 			focus = UFA_Home_Front_Heroes
 		}
-		completion_reward = { 
-			#R.K. Michael gains trait ‘Captain of Industry’, effect: Construction Speed +5%, Military Factory Output +10%, Production Efficiency Cap +5%
+		completion_reward = {
+			if = {
+				limit = { 
+					has_government = conservatism
+				}
+			add_country_leader_trait = Captain_of_Industry 
 		}
 	}
-	
 	### Army Tree ###
-	
-	
 	focus = {
 		id = UFA_Review_GUN_Command
 		icon = GFX_UFA_Review_GUN_Command
 		x = 52
 		y = 0
-
 		cost = 10
-
 		completion_reward = {
-#			country_event = {   }
+			#			country_event = {   }
 			army_experience = 15
 		}
 	}
-
 	focus = {
 		id = UFA_The_Tower
 		icon = GFX_UFA_The_Tower
-		prerequisite = { focus = UFA_Review_GUN_Command }
-		mutually_exclusive = { focus = UFA_The_Brass }
+		prerequisite = {
+			focus = UFA_Review_GUN_Command
+		}
+		mutually_exclusive = {
+			focus = UFA_The_Brass
+		}
 		relative_position_id = UFA_Review_GUN_Command
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#
 			#Can set as Head of Army: Abraham Tower, Venerable Commander; +10% Army Organization, +5% army doctrine research cost, +5% Army Experience Gain
@@ -4251,18 +4815,19 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_The_Brass
 		icon = GFX_UFA_The_Brass
-		prerequisite = { focus = UFA_Review_GUN_Command }
-		mutually_exclusive = { focus = UFA_The_Tower }
+		prerequisite = {
+			focus = UFA_Review_GUN_Command
+		}
+		mutually_exclusive = {
+			focus = UFA_The_Tower
+		}
 		relative_position_id = UFA_Review_GUN_Command
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#
 			#Can set as Head of Army: Hugo Brass, Bigoted Hothead, Army Attack +15%, Army speed +5%, Political Power gain -5%
@@ -4273,17 +4838,17 @@ focus = {
 			#+2 Corruption
 		}
 	}
-
 	focus = {
 		id = UFA_Just_Shoot_Them
 		icon = GFX_UFA_Just_Shoot_Them
-		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		prerequisite = {
+			focus = UFA_The_Brass
+			focus = UFA_The_Tower
+		}
 		relative_position_id = UFA_Review_GUN_Command
 		x = 10
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4294,17 +4859,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_A_Few_New_Toys
 		icon = GFX_UFA_A_Few_New_Toys
-		prerequisite = { focus = UFA_Just_Shoot_Them }
+		prerequisite = {
+			focus = UFA_Just_Shoot_Them
+		}
 		relative_position_id = UFA_Just_Shoot_Them
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4327,17 +4891,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Walking_on_Eggshells
 		icon = GFX_UFA_Walking_on_Eggshells
-		prerequisite = { focus = UFA_Just_Shoot_Them }
+		prerequisite = {
+			focus = UFA_Just_Shoot_Them
+		}
 		relative_position_id = UFA_Just_Shoot_Them
 		x = 1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4348,17 +4911,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_HMMWV_Transport
 		icon = GFX_UFA_HMMWV_Transport
-		prerequisite = { focus = UFA_Just_Shoot_Them }
+		prerequisite = {
+			focus = UFA_Just_Shoot_Them
+		}
 		relative_position_id = UFA_Just_Shoot_Them
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4369,17 +4931,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Armor_Advancements
 		icon = GFX_UFA_Armor_Advancements
-		prerequisite = { focus = UFA_HMMWV_Transport }
+		prerequisite = {
+			focus = UFA_HMMWV_Transport
+		}
 		relative_position_id = UFA_Just_Shoot_Them
 		x = -1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4390,18 +4951,19 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Specialist_Mechanization
 		icon = GFX_UFA_Specialist_Mechanization
-		prerequisite = { focus = UFA_Armor_Advancements }
-		prerequisite = { focus = UFA_Walking_on_Eggshells }
+		prerequisite = {
+			focus = UFA_Armor_Advancements
+		}
+		prerequisite = {
+			focus = UFA_Walking_on_Eggshells
+		}
 		relative_position_id = UFA_Just_Shoot_Them
 		x = 0
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4412,32 +4974,31 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Covert_Operations
 		icon = GFX_UFA_Covert_Operations
-		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		prerequisite = {
+			focus = UFA_The_Brass
+			focus = UFA_The_Tower
+		}
 		relative_position_id = UFA_Review_GUN_Command
 		x = 4
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#
 		}
 	}
-
 	focus = {
 		id = UFA_Paladin_Teams
 		icon = GFX_UFA_Paladin_Teams
-		prerequisite = { focus = UFA_Covert_Operations }
+		prerequisite = {
+			focus = UFA_Covert_Operations
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = 2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Paladin_Teams
@@ -4453,17 +5014,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_Survival_Training
 		icon = GFX_UFA_Expand_Survival_Training
-		prerequisite = { focus = UFA_Paladin_Teams }
+		prerequisite = {
+			focus = UFA_Paladin_Teams
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = 1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Advanced_Survival_Training
@@ -4473,17 +5033,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_BOLT_Action
 		icon = GFX_UFA_BOLT_Action
-		prerequisite = { focus = UFA_Paladin_Teams }
+		prerequisite = {
+			focus = UFA_Paladin_Teams
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = 3
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks BOLT decisions to spend command points on the following effects:
 			#randomize_weather command
@@ -4492,134 +5051,134 @@ focus = {
 			#temporarily increase research speed
 			#temporarily increase bomber efficiency
 			#damage buildings in single enemy state
-
 		}
 	}
-
 	focus = {
 		id = UFA_Homeland_Security
 		icon = GFX_UFA_Homeland_Security
-		prerequisite = { focus = UFA_BOLT_Action }
-		prerequisite = { focus = UFA_Expand_Survival_Training  }
+		prerequisite = {
+			focus = UFA_BOLT_Action
+		}
+		prerequisite = {
+			focus = UFA_Expand_Survival_Training
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = 2
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Unlocks operations decisions in UF
 		}
 	}
-
 	focus = {
 		id = UFA_Agents_of_GUN
 		icon = GFX_UFA_Agents_of_GUN
-		prerequisite = { focus = UFA_BOLT_Action }
-		prerequisite = { focus = UFA_Expand_Survival_Training  }
+		prerequisite = {
+			focus = UFA_BOLT_Action
+		}
+		prerequisite = {
+			focus = UFA_Expand_Survival_Training
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = 2
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Available as Advisors: Madonna: Agent of C.L.I.P.; Defense against enemy Operations +10% Topaz: Agent of G.U.N.; Operations success rate +5%
 		}
 	}
-
 	focus = {
 		id = UFA_Organize_Team_Dark
 		icon = GFX_UFA_Organize_Team_Dark
-		prerequisite = { focus = UFA_Covert_Operations }
+		prerequisite = {
+			focus = UFA_Covert_Operations
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = -2
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			#Unlock Team Dark as a hero unit
 		}
 	}
-
 	focus = {
 		id = UFA_The_Ultimate_Lifeform
 		icon = GFX_UFA_The_Ultimate_Lifeform
-		prerequisite = { focus = UFA_Organize_Team_Dark }
+		prerequisite = {
+			focus = UFA_Organize_Team_Dark
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = -3
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Team Dark greatly increases its combat power
 		}
 	}
-
 	focus = {
 		id = UFA_The_Midnight_Theif
 		icon = GFX_UFA_The_Midnight_Theif
-		prerequisite = { focus = UFA_Organize_Team_Dark }
+		prerequisite = {
+			focus = UFA_Organize_Team_Dark
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = -1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			#Team Dark greatly increases its operations success chance
 		}
 	}
-
 	focus = {
 		id = UFA_The_Living_Arsenal
 		icon = GFX_UFA_The_Living_Arsenal
-		prerequisite = { focus = UFA_Organize_Team_Dark }
+		prerequisite = {
+			focus = UFA_Organize_Team_Dark
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = -2
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#Team Dark increases its combat power
 			#Available as advisor: E-123 Omega: Living Arsenal; tanks +10% breakthrough
-
 		}
 	}
-
 	focus = {
 		id = UFA_The_Bright_Spark
 		icon = GFX_UFA_The_Bright_Spark
-		prerequisite = { focus = UFA_The_Ultimate_Lifeform }
-		prerequisite = { focus = UFA_The_Living_Arsenal }
-		prerequisite = { focus = UFA_The_Midnight_Theif }
+		prerequisite = {
+			focus = UFA_The_Ultimate_Lifeform
+		}
+		prerequisite = {
+			focus = UFA_The_Living_Arsenal
+		}
+		prerequisite = {
+			focus = UFA_The_Midnight_Theif
+		}
 		relative_position_id = UFA_Covert_Operations
 		x = -2
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#Team Dark increases its operations success chance
 			#Available as advisor: Hope Kintobor: Girl Genius; Research speed +5%
-
 		}
 	}
-
 	focus = {
 		id = UFA_Robotics_Focus
 		icon = GFX_UFA_Robotics_Focus
-		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		prerequisite = {
+			focus = UFA_The_Brass
+			focus = UFA_The_Tower
+		}
 		relative_position_id = UFA_Review_GUN_Command
-		mutually_exclusive = { focus = UFA_Ranged_Focus }
+		mutually_exclusive = {
+			focus = UFA_Ranged_Focus
+		}
 		x = -7
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Robotics_Focus
@@ -4629,17 +5188,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_GUN_Troopers
 		icon = GFX_UFA_Expand_GUN_Troopers
-		prerequisite = { focus = UFA_Robotics_Focus }
+		prerequisite = {
+			focus = UFA_Robotics_Focus
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Expand_GUN_Troopers
@@ -4649,17 +5207,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_F6t_Big_Foot
 		icon = GFX_UFA_F6t_Big_Foot
-		prerequisite = { focus = UFA_Robotics_Focus }
+		prerequisite = {
+			focus = UFA_Robotics_Focus
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = F6T_Big_Foot
@@ -4669,17 +5226,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_GUN_Beetle
 		icon = GFX_UFA_R1A_Flying_Dog
-		prerequisite = { focus = UFA_F6t_Big_Foot }
+		prerequisite = {
+			focus = UFA_F6t_Big_Foot
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = 0
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = GUN_Beetle
@@ -4689,18 +5245,19 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Develop_the_Giga_Trooper
 		icon = GFX_UFA_Develop_the_Giga_Trooper
-		prerequisite = { focus = UFA_GUN_Beetle }
-		prerequisite = { focus = UFA_Expand_GUN_Troopers }
+		prerequisite = {
+			focus = UFA_GUN_Beetle
+		}
+		prerequisite = {
+			focus = UFA_Expand_GUN_Troopers
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = -1
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Develop_the_Giga_Trooper
@@ -4710,17 +5267,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Keep_the_Damn_Things_Working
 		icon = GFX_UFA_Keep_the_Damn_Things_Working
-		prerequisite = { focus = UFA_Robotics_Focus }
+		prerequisite = {
+			focus = UFA_Robotics_Focus
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = 2
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Keep_the_Damn_Things_Working
@@ -4730,36 +5286,39 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Built_to_Last
 		icon = GFX_UFA_Built_to_Last
-		prerequisite = { focus = UFA_Develop_the_Giga_Trooper }
-		prerequisite = { focus = UFA_Keep_the_Damn_Things_Working }
+		prerequisite = {
+			focus = UFA_Develop_the_Giga_Trooper
+		}
+		prerequisite = {
+			focus = UFA_Keep_the_Damn_Things_Working
+		}
 		relative_position_id = UFA_Robotics_Focus
 		x = 0
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			add_ideas = {
 				UFA_Built_to_Last
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Ranged_Focus
 		icon = GFX_UFA_Ranged_Focus
-		prerequisite = { focus = UFA_The_Brass focus = UFA_The_Tower }
+		prerequisite = {
+			focus = UFA_The_Brass
+			focus = UFA_The_Tower
+		}
 		relative_position_id = UFA_Review_GUN_Command
-		mutually_exclusive = { focus = UFA_Robotics_Focus }
+		mutually_exclusive = {
+			focus = UFA_Robotics_Focus
+		}
 		x = -2
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Ranged_Focus
@@ -4769,17 +5328,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_The_Modern_Armor
 		icon = GFX_UFA_The_Modern_Armor
-		prerequisite = { focus = UFA_Ranged_Focus }
+		prerequisite = {
+			focus = UFA_Ranged_Focus
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = 1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = The_Modern_Armor
@@ -4789,17 +5347,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Annihilation_Battle
 		icon = GFX_UFA_Annihilation_Battle
-		prerequisite = { focus = UFA_The_Modern_Armor }
+		prerequisite = {
+			focus = UFA_The_Modern_Armor
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = 1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Annihilation_Battle
@@ -4809,17 +5366,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Manage_the_Supply_Train
 		icon = GFX_UFA_Manage_the_Supply_Train
-		prerequisite = { focus = UFA_Ranged_Focus }
+		prerequisite = {
+			focus = UFA_Ranged_Focus
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = -1
 		y = 1
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Manage_The_Supply_Train
@@ -4829,17 +5385,16 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Save_Every_Soldier
 		icon = GFX_UFA_Save_Every_Soldier
-		prerequisite = { focus = UFA_Ranged_Focus }
+		prerequisite = {
+			focus = UFA_Ranged_Focus
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = -1
 		y = 2
-
 		cost = 10
-
 		completion_reward = {
 			add_tech_bonus = {
 				name = Save_Every_Soldier
@@ -4849,18 +5404,19 @@ focus = {
 			}
 		}
 	}
-
 	focus = {
 		id = UFA_Dear_Grid_Coordinates
 		icon = GFX_UFA_Dear_Grid_Coordinates
-		prerequisite = { focus = UFA_Save_Every_Soldier }
-		prerequisite = { focus = UFA_Annihilation_Battle }
+		prerequisite = {
+			focus = UFA_Save_Every_Soldier
+		}
+		prerequisite = {
+			focus = UFA_Annihilation_Battle
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = 0
 		y = 3
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_tech_bonus = {
@@ -4874,19 +5430,18 @@ focus = {
 	focus = {
 		id = UFA_Disengagement_Protocols
 		icon = GFX_UFA_Disengagement_Protocols
-		prerequisite = { focus = UFA_Dear_Grid_Coordinates }
+		prerequisite = {
+			focus = UFA_Dear_Grid_Coordinates
+		}
 		relative_position_id = UFA_Ranged_Focus
 		x = 0
 		y = 4
-
 		cost = 10
-
 		completion_reward = {
 			#
 			add_ideas = UFA_Disengagement_Protocols
 		}
 	}
-
 	focus = {
 		id = UFA_Combined_Arms_Drills
 		icon = GFX_goal_unknown
@@ -4897,7 +5452,6 @@ focus = {
 			#20 Navy XP, 20 Air XP
 		}
 	}
-
 	focus = {
 		id = UFA_Expand_Seagate
 		icon = GFX_goal_unknown
@@ -4912,7 +5466,6 @@ focus = {
 			#Seagate: Add 3 Building Slots Add 3 Naval Factory Owned provinces in Seagate with ports: Add 2 coastal forts
 		}
 	}
-
 	focus = {
 		id = UFA_Operational_Airfields
 		icon = GFX_goal_unknown
@@ -4927,7 +5480,6 @@ focus = {
 			#Add 2 levels of air base to a province in Sylvania Add 2 levels of air base to a province in Emerald Coast
 		}
 	}
-
 	focus = {
 		id = UFA_Mothership_Theory
 		icon = GFX_goal_unknown
@@ -4945,7 +5497,6 @@ focus = {
 			#2x 100% bonus for Base Strike doctrine
 		}
 	}
-
 	focus = {
 		id = UFA_The_Biggest_Guns
 		icon = GFX_goal_unknown
@@ -4963,7 +5514,6 @@ focus = {
 			#2x 100% bonus for Fleet in Being doctrine
 		}
 	}
-
 	focus = {
 		id = UFA_Build_a_Screen
 		icon = GFX_goal_unknown
@@ -4978,7 +5528,6 @@ focus = {
 			#2x 100% bonus for Fleet in Being doctrine
 		}
 	}
-
 	focus = {
 		id = UFA_Interdiction_Stratagems
 		icon = GFX_goal_unknown
@@ -4993,7 +5542,6 @@ focus = {
 			#2x 100 bonus for Submarines
 		}
 	}
-
 	focus = {
 		id = UFA_Amphibious_Assault
 		icon = GFX_goal_unknown
@@ -5008,7 +5556,6 @@ focus = {
 			#1x 100% bonus to Transport ships, 1x 100% bonus to Marines
 		}
 	}
-
 	focus = {
 		id = UFA_Floating_Fortresses
 		icon = GFX_goal_unknown
@@ -5023,7 +5570,6 @@ focus = {
 			#1x 100% bonus for Carriers
 		}
 	}
-
 	focus = {
 		id = UFA_Aquatic_Arsenals
 		icon = GFX_goal_unknown
@@ -5038,7 +5584,6 @@ focus = {
 			#1x 100% bonus for Battleships
 		}
 	}
-
 	focus = {
 		id = UFA_International_Projection
 		icon = GFX_goal_unknown
@@ -5056,7 +5601,6 @@ focus = {
 			#Gain National Spirit ‘Pax Foederatio’, Effect: +10% naval range
 		}
 	}
-
 	focus = {
 		id = UFA_Back_to_the_Stone_Age
 		icon = GFX_goal_unknown
@@ -5075,7 +5619,6 @@ focus = {
 			#2x 100% bonus for Strategic Destruction
 		}
 	}
-
 	focus = {
 		id = UFA_Maintain_Flexibility
 		icon = GFX_goal_unknown
@@ -5094,7 +5637,6 @@ focus = {
 			#2x 100% bonus for Strategic Destruction
 		}
 	}
-
 	focus = {
 		id = UFA_Sure_Sucks_Down_There
 		icon = GFX_goal_unknown
@@ -5113,7 +5655,6 @@ focus = {
 			#2x 100% bonus for Strategic Destruction
 		}
 	}
-
 	focus = {
 		id = UFA_Blue_Eagles
 		icon = GFX_goal_unknown
@@ -5128,7 +5669,6 @@ focus = {
 			#3x 50% bonus for fighters and interceptors
 		}
 	}
-
 	focus = {
 		id = UFA_Rotary_Aircraft
 		icon = GFX_goal_unknown
@@ -5143,7 +5683,6 @@ focus = {
 			#2x 100% bonus for Helicopters
 		}
 	}
-
 	focus = {
 		id = UFA_O.T.I.S
 		icon = GFX_goal_unknown
@@ -5159,7 +5698,6 @@ focus = {
 			#Gain National Spirit: ‘Outer Threat Immobilization System’, Effect: -15% production cost for anti-air
 		}
 	}
-	
 	focus = {
 		id = UFA_Long_Distance_Campaigns
 		icon = GFX_goal_unknown
@@ -5174,7 +5712,6 @@ focus = {
 			#2x 100% bonus for Strategic Destruction
 		}
 	}
-
 	focus = {
 		id = UFA_Balanced_Design
 		icon = GFX_goal_unknown
@@ -5189,7 +5726,6 @@ focus = {
 			#1x 100% bonus for tactical bombers.
 		}
 	}
-
 	focus = {
 		id = UFA_Combined_Air_Support
 		icon = GFX_goal_unknown
@@ -5204,7 +5740,6 @@ focus = {
 			#1x 100 bonus for Close Air Support
 		}
 	}
-
 	focus = {
 		id = UFA_Archangeli
 		icon = GFX_goal_unknown
