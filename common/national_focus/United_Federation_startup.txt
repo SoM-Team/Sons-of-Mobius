@@ -62,7 +62,7 @@ focus_tree = {
 		completion_reward = {
 			add_resource = {
 				type = oil
-				amount = 50
+				amount = 10
 				state = 394
 			}
 			swap_ideas = {
@@ -218,7 +218,7 @@ focus_tree = {
 			has_country_flag = UFA_conservative_path
 		}
 		completion_reward = {
-			#Unlocks National Tour Decisions
+			custom_effect_tooltip = Tour_the_Country
 		}
 	}
 	focus = {
@@ -251,7 +251,7 @@ focus_tree = {
 		y = 6
 		cost = 1
 		completion_reward = {
-			#Available as Head of State: Christina Cooper Ms. Reliable Stability +10% −10% political advisor cost
+			custom_effect_tooltip = Ms_Reliable
 		}
 	}
 	focus = {
@@ -268,7 +268,7 @@ focus_tree = {
 		y = 6
 		cost = 1
 		completion_reward = {
-			#Available as Head of State: Jerome Wise: Ambitious Spin Doctor: Monthly Corruption -.1 Daily political power +10% Stability -5%
+			custom_effect_tooltip = The_Fixer
 		}
 	}
 	focus = {
@@ -285,7 +285,6 @@ focus_tree = {
 			country_event = {
 				id = ufa.11
 			}
-			add_political_power = 100
 		}
 	}
 	focus = {
@@ -299,7 +298,7 @@ focus_tree = {
 		y = 6
 		cost = 3
 		completion_reward = {
-			#Unlocks local Campaigning decisions
+			custom_effect_tooltip = Start_Issue_Campaigns
 		}
 	}
 	focus = {
@@ -316,7 +315,7 @@ focus_tree = {
 		y = 2
 		cost = 3
 		completion_reward = {
-			#Unlocks Operations to assault our political rivals
+			custom_effect_tooltip = Get_Our_Hands_Dirty
 			add_to_variable = {
 				corruption = 2
 			}
@@ -333,9 +332,6 @@ focus_tree = {
 		y = 3
 		cost = 3
 		completion_reward = {
-			country_event = {
-				id = ufa.42
-			}
 			add_to_variable = {
 				corruption = 3
 			}
@@ -354,7 +350,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			add_stability = -0.05
-			#local campaigning decisions are now more effective
+			custom_effect_tooltip = Start_Smear_Campaigns
 		}
 	}
 	focus = {
@@ -988,6 +984,7 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = Leak_Evidence
 		}
 	}
 	focus = {
@@ -1004,7 +1001,8 @@ focus_tree = {
 		y = 5
 		cost = 3
 		completion_reward = {
-			#R. K. Michael gains leader trait: Tricky Mick −25% Trade Laws cost Political Power Gain: +5.0% Foreign subversive activities efficiency: -30.0% Civilian Intelligence +15%
+			custom_effect_tooltip = Tricky_Mick
+			set_country_flag = Tricky_Mick
 		}
 	}
 	focus = {
@@ -1112,7 +1110,8 @@ focus_tree = {
 		y = 5
 		cost = 3
 		completion_reward = {
-			#R. K. Michael gains ‘Bulwark of Democracy’: Stability +5%, War Support +5%, +2 opinion gain monthly same ideology, Division Defense on Core territory +5%
+			custom_effect_tooltip = Bulwark_of_Freedom
+			set_country_flag = Bulwark_of_Freedom
 		}
 	}
 	focus = {
@@ -1162,6 +1161,23 @@ focus_tree = {
 		completion_reward = {
 			set_politics = {
 				ruling_party = conservatism
+			}
+			hidden_effect = {
+				IF = {
+					limit = {
+						has_country_flag = Tricky_Mick
+					}
+					add_country_leader_trait = Tricky_Mick
+				}
+				else_if = {
+					limit = {
+						has_country_flag = Bulwark_of_Democracy
+					}
+				}
+				add_country_leader_trait = Bulwark_of_Democracy
+				else = {
+					add_political_power = 1
+				}
 			}
 		}
 	}
@@ -1324,6 +1340,7 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = UFA_Prioritize_Native_Promotions
 			add_ideas = UFA_Discriminatory_Government
+			custom_effect_tooltip = Prioritize_Native_Promotions
 			#Get Event: Duty Under Duress
 			#Certain Members of your organization may strongly disapprove of this (a later event will prevent you from getting several leaders)
 		}
@@ -1352,6 +1369,7 @@ focus_tree = {
 				corruption = 3
 			}
 			set_country_flag = UFA_Sideline_Foreign_Influences
+			custom_effect_tooltip = Sideline_Foreign_Influences
 		}
 	}
 	focus = {
@@ -1371,6 +1389,7 @@ focus_tree = {
 				corruption = 2
 			}
 			set_country_flag = UFA_Protect_Core_Regions
+			custom_effect_tooltip = Protect_Core_Regions
 		}
 	}
 	focus = {
@@ -1399,6 +1418,7 @@ focus_tree = {
 				value = -1
 			}
 			add_country_leader_trait = Human_Demagogue
+			custom_effect_tooltip = Humans_for_Humanity
 		}
 	}
 	focus = {
@@ -1434,6 +1454,7 @@ focus_tree = {
 				var = UFA_Federal_Unity
 				value = 0.02
 			}
+			custom_effect_tooltip = The_Oldest_Democracy_On_Mobius
 		}
 	}
 	focus = {
@@ -1449,8 +1470,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -50
 			set_country_flag = UFA_Expand_the_Franchise
-			#Lose -50 political power
-			#Modify National Spirit Fractious Diversity, Effective change +.1 Federal Unity/Month
+			custom_effect_tooltip = Expand_the_Franchise
 		}
 	}
 	focus = {
@@ -1465,6 +1485,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_country_flag = UFA_Defend_Minority_Rights
+			custom_effect_tooltip = Defend_Minority_Rights
 		}
 	}
 	focus = {
@@ -1480,6 +1501,7 @@ focus_tree = {
 		completion_reward = {
 			set_country_flag = UFA_Expand_Federalism
 			add_stability = -0.1
+			custom_effect_tooltip = Expand_Federalism
 		}
 	}
 	focus = {
@@ -1833,6 +1855,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = UFA_Breadth_of_Ideas
 			set_country_flag = UFA_Breadth_of_Ideas
+			custom_effect_tooltip = Breadth_of_Ideas
 		}
 	}
 	focus = {
@@ -1884,6 +1907,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_country_flag = UFA_A_New_Colossus
+			custom_effect_tooltip = A_New_Colossus
 		}
 	}
 	focus = {
@@ -1898,6 +1922,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_country_flag = UFA_Broaden_C.L.I.P._Oversight
+			custom_effect_tooltip = Broaden_C.L.I.P._Oversight
 		}
 	}
 	focus = {
@@ -2009,7 +2034,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		completion_reward = {
-			#			country_event = {   }
+			custom_effect_tooltip = Infiltrate_Jackalstan
 		}
 	}
 	focus = {
@@ -2023,7 +2048,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
-			#			country_event = {   }
+			custom_effect_tooltip = The_Start_of_Infinity
 		}
 	}
 	focus = {
@@ -2037,7 +2062,7 @@ focus_tree = {
 		y = 3
 		cost = 4
 		completion_reward = {
-			#			country_event = {   }
+			custom_effect_tooltip = Publicize_the_Madness
 		}
 	}
 	focus = {
@@ -2093,7 +2118,9 @@ focus_tree = {
 		y = 4
 		cost = 4
 		completion_reward = {
-			load_oob = "UFA_Militia_in_Jackalstan"
+			set_country_flag = Storm_the_Desert
+			#
+			custom_effect_tooltip = Storm_the_Desert
 		}
 	}
 	focus = {
@@ -2110,9 +2137,21 @@ focus_tree = {
 		y = 5
 		cost = 4
 		completion_reward = {
-			declare_war_on = {
-				target = INF
-				type = puppet_wargoal_focus
+			if = {
+				limit = {
+					has_country_flag = Storm_the_Desert
+				}
+				load_oob = "UFA_Militia_in_Jackalstan"
+				declare_war_on = {
+					target = INF
+					type = puppet_wargoal_focus
+				}
+			}
+			else = {
+				declare_war_on = {
+					target = INF
+					type = puppet_wargoal_focus
+				}
 			}
 		}
 	}
@@ -2261,6 +2300,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to aid the KoA
+			custom_effect_tooltip = Support_the_Legitimate_Government
 		}
 	}
 	focus = {
@@ -2280,6 +2320,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to aid the Republic of Acorn
+			custom_effect_tooltip = A_New_Republic
 		}
 	}
 	focus = {
@@ -2295,6 +2336,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to protect RoA stability
+			custom_effect_tooltip = Let_Freedom_Ring
 		}
 	}
 	focus = {
@@ -2315,6 +2357,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to aid the Southern Baronies
+			custom_effect_tooltip = Divide_the_Grove
 		}
 	}
 	focus = {
@@ -2330,6 +2373,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to aid Huey Long and weaken the Golden Legion
+			custom_effect_tooltip = Not_What_We_Expected
 		}
 	}
 	focus = {
@@ -2349,6 +2393,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#N/A, lets players ignore Acorn Civil War and continue down tree if they wish, can align with any of the other three factions if they live but risk of undesirable faction taking power.
+			custom_effect_tooltip = Tend_Our_Garden
 		}
 	}
 	focus = {
@@ -2363,6 +2408,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks Operations to harm the Northamer Communal Union
+			custom_effect_tooltip = Tend_Our_Garden
 		}
 	}
 	focus = {
@@ -2376,7 +2422,7 @@ focus_tree = {
 			focus = UFA_Poisoned_Oak
 		}
 		completion_reward = {
-			#Unlocks Generic Anti-Eggman Operations
+			custom_effect_tooltip = Keep_Him_Busy
 		}
 	}
 	focus = {
@@ -2405,6 +2451,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			#Unlocks repeatable mission to apply research speed debuff to eggman for a brief period.
+			custom_effect_tooltip = Son_of_a_Glitch
 		}
 	}
 	focus = {
@@ -2438,6 +2485,7 @@ focus_tree = {
 			focus = UFA_Keep_Him_Busy
 		}
 		completion_reward = {
+			custom_effect_tooltip = Burn_the_Oil_Ocean
 			#Unlocks a repeatable and several one-time Operations to damage Eggman’s oil reserves.
 		}
 	}
@@ -2452,150 +2500,153 @@ focus_tree = {
 			focus = UFA_Keep_Him_Busy
 		}
 		completion_reward = {
-			547 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
+			hidden_effect = {
+				547 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
 					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
+				}
+				546 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				545 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				544 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				543 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				673 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				669 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				670 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
+						}
+					}
+				}
+				672 = {
+					if = {
+						limit = {
+							is_controlled_by = ROOT
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							instant_build = yes
+							province = {
+								all_provinces = yes
+								limit_to_border = yes
+							}
 						}
 					}
 				}
 			}
-			546 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			545 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			544 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			543 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			673 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			669 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			670 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
-			672 = {
-				if = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_building_construction = {
-						type = bunker
-						level = 2
-						instant_build = yes
-						province = {
-							all_provinces = yes
-							limit_to_border = yes
-						}
-					}
-				}
-			}
+			custom_effect_tooltip = Fortify_Station_Square
 		}
 	}
 	focus = {
@@ -2630,7 +2681,7 @@ focus_tree = {
 			focus = UFA_Keep_Him_Busy
 		}
 		completion_reward = {
-			#none
+			custom_effect_tooltip = Approach_the_DEL
 		}
 	}
 	focus = {
@@ -2721,6 +2772,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_to_faction = KOA
+			custom_effect_tooltip = For_Freedom
 		}
 	}
 	focus = {
@@ -2745,6 +2797,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			create_faction = UFA
+			custom_effect_tooltip = On_Our_Own
 		}
 	}
 	focus = {
@@ -2817,6 +2870,7 @@ focus_tree = {
 			focus = UFA_Break_Some_Eggs
 		}
 		completion_reward = {
+			custom_effect_tooltip = Scrambled
 			#Unlocks one-time operation to sabotage Eggman’s communications
 		}
 	}
@@ -2853,6 +2907,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = A_New_People
 			#Super Event
 		}
 	}
@@ -2870,6 +2925,7 @@ focus_tree = {
 		cost = 2
 		completion_reward = {
 			#Get Event: Containment Theories
+			custom_effect_tooltip = Spectre_Haunting_Yurashia
 		}
 	}
 	focus = {
@@ -2885,6 +2941,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = The_Men_From_CLIP
 			#Unlocks repeatable anti-rethenia operation to send C.L.I.P. men posing as immigrant workers
 		}
 	}
@@ -2901,6 +2958,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = A_Lighter_Shade_of_Red
 			#Unlock repeatable operations to fund party opposition and incite separatism in committees in rethenia
 		}
 	}
@@ -2917,6 +2975,7 @@ focus_tree = {
 		y = 3
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Teach_Them_Better
 			#Unlocks repeatable operation to airdrop propaganda pamphlets in rethenia
 		}
 	}
@@ -2972,6 +3031,7 @@ focus_tree = {
 			RCR = {
 				add_ideas = UFA_Counter_Spying
 			}
+			custom_effect_tooltip = The_Root_Out_Subversives
 		}
 	}
 	focus = {
@@ -2994,6 +3054,7 @@ focus_tree = {
 			RCR = {
 				add_ideas = UFA_Shades_of_Grey
 			}
+			custom_effect_tooltip = Shades_of_Grey
 		}
 	}
 	focus = {
@@ -3096,6 +3157,7 @@ focus_tree = {
 		y = 3
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = A_Moral_Media
 		}
 	}
 	focus = {
@@ -3148,6 +3210,7 @@ focus_tree = {
 		y = 1
 		cost = 1
 		completion_reward = {
+			custom_effect_tooltip = Game_Theory
 		}
 	}
 	focus = {
@@ -3163,6 +3226,7 @@ focus_tree = {
 		y = 2
 		cost = 1
 		completion_reward = {
+			custom_effect_tooltip = Reinforce_the_Cordon
 		}
 	}
 	focus = {
@@ -3352,6 +3416,7 @@ focus_tree = {
 		y = 3
 		cost = 2
 		completion_reward = {
+			custom_effect_tooltip = The_Great_Game
 			#Unlocks decisions to begin influencing border nations with the RSCR
 			add_political_power = 25
 			#gain +25 political power UF, RSCR, and the nation itself will compete to see whose sphere (and eventually faction) these border nations join: ally with one, the other, or stay neutral.
@@ -3371,6 +3436,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#Unlocks Mercian Game decisions
+			custom_effect_tooltip = A_Once_and_Future_Ally
 		}
 	}
 	focus = {
@@ -3387,6 +3453,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#UF gains influence over Mercia
+			custom_effect_tooltip = Knights_of_the_Conference_Table
 		}
 	}
 	focus = {
@@ -3402,6 +3469,19 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Beastly_Anachronism
+			UFA = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			MER = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 2
+				}
+			}
 			#Gain 2 offmap civilian factories, UF gains slight influence over Mercia. Mercia gains 2 offmap military factories
 		}
 	}
@@ -3418,6 +3498,20 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Castling
+			MER = {
+				358 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
 			#Gain influence over Mercia Mercia gains 3 land forts in certain locations
 		}
 	}
@@ -3440,7 +3534,7 @@ focus_tree = {
 		y = 2
 		cost = 3
 		completion_reward = {
-			#
+			custom_effect_tooltip = Bullet_Chess
 		}
 	}
 	focus = {
@@ -3456,6 +3550,11 @@ focus_tree = {
 		y = 3
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = United_Justice
+			set_country_flag = UFA_United_Justice
+			MER = {
+				set_country_flag = UFA_United_Justice
+			}
 			#Mercia joins UF sphere
 		}
 	}
@@ -3475,6 +3574,15 @@ focus_tree = {
 			#Gain Influence over Cherniwschina
 			#Gain National Spirit: Outbidding Cherniwschinan Production, Consumer Goods +10% for 180 days
 			#Unlocks Cherniwchinan Game decisions
+			custom_effect_tooltip = Win_the_Exchange
+			set_country_flag = UFA_Win_the_Exchange
+			CHE = {
+				set_country_flag = UFA_Win_the_Exchange
+			}
+			add_timed_idea = {
+				idea = UFA_Outbidding_Cherniwschian_Production
+				days = 180
+			}
 		}
 	}
 	focus = {
@@ -3490,6 +3598,15 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = First_Mover_Advantage
+			CHE = {
+				add_tech_bonus = {
+					name = Help_From_United_Federation
+					category = armor
+					uses = 2
+					bonus = 1
+				}
+			}
 			#Gain influence over Cherniwshina, Cherniwshina gains 2x 100% research speed for trucks and tanks
 		}
 	}
@@ -3506,6 +3623,11 @@ focus_tree = {
 		y = 2
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Expand_the_Embargo
+			add_opinion_modifier = {
+				target = CHE
+				modifier = Embargo_on_Cherniwschina
+			}
 			#Embargo Cherniwshina until and unless you are victorious in the Cherniwshinan Game (trade relations -1000)
 		}
 	}
@@ -3524,6 +3646,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#Cherniwshina joins the UF sphere
+			custom_effect_tooltip = Control_the_Center
 		}
 	}
 	focus = {
@@ -3541,6 +3664,10 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#Guarantee Cherniwshina
+			diplomatic_relation = {
+				country = CHE
+				relation = guarantee
+			}
 		}
 	}
 	focus = {
@@ -3556,6 +3683,8 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			add_political_power = -30
+			custom_effect_tooltip = Pawn_Promotion
 			#Lose 30 Political Power, Gain influence in Svyetlales, Svyetlales politics will be destabilized
 			#Gain access to Svyetlales Game decisions
 		}
@@ -3573,6 +3702,16 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			diplomatic_relation = {
+				country = SVT
+				relation = guarantee
+			}
+			SVT = {
+				annex_country = {
+					target = BRC
+				}
+			}
+			custom_effect_tooltip = Blockade
 			#Svyetlales annexes Brastopolis, Svyetlales joins the UF sphere, UF guarantees Svyetlales
 		}
 	}
@@ -3590,6 +3729,15 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#Tukmania gains 2x bonus to industry
+			custom_effect_tooltip = Mechanical_Tuk
+			TUK = {
+				add_tech_bonus = {
+					name = Mechanical_Tuk
+					category = industry
+					uses = 2
+					bonus = 1.5
+				}
+			}
 		}
 	}
 	focus = {
@@ -3607,6 +3755,7 @@ focus_tree = {
 		completion_reward = {
 			#Gain influence in Tunnimia
 			#Unlocks Tunnimian Game decisions 
+			custom_effect_tooltip = Pawns_Gambit
 		}
 	}
 	focus = {
@@ -3617,11 +3766,28 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 499
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+		}
 		relative_position_id = UFA_Pawns_Gambit
 		x = 1
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Pawn_Storm
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -200
+			}
 			#Lose 500 of infantry weapons, 200 of support equipment, old ones go first, Gain influence in Tuunimia
 		}
 	}
@@ -3638,6 +3804,7 @@ focus_tree = {
 		y = 2
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Topple_the_King
 			#Tuunimia joins the UF’s sphere
 		}
 	}
@@ -3654,6 +3821,7 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = Outpost
 			#Gain Influence in Latgalia
 			#Unlocks latgalian game decisions
 		}
@@ -3672,6 +3840,7 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			#Latgalia joins the UF sphere
+			custom_effect_tooltip = Breakthrough
 		}
 	}
 	focus = {
@@ -3692,6 +3861,7 @@ focus_tree = {
 		cost = 1
 		completion_reward = {
 			#Gain 30 army experience
+			army_experience = 30
 		}
 	}
 	focus = {
@@ -3713,6 +3883,8 @@ focus_tree = {
 		y = 4
 		cost = 1
 		completion_reward = {
+			add_political_power = 100
+			custom_effect_tooltip = Maroczy_Bind
 			#Gain +100 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
@@ -3735,6 +3907,8 @@ focus_tree = {
 		y = 4
 		cost = 1
 		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = Fortress
 			#Gain +50 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
@@ -3757,6 +3931,8 @@ focus_tree = {
 		y = 4
 		cost = 1
 		completion_reward = {
+			add_political_power = -50
+			custom_effect_tooltip = Check
 			#Lose -50 Political Power, Any nations in the UF sphere will join the UF’s faction
 		}
 	}
@@ -3775,6 +3951,7 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
+			custom_effect_tooltip = Checkmate
 			#
 		}
 	}
@@ -3792,6 +3969,10 @@ focus_tree = {
 		y = 6
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Zugzwang
+			#RCR = {
+			#	country_event = ???
+			#}
 			#Rethenia gains event: The Final Straw (will likely lead to war)
 		}
 	}
@@ -3809,6 +3990,7 @@ focus_tree = {
 		y = 6
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Run_Out_the_Clock
 			#Gain new Operations to delay a Rethenian invasion
 		}
 	}
@@ -3825,6 +4007,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Run_Out_the_Clock
 			#Unlocks action to steal any Chaos Emeralds or other artifacts Rethenia may have
 		}
 	}
@@ -3841,6 +4024,7 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Cold_Comfort
 			#
 		}
 	}
@@ -3857,6 +4041,10 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
+			diplomatic_relation = {
+				country = HOL
+				relation = docking_rights
+			}
 			#Gain Fleet Basing Rights from Holoska
 		}
 	}
@@ -3873,6 +4061,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Together_for_Warmth
 			#Holoska joins the UF sphere
 		}
 	}
@@ -3889,6 +4078,7 @@ focus_tree = {
 		y = 6
 		cost = 1
 		completion_reward = {
+			custom_effect_tooltip = Looking_East
 		}
 	}
 	focus = {
@@ -3904,7 +4094,166 @@ focus_tree = {
 		y = 1
 		cost = 4
 		completion_reward = {
-			#Several provinces in Chun-Nan: gain 3 infrastructure
+			701 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			702 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			700 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			699 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			519 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			711 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			706 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			712 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			710 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			709 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			707 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			705 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			708 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			704 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
+			703 = {
+				if = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -3920,6 +4269,7 @@ focus_tree = {
 		y = 2
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Arm_the_Free_Peoples
 			#Gain operations to aid Aiguojun
 		}
 	}
@@ -4047,6 +4397,8 @@ focus_tree = {
 		y = 2
 		cost = 4
 		completion_reward = {
+			custom_effect_tooltip = Proximate_Wars
+			add_ideas = UFA_Proximate_Wars
 			#Add a group of decisions, each of which is available when certain target of proximate war is at war. 
 			#These decisions give national spirit, which increases max number of volunteers, reduces world tension requirement and reduces requirement for number of divisions.
 			#This spirit will be deleted automatically, once the target nation is at peace or ceased to exist. 
@@ -4061,6 +4413,9 @@ focus_tree = {
 		prerequisite = {
 			focus = UFA_Arm_the_Free_Peoples
 		}
+		available = {
+			date > 3238.1.1
+		}
 		mutually_exclusive = {
 		}
 		relative_position_id = UFA_Looking_East
@@ -4068,7 +4423,7 @@ focus_tree = {
 		y = 3
 		cost = 4
 		completion_reward = {
-			#			country_event = {   }
+			custom_effect_tooltip = Halt_the_Dominoes
 		}
 	}
 	focus = {
@@ -4563,7 +4918,10 @@ focus_tree = {
 			focus = UFA_Learn_From_The_Mobians
 		}
 		completion_reward = {
-			#Add production of 10 energy to Station Square, 1x 100% bonus for energy 
+			add_to_variable = {
+			rings = 100000
+			}
+			custom_effect_tooltip = Power_Broker
 		}
 	}
 	focus = {
@@ -4657,6 +5015,7 @@ focus_tree = {
 			focus = UFA_City_Escape
 		}
 		completion_reward = {
+			custom_effect_tooltip = Link_the_Capital
 			#Gain Decisions: Develop Battle Highway 
 			#Develop Radical Highway 
 			#Develop Lethal Highway
@@ -4673,6 +5032,7 @@ focus_tree = {
 			focus = UFA_Link_the_Capital
 		}
 		completion_reward = {
+			custom_effect_tooltip = Cross_the_Sunset_Straits
 			#Gain Decisions: Sunset City Develop Route 101 
 			#Develop Red Gate Bridge Empire City 
 			#Develop Route 280 
@@ -4691,6 +5051,7 @@ focus_tree = {
 			focus = UFA_Link_the_Capital
 		}
 		completion_reward = {
+			custom_effect_tooltip = Expand_the_Elerail_System
 			#Gain Decisions: Station square Develop Speed Highway Expand Elerail to Border Settlements
 		}
 	}
@@ -4705,6 +5066,7 @@ focus_tree = {
 			focus = UFA_Cross_the_Sunset_Straits
 		}
 		completion_reward = {
+			custom_effect_tooltip = Build_the_Bullet_Train
 			#Gain Decisions: Shammar Develop Mirage Road Develop Bullet Station Mazuri Develop Treeshade Station
 		}
 	}
@@ -4719,6 +5081,7 @@ focus_tree = {
 			focus = UFA_Expand_the_Elerail_System
 		}
 		completion_reward = {
+			custom_effect_tooltip = Over_Sea_Overland
 			#Gain Decisions: Soleanna Develop Crisis Highway Spagonia Develop Stardust Speedway Develop Colosseum Highway
 		}
 	}
@@ -4736,6 +5099,7 @@ focus_tree = {
 			focus = UFA_Build_the_Bullet_Train
 		}
 		completion_reward = {
+			custom_effect_tooltip = Invest_In_Dragon_Road
 			#Gain Decisions: To-Kyoto Develop Highway Zero Chun-Nan Develop Dragon Road
 		}
 	}
@@ -4750,6 +5114,7 @@ focus_tree = {
 			focus = UFA_Invest_In_Dragon_Road
 		}
 		completion_reward = {
+			custom_effect_tooltip = All_Roads_Lead_To_Home
 			add_to_variable = {
 				var = UFA_Federal_Unity
 				value = 0.05
@@ -5457,6 +5822,22 @@ focus_tree = {
 			focus = UFA_Combined_Arms_Drills
 		}
 		completion_reward = {
+			543 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = {
+						limit_to_coastal = yes
+						all_provinces = yes
+					}
+					instant_build = yes
+				}
+			}
 			#Seagate: Add 3 Building Slots Add 3 Naval Factory Owned provinces in Seagate with ports: Add 2 coastal forts
 		}
 	}
