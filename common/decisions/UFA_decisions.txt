@@ -1620,50 +1620,15 @@ UFA_GUN_ops = {
 
 UFA_Great_Game = {
 
-	UFA_Influence_Mercia_1 = {
+	UFA_Support_Equipment_to_Mercia = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
 			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				MER.Influenced_by_UFA = 1
+			has_equipment = {
+				support_equipment > 199
 			}
-		}
-		cost = 1
-		days_re_enable = 1
-	}
-
-	UFA_Influence_Mercia_2 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				MER.Influenced_by_UFA = 2
-			}
-		}
-		cost = 2
-		days_re_enable = 2
-	}
-
-	UFA_Influence_Mercia_3 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
 		}
 		visible = {
 			has_completed_focus = UFA_The_Great_Game
@@ -1672,12 +1637,58 @@ UFA_Great_Game = {
 			add_to_variable = {
 				MER.Influenced_by_UFA = 3
 			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			MER = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
 		}
-		cost = 3
-		days_re_enable = 3
+		cost = 10
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Chernivshina_1 = {
+	UFA_Specialized_Equipment_to_Mercia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				main_battle_tank_equipment > 39
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				MER.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = -40
+				}
+			}
+			MER = {
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = 40
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Coordinate_with_Advisors_from_Mercia = {
 		allowed = {
 			tag = UFA
 		}
@@ -1689,14 +1700,15 @@ UFA_Great_Game = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				CHE.Influenced_by_UFA = 1
+				MER.Influenced_by_UFA = 7
 			}
+			add_command_power = -15
 		}
-		cost = 1
-		days_re_enable = 1
+		cost = 60
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Chernivshina_2 = {
+	UFA_Admire_Gallantry_of_Mercia = {
 		allowed = {
 			tag = UFA
 		}
@@ -1708,19 +1720,62 @@ UFA_Great_Game = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				CHE.Influenced_by_UFA = 2
+				MER.Influenced_by_UFA = 15
+			}
+			UFA = {
+				add_timed_idea = {
+					idea = UFA_Military_Nostalgia
+					days = 120
+				}
 			}
 		}
-		cost = 2
-		days_re_enable = 2
+		cost = 30
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Chernivshina_3 = {
+	UFA_Send_Guns_to_Mercia = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
 			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				artillery_equipment > 199
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				MER.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = -200
+				}
+			}
+			MER = {
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 200
+				}
+			}
+		}
+		cost = 30
+		days_re_enable = 60
+	}
+
+	UFA_Support_Equipment_to_Cherniwschina = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				support_equipment > 199
+			}
 		}
 		visible = {
 			has_completed_focus = UFA_The_Great_Game
@@ -1729,12 +1784,58 @@ UFA_Great_Game = {
 			add_to_variable = {
 				CHE.Influenced_by_UFA = 3
 			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			CHE = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
 		}
-		cost = 3
-		days_re_enable = 3
+		cost = 10
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Svetlales_1 = {
+	UFA_Specialized_Equipment_to_Cherniwschina = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				motorized_equipment > 99
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				CHE.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -100
+				}
+			}
+			CHE = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 100
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Coordinate_with_Advisors_from_Cherniwschina = {
 		allowed = {
 			tag = UFA
 		}
@@ -1746,14 +1847,15 @@ UFA_Great_Game = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				SVT.Influenced_by_UFA = 1
+				CHE.Influenced_by_UFA = 7
 			}
+			add_command_power = -15
 		}
-		cost = 1
-		days_re_enable = 1
+		cost = 60
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Svetlales_2 = {
+	UFA_Sales_Rush_for_Cherniwschina = {
 		allowed = {
 			tag = UFA
 		}
@@ -1765,133 +1867,28 @@ UFA_Great_Game = {
 		}
 		complete_effect = {
 			add_to_variable = {
-				SVT.Influenced_by_UFA = 2
+				CHE.Influenced_by_UFA = 15
+			}
+			UFA = {
+				add_timed_idea = {
+					idea = UFA_Loss_Leader
+					days = 120
+				}
 			}
 		}
-		cost = 2
-		days_re_enable = 2
+		cost = 30
+		days_re_enable = 60
 	}
 
-	UFA_Influence_Svetlales_3 = {
+	UFA_Support_Equipment_to_Latigalia = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
 			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				SVT.Influenced_by_UFA = 3
+			has_equipment = {
+				support_equipment > 199
 			}
-		}
-		cost = 3
-		days_re_enable = 3
-	}
-
-	UFA_Influence_Tyynimia_1 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				TYY.Influenced_by_UFA = 1
-			}
-		}
-		cost = 1
-		days_re_enable = 1
-	}
-
-	UFA_Influence_Tyynimia_2 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				SVT.Influenced_by_UFA = 2
-			}
-		}
-		cost = 2
-		days_re_enable = 2
-	}
-
-	UFA_Influence_Tyynimia_3 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				TYY.Influenced_by_UFA = 3
-			}
-		}
-		cost = 3
-		days_re_enable = 3
-	}
-
-	UFA_Influence_Latigalia_1 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				LTG.Influenced_by_UFA = 1
-			}
-		}
-		cost = 1
-		days_re_enable = 1
-	}
-
-	UFA_Influence_Latigalia_2 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		visible = {
-			has_completed_focus = UFA_The_Great_Game
-		}
-		complete_effect = {
-			add_to_variable = {
-				LTG.Influenced_by_UFA = 2
-			}
-		}
-		cost = 2
-		days_re_enable = 2
-	}
-
-	UFA_Influence_Latigalia_3 = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_completed_focus = UFA_The_Great_Game
 		}
 		visible = {
 			has_completed_focus = UFA_The_Great_Game
@@ -1900,9 +1897,365 @@ UFA_Great_Game = {
 			add_to_variable = {
 				LTG.Influenced_by_UFA = 3
 			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			LTG = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
 		}
-		cost = 3
-		days_re_enable = 3
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Specialized_Equipment_to_Latigalia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				motorized_equipment > 99
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -100
+				}
+			}
+			LTG = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 100
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Coordinate_with_Advisors_from_Latigalia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_UFA = 7
+			}
+			add_command_power = -15
+		}
+		cost = 60
+		days_re_enable = 60
+	}
+
+	UFA_Provide_Advisors_for_Latigalia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_UFA = 15
+			}
+		}
+		cost = 120
+		days_re_enable = 60
+	}
+
+	UFA_GUN_Peacekeeping_Mission_in_Latigalia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				artillery_equipment > 199
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_UFA = 12
+			}
+			UFA = {
+				add_timed_idea = {
+					idea = UFA_Occupied_Peacekeepers
+					days = 120
+				}
+			}
+		}
+		cost = 30
+		days_re_enable = 60
+	}
+
+	UFA_Promote_Democracy_in_Latigalia = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_UFA = 15
+			}
+			LTG = {
+				add_popularity = {
+					ideology = conservatism
+					popularity = 0.05
+				}
+			}
+		}
+		cost = 120
+		days_re_enable = 60
+	}
+
+	UFA_Support_Equipment_to_Tyynimiya = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				support_equipment > 199
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_UFA = 3
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			TYY = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Specialized_Equipment_to_Tyynimiya = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				infantry_equipment > 999
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			TYY = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Coordinate_with_Advisors_from_Tyynimiya = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_UFA = 7
+			}
+			add_command_power = -15
+		}
+		cost = 60
+		days_re_enable = 60
+	}
+
+	UFA_Slander_the_Tsar_for_Tyynimiya = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_UFA = 15
+			}
+		}
+		cost = 120
+		days_re_enable = 60
+	}
+
+	UFA_Support_Equipment_to_Svetlales = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				support_equipment > 199
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_UFA = 3
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			SVT = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Specialized_Equipment_to_Svetlales = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+			has_equipment = {
+				convoy > 24
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_UFA = 5
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = -25
+				}
+			}
+			SVT = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 25
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+	}
+
+	UFA_Coordinate_with_Advisors_from_Svetlales = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_UFA = 7
+			}
+			add_command_power = -15
+		}
+		cost = 60
+		days_re_enable = 60
+	}
+
+	UFA_Support_Populism_in_Svetlales = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		visible = {
+			has_completed_focus = UFA_The_Great_Game
+		}
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_UFA = 10
+			}
+			SVT = {
+				add_stability = -0.05
+				add_political_power = 100
+			}
+		}
+		cost = 120
+		days_re_enable = 60
 	}
 
 	UFA_Run_Out_Of_The_Clock = {
