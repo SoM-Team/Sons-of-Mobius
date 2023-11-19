@@ -55,6 +55,183 @@ country_event = {
 }
 
 country_event = {
+	# Unexpected war in the middle of The Great Game
+	id = ufa.1301
+	title = ufa.1301.t
+	desc = uda.1301.d
+	trigger = {
+		UFA = {
+			has_war_with = RCR
+			has_completed_focus = UFA_The_Great_Game
+			NOT = {
+				has_country_flag = UFA_Sphere_of_Influence_Formed
+			}
+		}
+	}
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ufa.1301.a
+		TYY = {
+			IF = {
+				limit = {
+					TYY = {
+						check_variable = {
+							TYY.Influenced_by_UFA < TYY.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = TYY
+				}
+			}
+			else_if = {
+				limit = {
+					TYY = {
+						check_variable = {
+							TYY.Influenced_by_UFA > TYY.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = TYY
+				}
+			}
+		}
+		SVT = {
+			IF = {
+				limit = {
+					SVT = {
+						check_variable = {
+							SVT.Influenced_by_UFA < SVT.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = SVT
+				}
+			}
+			else_if = {
+				limit = {
+					SVT = {
+						check_variable = {
+							SVT.Influenced_by_UFA > SVT.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = SVT
+				}
+			}
+		}
+		LTG = {
+			IF = {
+				limit = {
+					LTG = {
+						check_variable = {
+							LTG.Influenced_by_UFA < LTG.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = LTG
+				}
+			}
+			else_if = {
+				limit = {
+					LTG = {
+						check_variable = {
+							LTG.Influenced_by_UFA > LTG.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = LTG
+				}
+			}
+		}
+		MER = {
+			IF = {
+				limit = {
+					MER = {
+						check_variable = {
+							MER.Influenced_by_UFA < MER.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = MER
+				}
+			}
+			else_if = {
+				limit = {
+					MER = {
+						check_variable = {
+							MER.Influenced_by_UFA > MER.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = MER
+				}
+			}
+		}
+		CHE = {
+			IF = {
+				limit = {
+					CHE = {
+						check_variable = {
+							CHE.Influenced_by_UFA < CHE.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = CHE
+				}
+			}
+			else_if = {
+				limit = {
+					CHE = {
+						check_variable = {
+							CHE.Influenced_by_UFA > CHE.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = CHE
+				}
+			}
+		}
+		HOL = {
+			IF = {
+				limit = {
+					HOL = {
+						check_variable = {
+							HOL.Influenced_by_UFA < HOL.Influenced_by_RCSR
+						}
+					}
+				}
+				RCR = {
+					add_to_faction = HOL
+				}
+			}
+			else_if = {
+				limit = {
+					HOL = {
+						check_variable = {
+							HOL.Influenced_by_UFA > HOL.Influenced_by_RCSR
+						}
+					}
+				}
+				UFA = {
+					add_to_faction = HOL
+				}
+			}
+		}
+	}
+}
+
+country_event = {
 	# The Crowned Raider
 	id = ufa.1350
 	title = ufa.1350.t

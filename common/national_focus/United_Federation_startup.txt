@@ -1097,6 +1097,7 @@ focus_tree = {
 		y = 4
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = I_Like_Mike
 		}
 	}
 	focus = {
@@ -3419,6 +3420,46 @@ focus_tree = {
 			custom_effect_tooltip = The_Great_Game
 			#Unlocks decisions to begin influencing border nations with the RSCR
 			add_political_power = 25
+			set_variable = {
+				var = TYY.Align_for_UFA
+				value = 10
+			}
+			set_variable = {
+				var = LTG.Align_for_UFA 
+				value = 65
+			}
+			set_variable = {
+				var = SVT.Align_for_UFA 
+				value = 35
+			}
+			set_variable = {
+				var = MER.Align_for_UFA 
+				value = 55
+			}
+			set_variable = {
+				var = CHE.Align_for_UFA 
+				value = 50
+			}
+			set_variable = {
+				var = TYY.Align_for_RCSR
+				value = 0
+			}
+			set_variable = {
+				var = LTG.Align_for_RCSR
+				value = 0
+			}
+			set_variable = {
+				var = SVT.Align_for_RCSR
+				value = 65
+			}
+			set_variable = {
+				var = MER.Align_for_RCSR
+				value = 25
+			}
+			set_variable = {
+				var = CHE.Align_for_RCSR
+				value = 50
+			}
 			#gain +25 political power UF, RSCR, and the nation itself will compete to see whose sphere (and eventually faction) these border nations join: ally with one, the other, or stay neutral.
 		}
 	}
@@ -3452,8 +3493,11 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
-			#UF gains influence over Mercia
 			custom_effect_tooltip = Knights_of_the_Conference_Table
+			add_to_variable = {
+				var = MER.Align_for_UFA
+				value = 15
+			}
 		}
 	}
 	focus = {
@@ -3482,7 +3526,10 @@ focus_tree = {
 					level = 2
 				}
 			}
-			#Gain 2 offmap civilian factories, UF gains slight influence over Mercia. Mercia gains 2 offmap military factories
+			add_to_variable = {
+				var = MER.Align_for_UFA
+				value = 7
+			}
 		}
 	}
 	focus = {
@@ -3512,7 +3559,10 @@ focus_tree = {
 					}
 				}
 			}
-			#Gain influence over Mercia Mercia gains 3 land forts in certain locations
+			add_to_variable = {
+				var = MER.Align_for_UFA
+				value = 15
+			}
 		}
 	}
 	focus = {
@@ -3535,6 +3585,14 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			custom_effect_tooltip = Bullet_Chess
+			MER = {
+				add_tech_bonus = {
+					name = Bullet_Chess
+					bonus = 1
+					uses = 3
+					category = infantry_weapons
+				}
+			}
 		}
 	}
 	focus = {
@@ -3551,11 +3609,19 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			custom_effect_tooltip = United_Justice
-			set_country_flag = UFA_United_Justice
-			MER = {
-				set_country_flag = UFA_United_Justice
+			IF = {
+				limit = {
+					check_variable = {
+						MER.Align_for_UFA > MER.Align_for_RCSR
+					}
+					check_variable = {
+						MER.Align_for_UFA > 99
+					}
+				}
+				MER = {
+					set_country_flag = Influenced_by_UFA
+				}
 			}
-			#Mercia joins UF sphere
 		}
 	}
 	focus = {
@@ -3571,8 +3637,6 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
-			#Gain Influence over Cherniwschina
-			#Gain National Spirit: Outbidding Cherniwschinan Production, Consumer Goods +10% for 180 days
 			#Unlocks Cherniwchinan Game decisions
 			custom_effect_tooltip = Win_the_Exchange
 			set_country_flag = UFA_Win_the_Exchange
@@ -3582,6 +3646,10 @@ focus_tree = {
 			add_timed_idea = {
 				idea = UFA_Outbidding_Cherniwschian_Production
 				days = 180
+			}
+			add_to_variable = {
+				var = CHE.Align_for_UFA
+				value = 15
 			}
 		}
 	}
@@ -3607,7 +3675,10 @@ focus_tree = {
 					bonus = 1
 				}
 			}
-			#Gain influence over Cherniwshina, Cherniwshina gains 2x 100% research speed for trucks and tanks
+			add_to_variable = {
+				var = CHE.Align_for_UFA
+				value = 15
+			}
 		}
 	}
 	focus = {
@@ -3628,7 +3699,6 @@ focus_tree = {
 				target = CHE
 				modifier = Embargo_on_Cherniwschina
 			}
-			#Embargo Cherniwshina until and unless you are victorious in the Cherniwshinan Game (trade relations -1000)
 		}
 	}
 	focus = {
@@ -3645,7 +3715,19 @@ focus_tree = {
 		y = 3
 		cost = 3
 		completion_reward = {
-			#Cherniwshina joins the UF sphere
+			IF = {
+				limit = {
+					check_variable = {
+						CHE.Align_for_UFA > CHE.Align_for_RCSR
+					}
+					check_variable = {
+						CHE.Align_for_UFA > 99
+					}
+				}
+				CHE = {
+					set_country_flag = Influenced_by_UFA
+				}
+			}
 			custom_effect_tooltip = Control_the_Center
 		}
 	}
@@ -3663,7 +3745,6 @@ focus_tree = {
 		y = 3
 		cost = 3
 		completion_reward = {
-			#Guarantee Cherniwshina
 			diplomatic_relation = {
 				country = CHE
 				relation = guarantee
@@ -3685,7 +3766,14 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -30
 			custom_effect_tooltip = Pawn_Promotion
-			#Lose 30 Political Power, Gain influence in Svyetlales, Svyetlales politics will be destabilized
+			add_to_variable = {
+				var = SVT.Align_for_UFA
+				value = 15
+			}
+			SVT = {
+				add_stability = -0.1
+			}
+			#Svyetlales politics will be destabilized
 			#Gain access to Svyetlales Game decisions
 		}
 	}
@@ -3709,6 +3797,19 @@ focus_tree = {
 			SVT = {
 				annex_country = {
 					target = BRC
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = {
+						SVT.Align_for_UFA > SVT.Align_for_RCSR
+					}
+					check_variable = {
+						SVT.Align_for_UFA > 99
+					}
+				}
+				SVT = {
+					set_country_flag = Influenced_by_UFA
 				}
 			}
 			custom_effect_tooltip = Blockade
@@ -3753,7 +3854,10 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
-			#Gain influence in Tunnimia
+			add_to_variable = {
+				var = TYY.Align_for_UFA
+				value = 15
+			}
 			#Unlocks Tunnimian Game decisions 
 			custom_effect_tooltip = Pawns_Gambit
 		}
@@ -3788,7 +3892,10 @@ focus_tree = {
 				type = support_equipment
 				amount = -200
 			}
-			#Lose 500 of infantry weapons, 200 of support equipment, old ones go first, Gain influence in Tuunimia
+			add_to_variable = {
+				var = TYY.Align_for_UFA
+				value = 15
+			}
 		}
 	}
 	focus = {
@@ -3805,7 +3912,19 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			custom_effect_tooltip = Topple_the_King
-			#Tuunimia joins the UF’s sphere
+			IF = {
+				limit = {
+					check_variable = {
+						TYY.Align_for_UFA > TYY.Align_for_RCSR
+					}
+					check_variable = {
+						TYY.Align_for_UFA > 99
+					}
+				}
+				TYY = {
+					set_country_flag = Influenced_by_UFA
+				}
+			}
 		}
 	}
 	focus = {
@@ -3822,7 +3941,10 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			custom_effect_tooltip = Outpost
-			#Gain Influence in Latgalia
+			add_to_variable = {
+				var = LTG.Align_for_UFA
+				value = 15
+			}
 			#Unlocks latgalian game decisions
 		}
 	}
@@ -3839,7 +3961,19 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
-			#Latgalia joins the UF sphere
+			IF = {
+				limit = {
+					check_variable = {
+						LTG.Align_for_UFA > LTG.Align_for_RCSR
+					}
+					check_variable = {
+						LTG.Align_for_UFA > 99
+					}
+				}
+				LTG = {
+					set_country_flag = Influenced_by_UFA
+				}
+			}
 			custom_effect_tooltip = Breakthrough
 		}
 	}
@@ -3860,7 +3994,6 @@ focus_tree = {
 		y = 4
 		cost = 1
 		completion_reward = {
-			#Gain 30 army experience
 			army_experience = 30
 		}
 	}
@@ -3885,7 +4018,66 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			custom_effect_tooltip = Maroczy_Bind
-			#Gain +100 Political Power, Any nations in the UF sphere will join the UF’s faction
+			IF = {
+				limit = {
+					TYY = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = TYY
+				}
+			}
+			IF = {
+				limit = {
+					LTG = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = LTG
+				}
+			}
+			IF = {
+				limit = {
+					SVT = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = SVT
+				}
+			}
+			IF = {
+				limit = {
+					MER = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = MER
+				}
+			}
+			IF = {
+				limit = {
+					CHE = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = CHE
+				}
+			}
+			IF = {
+				limit = {
+					HOL = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = HOL
+				}
+			}
 		}
 	}
 	focus = {
@@ -3909,7 +4101,66 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50
 			custom_effect_tooltip = Fortress
-			#Gain +50 Political Power, Any nations in the UF sphere will join the UF’s faction
+			IF = {
+				limit = {
+					TYY = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = TYY
+				}
+			}
+			IF = {
+				limit = {
+					LTG = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = LTG
+				}
+			}
+			IF = {
+				limit = {
+					SVT = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = SVT
+				}
+			}
+			IF = {
+				limit = {
+					MER = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = MER
+				}
+			}
+			IF = {
+				limit = {
+					CHE = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = CHE
+				}
+			}
+			IF = {
+				limit = {
+					HOL = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = HOL
+				}
+			}
 		}
 	}
 	focus = {
@@ -3933,7 +4184,66 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -50
 			custom_effect_tooltip = Check
-			#Lose -50 Political Power, Any nations in the UF sphere will join the UF’s faction
+			IF = {
+				limit = {
+					TYY = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = TYY
+				}
+			}
+			IF = {
+				limit = {
+					LTG = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = LTG
+				}
+			}
+			IF = {
+				limit = {
+					SVT = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = SVT
+				}
+			}
+			IF = {
+				limit = {
+					MER = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = MER
+				}
+			}
+			IF = {
+				limit = {
+					CHE = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = CHE
+				}
+			}
+			IF = {
+				limit = {
+					HOL = {
+						has_country_flag = Influenced_by_UFA
+					}
+				}
+				UFA = {
+					add_to_faction = HOL
+				}
+			}
 		}
 	}
 	focus = {
@@ -3952,7 +4262,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			custom_effect_tooltip = Checkmate
-			#
+			set_country_flag = UFA_Sphere_of_Influence_Formed
 		}
 	}
 	focus = {
@@ -4045,7 +4355,6 @@ focus_tree = {
 				country = HOL
 				relation = docking_rights
 			}
-			#Gain Fleet Basing Rights from Holoska
 		}
 	}
 	focus = {
@@ -4062,7 +4371,19 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			custom_effect_tooltip = Together_for_Warmth
-			#Holoska joins the UF sphere
+			IF = {
+				limit = {
+					check_variable = {
+						HOL.Align_for_UFA > HOL.Align_for_RCSR
+					}
+					check_variable = {
+						HOL.Align_for_UFA > 99
+					}
+				}
+				HOL = {
+					set_country_flag = Influenced_by_UFA
+				}
+			}
 		}
 	}
 	focus = {
