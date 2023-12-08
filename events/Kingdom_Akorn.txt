@@ -83,7 +83,7 @@ country_event = {
 	
 	option = {
 		name = koa.3.a 
-		remove_ideas = Two_War_Robotnik
+		remove_ideas = Second_Robotnik_War
 		KOA_Armistice_EGG = yes
 		hidden_effect = {
 			country_event = {
@@ -192,6 +192,32 @@ country_event = { #### Шествие республикснких масс
 	}	
 }	
 
+country_event = { #### Выйти на переговоры
+	id = koa.7
+	title = koa.7.t
+	desc = koa.7.d
+	picture = GFX_report_event_new_knothole
+	
+	fire_only_once = yes
+	
+	option = {
+		name = koa.7.a
+	}
+}
+
+country_event = { #### Арест Прауэра
+	id = koa.8
+	title = koa.8.t
+	desc = koa.8.d
+	picture = GFX_report_event_new_knothole
+	
+	fire_only_once = yes
+	
+	option = {
+		name = koa.8.a
+	}
+}
+
 country_event = { #### Обеденная Резня
 	id = koa.9
 	title = koa.9.t
@@ -297,10 +323,121 @@ country_event = { #### Убийство Хонга провалилось!
 	}
 }
 
+
+
+country_event = { #### Падение короля
+	id = koa.13
+	title = koa.13.t
+	desc = koa.13.d
+	picture = GFX_report_event_fall_king
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.13.a
+		set_country_flag = max_abdicated
+		add_stability = -0.1
+		country_event = {
+			id = koa.14
+			days = 3
+		}
+	}
+}
+
+country_event = { #### Коронация Элиаса
+	id = koa.14
+	title = koa.14.t
+	desc = koa.14.d
+	picture = GFX_report_event_elias_crowning
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.14.a
+		create_country_leader = {
+			name = "HM King Elias Acorn"
+			desc = "ELIAS_DESC"
+			picture = "gfx/leaders/KOA/portrait_King_Elias.dds"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {
+				Spy_King
+				Unpopular_heir
+			}
+		}
+		add_stability = 0.1
+		add_political_power = 100
+		country_event = {
+			id = koa.5
+			days = 10
+		}
+		hidden_effect = {
+			country_event = {
+				id = koa.5
+				days = 14
+			}
+			country_event = {
+				id = koa.6
+				days = 15
+			}
+			set_variable = {
+				var = baron_power
+				value = 15
+			}
+			set_variable = {
+				var = prower_power
+				value = 25
+			}
+			set_variable = {
+				var = union_power
+				value = 15
+			}
+			set_variable = {
+				var = loyalty_elias
+				value = 30
+			}
+			set_country_flag = amadeus_revolt
+			set_country_flag = elias_crowned
+		}	
+	}
+}
+
+country_event = { #The Kingdom of Acorn intro?
+	id = koa.15
+	title = koa.15.t
+	desc = koa.15.d
+	picture = GFX_report_event_hail_the_kingdom
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.15.a 
+	}
+}
+
+country_event = { #Propaganda - Robotnik event
+	id = koa.16
+	title = koa.16.t
+	desc = koa.16.d
+	picture = GFX_report_event_hail_the_kingdom
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = koa.16.a 
+	}
+}
+
 country_event = { #### Sonic is BACK
-	id = koa.600
-	title = koa.600.t
-	desc = koa.600.d
+	id = koa.17
+	title = koa.17.t
+	desc = koa.17.d
 	picture = GFX_report_event_new_knothole
 	
 	fire_only_once = yes
@@ -313,7 +450,7 @@ country_event = { #### Sonic is BACK
 	}
 	
 	option = {
-		name = koa.600.a
+		name = koa.17.a
 		add_political_power = 100
 		create_corps_commander = {
 			name = "Sonic the Hedgehog"
@@ -597,101 +734,6 @@ country_event = { #### Неждан
 			name = KOA_MONBOL_GANG
 		}
 		set_cosmetic_tag = MONBOL_KOA
-	}
-}
-
-country_event = { #### Падение короля
-	id = koa.13
-	title = koa.13.t
-	desc = koa.13.d
-	picture = GFX_report_event_fall_king
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.13.a
-		set_country_flag = max_abdicated
-		add_stability = -0.1
-		country_event = {
-			id = koa.14
-			days = 3
-		}
-	}
-}
-
-country_event = { #### Коронация Элиаса
-	id = koa.14
-	title = koa.14.t
-	desc = koa.14.d
-	picture = GFX_report_event_elias_crowning
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.14.a
-		create_country_leader = {
-			name = "HM King Elias Acorn"
-			desc = "ELIAS_DESC"
-			picture = "gfx/leaders/KOA/portrait_King_Elias.dds"
-			expire = "1965.1.1"
-			ideology = paternal_autocrat_subtype
-			traits = {
-				Spy_King
-				Unpopular_heir
-			}
-		}
-		add_stability = 0.1
-		add_political_power = 100
-		country_event = {
-			id = koa.5
-			days = 10
-		}
-		hidden_effect = {
-			country_event = {
-				id = koa.5
-				days = 14
-			}
-			country_event = {
-				id = koa.6
-				days = 15
-			}
-			set_variable = {
-				var = baron_power
-				value = 15
-			}
-			set_variable = {
-				var = prower_power
-				value = 25
-			}
-			set_variable = {
-				var = union_power
-				value = 15
-			}
-			set_variable = {
-				var = loyalty_elias
-				value = 30
-			}
-			set_country_flag = amadeus_revolt
-			set_country_flag = elias_crowned
-		}	
-	}
-}
-
-country_event = {
-	id = koa.15
-	title = koa.15.t
-	desc = koa.15.d
-	picture = GFX_report_event_hail_the_kingdom
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.15.a 
 	}
 }
 
@@ -1034,11 +1076,25 @@ country_event = {
 	option = {
 		name = koa.125.a
 		add_tech_bonus = {
+			name = Rotor_the_Walrus_Design
+			bonus = 1
+			uses = 1
+			category = infantry_tech
+		}
+	}
+	option = {
+		name = koa.125.b
+		add_tech_bonus = {
+			name = Rotor_the_Walrus_Design
 			bonus = 1
 			uses = 1
 			category = artillery
 		}
+	}
+	option = {
+		name = koa.125.c
 		add_tech_bonus = {
+			name = Rotor_the_Walrus_Design
 			bonus = 1
 			uses = 1
 			category = armor
@@ -1082,6 +1138,9 @@ country_event = {
 	
 	option= {
 		name = koa.128.a
+	}
+	option= {
+		name = koa.128.b
 	}
 }
 
