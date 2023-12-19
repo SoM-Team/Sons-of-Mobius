@@ -579,6 +579,27 @@ ideas = {
                 justify_war_goal_time = 0.75				
             }
 		}
+
+        Soft_control_unit_2 = {
+		
+		    removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+			
+			allowed_civil_war = {
+			    always = yes
+			}
+
+			picture = idea_Soft_control_unit
+			
+			modifier = {
+         		political_power_factor = -0.2
+                drift_defence_factor = -0.15
+                justify_war_goal_time = 0.75				
+            }
+		}
 		
 		Overlander_Scientists = {
 		
@@ -1638,7 +1659,7 @@ ideas = {
             }
 
             on_add = {
-                subtract_variable = {
+                subtract_from_variable = {
                     gov_corruption_growth = 0.05
                 }
             }
@@ -2122,6 +2143,92 @@ ideas = {
             modifier = {
                 army_org_factor = 0.15
                 planning_speed = 0.15
+            }
+        }
+
+        #Elias Reformer ideas
+        KOA_New_Vision_of_State = {
+            available = {
+                always = no
+            }
+
+            on_add = {
+                add_to_variable = {
+                    gov_corruption_growth = -0.5
+                }
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = 0.15
+            }
+        }
+
+        KOA_New_Vision_of_State_2 = {
+            available = {
+                always = no
+            }
+
+            on_add = {
+                add_to_variable = {
+                    gov_corruption_growth = 0.5
+                }
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = 0.15
+                production_speed_infrastructure_factor = 0.05
+                local_resources_factor = 0.1
+            }
+        }
+
+        KOA_New_Vision_of_State_3 = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                political_power_gain = 0.15
+                production_speed_infrastructure_factor = 0.05
+                local_resources_factor = 0.1
+                research_speed_factor = 0.1
+                experience_loss_factor = -0.1
+            }
+        }
+
+        KOA_Satisfying_Veterans_Demands = {
+            available = {
+                always = no
+            }
+
+            on_remove = {
+                add_political_power = 150
+                add_war_support = 0.1
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                consumer_goods_factor = 0.075
+                political_power_factor = -0.05
+            }
+        }
+
+        KOA_Secret_Intelligence_Division = {
+            available = {
+                always = no
+            }
+
+            removal_cost = -1
+
+            modifier = {
+                encryption = 0.25
+                decryption = 0.25
             }
         }
 	} 
