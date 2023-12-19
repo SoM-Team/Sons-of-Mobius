@@ -1,7 +1,12 @@
 focus_tree = {
 	id = Kingdom_Akorn_Maximilian
+	id = Kingdom_Akorn_Maximilian
 	country = {
 		factor = 0
+#		modifier = {
+#			add = 10
+#			tag = KOA
+#		}
 #		modifier = {
 #			add = 10
 #			tag = KOA
@@ -16,6 +21,13 @@ focus_tree = {
 		x = 18
 		y = 0
 		completion_reward = {
+			add_stability = 0.05
+			KOA = {
+				country_event = {
+					id = koa.100
+					days = 1
+				}
+			}
 			add_stability = 0.05
 			KOA = {
 				country_event = {
@@ -45,6 +57,15 @@ focus_tree = {
 				}
 			}
 		}
+			add_ideas = KOA_Theodores_Grief_Idea
+			add_war_support = -0.1
+			KOA = {
+				country_event = {
+					id = koa.101
+					days = 1
+				}
+			}
+		}
 	}
 	focus = {
 		id = KOA_Raphaels_Preparations
@@ -57,6 +78,14 @@ focus_tree = {
 			focus = KOA_Theodores_Grief
 		}
 		completion_reward = {
+			add_political_power = -50
+			add_war_support = -0.1
+			add_ideas = KOA_Raphaels_Preparations
+			KOA = {
+				country_event = {
+					id = koa.102
+				}
+			}
 			add_political_power = -50
 			add_war_support = -0.1
 			add_ideas = KOA_Raphaels_Preparations
@@ -78,6 +107,16 @@ focus_tree = {
 			focus = KOA_Theodores_Grief
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = engineers_tech
+			}
+			KOA = {
+				country_event = {
+					id = koa.103
+				}
+			}
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
@@ -114,6 +153,16 @@ focus_tree = {
 					id = koa.104
 				}
 			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+			KOA = {
+				country_event = {
+					id = koa.104
+				}
+			}
 		}
 	}
 	focus = {
@@ -129,6 +178,8 @@ focus_tree = {
 		completion_reward = {
 			add_stability = -0.05
 			add_ideas = KOA_Increased_Taxes
+			add_stability = -0.05
+			add_ideas = KOA_Increased_Taxes
 		}
 	}
 	focus = {
@@ -142,6 +193,12 @@ focus_tree = {
 			focus = KOA_Constructions_of_Romulus
 		}
 		completion_reward = {
+			add_political_power = 100
+			KOA = {
+				country_event = {
+					id = koa.105
+				}
+			}
 			add_political_power = 100
 			KOA = {
 				country_event = {
@@ -170,6 +227,12 @@ focus_tree = {
 					id = koa.106
 				}
 			}
+			add_political_power = 50
+			KOA = {
+				country_event = {
+					id = koa.106
+				}
+			}
 			add_offsite_building = {
 				type = industrial_complex
 				level = 2
@@ -187,6 +250,16 @@ focus_tree = {
 			focus = KOA_Passion_of_Reginald
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+			KOA = {
+				country_event = {
+					id = koa.107
+				}
+			}
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
@@ -221,6 +294,17 @@ focus_tree = {
 					id = koa.108
 				}
 			}
+			MER = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KOA_MER_trade_increase
+				}
+			}
+			KOA = {
+				country_event = {
+					id = koa.108
+				}
+			}
 		}
 	}
 	focus = {
@@ -234,6 +318,17 @@ focus_tree = {
 			focus = KOA_Strength_of_Silvanus
 		}
 		completion_reward = {
+			UFA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = KOA_UFA_trade_increase
+				}
+			}
+			KOA = {
+				country_event = {
+					id = koa.109
+				}
+			}
 			UFA = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -272,6 +367,17 @@ focus_tree = {
 				uses = 1
 				category = armor
 			}
+			add_manpower = 50000
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = armor
+			}
 		}
 	}
 	focus = {
@@ -294,7 +400,12 @@ focus_tree = {
 				country_event = {
 					id = koa.110
 				}
+			KOA = {
+				country_event = {
+					id = koa.110
+				}
 				mark_focus_tree_layout_dirty = yes
+			}
 			}
 		}
 	}
@@ -695,6 +806,14 @@ focus_tree = {
 			custom_effect_tooltip = KOA_Republicans_power_sub_tooltip
 			custom_effect_tooltip = KOA_Elias_power_add_tooltip
 		}
+	}
+	#ARMY TREE
+	shared_focus = KOA_Grand_Military_Reforms
+	# Foreign Politics Focuses
+	shared_focus = KOA_Masters_of_Mobius
+	#Economic Tree
+	shared_focus = KOA_New_Crown_Economic
+}
 	}
 	#ARMY TREE
 	shared_focus = KOA_Grand_Military_Reforms
@@ -1236,8 +1355,545 @@ focus_tree = {
 	shared_focus = KOA_Masters_of_Mobius
 	#Economic Tree
 	shared_focus = KOA_New_Crown_Economic
+# Civil war focuses
+focus_tree = {
+	id = Kingdom_Akorn_Civil_War
+	country = {
+		#		factor = 0
+		#		modifier = {
+		#			add = 10
+		#			tag = KOA #has_country_flag = Acorn_Civil_War_started
+	}
+	default = no
+	#ARMY TREE
+	shared_focus = KOA_Grand_Military_Reforms
+	# Foreign Politics Focuses
+	shared_focus = KOA_Masters_of_Mobius
+	#Economic Tree
+	shared_focus = KOA_New_Crown_Economic
+	focus = {
+		id = KOA_The_Acorn_Civil_War
+		text = KOA_The_Acorn_Civil_War
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 18
+		y = 14
+		allow_branch = {
+			#			has_country_flag = KOA_Civil_War #no such flag exists yet
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			country_event = {
+				id = koa.121
+			}
+			set_global_flag = KOA_Elias_Despot_King
+		}
+	}
+	focus = {
+		id = KOA_Our_Friends_at_Home
+		text = KOA_Our_Friends_at_Home
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 15
+		y = 15
+		prerequisite = {
+			focus = KOA_The_Acorn_Civil_War
+		}
+		completion_reward = {
+			add_manpower = 7500
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = KOA_Rally_the_Royal_Guard
+		text = KOA_Rally_the_Royal_Guard
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 13
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Friends_at_Home
+		}
+		completion_reward = {
+			KOA = {
+				1 = {
+					create_unit = {
+						owner = KOA
+						division = "name = \"Royal Guard\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+						prioritize_location = 5366
+					}
+				}
+				country_event = {
+					id = koa.122
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Acorn_Militias
+		text = KOA_Acorn_Militias
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 13
+		y = 17
+		prerequisite = {
+			focus = KOA_Rally_the_Royal_Guard
+		}
+		completion_reward = {
+			add_ideas = KOA_Acorn_Militias_Idea
+			KOA = {
+				country_event = {
+					id = koa.123
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Returning_Expatriates
+		text = KOA_Returning_Expatriates
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 13
+		y = 18
+		prerequisite = {
+			focus = KOA_Acorn_Militias
+		}
+		completion_reward = {
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = KOA_Nanite_Citadel
+		text = KOA_Nanite_Citadel
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 15
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Friends_at_Home
+		}
+		completion_reward = {
+			add_ideas = KOA_Nanite_Citadel_Idea
+			KOA = {
+				country_event = {
+					id = koa.124
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Kingdoms_Arsenal
+		text = KOA_Kingdoms_Arsenal
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 15
+		y = 17
+		prerequisite = {
+			focus = KOA_Nanite_Citadel
+		}
+		completion_reward = {
+			KOA = {
+				country_event = {
+					id = koa.125
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Exploit_Power_Rings
+		text = KOA_Exploit_Power_Rings
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 15
+		y = 18
+		prerequisite = {
+			focus = KOA_Kingdoms_Arsenal
+		}
+		completion_reward = {
+			#effect_TBA?
+			add_to_variable = {
+				var = rings
+				value = 10000
+			}
+			custom_effect_tooltip = Exploit_Power_Rings
+		}
+	}
+	focus = {
+		id = KOA_Substitute_Freedom_Fighters
+		text = KOA_Substitute_Freedom_Fighters
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 17
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Friends_at_Home
+		}
+		completion_reward = {
+			1 = {
+				create_unit = {
+					owner = KOA
+					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+			}
+			add_ideas = KOA_Alternate_Freedom_Fighters_1
+			country_event = {
+				id = koa.126
+			}
+		}
+	}
+	focus = {
+		id = KOA_Sallys_Operations_Manual
+		text = KOA_Sallys_Operations_Manual
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 17
+		y = 17
+		prerequisite = {
+			focus = KOA_Substitute_Freedom_Fighters
+		}
+		completion_reward = {
+			#effect_TBA?
+		}
+	}
+	focus = {
+		id = KOA_Secret_Freedom_Fighters_CW
+		text = KOA_Secret_Freedom_Fighters_CW
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 17
+		y = 18
+		prerequisite = {
+			focus = KOA_Sallys_Operations_Manual
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = KOA_Alternate_Freedom_Fighters_1
+				add_idea = KOA_Alternate_Freedom_Fighters_3
+			}
+			country_event = {
+				id = koa.127
+			}
+		}
+	}
+	focus = {
+		id = KOA_Sword_of_Acorn
+		text = KOA_Sword_of_Acorn
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 15
+		y = 19
+		prerequisite = {
+			focus = KOA_Returning_Expatriates
+		}
+		prerequisite = {
+			focus = KOA_Exploit_Power_Rings
+		}
+		prerequisite = {
+			focus = KOA_Secret_Freedom_Fighters_CW
+		}
+		completion_reward = {
+			country_event = {
+				id = koa.128
+			}
+		}
+	}
+	focus = {
+		id = KOA_Our_Allies_Abroad
+		text = KOA_Our_Allies_Abroad
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 21
+		y = 15
+		prerequisite = {
+			focus = KOA_The_Acorn_Civil_War
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = MER
+				modifier = huge_increase
+			}
+			add_opinion_modifier = {
+				target = UFA
+				modifier = huge_increase
+			}
+		}
+	}
+	focus = {
+		id = KOA_UF_Military_Advisors
+		text = KOA_UF_Military_Advisors
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 19
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Allies_Abroad
+		}
+		completion_reward = {
+			add_ideas = KOA_UF_Military_Advisors_Idea
+		}
+	}
+	focus = {
+		id = KOA_Lend_Lease_Program
+		text = KOA_Lend_Lease_Program
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 19
+		y = 17
+		prerequisite = {
+			focus = KOA_UF_Military_Advisors
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = UFA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 2000
+				producer = UFA
+			}
+			add_equipment_to_stockpile = {
+				type = anti_tank_equipment
+				amount = 2000
+				producer = UFA
+			}
+			add_equipment_to_stockpile = {
+				type = main_battle_tank_equipment
+				amount = 500
+				producer = UFA
+			}
+			country_event = {
+				id = koa.129
+			}
+		}
+	}
+	focus = {
+		id = KOA_Wartime_Economy
+		text = KOA_Wartime_Economy
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 19
+		y = 18
+		prerequisite = {
+			focus = KOA_Lend_Lease_Program
+		}
+		completion_reward = {
+			#effect_TBA?
+		}
+	}
+	focus = {
+		id = KOA_Colonial_Aid
+		text = KOA_Colonial_Aid
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 21
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Allies_Abroad
+		}
+		completion_reward = {
+			give_resource_rights = {
+				receiver = KOA
+				state = 510
+			}
+			DOW = {
+				add_resource = {
+					type = chromium
+					amount = 10
+					state = 510
+				}
+				add_resource = {
+					type = oil
+					amount = 10
+					state = 510
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Acorn_Commonwealth
+		text = KOA_Acorn_Commonwealth
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 21
+		y = 17
+		prerequisite = {
+			focus = KOA_Colonial_Aid
+		}
+		completion_reward = {
+			#effect_TBA?
+		}
+	}
+	focus = {
+		id = KOA_Downunda_Army_Corps
+		text = KOA_Downunda_Army_Corps
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 21
+		y = 18
+		prerequisite = {
+			focus = KOA_Acorn_Commonwealth
+		}
+		completion_reward = {
+			1 = {
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+				create_unit = {
+					owner = KOA
+					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_Arms_from_Eurish
+		text = KOA_Arms_from_Eurish
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 23
+		y = 16
+		prerequisite = {
+			focus = KOA_Our_Allies_Abroad
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = MER
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 2000
+				producer = MER
+			}
+		}
+	}
+	focus = {
+		id = KOA_Questing_Knights
+		text = KOA_Questing_Knights
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 23
+		y = 17
+		prerequisite = {
+			focus = KOA_Arms_from_Eurish
+		}
+	}
+	focus = {
+		id = KOA_Mercian_Trailblazers
+		text = KOA_Mercian_Trailblazers
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 23
+		y = 18
+		prerequisite = {
+			focus = KOA_Questing_Knights
+		}
+		completion_reward = {
+			add_ideas = KOA_Irregular_Rangers
+		}
+	}
+	focus = {
+		id = KOA_Acorn_Foreign_Legion
+		text = KOA_Acorn_Foreign_Legion
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 21
+		y = 19
+		prerequisite = {
+			focus = KOA_Wartime_Economy
+		}
+		prerequisite = {
+			focus = KOA_Downunda_Army_Corps
+		}
+		prerequisite = {
+			focus = KOA_Mercian_Trailblazers
+		}
+		completion_reward = {
+			add_manpower = 45000
+		}
+	}
+	focus = {
+		id = KOA_This_is_Getting_Complicated
+		text = KOA_This_is_Getting_Complicated
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 18
+		y = 20
+		prerequisite = {
+			focus = KOA_Sword_of_Acorn
+		}
+		prerequisite = {
+			focus = KOA_Acorn_Foreign_Legion
+		}
+	}
+	focus = {
+		id = KOA_Stop_Holding_Back
+		text = KOA_Stop_Holding_Back
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 18
+		y = 21
+		prerequisite = {
+			focus = KOA_This_is_Getting_Complicated
+		}
+		completion_reward = {
+			add_ideas = KOA_Stop_Holding_Back_Idea
+			custom_effect_tooltip = KOA_consequences
+		}
+	}
+	focus = {
+		id = KOA_Running_on_Empty
+		text = KOA_Running_on_Empty
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 18
+		y = 22
+		prerequisite = {
+			focus = KOA_Stop_Holding_Back
+		}
+		completion_reward = {
+			add_ideas = KOA_Running_on_Empty_Idea
+		}
+	}
+}
+
+#Elias Acorn Reforms
+focus_tree = {
+	id = Kingdom_Akorn_Elias_Reformer
+	country = {
+				factor = 0
+				modifier = {
+					add = 10
+					tag = KOA #has_country_flag = Elias_Acorn_Reforms
+				}
+	}
+	default = no
+	#ARMY TREE
+	shared_focus = KOA_Grand_Military_Reforms
+	# Foreign Politics Focuses
+	shared_focus = KOA_Masters_of_Mobius
+	#Economic Tree
+	shared_focus = KOA_New_Crown_Economic
 
 	focus = {
+		id = KOA_The_Royal_Republic
+		text = KOA_The_Royal_Republic
+		icon = GFX_icon_unknown
+		cost = 4
+		x = 18
 		id = KOA_The_Royal_Republic
 		text = KOA_The_Royal_Republic
 		icon = GFX_icon_unknown
@@ -1459,10 +2115,7 @@ focus_tree = {
 			focus = KOA_The_Young_Aristocrat
 		}
 		completion_reward = {
-			add_command_power = 25
-			add_to_variable = {
-				SID_power = 20
-			}
+			#
 		}
 	}
 	focus = {
@@ -1477,8 +2130,7 @@ focus_tree = {
 			focus = KOA_The_Veterans_Petition
 		}
 		completion_reward = {
-			add_ideas = KOA_Freedom_Boyscouts
-			#country_event = koa.???
+			#
 		}
 	}
 	focus = {
@@ -1498,24 +2150,8 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Whos_Request
 		}
-		available = {
-			check_variable = {
-				council_support > 84
-			}
-			check_variable = {
-				council_factionalism < 11
-			}
-		}
 		completion_reward = {
-			add_to_variable = {
-				gov_corruption = -20
-			}
-			retire_character = KOA_Geoffrey_St_John
-#			if = {
-#				limit = { has_dlc = "La Resistance" }
-#				retire Geoffrey as operative
-#			}
-#			country_event = koa.???
+			#
 		}
 	}
 	focus = {
@@ -1530,8 +2166,7 @@ focus_tree = {
 			focus = KOA_Assemble_the_Council
 		}
 		completion_reward = {
-			add_political_power = -50
-			add_ideas = KOA_The_New_Mind_of_Nation
+			#
 		}
 	}
 	focus = {
@@ -1548,36 +2183,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Our_Pocket_Radicals
 		}
-		available = {
-			check_variable = {
-				council_support > 64
-			}
-			check_variable = {
-				council_factionalism < 31
-			}
-		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = KOA_The_New_Mind_of_Nation
-				add_idea = KOA_The_New_Mind_of_Nation_2
-			}
-			add_popularity = {
-				ideology = autonomous_socialism
-				popularity = -0.05
-			}
-			add_popularity = {
-				ideology = purificationism
-				popularity = -0.05
-			}
-			add_popularity = {
-				ideology = katzerism
-				popularity = -0.05
-			}
-			add_popularity = {
-				ideology = neosocialism
-				popularity = -0.05
-			}
-			#country_event = koa.???
+			#
 		}
 	}
 	focus = {
@@ -1594,43 +2201,8 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Push_Back_Radicals
 		}
-		available = {
-			check_variable = {
-				council_support > 64
-			}
-			check_variable = {
-				council_factionalism < 31
-			}
-		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = KOA_The_New_Mind_of_Nation
-				add_idea = KOA_The_New_Mind_of_Nation_3
-			}
-			set_party_name = {
-				ideology = autonomous_socialism
-				long_name = National_Patriotic_Front
-				name = NPF
-			}
-			set_party_name = {
-				ideology = purificationism
-				long_name = National_Patriotic_Front
-				name = NPF
-			}
-			set_party_name = {
-				ideology = neosocialism
-				long_name = National_Patriotic_Front
-				name = NPF
-			}
-			set_party_name = {
-				ideology = katzerism
-				long_name = National_Patriotic_Front
-				name = NPF
-			}
-			add_to_variable = {
-				var = gov_corruption
-				value = 10
-			}
+			#
 		}
 	}
 	focus = {
@@ -1647,30 +2219,8 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 			focus = KOA_Local_Self_Management
 		}
-		available = {
-			check_variable = {
-				council_support > 69
-			}
-			check_variable = {
-				council_factionalism < 21
-			}
-		}
 		completion_reward = {
-			if = {
-				limit = { has_idea = KOA_The_New_Mind_of_Nation_2 }
-				swap_ideas = {
-					remove_idea = KOA_The_New_Mind_of_Nation_2
-					add_idea = KOA_The_New_Mind_of_Nation_4
-				}
-			}
-			else_if = {
-				limit = { has_idea = KOA_The_New_Mind_of_Nation_3 }
-				swap_ideas = {
-					remove_idea = KOA_The_New_Mind_of_Nation_3
-					add_idea = KOA_The_New_Mind_of_Nation_5
-				}
-			}
-			add_political_power = 75
+			#
 		}
 	}
 
@@ -1685,27 +2235,8 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Assemble_the_Council
 		}
-		available = {
-			check_variable = {
-				council_support > 59
-			}
-			check_variable = {
-				council_factionalism < 31
-			}
-			check_variable = {
-				rings > 99999
-			}
-		}
 		completion_reward = {
-			add_to_variable = {
-				var = rings
-				value = 100000
-			}
-			add_to_variable = {
-				var = rings_special_fund
-				value = 100000
-			}
-			custom_effect_tooltip = KOA_Question_of_Budget
+			#
 		}
 	}
 	focus = {
@@ -1719,26 +2250,8 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Question_of_Budget
 		}
-		available = {
-			check_variable = {
-				council_support > 64
-			}
-			check_variable = {
-				council_factionalism < 31
-			}
-			OR = {
-				has_country_flag = Ecological_Question_Answered
-				has_country_flag = Industrial_Question_Answered
-				has_country_flag = Military_Question_Answered
-				has_country_flag = Social_Question_Answered
-				has_country_flag = Scientific_Question_Answered
-			}
-		}
 		completion_reward = {
-			add_timed_idea = {
-				idea = KOA_Tax_Reform
-				days = 365
-			}
+			#
 		}
 	}
 	focus = {
@@ -1753,10 +2266,7 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 		}
 		completion_reward = {
-			add_timed_idea = {
-				idea = KOA_Silver_Shell_Campaign
-				days = 1095
-			}
+			#
 		}
 	}
 	focus = {
@@ -1771,14 +2281,7 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 		}
 		completion_reward = {
-			build_railway = {
-				level = 2
-				build_only_on_allied = yes
-				fallback = yes
-				path = { 5366 5346 5292 5200 5163 5094 5048 4928 4905 4893 4702 4739 4701 4818 4772 4658 4573 4499 4378 }
-				start_province = 5366
-				target_province = 4378
-			}
+			#
 		}
 	}
 	focus = {
@@ -1793,7 +2296,7 @@ focus_tree = {
 			focus = KOA_The_Silver_Shell_Campaign
 		}
 		completion_reward = {
-			#country_event = koa.???
+			#
 		}
 	}
 	focus = {
@@ -1808,20 +2311,7 @@ focus_tree = {
 			focus = KOA_The_Old_Royal_Road
 		}
 		completion_reward = {
-			add_ideas = KOA_Angel_Island_Wonders
-			add_tech_bonus = {
-				name = Angel_Island_Wonders
-				category = energy_weapons
-				uses = 1
-				bonus = 1
-			}
-			add_tech_bonus = {
-				name = Angel_Island_Wonders
-				category = electronics
-				uses = 2
-				bonus = 0.75
-			}
-			#country_event = koa.???
+			#
 		}
 	}
 	focus = {
@@ -1836,10 +2326,7 @@ focus_tree = {
 			focus = KOA_The_Old_Royal_Road
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Overlander_Scientists
-				add_idea = Overlander_Scientists_2
-			}
+			#
 		}
 	}
 	focus = {
@@ -1860,17 +2347,7 @@ focus_tree = {
 			focus = KOA_Nate_Morgan_Institute
 		}
 		completion_reward = {
-			#country_event = koa.???
-			add_tech_bonus = {
-				name = NICOLEs_Revelations
-				category = robot_techs
-				uses = 1
-				bonus = 1
-			}
-			KOA_Nicole_the_Holo_Lynx = {
-				promote_leader = yes
-			}
-			#Nicole becomes a field marshal and security minister (trait “Kind Machine”: consumer good factories +1.5%, non-core manpower +25%, encryption +15%
+			#
 		}
 	}
 	focus = {
@@ -1888,11 +2365,7 @@ focus_tree = {
 			focus = KOA_The_Silver_Shell_Campaign
 		}
 		completion_reward = {
-			add_political_power = 100
-			add_popularity = {
-				ideology = legalism
-				popularity = 0.25
-			}
+			#
 		}
 	}
 	focus = {
@@ -1906,27 +2379,11 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Our_History_Restored
 		}
-		available = {
-			check_variable = {
-				council_support > 64
-			}
-			check_variable = {
-				council_factionalism < 41
-			}
-		}
 		mutually_exclusive = {
 			focus = KOA_Kings_Word_is_the_Last
 		}
 		completion_reward = {
-			add_to_variable = {
-				council_factionalism = -25
-			}
-			#country_event = koa.???
-			add_to_variable = {
-				gov_corruption_growth = -0.75
-			}
-			add_ideas = The_Balanced_Democracy
-			custom_effect_tooltip = KOA_Checks_and_Balances
+			#
 		}
 	}
 	focus = {
@@ -1940,25 +2397,11 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Our_History_Restored
 		}
-		available = {
-			check_variable = {
-				council_support > 79
-			}
-		}
 		mutually_exclusive = {
 			focus = KOA_Checks_and_Balances
 		}
 		completion_reward = {
-			add_to_variable = {
-				var = council_factionalism
-				value = -25
-			}
-			add_to_variable = {
-				var = gov_corruption_growth
-				value = 0.25
-			}
-			#Since this moment, all the decisions of Council Acorn can be decided by 50% of votes + King’s vote
-			custom_effect_tooltip = KOA_Kings_Word_is_the_Last
+			#
 		}
 	}
 	focus = {
@@ -1980,9 +2423,7 @@ focus_tree = {
 			focus = KOA_Kings_Word_is_the_Last
 		}
 		completion_reward = {
-			remove_ideas = Soft_control_unit
-			remove_ideas = Soft_control_unit_2
-			set_country_flag = KOA_Foreign_Politics_Available
+			#
 		}
 	}
 }
@@ -2045,9 +2486,13 @@ focus_tree = {
 		y = 9
 	}
 	focus = {
-		id = KOA_Royal_National
-		icon = GFX_focus_Royal_National
-		cost = 7
+		id = KOA_Nationalise_Media
+		text = KOA_Nationalise_Media
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Royal_Republic
+		x = 0
+		y = 5
 		prerequisite = {
 			focus = KOA_Expropriate_Landlords
 		}
@@ -2078,9 +2523,13 @@ focus_tree = {
 		y = 11
 	}
 	focus = {
-		id = KOA_Councilist_Reform
-		icon = GFX_focus_Councilist_Reform
-		cost = 7
+		id = KOA_Tax_Redistribution
+		text = KOA_Tax_Redistribution
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Royal_Republic
+		x = 6
+		y = 4
 		prerequisite = {
 			focus = KOA_Revolution_from_Above
 		}
@@ -2121,9 +2570,13 @@ focus_tree = {
 		y = 11
 	}
 	focus = {
-		id = KOA_Rehabilitate_Reds
-		icon = GFX_focus_Rehabilitate_Reds
-		cost = 7
+		id = KOA_The_Silver_Shell_Campaign
+		text = KOA_The_Silver_Shell_Campaign
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Royal_Republic
+		x = 4
+		y = 5
 		prerequisite = {
 			focus = KOA_Revolution_from_Above
 		}
@@ -2141,11 +2594,15 @@ focus_tree = {
 		y = 11
 	}
 	focus = {
-		id = KOA_Red_Monarchy
-		icon = GFX_focus_Red_Monarchy
-		cost = 7
+		id = KOA_The_Old_Royal_Road
+		text = KOA_The_Old_Royal_Road
+		icon = GFX_icon_unknown
+		cost = 4
+		relative_position_id = KOA_The_Royal_Republic
+		x = 8
+		y = 5
 		prerequisite = {
-			focus = KOA_End_Priveleges
+			focus = KOA_Tax_Redistribution
 		}
 		prerequisite = {
 			focus = KOA_Royal_Plan
@@ -2179,6 +2636,24 @@ focus_tree = {
 	shared_focus = KOA_Masters_of_Mobius
 	#Economic Tree
 	shared_focus = KOA_New_Crown_Economic
+# TODO: Check focuses "Stop Holding Back!" and "Mercian Trailblazers"
+# Sally Acorn focuses
+focus_tree = {
+	id = Kingdom_Akorn_Queen_Sally
+	country = {
+		#			factor = 0
+		#			modifier = {
+		#				add = 10
+		#				tag = KOA #has_country_flag = Queen_Sally
+		#			}
+	}
+	default = no
+	#ARMY TREE
+	shared_focus = KOA_Grand_Military_Reforms
+	# Foreign Politics Focuses
+	shared_focus = KOA_Masters_of_Mobius
+	#Economic Tree
+	shared_focus = KOA_New_Crown_Economic
 	focus = {
 		id = KOA_The_One_Who_Was_Ready
 		text = KOA_The_One_Who_Was_Ready
@@ -2188,9 +2663,16 @@ focus_tree = {
 		y = 14
 		allow_branch = {
 			#			has_global_flag = KOA_Sally_Queen
+			#			has_global_flag = KOA_Sally_Queen
 		}
 		completion_reward = {
 			add_political_power = 100
+			set_variable = {
+				nobles_influence = 50
+			}
+			set_variable = {
+				populist_influence = 50
+			}
 			set_variable = {
 				nobles_influence = 50
 			}
@@ -2289,6 +2771,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 1
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 1
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			country_event = {
@@ -2332,6 +2817,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 2
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 2
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2355,12 +2843,17 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 3
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 3
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Nobles_influence_increase_tooltip
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
 			add_tech_bonus = {
 				bonus = 0.5
+				uses = 1
+				category = agriculture_tech_group
 				uses = 1
 				category = agriculture_tech_group
 			}
@@ -2387,6 +2880,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 4
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 4
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2398,6 +2894,33 @@ focus_tree = {
 			SOT = {
 				if = {
 					limit = {
+						21 = {
+							is_controlled_by = KOA
+						}
+						22 = {
+							is_controlled_by = KOA
+						}
+						23 = {
+							is_controlled_by = KOA
+						}
+						24 = {
+							is_controlled_by = KOA
+						}
+						25 = {
+							is_controlled_by = KOA
+						}
+						26 = {
+							is_controlled_by = KOA
+						}
+						27 = {
+							is_controlled_by = KOA
+						}
+						28 = {
+							is_controlled_by = KOA
+						}
+						7 = {
+							is_controlled_by = KOA
+						}
 						21 = {
 							is_controlled_by = KOA
 						}
@@ -2481,6 +3004,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 5
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 5
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA = {
@@ -2507,6 +3033,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 6
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 6
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
@@ -2525,6 +3054,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_populist_idea_level = 7
+				}
 				set_variable = {
 					KOA_new_populist_idea_level = 7
 				}
@@ -2577,6 +3109,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 8
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 8
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
@@ -2596,6 +3131,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_populist_idea_level = 9
+				}
 				set_variable = {
 					KOA_new_populist_idea_level = 9
 				}
@@ -2621,6 +3159,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_populist_idea_level = 10
+				}
 				set_variable = {
 					KOA_new_populist_idea_level = 10
 				}
@@ -2651,10 +3192,16 @@ focus_tree = {
 				set_variable = {
 					KOA_new_populist_idea_level = 0
 				}
+				set_variable = {
+					KOA_new_populist_idea_level = 0
+				}
 				KOA_Switch_Populist_Idea = yes
 				add_ideas = KOA_Southern_Glory
 			}
 			add_political_power = 125
+			subtract_from_variable = {
+				gov_corruption = 0.02
+			}
 			subtract_from_variable = {
 				gov_corruption = 0.02
 			}
@@ -2679,6 +3226,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 1
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 1
 				}
@@ -2707,6 +3257,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_nobles_idea_level = 2
 				}
+				set_variable = {
+					KOA_new_nobles_idea_level = 2
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2726,6 +3279,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 3
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 3
 				}
@@ -2754,6 +3310,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 4
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 4
 				}
@@ -2790,6 +3349,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_nobles_idea_level = 5
 				}
+				set_variable = {
+					KOA_new_nobles_idea_level = 5
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			add_popularity = {
@@ -2821,6 +3383,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_nobles_idea_level = 6
 				}
+				set_variable = {
+					KOA_new_nobles_idea_level = 6
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Northern_winds_idea_up
@@ -2839,6 +3404,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 7
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 7
 				}
@@ -2891,6 +3459,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_nobles_idea_level = 8
 				}
+				set_variable = {
+					KOA_new_nobles_idea_level = 8
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Northern_winds_idea_up
@@ -2910,6 +3481,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 9
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 9
 				}
@@ -2940,6 +3514,9 @@ focus_tree = {
 				set_variable = {
 					KOA_new_nobles_idea_level = 10
 				}
+				set_variable = {
+					KOA_new_nobles_idea_level = 10
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			add_political_power = 75
@@ -2966,6 +3543,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
+				set_variable = {
+					KOA_new_nobles_idea_level = 0
+				}
 				set_variable = {
 					KOA_new_nobles_idea_level = 0
 				}
@@ -3263,4 +3843,6 @@ focus_tree = {
 			}
 		}
 	}
+}
+
 }
