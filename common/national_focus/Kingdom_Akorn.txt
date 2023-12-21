@@ -2115,7 +2115,10 @@ focus_tree = {
 			focus = KOA_The_Young_Aristocrat
 		}
 		completion_reward = {
-			#
+			add_command_power = 25
+			add_to_variable = {
+				SID_power = 20
+			}
 		}
 	}
 	focus = {
@@ -2130,7 +2133,8 @@ focus_tree = {
 			focus = KOA_The_Veterans_Petition
 		}
 		completion_reward = {
-			#
+			add_ideas = KOA_Freedom_Boyscouts
+			#country_event = koa.???
 		}
 	}
 	focus = {
@@ -2150,8 +2154,24 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Whos_Request
 		}
+		available = {
+			check_variable = {
+				council_support > 84
+			}
+			check_variable = {
+				council_factionalism < 11
+			}
+		}
 		completion_reward = {
-			#
+			add_to_variable = {
+				gov_corruption = -20
+			}
+			retire_character = KOA_Geoffrey_St_John
+#			if = {
+#				limit = { has_dlc = "La Resistance" }
+#				retire Geoffrey as operative
+#			}
+#			country_event = koa.???
 		}
 	}
 	focus = {
@@ -2166,7 +2186,8 @@ focus_tree = {
 			focus = KOA_Assemble_the_Council
 		}
 		completion_reward = {
-			#
+			add_political_power = -50
+			add_ideas = KOA_The_New_Mind_of_Nation
 		}
 	}
 	focus = {
@@ -2183,8 +2204,36 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Our_Pocket_Radicals
 		}
+		available = {
+			check_variable = {
+				council_support > 64
+			}
+			check_variable = {
+				council_factionalism < 31
+			}
+		}
 		completion_reward = {
-			#
+			swap_ideas = {
+				remove_idea = KOA_The_New_Mind_of_Nation
+				add_idea = KOA_The_New_Mind_of_Nation_2
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = purificationism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = -0.05
+			}
+			#country_event = koa.???
 		}
 	}
 	focus = {
@@ -2201,8 +2250,43 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = KOA_Push_Back_Radicals
 		}
+		available = {
+			check_variable = {
+				council_support > 64
+			}
+			check_variable = {
+				council_factionalism < 31
+			}
+		}
 		completion_reward = {
-			#
+			swap_ideas = {
+				remove_idea = KOA_The_New_Mind_of_Nation
+				add_idea = KOA_The_New_Mind_of_Nation_3
+			}
+			set_party_name = {
+				ideology = autonomous_socialism
+				long_name = National_Patriotic_Front
+				name = NPF
+			}
+			set_party_name = {
+				ideology = purificationism
+				long_name = National_Patriotic_Front
+				name = NPF
+			}
+			set_party_name = {
+				ideology = neosocialism
+				long_name = National_Patriotic_Front
+				name = NPF
+			}
+			set_party_name = {
+				ideology = katzerism
+				long_name = National_Patriotic_Front
+				name = NPF
+			}
+			add_to_variable = {
+				var = gov_corruption
+				value = 10
+			}
 		}
 	}
 	focus = {
@@ -2219,8 +2303,30 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 			focus = KOA_Local_Self_Management
 		}
+		available = {
+			check_variable = {
+				council_support > 69
+			}
+			check_variable = {
+				council_factionalism < 21
+			}
+		}
 		completion_reward = {
-			#
+			if = {
+				limit = { has_idea = KOA_The_New_Mind_of_Nation_2 }
+				swap_ideas = {
+					remove_idea = KOA_The_New_Mind_of_Nation_2
+					add_idea = KOA_The_New_Mind_of_Nation_4
+				}
+			}
+			else_if = {
+				limit = { has_idea = KOA_The_New_Mind_of_Nation_3 }
+				swap_ideas = {
+					remove_idea = KOA_The_New_Mind_of_Nation_3
+					add_idea = KOA_The_New_Mind_of_Nation_5
+				}
+			}
+			add_political_power = 75
 		}
 	}
 
@@ -2235,8 +2341,27 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Assemble_the_Council
 		}
+		available = {
+			check_variable = {
+				council_support > 59
+			}
+			check_variable = {
+				council_factionalism < 31
+			}
+			check_variable = {
+				rings > 99999
+			}
+		}
 		completion_reward = {
-			#
+			add_to_variable = {
+				var = rings
+				value = 100000
+			}
+			add_to_variable = {
+				var = rings_special_fund
+				value = 100000
+			}
+			custom_effect_tooltip = KOA_Question_of_Budget
 		}
 	}
 	focus = {
@@ -2250,8 +2375,26 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Question_of_Budget
 		}
+		available = {
+			check_variable = {
+				council_support > 64
+			}
+			check_variable = {
+				council_factionalism < 31
+			}
+			OR = {
+				has_country_flag = Ecological_Question_Answered
+				has_country_flag = Industrial_Question_Answered
+				has_country_flag = Military_Question_Answered
+				has_country_flag = Social_Question_Answered
+				has_country_flag = Scientific_Question_Answered
+			}
+		}
 		completion_reward = {
-			#
+			add_timed_idea = {
+				idea = KOA_Tax_Reform
+				days = 365
+			}
 		}
 	}
 	focus = {
@@ -2266,7 +2409,10 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 		}
 		completion_reward = {
-			#
+			add_timed_idea = {
+				idea = KOA_Silver_Shell_Campaign
+				days = 1095
+			}
 		}
 	}
 	focus = {
@@ -2281,7 +2427,14 @@ focus_tree = {
 			focus = KOA_Tax_Redistribution
 		}
 		completion_reward = {
-			#
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5366 5346 5292 5200 5163 5094 5048 4928 4905 4893 4702 4739 4701 4818 4772 4658 4573 4499 4378 }
+				start_province = 5366
+				target_province = 4378
+			}
 		}
 	}
 	focus = {
@@ -2296,7 +2449,7 @@ focus_tree = {
 			focus = KOA_The_Silver_Shell_Campaign
 		}
 		completion_reward = {
-			#
+			#country_event = koa.???
 		}
 	}
 	focus = {
@@ -2311,7 +2464,20 @@ focus_tree = {
 			focus = KOA_The_Old_Royal_Road
 		}
 		completion_reward = {
-			#
+			add_ideas = KOA_Angel_Island_Wonders
+			add_tech_bonus = {
+				name = Angel_Island_Wonders
+				category = energy_weapons
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				name = Angel_Island_Wonders
+				category = electronics
+				uses = 2
+				bonus = 0.75
+			}
+			#country_event = koa.???
 		}
 	}
 	focus = {
@@ -2326,7 +2492,10 @@ focus_tree = {
 			focus = KOA_The_Old_Royal_Road
 		}
 		completion_reward = {
-			#
+			swap_ideas = {
+				remove_idea = Overlander_Scientists
+				add_idea = Overlander_Scientists_2
+			}
 		}
 	}
 	focus = {
@@ -2347,7 +2516,15 @@ focus_tree = {
 			focus = KOA_Nate_Morgan_Institute
 		}
 		completion_reward = {
-			#
+			#country_event = koa.???
+			add_tech_bonus = {
+				name = NICOLEs_Revelations
+				category = robot_techs
+				uses = 1
+				bonus = 1
+			}
+			
+			#Nicole becomes a field marshal and security minister (trait “Kind Machine”: consumer good factories +1.5%, non-core manpower +25%, encryption +15%
 		}
 	}
 	focus = {
@@ -2365,7 +2542,11 @@ focus_tree = {
 			focus = KOA_The_Silver_Shell_Campaign
 		}
 		completion_reward = {
-			#
+			add_political_power = 100
+			add_popularity = {
+				ideology = legalism
+				popularity = 0.25
+			}
 		}
 	}
 	focus = {
@@ -2379,11 +2560,27 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Our_History_Restored
 		}
+		available = {
+			check_variable = {
+				council_support > 64
+			}
+			check_variable = {
+				council_factionalism < 41
+			}
+		}
 		mutually_exclusive = {
 			focus = KOA_Kings_Word_is_the_Last
 		}
 		completion_reward = {
-			#
+			add_to_variable = {
+				council_factionalism = -25
+			}
+			#country_event = koa.???
+			add_to_variable = {
+				gov_corruption_growth = -0.75
+			}
+			add_ideas = The_Balanced_Democracy
+			custom_effect_tooltip = KOA_Checks_and_Balances
 		}
 	}
 	focus = {
@@ -2397,11 +2594,25 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Our_History_Restored
 		}
+		available = {
+			check_variable = {
+				council_support > 79
+			}
+		}
 		mutually_exclusive = {
 			focus = KOA_Checks_and_Balances
 		}
 		completion_reward = {
-			#
+			add_to_variable = {
+				var = council_factionalism
+				value = -25
+			}
+			add_to_variable = {
+				var = gov_corruption_growth
+				value = 0.25
+			}
+			#Since this moment, all the decisions of Council Acorn can be decided by 50% of votes + King’s vote
+			custom_effect_tooltip = KOA_Kings_Word_is_the_Last
 		}
 	}
 	focus = {
@@ -2423,7 +2634,9 @@ focus_tree = {
 			focus = KOA_Kings_Word_is_the_Last
 		}
 		completion_reward = {
-			#
+			remove_ideas = Soft_control_unit
+			remove_ideas = Soft_control_unit_2
+			set_country_flag = KOA_Foreign_Politics_Available
 		}
 	}
 }
