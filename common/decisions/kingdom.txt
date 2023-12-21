@@ -989,7 +989,7 @@ KOA_Stop_The_Rev = {
 
 		activation = {
 			NOT = {
-				has_idea = Second_Robotnik_War
+				has_idea = Two_War_Robotnik
 			}
 		}
 		
@@ -1960,4 +1960,350 @@ KOA_Exchange_Armaments_With_RCR_Decisions = {
 		}
 	}
 
+}
+
+KOA_Operation_VENOM = {
+	Send_a_Spy_After_Geoffrey = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			has_political_power > 24
+		}
+		days_mission_timeout = 10
+		complete_effect = {
+			add_political_power = -25
+		}
+		timeout_effect = {
+			add_to_variable = {
+				SID_power = 10
+			}
+			custom_effect_tooltip = Send_a_Spy_After_Geoffrey
+		}
+	}
+
+	Bribe_Naugus_Servants = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			check_variable = {
+				SID_power > 14
+			}
+		}
+		days_mission_timeout = 25
+		complete_effect = {
+			add_to_variable = {
+				SID_power = -15
+			}
+		}
+		timeout_effect = {
+			add_to_variable = {
+				Naugus_Power = -15
+			}
+			custom_effect_tooltip = Bribe_Naugus_Servants
+		}
+	}	
+
+	Replace_Castle_of_Acorn_Guards = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			has_political_power > 49
+		}
+		days_mission_timeout = 19
+		complete_effect = {
+			add_political_power = -50
+		}
+		timeout_effect = {
+			add_to_variable = {
+				Naugus_Power = -10
+			}
+			custom_effect_tooltip = Bribe_Naugus_Servants
+		}
+	}	
+
+	Search_for_Naugus_Plans = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			check_variable = {
+				Naugus_Power < 75
+			}
+			command_power > 29
+		}
+		days_mission_timeout = 36
+		complete_effect = {
+			add_command_power = -30
+		}
+		timeout_effect = {
+			add_to_variable = {
+				SID_power = 25
+			}
+			custom_effect_tooltip = Search_for_Naugus_Plans
+		}
+	}	
+
+	Interrogate_Geoffrey_St_John = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			check_variable = {
+				Naugus_Power < 50
+			}
+			command_power > 24
+			has_political_power > 74
+		}
+		fire_only_once = yes
+		days_mission_timeout = 7
+		complete_effect = {
+			add_command_power = -25
+			add_political_power = -75
+		}
+		timeout_effect = {
+			add_to_variable = {
+				SID_power = 50
+			}
+			#country_event = koa.???
+			custom_effect_tooltip = Interrogate_Geoffrey_St_John
+		}
+	}
+
+	Assassinate_Ixis_Naugus = {
+		allowed = {
+			tag = KOA
+		}
+		selectable_mission = yes
+		available = {
+			check_variable = {
+				Naugus_Power < 25
+			}
+			check_variable = {
+				SID_power > 99
+			}
+			has_completed_focus = KOA_Deal_With_Naugus
+		}
+		fire_only_once = yes
+		days_mission_timeout = 15
+		timeout_effect = {
+			#country_event = koa.??? #kill Naugus
+			custom_effect_tooltip = Assassinate_Ixis_Naugus
+		}
+	}
+}
+
+KOA_Handling_the_Budget = {
+    Military_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 53999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Military_Question_Answered
+			add_offsite_building = {
+				type = arms_factory
+				level = 3
+			}
+			add_timed_idea = {
+				idea = KOA_Military_Priority
+				days = 1825
+			}
+		}
+	}
+
+	Industrial_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 32999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Industrial_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Industrial_Priority
+				days = 1825
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+	}
+
+	Social_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 24999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_timed_idea = {
+				idea = KOA_Social_Priority
+				days = 1825
+			}
+			set_country_flag = Social_Question_Answered
+		}
+	}
+
+	Scientific_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 31999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Scientific_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Scientific_Priority
+				days = 1825
+			}
+		}
+	}
+
+	Ecological_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Ecological_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Ecological_Priority
+				days = 1825
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+		}
+	}
+}
+
+KOA_Derobotization_Effort = {
+    Integrate_Robians_in_Army = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			command_power > 49
+		}
+		fire_only_once = yes
+		selectable_mission = yes
+		days_mission_timeout = 90
+		complete_effect = {
+			add_command_power = -50
+		}
+		timeout_effect = {
+			add_ideas = KOA_Consequences_of_Roboticization_2
+		}
+	}
+
+	Integrate_Robians_in_Military_High_Staff = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_army_experience > 74
+			has_decision = Integrate_Robians_in_Army
+		}
+		fire_only_once = yes
+		selectable_mission = yes
+		days_mission_timeout = 90
+		complete_effect = {
+			army_experience = -75
+		}
+		timeout_effect = {
+			swap_ideas = {
+				remove_idea = KOA_Consequences_of_Roboticization_2
+				add_idea = KOA_Consequences_of_Roboticization_3
+			}
+		}
+	}
+
+	Expand_Robian_Employment = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_political_power > 99
+			has_decision = Integrate_Robians_in_Military_High_Staff
+		}
+		fire_only_once = yes
+		selectable_mission = yes
+		days_mission_timeout = 90
+		complete_effect = {
+			add_political_power = -100
+		}
+		timeout_effect = {
+			swap_ideas = {
+				remove_idea = KOA_Consequences_of_Roboticization_3
+				add_idea = KOA_Consequences_of_Roboticization_4
+			}
+		}
+	}
+
+	Mass_Deroboticization_Campaign = {
+		allowed = {
+			tag = UFA
+		}
+		available = {
+			has_decision = Expand_Robian_Employment
+			check_variable = {
+				rings > 99999
+			}
+		}
+		fire_only_once = yes
+		selectable_mission = yes
+		days_mission_timeout = 120
+		complete_effect = {
+			add_to_variable = {
+				var = rings
+				value = -100000
+			}
+		}
+		timeout_effect = {
+			remove_ideas = KOA_Consequences_of_Roboticization_4
+		}
+	}
 }
