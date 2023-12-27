@@ -36,6 +36,18 @@ shared_focus = {
 			si_new_level = 2
 		}
 		Switch_Idea_Level = yes
+		add_tech_bonus = {
+			name = Freedom_Fighters_Structure
+			category = cat_unrestricted_warfare_theory
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			name = Freedom_Fighters_Structure
+			category = cat_maneuver_warfare_theory
+			uses = 1
+			bonus = 1
+		}
 	}
 	x = 66
 	y = 2
@@ -64,6 +76,18 @@ shared_focus = {
 			si_new_level = 2
 		}
 		Switch_Idea_Level = yes
+		add_tech_bonus = {
+			name = Grand_Army
+			category = cat_automated_warfare_theory
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			name = Grand_Army
+			category = cat_grand_battle_plan #contactless warfare, somehow
+			uses = 1
+			bonus = 1
+		}
 	}
 	x = 72
 	y = 2
@@ -217,7 +241,21 @@ shared_focus = {
 	x = 65
 	y = 5
 	completion_reward = {
-		#
+		if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			swap_ideas = {
+				remove_idea = spirit_of_the_freedom_fighters_5a
+				add_idea = spirit_of_the_freedom_fighters_6a
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = spirit_of_the_freedom_fighters_5b
+				add_idea = spirit_of_the_freedom_fighters_6b
+			}
+		}
 	}
 }
 
@@ -255,13 +293,13 @@ shared_focus = {
 				has_dlc = "La Resistance"
 			}
 			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_5a
+				remove_idea = spirit_of_the_freedom_fighters_7a
 				add_idea = freedom_fighter_heroes_1a
 			}
 		}
 		else = {
 			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_5b
+				remove_idea = spirit_of_the_freedom_fighters_7b
 				add_idea = freedom_fighter_heroes_1b
 			}
 		}
@@ -441,7 +479,10 @@ shared_focus = {
 	x = 69
 	y = 6
 	completion_reward = {
-		#Gets national spirit: Armament Research Center: +70% Armament and Weapons Research Speed. ???
+		add_timed_idea = {
+			idea = Armament_Research_Center
+			days = 730
+		}
 	}
 }
 
@@ -513,7 +554,10 @@ shared_focus = {
 	x = 76
 	y = 4
 	completion_reward = {
-		#Gets +50% Heavy Weapons research.
+		add_timed_idea = {
+			idea = Master_the_Heavy_Weaponry
+			days = 730
+		}
 	}
 }
 
@@ -659,10 +703,7 @@ shared_focus = {
 	x = 75
 	y = 7
 	completion_reward = {
-		add_to_tech_sharing_group = Acorn_GUN_technology_share
-		UFA = {
-			add_to_tech_sharing_group = Acorn_GUN_technology_share
-		}
+		add_ideas = Overshadow_GUN
 	}
 }
 
@@ -1736,6 +1777,23 @@ shared_focus = {
 	}
 	x = 64
 	y = 6
+	completion_reward = {
+		if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			swap_ideas = {
+				remove_idea = spirit_of_the_freedom_fighters_6a
+				add_idea = spirit_of_the_freedom_fighters_7a
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = spirit_of_the_freedom_fighters_6b
+				add_idea = spirit_of_the_freedom_fighters_7b
+			}
+		}
+	}
 }
 
 shared_focus = {

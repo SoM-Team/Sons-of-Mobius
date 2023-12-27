@@ -2,10 +2,10 @@ focus_tree = {
 	id = Kingdom_Akorn_Maximilian
 	country = {
 		factor = 0
-#		modifier = {
-#			add = 10
-#			tag = KOA
-#		}
+		modifier = {
+			add = 10
+			tag = KOA
+		}
 	}
 	default = no
 	focus = {
@@ -708,10 +708,11 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Civil_War
 	country = {
-		#		factor = 0
-		#		modifier = {
-		#			add = 10
-		#			tag = KOA #has_country_flag = Acorn_Civil_War_started
+				factor = 0
+				modifier = {
+					add = 10
+					has_country_flag = Acorn_Civil_War_started
+				}
 	}
 	default = no
 	#ARMY TREE
@@ -878,6 +879,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Our_Friends_at_Home
 		}
+		bypass = {
+			NOT = {
+				1 = {
+					is_capital = yes
+				}
+			}
+		}
 		completion_reward = {
 			1 = {
 				create_unit = {
@@ -904,8 +912,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			#effect_TBA?
+			}
 		}
-	}
+	
 	focus = {
 		id = KOA_Secret_Freedom_Fighters_CW
 		text = KOA_Secret_Freedom_Fighters_CW
@@ -916,6 +925,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Sallys_Operations_Manual
 		}
+		bypass = {
+			NOT = {
+				1 = {
+					is_capital = yes
+				}
+			}
+		}
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = KOA_Alternate_Freedom_Fighters_1
@@ -923,6 +939,13 @@ focus_tree = {
 			}
 			country_event = {
 				id = koa.127
+			}
+			1 = {
+				create_unit = {
+					owner = KOA
+					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					prioritize_location = 5366
+				}
 			}
 		}
 	}
@@ -946,6 +969,7 @@ focus_tree = {
 			country_event = {
 				id = koa.128
 			}
+			#don't forget to make an event to REMOVE the sword of Acorn once the civil war ends
 		}
 	}
 	focus = {
@@ -1086,6 +1110,13 @@ focus_tree = {
 		prerequisite = {
 			focus = KOA_Acorn_Commonwealth
 		}
+		bypass = {
+			NOT = {
+				1 = {
+					is_capital = yes
+				}
+			}
+		}
 		completion_reward = {
 			1 = {
 				create_unit = {
@@ -1201,6 +1232,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = KOA_Stop_Holding_Back_Idea
 			custom_effect_tooltip = KOA_consequences
+			set_country_flag = KOA_Consequences
 		}
 	}
 	focus = {
@@ -1226,7 +1258,7 @@ focus_tree = {
 				factor = 0
 				modifier = {
 					add = 10
-					tag = KOA #has_country_flag = Elias_Acorn_Reforms
+				has_country_flag = Elias_Acorn_Reforms
 				}
 	}
 	default = no
@@ -1991,11 +2023,11 @@ focus_tree = {
 	id = Kingdom_Akorn_Red_Sally
 	country = {
 				factor = 0
-		#		modifier = {
-		#			add = 10
-		#			tag = KOA #has_country_flag = Sally_becomes_Red
-		#		}
-	}
+				modifier = {
+					add = 10
+					has_country_flag = Sally_becomes_Red
+				}
+			}
 	default = no
 	#ARMY TREE
 	shared_focus = KOA_Grand_Military_Reforms
@@ -2166,11 +2198,11 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Queen_Sally
 	country = {
-		#			factor = 0
-		#			modifier = {
-		#				add = 10
-		#				tag = KOA #has_country_flag = Queen_Sally
-		#			}
+					factor = 0
+					modifier = {
+						add = 10
+						has_country_flag = Queen_Sally
+					}
 	}
 	default = no
 	#ARMY TREE
