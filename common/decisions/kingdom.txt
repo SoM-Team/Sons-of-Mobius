@@ -17,6 +17,37 @@ KOA_Her_Majesty_Path = {
 	}
 }
 
+KOA_Test = {
+    Sally_Queen = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Queen_Sally
+		}
+	}
+	Acorn_Civil_War_started = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Acorn_Civil_War_started
+		}
+	}
+	Elias_Reformer = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Elias_Acorn_Reforms
+		}
+	}
+	Red_Sally = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Sally_becomes_Red
+		}
+	}
+}
+
 KOA_Amass_Around_Reds_Decisions = {
 	KOA_Invite_Cherniwschina = {
 		fire_only_once = yes
@@ -105,6 +136,137 @@ KOA_Amass_Around_Reds_Decisions = {
 		complete_effect = {
 			MER = {
 				Fortificate_Borders_Against_Reds = yes
+			}
+		}
+	}
+}
+
+KOA_Build_the_Railroads = {
+	From_Knothole_to_Faunida = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 26
+			controls_state = 25
+			controls_state = 24
+			controls_state = 7
+		}
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5366 4797 4665 4533 4481 4398 4299 4225 4188 4137 4099 4060 3977 3864 }
+				start_province = 5366
+				target_province = 3864
+			}
+		}
+	}
+	From_Faunida_to_Silvaniana = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 26
+			controls_state = 25
+			controls_state = 23
+			controls_state = 22
+		}
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 3864 3926 3934 4001 4054 4069 4093 4122 4187 4242 4298 4380 4452 4459 4362 4397 4396 4378 }
+				start_province = 3864
+				target_province = 4378
+			}
+		}
+	}
+	From_Silvaniana_to_Knothole = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 22
+			controls_state = 21
+			controls_state = 28
+			controls_state = 27
+		}
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4378 4493 4498 4572 4613 4637 4693 4745 4842 4922 4962 4952 4939 4891 4836 4713 4658 4772 }
+				start_province = 4378
+				target_province = 4772
+			}
+		}
+	}
+	Minor_Southern_Railways = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 22
+			controls_state = 23
+			controls_state = 28
+			controls_state = 27
+		}
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4452 4556 4648 4739 }
+				start_province = 4452
+				target_province = 4739
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4378 4499 4573 4658 }
+				start_province = 4378
+				target_province = 4658
 			}
 		}
 	}
@@ -1955,11 +2117,132 @@ KOA_Exchange_Armaments_With_RCR_Decisions = {
 
 		complete_effect = {
 			RCR = {
-				
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 500
+				}
 			}
 		}
 	}
 
+}
+
+KOA_Armament_Shipments = {
+	Buy_Infantry_Equipment = {
+		allowed = {
+			tag = KOA
+			check_variable = {
+				rings > 999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+			}
+		}
+	}
+
+	Buy_IFVs = {
+		allowed = {
+			tag = KOA
+			check_variable = {
+				rings > 999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment 
+				amount = 500
+			}
+		}
+	}
+
+	Buy_Tanks = {
+		allowed = {
+			tag = KOA
+			check_variable = {
+				rings > 999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = main_battle_tank_equipment
+				amount = 100
+			}
+		}
+	}
+
+	Buy_Jet_CAS = {
+		allowed = {
+			tag = KOA
+			check_variable = {
+				rings > 999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = CAS_equipment
+				amount = 100
+			}
+		}
+	}
 }
 
 KOA_Operation_VENOM = {
@@ -1967,15 +2250,15 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			has_political_power > 24
 		}
-		days_mission_timeout = 10
+		days_remove = 10
 		complete_effect = {
 			add_political_power = -25
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_to_variable = {
 				SID_power = 10
 			}
@@ -1987,19 +2270,19 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			check_variable = {
 				SID_power > 14
 			}
 		}
-		days_mission_timeout = 25
+		days_remove = 25
 		complete_effect = {
 			add_to_variable = {
 				SID_power = -15
 			}
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_to_variable = {
 				Naugus_Power = -15
 			}
@@ -2011,15 +2294,15 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			has_political_power > 49
 		}
-		days_mission_timeout = 19
+		days_remove = 19
 		complete_effect = {
 			add_political_power = -50
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_to_variable = {
 				Naugus_Power = -10
 			}
@@ -2031,18 +2314,18 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			check_variable = {
 				Naugus_Power < 75
 			}
 			command_power > 29
 		}
-		days_mission_timeout = 36
+		days_remove = 36
 		complete_effect = {
 			add_command_power = -30
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_to_variable = {
 				SID_power = 25
 			}
@@ -2054,7 +2337,7 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			check_variable = {
 				Naugus_Power < 50
@@ -2063,12 +2346,12 @@ KOA_Operation_VENOM = {
 			has_political_power > 74
 		}
 		fire_only_once = yes
-		days_mission_timeout = 7
+		days_remove = 7
 		complete_effect = {
 			add_command_power = -25
 			add_political_power = -75
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_to_variable = {
 				SID_power = 50
 			}
@@ -2081,7 +2364,7 @@ KOA_Operation_VENOM = {
 		allowed = {
 			tag = KOA
 		}
-		selectable_mission = yes
+		
 		available = {
 			check_variable = {
 				Naugus_Power < 25
@@ -2092,8 +2375,8 @@ KOA_Operation_VENOM = {
 			has_completed_focus = KOA_Deal_With_Naugus
 		}
 		fire_only_once = yes
-		days_mission_timeout = 15
-		timeout_effect = {
+		days_remove = 15
+		remove_effect = {
 			#country_event = koa.??? #kill Naugus
 			custom_effect_tooltip = Assassinate_Ixis_Naugus
 		}
@@ -2220,7 +2503,7 @@ KOA_Handling_the_Budget = {
 	}
 }
 
-KOA_Derobotization_Effort = {
+KOA_Derobotization_Effort = { #interior policies
     Integrate_Robians_in_Army = {
 		allowed = {
 			tag = UFA
@@ -2229,12 +2512,12 @@ KOA_Derobotization_Effort = {
 			command_power > 49
 		}
 		fire_only_once = yes
-		selectable_mission = yes
-		days_mission_timeout = 90
+		
+		days_remove = 90
 		complete_effect = {
 			add_command_power = -50
 		}
-		timeout_effect = {
+		remove_effect = {
 			add_ideas = KOA_Consequences_of_Roboticization_2
 		}
 	}
@@ -2248,12 +2531,12 @@ KOA_Derobotization_Effort = {
 			has_decision = Integrate_Robians_in_Army
 		}
 		fire_only_once = yes
-		selectable_mission = yes
-		days_mission_timeout = 90
+		
+		days_remove = 90
 		complete_effect = {
 			army_experience = -75
 		}
-		timeout_effect = {
+		remove_effect = {
 			swap_ideas = {
 				remove_idea = KOA_Consequences_of_Roboticization_2
 				add_idea = KOA_Consequences_of_Roboticization_3
@@ -2270,12 +2553,12 @@ KOA_Derobotization_Effort = {
 			has_decision = Integrate_Robians_in_Military_High_Staff
 		}
 		fire_only_once = yes
-		selectable_mission = yes
-		days_mission_timeout = 90
+		
+		days_remove = 90
 		complete_effect = {
 			add_political_power = -100
 		}
-		timeout_effect = {
+		remove_effect = {
 			swap_ideas = {
 				remove_idea = KOA_Consequences_of_Roboticization_3
 				add_idea = KOA_Consequences_of_Roboticization_4
@@ -2294,15 +2577,15 @@ KOA_Derobotization_Effort = {
 			}
 		}
 		fire_only_once = yes
-		selectable_mission = yes
-		days_mission_timeout = 120
+		
+		days_remove = 120
 		complete_effect = {
 			add_to_variable = {
 				var = rings
 				value = -100000
 			}
 		}
-		timeout_effect = {
+		remove_effect = {
 			remove_ideas = KOA_Consequences_of_Roboticization_4
 		}
 	}
