@@ -26,16 +26,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		army_experience = 50
-		set_temp_variable = {
-			si_idea = 1
+		swap_ideas = {
+			remove_idea = Military_Conservatism_1
+			add_idea = Military_Conservatism_2
 		}
-		set_temp_variable = {
-			si_idea_level_var = 1
-		}
-		set_temp_variable = {
-			si_new_level = 2
-		}
-		Switch_Idea_Level = yes
 		add_tech_bonus = {
 			name = Freedom_Fighters_Structure
 			category = cat_unrestricted_warfare_theory
@@ -66,16 +60,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		army_experience = 50
-		set_temp_variable = {
-			si_idea = 1
+		swap_ideas = {
+			remove_idea = Military_Conservatism_1
+			add_idea = Military_Conservatism_2
 		}
-		set_temp_variable = {
-			si_idea_level_var = 1
-		}
-		set_temp_variable = {
-			si_new_level = 2
-		}
-		Switch_Idea_Level = yes
 		add_tech_bonus = {
 			name = Grand_Army
 			category = cat_automated_warfare_theory
@@ -84,7 +72,7 @@ shared_focus = {
 		}
 		add_tech_bonus = {
 			name = Grand_Army
-			category = cat_grand_battle_plan #contactless warfare, somehow
+			category = cat_grand_battle_plan			#contactless warfare, somehow
 			uses = 1
 			bonus = 1
 		}
@@ -104,10 +92,7 @@ shared_focus = {
 	x = 62
 	y = 3
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = spirit_of_the_freedom_fighters
-			add_idea = spirit_of_the_freedom_fighters_2
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -121,21 +106,7 @@ shared_focus = {
 	x = 60
 	y = 4
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_2
-				add_idea = spirit_of_the_freedom_fighters_3a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_2
-				add_idea = spirit_of_the_freedom_fighters_3b
-			}
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -150,21 +121,7 @@ shared_focus = {
 	x = 63
 	y = 4
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_3a
-				add_idea = spirit_of_the_freedom_fighters_4a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_3b
-				add_idea = spirit_of_the_freedom_fighters_4b
-			}
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -194,21 +151,7 @@ shared_focus = {
 	x = 61
 	y = 5
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_4a
-				add_idea = spirit_of_the_freedom_fighters_5a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_4b
-				add_idea = spirit_of_the_freedom_fighters_5b
-			}
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -241,21 +184,7 @@ shared_focus = {
 	x = 65
 	y = 5
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_5a
-				add_idea = spirit_of_the_freedom_fighters_6a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_5b
-				add_idea = spirit_of_the_freedom_fighters_6b
-			}
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -288,21 +217,7 @@ shared_focus = {
 	x = 66
 	y = 6
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_7a
-				add_idea = freedom_fighter_heroes_1a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_7b
-				add_idea = freedom_fighter_heroes_1b
-			}
-		}
+		Increment_Ff_Spirit = yes
 	}
 }
 
@@ -324,39 +239,8 @@ shared_focus = {
 	y = 7
 	completion_reward = {
 		add_political_power = 50
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = freedom_fighter_heroes_1a
-				add_idea = freedom_fighter_heroes_2a
-			}
-		}
-		else = {
-			swap_ideas = {
-				remove_idea = freedom_fighter_heroes_1b
-				add_idea = freedom_fighter_heroes_2b
-			}
-		}
-		if = {
-			limit = {
-				has_idea = Military_Conservatism
-			}
-			remove_ideas = Military_Conservatism
-		}
-		else_if = {
-			limit = {
-				has_idea = Military_Conservatism_1
-			}
-			remove_ideas = Military_Conservatism_1
-		}
-		else_if = {
-			limit = {
-				has_idea = Military_Conservatism_2
-			}
-			remove_ideas = Military_Conservatism_2
-		}
+		Increment_Ff_Spirit = yes
+		remove_ideas = Military_Conservatism_2
 	}
 }
 
@@ -1778,21 +1662,20 @@ shared_focus = {
 	x = 64
 	y = 6
 	completion_reward = {
-		if = {
-			limit = {
-				has_dlc = "La Resistance"
-			}
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_6a
-				add_idea = spirit_of_the_freedom_fighters_7a
-			}
+		set_temp_variable = {
+			si_idea = 2
 		}
-		else = {
-			swap_ideas = {
-				remove_idea = spirit_of_the_freedom_fighters_6b
-				add_idea = spirit_of_the_freedom_fighters_7b
-			}
+		set_temp_variable = {
+			si_idea_level_var = 2
 		}
+		set_temp_variable = {
+			si_new_level = spirit_of_the_freedom_fighters_level
+		}
+		add_to_variable = {
+			var = si_new_level
+			value = 1
+		}
+		Switch_Idea_Level = yes
 	}
 }
 
@@ -1815,7 +1698,6 @@ shared_focus = {
 }
 
 # TODO: Check focuses "Stop Holding Back!" and "Mercian Trailblazers"
-
 # Foreign Politics focuses
 shared_focus = {
 	id = KOA_Masters_of_Mobius
