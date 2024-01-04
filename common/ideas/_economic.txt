@@ -84,6 +84,7 @@ ideas = {
 				conversion_cost_civ_to_mil_factor= 0.3
 				conversion_cost_mil_to_civ_factor = 0.3
 				max_fuel_factor = -0.25
+				stability_factor = 0.15
 			}
 			
 			default = yes
@@ -106,6 +107,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
+				stability_factor = 0.05
 				consumer_goods_factor = 0.3
 				production_speed_industrial_complex_factor = -0.1
 				production_speed_arms_factory_factor = -0.1
@@ -138,6 +140,8 @@ ideas = {
 				production_speed_arms_factory_factor = 0.1
 				conversion_cost_civ_to_mil_factor= -0.1
 				conversion_cost_mil_to_civ_factor = -0.1
+				fuel_gain_factor = 0.05
+				local_resources = 0.05
 			}
 			
 			cancel_if_invalid = no
@@ -184,6 +188,8 @@ ideas = {
 				production_speed_arms_factory_factor = 0.2
 				conversion_cost_civ_to_mil_factor= -0.2
 				conversion_cost_mil_to_civ_factor = -0.2
+				fuel_gain_factor = 0.1
+				local_resources = 0.1
 			}
 			
 			cancel_if_invalid = no
@@ -248,6 +254,8 @@ ideas = {
 				production_speed_arms_factory_factor = 0.3
 				conversion_cost_civ_to_mil_factor= -0.3
 				conversion_cost_mil_to_civ_factor = -0.3
+				fuel_gain_factor = 0.15
+				local_resources = 0.15
 			}
 			
 			cancel_if_invalid = no
@@ -319,7 +327,12 @@ ideas = {
 			available = {
 				OR = {
 					AND = {
-						has_government = democratic
+						OR = {
+							has_government = orthodox_liberalism
+							has_government = progressism
+							has_government = progressive_liberalism
+							has_government = conservatism
+						}			
 						has_war = yes
 						any_enemy_country = {
 							ic_ratio = { 
@@ -327,6 +340,12 @@ ideas = {
 								ratio > 0.2
 							}
 						}
+					}
+					OR = {
+						has_idea = low_economic_mobilisation
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
 					}
 				}
 			}
@@ -574,6 +593,9 @@ ideas = {
 			modifier = {
 				political_power_cost = 0.25
 				political_power_gain = -0.25
+				drift_defence_factor = -0.05
+				autonomy_gain_global_factor = -0.05
+				subjects_autonomy_gain = 0.02
 			}
 			
 			available = {
@@ -592,6 +614,13 @@ ideas = {
 				political_power_cost = 0.25
 				political_power_gain = -0.25
 				consumer_goods_factor = 0.05
+				fuel_gain_factor = -0.05
+				production_speed_buildings_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.05
+				local_resources = -0.05
+				drift_defence_factor = -0.1
+				autonomy_gain_global_factor = -0.1
+				subjects_autonomy_gain = 0.05
 			}
 			
 			available = {
@@ -614,6 +643,36 @@ ideas = {
 				consumer_goods_factor = 0.15
 				stability_weekly = -0.02
 				monthly_population = -0.075
+				army_morale_factor = -0.1
+				war_support_factor = -0.05
+				fuel_gain_factor = -0.2
+				army_speed_factor = -0.1
+				army_attack_factor = -0.05
+				army_org_factor = -0.1
+				breakthrough_factor = -0.1
+				conscription_factor = -0.05
+				naval_accidents_chance = 0.1
+				naval_morale_factor = -0.1
+				naval_speed_factor = -0.1
+				air_accidents_factor = 0.1
+				air_mission_efficiency = -0.1
+				air_range_factor = -0.05
+				production_speed_buildings_factor = -0.2
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_max_efficiency_factor = -0.1
+				local_resources = -0.2
+				production_lack_of_resource_penalty_factor = 0.1
+				drift_defence_factor = -0.2
+				autonomy_gain_global_factor = -0.2
+				subjects_autonomy_gain = 0.1
+				equipment_capture_factor = -0.05
+				attrition = 0.001
+				resistance_growth_on_our_occupied_states = -0.01
+				resistance_target_on_our_occupied_states = -0.05
+				decryption_factor = -0.1
+				encryption_factor = -0.1
+				foreign_subversive_activites = 0.1
+				operation_risk = 0.02
 			}
 			
 			available = {
@@ -640,6 +699,47 @@ ideas = {
 				army_morale_factor = -0.35
 				supply_consumption_factor = 0.45
 				experience_gain_army_factor = -0.5
+				war_support_factor = -0.2
+				war_support_weekly = -0.005
+				fuel_gain_factor = -0.2
+				experience_loss_factor = 0.1
+				army_speed_factor = -0.3
+				army_attack_factor = -0.1
+				army_defence_factor = -0.05
+				army_org_factor = -0.2
+				breakthrough_factor = -0.3
+				conscription_factor = -0.1
+				experience_loss_factor = 0.2
+				naval_accidents_chance = 0.5
+				naval_morale_factor = -0.35
+				naval_speed_factor = -0.3
+				air_accidents_factor = 0.5
+				air_mission_efficiency = -0.3
+				air_mission_xp_gain_factor = -0.2
+				air_range_factor = -0.15
+				command_power_gain_mult = -0.25
+				production_speed_buildings_factor = -0.4
+				production_factory_efficiency_gain_factor = -0.3
+				production_factory_max_efficiency_factor = -0.2
+				experience_gain_army_factor = -0.2
+				experience_gain_air_factor = -0.2
+				experience_gain_navy_factor = -0.2
+				local_resources = -0.2
+				production_lack_of_resource_penalty_factor = 0.1
+				intel_network_gain_factor = -0.5
+				surrender_limit = -0.1
+				drift_defence_factor = -0.4
+				autonomy_gain_global_factor = -0.3
+				subjects_autonomy_gain = 0.2
+				equipment_capture_factor = -0.2
+				attrition = 0.004
+				resistance_growth_on_our_occupied_states = -0.03
+				resistance_target_on_our_occupied_states = -0.1
+				decryption_factor = -0.3
+				encryption_factor = -0.3
+				foreign_subversive_activites = 0.3
+				operation_risk = 0.05
+
 			}
 			
 			available = {
