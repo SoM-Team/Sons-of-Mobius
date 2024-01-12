@@ -95,9 +95,9 @@ on_actions = {
 				#}
 			}
 			EGG = { 
-#				country_event = {
-#					id = egg.intro.1
-#				}
+				country_event = {
+					id = egg.intro.1
+				}
 				set_variable = {
 					EGG.METAL_SONIC_Influence = 10
 				}
@@ -230,6 +230,39 @@ on_actions = {
 	on_monthly_RCR = {
 		effect = {
 			monthly_effects = yes
+		}
+	}
+	on_monthly_RCR = {
+		effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = Voskhod_Complex_Spirit_Replaced
+					}
+					AND = {
+						has_idea = CARS_RI
+						has_idea = Vremenskiy_Institute
+						has_idea = RIoER
+						has_idea = Kubit_ICS_RI
+						has_idea = Aimasofia_RI
+						has_idea = Robot_Era_RI
+						has_idea = Neo_Steel_DD
+						has_idea = Neo_Farm_RI
+						has_idea = ER_IFP_Izumrud
+					}
+				}
+				remove_ideas = CARS_RI
+				remove_ideas = Vremenskiy_Institute
+				remove_ideas = RIoER
+				remove_ideas = Kubit_ICS_RI
+				remove_ideas = Aimasofia_RI
+				remove_ideas = Robot_Era_RI
+				remove_ideas = Neo_Steel_DD
+				remove_ideas = Neo_Farm_RI
+				remove_ideas = ER_IFP_Izumrud
+				add_ideas = Voskhod_Complex
+				set_country_flag = Voskhod_Complex_Spirit_Replaced
+			}
 		}
 	}
 	on_daily_RCR = {

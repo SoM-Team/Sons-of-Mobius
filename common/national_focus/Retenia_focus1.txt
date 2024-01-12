@@ -17,7 +17,7 @@ focus_tree = {
 		id = RCR_Prepare_Congress
 		icon = GFX_focus_siezd_prepare
 		cost = 7
-		x = 5
+		x = 3
 		y = 0
 		allow_branch = {
 			NOT = {
@@ -47,7 +47,7 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Congress
 		}
-		x = 5
+		x = 3
 		y = 1
 		available = {
 			always = no
@@ -409,7 +409,7 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Congress_Yes
 		}
-		x = 5
+		x = 3
 		y = 2
 		available = {
 			has_country_flag = RCR_chairman_Pallasov_is_elected
@@ -424,6 +424,7 @@ focus_tree = {
 			country_event = {
 				id = rcr.46
 			}
+			set_country_flag = Way_of_Pallasov
 		}
 	}
 	
@@ -434,8 +435,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Way_of_Pallasov
 		}
-		x = 7
-		y = 3
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -4
+		y = 1
 		completion_reward = {
 			add_political_power = 50
 			swap_ideas = {
@@ -455,8 +457,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Way_of_Pallasov
 		}
-		x = 3
-		y = 3
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 0
+		y = 1
 		completion_reward = {
 			261 = {
 				add_extra_state_shared_building_slots = 2
@@ -500,10 +503,20 @@ focus_tree = {
 			focus = RCR_Nationalise_Light_Industry
 		}
 		prerequisite = {
-			focus = RCR_Democratic_Centralism
+			focus = RCR_University_of_Stalegor
 		}
-		x = 5
-		y = 4
+		prerequisite = {
+			focus = RCR_Foreign_Workers
+		}
+		prerequisite = {
+			focus = RCR_Agrarian_Cities
+		}
+		prerequisite = {
+			focus = RCR_Improve_Prestige_of_Red_Army
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 1
+		y = 3
 		available = {
 			has_completed_focus = RCR_Automation
 			check_variable = {
@@ -546,8 +559,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Nationalise_Light_Industry
 		}
-		x = 3
-		y = 4
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 0
+		y = 2
 		available = {
 			has_completed_focus = RCR_Abandon_Old_Ways
 		}
@@ -625,8 +639,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Democratic_Centralism
 		}
-		x = 7
-		y = 4
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -6
+		y = 2
 		completion_reward = {
 			add_popularity = {
 				ideology = katzerism
@@ -647,13 +662,11 @@ focus_tree = {
 		icon = GFX_focus_international_workers
 		cost = 5
 		prerequisite = {
-			focus = RCR_Automatization_Bonds
+			focus = RCR_Nationalise_Light_Industry
 		}
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 4
-		y = 5
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -2
+		y = 2
 		completion_reward = {
 			remove_ideas = Echo_Civil_War_3
 			add_ideas = International_coop
@@ -672,13 +685,11 @@ focus_tree = {
 		icon = GFX_focus_stalegor_university
 		cost = 5
 		prerequisite = {
-			focus = RCR_Fight_with_Bureaucratism
+			focus = RCR_Way_of_Pallasov
 		}
-		prerequisite = {
-			focus = RCR_Automatization_Bonds
-		}
-		x = 6
-		y = 5
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 2
+		y = 1
 		completion_reward = {
 			add_tech_bonus = {
 				name = industrial_bonus
@@ -702,13 +713,11 @@ focus_tree = {
 		icon = GFX_focus_army_prestige
 		cost = 5
 		prerequisite = {
-			focus = RCR_Foreign_Workers
-		}
-		prerequisite = {
 			focus = RCR_University_of_Stalegor
 		}
-		x = 5
-		y = 6
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 2
+		y = 2
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Pallasov_vision_3
@@ -727,46 +736,44 @@ focus_tree = {
 	}
 
 	focus = {
-		id = RCR_Building_New_Capital #Комплекс “Восход”
+		id = RCR_Voskhod_Complex #Комплекс “Восход”
 		icon = GFX_focus_new_capital
 		cost = 8
 		prerequisite = {
 			focus = RCR_Improve_Prestige_of_Red_Army
 		}
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 3
-		y = 7
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 5
+		y = 3
 		completion_reward = {
-			6 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = anti_air_building
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
+			# 6 = {
+			# 	add_extra_state_shared_building_slots = 2
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = industrial_complex
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = arms_factory
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = anti_air_building
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = air_base
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
 			add_political_power = 50
 			hidden_effect = {
 				country_event = {
@@ -778,108 +785,182 @@ focus_tree = {
 	}
 
 	focus = {
-		id = RCR_Continue_World_Revolution
-		icon = GFX_focus_world_revolution
+		id = RCR_Diplomatic_Flexibility_and_Pragmatism
+		icon = GFX_goal_unknown
 		cost = 5
 		prerequisite = {
 			focus = RCR_Fight_with_Bureaucratism
 		}
 		prerequisite = {
+			focus = RCR_Narkin_Reform
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -3
+		y = 3
+		completion_reward = {
+			every_other_country = { 
+				limit = {
+					OR = {
+						has_government = katzerism
+						has_government = autonomous_socialism
+						has_government = neosocialism
+						has_country_flag = Left_Wing_Social_Democrat
+					}
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Ideological_Friends
+				}
+				set_variable = {
+					Revolutionary_Action = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RCR_Narkin_Reform
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = RCR_Democratic_Centralism
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -4
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = RCR_Nature_Renovation
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
 			focus = RCR_Improve_Prestige_of_Red_Army
 		}
-		x = 7
-		y = 7
-	}
-
-	focus = {
-		id = RCR_Empower_Ispolkom
-		icon = GFX_focus_ispolkom
-		cost = 0
-		prerequisite = {
-			focus = RCR_Fight_with_Bureaucratism
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 3
+		y = 3
+		completion_reward = {
+			
 		}
-		x = 1
-		y = 5
 	}
 
 	focus = {
-		id = RCR_Activate_CORTS
-		icon = GFX_focus_activate_korts
-		cost = 0
+		id = RCR_Continue_World_Revolution
+		icon = GFX_focus_world_revolution
+		cost = 5
 		prerequisite = {
-			focus = RCR_Empower_Ispolkom
+			focus = RCR_Diplomatic_Flexibility_and_Pragmatism
+		}
+		prerequisite = {
+			focus = RCR_Automatization_Bonds
+		}
+		prerequisite = {
+			focus = RCR_Nature_Renovation
+		}
+		prerequisite = {
+			focus = RCR_Voskhod_Complex
 		}
 		x = 0
-		y = 6
+		y = 4
+		relative_position_id = RCR_Way_of_Pallasov
+		completion_reward = {
+			
+		}
 	}
 
-	focus = {
-		id = RCR_Glav_Rev_Mult
-		icon = GFX_focus_glavrevmult
-		cost = 0
-		prerequisite = {
-			focus = RCR_Empower_Ispolkom
-		}
-		x = 2
-		y = 6
-	}
+	# focus = {
+	# 	id = RCR_Empower_Ispolkom
+	# 	icon = GFX_focus_ispolkom
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Fight_with_Bureaucratism
+	# 	}
+	# 	x = 1
+	# 	y = 5
+	# }
 
-	focus = {
-		id = RCR_Writers_Union
-		icon = GFX_focus_writers_union
-		cost = 0
-		prerequisite = {
-			focus = RCR_Activate_CORTS
-			focus = RCR_Glav_Rev_Mult
-		}
-		x = 1
-		y = 7
-	}
+	# focus = {
+	# 	id = RCR_Activate_CORTS
+	# 	icon = GFX_focus_activate_korts
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Empower_Ispolkom
+	# 	}
+	# 	x = 0
+	# 	y = 6
+	# }
 
-	focus = {
-		id = RCR_Agreement_with_Workers_Unions
-		icon = GFX_focus_unions_agreement
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 9
-		y = 5
-	}
+	# focus = {
+	# 	id = RCR_Glav_Rev_Mult
+	# 	icon = GFX_focus_glavrevmult
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Empower_Ispolkom
+	# 	}
+	# 	x = 2
+	# 	y = 6
+	# }
 
-	focus = {
-		id = RCR_Anti_Alchohol_Campaign
-		icon = GFX_focus_anti_alcohol
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agreement_with_Workers_Unions
-		}
-		x = 8
-		y = 6
-	}
+	# focus = {
+	# 	id = RCR_Writers_Union
+	# 	icon = GFX_focus_writers_union
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Activate_CORTS
+	# 		focus = RCR_Glav_Rev_Mult
+	# 	}
+	# 	x = 1
+	# 	y = 7
+	# }
 
-	focus = {
-		id = RCR_Resctructurisation_of_Institutes
-		icon = GFX_focus_scientific
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agreement_with_Workers_Unions
-		}
-		x = 10
-		y = 6
-	}
+	# focus = {
+	# 	id = RCR_Agreement_with_Workers_Unions
+	# 	icon = GFX_focus_unions_agreement
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Agrarian_Cities
+	# 	}
+	# 	x = 9
+	# 	y = 5
+	# }
 
-	focus = {
-		id = RCR_Reform_Court_System
-		icon = GFX_focus_soviet_court
-		cost = 0
-		prerequisite = {
-			focus = RCR_Anti_Alchohol_Campaign
-			focus = RCR_Resctructurisation_of_Institutes
-		}
-		x = 9
-		y = 7
-	}
+	# focus = {
+	# 	id = RCR_Anti_Alchohol_Campaign
+	# 	icon = GFX_focus_anti_alcohol
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Agreement_with_Workers_Unions
+	# 	}
+	# 	x = 8
+	# 	y = 6
+	# }
+
+	# focus = {
+	# 	id = RCR_Resctructurisation_of_Institutes
+	# 	icon = GFX_focus_scientific
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Agreement_with_Workers_Unions
+	# 	}
+	# 	x = 10
+	# 	y = 6
+	# }
+
+	# focus = {
+	# 	id = RCR_Reform_Court_System
+	# 	icon = GFX_focus_soviet_court
+	# 	cost = 0
+	# 	prerequisite = {
+	# 		focus = RCR_Anti_Alchohol_Campaign
+	# 		focus = RCR_Resctructurisation_of_Institutes
+	# 	}
+	# 	x = 9
+	# 	y = 7
+	# }
 
 	focus = {
 		id = RCR_Director_Crygina
