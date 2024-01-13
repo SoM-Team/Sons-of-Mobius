@@ -242,16 +242,10 @@ focus_tree = {
 		icon = GFX_focus_purge_shubin_and_eismesser
 		cost = 0
 		prerequisite = {
-			focus = RCR_Ocupation_Administration
-		}
-		prerequisite = {
-			focus = RCR_CHI_in_Army
-		}
-		mutually_exclusive = {
-			focus = RCR_Army_Pallasov
+			focus = RCR_Winter_Revolution
 		}
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = RCR_Winter_Revolution
 
 	}
@@ -262,8 +256,14 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Process_Aismesser
 		}
+		prerequisite = {
+			focus = RCR_CHI_in_Army
+		}
+		prerequisite = {
+			focus = RCR_Ocupation_Administration
+		}
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_ideas = New_order
@@ -280,7 +280,7 @@ focus_tree = {
 			focus = RCR_Strategic_Build
 		}
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_war_support = -0.05
@@ -299,10 +299,10 @@ focus_tree = {
 		icon = GFX_focus_militarist_constitution
 		cost = 0
 		prerequisite = {
-			focus = RCR_Repair_Central_Retenia
+			focus = RCR_Strategic_Build
 		}
-		x = 0
-		y = 5
+		x = 3
+		y = 3
 		relative_position_id = RCR_Winter_Revolution
 
 	}
@@ -3485,8 +3485,8 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Constitution_Repair
 		}
-		x = -2
-		y = 6
+		x = 0
+		y = 4
 		relative_position_id = RCR_Winter_Revolution
 
 	}
@@ -3495,10 +3495,10 @@ focus_tree = {
 		icon = GFX_focus_prod_monopoly
 		cost = 0
 		prerequisite = {
-			focus = RCR_Repair_Central_Retenia
+			focus = RCR_Strategic_Build
 		}
 		x = -3
-		y = 5
+		y = 3
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_ideas = Portions_peace
@@ -3511,10 +3511,10 @@ focus_tree = {
 		icon = GFX_focus_robotize_army
 		cost = 0
 		prerequisite = {
-			focus = RCR_Kill_Revolution_Novosed
+			focus = RCR_Arsenal_Katcerism
 		}
 		x = -4
-		y = 6
+		y = 5
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_stability = -0.05
@@ -3532,10 +3532,13 @@ focus_tree = {
 		icon = GFX_focus_cloning_stuff
 		cost = 0
 		prerequisite = {
-			focus = RCR_Constitution_Repair
+			focus = RCR_Special_Genius_Otdel
 		}
-		x = 0
-		y = 6
+		prerequisite = {
+			focus = RCR_Arsenal_Katcerism
+		}
+		x = -1
+		y = 5
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_ideas = Clon_idea
@@ -3548,10 +3551,13 @@ focus_tree = {
 		icon = GFX_focus_all_for_the_army
 		cost = 0
 		prerequisite = {
+			focus = RCR_Kill_Revolution_Novosed
+		}
+		prerequisite = {
 			focus = RCR_Constitution_Repair
 		}
-		x = 2
-		y = 6
+		x = -2
+		y = 4
 		relative_position_id = RCR_Winter_Revolution
 
 	}
@@ -3562,8 +3568,8 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Repair_Central_Retenia
 		}
-		x = 3
-		y = 5
+		x = 2
+		y = 4
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_ideas = Kill_unions
@@ -3577,8 +3583,8 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Kill_Revolution_UG
 		}
-		x = 4
-		y = 6
+		x = 3
+		y = 5
 		relative_position_id = RCR_Winter_Revolution
 			completion_reward = {
 					add_ideas = Armied_people
@@ -3586,26 +3592,65 @@ focus_tree = {
 
 	}
 	focus = {
+		id = RCR_Diplomacy_Shilov
+		icon = GFX_focus_revolutionary_war
+		cost = 0
+		prerequisite = {
+			focus = RCR_Kill_Revolution_UG
+		}
+		x = 1
+		y = 5
+		relative_position_id = RCR_Winter_Revolution
+
+	}
+	focus = {
 		id = RCR_Revolution_War
 		icon = GFX_focus_revolutionary_war
 		cost = 0
 		prerequisite = {
-			focus = RCR_Special_Genius_Otdel
-		}
-		prerequisite = {
 			focus = RCR_Clon_Repression_Officer
-		}
-		prerequisite = {
-			focus = RCR_Arsenal_Katcerism
 		}
 		prerequisite = {
 			focus = RCR_Robotization_Army
 		}
 		prerequisite = {
-			focus = RCR_Gun_Black_Shop
+			focus = RCR_Diplomacy_Shilov
+		}
+		x = -3
+		y = 6
+		relative_position_id = RCR_Winter_Revolution
+
+	}
+	focus = {
+		id = RCR_Revolution_Legacy
+		icon = GFX_focus_revolutionary_war
+		cost = 0
+		prerequisite = {
+			focus = RCR_Reconstruction_Socialism
+		}
+		prerequisite = {
+			focus = RCR_Revolution_War
 		}
 		x = 0
 		y = 7
+		relative_position_id = RCR_Winter_Revolution
+
+	}
+	focus = {
+		id = RCR_Reconstruction_Socialism
+		icon = GFX_focus_revolutionary_war
+		cost = 0
+		prerequisite = {
+			focus = RCR_Clon_Repression_Officer
+		}
+		prerequisite = {
+			focus = RCR_Diplomacy_Shilov
+		}
+		prerequisite = {
+			focus = RCR_Gun_Black_Shop
+		}
+		x = 2
+		y = 6
 		relative_position_id = RCR_Winter_Revolution
 
 	}
