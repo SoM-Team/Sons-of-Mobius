@@ -1,28 +1,36 @@
 on_actions = {
 	on_capitulation = {
 		effect = {
-			add_to_variable = { FROM.rings = ROOT.rings }
-			subtract_from_variable = { ROOT.rings = ROOT.rings }
+			add_to_variable = {
+				FROM.rings = ROOT.rings
+			}
+			subtract_from_variable = {
+				ROOT.rings = ROOT.rings
+			}
 		}
 	}
 	on_annex = {
 		effect = {
-			add_to_variable = { ROOT.rings = FROM.rings }
-			subtract_from_variable = { FROm.rings = FROM.rings }
+			add_to_variable = {
+				ROOT.rings = FROM.rings
+			}
+			subtract_from_variable = {
+				FROm.rings = FROM.rings
+			}
 		}
 	}
 	on_monthly = {
 		effect = {
 			add_to_variable = {
 				gov_corruption = gov_corruption_growth
-				}
+			}
 		}
 	}
 	on_monthly_RCR = {
 		effect = {
 			add_to_variable = {
 				Nature_Renovation_Plan = Nature_Renovation_growth
-				}
+			}
 		}
 	}
 	on_monthly_RCR = {
@@ -51,7 +59,7 @@ on_actions = {
 	on_monthly_KOA = {
 		effect = {
 			if = {
-				limit = { 
+				limit = {
 					has_country_flag = Overlander_Scientists_Improved
 				}
 				add_to_variable = {
@@ -74,9 +82,15 @@ on_actions = {
 				#set_variable = {
 				#	gov_corruption_growth = 3.5
 				#}
-				set_variable = { embargo_target = RCR }
-				set_variable = { embargo_initiator = KOA }
-				set_variable = { opinion_modifier_action = 1 }
+				set_variable = {
+					embargo_target = RCR
+				}
+				set_variable = {
+					embargo_initiator = KOA
+				}
+				set_variable = {
+					opinion_modifier_action = 1
+				}
 				Switch_Trade_Embargo = yes
 			}
 			RCR = {
@@ -124,7 +138,7 @@ on_actions = {
 				#	gov_corruption_growth = 1.5
 				#}
 			}
-			EGG = { 
+			EGG = {
 				# country_event = {
 				# 	id = egg.intro.1
 				# }
@@ -246,6 +260,53 @@ on_actions = {
 			IRO = {
 				set_variable = {
 					UFA_GUN_presence = 15
+				}
+			}
+			every_country = {
+				set_variable = {
+					Scientific_Help_Multiplier = 0.05
+				}
+				set_variable = {
+					global.Helping_Countries_Science = 0
+				}
+				set_variable = {
+					Welfare_Help_Multiplier = 0.01
+				}
+				set_variable = {
+					Welfare_Help_Multiplier_small = 0.001
+				}
+				set_variable = {
+					Welfare_Help_Multiplier_negative = -0.01
+				}
+				set_variable = {
+					global.Helping_Countries_Welfare = 0
+				}
+				set_variable = {
+					Military_Help_Multiplier = 0.01
+				}
+				set_variable = {
+					Military_Help_Multiplier_negative = -0.01
+				}
+				set_variable = {
+					global.Helping_Countries_Military = 0
+				}
+				set_variable = {
+					Political_Help_Multiplier = 0.01
+				}
+				set_variable = {
+					global.Helping_Countries_Political = 0
+				}
+				set_variable = {
+					Espionage_Help_Multiplier = 0.01
+				}
+				set_variable = {
+					Espionage_Help_Multiplier_large = 0.1
+				}
+				set_variable = {
+					Espionage_Help_Multiplier_negative = -0.01
+				}
+				set_variable = {
+					global.Helping_Countries_Espionage = 0
 				}
 			}
 		}
@@ -762,26 +823,26 @@ on_actions = {
 				set_politics = {
 					ruling_party = katzerism
 				}
-			}	
+			}
 		}
 	}
-#	on_daily_KOA = {
-#		effect = {
-#			if = {
-#				limit = {
-#					#KOA_occupation_ended = yes
-#				}
-#				country_event = {
-#					id = koa.3
-#				}
-#				EGG = {
-#					country event = {
-#					id = egg.200
-#				}
-#				}
-#			}
-#	}
-	on_monthly = {
+	#	on_daily_KOA = {
+	#		effect = {
+	#			if = {
+	#				limit = {
+	#					#KOA_occupation_ended = yes
+	#				}
+	#				country_event = {
+	#					id = koa.3
+	#				}
+	#				EGG = {
+	#					country event = {
+	#					id = egg.200
+	#				}
+	#				}
+	#			}
+	#	}
+	on_monthly_KOA = {
 		effect = {
 			if = {
 				limit = {
@@ -826,7 +887,6 @@ on_actions = {
 					bonus = 0.75
 					category = air_equipment
 				}
-				
 			}
 			else_if = {
 				limit = {

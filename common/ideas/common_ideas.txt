@@ -140,5 +140,1125 @@ ideas = {
 				army_morale_factor = -0.1
 			}
         }
+        Friendship_of_Peoples_Give_Scientific_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_to_variable = {
+                    global.Helping_Countries_Science = 1
+                }
+            }
+            on_remove = {
+                add_timed_idea = {
+                    idea = Friendship_of_Peoples_Receive_Scientific_Help_0
+                    days = 90
+                }
+                every_country = {
+                    set_variable = {
+                        Scientific_Help_Multiplier = 0.05
+                    }
+                    set_variable = {
+                        global.Helping_Countries_Science = 0
+                    }
+                }
+            }
+            modifier = {
+                research_speed_factor = -0.05
+            }
+        }
+        Friendship_of_Peoples_Receive_Scientific_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_research_slot = 1
+            }    
+            on_remove = {
+                add_research_slot = -1
+            }            
+        }
+        Friendship_of_Peoples_Receive_Scientific_Help_0 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_research_slot = 1
+            }    
+            on_remove = {
+                add_research_slot = -1
+            }            
+        }
+        Friendship_of_Peoples_Give_Welfare_Programs_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_to_variable = {
+                    global.Helping_Countries_Welfare = 1
+                }
+            }
+            on_remove = {
+                add_timed_idea = {
+                    idea = Friendship_of_Peoples_Receive_Welfare_Programs_Help
+                    days = 90
+                }
+                every_country = {
+                    set_variable = {
+                        Welfare_Help_Multiplier = 0.01
+                    }
+                    set_variable = {
+                        Welfare_Help_Multiplier_negative = -0.01
+                    }
+                    set_variable = {
+                        global.Helping_Countries_Welfare = 0
+                    }
+                    set_variable = {
+                        Welfare_Help_Multiplier_small = 0.001
+                    }
+                }
+            }
+            modifier = {
+                consumer_goods_factor = 0.03
+                conscription_factor = -0.03
+            }
+        }
+        Friendship_of_Peoples_Receive_Welfare_Programs_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_popularity = {
+                    ideology = katzerism
+                    popularity = 0.03
+                }
+                add_stability = 0.05
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.1
+            }
+        }
+        Friendship_of_Peoples_Give_Military_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_to_variable = {
+                    global.Helping_Countries_Military = 1
+                }
+            }
+            on_remove = {
+                add_timed_idea = {
+                    idea = Friendship_of_Peoples_Receive_Military_Help
+                    days = 90
+                }
+                every_country = {
+                    set_variable = {
+                        Military_Help_Multiplier = 0.01
+                    }
+                    set_variable = {
+                        global.Helping_Countries_Military = 0
+                    }
+                    set_variable = {
+                        Military_Help_Multiplier_negative = -0.01
+                    }
+                }
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = -0.15
+                production_factory_max_efficiency_factor = -0.15
+                command_power_gain_mult = -0.15
+            }
+        }
+        Friendship_of_Peoples_Receive_Military_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_war_support = 0.05
+            }
+            modifier = {
+                experience_gain_air = 0.75
+                experience_gain_army = 0.75
+                experience_gain_navy = 0.75
+            }
+        }
+        Friendship_of_Peoples_Give_Political_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_to_variable = {
+                    global.Helping_Countries_Political = 1
+                }
+            }
+            on_remove = {
+                add_timed_idea = {
+                    idea = Friendship_of_Peoples_Receive_Political_Help
+                    days = 90
+                }
+                every_country = {
+                    set_variable = {
+                        Political_Help_Multiplier = 0.01
+                    }
+                    set_variable = {
+                        global.Helping_Countries_Political = 0
+                    }
+                }
+            }
+            modifier = {
+                political_power_factor = -0.3
+                improve_relations_maintain_cost_factor = 0.15
+                opinion_gain_monthly_factor = -0.15
+            }
+        }
+        Friendship_of_Peoples_Receive_Political_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_political_power = 100
+            }
+            modifier = {
+                political_power_factor = 0.15
+                political_power_gain = 1
+            }
+        }
+
+        Friendship_of_Peoples_Give_Espionage_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_to_variable = {
+                    global.Helping_Countries_Espionage = 1
+                }
+            }
+            on_remove = {
+                add_timed_idea = {
+                    idea = Friendship_of_Peoples_Receive_Espionage_Help
+                    days = 90
+                }
+                every_country = {
+                    set_variable = {
+                        Espionage_Help_Multiplier = 0.01
+                    }
+                    set_variable = {
+                        Espionage_Help_Multiplier_large = 0.1
+                    }
+                    set_variable = {
+                        Espionage_Help_Multiplier_negative = -0.01
+                    }
+                    set_variable = {
+                        global.Helping_Countries_Espionage = 0
+                    }
+                }
+            }
+            modifier = {
+                encryption_factor = -0.1
+                decryption_factor = -0.1
+                operation_outcome = -0.05
+                operation_cost = 0.1
+                agency_upgrade_time = 0.25
+                intel_network_gain_factor = -0.1
+                consumer_goods_factor = 0.05
+            }
+        }
+        Friendship_of_Peoples_Receive_Espionage_Help = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            on_add = {
+                add_political_power = 25
+                add_command_power = 25
+            }
+            modifier = {
+                encryption_factor = 0.25
+                decryption_factor = 0.25
+                own_operative_capture_chance_factor = -0.1
+                own_operative_detection_chance_factor = -0.1
+                enemy_operative_capture_chance_factor = 0.1
+                enemy_operative_detection_chance_factor = 0.1
+            }
+        }
+
+    }
+    hidden_ideas = {
+        Friendship_of_Peoples_Science_1 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.01
+                monthly_population = 0.01
+            }
+        }
+        Friendship_of_Peoples_Science_2 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.03
+                monthly_population = 0.03
+            }
+        }
+        Friendship_of_Peoples_Science_3 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.06
+                monthly_population = 0.06
+            }
+        }
+        Friendship_of_Peoples_Science_4 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.1
+                monthly_population = 0.1
+            }
+        }
+        Friendship_of_Peoples_Science_5 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.15
+                monthly_population = 0.15
+            }
+        }
+        Friendship_of_Peoples_Welfare_Programs_1 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.01
+                production_speed_infrastructure_factor = 0.01
+                production_speed_rail_way_factor = 0.01
+                stability_factor = 0.01
+                stability_weekly = 0.001
+                surrender_limit = 0.01
+                katzerism_drift = 0.01
+                fuel_gain_factor = 0.005
+                consumer_goods_factor = -0.005
+                conversion_cost_mil_to_civ_factor = -0.01
+                industry_free_repair_factor = 0.05
+                compliance_growth_on_our_occupied_states = -0.01
+                resistance_decay_on_our_occupied_states = -0.01
+                resistance_target = -0.01
+                resistance_target_on_our_occupied_states = 0.01
+            }
+        }
+        Friendship_of_Peoples_Welfare_Programs_2 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.03
+                production_speed_infrastructure_factor = 0.03
+                production_speed_rail_way_factor = 0.03
+                stability_factor = 0.03
+                stability_weekly = 0.003
+                surrender_limit = 0.03
+                katzerism_drift = 0.03
+                fuel_gain_factor = 0.015
+                consumer_goods_factor = -0.015
+                conversion_cost_mil_to_civ_factor = -0.03
+                industry_free_repair_factor = 0.15
+                compliance_growth_on_our_occupied_states = -0.03
+                resistance_decay_on_our_occupied_states = -0.03
+                resistance_target = -0.03
+                resistance_target_on_our_occupied_states = 0.03
+            }
+        }
+        Friendship_of_Peoples_Welfare_Programs_3 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.06
+                production_speed_infrastructure_factor = 0.06
+                production_speed_rail_way_factor = 0.06
+                stability_factor = 0.06
+                stability_weekly = 0.006
+                surrender_limit = 0.06
+                katzerism_drift = 0.06
+                fuel_gain_factor = 0.03
+                consumer_goods_factor = -0.03
+                conversion_cost_mil_to_civ_factor = -0.06
+                industry_free_repair_factor = 0.3
+                compliance_growth_on_our_occupied_states = -0.06
+                resistance_decay_on_our_occupied_states = -0.06
+                resistance_target = -0.06
+                resistance_target_on_our_occupied_states = 0.06
+            }
+        }
+        Friendship_of_Peoples_Welfare_Programs_4 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.1
+                production_speed_infrastructure_factor = 0.1
+                production_speed_rail_way_factor = 0.1
+                stability_factor = 0.1
+                stability_weekly = 0.01
+                surrender_limit = 0.1
+                katzerism_drift = 0.1
+                fuel_gain_factor = 0.05
+                consumer_goods_factor = -0.05
+                conversion_cost_mil_to_civ_factor = -0.1
+                industry_free_repair_factor = 0.5
+                compliance_growth_on_our_occupied_states = -0.1
+                resistance_decay_on_our_occupied_states = -0.1
+                resistance_target = -0.1
+                resistance_target_on_our_occupied_states = 0.1
+            }
+        }
+        Friendship_of_Peoples_Welfare_Programs_5 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.15
+                production_speed_infrastructure_factor = 0.15
+                production_speed_rail_way_factor = 0.15
+                stability_factor = 0.15
+                stability_weekly = 0.015
+                surrender_limit = 0.15
+                katzerism_drift = 0.15
+                fuel_gain_factor = 0.075
+                consumer_goods_factor = -0.075
+                conversion_cost_mil_to_civ_factor = -0.15
+                industry_free_repair_factor = 0.75
+                compliance_growth_on_our_occupied_states = -0.15
+                resistance_decay_on_our_occupied_states = -0.15
+                resistance_target = -0.15
+                resistance_target_on_our_occupied_states = 0.15
+            }
+        }
+        Friendship_of_Peoples_Para_Bellum_1 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.01
+                production_factory_max_efficiency_factor = 0.01
+                production_factory_start_efficiency_factor = 0.01
+                line_change_production_efficiency_factor = 0.01
+                fuel_gain_factor = 0.005
+                nuclear_production_factor = 0.01
+                local_resources_factor = 0.01
+                experience_gain_air = 0.001
+                experience_gain_army = 0.001
+                experience_gain_navy = 0.001
+                production_speed_anti_air_building_factor = 0.01
+                production_speed_bunker_factor = 0.01
+                surrender_limit = 0.01
+                defensive_war_stability_factor = 0.01
+                offensive_war_stability_factor = 0.005
+                war_support_factor = 0.01
+                enemy_justify_war_goal_time = 0.01
+                send_volunteer_factor = 0.1
+                send_volunteer_divisions_required = -0.1
+                send_volunteers_tension = -0.1
+                conversion_cost_civ_to_mil_factor = -0.01
+                static_anti_air_hit_chance_factor = 0.01
+                land_bunker_effectiveness_factor = 0.01
+                coastal_bunker_effectiveness_factor = 0.01
+                command_power_gain_mult = 0.01
+                conscription_factor = 0.01
+                training_time_factor = -0.02
+                land_doctrine_cost_factor = -0.01
+                naval_doctrine_cost_factor = -0.01
+                air_doctrine_cost_factor = -0.01
+                special_forces_cap_flat = 0.01
+                army_core_attack_factor = 0.01
+                army_core_defence_factor = 0.01
+                army_morale_factor = 0.01
+                army_org_factor	= 0.01
+                breakthrough_factor = 0.01
+                experience_gain_army_unit_factor = 0.01
+                experience_loss_factor = -0.01
+            }
+        }
+        Friendship_of_Peoples_Para_Bellum_2 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.03
+                production_factory_max_efficiency_factor = 0.03
+                production_factory_start_efficiency_factor = 0.03
+                line_change_production_efficiency_factor = 0.03
+                fuel_gain_factor = 0.015
+                nuclear_production_factor = 0.03
+                local_resources_factor = 0.03
+                experience_gain_air = 0.003
+                experience_gain_army = 0.003
+                experience_gain_navy = 0.003
+                production_speed_anti_air_building_factor = 0.03
+                production_speed_bunker_factor = 0.03
+                surrender_limit = 0.03
+                defensive_war_stability_factor = 0.03
+                offensive_war_stability_factor = 0.015
+                war_support_factor = 0.03
+                enemy_justify_war_goal_time = 0.03
+                send_volunteer_factor = 0.3
+                send_volunteer_divisions_required = -0.3
+                send_volunteers_tension = -0.3
+                conversion_cost_civ_to_mil_factor = -0.03
+                static_anti_air_hit_chance_factor = 0.03
+                land_bunker_effectiveness_factor = 0.03
+                coastal_bunker_effectiveness_factor = 0.03
+                command_power_gain_mult = 0.03
+                conscription_factor = 0.03
+                training_time_factor = -0.06
+                land_doctrine_cost_factor = -0.03
+                naval_doctrine_cost_factor = -0.03
+                air_doctrine_cost_factor = -0.03
+                special_forces_cap_flat = 0.03
+                army_core_attack_factor = 0.03
+                army_core_defence_factor = 0.03
+                army_morale_factor = 0.03
+                army_org_factor	= 0.03
+                breakthrough_factor = 0.03
+                experience_gain_army_unit_factor = 0.03
+                experience_loss_factor = -0.03
+            }
+        }
+        Friendship_of_Peoples_Para_Bellum_3 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.06
+                production_factory_max_efficiency_factor = 0.06
+                production_factory_start_efficiency_factor = 0.06
+                line_change_production_efficiency_factor = 0.06
+                fuel_gain_factor = 0.03
+                nuclear_production_factor = 0.06
+                local_resources_factor = 0.06
+                experience_gain_air = 0.006
+                experience_gain_army = 0.006
+                experience_gain_navy = 0.006
+                production_speed_anti_air_building_factor = 0.06
+                production_speed_bunker_factor = 0.06
+                surrender_limit = 0.06
+                defensive_war_stability_factor = 0.06
+                offensive_war_stability_factor = 0.03
+                war_support_factor = 0.06
+                enemy_justify_war_goal_time = 0.06
+                send_volunteer_factor = 0.6
+                send_volunteer_divisions_required = -0.6
+                send_volunteers_tension = -0.6
+                conversion_cost_civ_to_mil_factor = -0.06
+                static_anti_air_hit_chance_factor = 0.06
+                land_bunker_effectiveness_factor = 0.06
+                coastal_bunker_effectiveness_factor = 0.06
+                command_power_gain_mult = 0.06
+                conscription_factor = 0.06
+                training_time_factor = -0.12
+                land_doctrine_cost_factor = -0.06
+                naval_doctrine_cost_factor = -0.06
+                air_doctrine_cost_factor = -0.06
+                special_forces_cap_flat = 0.06
+                army_core_attack_factor = 0.06
+                army_core_defence_factor = 0.06
+                army_morale_factor = 0.06
+                army_org_factor	= 0.06
+                breakthrough_factor = 0.06
+                experience_gain_army_unit_factor = 0.06
+                experience_loss_factor = -0.06
+            }
+        }
+        Friendship_of_Peoples_Para_Bellum_4 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.1
+                production_factory_max_efficiency_factor = 0.1
+                production_factory_start_efficiency_factor = 0.1
+                line_change_production_efficiency_factor = 0.1
+                fuel_gain_factor = 0.075
+                nuclear_production_factor = 0.1
+                local_resources_factor = 0.1
+                experience_gain_air = 0.01
+                experience_gain_army = 0.01
+                experience_gain_navy = 0.01
+                production_speed_anti_air_building_factor = 0.1
+                production_speed_bunker_factor = 0.1
+                surrender_limit = 0.1
+                defensive_war_stability_factor = 0.1
+                offensive_war_stability_factor = 0.05
+                war_support_factor = 0.1
+                enemy_justify_war_goal_time = 0.1
+                send_volunteer_factor = 1
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                conversion_cost_civ_to_mil_factor = -0.1
+                static_anti_air_hit_chance_factor = 0.1
+                land_bunker_effectiveness_factor = 0.1
+                coastal_bunker_effectiveness_factor = 0.1
+                command_power_gain_mult = 0.1
+                conscription_factor = 0.1
+                training_time_factor = -0.3
+                land_doctrine_cost_factor = -0.1
+                naval_doctrine_cost_factor = -0.1
+                air_doctrine_cost_factor = -0.1
+                special_forces_cap_flat = 0.1
+                army_core_attack_factor = 0.1
+                army_core_defence_factor = 0.1
+                army_morale_factor = 0.1
+                army_org_factor	= 0.1
+                breakthrough_factor = 0.1
+                experience_gain_army_unit_factor = 0.1
+                experience_loss_factor = -0.1
+            }
+        }
+        Friendship_of_Peoples_Para_Bellum_5 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                production_factory_efficiency_gain_factor = 0.15
+                production_factory_max_efficiency_factor = 0.15
+                production_factory_start_efficiency_factor = 0.15
+                line_change_production_efficiency_factor = 0.15
+                fuel_gain_factor = 0.05
+                nuclear_production_factor = 0.15
+                local_resources_factor = 0.15
+                experience_gain_air = 0.15
+                experience_gain_army = 0.15
+                experience_gain_navy = 0.15
+                production_speed_anti_air_building_factor = 0.15
+                production_speed_bunker_factor = 0.15
+                surrender_limit = 0.15
+                defensive_war_stability_factor = 0.15
+                offensive_war_stability_factor = 0.075
+                war_support_factor = 0.15
+                enemy_justify_war_goal_time = 0.15
+                send_volunteer_factor = 1.5
+                send_volunteer_divisions_required = -1
+                send_volunteers_tension = -1
+                conversion_cost_civ_to_mil_factor = -0.15
+                static_anti_air_hit_chance_factor = 0.15
+                land_bunker_effectiveness_factor = 0.15
+                coastal_bunker_effectiveness_factor = 0.15
+                command_power_gain_mult = 0.15
+                conscription_factor = 0.15
+                training_time_factor = -0.2
+                land_doctrine_cost_factor = -0.15
+                naval_doctrine_cost_factor = -0.15
+                air_doctrine_cost_factor = -0.15
+                special_forces_cap_flat = 0.15
+                army_core_attack_factor = 0.15
+                army_core_defence_factor = 0.15
+                army_morale_factor = 0.15
+                army_org_factor	= 0.15
+                breakthrough_factor = 0.15
+                experience_gain_army_unit_factor = 0.15
+                experience_loss_factor = -0.15
+            }
+        }
+        Friendship_of_Peoples_Politics_1 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_factor = 0.01
+                trade_opinion_factor = 0.01
+                political_advisor_cost_factor = -0.05
+                improve_relations_maintain_cost_factor = -0.05
+                party_popularity_stability_factor = 0.01
+                neosocialism_acceptance = 10
+                katzerism_acceptance = 10
+                autonomous_socialism_acceptance = 10
+                enemy_declare_war_tension = 0.05
+                enemy_justify_war_goal_time = 0.05
+                guarantee_tension = -0.05
+                guarantee_cost = -0.1
+                lend_lease_tension = -0.05
+                request_lease_tension = -0.05
+                opinion_gain_monthly_factor = 0.1
+                puppet_cost_factor = 99
+                annex_cost_factor = 99
+                autonomy_gain_global_factor = 0.2
+            }
+        }
+        Friendship_of_Peoples_Politics_2 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_factor = 0.03
+                trade_opinion_factor = 0.03
+                political_advisor_cost_factor = -0.1
+                improve_relations_maintain_cost_factor = -0.15
+                party_popularity_stability_factor = 0.03
+                neosocialism_acceptance = 15
+                katzerism_acceptance = 15
+                autonomous_socialism_acceptance = 15
+                enemy_declare_war_tension = 0.15
+                enemy_justify_war_goal_time = 0.15
+                guarantee_tension = -0.15
+                guarantee_cost = -0.3
+                lend_lease_tension = -0.15
+                request_lease_tension = -0.15
+                opinion_gain_monthly_factor = 0.3
+                puppet_cost_factor = 99
+                annex_cost_factor = 99
+                autonomy_gain_global_factor = 0.6
+            }
+        }
+        Friendship_of_Peoples_Politics_3 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_factor = 0.1
+                trade_opinion_factor = 0.1
+                political_advisor_cost_factor = -0.15
+                improve_relations_maintain_cost_factor = -0.3
+                party_popularity_stability_factor = 0.06
+                neosocialism_acceptance = 20
+                katzerism_acceptance = 20
+                autonomous_socialism_acceptance = 20
+                enemy_declare_war_tension = 0.3
+                enemy_justify_war_goal_time = 0.3
+                guarantee_tension = -0.3
+                guarantee_cost = -0.6
+                lend_lease_tension = -0.3
+                request_lease_tension = -0.3
+                opinion_gain_monthly_factor = 0.6
+                puppet_cost_factor = 99
+                annex_cost_factor = 99
+                autonomy_gain_global_factor = 1.2
+            }
+        }
+        Friendship_of_Peoples_Politics_4 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_factor = 0.1
+                trade_opinion_factor = 0.1
+                political_advisor_cost_factor = -0.2
+                improve_relations_maintain_cost_factor = -0.5
+                party_popularity_stability_factor = 0.1
+                neosocialism_acceptance = 25
+                katzerism_acceptance = 25
+                autonomous_socialism_acceptance = 25
+                enemy_declare_war_tension = 0.5
+                enemy_justify_war_goal_time = 0.5
+                guarantee_tension = -0.5
+                guarantee_cost = -0.2
+                lend_lease_tension = -0.5
+                request_lease_tension = -0.5
+                opinion_gain_monthly_factor = 0.1
+                puppet_cost_factor = 99
+                annex_cost_factor = 99
+                autonomy_gain_global_factor = 2
+            }
+        }
+        Friendship_of_Peoples_Politics_5 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_factor = 0.15
+                trade_opinion_factor = 0.15
+                political_advisor_cost_factor = -0.3
+                improve_relations_maintain_cost_factor = -0.75
+                party_popularity_stability_factor = 0.15
+                neosocialism_acceptance = 30
+                katzerism_acceptance = 30
+                autonomous_socialism_acceptance = 30
+                enemy_declare_war_tension = 0.75
+                enemy_justify_war_goal_time = 0.75
+                guarantee_tension = -0.75
+                guarantee_cost = -0.3
+                lend_lease_tension = -0.75
+                request_lease_tension = -0.75
+                opinion_gain_monthly_factor = 0.15
+                puppet_cost_factor = 99
+                annex_cost_factor = 99
+                autonomy_gain_global_factor = 3
+            }
+        }
+        Friendship_of_Peoples_Espionage_1 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                encryption_factor = 0.1
+                decryption_factor = 0.1
+                operation_risk = -0.01
+                operation_outcome = 0.01
+                operation_cost = -0.01
+                agency_upgrade_time = -0.01
+                foreign_subversive_activites = -0.01
+                commando_trait_chance_factor = 0.1
+                intel_from_combat_factor = 0.1
+                intel_from_operatives_factor = 0.1
+                intel_network_gain_factor = 0.1
+                intelligence_agency_defense = 0.1
+                own_operative_capture_chance_factor = -0.01
+                own_operative_detection_chance_factor = -0.01
+                enemy_operative_capture_chance_factor = 0.01
+                enemy_operative_detection_chance_factor = 0.01
+                enemy_operative_recruitment_chance = 0.01
+                new_operative_slot_bonus = 1
+                special_forces_cap = 0.05
+            }
+        }
+        Friendship_of_Peoples_Espionage_2 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                encryption_factor = 0.3
+                decryption_factor = 0.3
+                operation_risk = -0.03
+                operation_outcome = 0.03
+                operation_cost = -0.03
+                agency_upgrade_time = -0.03
+                foreign_subversive_activites = -0.03
+                commando_trait_chance_factor = 0.3
+                intel_from_combat_factor = 0.3
+                intel_from_operatives_factor = 0.3
+                intel_network_gain_factor = 0.3
+                intelligence_agency_defense = 0.3
+                own_operative_capture_chance_factor = -0.03
+                own_operative_detection_chance_factor = -0.03
+                enemy_operative_capture_chance_factor = 0.03
+                enemy_operative_detection_chance_factor = 0.03
+                enemy_operative_recruitment_chance = 0.03
+                new_operative_slot_bonus = 2
+                special_forces_cap = 0.15
+            }
+        }
+        Friendship_of_Peoples_Espionage_3 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                encryption_factor = 0.6
+                decryption_factor = 0.6
+                operation_risk = -0.06
+                operation_outcome = 0.06
+                operation_cost = -0.06
+                agency_upgrade_time = -0.06
+                foreign_subversive_activites = -0.06
+                commando_trait_chance_factor = 0.6
+                intel_from_combat_factor = 0.6
+                intel_from_operatives_factor = 0.6
+                intel_network_gain_factor = 0.6
+                intelligence_agency_defense = 0.6
+                own_operative_capture_chance_factor = -0.06
+                own_operative_detection_chance_factor = -0.06
+                enemy_operative_capture_chance_factor = 0.06
+                enemy_operative_detection_chance_factor = 0.06
+                enemy_operative_recruitment_chance = 0.06
+                new_operative_slot_bonus = 3
+                special_forces_cap = 0.3
+            }
+        }
+        Friendship_of_Peoples_Espionage_4 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                encryption_factor = 1
+                decryption_factor = 1
+                operation_risk = -0.1
+                operation_outcome = 0.1
+                operation_cost = -0.1
+                agency_upgrade_time = -0.1
+                foreign_subversive_activites = -0.1
+                commando_trait_chance_factor = 1
+                intel_from_combat_factor = 1
+                intel_from_operatives_factor = 1
+                intel_network_gain_factor = 1
+                intelligence_agency_defense = 1
+                own_operative_capture_chance_factor = -0.1
+                own_operative_detection_chance_factor = -0.1
+                enemy_operative_capture_chance_factor = 0.1
+                enemy_operative_detection_chance_factor = 0.1
+                enemy_operative_recruitment_chance = 0.1
+                new_operative_slot_bonus = 4
+                special_forces_cap = 0.5
+            }
+        }
+        Friendship_of_Peoples_Espionage_5 = {
+            allowed = {
+                always = yes
+            }
+            available = {
+                always = yes
+            }
+            removal_cost = -1
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                encryption_factor = 1.5
+                decryption_factor = 1.5
+                operation_risk = -0.15
+                operation_outcome = 0.15
+                operation_cost = -0.15
+                agency_upgrade_time = -0.15
+                foreign_subversive_activites = -0.15
+                commando_trait_chance_factor = 1.5
+                intel_from_combat_factor = 1.5
+                intel_from_operatives_factor = 1.5
+                intel_network_gain_factor = 1.5
+                intelligence_agency_defense = 1.5
+                own_operative_capture_chance_factor = -0.15
+                own_operative_detection_chance_factor = -0.15
+                enemy_operative_capture_chance_factor = 0.15
+                enemy_operative_detection_chance_factor = 0.15
+                enemy_operative_recruitment_chance = 0.15
+                new_operative_slot_bonus = 5
+                special_forces_cap = 0.75
+            }
+        }
     }
 }
