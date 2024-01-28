@@ -8,4 +8,550 @@ scripted_gui = {
 			always = yes
 		}
     }
+
+	rings_buy = {
+		window_name = "rings_buy_resources"
+		context_type = player_context
+		visible = {
+			# not = {
+			# 	has_country_flag = rings_buy_resources_trade_open
+			# }
+			always = yes
+		}
+
+		effects = {
+			rings_buy_close_button_click = {
+				clr_country_flag = rings_buy_open
+			}
+		}
+	}
+
+	rings_buy_resources_buttons = {
+		window_name = "rings_buy_resources_buttons"
+		context_type = player_context
+		parent_window_name = rings_buy_resources
+		visible = {
+			#has_country_flag = rings_buy_resources_buttons_open
+			not = {
+				has_country_flag = rings_buy_resources_trade_open
+				has_country_flag = rings_sell_open
+				has_country_flag = rings_buy_nukes_trade_open
+			}
+		}
+
+		triggers = {
+			rings_buy_science_button_click_enabled = {
+				check_variable = {
+					rings > 999999
+				}
+				NOT = {
+					has_country_flag = rings_science_bought
+				}
+			}
+
+			rings_buy_energy_button_click_enabled = {
+				check_variable = {
+					rings > 249999
+				}
+			}
+
+			rings_buy_politics_button_click_enabled = {
+				check_variable = {
+					rings > 149999
+				}
+			}
+		}
+
+		effects = {
+			rings_buy_science_button_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings > 999999
+						}
+						NOT = {
+							has_country_flag = rings_science_bought
+						}
+					}
+					add_to_variable = {
+						rings = -1000000	
+					}
+					add_research_slot = 1
+					set_country_flag = rings_science_bought
+				}
+			}
+
+			rings_buy_resource_button_click = {
+				if = {
+					limit = {
+						has_country_flag = rings_buy_resources_trade_open
+					}
+					clr_country_flag = rings_buy_resources_trade_open
+				}
+				else = {
+					set_country_flag = rings_buy_resources_trade_open
+				}
+			}
+
+			rings_buy_politics_button_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings > 149999
+						}
+						NOT = {
+							has_country_flag = rings_science_bought
+						}
+					}
+
+					add_to_variable = {
+						rings = -150000
+					}
+
+					add_war_support = 0.2
+					add_stability = 0.2
+				}
+			}
+
+			rings_buy_nukes_button_click = {
+				set_country_flag = rings_buy_nukes_trade_open
+			}
+
+			rings_sell_resource_button_click = {
+				set_country_flag = rings_sell_open
+			}
+		}
+	}
+
+	rings_buy_resource = {
+		window_name = "rings_buy_resources_trade"
+		context_type = player_context
+		parent_window_name = rings_buy_resources
+		visible = {
+			has_country_flag = rings_buy_resources_trade_open
+		}
+
+		effects = {
+			rings_buy_resources_trade_close_click = {
+				clr_country_flag = rings_buy_resources_trade_open
+			}
+			rings_buy_resources_trade_confirm_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings > rings_buy_cost
+						}
+					}
+					subtract_from_variable = {
+						rings = rings_buy_cost
+					}
+					random_owned_state = {
+						add_resource = {
+							type = aluminium
+							amount = ROOT.rings_resources_1_amount
+						}
+						add_resource = {
+							type = tungsten
+							amount = ROOT.rings_resources_2_amount
+						}
+						add_resource = {
+							type = steel
+							amount = ROOT.rings_resources_3_amount
+						}
+						add_resource = {
+							type = chromium
+							amount = ROOT.rings_resources_4_amount
+						}
+						add_resource = {
+							type = rubber
+							amount = ROOT.rings_resources_5_amount
+						}
+					}
+					set_variable = {
+						rings_resources_1_amount = 0
+					}
+					set_variable = {
+						rings_resources_2_amount = 0
+					}
+					set_variable = {
+						rings_resources_3_amount = 0
+					}
+					set_variable = {
+						rings_resources_4_amount = 0
+					}
+					set_variable = {
+						rings_resources_5_amount = 0
+					}
+					set_variable = {
+						rings_buy_cost = 0
+					}
+				}
+				#clr_country_flag = rings_buy_resources_trade_open
+			}
+
+			rings_buy_resources_1_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_resources_1_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_resources_1_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_cost = -1000
+					}
+				}
+			}
+			rings_buy_resources_1_plus_click = {
+				add_to_variable = {
+					rings_resources_1_amount = 1
+				}
+				add_to_variable = {
+					rings_buy_cost = 1000
+				}
+			}
+
+			rings_buy_resources_2_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_resources_2_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_resources_2_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_cost = -1000
+					}
+				}
+			}
+			rings_buy_resources_2_plus_click = {
+				add_to_variable = {
+					rings_resources_2_amount = 1
+				}
+				add_to_variable = {
+					rings_buy_cost = 1000
+				}
+			}
+
+			rings_buy_resources_3_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_resources_3_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_resources_3_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_cost = -1000
+					}
+				}
+			}
+			rings_buy_resources_3_plus_click = {
+				add_to_variable = {
+					rings_resources_3_amount = 1
+				}
+				add_to_variable = {
+					rings_buy_cost = 1000
+				}
+			}
+
+			rings_buy_resources_4_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_resources_4_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_resources_4_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_cost = -1000
+					}
+				}
+			}
+			rings_buy_resources_4_plus_click = {
+				add_to_variable = {
+					rings_resources_4_amount = 1
+				}
+				add_to_variable = {
+					rings_buy_cost = 1000
+				}
+			}
+
+			rings_buy_resources_5_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_resources_5_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_resources_5_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_cost = -1000
+					}
+				}
+			}
+			rings_buy_resources_5_plus_click = {
+				add_to_variable = {
+					rings_resources_5_amount = 1
+				}
+				add_to_variable = {
+					rings_buy_cost = 1000
+				}
+			}
+		}
+	}
+
+	rings_buy_nukes_trade = {
+		window_name = "rings_buy_nukes_trade"
+		context_type = player_context
+		parent_window_name = rings_buy_resources
+		visible = {
+			has_country_flag = rings_buy_nukes_trade_open
+		}
+
+		effects = {
+			rings_buy_nukes_trade_close_click = {
+				clr_country_flag = rings_buy_nukes_trade_open
+			}
+			rings_buy_nukes_trade_confirm_click = {
+				#clr_country_flag = rings_buy_nukes_trade_open
+				add_to_variable = {
+					rings = rings_buy_nukes_gain
+				}
+				# subtract_from_variable = {
+				# 	num_of_nukes = rings_buy_nukes_blue_amount
+				# }
+				multiply_variable = {
+					rings_buy_nukes_blue_amount = -1
+				}
+				add_nuclear_bombs = rings_buy_nukes_blue_amount
+				subtract_from_variable = {
+					mbr = rings_buy_nukes_red_amount
+				}
+				set_variable = {
+					rings_buy_nukes_blue_amount = 0
+				}
+				set_variable = {
+					rings_buy_nukes_red_amount = 0
+				}
+				set_variable = {
+					rings_buy_nukes_gain = 0
+				}
+			}
+			rings_buy_nukes_blue_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_buy_nukes_blue_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_buy_nukes_blue_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_nukes_gain = -50000
+					}
+				}
+			}
+			rings_buy_nukes_blue_plus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_buy_nukes_blue_amount < num_of_nukes
+						}
+					}
+					add_to_variable = {
+						rings_buy_nukes_blue_amount = 1
+					}
+					add_to_variable = {
+						rings_buy_nukes_gain = 50000
+					}
+				}
+			}
+			
+			rings_buy_nukes_red_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_buy_nukes_red_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_buy_nukes_red_amount = -1
+					}
+					add_to_variable = {
+						rings_buy_nukes_gain = -50000
+					}
+				}
+			}
+			rings_buy_nukes_red_plus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_buy_nukes_red_amount < mbr
+						}
+					}
+					add_to_variable = {
+						rings_buy_nukes_red_amount = 1
+					}
+					add_to_variable = {
+						rings_buy_nukes_gain = 50000
+					}
+				}
+			}
+		}
+	}
+
+	rings_sell = {
+		window_name = "rings_sell"
+		context_type = player_context
+		parent_window_name = rings_buy_resources
+		visible = {
+			has_country_flag = rings_sell_open
+		}
+
+		effects = {
+			rings_sell_close_click = {
+				clr_country_flag = rings_sell_open
+			}
+			rings_sell_confirm_click = {
+				#clr_country_flag = rings_sell_open
+				add_to_variable = { rings = rings_sell_gain } 
+				set_variable = { rings_sell_gain = 0 } 
+				set_variable = { rings_sell_civilian_amount = 0 } 
+				set_variable = { rings_sell_military_amount = 0 } 
+				set_variable = { rings_sell_naval_amount = 0 } 
+				every_owned_state = { 
+					limit = { 
+						check_variable = { state_civ_factory_to_sell = 1 } 
+					}
+					remove_building = { type = industrial_complex level = 1 } 
+					set_variable = { state_civ_factory_to_sell = 0 } 
+				}
+				every_owned_state = { 
+					limit = { 
+						check_variable = { state_mil_factory_to_sell = 1 } 
+					}
+					remove_building = { type = arms_factory level = 1 } 
+					set_variable = { state_mil_factory_to_sell = 0 } 
+				}
+				every_owned_state = { 
+					limit = { 
+						check_variable = { state_dock_factory_to_sell = 1 } 
+					}
+					remove_building = { type = dockyard level = 1 } 
+					set_variable = { state_dock_factory_to_sell = 0 } 
+				}
+			}
+
+			rings_sell_civilian_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_sell_civilian_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_sell_civilian_amount = -1
+					}
+					subtract_from_variable = { rings_sell_gain = 25000 } 
+					random_owned_state = { 
+						limit = { 
+							check_variable = { state_civ_factory_to_sell = 1 } 
+						}
+						set_variable = { state_civ_factory_to_sell = 0 } 
+					}
+				}
+			}
+			rings_sell_civilian_plus_click = {
+				random_owned_state = { 
+					limit = { 
+						industrial_complex > 0 
+						check_variable = { state_civ_factory_to_sell = 0 } 
+					}
+					set_variable = { state_civ_factory_to_sell = 1 } 
+					add_to_variable = { ROOT.rings_sell_gain = 25000 } 
+					add_to_variable = {
+						ROOT.rings_sell_civilian_amount = 1
+					}
+				}
+			}
+
+			rings_sell_military_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_sell_military_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_sell_military_amount = -1
+					}
+					subtract_from_variable = { rings_sell_gain = 25000 } 
+					random_owned_state = { 
+						limit = { 
+							check_variable = { state_mil_factory_to_sell = 1 } 
+						}
+						set_variable = { state_mil_factory_to_sell = 0 } 
+					}
+				}
+			}
+			rings_sell_military_plus_click = {
+				random_owned_state = { 
+					limit = { 
+						arms_factory > 0 
+						check_variable = { state_mil_factory_to_sell = 0 } 
+					}
+					set_variable = { state_mil_factory_to_sell = 1 } 
+					add_to_variable = { ROOT.rings_sell_gain = 25000 } 
+					add_to_variable = {
+						ROOT.rings_sell_military_amount = 1
+					}
+				}
+			}
+
+			rings_sell_naval_minus_click = {
+				if = {
+					limit = {
+						check_variable = {
+							rings_sell_naval_amount > 0
+						}
+					}
+					add_to_variable = {
+						rings_sell_naval_amount = -1
+					}
+					subtract_from_variable = { rings_sell_gain = 25000 } 
+					random_owned_state = { 
+						limit = { 
+							check_variable = { state_dock_factory_to_sell = 1 } 
+						}
+						set_variable = { state_dock_factory_to_sell = 0 } 
+					}
+				}
+			}
+			rings_sell_naval_plus_click = {
+				random_owned_state = { 
+					limit = { 
+						dockyard > 0 
+						check_variable = { state_dock_factory_to_sell = 0 } 
+					}
+					set_variable = { state_dock_factory_to_sell = 1 } 
+					add_to_variable = { ROOT.rings_sell_gain = 25000 } 
+					add_to_variable = {
+						ROOT.rings_sell_naval_amount = 1
+					}
+				}
+			}
+		}
+	}
 }
