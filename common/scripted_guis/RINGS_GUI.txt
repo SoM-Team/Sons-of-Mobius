@@ -7,16 +7,21 @@ scripted_gui = {
 		visible = {
 			always = yes
 		}
+
+		effects = {
+			rings_value_bg_click = {
+				set_country_flag = rings_buy_open
+				calculate_ring_gain = yes
+			}
+		}
     }
 
 	rings_buy = {
 		window_name = "rings_buy_resources"
 		context_type = player_context
 		visible = {
-			# not = {
-			# 	has_country_flag = rings_buy_resources_trade_open
-			# }
-			always = yes
+			has_country_flag = rings_buy_open
+			#always = yes
 		}
 
 		effects = {
@@ -50,8 +55,11 @@ scripted_gui = {
 			}
 
 			rings_buy_energy_button_click_enabled = {
-				check_variable = {
-					rings > 249999
+				or = {
+					check_variable = {
+						rings > 249999
+					}
+					has_idea = Rings_Infinite_Fuel
 				}
 			}
 
@@ -120,6 +128,27 @@ scripted_gui = {
 			rings_sell_resource_button_click = {
 				set_country_flag = rings_sell_open
 			}
+
+			rings_buy_energy_button_click = {
+				if = {
+					limit = {
+						not = {
+							has_idea = Rings_Infinite_Fuel
+						}
+					}
+					add_ideas = Rings_Infinite_Fuel
+					add_to_variable = {
+						rings = -250000
+					}
+				}
+				else = {
+					remove_ideas = Rings_Infinite_Fuel
+					# add_to_variable = {
+					# 	rings = 250000
+					# }
+				}
+				calculate_ring_gain = yes
+			}
 		}
 	}
 
@@ -185,6 +214,7 @@ scripted_gui = {
 					set_variable = {
 						rings_buy_cost = 0
 					}
+					calculate_ring_gain = yes
 				}
 				#clr_country_flag = rings_buy_resources_trade_open
 			}
@@ -452,6 +482,7 @@ scripted_gui = {
 					remove_building = { type = dockyard level = 1 } 
 					set_variable = { state_dock_factory_to_sell = 0 } 
 				}
+				calculate_ring_gain = yes
 			}
 
 			rings_sell_civilian_minus_click = {

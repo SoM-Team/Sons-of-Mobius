@@ -22,6 +22,111 @@
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
 
+calculate_ring_gain = {
+	add_to_variable = {
+		gov_corruption = gov_corruption_growth
+	}
+	
+	set_variable = {
+		rings_factory_gain = num_of_civilian_factories
+	}
+	multiply_variable = {
+		rings_factory_gain = 2000
+	}
+
+	set_variable = {
+		rings_trade_gain = resource_exported@aluminium
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@chromium
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@oil
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@rubber
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@steel
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@tungsten
+	}
+	multiply_variable = {
+		rings_trade_gain = 150
+	}
+
+	set_variable = {
+		rings_occupied_gain = 0
+	}
+	every_occupied_country = {
+		set_variable = {
+			ROOT.rings_occupied_gain = THIS.rings_total_net_gain
+		}
+	}
+	divide_variable = {
+		rings_occupied_gain = 2
+	}
+
+	# TODO: military, science
+
+	set_variable = {
+		rings_military_gain = 0
+	}
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@railgun_anti_tank
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@railgun_anti_tank_brigade
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@railgun_armor
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@railway_gun
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@robot_maintenance_company
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@robot_recon
+	# }
+	# add_to_variable = {
+	# 	rings_military_gain = num_battalions_with_type@light_robots
+	# }
+	multiply_variable = {
+		rings_military_gain = 1
+	}
+
+	if = {
+		limit = {
+			has_idea = Rings_Infinite_Fuel
+		}
+		set_variable = {
+			rings_energy_gain = -150000
+		}
+	}
+
+	set_variable = {
+		rings_total_net_gain = rings_factory_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_trade_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_occupied_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_military_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_science_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_energy_gain
+	}
+}
+
 replace_civ_with_arms_factories = {	
 
 	random_owned_controlled_state = {
