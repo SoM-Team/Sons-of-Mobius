@@ -59,13 +59,11 @@ calculate_ring_gain = {
 	set_variable = {
 		rings_occupied_gain = 0
 	}
-	every_occupied_country = {
-		set_variable = {
+	every_subject_country = {
+		calculate_ring_gain = yes
+		add_to_variable = {
 			ROOT.rings_occupied_gain = THIS.rings_total_net_gain
 		}
-	}
-	divide_variable = {
-		rings_occupied_gain = 2
 	}
 
 	# TODO: science
@@ -83,6 +81,11 @@ calculate_ring_gain = {
 		}
 		set_variable = {
 			rings_energy_gain = -150000
+		}
+	}
+	else = {
+		set_variable = {
+			rings_energy_gain = 0
 		}
 	}
 
@@ -103,6 +106,34 @@ calculate_ring_gain = {
 	}
 	add_to_variable = {
 		rings_total_net_gain = rings_energy_gain
+	}
+
+	if = {
+		limit = {
+			is_subject = yes
+		}
+
+		divide_variable = {
+			rings_factory_gain = 2
+		}
+		divide_variable = {
+			rings_trade_gain = 2
+		}
+		divide_variable = {
+			rings_occupied_gain = 2
+		}
+		divide_variable = {
+			rings_military_gain = 2
+		}
+		divide_variable = {
+			rings_science_gain = 2
+		}
+		divide_variable = {
+			rings_energy_gain = 2
+		}
+		divide_variable = {
+			rings_total_net_gain = 2
+		}
 	}
 }
 
