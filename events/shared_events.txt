@@ -741,10 +741,8 @@ country_event = {
 	title = shared.106.t
 	desc = shared.106.d
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
+	hidden = yes
 	option = {
 		name = shared.106.a
 		every_other_country = {
@@ -785,10 +783,8 @@ country_event = {
 	title = shared.107.t
 	desc = shared.107.d
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
+	hidden = yes
 	option = {
 		name = shared.107.a
 		every_other_country = {
@@ -825,10 +821,8 @@ country_event = {
 	title = shared.108.t
 	desc = shared.108.d
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
+	hidden = yes
 	option = {
 		name = shared.108.a
 		every_other_country = {
@@ -865,10 +859,8 @@ country_event = {
 	title = shared.109.t
 	desc = shared.109.d
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
+	hidden = yes
 	option = {
 		name = shared.109.a
 		every_other_country = {
@@ -905,10 +897,8 @@ country_event = {
 	title = shared.110.t
 	desc = shared.110.d
 
-	fire_only_once = yes
-
 	is_triggered_only = yes
-
+	hidden = yes
 	option = {
 		name = shared.110.a
 		every_other_country = {
@@ -935,6 +925,222 @@ country_event = {
 		add_dynamic_modifier = {
 			modifier = Friendship_of_Peoples_Espionage_Help
 			days = 180
+		}
+	}
+}
+
+country_event = {
+	# Voting
+	id = shared.111
+	title = shared.111.t
+	desc = shared.111.d
+
+	is_triggered_only = yes
+	option = {
+		name = shared.111.a
+		add_to_variable = {
+			global.International_Votes = 1
+		}
+	}
+	# option = {
+	# 	name = shared.111.b
+	# 	add_to_variable = {
+	# 		global.International_Votes = -1
+	# 	}
+	# }
+	# option = {
+	# 	name = shared.111.c
+	# }
+}
+
+country_event = {
+	# Votes Are Counted
+	id = shared.114
+	title = shared.114.t
+	desc = shared.114.d
+
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.114.a
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Votes > 0
+				}
+			}
+			country_event = shared.119
+		}
+		else = {
+			country_event = shared.118
+		}
+	}
+}
+
+country_event = {
+	# Mark offering country 
+	id = shared.115
+	title = shared.115.t
+	desc = shared.115.d
+
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.115.a
+		ROOT = {
+			set_country_flag = Internationale_resolution_offered
+		}
+	}
+}
+
+country_event = {
+	# Type of boon
+	id = shared.116
+	title = shared.116.t
+	desc = shared.116.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.116.a #scientific boon
+		set_variable = {
+			global.International_Temporary_Boon = 1
+		}
+	}
+	option = {
+		name = shared.116.b #welfare boon
+		set_variable = {
+			global.International_Temporary_Boon = 2
+		}
+	}
+	option = {
+		name = shared.116.c #military boon
+		set_variable = {
+			global.International_Temporary_Boon = 3
+		}
+	}
+	option = {
+		name = shared.116.e #political boon
+		set_variable = {
+			global.International_Temporary_Boon = 4
+		}
+	}
+	option = {
+		name = shared.116.f #espionage_boon
+		set_variable = {
+			global.International_Temporary_Boon = 5
+		}
+	}
+}
+
+country_event = {
+	# Decision is Reached - Boon is Granted
+	id = shared.117
+	title = shared.117.t
+	desc = shared.117.d
+
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.117.a
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 1 # ID of object of discussion - there can be plenty of them
+				}
+			}
+			every_country = {
+				limit = {
+					has_country_flag = Internationale_resolution_offered
+				}
+				country_event = shared.106
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 2 # ID of object of discussion - there can be plenty of them
+				}
+			}
+			every_country = {
+				limit = {
+					has_country_flag = Internationale_resolution_offered
+				}
+				country_event = shared.107
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 3 # ID of object of discussion - there can be plenty of them
+				}
+			}
+			every_country = {
+				limit = {
+					has_country_flag = Internationale_resolution_offered
+				}
+				country_event = shared.108
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 4 # ID of object of discussion - there can be plenty of them
+				}
+			}
+			every_country = {
+				limit = {
+					has_country_flag = Internationale_resolution_offered
+				}
+				country_event = shared.109
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 5 # ID of object of discussion - there can be plenty of them
+				}
+			}
+			every_country = {
+				limit = {
+					has_country_flag = Internationale_resolution_offered
+				}
+				country_event = shared.110
+			}
+		}
+	}
+}
+
+country_event = {
+	# Voting is Failed
+	id = shared.118
+	title = shared.118.t
+	desc = shared.118.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.118.a
+	}
+}
+
+country_event = {
+	# Voting is Successful
+	id = shared.119
+	title = shared.119.t
+	desc = shared.119.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.119.a
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon > 0
+				}
+			}
+			country_event = shared.117
 		}
 	}
 }
