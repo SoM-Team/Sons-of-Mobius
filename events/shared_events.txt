@@ -954,6 +954,35 @@ country_event = {
 }
 
 country_event = {
+	# Type of boon
+	id = shared.112
+	title = shared.112.t
+	desc = shared.112.d
+
+	is_triggered_only = yes
+
+	option = {
+		name = shared.126.c #military boon
+		set_variable = {
+			global.International_Temporary_Boon = 3
+		}
+	}
+	option = {
+		name = shared.112.e #political boon
+		set_variable = {
+			global.International_Temporary_Boon = 4
+		}
+	}
+	option = {
+		name = shared.112.f #espionage_boon
+		set_variable = {
+			global.International_Temporary_Boon = 5
+		}
+	}
+}
+
+
+country_event = {
 	# Votes Are Counted
 	id = shared.114
 	title = shared.114.t
@@ -1014,22 +1043,8 @@ country_event = {
 		}
 	}
 	option = {
-		name = shared.116.c #military boon
-		set_variable = {
-			global.International_Temporary_Boon = 3
-		}
-	}
-	option = {
-		name = shared.116.e #political boon
-		set_variable = {
-			global.International_Temporary_Boon = 4
-		}
-	}
-	option = {
-		name = shared.116.f #espionage_boon
-		set_variable = {
-			global.International_Temporary_Boon = 5
-		}
+		name = shared.116.c #other oprions
+		country_event = shared.112
 	}
 }
 

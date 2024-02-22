@@ -139,6 +139,24 @@ on_actions = {
 				#set_variable = {
 				#	gov_corruption_growth = 1.5
 				#}
+				set_variable = {
+					Shilov_diplomacy_chances = 90
+				}
+				set_variable = {
+					Shilov_diplomacy_failure = 10
+				}
+				set_variable = {
+					Shilov_shady_chances = 90
+				}
+				set_variable = {
+					Shilov_shady_failure = 10
+				}
+				set_variable = {
+					Shilov_illegal_chances = 90
+				}
+				set_variable = {
+					Shilov_illegal_failure = 10
+				}
 			}
 			EGG = {
 				# country_event = {
@@ -364,6 +382,19 @@ on_actions = {
 				remove_ideas = ER_IFP_Izumrud
 				add_ideas = Voskhod_Complex
 				set_country_flag = Voskhod_Complex_Spirit_Replaced
+			}
+		}
+	}
+	on_monthly_RCR = {
+		effect = {
+			if = {
+				limit = {
+					has_completed_focus = RCR_Robotization_Army
+					check_variable = {
+						casualties > 10000
+					}
+					add_manpower = 1750
+				}
 			}
 		}
 	}

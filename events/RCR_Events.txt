@@ -264,13 +264,13 @@ country_event = { ### Переворот Шилова! ###
 		name = rcr.10.a
 		add_stability = -0.1
 		remove_unit_leader = 102
-		hidden_effect = {
-			country_event = {
-				# BUG: The game crashes here because rcr.12 does not exist
-				id = rcr.12
-				days = 1
-			}
-		}
+		# hidden_effect = {
+		# 	country_event = {
+		# 		# BUG: The game crashes here because rcr.12 does not exist
+		# 		id = rcr.12
+		# 		days = 1
+		# 	}
+		# }
 	}
 	
 	option = { ### I don't feel so good... ###
@@ -299,7 +299,7 @@ country_event = { ### Переворот Шилова! ###
 			traits = {
 			}
 		}
-		set_global_flag = Shilov_coup
+		set_country_flag = Shilov_coup
 		hidden_effect = {
 			country_event = {
 				id = rcr.13
@@ -321,10 +321,10 @@ country_event = { #Shilov kills Pallasov
 		name = rcr.13.a
 		add_stability = -0.2
 		
-	country_event = {
-			id = rcr.31
-			days = 7
-		}
+		# country_event = {
+		# 	id = rcr.31
+		# 	days = 7
+		# }
 	}
 }
 
@@ -378,7 +378,7 @@ country_event = { ### Хныкин сука! ###
 		name = rcr.17.a
 		add_popularity = {
 				ideology = autonomous_socialism
-				popularity = 0.03
+				popularity = 0.04
 		}
 	}
 }
@@ -394,7 +394,7 @@ country_event = { ### Прорывицкий сука! ###
 		name = rcr.18.a
 		add_popularity = {
 				ideology = neosocialism
-				popularity = 0.05
+				popularity = 0.04
 		}
 	}
 }
@@ -524,15 +524,15 @@ country_event = { ### Убийство Хныкина ###
 			}
 		}
 		add_stability = -0.07
-		create_country_leader = {
-			name = "Fyodor Shubin"
-			desc = "SHILOV_IS_PIDOR"
-			picture = "Fyodor Shubin.dds"
-			expire = "1965.1.1"
-			ideology = katzerism_pallasovism_subtype
-			traits = {
-			}
-		}
+		# create_country_leader = {
+		# 	name = "Fyodor Shubin"
+		# 	desc = "SHILOV_IS_PIDOR"
+		# 	picture = "Fyodor Shubin.dds"
+		# 	expire = "1965.1.1"
+		# 	ideology = katzerism_pallasovism_subtype
+		# 	traits = {
+		# 	}
+		# }
 	}
 }
 
@@ -611,7 +611,7 @@ country_event = { ### Победа Палласова на Чрезвычайн�
 	
 	option = {
 		name = rcr.28.a
-		set_global_flag = Old_Favorit_event
+		set_country_flag = Old_Favorit_event
 	}
 }
 
@@ -624,7 +624,7 @@ country_event = { ### Победа Громова ###
 	
 	option = {
 		name = rcr.29.a
-		set_global_flag = Gromov_President
+		set_country_flag = Gromov_President
 	}
 }
 country_event = { ### ПЕРЕПИСАТЬ ### 
@@ -1216,6 +1216,429 @@ country_event = { #RCR_Fight_with_Bureaucratism
 	}
 }
 
+country_event = { #Shilov new order
+	id = rcr.55
+	title = rcr.55.t
+	desc = rcr.55.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.55.a
+		custom_effect_tooltip = rcr.55.a.tt
+		if = {
+			limit = {
+				has_stability > 84
+				has_war_support > 84
+			}
+			add_ideas = New_order1
+		}
+		else = {	
+			add_ideas = New_order
+		}
+	}
+}
+
+country_event = { #Shilov prolong martial law indefinitely
+	id = rcr.56
+	title = rcr.56.t
+	desc = rcr.56.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.56.a
+		custom_effect_tooltip = rcr.56.a.tt
+		add_stability = -0.1
+		add_timed_idea = {
+			idea = Military_Pos1
+			days = 730
+		}
+	}
+}
+
+country_event = { #Shilov economical priorities
+	id = rcr.57
+	title = rcr.57.t
+	desc = rcr.57.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.57.a
+		custom_effect_tooltip = rcr.57.a.tt
+		add_ideas = Shilov_Rationing_1
+	}
+	option = {
+		name = rcr.57.b
+		custom_effect_tooltip = rcr.57.b.tt
+		add_ideas = Shilov_Rationing_2
+	}
+	option = {
+		name = rcr.57.c
+		country_event = rcr.58
+	}
+}
+
+country_event = { #Shilov economical priorities
+	id = rcr.58
+	title = rcr.58.t
+	desc = rcr.58.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.58.a
+		custom_effect_tooltip = rcr.58.a.tt
+		add_ideas = Shilov_Rationing_3
+	}
+	option = {
+		name = rcr.58.b
+		custom_effect_tooltip = rcr.58.b.tt
+		add_ideas = Shilov_Rationing_4
+	}
+	option = {
+		name = rcr.58.c
+		country_event = rcr.57
+	}
+}
+
+country_event = { #Shilov puppet trade unions
+	id = rcr.59
+	title = rcr.59.t
+	desc = rcr.59.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.59.a
+		custom_effect_tooltip = rcr.59.a.tt
+		add_ideas = Kill_unions
+	}
+}
+
+country_event = { #Shilov constitution
+	id = rcr.60
+	title = rcr.60.t
+	desc = rcr.60.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.60.a
+		custom_effect_tooltip = rcr.60.a.tt
+		add_ideas = Socialism_barracks
+	}
+	option = {
+		name = rcr.60.b
+		custom_effect_tooltip = rcr.60.b.tt
+		add_ideas = Socialism_trench
+	}
+	option = {
+		name = rcr.60.c
+		country_event = rcr.61
+	}
+}
+
+country_event = { #Shilov constitution
+	id = rcr.61
+	title = rcr.61.t
+	desc = rcr.61.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.61.a
+		custom_effect_tooltip = rcr.61.a.tt
+		add_ideas = Socialism_bunker
+	}
+	option = {
+		name = rcr.61.b
+		custom_effect_tooltip = rcr.61.b.tt
+		add_ideas = Socialism_partisan
+	}
+	option = {
+		name = rcr.61.c
+		country_event = rcr.60
+	}
+}
+
+country_event = { #Shilov 5th department
+	id = rcr.62
+	title = rcr.62.t
+	desc = rcr.62.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.62.a
+		custom_effect_tooltip = rcr.62.a.tt
+		add_ideas = Victory_through_science
+	}
+}
+
+country_event = { #Shilov robotization of army
+	id = rcr.63
+	title = rcr.63.t
+	desc = rcr.63.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.63.a
+		custom_effect_tooltip = rcr.63.a.tt
+		add_ideas = Robotisation_of_Army_1
+	}
+	option = {
+		name = rcr.63.b
+		custom_effect_tooltip = rcr.63.b.tt
+		add_ideas = Robotisation_of_Army_2
+	}
+	option = {
+		name = rcr.63.c
+		country_event = rcr.64
+	}
+}
+
+country_event = { #Shilov robotization of army
+	id = rcr.64
+	title = rcr.64.t
+	desc = rcr.64.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.64.a
+		custom_effect_tooltip = rcr.64.a.tt
+		add_ideas = Robotisation_of_Army_3
+	}
+	option = {
+		name = rcr.64.b
+		custom_effect_tooltip = rcr.64.b.tt
+		add_ideas = Robotisation_of_Army_4
+	}
+	option = {
+		name = rcr.64.c
+		country_event = rcr.63
+	}
+}
+
+country_event = { #Shilov cloning fallen
+	id = rcr.65
+	title = rcr.65.t
+	desc = rcr.65.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.65.a
+		custom_effect_tooltip = rcr.65.a.tt
+	}
+}
+
+country_event = { #Shilov restoration priorities
+	id = rcr.66
+	title = rcr.66.t
+	desc = rcr.66.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.66.a
+		custom_effect_tooltip = rcr.66.a.tt
+		add_ideas = Restoration_Focus_Economy
+	}
+	option = {
+		name = rcr.66.b
+		custom_effect_tooltip = rcr.66.b.tt
+		add_ideas = Restoration_Focus_Army
+	}
+	option = {
+		name = rcr.66.c
+		country_event = rcr.67
+	}
+}
+
+country_event = { #Shilov restoration priorities
+	id = rcr.67
+	title = rcr.67.t
+	desc = rcr.67.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.67.a
+		custom_effect_tooltip = rcr.67.a.tt
+		add_ideas = Restoration_Focus_Construction
+	}
+	option = {
+		name = rcr.67.b
+		custom_effect_tooltip = rcr.67.b.tt
+		add_ideas = Restoration_Focus_Normalisation
+	}
+	option = {
+		name = rcr.67.c
+		country_event = rcr.68
+	}
+}
+
+country_event = { #Shilov restoration priorities
+	id = rcr.68
+	title = rcr.68.t
+	desc = rcr.68.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.68.a
+		custom_effect_tooltip = rcr.68.a.tt
+		add_ideas = Restoration_Focus_Order
+	}
+	option = {
+		name = rcr.68.b
+		custom_effect_tooltip = rcr.68.b.tt
+		add_ideas = Restoration_Focus_Science
+	}
+	option = {
+		name = rcr.68.c
+		country_event = rcr.66
+	}
+}
+
+country_event = { #Shilov wars
+	id = rcr.69
+	title = rcr.69.t
+	desc = rcr.69.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.69.a
+		custom_effect_tooltip = rcr.69.a.tt
+		if = {
+			limit = {
+				has_idea = Socialism_barracks
+			}
+			swap_ideas = {
+				remove_idea = Socialism_barracks
+				add_idea = Socialism_barracks_1
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Socialism_bunker
+			}
+			swap_ideas = {
+				remove_idea = Socialism_bunker
+				add_idea = Socialism_bunker_1
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Socialism_trench
+			}
+			swap_ideas = {
+				remove_idea = Socialism_trench
+				add_idea = Socialism_trench_1
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Socialism_bunker
+			}
+			swap_ideas = {
+				remove_idea = Socialism_partisan
+				add_idea = Socialism_partisan_1
+			}
+		}
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				has_government = neosocialism
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_opinion_modifier = {
+				target = RCR
+				modifier = Together_against_the_world
+			}
+		}
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					has_government = neosocialism
+				}
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = 0.05
+			}
+		}
+	}
+}
+
+country_event = { #Shilov wars
+	id = rcr.70
+	title = rcr.70.t
+	desc = rcr.70.d
+	picture = GFX_report_event_pallasov
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = rcr.70.a
+		custom_effect_tooltip = rcr.70.a.tt
+	}
+}
+
 country_event = {
 	id = rcr.80
 	title = rcr.80.t
@@ -1489,7 +1912,7 @@ country_event = { #RCR_Propagan_Uroshism
 	}
 }
 
-country_event = { #RCR_discussion_of_planning
+country_event = { #RCR_discussion_of_planning, part 1
 	id = rcr.86
 	title = rcr.86.t
 	desc = rcr.86.d
@@ -1638,129 +2061,9 @@ country_event = { #RCR_discussion_of_planning
 	option = {
 		name = rcr.86.c
 		ai_chance = { factor = 100 }
-		random_owned_state = {
-			add_resource = {
-				type = steel
-				amount = 8
-			}
-			add_state_modifier = {
-				modifier = {
-					local_resources = 0.5
-				}
-			}
-			add_extra_state_shared_building_slots = 4
-			add_building_construction = {
-				type = industrial_complex
-				level = 3
-				instant_build = yes
-			}
-			if = {
-				limit = {
-					industrial_complex < 25
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}	
-		}
-		random_owned_state = {
-			add_extra_state_shared_building_slots = 3
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-		}
-		random_owned_state = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
+		country_event = rcr.99
 	}
-	
-	option = {
-		name = rcr.86.da
-		ai_chance = { factor = 100 }
-		random_owned_state = {
-			add_state_modifier = {
-				modifier = {
-					local_resources = 1
-				}
-			}
-			add_resource = {
-				type = steel
-				amount = 8
-			}
-			add_resource = {
-				type = aluminium
-				amount = 8
-			}
-			add_resource = {
-				type = tungsten
-				amount = 4
-			}
-			add_extra_state_shared_building_slots = 4
-			add_building_construction = {
-				type = arms_factory
-				level = 3
-				instant_build = yes
-			}
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
-		}
-		random_owned_state = {
-			add_state_modifier = {
-				modifier = {
-					local_resources = 0.5
-				}
-			}
-			add_resource = {
-				type = steel
-				amount = 8
-			}
-			add_resource = {
-				type = aluminium
-				amount = 4
-			}
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = arms_factory
-				level = 2
-				instant_build = yes
-			}
-		}
-		random_owned_state = {
-			add_resource = {
-				type = steel
-				amount = 4
-			}
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
+
 }
 
 country_event = { #RCR_teleologist_victory
@@ -2129,7 +2432,7 @@ country_event = { ### RCR_Automation
 				RCR_AUTO = 0
 			}
 		set_variable = {
-				RCR_AUTO_GROW = 3
+				RCR_AUTO_GROW = 0.3
 			}
 		add_political_power = -50
 		add_ideas = automation_focus
@@ -2178,8 +2481,156 @@ country_event = { ### RCR_The_Victory_Day
 	fire_only_once = yes
 	
 	option = {
-		name = rcr.95.a
+		name = rcr.98.a
 		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = { #RCR_discussion_of_planning
+	id = rcr.99
+	title = rcr.99.t
+	desc = rcr.99.d
+	picture = GFX_report_event_soviet_rethenia
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = rcr.99.a
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+			if = {
+				limit = {
+					industrial_complex < 25
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}	
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	
+	option = {
+		name = rcr.99.b
+		ai_chance = { factor = 100 }
+		random_owned_state = {
+			add_state_modifier = {
+				modifier = {
+					local_resources = 1
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+			}
+			add_resource = {
+				type = tungsten
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 4
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_state_modifier = {
+				modifier = {
+					local_resources = 0.5
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_resource = {
+				type = aluminium
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_state = {
+			add_resource = {
+				type = steel
+				amount = 4
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+
+	option = {
+		name = rcr.99.
+		ai_chance = { factor = 100 }
+		country_event = rcr.86
 	}
 }
 

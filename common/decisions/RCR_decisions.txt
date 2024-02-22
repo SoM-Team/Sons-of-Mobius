@@ -5487,6 +5487,494 @@ RCR_Shilov_Campaign = {
 	}
 }
 
+RCR_Shilov_Cloning = {
+	Provision_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Provision_Manufacturing_idea
+		}
+	}
+	Raw_Materials_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Raw_Materials_Manufacturing_idea
+		}
+	}
+	Restorational_Pharma = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Restorational_Pharma_idea
+		}
+	}
+	Biocopying = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Biocopying_idea
+		}
+	}
+	Weapon_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Weapon_Manufacturing_idea
+		}
+	}
+	Passive_mode = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Passive_mode_idea
+		}
+	}
+}
+
+RCR_Shilov_Wars = {
+	They_Suspect_Us = {
+		activation = {
+			has_completed_focus = RCR_Revolution_Legacy
+		}
+		available = {
+			tag = RCR
+		}
+		days_mission_timeout = 480
+		timeout_effect = {
+			every_other_country = {
+				limit = {
+					NOT = {
+						is_in_faction_with = RCR
+					}
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Warmonger
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Warmongering_Madman
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = non_aggression_pact
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = military_access
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = market_access_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = docking_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = improve_relation
+					active = no
+				}
+			}
+		}
+	}
+	Hold_Off_by_Diplomatic_Channels = {
+		available = {
+			has_political_power > 99
+		}
+		cost = 100
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_diplomacy_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_diplomacy_failure = {
+
+				}
+			}
+			add_to_variable = {
+				Shilov_diplomacy_failure = 5
+			}
+			add_to_variable = {
+				Shilov_diplomacy_chances = -5
+			}
+		}
+	}
+	Hold_Off_by_Shady_Channels = {
+		available = {
+			has_political_power > 49
+			command_power > 39
+		}
+		cost = 50
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_shady_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_shady_failure = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = -9
+					}
+				}
+			}
+			add_command_power = -40
+			add_to_variable = {
+				Shilov_shady_failure = 5
+			}
+			add_to_variable = {
+				Shilov_shady_chances = -5
+			}
+		}
+	}
+	Hold_Off_by_Illegal_Channels = {
+		available = {
+			command_power > 79
+		}
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_illegal_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_illegal_failure = {
+					random_country = {
+						create_wargoal = {
+							target = RCR
+							type = topple_government
+						}
+					}
+				}
+			}
+			add_command_power = -80
+			add_to_variable = {
+				Shilov_illegal_failure = 5
+			}
+			add_to_variable = {
+				Shilov_illegal_chances = -5
+			}
+		}
+	}
+	Ceremonial_March = {
+		available = {
+			has_political_power > 49
+			command_power > 49
+		}
+		cost = 50
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_command_power = -50
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Cultural_Events = {
+		available = {
+			has_army_experience > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			army_experience = -25
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Economic_Help = {
+		available = {
+
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Economic_Help
+				days = 40
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Declare_War_Acorns = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = KOA
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Federation = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = UFA
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Eggman = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = EGG
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Infinite = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = INF
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Swartzland = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = SWA
+				type = annex_everything
+			}
+		}
+	}
+}
+
+RCR_Shilov_Culture = {
+	Frontline_Filming = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Films
+				days = 40
+			}
+		}
+	}
+	Frontline_Clubs = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Clubs
+				days = 40
+			}
+		}
+	}
+	Documental_Films = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Documents
+				days = 40
+			}
+		}
+	}
+}
+
 RCR_EMP_weapon = {
 	RCR_EMP_Blueprint = {
 		icon = generic_nationalism
