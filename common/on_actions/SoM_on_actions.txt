@@ -19,6 +19,22 @@ on_actions = {
 			}
 		}
 	}
+	on_daily_EGG = {
+        effect = {
+            if = {
+                limit = {
+                    has_country_flag = EGG_has_warp_topaz
+                }
+                every_enemy_country = {
+                    70 = {
+                        every_state_division = {
+                            destroy_unit = yes
+                        }
+                    }
+                }
+            }
+        }
+    }
 	on_monthly = {
 		effect = {
 			calculate_ring_gain = yes
@@ -47,15 +63,15 @@ on_actions = {
 					has_idea = Pallasov_vision_4
 					has_idea = Pallasov_vision_5
 				}
+				remove_ideas = Pallasov_vision
+				remove_ideas = Pallasov_vision_0
+				remove_ideas = Pallasov_vision_1
+				remove_ideas = Pallasov_vision_2
+				remove_ideas = Pallasov_vision_3
+				remove_ideas = Pallasov_vision_4
+				remove_ideas = Pallasov_vision_5
+				add_ideas = Pallasov_vision_final
 			}
-			remove_ideas = Pallasov_vision
-			remove_ideas = Pallasov_vision_0
-			remove_ideas = Pallasov_vision_1
-			remove_ideas = Pallasov_vision_2
-			remove_ideas = Pallasov_vision_3
-			remove_ideas = Pallasov_vision_4
-			remove_ideas = Pallasov_vision_5
-			add_ideas = Pallasov_vision_final
 		}
 	}
 	on_monthly_KOA = {
@@ -393,8 +409,8 @@ on_actions = {
 					check_variable = {
 						casualties > 10000
 					}
-					add_manpower = 1750
 				}
+				add_manpower = 1750
 			}
 		}
 	}

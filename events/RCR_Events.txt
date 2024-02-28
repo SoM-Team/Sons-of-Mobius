@@ -216,7 +216,7 @@ country_event = {
 		### Убить ###
 		name = rcr.8.b
 		add_stability = 0.1
-		remove_unit_leader = 102
+		retire_character = RCR_Gennadiy_Shilov
 	}
 }
 
@@ -231,7 +231,7 @@ country_event = {
 		### Take it boy! ###
 		name = rcr.9.a
 		add_stability = 0.1
-		remove_unit_leader = 102
+		retire_character = RCR_Gennadiy_Shilov
 		set_global_flag = jail_Shilov
 		hidden_effect = {
 			country_event = {
@@ -253,7 +253,9 @@ country_event = {
 		### Take it boy ###
 		name = rcr.10.a
 		add_stability = -0.1
-		remove_unit_leader = 102
+		RCR = {
+			retire_character = RCR_Gennadiy_Shilov
+		}
 		# hidden_effect = {
 		# 	country_event = {
 		# 		# BUG: The game crashes here because rcr.12 does not exist
@@ -266,7 +268,9 @@ country_event = {
 		### I don't feel so good... ###
 		name = rcr.10.b
 		add_stability = -0.3
-		remove_unit_leader = 100
+		RCR = {
+			retire_character = RCR_Yuriy_Pallasov
+		}
 		kill_country_leader = yes
 		set_politics = {
 			ruling_party = neosocialism
@@ -290,9 +294,12 @@ country_event = {
 			}
 		}
 		set_country_flag = Shilov_coup
+		set_power_balance = {
+			id = Shilov_authority
+		}
 		hidden_effect = {
 			country_event = {
-				id = rcr.13
+				id = rcr.101
 				days = 7
 			}
 		}
@@ -300,12 +307,24 @@ country_event = {
 }
 
 country_event = {
-	#Shilov kills Pallasov
+	#It is revealed that Shilov murdered Pallasov
 	id = rcr.13
 	title = rcr.13.t
 	desc = rcr.13.d
 	picture = GFX_report_event_military_mutiny
 	is_triggered_only = yes
+	trigger = {
+		OR = {
+			power_balance_value = {
+				id = Shilov_authority
+				value > 0.49
+			}
+			power_balance_value = {
+				id = Shilov_authority
+				value < -0.49
+			}
+		}
+	}
 	option = {
 		name = rcr.13.a
 		add_stability = -0.2
@@ -467,7 +486,7 @@ country_event = {
 }
 
 country_event = {
-	### Опала национал-катцеристов ### 
+	### Опала неосоциалистов ### 
 	id = rcr.23
 	title = rcr.23.t
 	desc = rcr.23.d
@@ -617,7 +636,7 @@ country_event = {
 }
 
 country_event = {
-	### ПЕРЕПИСАТЬ ### 
+	### Intro ### 
 	id = rcr.30
 	title = rcr.30.t
 	desc = rcr.30.d
@@ -651,6 +670,12 @@ country_event = {
 	title = rcr.31.t
 	desc = rcr.31.d
 	picture = GFX_report_event_arrest_em
+	trigger = {
+		power_balance_value = {
+			id = Shilov_authority
+			value > 0.7
+		}
+	}
 	is_triggered_only = yes
 	option = {
 		name = rcr.31.a
@@ -677,7 +702,7 @@ country_event = {
 }
 
 country_event = {
-	###Дебаты Палласова с Кругиным ###
+	###Дебаты Палласова с Прорывицким ###
 	id = rcr.32
 	title = rcr.32.t
 	desc = rcr.32.d
@@ -777,7 +802,7 @@ country_event = {
 	option = {
 		name = rcr.34.b
 		add_timed_idea = {
-			idea = Cope_with_famine
+			idea = Deal_with_famine
 			days = 60
 		}
 		add_political_power = -75
@@ -2314,7 +2339,7 @@ country_event = {
 }
 
 country_event = {
-	### Automation
+	### 
 	id = rcr.97
 	title = rcr.97.t
 	desc = rcr.97.d
@@ -2332,7 +2357,7 @@ country_event = {
 }
 
 country_event = {
-	### RCR_The_Victory_Day
+	### RCR_The_Great_Patriotic_War started (???)
 	id = rcr.98
 	title = rcr.98.t
 	desc = rcr.98.d
@@ -2660,6 +2685,786 @@ country_event = {
 				id = inf.102
 			}
 		}
+	}
+}
+
+country_event = {
+	#Opposition learns that Pallasov is killed
+	id = rcr.101
+	title = rcr.101.t
+	desc = rcr.101.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.101.a
+	}
+}
+
+country_event = {
+	#Capital isolated by Shilov? Or free pass? 
+	id = rcr.102
+	title = rcr.102.t
+	desc = rcr.102.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.102.a
+	}
+	option = {
+		name = rcr.102.b
+	}
+	option = {
+		name = rcr.102.c
+	}
+}
+
+country_event = {
+	#Army brainwashing? 
+	id = rcr.103
+	title = rcr.103.t
+	desc = rcr.103.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.103.a
+	}
+	option = {
+		name = rcr.103.b
+	}
+	option = {
+		name = rcr.103.c
+	}
+}
+
+country_event = {
+	#Katzerist party issues
+	id = rcr.104
+	title = rcr.104.t
+	desc = rcr.104.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.104.a
+	}
+	option = {
+		name = rcr.104.b
+	}
+	option = {
+		name = rcr.104.c
+	}
+}
+
+country_event = {
+	#Activists issue
+	id = rcr.105
+	title = rcr.105.t
+	desc = rcr.105.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.105.a
+	}
+	option = {
+		name = rcr.105.b
+	}
+	option = {
+		name = rcr.105.c
+	}
+}
+
+country_event = {
+	#Administration
+	id = rcr.106
+	title = rcr.106.t
+	desc = rcr.106.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.106.a
+	}
+	option = {
+		name = rcr.106.b
+	}
+	option = {
+		name = rcr.106.c
+	}
+}
+
+country_event = {
+	#People's demonstrations
+	id = rcr.107
+	title = rcr.107.t
+	desc = rcr.107.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.107.a
+	}
+	option = {
+		name = rcr.107.b
+	}
+	option = {
+		name = rcr.107.c
+	}
+}
+
+country_event = {
+	#Tell the truth about Pallasov's death
+	id = rcr.108
+	title = rcr.108.t
+	desc = rcr.108.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.108.a
+	}
+	option = {
+		name = rcr.108.b
+	}
+	option = {
+		name = rcr.108.c
+	}
+}
+
+country_event = {
+	#Secret Services
+	id = rcr.109
+	title = rcr.109.t
+	desc = rcr.109.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.109.a
+	}
+	option = {
+		name = rcr.109.b
+	}
+	option = {
+		name = rcr.109.c
+	}
+}
+
+country_event = {
+	#Shubin and Eismesser win
+	id = rcr.110
+	title = rcr.110.t
+	desc = rcr.110.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.110.a
+	}
+}
+
+country_event = {
+	#KORTS win
+	id = rcr.111
+	title = rcr.111.t
+	desc = rcr.111.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.111.a
+	}
+}
+
+country_event = {
+	#Shilov win
+	id = rcr.112
+	title = rcr.112.t
+	desc = rcr.112.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.112.a
+	}
+}
+
+country_event = {
+	#Cut the connections in Stalegor
+	id = rcr.113
+	title = rcr.113.t
+	desc = rcr.113.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.113.a
+	}
+}
+
+country_event = {
+	#Allow civilian pass
+	id = rcr.114
+	title = rcr.114.t
+	desc = rcr.114.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.114.a
+	}
+}
+
+country_event = {
+	#Minimal restrictions
+	id = rcr.115
+	title = rcr.115.t
+	desc = rcr.115.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.115.a
+	}
+}
+
+country_event = {
+	#Total propaganda
+	id = rcr.116
+	title = rcr.116.t
+	desc = rcr.116.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.116.a
+	}
+}
+
+country_event = {
+	#Political education
+	id = rcr.117
+	title = rcr.117.t
+	desc = rcr.117.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.117.a
+	}
+}
+
+country_event = {
+	#Abandon this idea
+	id = rcr.118
+	title = rcr.118.t
+	desc = rcr.118.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.118.a
+	}
+}
+
+country_event = {
+	#Freedom to the party
+	id = rcr.119
+	title = rcr.119.t
+	desc = rcr.119.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.119.a
+	}
+}
+
+country_event = {
+	#Invite loyalists only
+	id = rcr.120
+	title = rcr.120.t
+	desc = rcr.120.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.120.a
+	}
+}
+
+country_event = {
+	#Dismissed!
+	id = rcr.121
+	title = rcr.121.t
+	desc = rcr.121.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.121.a
+	}
+}
+
+country_event = {
+	#Arrest only the most dangerous
+	id = rcr.122
+	title = rcr.122.t
+	desc = rcr.122.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.122.a
+	}
+}
+
+country_event = {
+	#Attack only KORTS agents
+	id = rcr.123
+	title = rcr.123.t
+	desc = rcr.123.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.123.a
+	}
+}
+
+country_event = {
+	#Night purge
+	id = rcr.124
+	title = rcr.124.t
+	desc = rcr.124.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.124.a
+	}
+}
+
+country_event = {
+	#Full stratocracy
+	id = rcr.125
+	title = rcr.125.t
+	desc = rcr.125.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.125.a
+		if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_1
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_1
+				add_idea = Civil_Tension_2
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_2
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_2
+				add_idea = Civil_Tension_3
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_3
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_3
+				add_idea = Civil_Tension_4
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_4
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_4
+				add_idea = Civil_Tension_5
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_5
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_5
+				add_idea = Civil_Tension_6
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_6
+			}
+			swap_ideas = {
+				remove_idea = Civil_Tension_6
+				add_idea = Civil_Tension_7
+			}
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+				has_idea = Civil_Tension_7
+			}
+			add_stability = -0.15
+			add_war_support = 0.1
+		}
+		else_if = {
+			limit = {
+				has_war_support > 50
+			}
+			add_ideas = Civil_Tension_1
+			add_war_support = 0.1
+		}
+		else = {
+			add_war_support = 0.1
+		}
+	}
+}
+
+country_event = {
+	#Invite civilians
+	id = rcr.126
+	title = rcr.126.t
+	desc = rcr.126.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.126.a
+		if = {
+			limit = {
+				has_war_support < 50
+				has_stability < 50
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_1
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_1
+					add_idea = Civil_Tension_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_1
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_1
+					add_idea = Tension_in_Army_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_2
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_2
+					add_idea = Civil_Tension_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_2
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_2
+					add_idea = Tension_in_Army_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_3
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_3
+					add_idea = Civil_Tension_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_3
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_3
+					add_idea = Tension_in_Army_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_4
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_4
+					add_idea = Civil_Tension_5
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_4
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_4
+					add_idea = Tension_in_Army_5
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_5
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_5
+					add_idea = Civil_Tension_6
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_5
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_5
+					add_idea = Tension_in_Army_6
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_6
+				}
+				swap_ideas = {
+					remove_idea = Civil_Tension_6
+					add_idea = Civil_Tension_7
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_6
+				}
+				swap_ideas = {
+					remove_idea = Tension_in_Army_6
+					add_idea = Tension_in_Army_7
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Civil_Tension_7
+				}
+				add_stability = -0.1
+			}
+			if = {
+				limit = {
+					has_idea = Tension_in_Army_7
+				}
+				add_war_support = -0.1
+			}
+			else = {
+				add_ideas = Tension_in_Army_1
+				add_ideas = Civil_Tension_1
+			}
+			add_war_support = 0.05
+			add_stability = 0.05
+		}
+	}
+}
+
+country_event = {
+	#Only civilian councils
+	id = rcr.127
+	title = rcr.127.t
+	desc = rcr.127.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.127.a
+		if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_1
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_1
+				add_idea = Tension_in_Army_2
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_2
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_2
+				add_idea = Tension_in_Army_3
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_3
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_3
+				add_idea = Tension_in_Army_4
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_4
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_4
+				add_idea = Tension_in_Army_5
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_5
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_5
+				add_idea = Tension_in_Army_6
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_6
+			}
+			swap_ideas = {
+				remove_idea = Tension_in_Army_6
+				add_idea = Tension_in_Army_7
+			}
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+				has_idea = Tension_in_Army_7
+			}
+			add_war_support = -0.15
+			add_stability = 0.1
+		}
+		else_if = {
+			limit = {
+				has_stability > 50
+			}
+			add_ideas = Tension_in_Army_1
+			add_stability = 0.1
+		}
+		else = {
+			add_stability = 0.1
+		}
+	}
+}
+
+country_event = {
+	#Enforce participation
+	id = rcr.128
+	title = rcr.128.t
+	desc = rcr.128.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.128.a
+	}
+}
+
+country_event = {
+	#Appease and bribe the participants
+	id = rcr.129
+	title = rcr.129.t
+	desc = rcr.129.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.129.a
+	}
+}
+
+country_event = {
+	#Allow all, with checkout
+	id = rcr.130
+	title = rcr.130.t
+	desc = rcr.130.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.130.a
+	}
+}
+
+country_event = {
+	#Announce Pallasov's death and accuse opposition
+	id = rcr.131
+	title = rcr.131.t
+	desc = rcr.131.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.131.a
+	}
+}
+
+country_event = {
+	#Announce Pallasov's death without accusing anyone
+	id = rcr.132
+	title = rcr.132.t
+	desc = rcr.132.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.132.a
+	}
+}
+
+country_event = {
+	#Silence
+	id = rcr.133
+	title = rcr.133.t
+	desc = rcr.133.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.133.a
+	}
+}
+
+country_event = {
+	#Infiltration and agitation
+	id = rcr.134
+	title = rcr.134.t
+	desc = rcr.134.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.134.a
+	}
+}
+
+country_event = {
+	#Prepare the coup
+	id = rcr.135
+	title = rcr.135.t
+	desc = rcr.135.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.135.a
+	}
+}
+
+country_event = {
+	#Pressure on KORTS
+	id = rcr.136
+	title = rcr.136.t
+	desc = rcr.136.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = rcr.136.a
 	}
 }
 

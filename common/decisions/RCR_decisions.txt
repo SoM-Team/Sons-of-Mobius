@@ -9,6 +9,17 @@ RCR_debug = {
 			complete_national_focus = RCR_Way_of_Pallasov
 		}
 	}
+	RCR_Declare_War = {
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = EGG
+				type = topple_government
+			}
+		}
+	}
 }
 
 RCR_seventh_congress_of_soviets = {
@@ -5483,6 +5494,167 @@ RCR_Shilov_Campaign = {
 					add_manpower = Falanga_RCR
 				}
 			}
+		}
+	}
+}
+
+RCR_Shilov_Coup_Aftermath = {
+	Regional_Committees_Contacts = {
+		cost = 1
+		days_re_enable = 40 
+		complete_effect = {
+			add_stability = 0.03
+		}
+	}
+	Military_Command_Support = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_war_support = 0.03
+		}
+	}
+	Purge_Military_Districts = {
+		cost = 0
+		days_re_enable = 40
+		complete_effect = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_political_power = 75
+		}
+	}
+	Increase_Activity_of_Military_Prosecution_Office = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = 0.05
+			}
+		}
+	}
+	Decrease_Activity_of_Military_Prosecution_Office = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = -0.05
+			}
+		}
+	}
+	Set_Civilian_Administration_in_Cities = {
+		cost = 1
+		fire_only_once = yes
+		complete_effect = {
+			country_event = rcr.127
+		}
+	}
+	Set_Military_Administration_in_Cities = {
+		cost = 1
+		fire_only_once = yes
+		complete_effect = {
+			country_event = rcr.125
+		}
+	}
+	Reinforce_Loyal_Military = {
+		cost = 1
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_stability = 0.025
+		}
+	}
+	Protect_Soldiers_Families = {
+		cost = 1
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+			has_equipment = {
+				support_equipment > 50
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -50
+			}
+			add_war_support = 0.025
+		}
+	}
+	Propaganda_Leaflets_Against_KORTS = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				motorized_equipment > 50
+			}
+			has_equipment = {
+				transport_plane_equipment > 10
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -50
+			}
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment
+				amount = -10
+			}
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = -0.05
+			}
+		}
+	}
+	Propaganda_Leaflets_Against_Party_Opposition = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				motorized_equipment > 50
+			}
+			has_equipment = {
+				transport_plane_equipment > 10
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -50
+			}
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment
+				amount = -10
+			}
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = 0.05
+			}
+		}
+	}
+	Recruit_Ideological_Fighters = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+		}
+		complete_effect = {
+			add_manpower = 10000
 		}
 	}
 }
