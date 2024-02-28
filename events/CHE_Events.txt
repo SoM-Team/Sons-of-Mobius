@@ -1,0 +1,356 @@
+add_namespace = che
+
+country_event = {
+	#Intro
+	id = che.1
+	title = che.1.t
+	desc = che.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.1.a
+	}
+}
+
+country_event = {
+	#Public Meeting to Free Stepan Sukhovey
+	id = che.2
+	title = che.2.t
+	desc = che.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.2.a
+		if = {
+			limit = {
+				has_country_flag = Rethenia_tries_to_free_Sukhovey
+			}
+			random_list = {
+				99 = {
+					country_event = {
+						id = che.3
+						days = 40
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_civil_war = yes
+			}
+			random_list = {
+				99 = {
+					country_event = {
+						id = che.3
+						days = 40
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				499 = {
+					country_event = {
+						id = che.3
+						days = 40
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		RCR = {
+			country_event = rcr.202
+		}
+	}
+}
+
+country_event = {
+	#Strikes to Free Stepan Sukhovey
+	id = che.3
+	title = che.3.t
+	desc = che.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.3.a
+		if = {
+			limit = {
+				has_country_flag = Rethenia_tries_to_free_Sukhovey
+			}
+			random_list = {
+				75 = {
+					country_event = {
+						id = che.4
+						days = 120
+					}
+				}
+				25 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_civil_war = yes
+			}
+			random_list = {
+				75 = {
+					country_event = {
+						id = che.4
+						days = 120
+					}
+				}
+				25 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				95 = {
+					country_event = {
+						id = che.4
+						days = 120
+					}
+				}
+				5 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		RCR = {
+			country_event = rcr.203
+		}
+	}
+}
+
+country_event = {
+	#Prison Escape for Stepan Sukhovey
+	id = che.4
+	title = che.4.t
+	desc = che.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.4.a
+		if = {
+			limit = {
+				has_country_flag = Rethenia_tries_to_free_Sukhovey
+			}
+			random_list = {
+				65 = {
+					country_event = {
+						id = che.5
+						days = 120
+					}
+				}
+				35 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_civil_war = yes
+			}
+			random_list = {
+				65 = {
+					country_event = {
+						id = che.5
+						days = 120
+					}
+				}
+				35 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				35 = {
+					country_event = {
+						id = che.5
+						days = 120
+					}
+				}
+				65 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+			}
+		}
+		RCR = {
+			country_event = rcr.204
+		}
+	}
+}
+
+country_event = {
+	#Uprising of Anarchists
+	id = che.5
+	title = che.5.t
+	desc = che.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.5.a
+		if = {
+			limit = {
+				has_country_flag = Rethenia_tries_to_free_Sukhovey
+				NOT = {
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			random_list = {
+				99 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.6
+						days = 9
+					}
+				}
+			}
+			start_civil_war = {
+				ideology = autonomous_socialism
+			}
+			kill_country_leader = yes
+		}
+		else_if = {
+			limit = {
+				has_civil_war = yes
+			}
+			random_list = {
+				99 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.6
+						days = 9
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				9 = {
+					country_event = {
+						id = che.7
+						days = 9
+					}
+				}
+				1 = {
+					country_event = {
+						id = che.6
+						days = 9
+					}
+				}
+			}
+		}
+		RCR = {
+			country_event = rcr.205
+		}
+	}
+}
+
+country_event = {
+	#Execution of Stepan Sukhovey
+	id = che.6
+	title = che.6.t
+	desc = che.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.6.a
+		hidden_effect = {
+			CHE = {
+				retire_character = CHE_Stepan_Sukhovey
+			}
+		}
+		RCR = {
+			country_event = rcr.206
+		}
+		custom_effect_tooltip = Sukhovey_is_sentenced_to_death
+	}
+}
+
+country_event = {
+	#Stepan Sukhovey is free now
+	id = che.7
+	title = che.7.t
+	desc = che.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = che.7.a
+		hidden_effect = {
+			CHE_Stepan_Sukhovey = {
+				clr_character_flag = imprisoned
+			}
+		}
+		add_stability = 0.1
+		add_war_support = 0.15
+		add_popularity = {
+			ideology = katzerism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = autonomous_socialism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = progressism
+			popularity = 0.03
+		}
+		RCR = {
+			country_event = rcr.207
+		}
+		custom_effect_tooltip = Sukhovey_is_free
+	}
+}

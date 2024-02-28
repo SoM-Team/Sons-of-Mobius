@@ -17,7 +17,7 @@ focus_tree = {
 		id = RCR_Prepare_Congress
 		icon = GFX_focus_siezd_prepare
 		cost = 7
-		x = 5
+		x = 3
 		y = 0
 		allow_branch = {
 			NOT = {
@@ -47,13 +47,20 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Congress
 		}
-		x = 5
+		relative_position_id = RCR_Prepare_Congress
+		x = 0
 		y = 1
 		available = {
 			always = no
 		}
 		bypass = {
 			has_country_flag = the_congress_is_to_start
+		}
+		mutually_exclusive = {
+			
+		}
+		completion_reward = {
+			
 		}
 	}
 
@@ -67,9 +74,10 @@ focus_tree = {
 		x = 4
 		y = 2
 		allow_branch = {
-			has_country_leader = {
-				name = "Nikolai Khnykin"
-			}
+			# has_country_leader = {
+			# 	name = "Nikolai Khnykin"
+			# }
+			always = no
 		}
 		available = {
 			always = no
@@ -178,7 +186,7 @@ focus_tree = {
 				remove_idea = Echo_Civil_War_1
 				add_idea = Echo_Civil_War_2
 			}
-			supply_units = 240
+			#supply_units = 240
 		}
 	}
 
@@ -409,21 +417,24 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Congress_Yes
 		}
-		x = 5
+		relative_position_id = RCR_Prepare_Congress
+		x = 0
 		y = 2
 		available = {
 			has_country_flag = RCR_chairman_Pallasov_is_elected
 		}
 		completion_reward = {
 			add_popularity = {
-				ideology = communism
+				ideology = katzerism
 				popularity = 0.1
 			}
 			add_political_power = 100
 			add_ideas = Pallasov_vision
+			add_ideas = Pallasov_vision_0
 			country_event = {
 				id = rcr.46
 			}
+			set_country_flag = Way_of_Pallasov
 		}
 	}
 	
@@ -434,14 +445,12 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Way_of_Pallasov
 		}
-		x = 7
-		y = 3
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -4
+		y = 1
 		completion_reward = {
 			add_political_power = 50
-			swap_ideas = {
-				remove_idea = Pallasov_vision
-				add_idea = Pallasov_vision_1
-			}
+			add_ideas = Pallasov_vision_1
 			country_event = {
 				id = rcr.52
 			}
@@ -455,8 +464,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Way_of_Pallasov
 		}
-		x = 3
-		y = 3
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 0
+		y = 1
 		completion_reward = {
 			261 = {
 				add_extra_state_shared_building_slots = 2
@@ -482,10 +492,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			swap_ideas = {
-				remove_idea = Echo_Civil_War
-				add_idea = Echo_Civil_War_1
-			}
 			country_event = {
 				id = rcr.47
 			}
@@ -500,34 +506,32 @@ focus_tree = {
 			focus = RCR_Nationalise_Light_Industry
 		}
 		prerequisite = {
-			focus = RCR_Democratic_Centralism
+			focus = RCR_University_of_Stalegor
 		}
-		x = 5
-		y = 4
+		prerequisite = {
+			focus = RCR_Foreign_Workers
+		}
+		prerequisite = {
+			focus = RCR_Agrarian_Cities
+		}
+		prerequisite = {
+			focus = RCR_Improve_Prestige_of_Red_Army
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 1
+		y = 3
 		available = {
 			has_completed_focus = RCR_Automation
+			check_variable = {
+				rings > 99999
+			}
 		}
 		completion_reward = {
 			add_to_variable = {
 				RCR_AUTO = 15
 			}
-			if = {
-				limit = {
-					has_idea = Echo_Civil_War_1
-				}
-				swap_ideas = {
-					remove_idea = Echo_Civil_War_1
-					add_idea = Echo_Civil_War_2
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = Echo_Civil_War_2
-				}
-				swap_ideas = {
-					remove_idea = Echo_Civil_War_2
-					add_idea = Echo_Civil_War_3
-				}
+			add_to_variable = {
+				rings = -100000
 			}
 			custom_effect_tooltip = Automation_15
 		}
@@ -540,8 +544,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Nationalise_Light_Industry
 		}
-		x = 3
-		y = 4
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 0
+		y = 2
 		available = {
 			has_completed_focus = RCR_Abandon_Old_Ways
 		}
@@ -586,24 +591,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			if = {
-				limit = {
-					has_idea = Echo_Civil_War_1
-				}
-				swap_ideas = {
-					remove_idea = Echo_Civil_War_1
-					add_idea = Echo_Civil_War_2
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = Echo_Civil_War_2
-				}
-				swap_ideas = {
-					remove_idea = Echo_Civil_War_2
-					add_idea = Echo_Civil_War_3
-				}
-			}
 			add_ideas = New_agriculture
 			country_event = {
 				id = rcr.48
@@ -619,17 +606,15 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Democratic_Centralism
 		}
-		x = 7
-		y = 4
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -6
+		y = 2
 		completion_reward = {
 			add_popularity = {
 				ideology = katzerism
 				popularity = 0.1
 			}
-			swap_ideas = {
-				remove_idea = Pallasov_vision_1
-				add_idea = Pallasov_vision_2
-			}
+			add_ideas = Pallasov_vision_2
 			country_event = {
 				id = rcr.53
 			}
@@ -641,15 +626,12 @@ focus_tree = {
 		icon = GFX_focus_international_workers
 		cost = 5
 		prerequisite = {
-			focus = RCR_Automatization_Bonds
+			focus = RCR_Nationalise_Light_Industry
 		}
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 4
-		y = 5
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -2
+		y = 2
 		completion_reward = {
-			remove_ideas = Echo_Civil_War_3
 			add_ideas = International_coop
 			add_manpower = 200000
 			hidden_effect = {
@@ -666,13 +648,11 @@ focus_tree = {
 		icon = GFX_focus_stalegor_university
 		cost = 5
 		prerequisite = {
-			focus = RCR_Fight_with_Bureaucratism
+			focus = RCR_Way_of_Pallasov
 		}
-		prerequisite = {
-			focus = RCR_Automatization_Bonds
-		}
-		x = 6
-		y = 5
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 2
+		y = 1
 		completion_reward = {
 			add_tech_bonus = {
 				name = industrial_bonus
@@ -681,10 +661,7 @@ focus_tree = {
 				category = industry
 			}
 			add_research_slot = 1
-			swap_ideas = {
-				remove_idea = Pallasov_vision_2
-				add_idea = Pallasov_vision_3
-			}
+			add_ideas = Pallasov_vision_3
 			country_event = {
 				id = rcr.93
 			}
@@ -696,18 +673,13 @@ focus_tree = {
 		icon = GFX_focus_army_prestige
 		cost = 5
 		prerequisite = {
-			focus = RCR_Foreign_Workers
-		}
-		prerequisite = {
 			focus = RCR_University_of_Stalegor
 		}
-		x = 5
-		y = 6
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 2
+		y = 2
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Pallasov_vision_3
-				add_idea = Pallasov_vision_4
-			}
+			add_ideas = Pallasov_vision_4
 			every_army_leader = {
 				add_logistics = 1
 			}
@@ -721,46 +693,44 @@ focus_tree = {
 	}
 
 	focus = {
-		id = RCR_Building_New_Capital
+		id = RCR_Voskhod_Complex #Комплекс “Восход”
 		icon = GFX_focus_new_capital
 		cost = 8
 		prerequisite = {
 			focus = RCR_Improve_Prestige_of_Red_Army
 		}
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 3
-		y = 7
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 5
+		y = 3
 		completion_reward = {
-			6 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = anti_air_building
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = air_base
-					level = 2
-					instant_build = yes
-				}
-			}
+			# 6 = {
+			# 	add_extra_state_shared_building_slots = 2
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = industrial_complex
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = arms_factory
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = anti_air_building
+			# 		level = 1
+			# 		instant_build = yes
+			# 	}
+			# 	add_building_construction = {
+			# 		type = air_base
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
 			add_political_power = 50
 			hidden_effect = {
 				country_event = {
@@ -772,107 +742,105 @@ focus_tree = {
 	}
 
 	focus = {
-		id = RCR_Continue_World_Revolution
-		icon = GFX_focus_world_revolution
+		id = RCR_Diplomatic_Flexibility_and_Pragmatism
+		icon = GFX_goal_unknown
 		cost = 5
 		prerequisite = {
 			focus = RCR_Fight_with_Bureaucratism
 		}
 		prerequisite = {
+			focus = RCR_Narkin_Reform
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -3
+		y = 3
+		completion_reward = {
+			every_other_country = { 
+				limit = {
+					OR = {
+						has_government = katzerism
+						has_government = autonomous_socialism
+						has_government = neosocialism
+						has_country_flag = Left_Wing_Social_Democrat
+					}
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Ideological_Friends
+				}
+				set_variable = {
+					Revolutionary_Action = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = RCR_Narkin_Reform
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
+			focus = RCR_Democratic_Centralism
+		}
+		relative_position_id = RCR_Way_of_Pallasov
+		x = -4
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = Pallasov_vision_5
+		}
+	}
+
+	focus = {
+		id = RCR_Nature_Renovation
+		icon = GFX_goal_unknown
+		cost = 5
+		prerequisite = {
 			focus = RCR_Improve_Prestige_of_Red_Army
 		}
-		x = 7
-		y = 7
-	}
-
-	focus = {
-		id = RCR_Empower_Ispolkom
-		icon = GFX_focus_ispolkom
-		cost = 0
-		prerequisite = {
-			focus = RCR_Fight_with_Bureaucratism
+		relative_position_id = RCR_Way_of_Pallasov
+		x = 3
+		y = 3
+		completion_reward = {
+			set_variable = {
+				var = Nature_Renovation_Plan
+				value = 0
+			}
+			set_variable = {
+				var = Nature_Renovation_growth
+				value = 0
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
 		}
-		x = 1
-		y = 5
-	}
-
-	focus = {
-		id = RCR_Activate_CORTS
-		icon = GFX_focus_activate_korts
-		cost = 0
-		prerequisite = {
-			focus = RCR_Empower_Ispolkom
-		}
-		x = 0
-		y = 6
-	}
-
-	focus = {
-		id = RCR_Glav_Rev_Mult
-		icon = GFX_focus_glavrevmult
-		cost = 0
-		prerequisite = {
-			focus = RCR_Empower_Ispolkom
-		}
-		x = 2
-		y = 6
-	}
-
-	focus = {
-		id = RCR_Writers_Union
-		icon = GFX_focus_writers_union
-		cost = 0
-		prerequisite = {
-			focus = RCR_Activate_CORTS
-			focus = RCR_Glav_Rev_Mult
-		}
-		x = 1
-		y = 7
-	}
-
-	focus = {
-		id = RCR_Agreement_with_Workers_Unions
-		icon = GFX_focus_unions_agreement
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agrarian_Cities
-		}
-		x = 9
-		y = 5
-	}
-
-	focus = {
-		id = RCR_Anti_Alchohol_Campaign
-		icon = GFX_focus_anti_alcohol
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agreement_with_Workers_Unions
-		}
-		x = 8
-		y = 6
-	}
-
-	focus = {
-		id = RCR_Resctructurisation_of_Institutes
-		icon = GFX_focus_scientific
-		cost = 0
-		prerequisite = {
-			focus = RCR_Agreement_with_Workers_Unions
-		}
-		x = 10
-		y = 6
-	}
-
-	focus = {
-		id = RCR_Reform_Court_System
-		icon = GFX_focus_soviet_court
-		cost = 0
-		prerequisite = {
-			focus = RCR_Anti_Alchohol_Campaign
-			focus = RCR_Resctructurisation_of_Institutes
-		}
-		x = 9
-		y = 7
 	}
 
 	focus = {
@@ -885,9 +853,10 @@ focus_tree = {
 		x = 4
 		y = 2
 		allow_branch = {
-			has_country_leader = {
-				name = "Mikhail Krugin"
-			}
+			# has_country_leader = {
+			# 	name = "Mikhail Krugin"
+			# }
+			always = no
 		}
 		available = {
 			always = no
@@ -923,7 +892,7 @@ focus_tree = {
 				remove_idea = national_empire_crugin
 			}
 			add_popularity = {
-				ideology = communism
+				ideology = katzerism
 				popularity = -0.1
 			}
 		}
@@ -1024,11 +993,11 @@ focus_tree = {
 			if = {
 				limit = {
 					NOT = {
-						has_government = neosocialist
+						has_government = neosocialism
 					}
-					neosocialist > 0.75
+					neosocialism > 0.75
 				}
-				set_country_leader_ideology = neosocialist
+				set_country_leader_ideology = neosocialism_proryvism_subtype
 			}
 			add_political_power = 100
 			army_experience = 25
@@ -1107,6 +1076,9 @@ focus_tree = {
 		}
 		x = 4
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1184,6 +1156,9 @@ focus_tree = {
 		available = {
 			has_global_flag = jail_Shilov
 		}
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1198,6 +1173,9 @@ focus_tree = {
 		available = {
 			has_idea = Military_Pos
 		}
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1209,6 +1187,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 1
+		completion_reward = {
+			
+		}
 	}
 	
 	focus = {
@@ -1226,6 +1207,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 2
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1237,6 +1221,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 3
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1248,6 +1235,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 3
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1264,6 +1254,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 4
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1275,6 +1268,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1286,6 +1282,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1297,6 +1296,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1308,6 +1310,9 @@ focus_tree = {
 		}
 		x = 30
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1319,6 +1324,9 @@ focus_tree = {
 		}
 		x = 32
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1330,6 +1338,9 @@ focus_tree = {
 		}
 		x = 26
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1341,6 +1352,9 @@ focus_tree = {
 		}
 		x = 28
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 	
 	focus = {
@@ -1355,6 +1369,9 @@ focus_tree = {
 		}
 		x = 27
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1366,6 +1383,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1380,6 +1400,9 @@ focus_tree = {
 		}
 		x = 31
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1397,6 +1420,9 @@ focus_tree = {
 		}
 		x = 29
 		y = 8
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1414,6 +1440,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 2
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1425,6 +1454,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 3
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1442,7 +1474,7 @@ focus_tree = {
 				desc = "SHILOV_IS_PIDOR"
 				picture = "Viktor_Gromov_premier.dds"
 				expire = "1965.1.1"
-				ideology = technokatzerist
+				ideology = katzerism_techno_katzerism_subtype
 				traits = {
 				}
 			}
@@ -1458,6 +1490,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1469,6 +1504,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1480,6 +1518,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1494,6 +1535,9 @@ focus_tree = {
 		}
 		x = 38
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1508,6 +1552,9 @@ focus_tree = {
 		}
 		x = 36
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1522,6 +1569,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1533,6 +1583,9 @@ focus_tree = {
 		}
 		x = 35
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1544,6 +1597,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1558,6 +1614,9 @@ focus_tree = {
 		}
 		x = 39
 		y = 8
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1575,6 +1634,9 @@ focus_tree = {
 		}
 		x = 37
 		y = 8
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1589,13 +1651,16 @@ focus_tree = {
 		}
 		x = 35
 		y = 8
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
 		id = RCR_Winter_Coup
 		icon = GFX_focus_winter_coup
 		cost = 0
-		x = 5
+		x = -5
 		y = 0
 		allow_branch = {
 			has_country_leader = {
@@ -1603,7 +1668,11 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_global_flag = Shilov_coup
+			has_country_flag = Shilov_coup
+		}
+		completion_reward = {
+			#it will open a set of a decisions to influence the balance of power
+			custom_effect_tooltip = Winter_Coup_Decisions	
 		}
 	}
 
@@ -1617,6 +1686,10 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.05
+		}
 	}
 
 	focus = {
@@ -1629,6 +1702,26 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			hidden_effect = {
+				RCR_Fyodor_Shubin = {
+					set_character_flag = in_hiding
+				}
+				RCR_Zoya_Shubina = {
+					set_character_flag = in_hiding
+				}
+				RCR_Rudolph_Owler = {
+					set_character_flag = in_hiding
+				}
+			}
+			custom_effect_tooltip = Purges_In_Army
+			army_experience = -40
+			navy_experience = -20
+			air_experience = -20
+			add_manpower = -35000
+			add_stability = 0.05
+			add_war_support = 0.07
+		}
 	}
 
 	focus = {
@@ -1649,6 +1742,9 @@ focus_tree = {
 		allow_branch = {
 			has_country_flag = Shubin_plot
 		}
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1660,6 +1756,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 3
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1672,6 +1771,9 @@ focus_tree = {
 		}
 		x = 45
 		y = 4
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1683,6 +1785,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 4
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1694,6 +1799,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1705,6 +1813,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1716,6 +1827,9 @@ focus_tree = {
 		}
 		x = 50
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1727,6 +1841,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1738,6 +1855,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1749,6 +1869,9 @@ focus_tree = {
 		}
 		x = 46
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1766,6 +1889,9 @@ focus_tree = {
 		}
 		x = 48
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1783,7 +1909,7 @@ focus_tree = {
 				desc = "SHILOV_IS_PIDOR"
 				picture = "Fyodor_Shubin_premier.dds"
 				expire = "1965.1.1"
-				ideology = katzerist_pallasovist
+				ideology = katzerism_pallasovism_subtype
 				traits = {
 				}
 			}
@@ -1799,6 +1925,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 4
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1810,6 +1939,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1821,6 +1953,9 @@ focus_tree = {
 		}
 		x = 40
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1832,6 +1967,9 @@ focus_tree = {
 		}
 		x = 44
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1843,6 +1981,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1860,6 +2001,9 @@ focus_tree = {
 		}
 		x = 42
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1878,6 +2022,9 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1893,6 +2040,9 @@ focus_tree = {
 			has_country_leader = {
 				name = "Nikolai Koliuchkin"
 			}
+		}
+		completion_reward = {
+			
 		}
 	}
 
@@ -1958,6 +2108,9 @@ focus_tree = {
 		}
 		x = 68
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1972,6 +2125,9 @@ focus_tree = {
 		}
 		x = 62
 		y = 5
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1986,6 +2142,9 @@ focus_tree = {
 		}
 		x = 63
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -1997,6 +2156,9 @@ focus_tree = {
 		}
 		x = 66
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -2008,6 +2170,9 @@ focus_tree = {
 		}
 		x = 64
 		y = 6
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -2043,6 +2208,9 @@ focus_tree = {
 		}
 		x = 67
 		y = 7
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -2056,9 +2224,9 @@ focus_tree = {
 		y = 3
 		relative_position_id = RCR_Winter_Coup
 		completion_reward = {
-			add_ideas = New_order
 			add_political_power = 50
-			add_stability = 0.1
+			add_stability = 0.05
+			country_event = rcr.55
 		}
 	}
 
@@ -2073,19 +2241,12 @@ focus_tree = {
 		y = 4
 		relative_position_id = RCR_Winter_Coup
 		completion_reward = {
-			add_war_support = -0.05
-			add_political_power = 60
-			add_command_power = 20
-			add_manpower = -100000
-			add_timed_idea = {
-				idea = Military_Pos1
-				days = 150
-			}
+			country_event = rcr.56
 		}
 	}
 
 	focus = {
-		id = RCR_Distribution_of_Food
+		id = RCR_Priorities_of_Future_Wars
 		icon = GFX_focus_prod_monopoly
 		cost = 0
 		prerequisite = {
@@ -2095,8 +2256,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = RCR_Winter_Coup
 		completion_reward = {
-			add_ideas = Portions_peace
-			add_ideas = Portions_war
+			country_event = rcr.57
 		}
 	}
 
@@ -2111,7 +2271,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = RCR_Winter_Coup
 		completion_reward = {
-			add_ideas = Kill_unions
+			country_event = rcr.59
 		}
 	}
 
@@ -2125,6 +2285,9 @@ focus_tree = {
 		x = 0
 		y = 5
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			country_event = rcr.60
+		}
 	}
 
 	focus = {
@@ -2137,6 +2300,24 @@ focus_tree = {
 		x = -2
 		y = 6
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			country_event = rcr.62
+		}
+	}
+
+	focus = {
+		id = RCR_Revolution_Culture
+		icon = GFX_focus_military_science_council
+		cost = 0
+		prerequisite = {
+			focus = RCR_Shilov_Constitution
+		}
+		x = -3
+		y = 6
+		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			country_event = rcr.70
+		}
 	}
 
 	focus = {
@@ -2144,7 +2325,7 @@ focus_tree = {
 		icon = GFX_focus_robotize_army
 		cost = 0
 		prerequisite = {
-			focus = RCR_Distribution_of_Food
+			focus = RCR_Priorities_of_Future_Wars
 		}
 		x = -4
 		y = 6
@@ -2157,6 +2338,8 @@ focus_tree = {
 				uses = 4
 				category = robot_techs
 			}
+			load_oob = "RCR_Robo_Zombies"
+			country_event = rcr.63
 		}
 	}
 
@@ -2171,13 +2354,12 @@ focus_tree = {
 		y = 6
 		relative_position_id = RCR_Winter_Coup
 		completion_reward = {
-			add_ideas = Clon_idea
-			add_manpower = -100000
+			country_event = rcr.65
 		}
 	}
 
 	focus = {
-		id = RCR_Arsenal_Katcerism
+		id = RCR_Restoration_Priorities
 		icon = GFX_focus_all_for_the_army
 		cost = 0
 		prerequisite = {
@@ -2186,10 +2368,13 @@ focus_tree = {
 		x = 2
 		y = 6
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			country_event = rcr.66
+		}
 	}
 
 	focus = {
-		id = RCR_Revolution_War
+		id = RCR_Revolution_Legacy
 		icon = GFX_focus_revolutionary_war
 		cost = 0
 		prerequisite = {
@@ -2199,17 +2384,20 @@ focus_tree = {
 			focus = RCR_Clone_the_Fallen_Soldiers
 		}
 		prerequisite = {
-			focus = RCR_Arsenal_Katcerism
+			focus = RCR_Restoration_Priorities
 		}
 		prerequisite = {
 			focus = RCR_Robotization_Army
 		}
-		prerequisite = {
-			focus = RCR_Gun_Black_Shop
-		}
+		# prerequisite = {
+		# 	focus = RCR_Gun_Black_Shop
+		# }
 		x = 0
 		y = 7
 		relative_position_id = RCR_Winter_Coup
+		completion_reward = {
+			country_event = rcr.69
+		}
 	}
 
 	focus = {
@@ -2267,6 +2455,15 @@ focus_tree = {
 		available = {
 			num_of_civilian_factories_available_for_projects > 14
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = Robots_Manufacturing
+				category = robot_techs
+				bonus = 0.5
+				uses = 3
+			}
+			add_ideas = robotics_in_economy
+		}
 	}
 
 	focus = {
@@ -2284,6 +2481,31 @@ focus_tree = {
 				num_of_civilian_factories_available_for_projects > 29
 				NOT = {
 					has_idea = Echo_Civil_War
+				}
+			}
+		}
+		completion_reward = {
+			6 = {
+				add_extra_state_shared_building_slots = 8
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
@@ -2323,12 +2545,12 @@ focus_tree = {
 			if = {
 				limit = {
 					OR = {
-						has_government = communism
+						has_government = katzerism
 						has_completed_focus = RCR_Way_of_Pallasov
 					}
 				}
 				add_popularity = {
-					ideology = communism
+					ideology = katzerism
 					popularity = 0.05
 				}
 			}
@@ -2347,12 +2569,12 @@ focus_tree = {
 			if = {
 				limit = {
 					OR = {
-						has_government = neosocialist
+						has_government = neosocialism
 						has_completed_focus = RCR_Director_Crygina
 					}
 				}
 				add_popularity = {
-					ideology = neosocialist
+					ideology = neosocialism
 					popularity = 0.05
 				}
 			}
@@ -2462,8 +2684,6 @@ focus_tree = {
 					has_idea = Echo_Civil_War_2
 				}
 			}
-		}
-		available = {
 			has_war = no
 		}
 		completion_reward = {
@@ -2513,6 +2733,40 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = RCR_discussion_of_planning
+		completion_reward = {
+			add_to_variable = {
+				rings = 100000
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = Energy_Investments
+		}
 	}
 
 	focus = {
@@ -2527,6 +2781,9 @@ focus_tree = {
 		relative_position_id = RCR_discussion_of_planning
 		available = {
 			has_completed_focus = RCR_laboratory_of_socialism
+		}
+		completion_reward = {
+			
 		}
 	}
 
@@ -2544,6 +2801,9 @@ focus_tree = {
 			NOT = {
 				has_idea = Echo_Civil_War
 			}
+		}
+		completion_reward = {
+			
 		}
 	}
 
@@ -2776,12 +3036,35 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = bunker
-					province = {
-						all_provinces = yes
-						limit_to_coastal = yes
-					}
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
@@ -2824,7 +3107,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = RCR_commanding_heights
+		id = RCR_commanding_heights		#need reworking
 		icon = GFX_focus_command_heights
 		cost = 0
 		prerequisite = {
@@ -2894,7 +3177,7 @@ focus_tree = {
 				name = electronic_bonus
 				bonus = 0.5
 				uses = 2
-				category = electronic
+				category = electronics
 			}
 			random_owned_state = {
 				add_state_modifier = {
@@ -2976,6 +3259,16 @@ focus_tree = {
 		}
 		x = 29
 		y = 1
+		ai_will_do = {
+			modifier = {
+				has_government = katzerism
+				factor = 100
+			}
+			modifier = {
+				has_government = autonomous_socialism
+				factor = 100
+			}
+		}
 		completion_reward = {
 			add_political_power = 50
 			if = {
@@ -3002,6 +3295,38 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			custom_effect_tooltip = elightenment_tooltip
+			add_stability = 0.05
+			add_political_power = -25
+			if = {
+				limit = {
+					has_government = neosocialism
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.05
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = autonomous_socialism
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = 0.05
+				}
+			}
+			else_if = {
+				limit = {
+					has_government = katzerism
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.05
+				}
+			}
+			else = {
+				add_political_power = 25
+			}
 		}
 	}
 
@@ -3081,12 +3406,12 @@ focus_tree = {
 		x = 31
 		y = 3
 		completion_reward = {
-			hidden_effect = {
-				country_event = {
-					id = rcr.93 							#ERROR
-					days = 90
-				}
-			}
+			# hidden_effect = {
+			# 	country_event = {
+			# 		id = rcr.93 							#ERROR
+			# 		days = 90
+			# 	}
+			# }
 			add_timed_idea = {
 				idea = build_futurology
 				days = 90
@@ -3124,10 +3449,13 @@ focus_tree = {
 			set_rule = {
 				can_generate_female_aces = yes
 			}
+			set_rule = {
+				can_generate_female_unit_leaders = yes
+			}
 			add_ideas = women_army
 			if = {
 				limit = {
-					has_completed_focus = elightenment
+					has_completed_focus = RCR_enlightenment
 				}
 				add_manpower = 60000
 			}
@@ -3148,6 +3476,12 @@ focus_tree = {
 		}
 		x = 27
 		y = 1
+		ai_will_do = {
+			modifier = {
+				has_government = neosocialism
+				factor = 100
+			}
+		}
 		completion_reward = {
 			add_political_power = 50
 			if = {
@@ -3213,11 +3547,11 @@ focus_tree = {
 					}
 					neosocialism > 0.75
 				}
-				set_country_leader_ideology = neosocialism
-				add_popularity = {
-					ideology = ROOT
-					popularity = 0.05
-				}
+				set_country_leader_ideology = neosocialism_subtype
+			}
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
 			}
 		}
 	}
@@ -3281,7 +3615,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NO = {
+					NOT = {
 						has_completed_focus = RCR_enlightenment
 					}
 				}
@@ -3455,7 +3789,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NO = {
+					NOT = {
 						has_idea = freedom_smrad
 						has_idea = freedom_cultur
 					}
@@ -3848,6 +4182,9 @@ focus_tree = {
 		}
 		x = 14
 		y = 11
+		completion_reward = {
+			
+		}
 	}
 
 	focus = {
@@ -3918,13 +4255,41 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 100
 			add_war_support = 0.1
-			swap_ideas = {
-				remove_idea = Echo_Civil_War
-				add_idea = Echo_Civil_War_1
+			if = {
+				limit = {
+					has_idea = Echo_Civil_War
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War
+					add_idea = Echo_Civil_War_1
+				}
 			}
-			swap_ideas = {
-				add_idea = national_empire_crugin_2
-				remove_idea = national_empire_crugin
+			else_if = {
+				limit = {
+					has_idea = Echo_Civil_War_1
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_1
+					add_idea = Echo_Civil_War_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Echo_Civil_War_2
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_2
+					add_idea = Echo_Civil_War_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = national_empire_crugin
+				}
+				swap_ideas = {
+					add_idea = national_empire_crugin_2
+					remove_idea = national_empire_crugin
+				}
 			}
 			add_popularity = {
 				ideology = katzerism
@@ -3951,8 +4316,8 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			add_equipment_to_stockpile = {
-				type = infantry_equipment_2
-				amount = 15000
+				type = infantry_equipment_3
+				amount = 35000
 				producer = RCR
 			}
 		}
@@ -3972,7 +4337,7 @@ focus_tree = {
 		y = 12
 		completion_reward = {
 			add_popularity = {
-				ideology = communism
+				ideology = ROOT
 				popularity = 0.02
 			}
 			add_political_power = 25
@@ -4027,6 +4392,21 @@ focus_tree = {
 		cost = 0
 		x = 22
 		y = 8
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = Red_Fleet
+				category = naval_doctrine
+				bonus = 0.5
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = Red_fleet
+				category = naval_equipment
+				bonus = 1
+				uses = 2
+			}
+		}
 	}
 
 	focus = {
@@ -4041,6 +4421,9 @@ focus_tree = {
 		}
 		x = 21
 		y = 9
+		completion_reward = {
+			add_ideas = Open_Sea_Fleeet
+		}
 	}
 
 	focus = {
@@ -4055,6 +4438,9 @@ focus_tree = {
 		}
 		x = 23
 		y = 9
+		completion_reward = {
+			add_ideas = Pirate_Fleet
+		}
 	}
 
 	focus = {
@@ -4066,6 +4452,29 @@ focus_tree = {
 		}
 		x = 19
 		y = 10
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Open_Sea_Fleeet_1b
+				}
+				swap_ideas = {
+					remove_idea = Open_Sea_Fleeet_1b
+					add_idea = Open_Sea_Fleeet_1ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = Open_Sea_Fleeet
+					add_idea = Open_Sea_Fleeet_1a
+				}
+			}
+			# add_tech_bonus = {
+			# 	name = Project_Hive
+			# 	category = carriers
+			# 	uses = 2
+			# 	bonus = 1
+			# }
+		}
 	}
 
 	focus = {
@@ -4077,6 +4486,29 @@ focus_tree = {
 		}
 		x = 21
 		y = 10
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Open_Sea_Fleeet_1a
+				}
+				swap_ideas = {
+					remove_idea = Open_Sea_Fleeet_1a
+					add_idea = Open_Sea_Fleeet_1ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = Open_Sea_Fleeet
+					add_idea = Open_Sea_Fleeet_1b
+				}
+			}
+			# add_tech_bonus = {
+			# 	name = Project_Thunder
+			# 	category = battleships
+			# 	uses = 2
+			# 	bonus = 1
+			# }
+		}
 	}
 
 	focus = {
@@ -4091,6 +4523,12 @@ focus_tree = {
 		}
 		x = 21
 		y = 11
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Open_Sea_Fleeet_1ab
+				add_idea = Open_Sea_Fleeet_2
+			}
+		}
 	}
 
 	focus = {
@@ -4102,6 +4540,29 @@ focus_tree = {
 		}
 		x = 23
 		y = 10
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Pirate_Fleeet_1a
+				}
+				swap_ideas = {
+					remove_idea = Pirate_Fleeet_1a
+					add_idea = Pirate_Fleeet_1ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = Pirate_Fleeet
+					add_idea = Pirate_Fleeet_1b
+				}
+			}
+			# add_tech_bonus = {
+			# 	name = Project_Piranha
+			# 	category = submarines
+			# 	uses = 2
+			# 	bonus = 1
+			# }
+		}
 	}
 
 	focus = {
@@ -4113,6 +4574,29 @@ focus_tree = {
 		}
 		x = 25
 		y = 10
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Pirate_Fleeet_1b
+				}
+				swap_ideas = {
+					remove_idea = Pirate_Fleeet_1b
+					add_idea = Pirate_Fleeet_1ab
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = Pirate_Fleeet
+					add_idea = Pirate_Fleeet_1a
+				}
+			}
+			# add_tech_bonus = {
+			# 	name = Project_Orca
+			# 	category = destroyers
+			# 	uses = 2
+			# 	bonus = 1
+			# }
+		}
 	}
 
 	focus = {
@@ -4127,6 +4611,12 @@ focus_tree = {
 		}
 		x = 23
 		y = 11
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Pirate_Fleet_1ab
+				add_idea = Pirate_Fleet_2
+			}
+		}
 	}
 
 	focus = {
@@ -4139,6 +4629,26 @@ focus_tree = {
 		}
 		x = 22
 		y = 12
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Open_Sea_Fleeet_2
+				}
+				swap_ideas = {
+					remove_idea = Open_Sea_Fleeet_2
+					add_idea = Open_Sea_Fleeet_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Pirate_Fleet_2
+				}
+				swap_ideas = {
+					remove_idea = Pirate_Fleet_2
+					add_idea = Pirate_Fleet_3
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -4153,6 +4663,12 @@ focus_tree = {
 		}
 		x = 20
 		y = 13
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Open_Sea_Fleeet_3
+				add_idea = Open_Sea_Fleeet_4
+			}
+		}
 	}
 
 	focus = {
@@ -4167,6 +4683,12 @@ focus_tree = {
 		}
 		x = 24
 		y = 13
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Pirate_Fleet_3
+				add_idea = Pirate_Fleet_4
+			}
+		}
 	}
 
 	focus = {
@@ -4192,6 +4714,38 @@ focus_tree = {
 		}
 		x = 1
 		y = 9
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_1c
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1c
+					add_idea = Red_Air_Forces_1ac
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1b
+					add_idea = Red_Air_Forces_1ab
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1bc
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1bc
+					add_idea = Red_Air_Forces_1abc
+				}
+			}
+			else = {
+				add_ideas = Red_Air_Forces_1a
+			}
+		}
 	}
 
 	focus = {
@@ -4203,6 +4757,229 @@ focus_tree = {
 		}
 		x = 5
 		y = 9
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_1a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1a
+					add_idea = Red_Air_Forces_1ac
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1b
+					add_idea = Red_Air_Forces_1bc
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1ab
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1ab
+					add_idea = Red_Air_Forces_1abc
+				}
+			}
+			else = {
+				add_ideas = Red_Air_Forces_1c
+			}
+			6 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			275 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			254 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			245 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			310 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			282 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			286 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_core_state = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -4214,6 +4991,74 @@ focus_tree = {
 		}
 		x = 3
 		y = 9
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_1c
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1c
+					add_idea = Red_Air_Forces_1bc
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1a
+					add_idea = Red_Air_Forces_1ab
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_1ac
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_1ac
+					add_idea = Red_Air_Forces_1abc
+				}
+			}
+			else = {
+				add_ideas = Red_Air_Forces_1b
+			}
+			266 = {
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+			}
+			298 = {
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+			295 = {
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+			}
+			232 = {
+				add_resource = {
+					type = aluminium
+					amount = 4
+				}
+			}
+			320 = {
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+			227 = {
+				add_resource = {
+					type = aluminium
+					amount = 4
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -4234,6 +5079,12 @@ focus_tree = {
 		}
 		x = 4
 		y = 10
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Red_Air_Forces_1abc
+				add_idea = Red_Air_Forces_2b
+			}
+		}
 	}
 
 	focus = {
@@ -4254,6 +5105,12 @@ focus_tree = {
 		}
 		x = 2
 		y = 10
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Red_Air_Forces_1abc
+				add_idea = Red_Air_Forces_2a
+			}
+		}
 	}
 
 	focus = {
@@ -4265,6 +5122,14 @@ focus_tree = {
 		}
 		x = 1
 		y = 11
+		completion_reward = {
+			add_tech_bonus = {
+				name = Flying_Tank
+				category = cas_bomber
+				bonus = 0.75
+				uses = 2
+			}
+		}
 	}
 
 	focus = {
@@ -4276,6 +5141,14 @@ focus_tree = {
 		}
 		x = 5
 		y = 11
+		completion_reward = {
+			add_tech_bonus = {
+				name = Invisible_Death
+				category = light_fighter
+				bonus = 0.75
+				uses = 2
+			}
+		}
 	}
 
 	focus = {
@@ -4288,17 +5161,93 @@ focus_tree = {
 		}
 		x = 3
 		y = 11
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_2a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_2a
+					add_idea = Red_Air_Forces_3a
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_2b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_2b
+					add_idea = Red_Air_Forces_3b
+				}
+			}
+			add_tech_bonus = {
+				name = Radar_improvement
+				category = radar_tech
+				bonus = 1
+				uses = 2
+			}
+		}
 	}
 
 	focus = {
-		id = RCR_We_Will_Destroy_The_Violence		#ПЕРЕДЕЛАТЬ
-		icon = GFX_focus_destruction_bomb		#ПЕРЕДЕЛАТЬ
+		id = RCR_We_Will_Destroy_The_Violence
+		icon = GFX_focus_destruction_bomb
 		cost = 0
 		prerequisite = {
 			focus = RCR_Radar_improvement
 		}
 		x = 4
 		y = 12
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_3a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_3a
+					add_idea = Red_Air_Forces_4ab
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_3b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_3b
+					add_idea = Red_Air_Forces_4bb
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_4aa
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_4aa
+					add_idea = Red_Air_Forces_5a
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_4ba
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_4ba
+					add_idea = Red_Air_Forces_5b
+				}
+			}
+			add_tech_bonus = {
+				name = We_Will_Destroy_The_Violence
+				category = cat_strategic_bomber
+				uses = 1
+				bonus = 0.75
+			}
+			add_tech_bonus = {
+				name = We_Will_Destroy_The_Violence
+				category = medium_air
+				uses = 1
+				bonus = 0.75
+			}
+		}
 	}
 
 	focus = {
@@ -4318,6 +5267,44 @@ focus_tree = {
 				}
 			}
 		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_3a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_3a
+					add_idea = Red_Air_Forces_4aa
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_3b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_3b
+					add_idea = Red_Air_Forces_4ba
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_4ab
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_4ab
+					add_idea = Red_Air_Forces_5b
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_4bb
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_4bb
+					add_idea = Red_Air_Forces_5b
+				}
+			}
+		}
 	}
 
 	focus = {
@@ -4332,6 +5319,38 @@ focus_tree = {
 		}
 		x = 3
 		y = 13
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = Red_Air_Forces_5a
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_5a
+					add_idea = Red_Air_Forces_6a
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = Red_Air_Forces_5b
+				}
+				swap_ideas = {
+					remove_idea = Red_Air_Forces_5b
+					add_idea = Red_Air_Forces_6b
+				}
+			}
+			add_tech_bonus = {
+				name = Pachakamak_Spear
+				category = rocketry
+				bonus = 0.5
+				uses = 2
+			}
+			add_tech_bonus = {
+				name = Pachakamak_Spear
+				category = nuclear
+				bonus = 0.5
+				uses = 2
+			}
+		}
 	}
 
 	focus = {
@@ -4370,8 +5389,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 28
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = -10
+		y = 1
 		completion_reward = {
 			if = {
 				limit = {
@@ -4404,8 +5424,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Front_Economic
 		}
-		x = 29
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = -9
+		y = 2
 		completion_reward = {
 			add_ideas = Child_Labor
 		}
@@ -4418,8 +5439,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Front_Economic
 		}
-		x = 31
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = -7
+		y = 2
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Front_Econimic_idea
@@ -4435,8 +5457,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Standartize_Production_Line
 		}
-		x = 30
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -8
+		y = 3
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Front_Econimic_idea_1
@@ -4452,8 +5475,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Front_Economic
 		}
-		x = 27
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = -11
+		y = 2
 		completion_reward = {
 			add_timed_idea = {
 				idea = Billions_idea
@@ -4472,8 +5496,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Moderate_Austerity
 		}
-		x = 28
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -10
+		y = 3
 		completion_reward = {
 			add_ideas = Prodrazvyorstka_idea
 		}
@@ -4489,8 +5514,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Prodrazvyorstka
 		}
-		x = 26
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -12
+		y = 3
 		completion_reward = {
 			add_ideas = Moderate_austerity_idea
 		}
@@ -4504,8 +5530,9 @@ focus_tree = {
 			focus = RCR_Prodrazvyorstka
 			focus = RCR_Moderate_Austerity
 		}
-		x = 27
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = -11
+		y = 4
 		completion_reward = {
 			add_ideas = Def_NII
 		}
@@ -4524,8 +5551,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Quantity
 		}
-		x = 29
-		y = 13
+		relative_position_id = RCR_Sacred_War
+		x = -9
+		y = 5
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Front_Econimic_idea_2
@@ -4544,8 +5572,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Quality
 		}
-		x = 31
-		y = 13
+		relative_position_id = RCR_Sacred_War
+		x = -7
+		y = 5
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = Front_Econimic_idea_2
@@ -4561,8 +5590,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 33
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = -5
+		y = 1
 		available = {
 			has_completed_focus = RCR_Military_Intelligence
 		}
@@ -4581,8 +5611,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Death_To_Spies
 		}
-		x = 33
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = -5
+		y = 2
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = In_service_1
@@ -4598,16 +5629,23 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Hack_War
 		}
-		x = 33
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -5
+		y = 3
 		available = {
 			has_completed_focus = RCR_assault_school
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Doctrine_Shubin2
-				add_idea = Doctrine_Shubin3
+			if = {
+				limit = {
+					has_idea = Doctrine_Shubin2
+				}
+				swap_ideas = {
+					remove_idea = Doctrine_Shubin2
+					add_idea = Doctrine_Shubin3
+				}
 			}
+			
 		}
 	}
 
@@ -4618,8 +5656,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 37
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = -1
+		y = 1
 		available = {
 			surrender_progress > 0.1
 		}
@@ -4664,8 +5703,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_save_capital
 		}
-		x = 36
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = -2
+		y = 2
 		completion_reward = {
 			add_building_construction = {
 				type = bunker
@@ -4745,8 +5785,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Lines
 		}
-		x = 35
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -3
+		y = 3
 		completion_reward = {
 			every_owned_state = {
 				limit = {
@@ -4757,11 +5798,10 @@ focus_tree = {
 					instant_build = yes
 					type = anti_air_building
 					level = 2
-					province = {
-						limit_to_victory_point = yes
-						all_provinces = yes
-					}
 				}
+			}
+			subtract_from_variable = {
+				rings = 100000
 			}
 		}
 	}
@@ -4774,8 +5814,9 @@ focus_tree = {
 			focus = RCR_AA_frontier
 			focus = RCR_Narkomat_Tankovoy
 		}
-		x = 33
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = -5
+		y = 4
 		completion_reward = {
 			add_timed_idea = {
 				idea = Battle_for_skies_idea
@@ -4791,8 +5832,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Prepare_Lines
 		}
-		x = 37
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = -1
+		y = 3
 		completion_reward = {
 			every_other_country = {
 				limit = {
@@ -4814,8 +5856,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 39
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = 1
+		y = 1
 		completion_reward = {
 			if = {
 				limit = {
@@ -5022,8 +6065,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Encourage_Female_Units
 		}
-		x = 40
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 2
+		y = 2
 		completion_reward = {
 			add_ideas = Female_evacuate
 			if = {
@@ -5149,8 +6193,9 @@ focus_tree = {
 			focus = RCR_Evacuate_Females
 			focus = RCR_Evacuate_Factories
 		}
-		x = 39
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = 1
+		y = 3
 		completion_reward = {
 			add_ideas = Expand_workshops_idea
 			304 = {
@@ -5184,8 +6229,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_From_Conveyor_Right_To_Battle
 		}
-		x = 38
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = 0
+		y = 4
 		available = {
 			NOT = {
 				has_idea = Save_capital_operation
@@ -5206,8 +6252,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_From_Conveyor_Right_To_Battle
 		}
-		x = 40
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = 2
+		y = 4
 		completion_reward = {
 			country_event = {
 				id = rcr.45
@@ -5226,8 +6273,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_From_Conveyor_Right_To_Battle
 		}
-		x = 36
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = -2
+		y = 4
 		completion_reward = {
 			custom_effect_tooltip = trap_decisions
 		}
@@ -5246,8 +6294,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Redut
 		}
-		x = 38
-		y = 13
+		relative_position_id = RCR_Sacred_War
+		x = 0
+		y = 5
 		available = {
 			NOT = {
 				has_idea = Redut_operation
@@ -5268,8 +6317,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 44
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = 6
+		y = 1
 		completion_reward = {
 			add_timed_idea = {
 				idea = War_culture_idea
@@ -5288,8 +6338,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_Evacuate_Females
 		}
-		x = 42
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 4
+		y = 2
 		completion_reward = {
 			add_ideas = Female_Conscription
 		}
@@ -5302,8 +6353,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Boost_Battle_Spirit
 		}
-		x = 46
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 8
+		y = 2
 		completion_reward = {
 			add_tech_bonus = {
 				name = land_doc_bonus
@@ -5321,8 +6373,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Boost_Battle_Spirit
 		}
-		x = 44
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 6
+		y = 2
 		completion_reward = {
 			add_ideas = SovInfBur_idea
 		}
@@ -5335,8 +6388,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Boost_Battle_Spirit
 		}
-		x = 45
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = 7
+		y = 3
 		completion_reward = {
 			add_ideas = Call_int_idea
 		}
@@ -5349,8 +6403,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sovinformburo
 		}
-		x = 42
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = 4
+		y = 3
 		completion_reward = {
 			add_ideas = Masters_idea
 		}
@@ -5366,8 +6421,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Call_Intellectuals
 		}
-		x = 44
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = 6
+		y = 4
 		completion_reward = {
 			add_ideas = Brothers_idea
 		}
@@ -5380,8 +6436,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Research_Enemy_Strategies
 		}
-		x = 46
-		y = 12
+		relative_position_id = RCR_Sacred_War
+		x = 8
+		y = 4
 		completion_reward = {
 			add_ideas = New_officers
 		}
@@ -5400,8 +6457,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_For_Our_Life
 		}
-		x = 43
-		y = 13
+		relative_position_id = RCR_Sacred_War
+		x = 5
+		y = 5
 		completion_reward = {
 			add_ideas = For_their_death_idea
 		}
@@ -5420,8 +6478,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = RCR_For_their_Death
 		}
-		x = 45
-		y = 13
+		relative_position_id = RCR_Sacred_War
+		x = 7
+		y = 5
 		completion_reward = {
 			add_ideas = For_our_life_idea
 		}
@@ -5434,8 +6493,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Sacred_War
 		}
-		x = 49
-		y = 9
+		relative_position_id = RCR_Sacred_War
+		x = 11
+		y = 1
 		completion_reward = {
 			every_other_country = {
 				limit = {
@@ -5461,8 +6521,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Our_Allies
 		}
-		x = 48
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 10
+		y = 2
 		completion_reward = {
 			every_other_country = {
 				limit = {
@@ -5483,8 +6544,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_To_Accord
 		}
-		x = 47
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = 9
+		y = 3
 		completion_reward = {
 			add_ideas = Lend_lease_idea
 			if = {
@@ -5548,8 +6610,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Our_Allies
 		}
-		x = 50
-		y = 10
+		relative_position_id = RCR_Sacred_War
+		x = 12
+		y = 2
 		completion_reward = {
 			every_other_country = {
 				limit = {
@@ -5563,7 +6626,7 @@ focus_tree = {
 					}
 				}
 				add_popularity = {
-					ideology = communism
+					ideology = katzerism
 					popularity = -0.02
 				}
 			}
@@ -5584,14 +6647,15 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Internationale
 		}
-		x = 51
-		y = 11
+		relative_position_id = RCR_Sacred_War
+		x = 13
+		y = 3
 		completion_reward = {
 			every_other_country = {
 				limit = {
 					AND = {
 						has_war_together_with = RCR
-						communism > 0.04
+						katzerism > 0.04
 					}
 				}
 				add_ideas = Together_to_victory_idea
@@ -5613,8 +6677,9 @@ focus_tree = {
 			focus = RCR_Quality
 			focus = RCR_Quantity
 		}
-		x = 38
-		y = 14
+		relative_position_id = RCR_Sacred_War
+		x = 0
+		y = 6
 		available = {
 			NOT = {
 				has_idea = Counter_offence_operation
@@ -5635,8 +6700,9 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_War_On_His_Territory
 		}
-		x = 38
-		y = 15
+		relative_position_id = RCR_Sacred_War
+		x = 0
+		y = 7
 		available = {
 			has_war = no
 		}

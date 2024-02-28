@@ -22,6 +22,121 @@
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
 
+calculate_ring_gain = {
+	add_to_variable = {
+		gov_corruption = gov_corruption_growth
+	}
+	
+	set_variable = {
+		rings_factory_gain = num_of_civilian_factories
+	}
+	multiply_variable = {
+		rings_factory_gain = 2000
+	}
+
+	set_variable = {
+		rings_trade_gain = resource_exported@aluminium
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@chromium
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@oil
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@rubber
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@steel
+	}
+	add_to_variable = {
+		rings_trade_gain = resource_exported@tungsten
+	}
+	multiply_variable = {
+		rings_trade_gain = 150
+	}
+
+	set_variable = {
+		rings_occupied_gain = 0
+	}
+	every_subject_country = {
+		calculate_ring_gain = yes
+		add_to_variable = {
+			ROOT.rings_occupied_gain = THIS.rings_total_net_gain
+		}
+	}
+
+	# TODO: science
+
+	set_variable = {
+		rings_military_gain = num_battalions
+	}
+	multiply_variable = {
+		rings_military_gain = -50
+	}
+
+	if = {
+		limit = {
+			has_idea = Rings_Infinite_Fuel
+		}
+		set_variable = {
+			rings_energy_gain = -150000
+		}
+	}
+	else = {
+		set_variable = {
+			rings_energy_gain = 0
+		}
+	}
+
+	set_variable = {
+		rings_total_net_gain = rings_factory_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_trade_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_occupied_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_military_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_science_gain
+	}
+	add_to_variable = {
+		rings_total_net_gain = rings_energy_gain
+	}
+
+	if = {
+		limit = {
+			is_subject = yes
+		}
+
+		divide_variable = {
+			rings_factory_gain = 2
+		}
+		divide_variable = {
+			rings_trade_gain = 2
+		}
+		divide_variable = {
+			rings_occupied_gain = 2
+		}
+		divide_variable = {
+			rings_military_gain = 2
+		}
+		divide_variable = {
+			rings_science_gain = 2
+		}
+		divide_variable = {
+			rings_energy_gain = 2
+		}
+		divide_variable = {
+			rings_total_net_gain = 2
+		}
+	}
+}
+
 replace_civ_with_arms_factories = {	
 
 	random_owned_controlled_state = {
@@ -225,7 +340,7 @@ get_best_alliance_match_communism_effect = { #arguably a trigger, but it does st
 			all_other_country = {
 				is_faction_leader = yes
 				is_major = yes
-				has_government = communism
+				has_government = katzerism
 				not = { has_war_with = ROOT }
 				set_temp_variable = { this.leader_score = num_of_factories }
 				add_to_temp_variable = { this.leader_score = num_battalions }

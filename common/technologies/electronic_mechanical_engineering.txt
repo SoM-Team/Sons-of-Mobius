@@ -1,54 +1,54 @@
 technologies = {
-
-
 	transistors = {
-
 		# small boost to research speed
 		research_speed_factor = 0.03
-		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = radio 
+			leads_to_tech = radio
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = integrated_circuit 
+			leads_to_tech = integrated_circuit
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = rocket_engines_manufacture 
+			leads_to_tech = rocket_engines_manufacture
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = nuclear_reactor 
+			leads_to_tech = nuclear_reactor
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = research_materials  
+			leads_to_tech = research_materials
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 1
 		start_year = 3200
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 0 }
+			position = {
+				x = 2
+				y = 0
+			}
 		}
-		
 		ai_will_do = {
 			factor = 300
-			
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
 			}
 		}
-		
 		categories = {
 			electronics
 			computing_tech
@@ -57,21 +57,32 @@ technologies = {
 	jet_engines = {
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 2 }
+			position = {
+				x = -4
+				y = 2
+			}
 		}
 		start_year = 1944
 		research_cost = 2
 		folder = {
 			name = air_techs_folder
-			position = { x = -1 y = 6 }
+			position = {
+				x = -1
+				y = 6
+			}
 		}
 		desc = "JET_ENGINES_SPECIAL"
 		on_research_complete = {
 			custom_effect_tooltip = JET_ENGINES_RESEARCHED
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 25
 				num_of_military_factories > 15
@@ -83,67 +94,78 @@ technologies = {
 		}
 	}
 	nuclear_reactor = {
-
 		research_speed_factor = 0.04
-		
 		enable_building = {
 			building = nuclear_reactor
 			level = 1
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = thermonuclear_fusion  
+			leads_to_tech = thermonuclear_fusion
 			research_cost_coeff = 1
 		}
-#		path = {
-#			leads_to_tech = ballistic_missiles  
-#			research_cost_coeff = 1
-#		}
-
-		enable_equipment_modules = { 
+		#		path = {
+		#			leads_to_tech = ballistic_missiles  
+		#			research_cost_coeff = 1
+		#		}
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 4
 		start_year = 3225
-
 		folder = {
 			name = electronics_folder
-			position = { x = -6 y = 2 }
+			position = {
+				x = -6
+				y = 2
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
-			
 			modifier = {
 				factor = 30
 				num_of_civilian_factories > 55
 			}
 		}
-		
 		categories = {
 			nuclear
 		}
 	}
 	thermonuclear_fusion = {
-
 		nuclear_production = 1
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_1  
+			leads_to_tech = intercontinental_ballistic_missile_1
 			research_cost_coeff = 1
 		}
-		enable_equipment_modules = { 
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
 		research_cost = 3
 		start_year = 3235
 		folder = {
 			name = electronics_folder
-			position = { x = -6 y = 4 }
+			position = {
+				x = -6
+				y = 4
+			}
 		}
 		ai_will_do = {
 			factor = 1
-
 			modifier = {
 				factor = 30
 				num_of_civilian_factories > 55
@@ -159,39 +181,44 @@ technologies = {
 		}
 	}
 	rocket_engines_manufacture = {
-
-
 		enable_building = {
 			building = rocket_site
 			level = 2
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = artificial_sputnik  
+			leads_to_tech = artificial_sputnik
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = ballistic_missiles  
+			leads_to_tech = ballistic_missiles
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = jet_engines  
+			leads_to_tech = jet_engines
 			research_cost_coeff = 1
 		}
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 2.5
 		start_year = 3225
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 2 }
+			position = {
+				x = -2
+				y = 2
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 25
 				num_of_factories > 15
@@ -201,38 +228,41 @@ technologies = {
 				date > "3237.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	artificial_sputnik = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = shuttle_1  
+			leads_to_tech = shuttle_1
 			research_cost_coeff = 1
 		}
-
 		path = {
 			leads_to_tech = space_station
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 1
 		start_year = 3235
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 4 }
+			position = {
+				x = -2
+				y = 4
+			}
 		}
-		
 		ai_will_do = {
 			factor = 3
-			
 			modifier = {
 				factor = 10
 				num_of_factories > 15
@@ -242,212 +272,233 @@ technologies = {
 				date > "3237.1.1"
 			}
 		}
-
 		allow = {
 			AND = {
-			has_tech = radio_detection
-			has_tech = artificial_sputnik
+				has_tech = radio_detection
+				has_tech = artificial_sputnik
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	shuttle_1 = {
-		
 		allow = {
 			AND = {
-			has_tech = radio_detection
-			has_tech = artificial_sputnik
+				has_tech = radio_detection
+				has_tech = artificial_sputnik
 			}
 		}
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = shuttle_2  
+			leads_to_tech = shuttle_2
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 2
 		start_year = 3200
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 6 }
+			position = {
+				x = -2
+				y = 6
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	shuttle_2 = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = ion_engine   
+			leads_to_tech = ion_engine
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 2
 		start_year = 3239
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 10 }
+			position = {
+				x = -2
+				y = 10
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
-			
 			modifier = {
 				factor = 3
 				date > "3240.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	ion_engine = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = nuclear_electric_propulsion_system  
+			leads_to_tech = nuclear_electric_propulsion_system
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 2.5
 		start_year = 3242
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 14 }
+			position = {
+				x = -2
+				y = 14
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
-			
 			modifier = {
 				factor = 3
 				date > "3243.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	nuclear_electric_propulsion_system = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = automatic_interplanetary_station  
+			leads_to_tech = automatic_interplanetary_station
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_4  
+			leads_to_tech = intercontinental_ballistic_missile_4
 			research_cost_coeff = 0.9
 		}
 		path = {
-			leads_to_tech = improved_nuclear_electric_propulsion_system  
+			leads_to_tech = improved_nuclear_electric_propulsion_system
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 3
 		start_year = 3246
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 22 }
+			position = {
+				x = -2
+				y = 22
+			}
 		}
-		
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3247.1.1"
 			}
 		}
-		
 		categories = {
 			nuclear
 			rocketry
 		}
 	}
 	improved_nuclear_electric_propulsion_system = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_5  
+			leads_to_tech = intercontinental_ballistic_missile_5
 			research_cost_coeff = 0.9
 		}
-		
 		research_cost = 3
 		start_year = 3250
-
 		folder = {
 			name = electronics_folder
-			position = { x = -2 y = 26 }
+			position = {
+				x = -2
+				y = 26
+			}
 		}
-		
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3251.1.1"
 			}
 		}
-		
 		categories = {
 			nuclear
 			rocketry
 		}
 	}
 	automatic_interplanetary_station = {
-
 		# small boost to research speed
 		research_speed_factor = 0.03
 		category_recon = {
 			recon = 1
 		}
 		army_speed_factor = 0.1
-		
 		research_cost = 4
 		start_year = 3247
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 24 }
+			position = {
+				x = 0
+				y = 24
+			}
 		}
-		
 		ai_will_do = {
 			factor = 30
 			modifier = {
@@ -460,26 +511,33 @@ technologies = {
 		}
 	}
 	satellite_reconnaissance_3 = {
-
-		
 		enable_building = {
 			building = radar_station
-			level = 7 # THE WHAT ??? SEVEN ??? MAN
+			level = 7			# THE WHAT ??? SEVEN ??? MAN
 		}
 		category_recon = {
 			recon = 1
 		}
 		army_speed_factor = 0.06
-		
 		research_cost = 2
 		start_year = 3243
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 16 }
+			position = {
+				x = 0
+				y = 16
+			}
 		}
 		path = {
-			leads_to_tech = automatic_interplanetary_station 
+			leads_to_tech = automatic_interplanetary_station
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -495,30 +553,35 @@ technologies = {
 		}
 	}
 	ballistic_missiles = {
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		enable_equipments = {
 			guided_missile_equipment_1
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_1  
+			leads_to_tech = intercontinental_ballistic_missile_1
 			research_cost_coeff = 1
 		}
-
-		enable_equipment_modules = { 
+		enable_equipment_modules = {
 			ship_fire_control_system_0
 		}
-		
 		research_cost = 2.2
 		start_year = 3235
-
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 4 }
+			position = {
+				x = -4
+				y = 4
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-
 			modifier = {
 				factor = 30
 				num_of_civilian_factories > 55
@@ -529,7 +592,6 @@ technologies = {
 				date > "3237.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
@@ -537,136 +599,169 @@ technologies = {
 	intercontinental_ballistic_missile_1 = {
 		allow = {
 			AND = {
-			has_tech = ballistic_missiles
-			has_tech = thermonuclear_fusion
+				has_tech = ballistic_missiles
+				has_tech = thermonuclear_fusion
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
 		enable_equipments = {
 			guided_missile_equipment_2
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_2  
+			leads_to_tech = intercontinental_ballistic_missile_2
 			research_cost_coeff = 1
 		}
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 6 }
+			position = {
+				x = -4
+				y = 6
+			}
 		}
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	intercontinental_ballistic_missile_2 = {
-
-		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		enable_equipments = {
 			guided_missile_equipment_3
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_3  
+			leads_to_tech = intercontinental_ballistic_missile_3
 			research_cost_coeff = 1
 		}
 		research_cost = 2
 		start_year = 3239
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 10 }
+			position = {
+				x = -4
+				y = 10
+			}
 		}
 		ai_will_do = {
 			factor = 3
-			
 			modifier = {
 				factor = 3
 				date > "3240.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	intercontinental_ballistic_missile_3 = {
-
-		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		enable_equipments = {
 			guided_missile_equipment_4
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_4  
+			leads_to_tech = intercontinental_ballistic_missile_4
 			research_cost_coeff = 1
 		}
 		research_cost = 2
 		start_year = 3242
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 16 }
+			position = {
+				x = -4
+				y = 16
+			}
 		}
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3243.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	intercontinental_ballistic_missile_4 = {
-
-		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		enable_equipments = {
 			guided_missile_equipment_5
 		}
 		path = {
-			leads_to_tech = nuclear_electric_propulsion_system  
+			leads_to_tech = nuclear_electric_propulsion_system
 			research_cost_coeff = 0.9
 		}
 		path = {
-			leads_to_tech = intercontinental_ballistic_missile_5  
+			leads_to_tech = intercontinental_ballistic_missile_5
 			research_cost_coeff = 1
 		}
 		research_cost = 3
 		start_year = 3244
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 22 }
+			position = {
+				x = -4
+				y = 22
+			}
 		}
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3245.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	intercontinental_ballistic_missile_5 = {
-
-		
 		path = {
-			leads_to_tech = improved_nuclear_electric_propulsion_system  
+			leads_to_tech = improved_nuclear_electric_propulsion_system
 			research_cost_coeff = 0.9
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		enable_equipments = {
 			guided_missile_equipment_6
@@ -675,50 +770,58 @@ technologies = {
 		start_year = 3246
 		folder = {
 			name = electronics_folder
-			position = { x = -4 y = 26 }
+			position = {
+				x = -4
+				y = 26
+			}
 		}
 		path = {
-			leads_to_tech = nuclear_electric_propulsion_system  
+			leads_to_tech = nuclear_electric_propulsion_system
 			research_cost_coeff = 0.9
 		}
 		ai_will_do = {
 			factor = 30
-			
-			
 			modifier = {
 				factor = 3
 				date > "3247.1.1"
 			}
 		}
-		
 		categories = {
 			rocketry
 		}
 	}
 	radio = {
-
 		# units with radios can more efficiently join combats when there is room
 		land_reinforce_rate = 0.05
-		
 		research_cost = 1.5
-		
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		path = {
 			leads_to_tech = radio_detection
 			research_cost_coeff = 1
 		}
-		
 		folder = {
 			name = support_folder
-			position = { x = 11 y = 9 } # x = 12 y = 0
+			position = {
+				x = 11
+				y = 9
+			}			# x = 12 y = 0
 		}
-		
 		ai_will_do = {
 			factor = 10
-			
 			modifier = {
 				factor = 8
 				has_war = yes
@@ -741,12 +844,18 @@ technologies = {
 			computing_tech
 		}
 	}
-	
 	radio_detection = {
-
 		enable_building = {
 			building = radar_station
 			level = 2
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		path = {
 			leads_to_tech = space_station
@@ -755,7 +864,10 @@ technologies = {
 		research_cost = 1.4
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 4 }
+			position = {
+				x = 0
+				y = 4
+			}
 		}
 		ai_will_do = {
 			factor = 30
@@ -768,22 +880,28 @@ technologies = {
 			electronics
 		}
 	}
-
 	integrated_circuit = {
-
 		research_speed_factor = 0.03
-		
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
-			leads_to_tech = data_networks  
+			leads_to_tech = data_networks
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2.5
 		start_year = 3225
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 2 }
+			position = {
+				x = 2
+				y = 2
+			}
 		}
 		ai_will_do = {
 			factor = 300
@@ -796,21 +914,28 @@ technologies = {
 			electronics
 		}
 	}
-
 	research_materials = {
-
 		research_speed_factor = 0.04
 		production_speed_buildings_factor = 0.1
-		
 		research_cost = 2
 		start_year = 3225
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 2 }
+			position = {
+				x = 8
+				y = 2
+			}
 		}
 		path = {
-			leads_to_tech = research_polymers 
+			leads_to_tech = research_polymers
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -829,20 +954,27 @@ technologies = {
 		}
 	}
 	research_polymers = {
-
 		# small boost to research speed
 		research_speed_factor = 0.03
-		
-		
 		research_cost = 1
 		start_year = 3200
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 8 }
+			position = {
+				x = 8
+				y = 8
+			}
 		}
 		path = {
-			leads_to_tech = research_nanites_1 
+			leads_to_tech = research_nanites_1
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -854,27 +986,35 @@ technologies = {
 		}
 		categories = {
 			electronics
+			advanced_materials
 		}
 	}
 	research_polymers = {
-
 		research_speed_factor = 0.04
 		production_speed_buildings_factor = 0.1
-		
-		
 		research_cost = 2.2
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 8 }
+			position = {
+				x = 8
+				y = 8
+			}
 		}
 		path = {
 			leads_to_tech = advanced_AI
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = research_nanites_1 
+			leads_to_tech = research_nanites_1
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -890,27 +1030,35 @@ technologies = {
 		}
 		categories = {
 			electronics
+			advanced_materials
 		}
 	}
 	research_nanites_1 = {
-
 		research_speed_factor = 0.04
 		production_speed_buildings_factor = 0.1
-		
-		
 		research_cost = 3
 		start_year = 3242
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		path = {
 			leads_to_tech = nanite_AI_1
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 14 }
+			position = {
+				x = 8
+				y = 14
+			}
 		}
 		path = {
-			leads_to_tech = research_nanites_2 
+			leads_to_tech = research_nanites_2
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -922,20 +1070,28 @@ technologies = {
 		}
 		categories = {
 			electronics
+			advanced_materials
 		}
 	}
 	research_nanites_2 = {
-
 		research_speed_factor = 0.05
 		production_speed_buildings_factor = 0.13
-		
-		
 		research_cost = 3.4
 		start_year = 3244
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 18 }
+			position = {
+				x = 8
+				y = 18
+			}
 		}
 		path = {
 			leads_to_tech = research_nanites_3
@@ -954,20 +1110,28 @@ technologies = {
 		}
 		categories = {
 			electronics
+			advanced_materials
 		}
 	}
 	research_nanites_3 = {
-
 		research_speed_factor = 0.06
 		production_speed_buildings_factor = 0.15
-		
-		
 		research_cost = 3.8
 		start_year = 3247
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 8 y = 24 }
+			position = {
+				x = 8
+				y = 24
+			}
 		}
 		path = {
 			leads_to_tech = nanite_AI_4
@@ -983,21 +1147,28 @@ technologies = {
 		categories = {
 			electronics
 			computing_tech
+			advanced_materials
 		}
 	}
-
-
 	data_networks = {
-
 		research_speed_factor = 0.04
 		land_reinforce_rate = 0.02
-		
 		research_cost = 3
 		start_year = 3235
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 4 }
+			position = {
+				x = 2
+				y = 4
+			}
 		}
 		path = {
 			leads_to_tech = space_station
@@ -1023,26 +1194,36 @@ technologies = {
 		}
 	}
 	space_station = {
-
 		research_cost = 2.5
 		start_year = 3200
 		enable_building = {
 			building = radar_station
 			level = 4
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		allow = {
 			AND = {
-			has_tech = data_networks
-			has_tech = radio_detection
-			has_tech = artificial_sputnik
+				has_tech = data_networks
+				has_tech = radio_detection
+				has_tech = artificial_sputnik
 			}
 		}
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
 		path = {
-			leads_to_tech = satellite_reconnaissance_1 
+			leads_to_tech = satellite_reconnaissance_1
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -1057,8 +1238,6 @@ technologies = {
 		}
 	}
 	satellite_reconnaissance_1 = {
-
-		
 		enable_building = {
 			building = radar_station
 			level = 5
@@ -1068,13 +1247,22 @@ technologies = {
 		}
 		army_speed_factor = 0.06
 		local_resources_factor = 0.05
-		
 		research_cost = 2
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 8 }
+			position = {
+				x = 0
+				y = 8
+			}
 		}
 		path = {
 			leads_to_tech = satellite_reconnaissance_2
@@ -1093,8 +1281,6 @@ technologies = {
 		}
 	}
 	satellite_reconnaissance_2 = {
-
-		
 		enable_building = {
 			building = radar_station
 			level = 6
@@ -1103,16 +1289,25 @@ technologies = {
 			recon = 1
 		}
 		army_speed_factor = 0.08
-
 		research_cost = 2
 		start_year = 3240
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
 		path = {
-			leads_to_tech = satellite_reconnaissance_3 
+			leads_to_tech = satellite_reconnaissance_3
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
@@ -1128,16 +1323,24 @@ technologies = {
 		}
 	}
 	quantum_processor_1 = {
-
 		# small boost to research speed
 		research_speed_factor = 0.07
-		
 		research_cost = 2
 		start_year = 3236
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 6 }
+			position = {
+				x = 4
+				y = 6
+			}
 		}
 		path = {
 			leads_to_tech = encryption_1
@@ -1176,18 +1379,28 @@ technologies = {
 		}
 	}
 	decryption_1 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
 		}
 		decryption = 1
-		
 		research_cost = 1.5
 		start_year = 3200
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 6 }
+			position = {
+				x = 6
+				y = 6
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1206,18 +1419,26 @@ technologies = {
 		}
 	}
 	decryption_1_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
 		decryption_power = 15
-		
 		research_cost = 1.5
 		start_year = 3200
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 6 }
+			position = {
+				x = 6
+				y = 6
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1236,18 +1457,28 @@ technologies = {
 		}
 	}
 	encryption_1 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
 		}
 		encryption = 1
-
 		research_cost = 1.2
 		start_year = 3200
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 6 }
+			position = {
+				x = 2
+				y = 6
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1262,18 +1493,26 @@ technologies = {
 		}
 	}
 	encryption_1_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
 		crypto_strength = 1
-
 		research_cost = 1.2
 		start_year = 3200
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 6 }
+			position = {
+				x = 2
+				y = 6
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1288,16 +1527,24 @@ technologies = {
 		}
 	}
 	quantum_processor_2 = {
-
 		# small boost to research speed
 		research_speed_factor = 0.07
-		
 		research_cost = 2
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 8 }
+			position = {
+				x = 4
+				y = 8
+			}
 		}
 		path = {
 			leads_to_tech = encryption_2
@@ -1332,18 +1579,28 @@ technologies = {
 		}
 	}
 	decryption_2 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
 		}
 		decryption = 1
-		
 		research_cost = 1.5
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 8 }
+			position = {
+				x = 6
+				y = 8
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1362,18 +1619,26 @@ technologies = {
 		}
 	}
 	decryption_2_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
 		decryption_power = 15
-		
 		research_cost = 1.5
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 8 }
+			position = {
+				x = 6
+				y = 8
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1392,18 +1657,28 @@ technologies = {
 		}
 	}
 	encryption_2 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
 		}
 		encryption = 1
-
 		research_cost = 1
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 8 }
+			position = {
+				x = 2
+				y = 8
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1418,18 +1693,26 @@ technologies = {
 		}
 	}
 	encryption_2_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
 		crypto_strength = 1
-
 		research_cost = 1
 		start_year = 3238
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 8 }
+			position = {
+				x = 2
+				y = 8
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1443,17 +1726,25 @@ technologies = {
 			electronics
 		}
 	}
-	advanced_AI  = {
-
+	advanced_AI = {
 		# small boost to research speed
 		research_speed_factor = 0.08
-		
 		research_cost = 2.2
 		start_year = 3240
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 12 }
+			position = {
+				x = 4
+				y = 12
+			}
 		}
 		path = {
 			leads_to_tech = encryption_3
@@ -1487,50 +1778,70 @@ technologies = {
 			computing_tech
 		}
 	}
+	# decryption_3 = {
+	# 	allow_branch = {
+	# 		NOT = {
+	# 			has_dlc = "La Resistance"
+	# 		}
+	# 	}
+	# 	decryption_power = 15
+	# 	decryption = 1
+	# 	research_cost = 1.5
+	# 	start_year = 3240
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	folder = {
+	# 		name = electronics_folder
+	# 		position = {
+	# 			x = 6
+	# 			y = 12
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 10
+	# 		modifier = {
+	# 			factor = 3
+	# 			date > "3241.1.1"
+	# 		}
+	# 		modifier = {
+	# 			has_war = yes
+	# 			factor = 3
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		decryption_tech
+	# 		electronics
+	# 	}
+	# }
 	decryption_3 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
 		}
-		decryption_power = 15
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		decryption = 1
-		
 		research_cost = 1.5
 		start_year = 3240
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 12 }
-		}
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 3
-				date > "3241.1.1"
+			position = {
+				x = 6
+				y = 12
 			}
-			modifier = {
-				has_war = yes
-				factor = 3
-			}
-		}
-		categories = {
-			decryption_tech
-			electronics
-		}
-	}
-	decryption_3 = {
-
-		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
-		}
-		decryption = 1
-		
-		research_cost = 1.5
-		start_year = 3240
-
-		folder = {
-			name = electronics_folder
-			position = { x = 6 y = 12 }
 		}
 		ai_will_do = {
 			factor = 10
@@ -1549,18 +1860,26 @@ technologies = {
 		}
 	}
 	decryption_3_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		decryption_power = 15
-		
 		research_cost = 1.5
 		start_year = 3240
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 12 }
+			position = {
+				x = 6
+				y = 12
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1579,18 +1898,28 @@ technologies = {
 		}
 	}
 	encryption_3 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		encryption = 1
-		
 		research_cost = 1
 		start_year = 3240
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 12 }
+			position = {
+				x = 2
+				y = 12
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1605,18 +1934,26 @@ technologies = {
 		}
 	}
 	encryption_3_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		crypto_strength = 1
-		
 		research_cost = 1
 		start_year = 3240
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 12 }
+			position = {
+				x = 2
+				y = 12
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1630,17 +1967,25 @@ technologies = {
 			electronics
 		}
 	}
-	nanite_AI_1  = {
-
+	nanite_AI_1 = {
 		# small boost to research speed
 		research_speed_factor = 0.08
-		
 		research_cost = 3
 		start_year = 3243
-
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 16 }
+			position = {
+				x = 4
+				y = 16
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		path = {
 			leads_to_tech = encryption_4
@@ -1675,18 +2020,28 @@ technologies = {
 		}
 	}
 	decryption_4 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		decryption = 1
-		
 		research_cost = 1.5
 		start_year = 3243
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 16 }
+			position = {
+				x = 6
+				y = 16
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1705,18 +2060,26 @@ technologies = {
 		}
 	}
 	decryption_4_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		decryption_power = 15
-		
 		research_cost = 1.5
 		start_year = 3243
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 16 }
+			position = {
+				x = 6
+				y = 16
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1735,18 +2098,28 @@ technologies = {
 		}
 	}
 	encryption_4 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		encryption = 1
-		
 		research_cost = 1
 		start_year = 3243
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 16 }
+			position = {
+				x = 2
+				y = 16
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1761,18 +2134,26 @@ technologies = {
 		}
 	}
 	encryption_4_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		crypto_strength = 1
-		
 		research_cost = 1
 		start_year = 3243
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 16 }
+			position = {
+				x = 2
+				y = 16
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1786,17 +2167,25 @@ technologies = {
 			electronics
 		}
 	}
-	nanite_AI_2  = {
-
+	nanite_AI_2 = {
 		# small boost to research speed
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		research_speed_factor = 0.09
-		
 		research_cost = 3
 		start_year = 3245
-
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 20 }
+			position = {
+				x = 4
+				y = 20
+			}
 		}
 		path = {
 			leads_to_tech = encryption_5
@@ -1831,18 +2220,28 @@ technologies = {
 		}
 	}
 	decryption_5 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		decryption = 1
-		
 		research_cost = 1.7
 		start_year = 3245
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 20 }
+			position = {
+				x = 6
+				y = 20
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1861,18 +2260,26 @@ technologies = {
 		}
 	}
 	decryption_5_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		decryption_power = 15
-		
 		research_cost = 1.7
 		start_year = 3245
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 20 }
+			position = {
+				x = 6
+				y = 20
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -1891,18 +2298,28 @@ technologies = {
 		}
 	}
 	encryption_5 = {
-		
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		encryption = 1
-		
 		research_cost = 1.2
 		start_year = 3245
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 20 }
+			position = {
+				x = 2
+				y = 20
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1917,18 +2334,26 @@ technologies = {
 		}
 	}
 	encryption_5_La_Resis = {
-		
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		crypto_strength = 1
-		
 		research_cost = 1.2
 		start_year = 3245
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 20 }
+			position = {
+				x = 2
+				y = 20
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -1942,17 +2367,25 @@ technologies = {
 			electronics
 		}
 	}
-	nanite_AI_3  = {
-
+	nanite_AI_3 = {
 		# small boost to research speed
-		research_speed_factor = 0.10
-		
+		research_speed_factor = 0.1
 		research_cost = 3.6
 		start_year = 3247
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 24 }
+			position = {
+				x = 4
+				y = 24
+			}
 		}
 		path = {
 			leads_to_tech = encryption_6
@@ -1987,18 +2420,28 @@ technologies = {
 		}
 	}
 	decryption_6 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		decryption = 1
-		
 		research_cost = 1.9
 		start_year = 3247
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 24 }
+			position = {
+				x = 6
+				y = 24
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -2017,18 +2460,26 @@ technologies = {
 		}
 	}
 	decryption_6_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		decryption_power = 15
-		
 		research_cost = 1.9
 		start_year = 3247
-
 		folder = {
 			name = electronics_folder
-			position = { x = 6 y = 24 }
+			position = {
+				x = 6
+				y = 24
+			}
 		}
 		ai_will_do = {
 			factor = 10
@@ -2047,18 +2498,28 @@ technologies = {
 		}
 	}
 	encryption_6 = {
-
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
+			NOT = {
+				has_dlc = "La Resistance"
+			}
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		encryption = 1
-		
 		research_cost = 1.4
 		start_year = 3247
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 24 }
+			position = {
+				x = 2
+				y = 24
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -2073,18 +2534,26 @@ technologies = {
 		}
 	}
 	encryption_6_La_Resis = {
-
 		allow_branch = {
 			has_dlc = "La Resistance"
 		}
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		crypto_strength = 1
-		
 		research_cost = 1.4
 		start_year = 3247
-
 		folder = {
 			name = electronics_folder
-			position = { x = 2 y = 24 }
+			position = {
+				x = 2
+				y = 24
+			}
 		}
 		ai_will_do = {
 			factor = 15
@@ -2098,16 +2567,24 @@ technologies = {
 			electronics
 		}
 	}
-	nanite_AI_4  = {
-
+	nanite_AI_4 = {
 		research_speed_factor = 0.09
-
 		research_cost = 4.2
 		start_year = 3250
-
+		on_research_complete = {
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
+		}
 		folder = {
 			name = electronics_folder
-			position = { x = 4 y = 26 }
+			position = {
+				x = 4
+				y = 26
+			}
 		}
 		ai_will_do = {
 			factor = 30

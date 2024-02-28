@@ -1,14 +1,34 @@
-RCR_seventh_congress_of_soviets = {
+RCR_debug = {
+	RCR_skip_congress = {
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			complete_national_focus = RCR_Prepare_Congress
+			complete_national_focus = RCR_Prepare_Congress_Yes
+			complete_national_focus = RCR_Way_of_Pallasov
+		}
+	}
+	RCR_Declare_War = {
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = EGG
+				type = topple_government
+			}
+		}
+	}
+}
 
+RCR_seventh_congress_of_soviets = {
 	pass_position_to_autonomists = {
-	
 		icon = GFX_decision_giveup
-		
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = yes
-		
 		available = {
 			autonomous_socialism > 0.4
 		}
@@ -25,18 +45,14 @@ RCR_seventh_congress_of_soviets = {
 			factor = 5
 		}
 	}
-
 	pass_position_to_neosocialists = {
-		
 		icon = GFX_decision_giveup
-		
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = yes
-		
 		available = {
-			neosocialism  > 0.4
+			neosocialism > 0.4
 		}
 		remove_effect = {
 			set_politics = {
@@ -51,11 +67,8 @@ RCR_seventh_congress_of_soviets = {
 			factor = 5
 		}
 	}
-	
 	activate_KORTS = {
-	
 		icon = GFX_decision_gabnya
-		
 		allowed = {
 			original_tag = RCR
 		}
@@ -87,47 +100,45 @@ RCR_seventh_congress_of_soviets = {
 			factor = 5
 		}
 	}
-	
 	kick_autonomists = {
-	
 		icon = GFX_decision_demand
-	
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = yes
 		cost = 100
 		available = {
-			NOT = { has_idea = Inactive_Cheka }
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
 			autonomous_socialism < 0.2
 		}
 		remove_effect = {
 			add_popularity = {
-					ideology = autonomous_socialism
-					popularity = -0.15
-				}
-			country_event = {
-					id = rcr.22
-					days = 1
-				}
-			set_country_flag = RCR_auts_are_expelled
+				ideology = autonomous_socialism
+				popularity = -0.15
 			}
+			country_event = {
+				id = rcr.22
+				days = 1
+			}
+			set_country_flag = RCR_auts_are_expelled
+		}
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
 	kick_neosocialists = {
-	
 		icon = GFX_decision_demand
-		
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = yes
 		cost = 100
 		available = {
-			NOT = { has_idea = Inactive_Cheka }
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
 			neosocialism < 0.2
 		}
 		remove_effect = {
@@ -145,18 +156,17 @@ RCR_seventh_congress_of_soviets = {
 			factor = 1
 		}
 	}
-	
 	choose_chairman_of_sovnarcom = {
-	
 		icon = GFX_decision_elect
-	
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = yes
 		cost = 100
 		available = {
-			NOT = { has_idea = Inactive_Cheka}
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
 			OR = {
 				AND = {
 					autonomous_socialism > 0.7
@@ -180,8 +190,8 @@ RCR_seventh_congress_of_soviets = {
 				country_event = {
 					id = rcr.21
 					days = 1
-					}
 				}
+			}
 			if = {
 				limit = {
 					has_government = neosocialism
@@ -189,8 +199,8 @@ RCR_seventh_congress_of_soviets = {
 				country_event = {
 					id = rcr.26
 					days = 1
-					}
 				}
+			}
 			if = {
 				limit = {
 					has_government = katzerism
@@ -198,16 +208,12 @@ RCR_seventh_congress_of_soviets = {
 				country_event = {
 					id = rcr.25
 					days = 1
-					}
 				}
 			}
 		}
-	
-	
+	}
 	visit_factory_arsenal = {
-	
 		icon = GFX_decision_generic_industry
-	
 		allowed = {
 			original_tag = RCR
 		}
@@ -236,16 +242,18 @@ RCR_seventh_congress_of_soviets = {
 			if = {
 				limit = {
 					has_government = katzerism
-					NOT = { autonomous_socialism < 0.28 }
+					NOT = {
+						autonomous_socialism < 0.28
+					}
 				}
 				add_popularity = {
 					ideology = katzerism
 					popularity = 0.05
-					}
+				}
 				hidden_effect = {
 					country_event = {
-					id = rcr.17
-					days = 2
+						id = rcr.17
+						days = 2
 					}
 				}
 			}
@@ -261,11 +269,8 @@ RCR_seventh_congress_of_soviets = {
 			}
 		}
 	}
-
 	pressure_on_media = {
-	
 		icon = GFX_decision_propaganda_campaigns
-	
 		allowed = {
 			original_tag = RCR
 		}
@@ -316,7 +321,9 @@ RCR_seventh_congress_of_soviets = {
 			if = {
 				limit = {
 					has_government = katzerism
-					NOT = { neosocialism < 0.28 }
+					NOT = {
+						neosocialism < 0.28
+					}
 				}
 				add_popularity = {
 					ideology = autonomous_socialism
@@ -328,18 +335,15 @@ RCR_seventh_congress_of_soviets = {
 				}
 				hidden_effect = {
 					country_event = {
-					id = rcr.18
-					days = 2
+						id = rcr.18
+						days = 2
 					}
 				}
 			}
 		}
 	}
-	
 	populist_promises = {
-	
 		icon = GFX_decision_populism
-	
 		allowed = {
 			original_tag = RCR
 		}
@@ -348,40 +352,37 @@ RCR_seventh_congress_of_soviets = {
 		days_re_enable = 100
 		available = {
 			OR = {
-					AND = {
-						autonomous_socialism > 0.45
-						has_government = autonomous_socialism
-					}
-					AND = {
-						neosocialism > 0.45
-						has_government = neosocialism
-					}
-					AND = {
-						katzerism > 0.45
-						has_government = katzerism
-					}
+				AND = {
+					autonomous_socialism > 0.45
+					has_government = autonomous_socialism
+				}
+				AND = {
+					neosocialism > 0.45
+					has_government = neosocialism
+				}
+				AND = {
+					katzerism > 0.45
+					has_government = katzerism
 				}
 			}
-		complete_effect  = {
-		add_political_power = 75
-			}
+		}
+		complete_effect = {
+			add_political_power = 75
+		}
 		days_remove = 21
 		remove_effect = {
 			add_stability = -0.05
 		}
 	}
-	
 	bribe_delegates = {
-	
 		icon = GFX_decision_bribe
-	
 		allowed = {
 			original_tag = RCR
 		}
 		fire_only_once = no
 		cost = 75
 		days_re_enable = 100
-		complete_effect  = {
+		complete_effect = {
 			if = {
 				limit = {
 					has_government = autonomous_socialism
@@ -415,27 +416,30 @@ RCR_seventh_congress_of_soviets = {
 			add_stability = -0.1
 		}
 	}
-	
 	kill_delegates_autonomous_socialism = {
-	
 		icon = GFX_decision_kill_delegate
-	
 		allowed = {
 			original_tag = RCR
 		}
 		available = {
-			NOT = { has_country_flag = RCR_delegate_was_killed }
-			NOT = { has_government = autonomous_socialism }
-			NOT = { has_idea = Inactive_Cheka }
+			NOT = {
+				has_country_flag = RCR_delegate_was_killed
+			}
+			NOT = {
+				has_government = autonomous_socialism
+			}
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
 		}
 		fire_only_once = no
 		cost = 100
 		days_re_enable = 100
-		complete_effect  = {
+		complete_effect = {
 			set_country_flag = RCR_delegate_was_killed
 			add_popularity = {
 				ideology = autonomous_socialism
-				popularity = -0.10
+				popularity = -0.1
 				country_event = {
 					id = rcr.15
 					days = 1
@@ -447,27 +451,30 @@ RCR_seventh_congress_of_soviets = {
 			clr_country_flag = RCR_delegate_was_killed
 		}
 	}
-
 	kill_delegates_neosocialist = {
-	
 		icon = GFX_decision_kill_delegate
-	
 		allowed = {
 			original_tag = RCR
 		}
 		available = {
-			NOT = { has_country_flag = RCR_delegate_was_killed }
-			NOT = { has_government = neosocialism }
-			NOT = { has_idea = Inactive_Cheka }
+			NOT = {
+				has_country_flag = RCR_delegate_was_killed
+			}
+			NOT = {
+				has_government = neosocialism
+			}
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
 		}
 		fire_only_once = no
 		cost = 100
 		days_re_enable = 100
-		complete_effect  = {
+		complete_effect = {
 			set_country_flag = RCR_delegate_was_killed
 			add_popularity = {
 				ideology = neosocialism
-				popularity = -0.10
+				popularity = -0.1
 				country_event = {
 					id = rcr.16
 					days = 1
@@ -479,11 +486,8 @@ RCR_seventh_congress_of_soviets = {
 			clr_country_flag = RCR_delegate_was_killed
 		}
 	}
-
 	speech_of_civil_war_hero = {
-	
 		icon = GFX_decision_war_hero_speech
-	
 		allowed = {
 			original_tag = RCR
 		}
@@ -520,18 +524,21 @@ RCR_seventh_congress_of_soviets = {
 			}
 		}
 	}
-	
 	kill_krugin = {
-	
 		icon = GFX_decision_kill_big
-	
 		allowed = {
 			original_tag = RCR
 		}
 		available = {
-			NOT = { has_idea = Inactive_Cheka }
-			NOT = { has_government = neosocialism }
-			NOT = { has_country_flag = RCR_natkatz_are_expelled }
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
+			NOT = {
+				has_government = neosocialism
+			}
+			NOT = {
+				has_country_flag = RCR_natkatz_are_expelled
+			}
 			neosocialism < 0.25
 		}
 		fire_only_once = yes
@@ -539,26 +546,29 @@ RCR_seventh_congress_of_soviets = {
 		remove_effect = {
 			add_popularity = {
 				ideology = katzerism
-				popularity = -0.20
+				popularity = -0.2
 			}
-		country_event = {
-			id = rcr.27
-			days = 1
+			country_event = {
+				id = rcr.27
+				days = 1
 			}
 		}
-	}	
-	
+	}
 	kill_khnykin = {
-	
 		icon = GFX_decision_kill_big
-	
 		allowed = {
 			original_tag = RCR
 		}
 		available = {
-			NOT = { has_idea = Inactive_Cheka }
-			NOT = { has_government = autonomous_socialism }
-			NOT = { has_country_flag = RCR_auts_are_expelled }
+			NOT = {
+				has_idea = Inactive_Cheka
+			}
+			NOT = {
+				has_government = autonomous_socialism
+			}
+			NOT = {
+				has_country_flag = RCR_auts_are_expelled
+			}
 			autonomous_socialism < 0.25
 		}
 		fire_only_once = yes
@@ -566,22 +576,19 @@ RCR_seventh_congress_of_soviets = {
 		remove_effect = {
 			add_popularity = {
 				ideology = katzerism
-				popularity = -0.20
+				popularity = -0.2
 			}
-		country_event = {
-			id = rcr.24
-			days = 1
+			country_event = {
+				id = rcr.24
+				days = 1
 			}
 		}
-	}	
+	}
 }
 
 RCR_red_army_buildup = {
-
 	recruit_prisoners = {
-	
 		icon = GFX_decision_red_army
-		
 		allowed = {
 			original_tag = RCR
 		}
@@ -590,28 +597,24 @@ RCR_red_army_buildup = {
 		days_re_enable = 200
 		days_remove = 30
 		remove_effect = {
-		}	
+		}
 	}
-
 	recruit_party_members = {
-	
 		icon = GFX_decision_red_army
 	}
 }
 
 RCR_war_and_peace_cat = {
-
 	wap_war_game = {
-		
-        visible = {
+		visible = {
 			has_war = no
-        }
+		}
 		available = {
 			command_power > 50
-			has_war_support > 0.50
+			has_war_support > 0.5
 		}
 		#icon = 
-        cost = 35
+		cost = 35
 		complete_effect = {
 			add_command_power = -50
 		}
@@ -620,13 +623,13 @@ RCR_war_and_peace_cat = {
 			navy_experience = 15
 			air_experience = 15
 		}
-        modifier = {
-            experience_gain_army = 0.5
-            experience_gain_army_factor = 0.2
+		modifier = {
+			experience_gain_army = 0.5
+			experience_gain_army_factor = 0.2
 			experience_gain_navy = 0.5
 			experience_gain_navy_factor = 0.2
-			experience_gain_air  = 0.5
-			experience_gain_air_factor  = 0.2
+			experience_gain_air = 0.5
+			experience_gain_air_factor = 0.2
 		}
 		ai_will_do = {
 			factor = 0
@@ -635,16 +638,15 @@ RCR_war_and_peace_cat = {
 		days_re_enable = 235
 	}
 	wap_motherland_miliraty_fabricks = {
-		
-        visible = {
+		visible = {
 			has_war = no
-        }
+		}
 		available = {
 			command_power > 30
-			has_war_support > 0.50
+			has_war_support > 0.5
 		}
 		#icon = 
-        cost = 100
+		cost = 100
 		days_remove = 185
 		fire_only_once = yes
 		complete_effect = {
@@ -659,8 +661,8 @@ RCR_war_and_peace_cat = {
 					}
 				}
 				add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-					type = arms_factory 
+				add_building_construction = {
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -674,7 +676,7 @@ RCR_war_and_peace_cat = {
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = arms_factory 
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -682,32 +684,30 @@ RCR_war_and_peace_cat = {
 		}
 	}
 	wap_get_ready_for_war = {
-		
-        visible = {
+		visible = {
 			has_war = no
-        }
+		}
 		available = {
 			has_war_support > 0.35
 		}
 		#icon = 
-        cost = 75
+		cost = 75
 		days_remove = 147
 		days_re_enable = 282
-        modifier = {
+		modifier = {
 			war_support_weekly = 0.015
 		}
 	}
 	wap_convert = {
-		
-        visible = {
+		visible = {
 			has_war = yes
-        }
+		}
 		available = {
 			command_power > 15
-			has_war_support > 0.60
+			has_war_support > 0.6
 		}
 		#icon = 
-        cost = 100
+		cost = 100
 		days_remove = 21
 		fire_only_once = yes
 		complete_effect = {
@@ -723,12 +723,12 @@ RCR_war_and_peace_cat = {
 					}
 					industrial_complex > 1
 				}
-				remove_building  = {
-					type = industrial_complex 
+				remove_building = {
+					type = industrial_complex
 					level = 2
 				}
 				add_building_construction = {
-					type = arms_factory 
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -740,12 +740,12 @@ RCR_war_and_peace_cat = {
 						value > 1
 					}
 				}
-				remove_building  = {
-					type = industrial_complex 
+				remove_building = {
+					type = industrial_complex
 					level = 2
 				}
 				add_building_construction = {
-					type = arms_factory 
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -757,12 +757,12 @@ RCR_war_and_peace_cat = {
 						value > 1
 					}
 				}
-				remove_building  = {
-					type = industrial_complex 
+				remove_building = {
+					type = industrial_complex
 					level = 2
 				}
 				add_building_construction = {
-					type = arms_factory 
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -775,12 +775,12 @@ RCR_war_and_peace_cat = {
 					}
 					industrial_complex > 1
 				}
-				remove_building  = {
-					type = industrial_complex 
+				remove_building = {
+					type = industrial_complex
 					level = 2
 				}
 				add_building_construction = {
-					type = arms_factory 
+					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
@@ -788,30 +788,28 @@ RCR_war_and_peace_cat = {
 		}
 	}
 	wap_opolcheniye = {
-		
-        visible = {
+		visible = {
 			has_war = yes
-        }
+		}
 		available = {
 			has_defensive_war = yes
 		}
 		fire_only_once = yes
 		#icon = 
-        cost = 10
-		days_remove = 3	
+		cost = 10
+		days_remove = 3
 		remove_effect = {
 			set_country_flag = opolcheniye_oob
 			load_oob = "RCR_opolcheniye"
 		}
 	}
 	wap_shtrafbat = {
-		
-        visible = {
+		visible = {
 			has_war = yes
-        }
+		}
 		fire_only_once = yes
 		#icon = 
-        cost = 10
+		cost = 10
 		days_remove = 7
 		remove_effect = {
 			set_country_flag = shtrafbat_oob
@@ -819,13 +817,11 @@ RCR_war_and_peace_cat = {
 		}
 	}
 	wap_disband_opolcheniye = {
-	
 		#icon = 
-		
-        visible = {
+		visible = {
 			has_war = no
 			has_country_flag = opolcheniye_oob
-        }
+		}
 		available = {
 			has_country_flag = opolcheniye_oob
 		}
@@ -834,17 +830,15 @@ RCR_war_and_peace_cat = {
 			delete_unit_template_and_units = {
 				division_template = "Narodnoe opolcheniye"
 			}
-			army_experience  = 5
+			army_experience = 5
 		}
 	}
 	wap_disband_shtrafbat = {
-	
 		#icon = 
-		
-        visible = {
+		visible = {
 			has_war = no
 			has_country_flag = shtrafbat_oob
-        }
+		}
 		available = {
 			has_country_flag = shtrafbat_oob
 		}
@@ -853,24 +847,19 @@ RCR_war_and_peace_cat = {
 			delete_unit_template_and_units = {
 				division_template = "Shtrafnaya Diviziya"
 			}
-			army_experience  = 15
+			army_experience = 15
 		}
 	}
 }
 
 RCR_Vodka_Wars = {
-	
 	psr_Anticommunist_ad = {
-	
 		icon = GFX_decision_populism
-		
-        visible = {
+		visible = {
 			tag = PSR
-        }
-		
+		}
 		fire_only_once = yes
 		cost = 75
-		
 		days_remove = 30
 		days_re_enable = 100
 		remove_effect = {
@@ -878,7 +867,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					RCR_vodka_sells = 75
 				}
-			}	
+			}
 			RCR = {
 				subtract_from_variable = {
 					RCR_vodka_sells = 75
@@ -886,18 +875,13 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_Increase_Difference = {
-	
 		icon = GFX_decision_generic_industry
-		
-        visible = {
+		visible = {
 			tag = PSR
-        }
-		
+		}
 		fire_only_once = yes
 		cost = 75
-		
 		days_remove = 30
 		days_re_enable = 100
 		modifier = {
@@ -912,7 +896,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					PSR_vodka_sells = 75
 				}
-			}	
+			}
 			RCR = {
 				subtract_from_variable = {
 					PSR_vodka_sells = 75
@@ -920,17 +904,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_dump_vodka_in_swartzland = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 159
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				SWA = {
@@ -950,8 +931,10 @@ RCR_Vodka_Wars = {
 		days_remove = 30
 		days_re_enable = 150
 		complete_effect = {
-			hidden_effect = { add_political_power = -50 }
-		}	
+			hidden_effect = {
+				add_political_power = -50
+			}
+		}
 		remove_effect = {
 			PSR = {
 				add_to_variable = {
@@ -963,7 +946,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 100
@@ -988,15 +971,13 @@ RCR_Vodka_Wars = {
 		}
 	}
 	psr_promote_vodka_in_swartzland = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 159
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				SWA = {
@@ -1019,7 +1000,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					PSR_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 50
@@ -1027,17 +1008,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_dump_vodka_in_Mercia = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 354
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				MER = {
@@ -1055,7 +1033,9 @@ RCR_Vodka_Wars = {
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -50 }
+			hidden_effect = {
+				add_political_power = -50
+			}
 		}
 		days_remove = 30
 		days_re_enable = 150
@@ -1070,7 +1050,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 37
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 75
@@ -1095,15 +1075,13 @@ RCR_Vodka_Wars = {
 		}
 	}
 	psr_promote_vodka_in_mercia = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 354
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				MER = {
@@ -1126,26 +1104,22 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					PSR_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 50
 				}
 			}
 		}
-		
 	}
-	
 	psr_dump_vodka_in_KOA = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 1
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1157,7 +1131,9 @@ RCR_Vodka_Wars = {
 			civilian_factory_use = 1
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -50 }
+			hidden_effect = {
+				add_political_power = -50
+			}
 		}
 		fire_only_once = yes
 		custom_cost_trigger = {
@@ -1178,7 +1154,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 70
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 120
@@ -1203,15 +1179,13 @@ RCR_Vodka_Wars = {
 		}
 	}
 	psr_promote_vodka_in_KOA = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 1
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1234,7 +1208,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					PSR_vodka_sells = 80
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 80
@@ -1242,17 +1216,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_dump_vodka_in_svyetlales = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 239
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				SVT = {
@@ -1269,7 +1240,9 @@ RCR_Vodka_Wars = {
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -75 }
+			hidden_effect = {
+				add_political_power = -75
+			}
 		}
 		custom_cost_text = decision_cost_pp_75_factory_2
 		days_remove = 30
@@ -1285,7 +1258,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 80
@@ -1309,17 +1282,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_promote_in_svyetlales = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 239
 		}
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1342,7 +1312,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					PSR_vodka_sells = 70
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					PSR_vodka_sells = 70
@@ -1350,14 +1320,11 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	psr_leave_market = {
-	
 		icon = GFX_decision_giveup
-		
-        visible = {
+		visible = {
 			tag = PSR
-        }
+		}
 		available = {
 			check_variable = {
 				var = PSR_vodka_sells
@@ -1369,18 +1336,13 @@ RCR_Vodka_Wars = {
 			remove_ideas = Vodka_War
 		}
 	}
-	
 	RCR_Expertise = {
-	
 		icon = GFX_decision_generic_research
-		
-        visible = {
+		visible = {
 			tag = RCR
-        }
-		
+		}
 		fire_only_once = yes
 		cost = 75
-		
 		days_remove = 30
 		days_re_enable = 100
 		remove_effect = {
@@ -1388,7 +1350,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					PSR_vodka_sells = 75
 				}
-			}	
+			}
 			RCR = {
 				subtract_from_variable = {
 					PSR_vodka_sells = 75
@@ -1396,18 +1358,13 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_Increase_Difference = {
-	
 		icon = GFX_decision_generic_industry
-		
-        visible = {
+		visible = {
 			tag = RCR
-        }
-		
+		}
 		fire_only_once = yes
 		cost = 75
-		
 		days_remove = 30
 		days_re_enable = 100
 		modifier = {
@@ -1422,7 +1379,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					RCR_vodka_sells = 75
 				}
-			}	
+			}
 			RCR = {
 				subtract_from_variable = {
 					RCR_vodka_sells = 75
@@ -1430,17 +1387,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_dump_vodka_in_swartzland = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 159
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				SWA = {
@@ -1456,8 +1410,10 @@ RCR_Vodka_Wars = {
 			num_of_civilian_factories_available_for_projects > 0
 		}
 		custom_cost_text = decision_cost_pp_50_factory_1
-		complete_effect = { 
-			hidden_effect = { add_political_power = -50 }
+		complete_effect = {
+			hidden_effect = {
+				add_political_power = -50
+			}
 		}
 		fire_only_once = yes
 		days_remove = 30
@@ -1473,7 +1429,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 100
@@ -1497,17 +1453,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_promote_in_swartzland = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 159
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				SWA = {
@@ -1530,7 +1483,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					RCR_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 50
@@ -1538,17 +1491,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_dump_vodka_in_Mercia = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 354
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				MER = {
@@ -1568,7 +1518,9 @@ RCR_Vodka_Wars = {
 		days_remove = 30
 		days_re_enable = 150
 		complete_effect = {
-			hidden_effect = { add_political_power = -50 }
+			hidden_effect = {
+				add_political_power = -50
+			}
 		}
 		remove_effect = {
 			PSR = {
@@ -1581,7 +1533,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 37
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 75
@@ -1605,17 +1557,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_promote_in_mercia = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 354
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				MER = {
@@ -1638,7 +1587,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					RCR_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 50
@@ -1646,17 +1595,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_dump_vodka_in_KOA = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 1
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1672,7 +1618,9 @@ RCR_Vodka_Wars = {
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -75 }
+			hidden_effect = {
+				add_political_power = -75
+			}
 		}
 		custom_cost_text = decision_cost_pp_75_factory_2
 		days_remove = 30
@@ -1688,7 +1636,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 70
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 120
@@ -1712,17 +1660,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_promote_vodka_in_KOA = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 1
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1744,7 +1689,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					RCR_vodka_sells = 80
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 80
@@ -1752,17 +1697,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_dump_vodka_in_svyetlales = {
-	
-		icon = GFX_decision_elect	
-		
+		icon = GFX_decision_elect
 		highlight_states = {
 			state = 239
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 		}
 		modifier = {
@@ -1773,7 +1715,9 @@ RCR_Vodka_Wars = {
 			num_of_civilian_factories_available_for_projects > 0
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -25 }
+			hidden_effect = {
+				add_political_power = -25
+			}
 		}
 		custom_cost_text = decision_cost_pp_25_factory_1
 		days_remove = 30
@@ -1789,7 +1733,7 @@ RCR_Vodka_Wars = {
 				subtract_from_variable = {
 					FREE_vodka_sells = 50
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 80
@@ -1803,17 +1747,14 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_promote_in_svyetlales = {
-	
 		icon = GFX_decision_bribe
-		
 		highlight_states = {
 			state = 239
 		}
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			NOT = {
 				KOA = {
@@ -1836,7 +1777,7 @@ RCR_Vodka_Wars = {
 				add_to_variable = {
 					RCR_vodka_sells = 70
 				}
-			}	
+			}
 			RCR = {
 				add_to_variable = {
 					RCR_vodka_sells = 70
@@ -1844,14 +1785,11 @@ RCR_Vodka_Wars = {
 			}
 		}
 	}
-	
 	RCR_leave_market = {
-	
 		icon = GFX_decision_giveup
-		
-        visible = {
+		visible = {
 			tag = RCR
-        }
+		}
 		available = {
 			check_variable = {
 				var = RCR_vodka_sells
@@ -1866,61 +1804,57 @@ RCR_Vodka_Wars = {
 }
 
 RCR_GOOLAG = {
-    RCR_BuildGoolagInState = {
+	RCR_BuildGoolagInState = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			NOT = {
-			ROOT = {has_country_flag = lager_building}
-			#FROM = {
-			#check_variable = {var1 < state_population}
-			#}
+				ROOT = {
+					has_country_flag = lager_building
+				}
+				#FROM = {
+				#check_variable = {var1 < state_population}
+				#}
 			}
 		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		#fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 			civilian_factory_use = 3
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-        set_country_flag = lager_building
+			set_country_flag = lager_building
 		}
-
 		remove_effect = {
 			FROM = {
-				add_to_variable = {var1 = 100000}
+				add_to_variable = {
+					var1 = 100000
+				}
 			}
-			ROOT = {add_to_variable = {RCR_prisoners = 100000}}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = 100000
+				}
+			}
 			clr_country_flag = lager_building
 			FROM = {
 				set_state_flag = chislag_created
@@ -1929,1340 +1863,4508 @@ RCR_GOOLAG = {
 		}
 	}
 	RCR_RemoveGoolagInState = {
-	icon = generic_nationalism
-
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			FROM = {
-				check_variable = {var1 > 0}
+				check_variable = {
+					var1 > 0
+				}
 			}
 		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		#fire_only_once = yes
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 			civilian_factory_use = 1
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-
 		}
-
 		remove_effect = {
-			ROOT = {add_to_variable = {RCR_prisoners = -100000}}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = -100000
+				}
+			}
 			FROM = {
-				add_to_variable = {var1 = -100000}
+				add_to_variable = {
+					var1 = -100000
+				}
 			}
 		}
 	}
-	
 	RCR_Goolaginfrastructure = {
-	icon = generic_nationalism
-
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			FROM = {
-				check_variable = {var1 > 99999}
+				check_variable = {
+					var1 > 99999
+				}
 			}
 		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		#fire_only_once = yes
-        custom_cost_text = 100k_prisoners
+		custom_cost_text = 100k_prisoners
 		days_remove = 75
-
 		modifier = {
 			political_power_gain = -0.25
 			civilian_factory_use = 1
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-        ROOT = {
-		add_to_variable = { RCR_prisoners = -100000}
-		add_to_variable = { RCR_prisoners_working = 100000}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = -100000
+				}
+				add_to_variable = {
+					RCR_prisoners_working = 100000
+				}
+			}
+			FROM = {
+				add_to_variable = {
+					var1 = -100000
+				}
+			}
 		}
-		FROM = {add_to_variable = { var1 = -100000 }}
-		}
-
 		remove_effect = {
-		FROM = {
-		add_building_construction = {
+			FROM = {
+				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
-				}
-				custom_effect_tooltip = 100kpris
-				hidden_effect = {
+			}
+			custom_effect_tooltip = 100kpris
+			hidden_effect = {
 				FROM = {
-				add_to_variable = { var1 = 100000 }
+					add_to_variable = {
+						var1 = 100000
+					}
 				}
 				ROOT = {
-				add_to_variable = { RCR_prisoners = 100000 }
-				add_to_variable = { RCR_prisoners_working = -100000}
+					add_to_variable = {
+						RCR_prisoners = 100000
+					}
+					add_to_variable = {
+						RCR_prisoners_working = -100000
+					}
 				}
-				}
+			}
 		}
 	}
-	
 	RCR_GoolagFabrics = {
-	icon = generic_nationalism
-
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			FROM = {
-				check_variable = {var1 > 299999}
+				check_variable = {
+					var1 > 299999
+				}
 			}
 		}
-
 		state_target = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 125
-
 		#fire_only_once = yes
-        custom_cost_text = 300k_prisoners
+		custom_cost_text = 300k_prisoners
 		days_remove = 1
-
 		modifier = {
 			political_power_gain = -0.35
 			civilian_factory_use = 1
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-        ROOT = {add_to_variable = { RCR_prisoners = -300000} add_to_variable = { RCR_prisoners_working = 300000}}
-		FROM = {add_to_variable = { var1 = -300000 }}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = -300000
+				}
+				add_to_variable = {
+					RCR_prisoners_working = 300000
+				}
+			}
+			FROM = {
+				add_to_variable = {
+					var1 = -300000
+				}
+			}
 		}
-
 		remove_effect = {
-		FROM = {
-		add_building_construction = {
+			FROM = {
+				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
 				}
-				}
-				custom_effect_tooltip = 300kpris
-				hidden_effect = {
+			}
+			custom_effect_tooltip = 300kpris
+			hidden_effect = {
 				random_list = {
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 300000 }
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 300000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 300000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 0
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 250000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 250000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 50000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 200000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 200000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 100000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 150000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 150000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 150000
+							}
+						}
+					}
 				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 300000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 0}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 250000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 250000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 50000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 200000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 200000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 100000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 150000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 150000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 150000}
-				}
-				}
-				}
-				}
+			}
 		}
 	}
-	
 	RCR_GoolagArms = {
-	icon = generic_nationalism
-
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			FROM = {
-				check_variable = {var1 > 299999}
+				check_variable = {
+					var1 > 299999
+				}
 			}
 		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		#fire_only_once = yes
-        custom_cost_text = 300k_prisoners
+		custom_cost_text = 300k_prisoners
 		days_remove = 100
-
 		modifier = {
 			political_power_gain = -0.25
 			civilian_factory_use = 1
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-        ROOT = {add_to_variable = { RCR_prisoners = -300000} add_to_variable = { RCR_prisoners_working = 300000}}
-		FROM = {add_to_variable = { var1 = -300000 }}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = -300000
+				}
+				add_to_variable = {
+					RCR_prisoners_working = 300000
+				}
+			}
+			FROM = {
+				add_to_variable = {
+					var1 = -300000
+				}
+			}
 		}
-
 		remove_effect = {
-		FROM = {
-		add_building_construction = {
+			FROM = {
+				add_building_construction = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
 				}
-				}
-				custom_effect_tooltip = 300kpris
-				hidden_effect = {
+			}
+			custom_effect_tooltip = 300kpris
+			hidden_effect = {
 				random_list = {
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 300000 }
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 300000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 300000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 0
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 250000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 250000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 50000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 200000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 200000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 100000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 150000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 150000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -300000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 150000
+							}
+						}
+					}
 				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 300000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 0}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 250000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 250000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 50000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 200000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 200000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 100000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 150000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 150000}
-				add_to_variable = { RCR_prisoners_working = -300000}
-				add_to_variable = { RCR_prisoners_killed = 150000}
-				}
-				}
-				}
-				}
+			}
 		}
 	}
-	
 	RCR_Goolagtungsten = {
-	icon = generic_nationalism
-
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 			FROM = {
-				check_variable = {var1 > 199999}
+				check_variable = {
+					var1 > 199999
+				}
 			}
 		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		target_array = controlled_states
-
 		target_trigger = {
 			FROM = {
-						is_owned_by = ROOT
+				is_owned_by = ROOT
 			}
 		}
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		#fire_only_once = yes
-        custom_cost_text = 200k_prisoners
+		custom_cost_text = 200k_prisoners
 		days_remove = 100
-
 		modifier = {
 			political_power_gain = -0.25
 			civilian_factory_use = 1
 		}
-
 		visible = {
 			tag = RCR
 			always = yes
 		}
-
 		complete_effect = {
-        ROOT = {add_to_variable = { RCR_prisoners = -200000} add_to_variable = { RCR_prisoners_working = 200000}}
-		FROM = {add_to_variable = { var1 = -200000 }}
+			ROOT = {
+				add_to_variable = {
+					RCR_prisoners = -200000
+				}
+				add_to_variable = {
+					RCR_prisoners_working = 200000
+				}
+			}
+			FROM = {
+				add_to_variable = {
+					var1 = -200000
+				}
+			}
 		}
-
 		remove_effect = {
-		        add_resource = {
-					type = tungsten
-					amount = 24
-				}
-				custom_effect_tooltip = 200kpris
-				hidden_effect = {
+			add_resource = {
+				type = tungsten
+				amount = 24
+			}
+			custom_effect_tooltip = 200kpris
+			hidden_effect = {
 				random_list = {
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 200000 }
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 200000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 200000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -200000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 0
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 150000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 150000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -200000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 50000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 100000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 100000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -200000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 100000
+							}
+						}
+					}
+					25 = {
+						FROM = {
+							add_to_variable = {
+								var1 = 50000
+							}
+						}
+						ROOT = {
+							add_to_variable = {
+								RCR_prisoners = 50000
+							}
+							add_to_variable = {
+								RCR_prisoners_working = -200000
+							}
+							add_to_variable = {
+								RCR_prisoners_killed = 150000
+							}
+						}
+					}
 				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 200000}
-				add_to_variable = { RCR_prisoners_working = -200000}
-				add_to_variable = { RCR_prisoners_killed = 0}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 150000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 150000}
-				add_to_variable = { RCR_prisoners_working = -200000}
-				add_to_variable = { RCR_prisoners_killed = 50000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 100000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 100000}
-				add_to_variable = { RCR_prisoners_working = -200000}
-				add_to_variable = { RCR_prisoners_killed = 100000}
-				}
-				}
-				25 = {
-				FROM = {
-				add_to_variable = { var1 = 50000 }
-				}
-				ROOT = {
-				add_to_variable = { RCR_prisoners = 50000}
-				add_to_variable = { RCR_prisoners_working = -200000}
-				add_to_variable = { RCR_prisoners_killed = 150000}
-				}
-				}
-				}
-				}
+			}
 		}
-	}	
-
+	}
 }
 
+Country_Reconstruction = {
+	Normalize_the_Organization_of_Public_Works = {
+		cost = 50
+		available = {
+			has_completed_focus = RCR_Way_of_Pallasov
+		}
+		fire_only_once = yes
+		days_remove = 180
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Echo_Civil_War
+				add_idea = Echo_Civil_War_1
+			}
+		}
+	}
+	Automation_of_Critical_Infrastructure = {
+		cost = 50
+		available = {
+			has_completed_focus = RCR_Automatization_Bonds
+		}
+		fire_only_once = yes
+		days_remove = 180
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Echo_Civil_War_1
+				add_idea = Echo_Civil_War_2
+			}
+		}
+	}
+	Restore_the_Minimum_Food_Supply = {
+		cost = 50
+		available = {
+			has_completed_focus = RCR_Agrarian_Cities
+		}
+		fire_only_once = yes
+		days_remove = 180
+		remove_effect = {
+			remove_ideas = Echo_Civil_War_2
+		}
+	}
+}
 
+Voskhod_Complex = {
+	Establish_Experimental_Research_Institute_of_Fundamental_Physics = {
+		cost = 100
+		available = {
+			check_variable = {
+				rings > 99999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 182
+		remove_effect = {
+			hidden_effect = {
+				add_ideas = ER_IFP_Izumrud
+				add_to_variable = {
+					rings = -100000
+				}
+			}
+			custom_effect_tooltip = Establish_Experimental_Research_Institute_of_Fundamental_Physics
+		}
+	}
+	Neo_Farm_Research_Institute = {
+		cost = 50
+		available = {
+			check_variable = {
+				rings > 49999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 96
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -50000
+				}
+				add_ideas = Neo_Farm_RI
+			}
+			custom_effect_tooltip = Neo_Farm_Research_Institute
+		}
+	}
+	Neo_Steel_Design_Department = {
+		cost = 75
+		available = {
+			check_variable = {
+				rings > 74999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 144
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -75000
+				}
+				add_ideas = Neo_Steel_DD
+			}
+			custom_effect_tooltip = Neo_Steel_Design_Department
+		}
+	}
+	Robot_Era_Research_Institute = {
+		cost = 75
+		available = {
+			check_variable = {
+				rings > 74999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 144
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -75000
+				}
+				add_ideas = Robot_Era_RI
+			}
+			custom_effect_tooltip = Robot_Era_Research_Institute
+		}
+	}
+	Aimasofia_Research_Institute = {
+		cost = 50
+		available = {
+			check_variable = {
+				rings > 49999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 96
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -50000
+				}
+				add_ideas = Aimasofia_RI
+			}
+			custom_effect_tooltip = Aimasofia_Research_Institute
+		}
+	}
+	Kubit_Research_Institute = {
+		cost = 85
+		available = {
+			check_variable = {
+				rings > 84999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 200
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -85000
+				}
+				add_ideas = Kubit_ICS_RI
+			}
+			custom_effect_tooltip = Kubit_Research_Institute
+		}
+	}
+	Experimental_Reconstruction_Research_Institute = {
+		cost = 50
+		available = {
+			check_variable = {
+				rings > 49999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 96
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -50000
+				}
+				add_ideas = RIoER
+			}
+			custom_effect_tooltip = Experimental_Reconstruction_Research_Institute
+		}
+	}
+	Vremenskiy_Institute = {
+		cost = 85
+		available = {
+			check_variable = {
+				rings > 84999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 96
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -85000
+				}
+				add_ideas = Vremenskiy_Institute
+			}
+			custom_effect_tooltip = Vremenskiy_Institute
+		}
+	}
+	Research_Institute_Cosmonautics_Aviation_and_Rocket_Science = {
+		cost = 100
+		available = {
+			check_variable = {
+				rings > 99999
+			}
+		}
+		fire_only_once = yes
+		days_remove = 182
+		remove_effect = {
+			hidden_effect = {
+				add_to_variable = {
+					rings = -100000
+				}
+				add_ideas = CARS_RI
+			}
+			custom_effect_tooltip = Research_Institute_Cosmonautics_Aviation_and_Rocket_Science
+		}
+	}
+}
 
-RCR_Shilov_Campaign = {
-
-    RCR_Start_Operation_Falanga = {
-		icon = generic_nationalism
-
+Great_Game_decisions = {
+	Increase_Export_to_Tyynimia = {
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			TYY = {
+				add_timed_idea = {
+					idea = Extra_Trade_with_Rethenia
+					days = 60
+				}
+			}
+			add_to_variable = {
+				var = TYY.Influenced_by_RCR
+				value = 5
+			}
+		}
+	}
+	Increase_Export_to_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			LTG = {
+				add_timed_idea = {
+					idea = Extra_Trade_with_Rethenia
+					days = 60
+				}
+			}
+			add_to_variable = {
+				var = LTG.Influenced_by_RCR
+				value = 5
+			}
+		}
+	}
+	Increase_Export_to_Svyetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			SVT = {
+				add_timed_idea = {
+					idea = Extra_Trade_with_Rethenia
+					days = 60
+				}
+			}
+			add_to_variable = {
+				var = SVT.Influenced_by_RCR
+				value = 5
+			}
+		}
+	}
+	Increase_Export_to_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			MER = {
+				add_timed_idea = {
+					idea = Extra_Trade_with_Rethenia
+					days = 60
+				}
+			}
+			add_to_variable = {
+				var = MER.Influenced_by_RCR
+				value = 5
+			}
+		}
+	}
+	Increase_Export_to_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+		}
+		cost = 25
+		days_re_enable = 60
+		complete_effect = {
+			CHE = {
+				add_timed_idea = {
+					idea = Extra_Trade_with_Rethenia
+					days = 60
+				}
+			}
+			add_to_variable = {
+				var = CHE.Influenced_by_RCR
+				value = 5
+			}
+		}
+	}
+	Spread_Katzerist_Literature_in_Tyynimia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = TYY.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			TYY = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda
+					days = 60
+				}
+			}
+		}
+	}
+	Spread_Katzerist_Literature_in_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = LTG.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			LTG = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda
+					days = 60
+				}
+			}
+		}
+	}
+	Spread_Katzerist_Literature_in_Svyetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = SVT.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			SVT = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda
+					days = 60
+				}
+			}
+		}
+	}
+	Spread_Katzerist_Literature_in_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = MER.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			MER = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda
+					days = 60
+				}
+			}
+		}
+	}
+	Spread_Katzerist_Literature_in_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = CHE.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			CHE = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda
+					days = 60
+				}
+			}
+		}
+	}
+	Fund_the_Labor_Movement_in_Tyynimia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 25
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+			NOT = {
+				TYY = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = TYY.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = TYY.RCR_Support_Equipment
+				value = 200
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			TYY = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda_2
+					days = 60
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+	}
+	Fund_the_Labor_Movement_in_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				LTG.Influenced_by_RCR > 25
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+			NOT = {
+				LTG = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = LTG.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = LTG.RCR_Support_Equipment
+				value = 200
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			LTG = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda_2
+					days = 60
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+	}
+	Fund_the_Labor_Movement_in_Svyetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				SVT.Influenced_by_RCR > 25
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+			NOT = {
+				SVT = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = SVT.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = SVT.RCR_Support_Equipment
+				value = 200
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			SVT = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda_2
+					days = 60
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+	}
+	Fund_the_Labor_Movement_in_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				MER.Influenced_by_RCR > 25
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+			NOT = {
+				MER = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = MER.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = MER.RCR_Support_Equipment
+				value = 200
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			MER = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda_2
+					days = 60
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+	}
+	Fund_the_Labor_Movement_in_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				CHE.Influenced_by_RCR > 25
+			}
+			has_equipment = {
+				support_equipment > 199
+			}
+			NOT = {
+				CHE = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = CHE.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = CHE.RCR_Support_Equipment
+				value = 200
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -200
+				}
+			}
+			CHE = {
+				add_timed_idea = {
+					idea = Rethenian_Propaganda_2
+					days = 60
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 200
+				}
+			}
+		}
+	}
+	Send_Infantry_Equipment_to_Red_Guards_of_Tyynimia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 40
+			}
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			NOT = {
+				TYY = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = TYY.Influenced_by_RCR
+				value = 7
+			}
+			add_to_variable = {
+				var = TYY.RCR_Infantry_Equipment
+				value = 1000
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			TYY = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.07
+				}
+			}
+		}
+	}
+	Send_Infantry_Equipment_to_Red_Guards_of_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				LTG.Influenced_by_RCR > 40
+			}
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			NOT = {
+				LTG = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = LTG.Influenced_by_RCR
+				value = 7
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = LTG.RCR_Infantry_Equipment
+				value = 1000
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			LTG = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.07
+				}
+			}
+		}
+	}
+	Send_Infantry_Equipment_to_Red_Guards_of_Svyetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				SVT.Influenced_by_RCR > 40
+			}
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			NOT = {
+				SVT = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = SVT.Influenced_by_RCR
+				value = 7
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = SVT.RCR_Infantry_Equipment
+				value = 1000
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			SVT = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.07
+				}
+			}
+		}
+	}
+	Send_Infantry_Equipment_to_Red_Guards_of_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				MER.Influenced_by_RCR > 40
+			}
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			NOT = {
+				MER = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = MER.Influenced_by_RCR
+				value = 7
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = MER.RCR_Infantry_Equipment
+				value = 1000
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			MER = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.07
+				}
+			}
+		}
+	}
+	Send_Infantry_Equipment_to_Red_Guards_of_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				CHE.Influenced_by_RCR > 40
+			}
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			NOT = {
+				CHE = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = CHE.Influenced_by_RCR
+				value = 7
+			}
+			add_to_variable = {
+				Revolutionary_Action = -1
+			}
+			add_to_variable = {
+				var = CHE.RCR_Infantry_Equipment
+				value = 1000
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			CHE = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.07
+				}
+			}
+		}
+	}
+	Provide_Military_Support_to_Tyynimia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 999
+			}
+			TYY = {
+				OR = {
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = autonomous_socialism
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = TYY.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				var = TYY.RCR_Infantry_Equipment
+				value = 1000
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+			}
+			TYY = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+			}
+		}
+	}
+	Provide_Military_Support_to_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			has_equipment = {
+				motorized_equipment > 99
+			}
+			LTG = {
+				OR = {
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = autonomous_socialism
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = LTG.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				var = LTG.RCR_Motorized_Equipment
+				value = 100
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -100
+				}
+			}
+			LTG = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 100
+				}
+			}
+		}
+	}
+	Provide_Military_Support_to_Svetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			has_equipment = {
+				convoy > 24
+			}
+			SVT = {
+				OR = {
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = autonomous_socialism
+					has_country_leader = SVT_Stanislaw_Alivarskiy
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = SVT.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				var = SVT.RCR_Convoys
+				value = 25
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = -25
+				}
+			}
+			SVT = {
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 25
+				}
+			}
+		}
+	}
+	Provide_Military_Support_to_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			has_equipment = {
+				main_battle_tank_equipment > 39
+			}
+			MER = {
+				OR = {
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = autonomous_socialism
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = MER.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				var = MER.RCR_Tanks
+				value = 40
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = -40
+				}
+			}
+			MER = {
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = 40
+				}
+			}
+		}
+	}
+	Provide_Military_Support_to_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			has_equipment = {
+				motorized_equipment > 99
+			}
+			CHE = {
+				OR = {
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = autonomous_socialism
+				}
+			}
+		}
+		cost = 10
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				var = CHE.Influenced_by_RCR
+				value = 5
+			}
+			add_to_variable = {
+				var = CHE.RCR_Motorized_Equipment
+				value = 100
+			}
+			RCR = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -100
+				}
+			}
+			CHE = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 100
+				}
+			}
+		}
+	}
+	Start_the_Uprising_in_Tyynimia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 2
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 74
+			}
+			NOT = {
+				TYY = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+			add_to_temp_variable = {
+				var = TYY.Left_Wing
+				value = party_popularity@autonomous_socialism
+			}
+			add_to_temp_variable = {
+				var = TYY.Left_Wing
+				value = party_popularity@katzerism
+			}
+			add_to_temp_variable = {
+				var = TYY.Left_Wing
+				value = party_popularity@neosocialism
+			}
+			if = {
+				limit = {
+					check_variable = {
+						TYY.Left_Wing < 41
+					}
+				}
+				random_list = {
+					70 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					30 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = TYY_Katzerists_Long
+							name = TYY_Katzerists
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						TYY.Left_Wing > 40
+						TYY.Left_Wing < 59
+					}
+				}
+				random_list = {
+					50 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					50 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = TYY_Katzerists_Long
+							name = TYY_Katzerists
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+					elections_allowed = no
+					election_frequency = 36
+					long_name = TYY_Katzerists_Long
+					name = TYY_Katzerists
+				}
+			}
+		}
+	}
+	Start_the_Uprising_in_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 2
+			}
+			check_variable = {
+				LTG.Influenced_by_RCR > 74
+			}
+			NOT = {
+				LTG = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+			add_to_temp_variable = {
+				var = LTG.Left_Wing
+				value = party_popularity@autonomous_socialism
+			}
+			add_to_temp_variable = {
+				var = LTG.Left_Wing
+				value = party_popularity@katzerism
+			}
+			add_to_temp_variable = {
+				var = LTG.Left_Wing
+				value = party_popularity@neosocialism
+			}
+			if = {
+				limit = {
+					check_variable = {
+						LTG.Left_Wing < 41
+					}
+				}
+				random_list = {
+					70 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					30 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = LTG_Katzerists_Long
+							name = LTG_Katzerists
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						LTG.Left_Wing > 40
+						LTG.Left_Wing < 59
+					}
+				}
+				random_list = {
+					50 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					50 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = LTG_Katzerists_Long
+							name = LTG_Katzerists
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+					elections_allowed = no
+					election_frequency = 36
+					long_name = LTG_Katzerists_Long
+					name = LTG_Katzerists
+				}
+			}
+		}
+	}
+	Start_the_Uprising_in_Svetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 2
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 74
+			}
+			NOT = {
+				SVT = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+			add_to_temp_variable = {
+				var = SVT.Left_Wing
+				value = party_popularity@autonomous_socialism
+			}
+			add_to_temp_variable = {
+				var = SVT.Left_Wing
+				value = party_popularity@katzerism
+			}
+			add_to_temp_variable = {
+				var = SVT.Left_Wing
+				value = party_popularity@neosocialism
+			}
+			if = {
+				limit = {
+					check_variable = {
+						SVT.Left_Wing < 41
+					}
+				}
+				random_list = {
+					70 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					30 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = SVT_Katzerists_Long
+							name = SVT_Katzerists
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						SVT.Left_Wing > 40
+						SVT.Left_Wing < 59
+					}
+				}
+				random_list = {
+					50 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					50 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = SVT_Katzerists_Long
+							name = SVT_Katzerists
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+					elections_allowed = no
+					election_frequency = 36
+					long_name = SVT_Katzerists_Long
+					name = SVT_Katzerists
+				}
+			}
+		}
+	}
+	Start_the_Uprising_in_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 2
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 74
+			}
+			NOT = {
+				MER = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+			add_to_temp_variable = {
+				var = MER.Left_Wing
+				value = party_popularity@autonomous_socialism
+			}
+			add_to_temp_variable = {
+				var = MER.Left_Wing
+				value = party_popularity@katzerism
+			}
+			add_to_temp_variable = {
+				var = MER.Left_Wing
+				value = party_popularity@neosocialism
+			}
+			if = {
+				limit = {
+					check_variable = {
+						MER.Left_Wing < 41
+					}
+				}
+				random_list = {
+					70 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					30 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = MER_Katzerists_Long
+							name = MER_Katzerists
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						MER.Left_Wing > 40
+						MER.Left_Wing < 59
+					}
+				}
+				random_list = {
+					50 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					50 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = MER_Katzerists_Long
+							name = MER_Katzerists
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+					elections_allowed = no
+					election_frequency = 36
+					long_name = MER_Katzerists_Long
+					name = MER_Katzerists
+				}
+			}
+		}
+	}
+	Start_the_Uprising_in_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 2
+			}
+			check_variable = {
+				TYY.Influenced_by_RCR > 74
+			}
+			NOT = {
+				CHE = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		complete_effect = {
+			add_to_temp_variable = {
+				var = CHE.Left_Wing
+				value = party_popularity@autonomous_socialism
+			}
+			add_to_temp_variable = {
+				var = CHE.Left_Wing
+				value = party_popularity@katzerism
+			}
+			add_to_temp_variable = {
+				var = CHE.Left_Wing
+				value = party_popularity@neosocialism
+			}
+			if = {
+				limit = {
+					check_variable = {
+						CHE.Left_Wing < 41
+					}
+				}
+				random_list = {
+					70 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					30 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = CHE_Katzerists_Long
+							name = CHE_Katzerists
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						CHE.Left_Wing > 40
+						CHE.Left_Wing < 59
+					}
+				}
+				random_list = {
+					50 = {
+						start_civil_war = {
+							ideology = katzerism
+						}
+					}
+					50 = {
+						set_politics = {
+							ruling_party = katzerism
+							elections_allowed = no
+							election_frequency = 36
+							long_name = CHE_Katzerists_Long
+							name = CHE_Katzerists
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = katzerism
+					elections_allowed = no
+					election_frequency = 36
+					long_name = CHE_Katzerists_Long
+					name = CHE_Katzerists
+				}
+			}
+		}
+	}
+	Organize_a_Strike_of_Port_Workers_in_Latigalia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 1
+			}
+			check_variable = {
+				LTG.Influenced_by_RCR > 49
+			}
+			NOT = {
+				LTG = {
+					OR = {
+						has_government = katzerism
+						has_government = neosocialism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+		days_re_enable = 60
+		cost = 60
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_RCR = 10
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = 0.05
+			}
+			LTG = {
+				add_timed_idea = {
+					idea = Latigalian_Port_Strikes
+					days = 60
+				}
+			}
+		}
+	}
+	Increase_Import_of_Sea_Foods = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			always = yes
+		}
+		days_re_enable = 60
+		cost = 30
+		complete_effect = {
+			add_to_variable = {
+				LTG.Influenced_by_RCR = 5
+			}
+			LTG = {
+				add_timed_idea = {
+					idea = LTG_Increased_Export_of_Sea_Food
+					days = 60
+				}
+			}
+			RCR = {
+				add_timed_idea = {
+					idea = RCR_Increased_Import_of_Sea_Food
+					days = 60
+				}
+			}
+		}
+	}
+	Consolidate_Opposition_Against_Majavov = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			TYY = {
+				has_country_leader = TYY_Konstantin_Majavov
+			}
+		}
+		days_re_enable = 60
+		cost = 30
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_RCR = 5
+			}
+			TYY = {
+				add_timed_idea = {
+					idea = Consolidate_Opposition_Against_Majavov
+					days = 60
+				}
+			}
+		}
+	}
+	Concert_in_Honor_of_the_Red_Guards = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				TYY.Influenced_by_RCR > 30
+			}
+			check_variable = {
+				Revolutionary_Action > 1
+			}
+		}
+		cost = 60
+		days_re_enable = 60
+		complete_effect = {
+			add_to_variable = {
+				TYY.Influenced_by_RCR = 10
+			}
+			TYY = {
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = 0.05
+				}
+			}
+		}
+	}
+	Set_Sukhovey_Free = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 1
+			}
+			check_variable = {
+				CHE.Influenced_by_RCR > 40
+			}
+			CHE = {
+				CHE_Stepan_Sukhovey = {
+					has_character_flag = imprisoned
+				}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cost = 100
+		remove_effect = {
+			add_to_variable = {
+				CHE.Influenced_by_RCR = 15
+			}
+			CHE = {
+				#set_country_flag = Rethenia_tries_to_free_Sukhovey
+				country_event = che.7
+			}
+		}
+	}
+	Destabilize_the_Police_Apparatus_in_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 1
+			}
+			check_variable = {
+				CHE.Influenced_by_RCR > 50
+			}
+			CHE = {
+				CHE_Stepan_Sukhovey = {
+					NOT = {
+						has_character_flag = imprisoned
+					}
+				}
+			}
+		}
+		days_re_enable = 60
+		cost = 30
+		complete_effect = {
+			add_to_variable = {
+				CHE.Influenced_by_RCR = 7
+			}
+			CHE = {
+				add_stability = -0.05
+			}
+		}
+	}
+	Build_an_Oil_Pipeline_in_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				CHE.Influenced_by_RCR > 35
+			}
+			UFA = {
+				has_completed_focus = UFA_Search_Alternate_Energy_Supplies
+			}
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 60
+		remove_effect = {
+			CHE = {
+				every_core_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_ideas = Rethenia_Federation_Oil_Pipeline
+			}
+			add_to_variable = {
+				CHE.Influenced_by_RCR = 12.5
+			}
+		}
+	}
+	Promote_Civil_War_Veterans_in_Svetlales = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				SVT.Influenced_by_RCR > 25
+			}
+		}
+		days_re_enable = 60
+		cost = 30
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_RCR = 5
+			}
+			SVT = {
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.025
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.025
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = 0.025
+				}
+			}
+		}
+	}
+	Increase_the_Rent_Payments_for_Brastropolis = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			always = yes
+		}
+		days_re_enable = 60
+		cost = 60
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_RCR = 5
+			}
+			RCR = {
+				add_ideas = More_Rent_Payments
+			}
+		}
+	}
+	Bribe_Corrupted_Officers = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				SVT.Influenced_by_RCR > 40
+			}
+		}
+		days_re_enable = 60
+		cost = 50
+		complete_effect = {
+			add_to_variable = {
+				SVT.Influenced_by_RCR = 7.5
+			}
+			SVT = {
+				add_to_variable = {
+					gov_corruption = 10
+				}
+			}
+		}
+	}
+	Popularise_Mercian_Rethenian_Freedom_Fighters = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 0
+			}
+			check_variable = {
+				MER.Influenced_by_RCR > 25
+			}
+		}
+		days_re_enable = 60
+		cost = 30
+		complete_effect = {
+			add_to_variable = {
+				MER.Influenced_by_RCR = 5
+			}
+			MER = {
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.025
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = 0.025
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = 0.025
+				}
+			}
+		}
+	}
+	Increase_Student_Propaganda = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			check_variable = {
+				Revolutionary_Action > 1
+			}
+			check_variable = {
+				MER.Influenced_by_RCR > 40
+			}
+		}
+		days_re_enable = 60
+		cost = 50
+		complete_effect = {
+			add_to_variable = {
+				MER.Influenced_by_RCR = 10
+			}
+			MER = {
+				add_timed_idea = {
+					idea = Student_Agitation
+					days = 60
+				}
+			}
+		}
+	}
+	Give_Military_License_to_Cherniwschina = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			always = yes
+			date < 3239.1.1
+		}
+		days_re_enable = 60
+		cost = 60
+		complete_effect = {
+			add_to_variable = {
+				CHE.Influenced_by_RCR = 7.5
+			}
+			random_list = {
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = infantry_equipment_3
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = energy_infantry_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = apc_mechanized_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = ifv_mechanized_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = main_battle_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = heavy_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = armored_anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = armored_anti_air_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = hovertank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = railgun_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = anti_air_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = artillery_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = railgun_anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = light_robots_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = medium_robot_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = CHE
+						cost_factor = 0
+						equipment = {
+							type = heavy_robot_equipment_1
+						}
+					}
+				}
+			}
+		}
+	}
+	Give_Military_License_to_Mercia = {
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			always = yes
+			date < 3239.1.1
+		}
+		days_re_enable = 60
+		cost = 60
+		complete_effect = {
+			add_to_variable = {
+				MER.Influenced_by_RCR = 7.5
+			}
+			random_list = {
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = infantry_equipment_3
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = energy_infantry_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = apc_mechanized_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = ifv_mechanized_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = main_battle_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = heavy_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = armored_anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = armored_anti_air_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = hovertank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = railgun_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = anti_air_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = artillery_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = railgun_anti_tank_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = light_robots_equipment_2
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = medium_robot_equipment_1
+						}
+					}
+				}
+				1 = {
+					create_production_license = {
+						target = MER
+						cost_factor = 0
+						equipment = {
+							type = heavy_robot_equipment_1
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
+Nature_Renovation = {
+	Clear_Waters_of_Toxins = {
+		available = {
+			check_variable = {
+				rings > 19999
+			}
+		}
+		cost = 100
+		days_remove = 30
+		days_re_enable = 3
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_Plan = 1
+			}
+			custom_effect_tooltip = Clear_Waters_of_Toxins
+		}
+	}
+	Disinfect_Soil = {
+		available = {
+			check_variable = {
+				rings > 19999
+			}
+		}
+		cost = 100
+		days_remove = 30
+		days_re_enable = 3
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_Plan = 1
+			}
+			custom_effect_tooltip = Disinfect_Soil
+		}
+	}
+	Modernize_the_Local_Waste_Disposal_System = {
+		available = {
+			check_variable = {
+				rings > 19999
+			}
+		}
+		cost = 100
+		days_remove = 30
+		days_re_enable = 3
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_Plan = 1
+			}
+			custom_effect_tooltip = Modernize_the_Waste_Disposal_System
+		}
+	}
+	Create_a_Network_of_Forest_Protection_Stations = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 100
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.5
+			}
+			custom_effect_tooltip = Modernize_the_Waste_Disposal_System
+		}
+	}
+	Forest_Belts_in_the_South_of_Rethenia = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 200
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.75
+			}
+			custom_effect_tooltip = Modernize_the_Waste_Disposal_System
+		}
+	}
+	Reservoirs_in_Central_Rethenia = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 150
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.5
+			}
+			custom_effect_tooltip = Reservoirs_in_Central_Rethenia
+		}
+	}
+	Great_Sivirian_Basin = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 200
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.75
+			}
+			custom_effect_tooltip = Great_Sivirian_Basin
+		}
+	}
+	Far_East_Fauna_Development = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 100
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.5
+			}
+			custom_effect_tooltip = Far_East_Fauna_Development
+		}
+	}
+	Redirection_of_Northern_Rivers = {
+		available = {
+			check_variable = {
+				rings > 14999
+			}
+		}
+		cost = 75
+		days_remove = 200
+		fire_only_once = yes
+		complete_effect = {
+			add_to_variable = {
+				Nature_Renovation_growth = 0.75
+			}
+			custom_effect_tooltip = Redirection_of_Northern_Rivers
+		}
+	}
+}
+
+RCR_Shilov_Campaign = {
+	RCR_Start_Operation_Falanga = {
+		icon = generic_nationalism
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+		}
 		cost = 200
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 30
-
 		modifier = {
 			political_power_gain = -0.15
 			civilian_factory_use = 5
 			war_support_weekly = 0.05
 		}
-
 		visible = {
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		hidden_effect = {
-		set_variable = {Falanga_UFA = 100}
-		set_variable = {Falanga_RCR = 0}
+			hidden_effect = {
+				set_variable = {
+					Falanga_UFA = 100
+				}
+				set_variable = {
+					Falanga_RCR = 0
+				}
+			}
+			set_country_flag = operation_start
 		}
-		set_country_flag = operation_start
 	}
-	}
-	
-	
-    RCR_Prepare_1 = { # Подготовка 75.000 военнослужащих к переброске
+	RCR_Prepare_1 = {
+		# Подготовка 75.000 военнослужащих к переброске
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 			civilian_factory_use = 2
 			max_command_power = -10
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep1
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 75000}
-		add_to_variable = {Falanga_UFA = 15}
-		}
+			custom_effect_tooltip = prep1
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 75000
+				}
+				add_to_variable = {
+					Falanga_UFA = 15
+				}
+			}
 		}
 	}
-	
-	RCR_Prepare_2 = { # Подготовка добровольческого корпуса в 25.000 чел. 
+	RCR_Prepare_2 = {
+		# Подготовка добровольческого корпуса в 25.000 чел. 
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 			civilian_factory_use = 1
 			max_command_power = -10
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		add_manpower = -25000
+			add_manpower = -25000
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep2
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 25000}
-		add_to_variable = {Falanga_UFA = 5}
-		}
+			custom_effect_tooltip = prep2
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 25000
+				}
+				add_to_variable = {
+					Falanga_UFA = 5
+				}
+			}
 		}
 	}
-	RCR_Prepare_3 = { # Перевод 150.000 контрактников 
+	RCR_Prepare_3 = {
+		# Перевод 150.000 контрактников 
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 			max_command_power = -50
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		add_manpower = -150000
+			add_manpower = -150000
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep3
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 150000}
-		add_to_variable = {Falanga_UFA = 12}
-		}
+			custom_effect_tooltip = prep3
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 150000
+				}
+				add_to_variable = {
+					Falanga_UFA = 12
+				}
+			}
 		}
 	}
-	RCR_Prepare_4 = { # ''Неудачные'' учения (на учениях "гибнет" 50.000 военнослужащих)
- 		icon = generic_nationalism
-
+	RCR_Prepare_4 = {
+		# ''Неудачные'' учения (на учениях "гибнет" 50.000 военнослужащих)
+		icon = generic_nationalism
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.15
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		add_war_support = -0.15
-		add_manpower = -50000
+			add_war_support = -0.15
+			add_manpower = -50000
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep4
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 50000}
-		add_to_variable = {Falanga_UFA = -5}
-		}
+			custom_effect_tooltip = prep4
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 50000
+				}
+				add_to_variable = {
+					Falanga_UFA = -5
+				}
+			}
 		}
 	}
-	RCR_Prepare_5 = { # Перевооружение (под шумок прячем устаревшее снаряжение для операции)
+	RCR_Prepare_5 = {
+		# Перевооружение (под шумок прячем устаревшее снаряжение для операции)
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 125
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 150
-
 		modifier = {
 			civilian_factory_use = 4
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep5
-		hidden_effect = {
-		army_experience = 200
-		add_to_variable = {Falanga_RCR = 50000}
-		add_to_variable = {Falanga_UFA = 15}
-		}
+			custom_effect_tooltip = prep5
+			hidden_effect = {
+				army_experience = 200
+				add_to_variable = {
+					Falanga_RCR = 50000
+				}
+				add_to_variable = {
+					Falanga_UFA = 15
+				}
+			}
 		}
 	}
-	
-	RCR_Prepare_6 = { # Отправка наемной армии
+	RCR_Prepare_6 = {
+		# Отправка наемной армии
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 150
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 150
-
 		modifier = {
 			civilian_factory_use = 2
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep6
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 25000}
-		add_to_variable = {Falanga_UFA = 2}
-		}
+			custom_effect_tooltip = prep6
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 25000
+				}
+				add_to_variable = {
+					Falanga_UFA = 2
+				}
+			}
 		}
 	}
-	
-	RCR_Prepare_7 = { # Найм 12.000 человек "на местах"
+	RCR_Prepare_7 = {
+		# Найм 12.000 человек "на местах"
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 75
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
 			civilian_factory_use = 2
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = prep7
-		hidden_effect = {
-		add_to_variable = {Falanga_RCR = 12000}
-		}
+			custom_effect_tooltip = prep7
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_RCR = 12000
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_1 = { # Переговоры с Федерацией
+	RCR_Hide_1 = {
+		# Переговоры с Федерацией
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 60
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 50
-
 		modifier = {
 			political_power_gain = -0.25
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide1
-		hidden_effect = {
-		add_to_variable = {Falanga_UFA = -10}
-		}
+			custom_effect_tooltip = hide1
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_UFA = -10
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_2 = { # Подготовка к войне с роботами
+	RCR_Hide_2 = {
+		# Подготовка к войне с роботами
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 200
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 120
-
 		modifier = {
 			political_power_gain = -0.12
 			max_command_power = -50
 			civilian_factory_use = 5
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		add_manpower = 100000
+			add_manpower = 100000
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide2
-		hidden_effect = {
-		add_war_support = 0.15
-		army_experience = 15
-		random_owned_controlled_state = {
-		add_building_construction = {
-		type = arms_factory
-		level = 2
-		instant_build = yes
-		}
-		}
-		add_to_variable = {Falanga_UFA = -50}
-		}
+			custom_effect_tooltip = hide2
+			hidden_effect = {
+				add_war_support = 0.15
+				army_experience = 15
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				add_to_variable = {
+					Falanga_UFA = -50
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_3 = { # Подготовка фальшивых военных планов
+	RCR_Hide_3 = {
+		# Подготовка фальшивых военных планов
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 110
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 80
-
 		modifier = {
 			political_power_gain = -0.1
 			max_command_power = -25
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide3
-		hidden_effect = {
-		army_experience = 15
-		add_to_variable = {Falanga_UFA = -25}
-		}
+			custom_effect_tooltip = hide3
+			hidden_effect = {
+				army_experience = 15
+				add_to_variable = {
+					Falanga_UFA = -25
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_4 = { # Критика в отношении социалистов (UWM)
+	RCR_Hide_4 = {
+		# Критика в отношении социалистов (UWM)
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 70
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 150
-
 		modifier = {
 			political_power_gain = -0.1
 			improve_relations_maintain_cost_factor = 0.25
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide4
-		hidden_effect = {
-		add_to_variable = {Falanga_UFA = -10}
-		}
+			custom_effect_tooltip = hide4
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_UFA = -10
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_5 = { # Запуск фальшивой операции по перебросу 200.000 военнослужащих социалистам
+	RCR_Hide_5 = {
+		# Запуск фальшивой операции по перебросу 200.000 военнослужащих социалистам
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 200
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
-		civilian_factory_use = 2
-		max_command_power = -50
+			civilian_factory_use = 2
+			max_command_power = -50
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		add_manpower = -5000
+			add_manpower = -5000
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide5
-		hidden_effect = {
-		add_to_variable = {Falanga_UFA = -45}
-		}
+			custom_effect_tooltip = hide5
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_UFA = -45
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_6 = { # Маскировка операции
+	RCR_Hide_6 = {
+		# Маскировка операции
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
-		max_command_power = -5
+			max_command_power = -5
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide6
-		hidden_effect = {
-		add_to_variable = {Falanga_UFA = -10}
-		}
+			custom_effect_tooltip = hide6
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_UFA = -10
+				}
+			}
 		}
 	}
-	
-	RCR_Hide_7 = { # Использование мирных судов, наем экипажа
+	RCR_Hide_7 = {
+		# Использование мирных судов, наем экипажа
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = operation_start
+			has_country_flag = operation_start
 		}
-
 		cost = 125
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = hide7
-		hidden_effect = {
-		add_to_variable = {Falanga_UFA = -20}
-		}
+			custom_effect_tooltip = hide7
+			hidden_effect = {
+				add_to_variable = {
+					Falanga_UFA = -20
+				}
+			}
 		}
 	}
-	
-	
-	RCR_Start_Operation = { # Использование мирных судов, наем экипажа
+	RCR_Start_Operation = {
+		# Использование мирных судов, наем экипажа
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		AND = {
-		custom_trigger_tooltip = {
-		tooltip = need200
-		has_country_flag = operation_start
-		hidden_trigger = { 
-		check_variable = {Falanga_RCR > 199999}
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = need200
+					has_country_flag = operation_start
+					hidden_trigger = {
+						check_variable = {
+							Falanga_RCR > 199999
+						}
+					}
+				}
+			}
 		}
-		}
-		}
-		}
-
 		cost = 200
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 30
-
 		modifier = {
-		max_command_power = -50
+			max_command_power = -50
 		}
-
 		visible = {
 			has_country_flag = operation_start
 		}
-
 		complete_effect = {
-		custom_effect_tooltip = start
+			custom_effect_tooltip = start
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = start
-		hidden_effect = {
-		random_list = {
-		Falanga_UFA = {
-		UFA = {
-		declare_war_on = {
-            target = RCR
-            type = annex_everything
-        }
-		}
-		}
-		}
-		
-		UWM = {
-		set_temp_variable = { temp1 = 200000 }
-		set_temp_variable = { temp2 = Falanga_RCR }
-		subtract_from_temp_variable = { temp2 = temp1 }
-		set_variable = {Falanga_RCR = temp2}
-		add_manpower = Falanga_RCR
-		}
-		}
+			custom_effect_tooltip = start
+			hidden_effect = {
+				random_list = {
+					Falanga_UFA = {
+						UFA = {
+							declare_war_on = {
+								target = RCR
+								type = annex_everything
+							}
+						}
+					}
+				}
+				UWM = {
+					set_temp_variable = {
+						temp1 = 200000
+					}
+					set_temp_variable = {
+						temp2 = Falanga_RCR
+					}
+					subtract_from_temp_variable = {
+						temp2 = temp1
+					}
+					set_variable = {
+						Falanga_RCR = temp2
+					}
+					add_manpower = Falanga_RCR
+				}
+			}
 		}
 	}
-	
 }
 
+RCR_Shilov_Coup_Aftermath = {
+	Regional_Committees_Contacts = {
+		cost = 1
+		days_re_enable = 40 
+		complete_effect = {
+			add_stability = 0.03
+		}
+	}
+	Military_Command_Support = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_war_support = 0.03
+		}
+	}
+	Purge_Military_Districts = {
+		cost = 0
+		days_re_enable = 40
+		complete_effect = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_political_power = 75
+		}
+	}
+	Increase_Activity_of_Military_Prosecution_Office = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = 0.05
+			}
+		}
+	}
+	Decrease_Activity_of_Military_Prosecution_Office = {
+		cost = 1
+		days_re_enable = 40
+		complete_effect = {
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = -0.05
+			}
+		}
+	}
+	Set_Civilian_Administration_in_Cities = {
+		cost = 1
+		fire_only_once = yes
+		complete_effect = {
+			country_event = rcr.127
+		}
+	}
+	Set_Military_Administration_in_Cities = {
+		cost = 1
+		fire_only_once = yes
+		complete_effect = {
+			country_event = rcr.125
+		}
+	}
+	Reinforce_Loyal_Military = {
+		cost = 1
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_stability = 0.025
+		}
+	}
+	Protect_Soldiers_Families = {
+		cost = 1
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+			has_equipment = {
+				support_equipment > 50
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -50
+			}
+			add_war_support = 0.025
+		}
+	}
+	Propaganda_Leaflets_Against_KORTS = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				motorized_equipment > 50
+			}
+			has_equipment = {
+				transport_plane_equipment > 10
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -50
+			}
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment
+				amount = -10
+			}
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = -0.05
+			}
+		}
+	}
+	Propaganda_Leaflets_Against_Party_Opposition = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				motorized_equipment > 50
+			}
+			has_equipment = {
+				transport_plane_equipment > 10
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = -50
+			}
+			add_equipment_to_stockpile = {
+				type = transport_plane_equipment
+				amount = -10
+			}
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = 0.05
+			}
+		}
+	}
+	Recruit_Ideological_Fighters = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+		}
+		complete_effect = {
+			add_manpower = 10000
+		}
+	}
+}
 
+RCR_Shilov_Cloning = {
+	Provision_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Provision_Manufacturing_idea
+		}
+	}
+	Raw_Materials_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Raw_Materials_Manufacturing_idea
+		}
+	}
+	Restorational_Pharma = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Restorational_Pharma_idea
+		}
+	}
+	Biocopying = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Biocopying_idea
+		}
+	}
+	Weapon_Manufacturing = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Passive_mode_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Weapon_Manufacturing_idea
+		}
+	}
+	Passive_mode = {
+		cost = 0
+		days_remove = 18
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Research_Facility_Rearrangement
+				days = 18
+			}
+			hidden_effect = {
+				remove_ideas = Weapon_Manufacturing_idea
+				remove_ideas = Biocopying_idea
+				remove_ideas = Restorational_Pharma_idea
+				remove_ideas = Raw_Materials_Manufacturing_idea
+				remove_ideas = Provision_Manufacturing_idea
+			}
+		}
+		remove_effect = {
+			add_ideas = Passive_mode_idea
+		}
+	}
+}
+
+RCR_Shilov_Wars = {
+	They_Suspect_Us = {
+		activation = {
+			has_completed_focus = RCR_Revolution_Legacy
+		}
+		available = {
+			tag = RCR
+		}
+		days_mission_timeout = 480
+		timeout_effect = {
+			every_other_country = {
+				limit = {
+					NOT = {
+						is_in_faction_with = RCR
+					}
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Warmonger
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Warmongering_Madman
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = non_aggression_pact
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = military_access
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = market_access_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = docking_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = improve_relation
+					active = no
+				}
+			}
+		}
+	}
+	Hold_Off_by_Diplomatic_Channels = {
+		available = {
+			has_political_power > 99
+		}
+		cost = 100
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_diplomacy_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_diplomacy_failure = {
+
+				}
+			}
+			add_to_variable = {
+				Shilov_diplomacy_failure = 5
+			}
+			add_to_variable = {
+				Shilov_diplomacy_chances = -5
+			}
+		}
+	}
+	Hold_Off_by_Shady_Channels = {
+		available = {
+			has_political_power > 49
+			command_power > 39
+		}
+		cost = 50
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_shady_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_shady_failure = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = -9
+					}
+				}
+			}
+			add_command_power = -40
+			add_to_variable = {
+				Shilov_shady_failure = 5
+			}
+			add_to_variable = {
+				Shilov_shady_chances = -5
+			}
+		}
+	}
+	Hold_Off_by_Illegal_Channels = {
+		available = {
+			command_power > 79
+		}
+		days_re_enable = 40
+		complete_effect = {
+			random_list = {
+				Shilov_illegal_chances = {
+					add_days_mission_timeout = {
+						mission = They_Suspect_Us
+						days = 40
+					}
+				}
+				Shilov_illegal_failure = {
+					random_country = {
+						create_wargoal = {
+							target = RCR
+							type = topple_government
+						}
+					}
+				}
+			}
+			add_command_power = -80
+			add_to_variable = {
+				Shilov_illegal_failure = 5
+			}
+			add_to_variable = {
+				Shilov_illegal_chances = -5
+			}
+		}
+	}
+	Ceremonial_March = {
+		available = {
+			has_political_power > 49
+			command_power > 49
+		}
+		cost = 50
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_command_power = -50
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Cultural_Events = {
+		available = {
+			has_army_experience > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			army_experience = -25
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Economic_Help = {
+		available = {
+
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Economic_Help
+				days = 40
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_government = neosocialism
+				}
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = RCR
+					NOT = {
+						has_government = neosocialism
+					}
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = 0.02
+				}
+			}
+		}
+	}
+	Declare_War_Acorns = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = KOA
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Federation = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = UFA
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Eggman = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = EGG
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Infinite = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = INF
+				type = annex_everything
+			}
+		}
+	}
+	Declare_War_Swartzland = {
+		allowed = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		cost = 25
+		complete_effect = {
+			declare_war_on = {
+				target = SWA
+				type = annex_everything
+			}
+		}
+	}
+}
+
+RCR_Shilov_Culture = {
+	Frontline_Filming = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Films
+				days = 40
+			}
+		}
+	}
+	Frontline_Clubs = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Clubs
+				days = 40
+			}
+		}
+	}
+	Documental_Films = {
+		available = {
+			command_power > 24
+		}
+		days_remove = 40
+		days_re_enable = 40
+		complete_effect = {
+			add_timed_idea = {
+				idea = Shilov_Documents
+				days = 40
+			}
+		}
+	}
+}
 
 RCR_EMP_weapon = {
-
- RCR_EMP_Blueprint = {
+	RCR_EMP_Blueprint = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
 		}
-
 		cost = 150
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
 			civilian_factory_use = 2
 			max_command_power = -5
 			research_speed_factor = -0.12
 		}
-
 		visible = {
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		set_country_flag = EMP_has_blueprint
-		hidden_effect = {
-		random_list = {
-		25 = {
-		set_global_flag = EMP_NAME_1
-		}
-		25 = {
-		set_global_flag = EMP_NAME_2
-		}
-		25 = {
-		set_global_flag = EMP_NAME_3
-		}
-		25 = {
-		set_global_flag = EMP_NAME_4
-		}
-		}
-		}
+			set_country_flag = EMP_has_blueprint
+			hidden_effect = {
+				random_list = {
+					25 = {
+						set_global_flag = EMP_NAME_1
+					}
+					25 = {
+						set_global_flag = EMP_NAME_2
+					}
+					25 = {
+						set_global_flag = EMP_NAME_3
+					}
+					25 = {
+						set_global_flag = EMP_NAME_4
+					}
+				}
+			}
 		}
 	}
-	
 	RCR_EMP_Energy = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 150
-
 		modifier = {
 			civilian_factory_use = 5
 			fuel_gain_factor = -0.5
-            max_fuel_factor = -0.25			
+			max_fuel_factor = -0.25
 		}
-
 		visible = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		set_country_flag = EMP_has_energy
+			set_country_flag = EMP_has_energy
 		}
 	}
-	
 	RCR_EMP_SpaceStation = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		cost = 200
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 200
-
 		modifier = {
 			civilian_factory_use = 15
 			fuel_gain_factor = -0.1
 			max_command_power = -10
-            max_fuel_factor = -0.1			
+			max_fuel_factor = -0.1
 		}
-
 		visible = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		set_country_flag = EMP_has_station
+			set_country_flag = EMP_has_station
 		}
 	}
-	
 	RCR_EMP_Infrastructure = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		cost = 100
 		fire_only_once = yes
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 200
-
 		modifier = {
 			civilian_factory_use = 10
-			max_command_power = -10		
+			max_command_power = -10
 		}
-
 		visible = {
-		has_country_flag = EMP_has_blueprint
+			has_country_flag = EMP_has_blueprint
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		set_country_flag = EMP_has_infr
+			set_country_flag = EMP_has_infr
 		}
 	}
-	
 	RCR_EMP_Launch_EMP = {
 		icon = generic_nationalism
-
 		allowed = {
 			original_tag = RCR
 		}
-
 		available = {
-		AND = {
-		has_country_flag = EMP_has_blueprint
-		has_country_flag = EMP_has_infr
-		has_country_flag = EMP_has_energy
-		has_country_flag = EMP_has_station
-		}
-		}
-
-		cost = 400
-		fire_only_once = yes
-        days_re_enable = 1
-		days_remove = 200
-
-		modifier = {
-			civilian_factory_use = 12
-			max_command_power = -40		
-		}
-
-		visible = {
-		AND = {
-		has_country_flag = EMP_has_blueprint
-		has_country_flag = EMP_has_infr
-		has_country_flag = EMP_has_energy
-		has_country_flag = EMP_has_station
-		}
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-		set_country_flag = EMP_was_launched
-		}
-	}
-	
-	RCR_EMP_Use_EMP = {
-		icon = generic_nationalism
-		
-		
-		
-		
-		allowed = {
-			original_tag = RCR
-		}
-
-		available = {
-		NOT = {has_country_flag = EMP_ATTACK}
-		}
-
-		state_target = yes
-		on_map_mode = map_only
-
-		target_trigger = {
-			FROM = {
-			            AND = {
-						is_capital = yes
-						owner = {
-						has_war_with = ROOT
-						}
-						}
+			AND = {
+				has_country_flag = EMP_has_blueprint
+				has_country_flag = EMP_has_infr
+				has_country_flag = EMP_has_energy
+				has_country_flag = EMP_has_station
 			}
 		}
-
-		cost = 0
+		cost = 400
 		fire_only_once = yes
-        days_re_enable = 1
-		days_remove = 150
-
+		days_re_enable = 1
+		days_remove = 200
 		modifier = {
-        	fuel_gain_factor = -0.1
-            max_fuel_factor = -0.1	
-			civilian_factory_use = 1
+			civilian_factory_use = 12
+			max_command_power = -40
 		}
-
 		visible = {
-		has_country_flag = EMP_was_launched
+			AND = {
+				has_country_flag = EMP_has_blueprint
+				has_country_flag = EMP_has_infr
+				has_country_flag = EMP_has_energy
+				has_country_flag = EMP_has_station
+			}
 		}
-
 		complete_effect = {
-		set_country_flag = EMP_ATTACK
-		FROM = {
-		owner = {
-		add_timed_idea = {
-            idea = EMPATTACK
-            days = 140
-        }
 		}
-		}
-		}
-
 		remove_effect = {
-		clr_country_flag = EMP_ATTACK
+			set_country_flag = EMP_was_launched
 		}
 	}
-}	
+	RCR_EMP_Use_EMP = {
+		icon = generic_nationalism
+		allowed = {
+			original_tag = RCR
+		}
+		available = {
+			NOT = {
+				has_country_flag = EMP_ATTACK
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					is_capital = yes
+					owner = {
+						has_war_with = ROOT
+					}
+				}
+			}
+		}
+		cost = 0
+		fire_only_once = yes
+		days_re_enable = 1
+		days_remove = 150
+		modifier = {
+			fuel_gain_factor = -0.1
+			max_fuel_factor = -0.1
+			civilian_factory_use = 1
+		}
+		visible = {
+			has_country_flag = EMP_was_launched
+		}
+		complete_effect = {
+			set_country_flag = EMP_ATTACK
+			FROM = {
+				owner = {
+					add_timed_idea = {
+						idea = EMPATTACK
+						days = 140
+					}
+				}
+			}
+		}
+		remove_effect = {
+			clr_country_flag = EMP_ATTACK
+		}
+	}
+}
 
 RCR_space_exploration = {
 	RCR_found_institute = {
 		icon = GFX_cat_nukerange
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			has_completed_focus = RCR_Red_Air_Forces
 		}
-		
 		cost = 50
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 150
 		remove_effect = {
@@ -3271,22 +6373,21 @@ RCR_space_exploration = {
 			}
 			custom_effect_tooltip = progress_missile_1
 			clr_country_flag = space_process
-		}
-		country_event = {
-			id = rcrspace.1
+			country_event = {
+				id = rcrspace.1
+			}
 		}
 	}
 	RCR_engine_creation = {
 		icon = GFX_cat_nukeprogram
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 10
 			}
 		}
-		
 		modifier = {
 			civilian_factory_use = 1
 		}
@@ -3294,11 +6395,9 @@ RCR_space_exploration = {
 			num_of_civilian_factories_available_for_projects > 0
 		}
 		custom_cost_text = decision_cost_factory_1
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 100
 		remove_effect = {
@@ -3312,14 +6411,13 @@ RCR_space_exploration = {
 	RCR_rocket_production = {
 		icon = GFX_cat_icbmbuild
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 20
 			}
 		}
-		
 		modifier = {
 			civilian_factory_use = 3
 		}
@@ -3327,11 +6425,9 @@ RCR_space_exploration = {
 			num_of_civilian_factories_available_for_projects > 2
 		}
 		custom_cost_text = decision_cost_factory_3
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 75
 		remove_effect = {
@@ -3345,7 +6441,7 @@ RCR_space_exploration = {
 	RCR_commad_center = {
 		icon = GFX_decision_populism
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			AND = {
@@ -3355,20 +6451,16 @@ RCR_space_exploration = {
 				has_completed_focus = RCR_Radar_improvement
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			set_country_flag = space_process
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		fire_only_once = yes
 		days_remove = 75
 		remove_effect = {
@@ -3382,27 +6474,23 @@ RCR_space_exploration = {
 	RCR_launch_satellite = {
 		icon = GFX_decision_sputnik
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 30
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 74
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50_pp_75
-		
 		complete_effect = {
 			set_country_flag = space_process
 			add_political_power = -75
 			add_command_power = -50
 		}
-		
 		fire_only_once = yes
 		days_remove = 50
 		remove_effect = {
@@ -3412,29 +6500,25 @@ RCR_space_exploration = {
 			custom_effect_tooltip = progress_missile_5
 			clr_country_flag = space_process
 			set_country_flag = EMP_weapon_start
-		country_event = {
-			id = rcrspace.2
+			country_event = {
+				id = rcrspace.2
 			}
 		}
 	}
-	
 	RCR_spaceship_project = {
 		icon = GFX_cat_nukeprogram
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 40
 			}
 		}
-		
 		cost = 75
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 150
 		remove_effect = {
@@ -3445,11 +6529,10 @@ RCR_space_exploration = {
 			clr_country_flag = space_process
 		}
 	}
-	
 	RCR_find_cosmonauts = {
 		icon = GFX_decision_Sonic
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
@@ -3460,15 +6543,12 @@ RCR_space_exploration = {
 			has_air_experience > 74
 			command_power > 24
 		}
-		
 		custom_cost_text = cost_cc_25_air_75
-		
 		complete_effect = {
 			set_country_flag = space_process
 			add_command_power = -25
-			add_air_experience = -75
+			air_experience = -75
 		}
-		
 		fire_only_once = yes
 		days_remove = 75
 		remove_effect = {
@@ -3479,31 +6559,26 @@ RCR_space_exploration = {
 			clr_country_flag = space_process
 		}
 	}
-	
 	RCR_Mobian_to_Space = {
 		icon = GFX_decision_cosmonaut
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 60
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 74
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50_pp_75
-		
 		complete_effect = {
 			set_country_flag = space_process
 			add_command_power = -50
 			add_political_power = -75
 		}
-		
 		fire_only_once = yes
 		days_remove = 30
 		remove_effect = {
@@ -3517,29 +6592,24 @@ RCR_space_exploration = {
 			}
 		}
 	}
-	
 	RCR_Reverse_Engineer = {
 		icon = GFX_decision_generic_research
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 70
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_air_experience > 74
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_air_75
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 100
 		remove_effect = {
@@ -3550,18 +6620,16 @@ RCR_space_exploration = {
 			clr_country_flag = space_process
 		}
 	}
-	
 	RCR_New_Spaceship = {
 		icon = GFX_cat_nukeprogram
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 80
 			}
 		}
-		
 		modifier = {
 			civilian_factory_use = 15
 		}
@@ -3569,11 +6637,9 @@ RCR_space_exploration = {
 			num_of_civilian_factories_available_for_projects > 14
 		}
 		custom_cost_text = decision_cost_factory_15
-		
 		complete_effect = {
 			set_country_flag = space_process
 		}
-		
 		fire_only_once = yes
 		days_remove = 100
 		remove_effect = {
@@ -3584,31 +6650,26 @@ RCR_space_exploration = {
 			clr_country_flag = space_process
 		}
 	}
-	
 	RCR_Launch_Spaceship = {
 		icon = GFX_decision_shuttle
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
 		available = {
 			check_variable = {
 				RCR_Space_Progress = 90
 			}
 		}
-	
 		custom_cost_trigger = {
 			has_political_power > 74
 			command_power > 49
 		}
-		
 		custom_cost_text = cost_cc_50_pp_75
-		
 		complete_effect = {
 			set_country_flag = space_process
 			add_command_power = -50
 			add_political_power = -75
 		}
-		
 		fire_only_once = yes
 		days_remove = 30
 		remove_effect = {
@@ -3625,11 +6686,9 @@ RCR_Molokh_Project = {
 	RCR_build_lab = {
 		icon = GFX_decision_generic_research
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		cost = 100
-		
 		fire_only_once = yes
 		days_remove = 100
 		remove_effect = {
@@ -3642,10 +6701,12 @@ RCR_Molokh_Project = {
 			}
 			set_variable = {
 				var = RCR_level_lab_plus
-				value = RCR_level_lab + 1
+				value = RCR_level_lab
+				+
+				1
 			}
 			set_variable = {
-				var = RCR_Bio_Contagious 
+				var = RCR_Bio_Contagious
 				value = 5
 			}
 			set_variable = {
@@ -3656,11 +6717,9 @@ RCR_Molokh_Project = {
 	}
 	RCR_upgrade_lab = {
 		icon = GFX_decision_generic_research
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			AND = {
 				check_variable = {
@@ -3671,7 +6730,6 @@ RCR_Molokh_Project = {
 				}
 			}
 		}
-		
 		modifier = {
 			civilian_factory_use = 3
 		}
@@ -3679,10 +6737,8 @@ RCR_Molokh_Project = {
 			num_of_civilian_factories_available_for_projects > 2
 		}
 		custom_cost_text = decision_cost_factory_3
-		
 		complete_effect = {
 		}
-		
 		fire_only_once = no
 		days_re_enable = 1
 		days_remove = 50
@@ -3697,80 +6753,66 @@ RCR_Molokh_Project = {
 	}
 	RCR_pneumonia = {
 		icon = GFX_decision_respiratoric
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 0
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 250
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 250
 			}
 		}
 		custom_cost_text = dna_250
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 250
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 75
 		days_remove = 75
 		remove_effect = {
 			add_to_variable = {
-				RCR_Bio_Lethality  = 20
+				RCR_Bio_Lethality = 20
 			}
 			custom_effect_tooltip = lethality_20
 		}
 	}
 	RCR_airborne = {
 		icon = GFX_decision_wind
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 0
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 149
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 149
 			}
 		}
 		custom_cost_text = dna_150
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 150
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 75
 		remove_effect = {
@@ -3782,37 +6824,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_vomiting = {
 		icon = GFX_decision_vomiting
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 1
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 299
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 299
 			}
 		}
 		custom_cost_text = dna_300
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 300
 			}
 		}
-		
 		fire_only_once = no
 		days_remove = 70
 		days_re_enable = 70
@@ -3828,37 +6863,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_contact = {
 		icon = GFX_decision_sweat
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 1
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 249
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 249
 			}
 		}
 		custom_cost_text = dna_250
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 250
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 50
 		remove_effect = {
@@ -3870,37 +6898,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_hemorrhagic = {
 		icon = GFX_decision_hemorag
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 2
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 649
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 649
 			}
 		}
 		custom_cost_text = dna_650
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 650
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 120
 		days_re_enable = 120
@@ -3916,36 +6937,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_zoonotic = {
 		icon = GFX_decision_mosquito
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 2
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 449
 			}
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 449
 			}
 		}
 		custom_cost_text = dna_450
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 450
 			}
 		}
-		
 		fire_only_once = no
 		days_remove = 100
 		remove_effect = {
@@ -3957,37 +6972,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_necrosis = {
 		icon = GFX_decision_necrosis
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 3
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 799
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 799
 			}
 		}
 		custom_cost_text = dna_800
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 800
 			}
 		}
-		
 		fire_only_once = no
 		days_remove = 150
 		days_re_enable = 150
@@ -4003,37 +7011,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_hydro = {
 		icon = GFX_decision_tube
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 3
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 699
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 699
 			}
 		}
 		custom_cost_text = dna_700
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 700
 			}
 		}
-		
 		fire_only_once = yes
 		days_remove = 150
 		remove_effect = {
@@ -4045,37 +7046,30 @@ RCR_Molokh_Project = {
 	}
 	RCR_downgrade_virus = {
 		icon = GFX_decision_downgrade_virus
-		
 		allowed = {
-				original_tag = RCR
+			original_tag = RCR
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_level_lab > 0
 			}
 		}
-		
 		available = {
 			check_variable = {
 				RCR_genetic_material > 299
 			}
-		
 		}
-		
 		custom_cost_trigger = {
 			check_variable = {
 				RCR_genetic_material > 299
 			}
 		}
 		custom_cost_text = dna_300
-		
 		complete_effect = {
 			subtract_from_variable = {
 				RCR_genetic_material = 300
 			}
 		}
-		
 		fire_only_once = no
 		days_remove = 50
 		remove_effect = {
@@ -4086,16 +7080,14 @@ RCR_Molokh_Project = {
 		}
 	}
 }
+
 RCR_automation_decision = {
 	RCR_invite_emigres = {
 		icon = GFX_decision_elect
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		cost = 75
-		
 		fire_only_once = yes
 		days_remove = 30
 		remove_effect = {
@@ -4107,13 +7099,10 @@ RCR_automation_decision = {
 	}
 	RCR_invite_hibulians = {
 		icon = GFX_hibulia
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		cost = 75
-		
 		fire_only_once = yes
 		days_remove = 30
 		remove_effect = {
@@ -4125,13 +7114,10 @@ RCR_automation_decision = {
 	}
 	RCR_expand_institute_cybernetics = {
 		icon = GFX_cat_nukeprogram
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		cost = 50
-		
 		days_remove = 50
 		days_re_enable = 100
 		remove_effect = {
@@ -4143,17 +7129,14 @@ RCR_automation_decision = {
 	}
 	RCR_build_ICS = {
 		icon = GFX_decision_server_construction
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
-			check_variable = { 
+			check_variable = {
 				RCR_AUTO_GROW > 5
 			}
 		}
-		
 		modifier = {
 			civilian_factory_use = 15
 		}
@@ -4161,7 +7144,6 @@ RCR_automation_decision = {
 			num_of_civilian_factories_available_for_projects > 14
 		}
 		custom_cost_text = decision_cost_factory_15
-		
 		fire_only_once = yes
 		days_remove = 150
 		remove_effect = {
@@ -4174,30 +7156,27 @@ RCR_automation_decision = {
 	}
 	RCR_expand_data_centers = {
 		icon = GFX_decision_expand_server
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			has_country_flag = ICS_ready
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 74
 			num_of_civilian_factories_available_for_projects > 1
 		}
 		complete_effect = {
-			hidden_effect = { add_political_power = -75 }
+			hidden_effect = {
+				add_political_power = -75
+			}
 		}
 		custom_cost_text = decision_cost_pp_75_factory_2
 		days_remove = 50
 		days_re_enable = 50
-		
 		modifier = {
 			civilian_factory_use = 2
 		}
-		
 		remove_effect = {
 			add_to_variable = {
 				RCR_AUTO = 5
@@ -4208,22 +7187,17 @@ RCR_automation_decision = {
 	}
 	RCR_improve_terminals = {
 		icon = GFX_decision_computer
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
-			check_variable = { 
+			check_variable = {
 				RCR_AUTO > 60
 			}
 		}
-		
 		cost = 75
-		
 		days_remove = 30
 		days_re_enable = 10
-	
 		remove_effect = {
 			add_tech_bonus = {
 				name = automated_bonus
@@ -4238,53 +7212,43 @@ RCR_automation_decision = {
 	}
 	RCR_finish_automation = {
 		icon = GFX_decision_finish_automation
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
-			check_variable = { 
+			check_variable = {
 				RCR_AUTO > 99
 			}
 		}
-		
 		cost = 100
-		
 		days_remove = 75
 		fire_only_once = yes
-	
 		remove_effect = {
 			add_ideas = automated_economy
 			remove_ideas = automation_focus
 		}
 	}
 }
+
 RCR_unification_decision = {
 	RCR_integrate_SOC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 2
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			SOC = {
 				has_idea = Southern_Committee_1
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = SOC
@@ -4294,28 +7258,22 @@ RCR_unification_decision = {
 	}
 	RCR_integrate_SIC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 4
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			SIC = {
 				has_idea = Siverian_Committee
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = SIC
@@ -4325,28 +7283,22 @@ RCR_unification_decision = {
 	}
 	RCR_integrate_NOC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 1
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			NOC = {
 				has_idea = Northern_Committee_good
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = NOC
@@ -4356,28 +7308,22 @@ RCR_unification_decision = {
 	}
 	RCR_integrate_NWC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 3
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			NWC = {
-				has_idea = 	Northwestern_Committee_good
+				has_idea = Northwestern_Committee_good
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = NWC
@@ -4387,28 +7333,22 @@ RCR_unification_decision = {
 	}
 	RCR_integrate_WEC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 6
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			WEC = {
 				has_idea = Western_Committee_good
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = WEC
@@ -4418,28 +7358,22 @@ RCR_unification_decision = {
 	}
 	RCR_integrate_FEC = {
 		icon = GFX_decision_demand
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 5
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			FEC = {
 				has_idea = Far_Eastern_Committee_good
 			}
 		}
-		
 		cost = 50
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			annex_country = {
 				target = FEC
@@ -4449,38 +7383,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_NWC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 3
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			NWC = {
 				has_idea = Northwestern_Committee
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = NWC
 			declare_war_on = {
@@ -4500,38 +7426,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_NOC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 1
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			NOC = {
 				has_idea = Northern_Committee_bad
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = NOC
 			declare_war_on = {
@@ -4551,38 +7469,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_WEC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 6
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			WEC = {
 				has_idea = Western_Committee_bad
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = WEC
 			declare_war_on = {
@@ -4602,38 +7512,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_FEC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 5
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			FEC = {
 				has_idea = Far_Eastern_Committee_bad
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = FEC
 			declare_war_on = {
@@ -4650,38 +7552,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_SOC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 2
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			SOC = {
 				has_idea = Southern_Committee_bad
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = SOC
 			declare_war_on = {
@@ -4701,38 +7595,30 @@ RCR_unification_decision = {
 	}
 	RCR_attack_SIC = {
 		icon = GFX_decision_Destroy_HQ
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 4
 			}
 		}
-		
 		allowed = {
 			original_tag = RCR
 		}
-		
 		available = {
 			SIC = {
 				has_idea = Siverian_Committee_bad
 			}
 		}
-		
 		custom_cost_trigger = {
 			has_political_power > 35
 			command_power > 25
 		}
-		
 		custom_cost_text = cost_cc_25_pp_35
-		
 		complete_effect = {
 			add_political_power = -35
 			add_command_power = -25
 		}
-		
 		days_remove = 30
 		fire_only_once = yes
-	
 		remove_effect = {
 			remove_from_faction = SIC
 			declare_war_on = {
@@ -4751,33 +7637,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_WEC_separatist = {
-		
 		icon = GFX_decision_kill_delegate
-		
 		priority = 5
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4787,33 +7662,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NOC_separatist = {
-		
 		icon = GFX_decision_kill_delegate
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		priority = 5
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4823,33 +7687,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_FEC_separatist = {
-		
 		icon = GFX_decision_kill_delegate
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		priority = 5
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4859,33 +7712,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SOC_separatist = {
-		
 		icon = GFX_decision_kill_delegate
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		priority = 5
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4895,33 +7737,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SIC_separatist = {
-		
 		icon = GFX_decision_kill_delegate
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		priority = 5
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4931,33 +7762,22 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NWC_separatist = {
-
 		icon = GFX_decision_kill_delegate
-		
 		activation = {
 			is_debug = yes
 		}
-		
 		priority = 5
-		
 		selectable_mission = yes
 		days_mission_timeout = 30
 		days_re_enable = 50
-
 		is_good = no
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 3
-		
 		cost = 35
-
 		complete_effect = {
-	
 		}
 		timeout_effect = {
 			subtract_from_variable = {
@@ -4967,27 +7787,19 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_CNT_Rally = {
-		
 		icon = GFX_decision_Sonic
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 7
 			}
 		}
-		
 		days_re_enable = 30
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 50
 		}
-		
 		days_remove = 10
-		
 		cost = 75
-
 		remove_effect = {
 			custom_effect_tooltip = three_political_capital
 			add_to_variable = {
@@ -4995,106 +7807,81 @@ RCR_unification_decision = {
 			}
 			clamp_variable = {
 				var = CNT_Political_Capital
-				min = 0 
+				min = 0
 				max = 5
 			}
 		}
 	}
 	RCR_CNT_Red_Army_Help = {
-		
 		icon = GFX_decision_party_to_army
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 7
 			}
 		}
-		
 		days_re_enable = 20
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 75
 		}
-		
 		days_remove = 8
-		
 		cost = 50
-
 		remove_effect = {
 			add_to_variable = {
 				CNT_Political_Capital = 2
 			}
 			clamp_variable = {
 				var = CNT_Political_Capital
-				min = 0 
+				min = 0
 				max = 5
 			}
 			custom_effect_tooltip = two_political_capital
 		}
 	}
 	RCR_CNT_Worker_Volunteer = {
-		
 		icon = GFX_decision_generic_industry
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 7
 			}
 		}
-		
 		days_re_enable = 10
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 100
 		}
-		
 		days_remove = 5
-		
 		cost = 25
-
-		
 		remove_effect = {
 			add_to_variable = {
 				CNT_Political_Capital = 1
 			}
 			clamp_variable = {
 				var = CNT_Political_Capital
-				min = 0 
+				min = 0
 				max = 5
 			}
 			custom_effect_tooltip = one_political_capital
 		}
 	}
 	RCR_NOC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 1
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5107,34 +7894,25 @@ RCR_unification_decision = {
 			custom_effect_tooltip = loyalty_bit
 		}
 	}
-	
 	RCR_NOC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 1
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5148,11 +7926,8 @@ RCR_unification_decision = {
 			add_manpower = 7500
 		}
 	}
-
 	RCR_NOC_Meet_Ilza = {
-		
 		icon = GFX_decision_ilza
-		
 		visible = {
 			AND = {
 				check_variable = {
@@ -5179,23 +7954,17 @@ RCR_unification_decision = {
 				}
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5208,31 +7977,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NOC_Deal_Smugglers = {
-		
 		icon = GFX_decision_generic_scorched_earth
-
 		visible = {
 			check_variable = {
-					RCR_unif_inter = 1
+				RCR_unif_inter = 1
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 30
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
@@ -5246,31 +8007,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_WEC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 6
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5284,32 +8037,24 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_WEC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 6
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5324,31 +8069,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SOC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 2
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5362,32 +8099,24 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SOC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 2
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5402,31 +8131,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NWC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 3
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5440,32 +8161,24 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NWC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 3
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5480,31 +8193,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SIC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 4
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5518,32 +8223,24 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SIC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 4
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5558,31 +8255,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_FEC_Develop_Connections = {
-		
 		icon = GFX_decision_populism
-	
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 5
 			}
 		}
-		
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 5
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 0
 			}
 		}
-		
 		custom_cost_text = minus_one_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 1
@@ -5596,32 +8285,24 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_FEC_Deroboticization_Campaign = {
-		
 		icon = GFX_decision_roboticize
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 5
 			}
 		}
-		
 		fire_only_once = no
 		days_re_enable = 30
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 15
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 1
 			}
 		}
-		
 		custom_cost_text = minus_two_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 2
@@ -5636,31 +8317,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_SOC_CRIMINAL_RAID = {
-		
 		icon = GFX_decision_necrosis
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 2
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 30
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
@@ -5674,31 +8347,23 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_FEC_Iron_Dominion_deal = {
-		
 		icon = GFX_decision_kill_dominion
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 5
 			}
 		}
-
 		fire_only_once = no
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 7
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
@@ -5714,7 +8379,6 @@ RCR_unification_decision = {
 					on_lose = rcr_border_conflict.2
 					on_cancel = rcr_border_conflict.3
 				}
-							
 				defender = {
 					state = 408
 					num_provinces = 5
@@ -5722,35 +8386,27 @@ RCR_unification_decision = {
 					on_lose = iro_dominion_border_conflict.2
 					on_cancel = iro_dominion_border_conflict.3
 				}
-			}	
+			}
 		}
 	}
 	RCR_SIC_reform_investment = {
-		
 		icon = GFX_decision_bribe
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 4
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 30
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
@@ -5764,37 +8420,28 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_NWC_Reelect = {
-		
 		icon = GFX_decision_remove_Liushkin
-		
 		available = {
 			NWC = {
 				has_idea = Northwestern_Committee_neutral
 			}
 		}
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 3
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 30
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
@@ -5814,39 +8461,31 @@ RCR_unification_decision = {
 		}
 	}
 	RCR_WEC_Food_Supply = {
-		
 		icon = GFX_decision_chili_dog
-		
 		available = {
 			hidden_trigger = {
-				NOT = { country_exists = SOC }
+				NOT = {
+					country_exists = SOC
+				}
 			}
 		}
-		
 		custom_trigger_tooltip = bread_SOC
-		
 		visible = {
 			check_variable = {
 				RCR_unif_inter = 6
 			}
 		}
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 1
 		}
-		
 		days_remove = 30
-		
 		custom_cost_trigger = {
 			check_variable = {
 				CNT_Political_Capital > 2
 			}
 		}
-		
 		custom_cost_text = minus_three_PC
-
 		complete_effect = {
 			subtract_from_variable = {
 				CNT_Political_Capital = 3
