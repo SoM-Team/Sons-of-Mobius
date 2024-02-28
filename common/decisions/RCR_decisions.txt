@@ -5503,14 +5503,14 @@ RCR_Shilov_Coup_Aftermath = {
 		cost = 1
 		days_re_enable = 40 
 		complete_effect = {
-			add_stability = 0.03
+			add_stability = 0.05
 		}
 	}
 	Military_Command_Support = {
 		cost = 1
 		days_re_enable = 40
 		complete_effect = {
-			add_war_support = 0.03
+			add_war_support = 0.05
 		}
 	}
 	Purge_Military_Districts = {
@@ -5543,6 +5543,15 @@ RCR_Shilov_Coup_Aftermath = {
 		}
 	}
 	Set_Civilian_Administration_in_Cities = {
+		available = {
+			NOT = {
+				OR = {
+					has_country_flag = Shilov_mixed_administration
+					has_country_flag = Shilov_military_administration
+					has_country_flag = Shilov_civilian_administration
+				}
+			}
+		}
 		cost = 1
 		fire_only_once = yes
 		complete_effect = {
@@ -5550,6 +5559,15 @@ RCR_Shilov_Coup_Aftermath = {
 		}
 	}
 	Set_Military_Administration_in_Cities = {
+		available = {
+			NOT = {
+				OR = {
+					has_country_flag = Shilov_mixed_administration
+					has_country_flag = Shilov_civilian_administration
+					has_country_flag = Shilov_military_administration
+				}
+			}
+		}
 		cost = 1
 		fire_only_once = yes
 		complete_effect = {
@@ -5655,6 +5673,26 @@ RCR_Shilov_Coup_Aftermath = {
 		}
 		complete_effect = {
 			add_manpower = 10000
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = 0.05
+			}
+		}
+	}
+	Recruit_Statist_Fighters = {
+		cost = 1
+		days_re_enable = 40
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+		}
+		complete_effect = {
+			add_manpower = 10000
+			add_power_balance_value = {
+				id = Shilov_authority
+				value = -0.05
+			}
 		}
 	}
 }
