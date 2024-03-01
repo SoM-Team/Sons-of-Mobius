@@ -882,15 +882,15 @@ country_event = {
 			global.International_Votes = 1
 		}
 	}
-	# option = {
-	# 	name = shared.111.b
-	# 	add_to_variable = {
-	# 		global.International_Votes = -1
-	# 	}
-	# }
-	# option = {
-	# 	name = shared.111.c
-	# }
+	option = {
+		name = shared.111.b
+		add_to_variable = {
+			global.International_Votes = -1
+		}
+	}
+	option = {
+		name = shared.111.c
+	}
 }
 
 country_event = {
@@ -900,53 +900,19 @@ country_event = {
 	desc = shared.112.d
 	is_triggered_only = yes
 	option = {
-		name = shared.126.a		#scientific boon
-		set_variable = {
-			global.International_Temporary_Boon = 1
-		}
-	}
-	option = {
-		name = shared.112.b		#welfare boon
-		set_variable = {
-			global.International_Temporary_Boon = 2
-		}
-	}
-	option = {
-		name = shared.112.c		#other options
-		country_event = shared.113
-	}
-}
-country_event = {
-	# Type of boon
-	id = shared.113
-	title = shared.113.t
-	desc = shared.113.d
-	is_triggered_only = yes
-	option = {
-		name = shared.113.a		#military boon
+		name = shared.126.c		#military boon
 		set_variable = {
 			global.International_Temporary_Boon = 3
 		}
 	}
 	option = {
-		name = shared.113.b		#political boon
+		name = shared.112.e		#political boon
 		set_variable = {
 			global.International_Temporary_Boon = 4
 		}
 	}
 	option = {
-		name = shared.113.c		#other options
-		country_event = shared.114
-	}
-}
-country_event = {
-	# Type of boon
-	id = shared.114
-	title = shared.114.t
-	desc = shared.114.d
-	is_triggered_only = yes
-	option = {
-		name = shared.114.a		#espionage_boon
+		name = shared.112.f		#espionage_boon
 		set_variable = {
 			global.International_Temporary_Boon = 5
 		}
@@ -959,9 +925,9 @@ country_event = {
 
 country_event = {
 	# Votes Are Counted
-	id = shared.115
-	title = shared.115.t
-	desc = shared.115.d
+	id = shared.114
+	title = shared.114.t
+	desc = shared.114.d
 	is_triggered_only = yes
 	hidden = yes
 	option = {
@@ -982,9 +948,9 @@ country_event = {
 
 country_event = {
 	# Mark offering country 
-	id = shared.116
-	title = shared.116.t
-	desc = shared.116.d
+	id = shared.115
+	title = shared.115.t
+	desc = shared.115.d
 	is_triggered_only = yes
 	hidden = yes
 	option = {
@@ -997,33 +963,33 @@ country_event = {
 
 country_event = {
 	# Type of boon
-	id = shared.117
-	title = shared.117.t
-	desc = shared.117.d
+	id = shared.116
+	title = shared.116.t
+	desc = shared.116.d
 	is_triggered_only = yes
 	option = {
-		name = shared.117.a		#scientific boon
+		name = shared.116.a		#scientific boon
 		set_variable = {
 			global.International_Temporary_Boon = 1
 		}
 	}
 	option = {
-		name = shared.117.b		#welfare boon
+		name = shared.116.b		#welfare boon
 		set_variable = {
 			global.International_Temporary_Boon = 2
 		}
 	}
 	option = {
-		name = shared.117.c		#other oprions
+		name = shared.116.c		#other oprions
 		country_event = shared.112
 	}
 }
 
 country_event = {
 	# Decision is Reached - Boon is Granted
-	id = shared.118
-	title = shared.118.t
-	desc = shared.118.d
+	id = shared.117
+	title = shared.117.t
+	desc = shared.117.d
 	is_triggered_only = yes
 	hidden = yes
 	option = {
@@ -1118,9 +1084,9 @@ country_event = {
 
 country_event = {
 	# Voting is Failed
-	id = shared.119
-	title = shared.119.t
-	desc = shared.119.d
+	id = shared.118
+	title = shared.118.t
+	desc = shared.118.d
 	is_triggered_only = yes
 	option = {
 		name = shared.119.a
@@ -1129,9 +1095,9 @@ country_event = {
 
 country_event = {
 	# Voting is Successful
-	id = shared.120
-	title = shared.120.t
-	desc = shared.120.d
+	id = shared.119
+	title = shared.119.t
+	desc = shared.119.d
 	is_triggered_only = yes
 	option = {
 		name = shared.120.a
@@ -1188,23 +1154,48 @@ country_event = {
 				}
 			}
 		}
+		if = {
+			limit = {
+				has_global_flag = International_Invite_Country
+			}
+			random_country = {
+				limit = {
+					OR = {
+						any_character = {
+							is_country_leader = yes
+							has_ideology = progressism_transitionism_subtype
+						}
+						has_government = autonomous_socialism
+						has_government = katzerism
+					}
+				}
+				country_event = shared.120
+			}
+			clr_global_flag = International_Invite_Country
+		}
+		if = {
+			limit = {
+				has_global_flag = International_White_Peace
+			}
+			country_event = shared.121
+		}
 	}
 }
 
 country_event = {
 	# Invitation in alliance
-	id = shared.121
-	title = shared.121.t
-	desc = shared.121.d
+	id = shared.120
+	title = shared.120.t
+	desc = shared.120.d
 	is_triggered_only = yes
 	option = {
-		name = shared.121.a
+		name = shared.120.a
 		RCR = {
 			add_to_faction = ROOT
 		}
 	}
 	option = {
-		name = shared.121.b
+		name = shared.120.b
 		RCR = {
 			add_political_power = -10
 		}
@@ -1213,39 +1204,35 @@ country_event = {
 
 country_event = {
 	# White peace offer
-	id = shared.122
-	title = shared.122.t
-	desc = shared.122.d
+	id = shared.121
+	title = shared.121.t
+	desc = shared.121.d
 	is_triggered_only = yes
 	option = {
-		name = shared.122.a
-		every_country = {
+		name = shared.121.a
+		every_other_country = {
 			limit = {
-				OR = {
-					AND = {
-						has_war_together_with = ROOT
-						has_war_with = RCR
-					}
-					tag = ROOT
-					has_war_with = RCR
+				NOT = {
+					is_in_faction_with = RCR
 				}
+				has_war_with = RCR
 			}
 			every_country = {
 				limit = {
-					is_in_faction_with = RCR
 					has_war_with = PREV
+					is_in_faction_with = RCR
 				}
 				white_peace = PREV
 			}
 		}
 	}
-	# option = {
-	# 	name = shared.122.b
-	# 	every_country = {
-	# 		limit = {
-	# 			is_in_faction_with = RCR
-	# 		}
-	# 		add_war_support = 0.05
-	# 	}
-	# }
+	option = {
+		name = shared.121.b
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+			}
+			add_war_support = 0.05
+		}
+	}
 }
