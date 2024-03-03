@@ -217,6 +217,38 @@ International_Decisions = {
 
 		}
 	}
+	International_Ask_for_Infrastructure = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			is_in_faction_with = RCR
+			RCR = {
+				has_government = katzerism
+			}
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			hidden_effect = {
+				country_event = shared.116
+				set_country_flag = Asked_for_Infrastructure
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115	
+			}
+
+		}
+	}
 	International_Invite_Country = {
 		allowed = {
 			always = yes
@@ -242,7 +274,7 @@ International_Decisions = {
 		}
 		remove_effect = {
 			hidden_effect = {
-				country_event = shared.114	
+				country_event = shared.115	
 			}
 		}
 	}
@@ -271,7 +303,26 @@ International_Decisions = {
 		}
 		remove_effect = {
 			hidden_effect = {
-				country_event = shared.114	
+				country_event = shared.115	
+			}
+		}
+	}
+	International_CHE_War = {
+		complete_effect = {
+			declare_war_on = {
+				target = CHE
+				type = annex_everything
+			}
+		}
+	}
+	International_Declare_War = {
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = UFA
+				type = topple_government
 			}
 		}
 	}
