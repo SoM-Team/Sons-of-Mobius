@@ -1,2500 +1,4312 @@
 EGG_Terror_From_The_Deep = {
-	
-	EGG_TFTD_start = { 
+	EGG_TFTD_start = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
 		}
-		
 		cost = 250
-        #days_re_enable = 100
+		#days_re_enable = 100
 		fire_only_once = yes
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.15
-		command_power_gain = -0.5
-		political_power_gain = -0.2
+			consumer_goods_factor = 0.15
+			command_power_gain = -0.5
+			political_power_gain = -0.2
 		}
-
 		visible = {
 		}
-
 		complete_effect = {
-		hidden_effect = {  
-		if = { limit = { is_ai = no } play_song = "TFTD_geoscape" }
-		set_variable = { EGG_onepower = 0 }
-		set_variable = { EGG_aquanaut = 0 }
-		set_variable = { EGG_aquaships = 0 }
-		set_variable = { EGG_aquapower = 0 }
-		set_variable = { EGG_aquanukes = 0 }
-		set_variable = { EGG_aquafactory = 0 }
-		set_variable = { EGG_reservedaquanaut = 0 }
-		set_variable = { EGG_reservedaquships = 0 }
-		set_variable = { EGG_lossaquanaut = 0 }
-		set_variable = { EGG_lossaquships = 0 }
-		set_variable = { EGG_lossaquafactory = 0 }
-		every_country = {
-		limit = {
-		OR = {
-		TAG = UFA TAG = KOA TAG = SWA TAG = LEO
-		TAG = ANG TAG = SOU TAG = DOW TAG = FEC
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_geoscape"
+				}
+				set_variable = {
+					EGG_onepower = 0
+				}
+				set_variable = {
+					EGG_aquanaut = 0
+				}
+				set_variable = {
+					EGG_aquaships = 0
+				}
+				set_variable = {
+					EGG_aquapower = 0
+				}
+				set_variable = {
+					EGG_aquanukes = 0
+				}
+				set_variable = {
+					EGG_aquafactory = 0
+				}
+				set_variable = {
+					EGG_reservedaquanaut = 0
+				}
+				set_variable = {
+					EGG_reservedaquships = 0
+				}
+				set_variable = {
+					EGG_lossaquanaut = 0
+				}
+				set_variable = {
+					EGG_lossaquships = 0
+				}
+				set_variable = {
+					EGG_lossaquafactory = 0
+				}
+				every_country = {
+					limit = {
+						OR = {
+							TAG = UFA
+							TAG = KOA
+							TAG = SWA
+							TAG = LEO
+							TAG = ANG
+							TAG = SOU
+							TAG = DOW
+							TAG = FEC
+						}
+					}
+					set_variable = {
+						XCOM_onepower = 0
+					}
+					set_variable = {
+						XCOM_aquanaut = 0
+					}
+					set_variable = {
+						XCOM_aquaships = 0
+					}
+					set_variable = {
+						XCOM_aquapower = 0
+					}
+					set_variable = {
+						XCOM_aquanukes = 0
+					}
+					set_variable = {
+						XCOM_aquafactory = 0
+					}
+					set_variable = {
+						XCOM_reservedaquanaut = 0
+					}
+					set_variable = {
+						XCOM_reservedaquships = 0
+					}
+					set_variable = {
+						XCOM_lossaquanaut = 0
+					}
+					set_variable = {
+						XCOM_lossaquships = 0
+					}
+					set_variable = {
+						XCOM_lossaquafactory = 0
+					}
+				}
+			}
 		}
-		}
-		set_variable = { XCOM_onepower = 0 }
-		set_variable = { XCOM_aquanaut = 0 }
-		set_variable = { XCOM_aquaships = 0 }
-		set_variable = { XCOM_aquapower = 0 }
-		set_variable = { XCOM_aquanukes = 0 }
-		set_variable = { XCOM_aquafactory = 0 }
-		set_variable = { XCOM_reservedaquanaut = 0 }
-		set_variable = { XCOM_reservedaquships = 0 }
-		set_variable = { XCOM_lossaquanaut = 0 }
-		set_variable = { XCOM_lossaquships = 0 }
-		set_variable = { XCOM_lossaquafactory = 0 }
-		}
-		}
-		}
-
 		remove_effect = {
-		set_global_flag = TFTD_start
-		hidden_effect = {  }
-	    }
+			set_global_flag = TFTD_start
+			hidden_effect = {
+			}
+		}
 	}
-	
-	EGG_buy_aquanauts = { 
+	EGG_buy_aquanauts = {
 		icon = generic_nationalism
-
 		allowed = {
-		
 		}
-
 		available = {
-		OR = { has_country_flag = TFTD_emeraldocean_egg has_country_flag = TFTD_mediterrain_egg }
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		
 		cost = 100
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.01
-		manpower = -500
+			consumer_goods_factor = 0.01
+			manpower = -500
 		}
-
 		visible = {
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = eggaqua
-		hidden_effect = {  
-		add_to_variable = { EGG_aquanaut = 500 }
+			custom_effect_tooltip = eggaqua
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquanaut = 500
+				}
+			}
 		}
-	    }
 	}
-	
-	EGG_buy_aquaships = { 
+	EGG_buy_aquaships = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		OR = { has_country_flag = TFTD_emeraldocean_egg has_country_flag = TFTD_mediterrain_egg }
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		
 		cost = 125
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.05
-		manpower = -800
+			consumer_goods_factor = 0.05
+			manpower = -800
 		}
-
 		visible = {
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = eggaquas
-		hidden_effect = {  
-		add_to_variable = { EGG_aquaships = 25 }
+			custom_effect_tooltip = eggaquas
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = 25
+				}
+			}
 		}
-	    }
 	}
-	
-	EGG_build_aquafactory = { 
+	EGG_build_aquafactory = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		OR = { has_country_flag = TFTD_emeraldocean_egg has_country_flag = TFTD_mediterrain_egg }
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		
 		cost = 180
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.08
-		manpower = -1200
+			consumer_goods_factor = 0.08
+			manpower = -1200
 		}
-
 		visible = {
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		add_offsite_building = { type = arms_factory level = 1 }
-		add_offsite_building = { type = industrial_complex level = 1 }
-		hidden_effect = {  
-		add_to_variable = { EGG_aquafactory = 1 }
+			add_offsite_building = {
+				type = arms_factory
+				level = 1
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquafactory = 1
+				}
+			}
 		}
-	    }
 	}
-	
-	EGG_build_seanuke = { 
+	EGG_build_seanuke = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		AND = {
-		OR = { has_country_flag = TFTD_emeraldocean_egg has_country_flag = TFTD_mediterrain_egg }
-		has_tech = nukes 
+			AND = {
+				OR = {
+					has_country_flag = TFTD_emeraldocean_egg
+					has_country_flag = TFTD_mediterrain_egg
+				}
+				has_tech = nukes
+			}
 		}
-		}
-		
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.1
+			consumer_goods_factor = 0.1
 		}
-
 		visible = {
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = eggaquan
-		hidden_effect = {  
-		add_to_variable = { EGG_aquanukes = 1 }
+			custom_effect_tooltip = eggaquan
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquanukes = 1
+				}
+			}
 		}
-	    }
 	}
-	
-	EGG_ocean_base_mediterrain = { 
+	EGG_ocean_base_mediterrain = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
+			has_global_flag = TFTD_start
 		}
-		
 		cost = 200
-        #days_re_enable = 100
+		#days_re_enable = 100
 		fire_only_once = yes
 		days_remove = 5
-
 		modifier = {
-		consumer_goods_factor = 0.15
-		command_power_gain = -0.25
-		political_power_gain = -0.12
+			consumer_goods_factor = 0.15
+			command_power_gain = -0.25
+			political_power_gain = -0.12
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
+			has_global_flag = TFTD_start
 		}
-
 		complete_effect = {
-		set_variable = { Mediterrain = 0 }
-		country_event = { id = TFTD.1 days = 1 }
+			set_variable = {
+				Mediterrain = 0
+			}
+			country_event = {
+				id = TFTD.1
+				days = 1
+			}
 		}
-
 		remove_effect = {
-		set_country_flag = TFTD_mediterrain_egg
-		add_mines = { region = Mediterrain amount = 10000 }
-		hidden_effect = {  }
-	    }
+			set_country_flag = TFTD_mediterrain_egg
+			add_mines = {
+				region = Mediterrain
+				amount = 10000
+			}
+			hidden_effect = {
+			}
+		}
 	}
-	
-	EGG_ocean_base_emeraldocean = { 
+	EGG_ocean_base_emeraldocean = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
+			has_global_flag = TFTD_start
 		}
-		
 		cost = 200
-        #days_re_enable = 100
+		#days_re_enable = 100
 		fire_only_once = yes
 		days_remove = 5
-
 		modifier = {
-		consumer_goods_factor = 0.15
-		command_power_gain = -0.25
-		political_power_gain = -0.12
+			consumer_goods_factor = 0.15
+			command_power_gain = -0.25
+			political_power_gain = -0.12
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
+			has_global_flag = TFTD_start
 		}
-
 		complete_effect = {
-		set_variable = { Emeraldocean = 0 }
-		country_event = { id = TFTD.2 days = 1 }
+			set_variable = {
+				Emeraldocean = 0
+			}
+			country_event = {
+				id = TFTD.2
+				days = 1
+			}
 		}
-
 		remove_effect = {
-		set_country_flag = TFTD_emeraldocean_egg
-		add_mines = { region = Emeraldocean amount = 10000 }
-		hidden_effect = {  }
-	    }
+			set_country_flag = TFTD_emeraldocean_egg
+			add_mines = {
+				region = Emeraldocean
+				amount = 10000
+			}
+			hidden_effect = {
+			}
+		}
 	}
-	
 	EGG_sea_hunt = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 29 }
-		check_variable = { EGG_aquanaut > 999 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 29
+			}
+			check_variable = {
+				EGG_aquanaut > 999
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		#target_array = all_states
-
 		target_trigger = {
 			FROM = {
 				is_capital = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
 				}
 			}
 		}
-		
-
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
 			political_power_gain = -0.02
 			consumer_goods_factor = 0.01
-		    command_power_gain = -0.1
+			command_power_gain = -0.1
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation1_com
-		FROM = {owner = { add_ideas = EGG_sea_hunt_idea }}
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -30 }
-		add_to_variable = { EGG_reservedaquships = 30 }
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_reservedaquanaut = 1000 }
+			custom_effect_tooltip = tftdoperation1_com
+			FROM = {
+				owner = {
+					add_ideas = EGG_sea_hunt_idea
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -30
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 30
+				}
+				add_to_variable = {
+					EGG_aquanaut = -1000
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 1000
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		FROM = {owner = {remove_ideas = EGG_sea_hunt_idea}}
-		custom_effect_tooltip = tftdoperation1_rem
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -30 }
-		add_to_variable = { EGG_reservedaquanaut = -1000 }
-		random_list = {
-		35 = {
-		add_to_variable = { EGG_aquaships = 15 }
-		add_to_variable = { EGG_aquanaut = 700 }
-		add_to_variable = { EGG_lossaquanaut = 300 }
-		add_to_variable = { EGG_lossaquships = 15 }
+			FROM = {
+				owner = {
+					remove_ideas = EGG_sea_hunt_idea
+				}
+			}
+			custom_effect_tooltip = tftdoperation1_rem
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -30
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -1000
+				}
+				random_list = {
+					35 = {
+						add_to_variable = {
+							EGG_aquaships = 15
+						}
+						add_to_variable = {
+							EGG_aquanaut = 700
+						}
+						add_to_variable = {
+							EGG_lossaquanaut = 300
+						}
+						add_to_variable = {
+							EGG_lossaquships = 15
+						}
+					}
+					35 = {
+						add_to_variable = {
+							EGG_aquaships = 20
+						}
+						add_to_variable = {
+							EGG_aquanaut = 200
+						}
+						add_to_variable = {
+							EGG_lossaquanaut = 800
+						}
+						add_to_variable = {
+							EGG_lossaquships = 10
+						}
+					}
+					30 = {
+						add_to_variable = {
+							EGG_aquaships = 4
+						}
+						add_to_variable = {
+							EGG_aquanaut = 812
+						}
+						add_to_variable = {
+							EGG_lossaquanaut = 188
+						}
+						add_to_variable = {
+							EGG_lossaquships = 26
+						}
+					}
+				}
+			}
 		}
-		35 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 200 }
-		add_to_variable = { EGG_lossaquanaut = 800 }
-		add_to_variable = { EGG_lossaquships = 10 }
-		}
-		30 = {
-		add_to_variable = { EGG_aquaships = 4 }
-		add_to_variable = { EGG_aquanaut = 812 }
-		add_to_variable = { EGG_lossaquanaut = 188 }
-		add_to_variable = { EGG_lossaquships = 26 }
-		}
-		}
-		}
-		}
-	
 	}
-	
 	EGG_sea_tradehunt = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 19 }
-		check_variable = { EGG_aquanaut > 399 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 19
+			}
+			check_variable = {
+				EGG_aquanaut > 399
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		#target_array = all_states
-
 		target_trigger = {
 			FROM = {
 				is_capital = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
 				}
 			}
 		}
-		
-
 		cost = 100
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 100
-
 		modifier = {
 			political_power_gain = -0.02
 			consumer_goods_factor = 0.01
-		    command_power_gain = -0.1
+			command_power_gain = -0.1
 			weekly_manpower = 1000
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation2_com
-		FROM = {owner = { add_ideas = EGG_sea_tradehunt_idea }}
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -20 }
-		add_to_variable = { EGG_reservedaquships = 20 }
-		add_to_variable = { EGG_aquanaut = -400 }
-		add_to_variable = { EGG_reservedaquanaut = 400 }
+			custom_effect_tooltip = tftdoperation2_com
+			FROM = {
+				owner = {
+					add_ideas = EGG_sea_tradehunt_idea
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -20
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 20
+				}
+				add_to_variable = {
+					EGG_aquanaut = -400
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 400
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = tftdoperation2_rem
-		FROM = {owner = {remove_ideas = EGG_sea_tradehunt_idea}}
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -20 }
-		add_to_variable = { EGG_reservedaquanaut = -400 }
-		random_list = {
-		35 = {
-		add_to_variable = { EGG_aquaships = 15 }
-		add_to_variable = { EGG_aquanaut = 300 }
-		add_to_variable = { EGG_lossaquanaut = 100 }
-		add_to_variable = { EGG_lossaquships = 5 }
-		}
-		35 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 400 }
-		}
-		30 = {
-		add_to_variable = { EGG_aquaships = 11 }
-		add_to_variable = { EGG_aquanaut = 100 }
-		add_to_variable = { EGG_lossaquanaut = 300 }
-		add_to_variable = { EGG_lossaquships = 9 }
-		}
-		}
-		}
+			custom_effect_tooltip = tftdoperation2_rem
+			FROM = {
+				owner = {
+					remove_ideas = EGG_sea_tradehunt_idea
+				}
+			}
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -20
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -400
+				}
+				random_list = {
+					35 = {
+						add_to_variable = {
+							EGG_aquaships = 15
+						}
+						add_to_variable = {
+							EGG_aquanaut = 300
+						}
+						add_to_variable = {
+							EGG_lossaquanaut = 100
+						}
+						add_to_variable = {
+							EGG_lossaquships = 5
+						}
+					}
+					35 = {
+						add_to_variable = {
+							EGG_aquaships = 20
+						}
+						add_to_variable = {
+							EGG_aquanaut = 400
+						}
+					}
+					30 = {
+						add_to_variable = {
+							EGG_aquaships = 11
+						}
+						add_to_variable = {
+							EGG_aquanaut = 100
+						}
+						add_to_variable = {
+							EGG_lossaquanaut = 300
+						}
+						add_to_variable = {
+							EGG_lossaquships = 9
+						}
+					}
+				}
+			}
 		}
 	}
-	
 	EGG_sea_lightshipsdestroy = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 49 }
-		check_variable = { EGG_aquanaut > 1999 }
-		check_variable = { EGG_aquapower > 5000 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
-		}
-		FROM = {
-		owner = {
-		has_navy_size = {
-            size > 12
-            type = screen_ship 
-        }
-		}
-		}
-		}
-
-		state_target = yes
-
-		on_map_mode = map_only
-
-		#targets = {  }
-
-		#target_array = all_states
-
-		target_trigger = {
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 49
+			}
+			check_variable = {
+				EGG_aquanaut > 1999
+			}
+			check_variable = {
+				EGG_aquapower > 5000
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 			FROM = {
-				is_capital = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					has_navy_size = {
+						size > 12
+						type = screen_ship
+					}
 				}
 			}
 		}
-		
-
+		state_target = yes
+		on_map_mode = map_only
+		#targets = {  }
+		#target_array = all_states
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
+				}
+			}
+		}
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 50
-
 		modifier = {
 			political_power_gain = -0.04
 			consumer_goods_factor = 0.02
-		    command_power_gain = -0.3
+			command_power_gain = -0.3
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation3_com
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -50 }
-		add_to_variable = { EGG_reservedaquships = 50 }
-		add_to_variable = { EGG_aquanaut = -2000 }
-		add_to_variable = { EGG_reservedaquanaut = 2000 }
+			custom_effect_tooltip = tftdoperation3_com
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -50
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 50
+				}
+				add_to_variable = {
+					EGG_aquanaut = -2000
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 2000
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = tftdoperation3_rem
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -50 }
-		add_to_variable = { EGG_reservedaquanaut = -2000 }
-		#
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower < FROM.owner.XCOM_aquapower } }
-		random_list = {
-		25 = { FROM = { owner = { destroy_ships = { type = destroyer count = 1 } } } }
-		25 = { FROM = { owner = { destroy_ships = { type = destroyer count = 2 } } } }
-		25 = { }
-		20 = { FROM = { owner = { destroy_ships = { type = destroyer count = 3 } } } }
-		5 = { FROM = { owner = { destroy_ships = { type = destroyer count = 4 } } } }
-		}
-		random_list = {
-		25 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 25 }
-		add_to_variable = { EGG_aquanaut = 700 }
-		add_to_variable = { EGG_lossaquanaut = 1300 }
-		add_to_variable = { EGG_lossaquships = 25 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 8 }
-		add_to_variable = { EGG_aquanaut = 300 }
-		add_to_variable = { EGG_lossaquanaut = 1700 }
-		add_to_variable = { EGG_lossaquships = 42 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 16 }
-		add_to_variable = { EGG_aquanaut = 1341 }
-		add_to_variable = { EGG_lossaquanaut = 659 }
-		add_to_variable = { EGG_lossaquships = 34 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -5 }
-		add_to_variable = { XCOM_aquanaut = -123 }
-		add_to_variable = { XCOM_lossaquanaut = 123 }
-		add_to_variable = { XCOM_lossaquships = 5 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -2 }
-		add_to_variable = { XCOM_aquanaut = -100 }
-		add_to_variable = { XCOM_lossaquanaut = 100 }
-		add_to_variable = { XCOM_lossaquships = 2 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -12 }
-		add_to_variable = { XCOM_aquanaut = -800 }
-		add_to_variable = { XCOM_lossaquanaut = 800 }
-		add_to_variable = { XCOM_lossaquships = 12 }
-		}
-		}
-		}
-		}
-		ROOT = { if = { limit = { is_ai = no } play_song = "TFTD_defeat" } news_event = { id = TFTD.4 days = 1 } }
-		}
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower > FROM.owner.XCOM_aquapower } }
-		random_list = {
-		25 = { FROM = { owner = { destroy_ships = { type = screen_ship count = 3 } } } }
-		25 = { FROM = { owner = { destroy_ships = { type = screen_ship count = 9 } } } }
-		25 = { FROM = { owner = { destroy_ships = { type = screen_ship count = 5 } } } }
-		20 = { FROM = { owner = { destroy_ships = { type = screen_ship count = 13 } } } }
-		5 = { FROM = { owner = { destroy_ships = { type = screen_ship count = all } } } }
-		}
-		random_list = {
-		20 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 2000 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 45 }
-		add_to_variable = { EGG_aquanaut = 1500 }
-		add_to_variable = { EGG_lossaquanaut = 500 }
-		add_to_variable = { EGG_lossaquships = 5 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 30 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 32 }
-		add_to_variable = { EGG_aquanaut = 1800 }
-		add_to_variable = { EGG_lossaquanaut = 200 }
-		add_to_variable = { EGG_lossaquships = 18 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 48 }
-		add_to_variable = { EGG_aquanaut = 1986 }
-		add_to_variable = { EGG_lossaquanaut = 14 }
-		add_to_variable = { EGG_lossaquships = 2 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -12 }
-		add_to_variable = { XCOM_aquanaut = -500 }
-		add_to_variable = { XCOM_lossaquanaut = 500 }
-		add_to_variable = { XCOM_lossaquships = 12 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -30 }
-		add_to_variable = { XCOM_aquanaut = -1000 }
-		add_to_variable = { XCOM_lossaquanaut = 1000 }
-		add_to_variable = { XCOM_lossaquships = 20 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -2 }
-		add_to_variable = { XCOM_aquanaut = -100 }
-		add_to_variable = { XCOM_lossaquanaut = 100 }
-		add_to_variable = { XCOM_lossaquships = 2 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -23 }
-		add_to_variable = { XCOM_aquanaut = -700 }
-		add_to_variable = { XCOM_lossaquanaut = 700 }
-		add_to_variable = { XCOM_lossaquships = 23 }
-		}
-		}
-		ROOT = { if = { limit = { is_ai = no } play_song = "TFTD_victory" } news_event = { id = TFTD.3 days = 1 } }
-		}
-		}
-		}
-		}
+			custom_effect_tooltip = tftdoperation3_rem
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -50
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -2000
+				}
+				#
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower < FROM.owner.XCOM_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = destroyer
+										count = 1
+									}
+								}
+							}
+						}
+						25 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = destroyer
+										count = 2
+									}
+								}
+							}
+						}
+						25 = {
+						}
+						20 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = destroyer
+										count = 3
+									}
+								}
+							}
+						}
+						5 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = destroyer
+										count = 4
+									}
+								}
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 20
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 20
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 25
+							}
+							add_to_variable = {
+								EGG_aquanaut = 700
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1300
+							}
+							add_to_variable = {
+								EGG_lossaquships = 25
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 8
+							}
+							add_to_variable = {
+								EGG_aquanaut = 300
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1700
+							}
+							add_to_variable = {
+								EGG_lossaquships = 42
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 16
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1341
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 659
+							}
+							add_to_variable = {
+								EGG_lossaquships = 34
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -5
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -123
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 123
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 5
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -2
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -100
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 100
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 2
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -12
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -800
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 800
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 12
+									}
+								}
+							}
+						}
+					}
+					ROOT = {
+						if = {
+							limit = {
+								is_ai = no
+							}
+							play_song = "TFTD_defeat"
+						}
+						news_event = {
+							id = TFTD.4
+							days = 1
+						}
+					}
+				}
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower > FROM.owner.XCOM_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = screen_ship
+										count = 3
+									}
+								}
+							}
+						}
+						25 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = screen_ship
+										count = 9
+									}
+								}
+							}
+						}
+						25 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = screen_ship
+										count = 5
+									}
+								}
+							}
+						}
+						20 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = screen_ship
+										count = 13
+									}
+								}
+							}
+						}
+						5 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = screen_ship
+										count = all
+									}
+								}
+							}
+						}
+					}
+					random_list = {
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 50
+							}
+							add_to_variable = {
+								EGG_aquanaut = 2000
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 45
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1500
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 5
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 30
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 20
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 32
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1800
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 200
+							}
+							add_to_variable = {
+								EGG_lossaquships = 18
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 48
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1986
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 14
+							}
+							add_to_variable = {
+								EGG_lossaquships = 2
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -12
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -500
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 500
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 12
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -30
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1000
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1000
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 20
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -2
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -100
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 100
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 2
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -23
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -700
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 700
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 23
+									}
+								}
+							}
+							ROOT = {
+								if = {
+									limit = {
+										is_ai = no
+									}
+									play_song = "TFTD_victory"
+								}
+								news_event = {
+									id = TFTD.3
+									days = 1
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
-	
 	EGG_sea_capitalshipsdestroy = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 69 }
-		check_variable = { EGG_aquanaut > 2499 }
-		check_variable = { EGG_aquapower > 7000 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
-		}
-		FROM = {
-		owner = {
-		has_navy_size = {
-            size > 2
-            type = capital_ship
-        }
-		}
-		}
-		}
-
-		state_target = yes
-
-		on_map_mode = map_only
-
-		#targets = {  }
-
-		#target_array = all_states
-
-		target_trigger = {
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 69
+			}
+			check_variable = {
+				EGG_aquanaut > 2499
+			}
+			check_variable = {
+				EGG_aquapower > 7000
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 			FROM = {
-				is_capital = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					has_navy_size = {
+						size > 2
+						type = capital_ship
+					}
 				}
 			}
 		}
-		
-
+		state_target = yes
+		on_map_mode = map_only
+		#targets = {  }
+		#target_array = all_states
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
+				}
+			}
+		}
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 50
-
 		modifier = {
 			political_power_gain = -0.04
 			consumer_goods_factor = 0.02
-		    command_power_gain = -0.3
+			command_power_gain = -0.3
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation4_com
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -70 }
-		add_to_variable = { EGG_reservedaquships = 70 }
-		add_to_variable = { EGG_aquanaut = -2500 }
-		add_to_variable = { EGG_reservedaquanaut = 2500 }
+			custom_effect_tooltip = tftdoperation4_com
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -70
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 70
+				}
+				add_to_variable = {
+					EGG_aquanaut = -2500
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 2500
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = tftdoperation4_rem
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -70 }
-		add_to_variable = { EGG_reservedaquanaut = -2500 }
-		#
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower < FROM.owner.XCOM_aquapower } }
-		random_list = {
-		15 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 1 } } } }
-		15 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 2 } } } }
-		60 = { }
-		5 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 3 } } } }
-		}
-		random_list = {
-		25 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1500 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		25 = {
-		add_to_variable = { EGG_lossaquanaut = 2500 }
-		add_to_variable = { EGG_lossaquships = 70 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 40 }
-		add_to_variable = { EGG_aquanaut = 1200 }
-		add_to_variable = { EGG_lossaquanaut = 1300 }
-		add_to_variable = { EGG_lossaquships = 30 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 22 }
-		add_to_variable = { EGG_aquanaut = 400 }
-		add_to_variable = { EGG_lossaquanaut = 2100 }
-		add_to_variable = { EGG_lossaquships = 48 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -10 }
-		add_to_variable = { XCOM_aquanaut = -500 }
-		add_to_variable = { XCOM_lossaquanaut = 500 }
-		add_to_variable = { XCOM_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -22 }
-		add_to_variable = { XCOM_aquanaut = -700 }
-		add_to_variable = { XCOM_lossaquanaut = 700 }
-		add_to_variable = { XCOM_lossaquships = 22 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -15 }
-		add_to_variable = { XCOM_aquanaut = -1000 }
-		add_to_variable = { XCOM_lossaquanaut = 1000 }
-		add_to_variable = { XCOM_lossaquships = 15 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.4 days = 1 }
-		}
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower > FROM.owner.XCOM_aquapower } }
-		random_list = {
-		40 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 1 } } } }
-		40 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 2 } } } }
-		20 = { FROM = { owner = { destroy_ships = { type = capital_ship count = 3 } } } }
-		}
-		random_list = {
-		20 = {
-		add_to_variable = { EGG_aquaships = 70 }
-		add_to_variable = { EGG_aquanaut = 2500 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 45 }
-		add_to_variable = { EGG_aquanaut = 1500 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 25 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 60 }
-		add_to_variable = { EGG_aquanaut = 2000 }
-		add_to_variable = { EGG_lossaquanaut = 500 }
-		add_to_variable = { EGG_lossaquships = 10 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 1800 }
-		add_to_variable = { EGG_lossaquanaut = 700 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 33 }
-		add_to_variable = { EGG_aquanaut = 1200 }
-		add_to_variable = { EGG_lossaquanaut = 1300 }
-		add_to_variable = { EGG_lossaquships = 37 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -22 }
-		add_to_variable = { XCOM_aquanaut = -1500 }
-		add_to_variable = { XCOM_lossaquanaut = 1500 }
-		add_to_variable = { XCOM_lossaquships = 22 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -40 }
-		add_to_variable = { XCOM_aquanaut = -2000 }
-		add_to_variable = { XCOM_lossaquanaut = 2000 }
-		add_to_variable = { XCOM_lossaquships = 40 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -12 }
-		add_to_variable = { XCOM_aquanaut = -400 }
-		add_to_variable = { XCOM_lossaquanaut = 400 }
-		add_to_variable = { XCOM_lossaquships = 12 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -31 }
-		add_to_variable = { XCOM_aquanaut = -1200 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquships = 31 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.3 days = 1 }
-		}
-		}
+			custom_effect_tooltip = tftdoperation4_rem
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -70
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -2500
+				}
+				#
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower < FROM.owner.XCOM_aquapower
+						}
+					}
+					random_list = {
+						15 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 1
+									}
+								}
+							}
+						}
+						15 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 2
+									}
+								}
+							}
+						}
+						60 = {
+						}
+						5 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 3
+									}
+								}
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 50
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 20
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_lossaquanaut = 2500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 70
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 40
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1200
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1300
+							}
+							add_to_variable = {
+								EGG_lossaquships = 30
+							}
+						}
+						25 = {
+							add_to_variable = {
+								EGG_aquaships = 22
+							}
+							add_to_variable = {
+								EGG_aquanaut = 400
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 2100
+							}
+							add_to_variable = {
+								EGG_lossaquships = 48
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -10
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -500
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 500
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 10
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -22
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -700
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 700
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 22
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -15
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1000
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1000
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 15
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_defeat"
+					}
+					news_event = {
+						id = TFTD.4
+						days = 1
+					}
+				}
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower > FROM.owner.XCOM_aquapower
+						}
+					}
+					random_list = {
+						40 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 1
+									}
+								}
+							}
+						}
+						40 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 2
+									}
+								}
+							}
+						}
+						20 = {
+							FROM = {
+								owner = {
+									destroy_ships = {
+										type = capital_ship
+										count = 3
+									}
+								}
+							}
+						}
+					}
+					random_list = {
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 70
+							}
+							add_to_variable = {
+								EGG_aquanaut = 2500
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 45
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1500
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 25
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 60
+							}
+							add_to_variable = {
+								EGG_aquanaut = 2000
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 10
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 50
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1800
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 700
+							}
+							add_to_variable = {
+								EGG_lossaquships = 20
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 33
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1200
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1300
+							}
+							add_to_variable = {
+								EGG_lossaquships = 37
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -22
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1500
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1500
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 22
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -40
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -2000
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 2000
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 40
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -12
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -400
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 400
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 12
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -31
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1200
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1200
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 31
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_victory"
+					}
+					news_event = {
+						id = TFTD.3
+						days = 1
+					}
+				}
+			}
 		}
 	}
-	
 	EGG_sea_cruisershipsdestroy = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 59 }
-		check_variable = { EGG_aquanaut > 1999 }
-		check_variable = { EGG_aquapower > 6000 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 59
+			}
+			check_variable = {
+				EGG_aquanaut > 1999
+			}
+			check_variable = {
+				EGG_aquapower > 6000
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
+			FROM = {
+				owner = {
+					OR = {
+						has_navy_size = {
+							size > 5
+							type = carrier
+						}
+						has_navy_size = {
+							size > 5
+							type = submarine
+						}
+					}
+				}
+			}
 		}
-		FROM = {
-		owner = {
-		OR = {
-		has_navy_size = {
-            size > 5
-            type = carrier 
-        }
-		has_navy_size = {
-            size > 5
-            type = submarine 
-        }
-		}
-		}
-		}
-		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		#target_array = all_states
-
 		target_trigger = {
 			FROM = {
 				is_capital = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
 				}
 			}
 		}
-		
-
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 50
-
 		modifier = {
 			political_power_gain = -0.04
 			consumer_goods_factor = 0.02
-		    command_power_gain = -0.3
+			command_power_gain = -0.3
 		}
-
 		visible = {
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation5_com
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -60 }
-		add_to_variable = { EGG_reservedaquships = 60 }
-		add_to_variable = { EGG_aquanaut = -2000 }
-		add_to_variable = { EGG_reservedaquanaut = 2000 }
+			custom_effect_tooltip = tftdoperation5_com
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -60
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 60
+				}
+				add_to_variable = {
+					EGG_aquanaut = -2000
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 2000
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = tftdoperation5_rem
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -60 }
-		add_to_variable = { EGG_reservedaquanaut = -2000 }
-		#
-		#
-		if = {
-		limit = {
-		has_navy_size = {
-            size > 5
-            type = carrier
-        }
-		}
-		if = {
-		limit = { check_variable = { EGG_aquapower < FROM.owner.XCOM_aquapower } }
-		random_list = {
-		15 = { FROM = { owner = { destroy_ships = { type = carrier count = 1 } } } }
-		15 = { FROM = { owner = { destroy_ships = { type = carrier count = 2 } } } }
-		60 = { }
-		5 = { FROM = { owner = { destroy_ships = { type = carrier count = 3 } } } }
-		}
-		random_list = {
-		25 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 30 }
-		add_to_variable = { EGG_aquanaut = 1200 }
-		add_to_variable = { EGG_lossaquanaut = 800 }
-		add_to_variable = { EGG_lossaquships = 30 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 400 }
-		add_to_variable = { EGG_lossaquanaut = 1600 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -10 }
-		add_to_variable = { XCOM_aquanaut = -500 }
-		add_to_variable = { XCOM_lossaquanaut = 500 }
-		add_to_variable = { XCOM_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -22 }
-		add_to_variable = { XCOM_aquanaut = -700 }
-		add_to_variable = { XCOM_lossaquanaut = 700 }
-		add_to_variable = { XCOM_lossaquships = 22 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -3 }
-		add_to_variable = { XCOM_aquanaut = -300 }
-		add_to_variable = { XCOM_lossaquanaut = 300 }
-		add_to_variable = { XCOM_lossaquships = 3 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.4 days = 1 }
-		}
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower > FROM.owner.XCOM_aquapower } }
-		random_list = {
-		40 = { FROM = { owner = { destroy_ships = { type = carrier count = 2 } } } }
-		40 = { FROM = { owner = { destroy_ships = { type = carrier count = 3 } } } }
-		20 = { FROM = { owner = { destroy_ships = { type = carrier count = 5 } } } }
-		}
-		random_list = {
-		20 = {
-		add_to_variable = { EGG_aquaships = 60 }
-		add_to_variable = { EGG_aquanaut = 2000 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 40 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 55 }
-		add_to_variable = { EGG_aquanaut = 1300 }
-		add_to_variable = { EGG_lossaquanaut = 700 }
-		add_to_variable = { EGG_lossaquships = 15 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 43 }
-		add_to_variable = { EGG_aquanaut = 1800 }
-		add_to_variable = { EGG_lossaquanaut = 200 }
-		add_to_variable = { EGG_lossaquships = 17 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 11 }
-		add_to_variable = { EGG_aquanaut = 1700 }
-		add_to_variable = { EGG_lossaquanaut = 300 }
-		add_to_variable = { EGG_lossaquships = 49 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -21 }
-		add_to_variable = { XCOM_aquanaut = -1400 }
-		add_to_variable = { XCOM_lossaquanaut = 1400 }
-		add_to_variable = { XCOM_lossaquships = 21 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -36 }
-		add_to_variable = { XCOM_aquanaut = -1676 }
-		add_to_variable = { XCOM_lossaquanaut = 1676 }
-		add_to_variable = { XCOM_lossaquships = 36 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -15 }
-		add_to_variable = { XCOM_aquanaut = -530 }
-		add_to_variable = { XCOM_lossaquanaut = 530 }
-		add_to_variable = { XCOM_lossaquships = 15 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -18 }
-		add_to_variable = { XCOM_aquanaut = -1115 }
-		add_to_variable = { XCOM_lossaquanaut = 1115 }
-		add_to_variable = { XCOM_lossaquships = 18 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.3 days = 1 }
-		}
-		
-		else = {
-		if = {
-		limit = { check_variable = { EGG_aquapower < FROM.owner.XCOM_aquapower } }
-		random_list = {
-		15 = { FROM = { owner = { destroy_ships = { type = submarine count = 1 } } } }
-		15 = { FROM = { owner = { destroy_ships = { type = submarine count = 2 } } } }
-		60 = { }
-		5 = { FROM = { owner = { destroy_ships = { type = submarine count = 3 } } } }
-		}
-		random_list = {
-		25 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 30 }
-		add_to_variable = { EGG_aquanaut = 1200 }
-		add_to_variable = { EGG_lossaquanaut = 800 }
-		add_to_variable = { EGG_lossaquships = 30 }
-		}
-		25 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 400 }
-		add_to_variable = { EGG_lossaquanaut = 1600 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -10 }
-		add_to_variable = { XCOM_aquanaut = -500 }
-		add_to_variable = { XCOM_lossaquanaut = 500 }
-		add_to_variable = { XCOM_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -22 }
-		add_to_variable = { XCOM_aquanaut = -700 }
-		add_to_variable = { XCOM_lossaquanaut = 700 }
-		add_to_variable = { XCOM_lossaquships = 22 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -3 }
-		add_to_variable = { XCOM_aquanaut = -300 }
-		add_to_variable = { XCOM_lossaquanaut = 300 }
-		add_to_variable = { XCOM_lossaquships = 3 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.4 days = 1 }
-		}
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower > FROM.owner.XCOM_aquapower } }
-		random_list = {
-		40 = { FROM = { owner = { destroy_ships = { type = submarine count = 2 } } } }
-		40 = { FROM = { owner = { destroy_ships = { type = submarine count = 3 } } } }
-		20 = { FROM = { owner = { destroy_ships = { type = submarine count = 5 } } } }
-		}
-		random_list = {
-		20 = {
-		add_to_variable = { EGG_aquaships = 60 }
-		add_to_variable = { EGG_aquanaut = 2000 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 40 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 55 }
-		add_to_variable = { EGG_aquanaut = 1300 }
-		add_to_variable = { EGG_lossaquanaut = 700 }
-		add_to_variable = { EGG_lossaquships = 15 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 43 }
-		add_to_variable = { EGG_aquanaut = 1800 }
-		add_to_variable = { EGG_lossaquanaut = 200 }
-		add_to_variable = { EGG_lossaquships = 17 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 11 }
-		add_to_variable = { EGG_aquanaut = 1700 }
-		add_to_variable = { EGG_lossaquanaut = 300 }
-		add_to_variable = { EGG_lossaquships = 49 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -21 }
-		add_to_variable = { XCOM_aquanaut = -1400 }
-		add_to_variable = { XCOM_lossaquanaut = 1400 }
-		add_to_variable = { XCOM_lossaquships = 21 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -36 }
-		add_to_variable = { XCOM_aquanaut = -1676 }
-		add_to_variable = { XCOM_lossaquanaut = 1676 }
-		add_to_variable = { XCOM_lossaquships = 36 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -15 }
-		add_to_variable = { XCOM_aquanaut = -530 }
-		add_to_variable = { XCOM_lossaquanaut = 530 }
-		add_to_variable = { XCOM_lossaquships = 15 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -18 }
-		add_to_variable = { XCOM_aquanaut = -1115 }
-		add_to_variable = { XCOM_lossaquanaut = 1115 }
-		add_to_variable = { XCOM_lossaquships = 18 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.3 days = 1 }
-		}
-		}
-		}
-		}
+			custom_effect_tooltip = tftdoperation5_rem
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -60
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -2000
+				}
+				#
+				#
+				if = {
+					limit = {
+						has_navy_size = {
+							size > 5
+							type = carrier
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {
+								EGG_aquapower < FROM.owner.XCOM_aquapower
+							}
+						}
+						random_list = {
+							15 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 1
+										}
+									}
+								}
+							}
+							15 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 2
+										}
+									}
+								}
+							}
+							60 = {
+							}
+							5 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 3
+										}
+									}
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								add_to_variable = {
+									EGG_aquaships = 50
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 10
+								}
+							}
+							25 = {
+								add_to_variable = {
+									EGG_lossaquanaut = 2000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 60
+								}
+							}
+							25 = {
+								add_to_variable = {
+									EGG_aquaships = 30
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1200
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 800
+								}
+								add_to_variable = {
+									EGG_lossaquships = 30
+								}
+							}
+							25 = {
+								add_to_variable = {
+									EGG_aquaships = 20
+								}
+								add_to_variable = {
+									EGG_aquanaut = 400
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1600
+								}
+								add_to_variable = {
+									EGG_lossaquships = 40
+								}
+							}
+						}
+						FROM = {
+							owner = {
+								random_list = {
+									25 = {
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -10
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -500
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 500
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 10
+										}
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -22
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -700
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 700
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 22
+										}
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -3
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -300
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 300
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 3
+										}
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								is_ai = no
+							}
+							play_song = "TFTD_defeat"
+						}
+						news_event = {
+							id = TFTD.4
+							days = 1
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								EGG_aquapower > FROM.owner.XCOM_aquapower
+							}
+						}
+						random_list = {
+							40 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 2
+										}
+									}
+								}
+							}
+							40 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 3
+										}
+									}
+								}
+							}
+							20 = {
+								FROM = {
+									owner = {
+										destroy_ships = {
+											type = carrier
+											count = 5
+										}
+									}
+								}
+							}
+						}
+						random_list = {
+							20 = {
+								add_to_variable = {
+									EGG_aquaships = 60
+								}
+								add_to_variable = {
+									EGG_aquanaut = 2000
+								}
+							}
+							20 = {
+								add_to_variable = {
+									EGG_aquaships = 40
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 20
+								}
+							}
+							20 = {
+								add_to_variable = {
+									EGG_aquaships = 55
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1300
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 700
+								}
+								add_to_variable = {
+									EGG_lossaquships = 15
+								}
+							}
+							20 = {
+								add_to_variable = {
+									EGG_aquaships = 43
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1800
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 200
+								}
+								add_to_variable = {
+									EGG_lossaquships = 17
+								}
+							}
+							20 = {
+								add_to_variable = {
+									EGG_aquaships = 11
+								}
+								add_to_variable = {
+									EGG_aquanaut = 1700
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 300
+								}
+								add_to_variable = {
+									EGG_lossaquships = 49
+								}
+							}
+						}
+						FROM = {
+							owner = {
+								random_list = {
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -21
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -1400
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 1400
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 21
+										}
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -36
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -1676
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 1676
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 36
+										}
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -15
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -530
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 530
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 15
+										}
+									}
+									25 = {
+										add_to_variable = {
+											XCOM_aquaships = -18
+										}
+										add_to_variable = {
+											XCOM_aquanaut = -1115
+										}
+										add_to_variable = {
+											XCOM_lossaquanaut = 1115
+										}
+										add_to_variable = {
+											XCOM_lossaquships = 18
+										}
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								is_ai = no
+							}
+							play_song = "TFTD_victory"
+						}
+						news_event = {
+							id = TFTD.3
+							days = 1
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = {
+									EGG_aquapower < FROM.owner.XCOM_aquapower
+								}
+							}
+							random_list = {
+								15 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 1
+											}
+										}
+									}
+								}
+								15 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 2
+											}
+										}
+									}
+								}
+								60 = {
+								}
+								5 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 3
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									add_to_variable = {
+										EGG_aquaships = 50
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1000
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 1000
+									}
+									add_to_variable = {
+										EGG_lossaquships = 10
+									}
+								}
+								25 = {
+									add_to_variable = {
+										EGG_lossaquanaut = 2000
+									}
+									add_to_variable = {
+										EGG_lossaquships = 60
+									}
+								}
+								25 = {
+									add_to_variable = {
+										EGG_aquaships = 30
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1200
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 800
+									}
+									add_to_variable = {
+										EGG_lossaquships = 30
+									}
+								}
+								25 = {
+									add_to_variable = {
+										EGG_aquaships = 20
+									}
+									add_to_variable = {
+										EGG_aquanaut = 400
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 1600
+									}
+									add_to_variable = {
+										EGG_lossaquships = 40
+									}
+								}
+							}
+							FROM = {
+								owner = {
+									random_list = {
+										25 = {
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -10
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -500
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 500
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 10
+											}
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -22
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -700
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 700
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 22
+											}
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -3
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -300
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 300
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 3
+											}
+										}
+									}
+								}
+							}
+							if = {
+								limit = {
+									is_ai = no
+								}
+								play_song = "TFTD_defeat"
+							}
+							news_event = {
+								id = TFTD.4
+								days = 1
+							}
+						}
+						#
+						if = {
+							limit = {
+								check_variable = {
+									EGG_aquapower > FROM.owner.XCOM_aquapower
+								}
+							}
+							random_list = {
+								40 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 2
+											}
+										}
+									}
+								}
+								40 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 3
+											}
+										}
+									}
+								}
+								20 = {
+									FROM = {
+										owner = {
+											destroy_ships = {
+												type = submarine
+												count = 5
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								20 = {
+									add_to_variable = {
+										EGG_aquaships = 60
+									}
+									add_to_variable = {
+										EGG_aquanaut = 2000
+									}
+								}
+								20 = {
+									add_to_variable = {
+										EGG_aquaships = 40
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1000
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 1000
+									}
+									add_to_variable = {
+										EGG_lossaquships = 20
+									}
+								}
+								20 = {
+									add_to_variable = {
+										EGG_aquaships = 55
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1300
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 700
+									}
+									add_to_variable = {
+										EGG_lossaquships = 15
+									}
+								}
+								20 = {
+									add_to_variable = {
+										EGG_aquaships = 43
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1800
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 200
+									}
+									add_to_variable = {
+										EGG_lossaquships = 17
+									}
+								}
+								20 = {
+									add_to_variable = {
+										EGG_aquaships = 11
+									}
+									add_to_variable = {
+										EGG_aquanaut = 1700
+									}
+									add_to_variable = {
+										EGG_lossaquanaut = 300
+									}
+									add_to_variable = {
+										EGG_lossaquships = 49
+									}
+								}
+							}
+							FROM = {
+								owner = {
+									random_list = {
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -21
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -1400
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 1400
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 21
+											}
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -36
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -1676
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 1676
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 36
+											}
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -15
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -530
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 530
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 15
+											}
+										}
+										25 = {
+											add_to_variable = {
+												XCOM_aquaships = -18
+											}
+											add_to_variable = {
+												XCOM_aquanaut = -1115
+											}
+											add_to_variable = {
+												XCOM_lossaquanaut = 1115
+											}
+											add_to_variable = {
+												XCOM_lossaquships = 18
+											}
+										}
+									}
+								}
+							}
+							if = {
+								limit = {
+									is_ai = no
+								}
+								play_song = "TFTD_victory"
+							}
+							news_event = {
+								id = TFTD.3
+								days = 1
+							}
+						}
+					}
+				}
+			}
 		}
 	}
-	
 	EGG_sea_troop = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 79 }
-		check_variable = { EGG_aquanaut > 2999 }
-		check_variable = { EGG_aquapower > 8000 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 79
+			}
+			check_variable = {
+				EGG_aquanaut > 2999
+			}
+			check_variable = {
+				EGG_aquapower > 8000
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
+			has_war_with = FROM.owner
 		}
-		has_war_with = FROM.owner
-		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-		
 		#targets = {  }
-
 		#target_array = all_states
-
 		target_trigger = {
 			FROM = {
 				is_coastal = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
 				}
 			}
 		}
-		
-
 		cost = 200
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 20
-
 		modifier = {
 			political_power_gain = -0.04
 			consumer_goods_factor = 0.02
-		    command_power_gain = -0.3
+			command_power_gain = -0.3
 		}
-
 		visible = {
-		has_war = yes
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_war = yes
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		custom_effect_tooltip = tftdoperation6_com
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -80 }
-		add_to_variable = { EGG_reservedaquships = 80 }
-		add_to_variable = { EGG_aquanaut = -3000 }
-		add_to_variable = { EGG_reservedaquanaut = 3000 }
+			custom_effect_tooltip = tftdoperation6_com
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -80
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 80
+				}
+				add_to_variable = {
+					EGG_aquanaut = -3000
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 3000
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = tftdoperation6_rem
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -80 }
-		add_to_variable = { EGG_reservedaquanaut = -3000 }
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower > FROM.owner.XCOM_aquapower } }
-	    division_template = {
-	    name = "Aquanaut"  	
-	    regiments = {
-	    	medium_robots  = { x = 0 y = 0 }
-			medium_robots  = { x = 0 y = 1 }
-			medium_robots  = { x = 0 y = 2 }
-			medium_robots  = { x = 0 y = 3 }
-			medium_robots  = { x = 0 y = 4 }
-			medium_robots  = { x = 0 y = 5 }
-	    }
-	    support = {
-	    }
-	    is_locked = yes
-	    }
-		transfer_state = FROM
-		random_list = {
-		40 = {
-		add_to_variable = { EGG_aquaships = 80 }
-		FROM = {
-     	        create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
+			custom_effect_tooltip = tftdoperation6_rem
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -80
 				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
+				add_to_variable = {
+					EGG_reservedaquanaut = -3000
 				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower > FROM.owner.XCOM_aquapower
+						}
+					}
+					division_template = {
+						name = "Aquanaut"
+						regiments = {
+							medium_robots = {
+								x = 0
+								y = 0
+							}
+							medium_robots = {
+								x = 0
+								y = 1
+							}
+							medium_robots = {
+								x = 0
+								y = 2
+							}
+							medium_robots = {
+								x = 0
+								y = 3
+							}
+							medium_robots = {
+								x = 0
+								y = 4
+							}
+							medium_robots = {
+								x = 0
+								y = 5
+							}
+						}
+						support = {
+						}
+						is_locked = yes
+					}
+					transfer_state = FROM
+					random_list = {
+						40 = {
+							add_to_variable = {
+								EGG_aquaships = 80
+							}
+							FROM = {
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 60
+							}
+							add_to_variable = {
+								EGG_aquanaut = 2000
+							}
+							FROM = {
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 20
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 50
+							}
+							add_to_variable = {
+								EGG_aquanaut = 2500
+							}
+							FROM = {
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 30
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 30
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1000
+							}
+							FROM = {
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+								create_unit = {
+									division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0"
+									owner = ROOT
+								}
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 2000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 60
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -26
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1200
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1200
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 26
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -41
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -2300
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 2300
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 41
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -14
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -600
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 600
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 14
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -32
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1250
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1250
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 32
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_victory"
+					}
+					news_event = {
+						id = TFTD.5
+						days = 1
+					}
 				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_aquapower < FROM.owner.XCOM_aquapower
+						}
+					}
+					random_list = {
+						40 = {
+							add_to_variable = {
+								EGG_aquaships = 20
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1000
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 2000
+							}
+							add_to_variable = {
+								EGG_lossaquships = 60
+							}
+						}
+						40 = {
+							add_to_variable = {
+								EGG_aquaships = 10
+							}
+							add_to_variable = {
+								EGG_aquanaut = 500
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 2500
+							}
+							add_to_variable = {
+								EGG_lossaquships = 70
+							}
+						}
+						20 = {
+							add_to_variable = {
+								EGG_aquaships = 30
+							}
+							add_to_variable = {
+								EGG_aquanaut = 1100
+							}
+							add_to_variable = {
+								EGG_lossaquanaut = 1900
+							}
+							add_to_variable = {
+								EGG_lossaquships = 40
+							}
+						}
+					}
+					FROM = {
+						owner = {
+							random_list = {
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -23
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1600
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1600
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 23
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -10
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1200
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1200
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 10
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -3
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -700
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 700
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 3
+									}
+								}
+								25 = {
+									add_to_variable = {
+										XCOM_aquaships = -9
+									}
+									add_to_variable = {
+										XCOM_aquanaut = -1234
+									}
+									add_to_variable = {
+										XCOM_lossaquanaut = 1234
+									}
+									add_to_variable = {
+										XCOM_lossaquships = 9
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_defeat"
+					}
+					news_event = {
+						id = TFTD.6
+						days = 1
+					}
 				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-        }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 60 }
-		add_to_variable = { EGG_aquanaut = 2000 }
-		FROM = {
-     	        create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-        }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 50 }
-		add_to_variable = { EGG_aquanaut = 2500 }
-		FROM = {
-     	        create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-        }
-		add_to_variable = { EGG_lossaquanaut = 500 }
-		add_to_variable = { EGG_lossaquships = 30 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 30 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		FROM = {
-     	        create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Aquanauts\" division_template = \"Aquanaut\" start_experience_factor = 1.0" 
-					owner = ROOT
-				}
-        }
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -26 }
-		add_to_variable = { XCOM_aquanaut = -1200 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquships = 26 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -41 }
-		add_to_variable = { XCOM_aquanaut = -2300 }
-		add_to_variable = { XCOM_lossaquanaut = 2300 }
-		add_to_variable = { XCOM_lossaquships = 41 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -14 }
-		add_to_variable = { XCOM_aquanaut = -600 }
-		add_to_variable = { XCOM_lossaquanaut = 600 }
-		add_to_variable = { XCOM_lossaquships = 14 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -32 }
-		add_to_variable = { XCOM_aquanaut = -1250 }
-		add_to_variable = { XCOM_lossaquanaut = 1250 }
-		add_to_variable = { XCOM_lossaquships = 32 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.5 days = 1 }
-		}
-		#
-		if = {
-		limit = { check_variable = { EGG_aquapower < FROM.owner.XCOM_aquapower } }
-		random_list = {
-		40 = {
-		add_to_variable = { EGG_aquaships = 20 }
-		add_to_variable = { EGG_aquanaut = 1000 }
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		40 = {
-		add_to_variable = { EGG_aquaships = 10 }
-		add_to_variable = { EGG_aquanaut = 500 }
-		add_to_variable = { EGG_lossaquanaut = 2500 }
-		add_to_variable = { EGG_lossaquships = 70 }
-		}
-		20 = {
-		add_to_variable = { EGG_aquaships = 30 }
-		add_to_variable = { EGG_aquanaut = 1100 }
-		add_to_variable = { EGG_lossaquanaut = 1900 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		FROM = {
-		owner = {
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquaships = -23 }
-		add_to_variable = { XCOM_aquanaut = -1600 }
-		add_to_variable = { XCOM_lossaquanaut = 1600 }
-		add_to_variable = { XCOM_lossaquships = 23 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -10 }
-		add_to_variable = { XCOM_aquanaut = -1200 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquships = 10 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -3 }
-		add_to_variable = { XCOM_aquanaut = -700 }
-		add_to_variable = { XCOM_lossaquanaut = 700 }
-		add_to_variable = { XCOM_lossaquships = 3 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquaships = -9 }
-		add_to_variable = { XCOM_aquanaut = -1234 }
-		add_to_variable = { XCOM_lossaquanaut = 1234 }
-		add_to_variable = { XCOM_lossaquships = 9 }
-		}
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.6 days = 1 }
-		}
-		}
+			}
 		}
 	}
-	
 	EGG_sea_nuke = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_global_flag = TFTD_start
-		is_major = yes
-		check_variable = { EGG_aquaships > 0 }
-		check_variable = { EGG_aquanaut > 1 }
-		check_variable = { EGG_aquanukes > 0 }
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_global_flag = TFTD_start
+			is_major = yes
+			check_variable = {
+				EGG_aquaships > 0
+			}
+			check_variable = {
+				EGG_aquanaut > 1
+			}
+			check_variable = {
+				EGG_aquanukes > 0
+			}
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
+			has_war_with = FROM.owner
 		}
-		has_war_with = FROM.owner
-		}
-
 		state_target = yes
-
 		on_map_mode = map_only
-
 		#targets = {  }
-
 		#target_array = all_states
-
 		target_trigger = {
 			FROM = {
 				is_coastal = yes
-				owner = { 
-				OR = {
-				AND = { OR = { TAG = UFA TAG = KOA TAG = SWA TAG = LEO } ROOT = { has_country_flag = TFTD_mediterrain_egg } } 
-				AND = { OR = { TAG = ANG TAG = SOU TAG = DOW TAG = FEC } ROOT = { has_country_flag = TFTD_emeraldocean_egg } }
-				} 
+				owner = {
+					OR = {
+						AND = {
+							OR = {
+								TAG = UFA
+								TAG = KOA
+								TAG = SWA
+								TAG = LEO
+							}
+							ROOT = {
+								has_country_flag = TFTD_mediterrain_egg
+							}
+						}
+						AND = {
+							OR = {
+								TAG = ANG
+								TAG = SOU
+								TAG = DOW
+								TAG = FEC
+							}
+							ROOT = {
+								has_country_flag = TFTD_emeraldocean_egg
+							}
+						}
+					}
 				}
 			}
 		}
-		
-
 		cost = 50
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 20
-
 		modifier = {
 			political_power_gain = -0.04
 			consumer_goods_factor = 0.02
-		    command_power_gain = -0.3
+			command_power_gain = -0.3
 		}
-
 		visible = {
-		has_war = yes
-		has_global_flag = TFTD_start
-		OR = {
-		has_country_flag = TFTD_emeraldocean_egg
-		has_country_flag = TFTD_mediterrain_egg
+			has_war = yes
+			has_global_flag = TFTD_start
+			OR = {
+				has_country_flag = TFTD_emeraldocean_egg
+				has_country_flag = TFTD_mediterrain_egg
+			}
 		}
-		}
-
 		complete_effect = {
-		hidden_effect = {
-		add_to_variable = { EGG_aquaships = -1 }
-		add_to_variable = { EGG_reservedaquships = 1 }
-		add_to_variable = { EGG_aquanukes = -1 }
-		add_to_variable = { EGG_aquanaut = -2 }
-		add_to_variable = { EGG_reservedaquanaut = 2 }
+			hidden_effect = {
+				add_to_variable = {
+					EGG_aquaships = -1
+				}
+				add_to_variable = {
+					EGG_reservedaquships = 1
+				}
+				add_to_variable = {
+					EGG_aquanukes = -1
+				}
+				add_to_variable = {
+					EGG_aquanaut = -2
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = 2
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		hidden_effect = {
-		add_to_variable = { EGG_reservedaquships = -1 }
-		add_to_variable = { EGG_reservedaquanaut = -2 }
-		add_to_variable = { EGG_lossaquships = 1 }
-		add_to_variable = { EGG_lossaquanaut = 2 }
-		#
-		if = {
-		limit = { check_variable = { EGG_onepower > owner.XCOM_onepower } }
-		random_list = {
-		80 = {
-		launch_nuke = { 
-            state = FROM
-            controller = FROM.owner
-            use_nuke = no
-        } 
-		news_event = { id = TFTD.3 days = 1}
-		}
-		20 = { news_event = { id = TFTD.4 days = 1} }
-		}
-		}
-		if = {
-		limit = { check_variable = { EGG_onepower < owner.XCOM_onepower } }
-		random_list = {
-		40 = {
-		launch_nuke = { 
-            state = FROM
-            controller = FROM.owner
-            use_nuke = no
-        } 
-		news_event = { id = TFTD.3 days = 1}
-		}
-		60 = { news_event = { id = TFTD.4 days = 1} }
-		}
-		}
+			hidden_effect = {
+				add_to_variable = {
+					EGG_reservedaquships = -1
+				}
+				add_to_variable = {
+					EGG_reservedaquanaut = -2
+				}
+				add_to_variable = {
+					EGG_lossaquships = 1
+				}
+				add_to_variable = {
+					EGG_lossaquanaut = 2
+				}
+				#
+				if = {
+					limit = {
+						check_variable = {
+							EGG_onepower > owner.XCOM_onepower
+						}
+					}
+					random_list = {
+						80 = {
+							launch_nuke = {
+								state = FROM
+								controller = FROM.owner
+								use_nuke = no
+							}
+							news_event = {
+								id = TFTD.3
+								days = 1
+							}
+						}
+						20 = {
+							news_event = {
+								id = TFTD.4
+								days = 1
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							EGG_onepower < owner.XCOM_onepower
+						}
+					}
+					random_list = {
+						40 = {
+							launch_nuke = {
+								state = FROM
+								controller = FROM.owner
+								use_nuke = no
+							}
+							news_event = {
+								id = TFTD.3
+								days = 1
+							}
+						}
+						60 = {
+							news_event = {
+								id = TFTD.4
+								days = 1
+							}
+						}
+					}
+				}
+			}
 		}
 	}
-	
-	
 }
-}
-
-
-
-
-
 
 XCOM_Terror_From_The_Deep = {
-	
-	XCOM_TFTD_start = { 
+	XCOM_TFTD_start = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
 		}
-		
 		cost = 250
-        #days_re_enable = 100
+		#days_re_enable = 100
 		fire_only_once = yes
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.3
-		command_power_gain = -0.5
-		political_power_gain = -0.2
+			consumer_goods_factor = 0.3
+			command_power_gain = -0.5
+			political_power_gain = -0.2
 		}
-
 		visible = {
 		}
-
 		complete_effect = {
-		hidden_effect = {  
-		if = { limit = { is_ai = no } play_song = "TFTD_geoscape" }
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_geoscape"
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		set_country_flag = XCOM_start
-		hidden_effect = {  }
-	    }
+			set_country_flag = XCOM_start
+			hidden_effect = {
+			}
+		}
 	}
-	
-	XCOM_buy_aquanauts = { 
+	XCOM_buy_aquanauts = {
 		icon = generic_nationalism
-
 		allowed = {
-		
 		}
-
 		available = {
-		has_country_flag = XCOM_start
+			has_country_flag = XCOM_start
 		}
-		
 		cost = 110
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.05
-		manpower = -350
+			consumer_goods_factor = 0.05
+			manpower = -350
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
+			has_country_flag = XCOM_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomaqua
-		hidden_effect = {  
-		add_to_variable = { XCOM_aquanaut = 350 }
+			custom_effect_tooltip = xcomaqua
+			hidden_effect = {
+				add_to_variable = {
+					XCOM_aquanaut = 350
+				}
+			}
 		}
-	    }
 	}
-	
-	XCOM_buy_aquaships = { 
+	XCOM_buy_aquaships = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
+			has_country_flag = XCOM_start
 		}
-		
 		cost = 130
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		consumer_goods_factor = 0.1
-		manpower = -1000
+			consumer_goods_factor = 0.1
+			manpower = -1000
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
+			has_country_flag = XCOM_start
 		}
-
 		complete_effect = {
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomaquas
-		hidden_effect = {  
-		add_to_variable = { XCOM_aquaships = 12 }
+			custom_effect_tooltip = xcomaquas
+			hidden_effect = {
+				add_to_variable = {
+					XCOM_aquaships = 12
+				}
+			}
 		}
-	    }
 	}
-	
-	XCOM_search_for_mediterrain_base = { 
+	XCOM_search_for_mediterrain_base = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
-		EGG = { has_country_flag = TFTD_mediterrain_egg }
-		has_idea_with_trait = Tech_Spy
-		NOT = {
-		has_country_flag = Spy_On_Way
-		has_country_flag = XCOM_base_1_found
+			has_country_flag = XCOM_start
+			EGG = {
+				has_country_flag = TFTD_mediterrain_egg
+			}
+			has_idea_with_trait = Tech_Spy
+			NOT = {
+				has_country_flag = Spy_On_Way
+				has_country_flag = XCOM_base_1_found
+			}
 		}
-		}
-		
 		cost = 150
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		political_power_gain = -0.1
-		command_power_gain = -0.02
+			political_power_gain = -0.1
+			command_power_gain = -0.02
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
-		EGG = { has_country_flag = TFTD_mediterrain_egg }
-		NOT = { has_country_flag = XCOM_base_1_found }
+			has_country_flag = XCOM_start
+			EGG = {
+				has_country_flag = TFTD_mediterrain_egg
+			}
+			NOT = {
+				has_country_flag = XCOM_base_1_found
+			}
 		}
-
 		complete_effect = {
-		set_country_flag = Spy_On_Way
+			set_country_flag = Spy_On_Way
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomsearch1
-		hidden_effect = {  
-		clr_country_flag = Spy_On_Way
-		set_temp_variable = { temp1 = 100 }
-		subtract_from_temp_variable = { temp1 = StealPower }
-		if = {
-		limit = { check_variable = { StealPower < 100 } }
-		random_list = {
-		StealPower = {
-		set_country_flag = XCOM_base_1_found
-		news_event = { id = TFTD.8 days = 1}
+			custom_effect_tooltip = xcomsearch1
+			hidden_effect = {
+				clr_country_flag = Spy_On_Way
+				set_temp_variable = {
+					temp1 = 100
+				}
+				subtract_from_temp_variable = {
+					temp1 = StealPower
+				}
+				if = {
+					limit = {
+						check_variable = {
+							StealPower < 100
+						}
+					}
+					random_list = {
+						StealPower = {
+							set_country_flag = XCOM_base_1_found
+							news_event = {
+								id = TFTD.8
+								days = 1
+							}
+						}
+						temp1 = {
+							news_event = {
+								id = TFTD.9
+								days = 1
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_brief_1"
+					}
+					else = {
+						set_country_flag = XCOM_base_1_found
+						news_event = {
+							id = TFTD.8
+							days = 1
+						}
+					}
+				}
+			}
 		}
-		temp1 = { news_event = { id = TFTD.9 days = 1} }
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_brief_1" }
-		else = {
-		set_country_flag = XCOM_base_1_found
-		news_event = { id = TFTD.8 days = 1}
-		}
-		}
-		}
-	    }
 	}
-	
-	XCOM_search_for_emeraldsea_base = { 
+	XCOM_search_for_emeraldsea_base = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
-		EGG = { has_country_flag = TFTD_emeraldocean_egg }
-		has_idea_with_trait = Tech_Spy
-		NOT = {
-		has_country_flag = Spy_On_Way
-		has_country_flag = XCOM_base_2_found
+			has_country_flag = XCOM_start
+			EGG = {
+				has_country_flag = TFTD_emeraldocean_egg
+			}
+			has_idea_with_trait = Tech_Spy
+			NOT = {
+				has_country_flag = Spy_On_Way
+				has_country_flag = XCOM_base_2_found
+			}
 		}
-		}
-		
 		cost = 150
-        days_re_enable = 1
+		days_re_enable = 1
 		days_remove = 1
-
 		modifier = {
-		political_power_gain = -0.1
-		command_power_gain = -0.02
+			political_power_gain = -0.1
+			command_power_gain = -0.02
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
-		EGG = { has_country_flag = TFTD_emeraldocean_egg }
-		NOT = { has_country_flag = XCOM_base_2_found }
+			has_country_flag = XCOM_start
+			EGG = {
+				has_country_flag = TFTD_emeraldocean_egg
+			}
+			NOT = {
+				has_country_flag = XCOM_base_2_found
+			}
 		}
-
 		complete_effect = {
-		set_country_flag = Spy_On_Way
+			set_country_flag = Spy_On_Way
 		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomsearch2
-		if = {
-		limit = { check_variable = { StealPower < 100 } }
-		random_list = {
-		StealPower = {
-		set_country_flag = XCOM_base_2_found
-		news_event = { id = TFTD.10 days = 1}
+			custom_effect_tooltip = xcomsearch2
+			if = {
+				limit = {
+					check_variable = {
+						StealPower < 100
+					}
+				}
+				random_list = {
+					StealPower = {
+						set_country_flag = XCOM_base_2_found
+						news_event = {
+							id = TFTD.10
+							days = 1
+						}
+					}
+					temp1 = {
+						news_event = {
+							id = TFTD.11
+							days = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_brief_1"
+				}
+				else = {
+					set_country_flag = XCOM_base_2_found
+					news_event = {
+						id = TFTD.10
+						days = 1
+					}
+				}
+			}
 		}
-		temp1 = { news_event = { id = TFTD.11 days = 1} }
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_brief_1" }
-		else = {
-		set_country_flag = XCOM_base_2_found
-		news_event = { id = TFTD.10 days = 1}
-		}
-		}
-	    }
 	}
-	
-	XCOM_hunt_for_eggman_fleet = { 
+	XCOM_hunt_for_eggman_fleet = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
-		check_variable = { XCOM_aquapower > 2000 }
-		check_variable = { XCOM_aquanaut > 1999 }
-		check_variable = { XCOM_aquaships > 49 }
+			has_country_flag = XCOM_start
+			check_variable = {
+				XCOM_aquapower > 2000
+			}
+			check_variable = {
+				XCOM_aquanaut > 1999
+			}
+			check_variable = {
+				XCOM_aquaships > 49
+			}
 		}
-		
 		cost = 200
-        days_re_enable = 100
+		days_re_enable = 100
 		days_remove = 1
-
 		modifier = {
-		political_power_gain = -0.15
-		command_power_gain = -0.2
+			political_power_gain = -0.15
+			command_power_gain = -0.2
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
+			has_country_flag = XCOM_start
 		}
-
 		complete_effect = {
-		hidden_effect = {
-		if = { limit = { is_ai = no } play_song = "TFTD_intercept" }
-		add_to_variable = { XCOM_reservedaquships = 50 }
-		add_to_variable = { XCOM_reservedaquanaut = 2000 }
-		add_to_variable = { XCOM_aquanaut = -2000 }
-		add_to_variable = { XCOM_aquaships = -50 }
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_intercept"
+				}
+				add_to_variable = {
+					XCOM_reservedaquships = 50
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = 2000
+				}
+				add_to_variable = {
+					XCOM_aquanaut = -2000
+				}
+				add_to_variable = {
+					XCOM_aquaships = -50
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomhunt
-		hidden_effect = {  
-		add_to_variable = { XCOM_reservedaquships = -50 }
-		add_to_variable = { XCOM_reservedaquanaut = -2000 }
-		if = {
-		limit = { check_variable = { XCOM_aquapower > EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 2000 }
-		add_to_variable = { XCOM_aquaships = 50 }
+			custom_effect_tooltip = xcomhunt
+			hidden_effect = {
+				add_to_variable = {
+					XCOM_reservedaquships = -50
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = -2000
+				}
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower > EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 2000
+							}
+							add_to_variable = {
+								XCOM_aquaships = 50
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 40
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 10
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1500
+							}
+							add_to_variable = {
+								XCOM_aquaships = 35
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 500
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 15
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1400
+							}
+							add_to_variable = {
+								XCOM_aquaships = 20
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 600
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 30
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1000
+								}
+								add_to_variable = {
+									EGG_aquaships = -30
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 30
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2000
+								}
+								add_to_variable = {
+									EGG_aquaships = -50
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 50
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -700
+								}
+								add_to_variable = {
+									EGG_aquaships = -11
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 700
+								}
+								add_to_variable = {
+									EGG_lossaquships = 11
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1300
+								}
+								add_to_variable = {
+									EGG_aquaships = -26
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1300
+								}
+								add_to_variable = {
+									EGG_lossaquships = 26
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_victory"
+					}
+					news_event = {
+						id = TFTD.12
+						days = 1
+					}
+				}
+				#
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower < EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1000
+							}
+							add_to_variable = {
+								XCOM_aquaships = 25
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 1000
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 25
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 300
+							}
+							add_to_variable = {
+								XCOM_aquaships = 10
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 1700
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 40
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 26
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 24
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 10
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 40
+							}
+						}
+					}
+					random_list = {
+						25 = {
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -500
+								}
+								add_to_variable = {
+									EGG_aquaships = -5
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 500
+								}
+								add_to_variable = {
+									EGG_lossaquships = 5
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1100
+								}
+								add_to_variable = {
+									EGG_aquaships = -17
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1100
+								}
+								add_to_variable = {
+									EGG_lossaquships = 17
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -800
+								}
+								add_to_variable = {
+									EGG_aquaships = -3
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 800
+								}
+								add_to_variable = {
+									EGG_lossaquships = 3
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_defeat"
+					}
+					news_event = {
+						id = TFTD.13
+						days = 1
+					}
+				}
+			}
 		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1800 }
-		add_to_variable = { XCOM_aquaships = 40 }
-		add_to_variable = { XCOM_lossaquanaut = 200 }
-		add_to_variable = { XCOM_lossaquaships = 10 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1500 }
-		add_to_variable = { XCOM_aquaships = 35 }
-		add_to_variable = { XCOM_lossaquanaut = 500 }
-		add_to_variable = { XCOM_lossaquaships = 15 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1400 }
-		add_to_variable = { XCOM_aquaships = 20 }
-		add_to_variable = { XCOM_lossaquanaut = 600 }
-		add_to_variable = { XCOM_lossaquaships = 30 }
-		}
-		}
-		random_list = {
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_aquaships = -30 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 30 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2000 }
-		add_to_variable = { EGG_aquaships = -50 }
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 50 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -700 }
-		add_to_variable = { EGG_aquaships = -11 }
-		add_to_variable = { EGG_lossaquanaut = 700 }
-		add_to_variable = { EGG_lossaquships = 11 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1300 }
-		add_to_variable = { EGG_aquaships = -26 }
-		add_to_variable = { EGG_lossaquanaut = 1300 }
-		add_to_variable = { EGG_lossaquships = 26 }
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.12 days = 1}
-		}
-		#
-		if = {
-		limit = { check_variable = { XCOM_aquapower < EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1000 }
-		add_to_variable = { XCOM_aquaships = 25 }
-		add_to_variable = { XCOM_lossaquanaut = 1000 }
-		add_to_variable = { XCOM_lossaquaships = 25 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 300 }
-		add_to_variable = { XCOM_aquaships = 10 }
-		add_to_variable = { XCOM_lossaquanaut = 1700 }
-		add_to_variable = { XCOM_lossaquaships = 40 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1200 }
-		add_to_variable = { XCOM_aquaships = 26 }
-		add_to_variable = { XCOM_lossaquanaut = 800 }
-		add_to_variable = { XCOM_lossaquaships = 24 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 800 }
-		add_to_variable = { XCOM_aquaships = 10 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquaships = 40 }
-		}
-		}
-		random_list = {
-		25 = {
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -500 }
-		add_to_variable = { EGG_aquaships = -5 }
-		add_to_variable = { EGG_lossaquanaut = 500 }
-		add_to_variable = { EGG_lossaquships = 5 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1100 }
-		add_to_variable = { EGG_aquaships = -17 }
-		add_to_variable = { EGG_lossaquanaut = 1100 }
-		add_to_variable = { EGG_lossaquships = 17 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -800 }
-		add_to_variable = { EGG_aquaships = -3 }
-		add_to_variable = { EGG_lossaquanaut = 800 }
-		add_to_variable = { EGG_lossaquships = 3 }
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.13 days = 1}
-		}
-		}
-	    }
 	}
-	
-	XCOM_assault_mediterrain = { 
+	XCOM_assault_mediterrain = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
-		has_country_flag = XCOM_base_1_found
-		check_variable = { XCOM_aquapower > 5000 }
-		check_variable = { XCOM_aquanaut > 2999 }
-		check_variable = { XCOM_aquaships > 99 }
+			has_country_flag = XCOM_start
+			has_country_flag = XCOM_base_1_found
+			check_variable = {
+				XCOM_aquapower > 5000
+			}
+			check_variable = {
+				XCOM_aquanaut > 2999
+			}
+			check_variable = {
+				XCOM_aquaships > 99
+			}
 		}
-		
 		cost = 200
-        days_re_enable = 100
+		days_re_enable = 100
 		days_remove = 1
-
 		modifier = {
-		political_power_gain = -0.2
-		command_power_gain = -0.5
+			political_power_gain = -0.2
+			command_power_gain = -0.5
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
-		has_country_flag = XCOM_base_1_found
+			has_country_flag = XCOM_start
+			has_country_flag = XCOM_base_1_found
 		}
-
 		complete_effect = {
-		hidden_effect = {
-		if = { limit = { is_ai = no } play_song = "TFTD_intercept" }
-		add_to_variable = { XCOM_reservedaquships = 100 }
-		add_to_variable = { XCOM_reservedaquanaut = 3000 }
-		add_to_variable = { XCOM_aquanaut = -3000 }
-		add_to_variable = { XCOM_aquaships = -100 }
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_intercept"
+				}
+				add_to_variable = {
+					XCOM_reservedaquships = 100
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = 3000
+				}
+				add_to_variable = {
+					XCOM_aquanaut = -3000
+				}
+				add_to_variable = {
+					XCOM_aquaships = -100
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomassault
-		hidden_effect = {  
-		add_to_variable = { XCOM_reservedaquships = -100 }
-		add_to_variable = { XCOM_reservedaquanaut = -3000 }
-		if = {
-		limit = { check_variable = { XCOM_aquapower > EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 2600 }
-		add_to_variable = { XCOM_aquaships = 60 }
-		add_to_variable = { XCOM_lossaquanaut = 400 }
-		add_to_variable = { XCOM_lossaquaships = 40 }
+			custom_effect_tooltip = xcomassault
+			hidden_effect = {
+				add_to_variable = {
+					XCOM_reservedaquships = -100
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = -3000
+				}
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower > EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 2600
+							}
+							add_to_variable = {
+								XCOM_aquaships = 60
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 400
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 40
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 2200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 50
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 50
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 26
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 74
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 16
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 84
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1400
+								}
+								add_to_variable = {
+									EGG_aquaships = -60
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1400
+								}
+								add_to_variable = {
+									EGG_lossaquships = 60
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1000
+								}
+								add_to_variable = {
+									EGG_aquaships = -40
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 40
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2000
+								}
+								add_to_variable = {
+									EGG_aquaships = -70
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 70
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2500
+								}
+								add_to_variable = {
+									EGG_aquaships = -100
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2500
+								}
+								add_to_variable = {
+									EGG_lossaquships = 100
+								}
+							}
+						}
+					}
+					every_country = {
+						remove_ideas = {
+							Mediterrain_112
+							Mediterrain_112_UFA
+							Mediterrain_60
+							Mediterrain_60_KOA
+							Mediterrain_113
+							Mediterrain_113_AVI
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_victory"
+					}
+					news_event = {
+						id = TFTD.14
+						days = 1
+					}
+					EGG = {
+						news_event = {
+							id = TFTD.15
+							days = 1
+						}
+					}
+					EGG = {
+						clr_country_flag = TFTD_mediterrain_egg
+						set_country_flag = base_1_destr
+					}
+					every_country = {
+						clr_country_flag = XCOM_base_1_found
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower < EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1000
+							}
+							add_to_variable = {
+								XCOM_aquaships = 30
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2000
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 70
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 13
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 87
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 5
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 95
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_lossaquanaut = 3000
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 100
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1000
+								}
+								add_to_variable = {
+									EGG_aquaships = -40
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 40
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1200
+								}
+								add_to_variable = {
+									EGG_aquaships = -35
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1200
+								}
+								add_to_variable = {
+									EGG_lossaquships = 35
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -900
+								}
+								add_to_variable = {
+									EGG_aquaships = -20
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 900
+								}
+								add_to_variable = {
+									EGG_lossaquships = 20
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2100
+								}
+								add_to_variable = {
+									EGG_aquaships = -48
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2100
+								}
+								add_to_variable = {
+									EGG_lossaquships = 48
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_defeat"
+					}
+					news_event = {
+						id = TFTD.16
+						days = 1
+					}
+					EGG = {
+						news_event = {
+							id = TFTD.17
+							days = 1
+						}
+					}
+				}
+			}
 		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 2200 }
-		add_to_variable = { XCOM_aquaships = 50 }
-		add_to_variable = { XCOM_lossaquanaut = 800 }
-		add_to_variable = { XCOM_lossaquaships = 50 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1800 }
-		add_to_variable = { XCOM_aquaships = 26 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquaships = 74 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1200 }
-		add_to_variable = { XCOM_aquaships = 16 }
-		add_to_variable = { XCOM_lossaquanaut = 2800 }
-		add_to_variable = { XCOM_lossaquaships = 84 }
-		}
-		}
-		random_list = {
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1400 }
-		add_to_variable = { EGG_aquaships = -60 }
-		add_to_variable = { EGG_lossaquanaut = 1400 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_aquaships = -40 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2000 }
-		add_to_variable = { EGG_aquaships = -70 }
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 70 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2500 }
-		add_to_variable = { EGG_aquaships = -100 }
-		add_to_variable = { EGG_lossaquanaut = 2500 }
-		add_to_variable = { EGG_lossaquships = 100 }
-		}
-		}
-		}
-		every_country = {
-		remove_ideas = {
-		Mediterrain_112
-		Mediterrain_112_UFA
-		Mediterrain_60
-		Mediterrain_60_KOA
-		Mediterrain_113
-		Mediterrain_113_AVI
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.14 days = 1}
-		EGG = { news_event = { id = TFTD.15 days = 1} }
-		EGG = { clr_country_flag = TFTD_mediterrain_egg set_country_flag = base_1_destr  }
-		every_country = { clr_country_flag = XCOM_base_1_found }
-		}
-		if = {
-		limit = { check_variable = { XCOM_aquapower < EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1000 }
-		add_to_variable = { XCOM_aquaships = 30 }
-		add_to_variable = { XCOM_lossaquanaut = 2000 }
-		add_to_variable = { XCOM_lossaquaships = 70 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 800 }
-		add_to_variable = { XCOM_aquaships = 13 }
-		add_to_variable = { XCOM_lossaquanaut = 2200 }
-		add_to_variable = { XCOM_lossaquaships = 87 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 200 }
-		add_to_variable = { XCOM_aquaships = 5 }
-		add_to_variable = { XCOM_lossaquanaut = 2800 }
-		add_to_variable = { XCOM_lossaquaships = 95 }
-		}
-		25 = {
-		add_to_variable = { XCOM_lossaquanaut = 3000 }
-		add_to_variable = { XCOM_lossaquaships = 100 }
-		}
-		}
-		random_list = {
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_aquaships = -40 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1200 }
-		add_to_variable = { EGG_aquaships = -35 }
-		add_to_variable = { EGG_lossaquanaut = 1200 }
-		add_to_variable = { EGG_lossaquships = 35 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -900 }
-		add_to_variable = { EGG_aquaships = -20 }
-		add_to_variable = { EGG_lossaquanaut = 900 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2100 }
-		add_to_variable = { EGG_aquaships = -48 }
-		add_to_variable = { EGG_lossaquanaut = 2100 }
-		add_to_variable = { EGG_lossaquships = 48 }
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.16 days = 1}
-		EGG = { news_event = { id = TFTD.17 days = 1} }
-		}
-		}
-	    }
 	}
-	
-	XCOM_assault_emeraldsea = { 
+	XCOM_assault_emeraldsea = {
 		icon = generic_nationalism
-
 		allowed = {
 		}
-
 		available = {
-		has_country_flag = XCOM_start
-		has_country_flag = XCOM_base_2_found
-		check_variable = { XCOM_aquapower > 5000 }
-		check_variable = { XCOM_aquanaut > 2999 }
-		check_variable = { XCOM_aquaships > 99 }
+			has_country_flag = XCOM_start
+			has_country_flag = XCOM_base_2_found
+			check_variable = {
+				XCOM_aquapower > 5000
+			}
+			check_variable = {
+				XCOM_aquanaut > 2999
+			}
+			check_variable = {
+				XCOM_aquaships > 99
+			}
 		}
-		
 		cost = 200
-        days_re_enable = 100
+		days_re_enable = 100
 		days_remove = 1
-
 		modifier = {
-		political_power_gain = -0.2
-		command_power_gain = -0.5
+			political_power_gain = -0.2
+			command_power_gain = -0.5
 		}
-
 		visible = {
-		has_country_flag = XCOM_start
-		has_country_flag = XCOM_base_2_found
+			has_country_flag = XCOM_start
+			has_country_flag = XCOM_base_2_found
 		}
-
 		complete_effect = {
-		hidden_effect = {
-		if = { limit = { is_ai = no } play_song = "TFTD_intercept" }
-		add_to_variable = { XCOM_reservedaquships = 100 }
-		add_to_variable = { XCOM_reservedaquanaut = 3000 }
-		add_to_variable = { XCOM_aquanaut = -3000 }
-		add_to_variable = { XCOM_aquaships = -100 }
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "TFTD_intercept"
+				}
+				add_to_variable = {
+					XCOM_reservedaquships = 100
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = 3000
+				}
+				add_to_variable = {
+					XCOM_aquanaut = -3000
+				}
+				add_to_variable = {
+					XCOM_aquaships = -100
+				}
+			}
 		}
-		}
-
 		remove_effect = {
-		custom_effect_tooltip = xcomassault
-		hidden_effect = {  
-		add_to_variable = { XCOM_reservedaquships = -100 }
-		add_to_variable = { XCOM_reservedaquanaut = -3000 }
-		if = {
-		limit = { check_variable = { XCOM_aquapower > EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 2600 }
-		add_to_variable = { XCOM_aquaships = 60 }
-		add_to_variable = { XCOM_lossaquanaut = 400 }
-		add_to_variable = { XCOM_lossaquaships = 40 }
+			custom_effect_tooltip = xcomassault
+			hidden_effect = {
+				add_to_variable = {
+					XCOM_reservedaquships = -100
+				}
+				add_to_variable = {
+					XCOM_reservedaquanaut = -3000
+				}
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower > EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 2600
+							}
+							add_to_variable = {
+								XCOM_aquaships = 60
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 400
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 40
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 2200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 50
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 50
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 26
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 74
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 16
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 84
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1400
+								}
+								add_to_variable = {
+									EGG_aquaships = -60
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1400
+								}
+								add_to_variable = {
+									EGG_lossaquships = 60
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1000
+								}
+								add_to_variable = {
+									EGG_aquaships = -40
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 40
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2000
+								}
+								add_to_variable = {
+									EGG_aquaships = -70
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 70
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2500
+								}
+								add_to_variable = {
+									EGG_aquaships = -100
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2500
+								}
+								add_to_variable = {
+									EGG_lossaquships = 100
+								}
+							}
+						}
+					}
+					every_country = {
+						remove_ideas = {
+							Emeraldocean_62
+							Emeraldocean_62_ANG
+							Emeraldocean_74
+							Emeraldocean_79
+							Emeraldocean_79_ANG
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_victory"
+					}
+					news_event = {
+						id = TFTD.18
+						days = 1
+					}
+					EGG = {
+						news_event = {
+							id = TFTD.19
+							days = 1
+						}
+					}
+					EGG = {
+						clr_country_flag = TFTD_emeraldocean_egg
+						set_country_flag = base_2_destr
+					}
+					every_country = {
+						clr_country_flag = XCOM_base_2_found
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							XCOM_aquapower < EGG.EGG_aquapower
+						}
+					}
+					random_list = {
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 1000
+							}
+							add_to_variable = {
+								XCOM_aquaships = 30
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2000
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 70
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 800
+							}
+							add_to_variable = {
+								XCOM_aquaships = 13
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2200
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 87
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_aquanaut = 200
+							}
+							add_to_variable = {
+								XCOM_aquaships = 5
+							}
+							add_to_variable = {
+								XCOM_lossaquanaut = 2800
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 95
+							}
+						}
+						25 = {
+							add_to_variable = {
+								XCOM_lossaquanaut = 3000
+							}
+							add_to_variable = {
+								XCOM_lossaquaships = 100
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1000
+								}
+								add_to_variable = {
+									EGG_aquaships = -40
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1000
+								}
+								add_to_variable = {
+									EGG_lossaquships = 40
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -1200
+								}
+								add_to_variable = {
+									EGG_aquaships = -35
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 1200
+								}
+								add_to_variable = {
+									EGG_lossaquships = 35
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -900
+								}
+								add_to_variable = {
+									EGG_aquaships = -20
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 900
+								}
+								add_to_variable = {
+									EGG_lossaquships = 20
+								}
+							}
+						}
+						25 = {
+							EGG = {
+								add_to_variable = {
+									EGG_aquanaut = -2100
+								}
+								add_to_variable = {
+									EGG_aquaships = -48
+								}
+								add_to_variable = {
+									EGG_lossaquanaut = 2100
+								}
+								add_to_variable = {
+									EGG_lossaquships = 48
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							is_ai = no
+						}
+						play_song = "TFTD_defeat"
+					}
+					news_event = {
+						id = TFTD.20
+						days = 1
+					}
+					EGG = {
+						news_event = {
+							id = TFTD.21
+							days = 1
+						}
+					}
+				}
+			}
 		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 2200 }
-		add_to_variable = { XCOM_aquaships = 50 }
-		add_to_variable = { XCOM_lossaquanaut = 800 }
-		add_to_variable = { XCOM_lossaquaships = 50 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1800 }
-		add_to_variable = { XCOM_aquaships = 26 }
-		add_to_variable = { XCOM_lossaquanaut = 1200 }
-		add_to_variable = { XCOM_lossaquaships = 74 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1200 }
-		add_to_variable = { XCOM_aquaships = 16 }
-		add_to_variable = { XCOM_lossaquanaut = 2800 }
-		add_to_variable = { XCOM_lossaquaships = 84 }
-		}
-		}
-		random_list = {
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1400 }
-		add_to_variable = { EGG_aquaships = -60 }
-		add_to_variable = { EGG_lossaquanaut = 1400 }
-		add_to_variable = { EGG_lossaquships = 60 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_aquaships = -40 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2000 }
-		add_to_variable = { EGG_aquaships = -70 }
-		add_to_variable = { EGG_lossaquanaut = 2000 }
-		add_to_variable = { EGG_lossaquships = 70 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2500 }
-		add_to_variable = { EGG_aquaships = -100 }
-		add_to_variable = { EGG_lossaquanaut = 2500 }
-		add_to_variable = { EGG_lossaquships = 100 }
-		}
-		}
-		}
-		every_country = {
-		remove_ideas = {
-		Emeraldocean_62
-		Emeraldocean_62_ANG
-		Emeraldocean_74
-		Emeraldocean_79
-		Emeraldocean_79_ANG
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_victory" }
-		news_event = { id = TFTD.18 days = 1}
-		EGG = { news_event = { id = TFTD.19 days = 1} }
-		EGG = { clr_country_flag = TFTD_emeraldocean_egg set_country_flag = base_2_destr }
-		every_country = { clr_country_flag = XCOM_base_2_found }
-		}
-		if = {
-		limit = { check_variable = { XCOM_aquapower < EGG.EGG_aquapower } }
-		random_list = {
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 1000 }
-		add_to_variable = { XCOM_aquaships = 30 }
-		add_to_variable = { XCOM_lossaquanaut = 2000 }
-		add_to_variable = { XCOM_lossaquaships = 70 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 800 }
-		add_to_variable = { XCOM_aquaships = 13 }
-		add_to_variable = { XCOM_lossaquanaut = 2200 }
-		add_to_variable = { XCOM_lossaquaships = 87 }
-		}
-		25 = {
-		add_to_variable = { XCOM_aquanaut = 200 }
-		add_to_variable = { XCOM_aquaships = 5 }
-		add_to_variable = { XCOM_lossaquanaut = 2800 }
-		add_to_variable = { XCOM_lossaquaships = 95 }
-		}
-		25 = {
-		add_to_variable = { XCOM_lossaquanaut = 3000 }
-		add_to_variable = { XCOM_lossaquaships = 100 }
-		}
-		}
-		random_list = {
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1000 }
-		add_to_variable = { EGG_aquaships = -40 }
-		add_to_variable = { EGG_lossaquanaut = 1000 }
-		add_to_variable = { EGG_lossaquships = 40 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -1200 }
-		add_to_variable = { EGG_aquaships = -35 }
-		add_to_variable = { EGG_lossaquanaut = 1200 }
-		add_to_variable = { EGG_lossaquships = 35 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -900 }
-		add_to_variable = { EGG_aquaships = -20 }
-		add_to_variable = { EGG_lossaquanaut = 900 }
-		add_to_variable = { EGG_lossaquships = 20 }
-		}
-		}
-		25 = {
-		EGG = {
-		add_to_variable = { EGG_aquanaut = -2100 }
-		add_to_variable = { EGG_aquaships = -48 }
-		add_to_variable = { EGG_lossaquanaut = 2100 }
-		add_to_variable = { EGG_lossaquships = 48 }
-		}
-		}
-		}
-		if = { limit = { is_ai = no } play_song = "TFTD_defeat" }
-		news_event = { id = TFTD.20 days = 1}
-		EGG = { news_event = { id = TFTD.21 days = 1} }
-		}
-		}
-	    }
 	}
-	
 }
