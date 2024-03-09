@@ -29,13 +29,11 @@ KOA_Switch_Populist_Meta = {
 				}
 				if = {
 					limit = {
-						AND = {
-							check_variable = {
-								KOA_new_populist_idea_level > 0
-							}
-							check_variable = {
-								KOA_new_populist_idea_level < 11
-							}
+						check_variable = {
+							KOA_new_populist_idea_level > 0
+						}
+						check_variable = {
+							KOA_new_populist_idea_level < 11
 						}
 					}
 					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
@@ -78,13 +76,11 @@ KOA_Switch_Nobles_Meta = {
 				}
 				if = {
 					limit = {
-						AND = {
-							check_variable = {
-								KOA_new_nobles_idea_level > 0
-							}
-							check_variable = {
-								KOA_new_nobles_idea_level < 11
-							}
+						check_variable = {
+							KOA_new_nobles_idea_level > 0
+						}
+						check_variable = {
+							KOA_new_nobles_idea_level < 11
 						}
 					}
 					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
@@ -129,7 +125,7 @@ KOA_enable_nobles_domination = {
 }
 
 KOA_equalize_opposition = {
-	KOA = { 
+	KOA = {
 		if = {
 			limit = {
 				has_idea = KOA_Populist_Domination
@@ -211,16 +207,28 @@ KOA_increase_populist_influence = {
 	else_if = {
 		limit = {
 			OR = {
-				check_variable = { populist_influence < 100 }
-				check_variable = { nobles_influence > 0 }
+				check_variable = {
+					populist_influence < 100
+				}
+				check_variable = {
+					nobles_influence > 0
+				}
 			}
 		}
-		add_to_variable = { populist_influence = 10 }
-		subtract_from_variable = { nobles_influence = 10 }
+		add_to_variable = {
+			populist_influence = 10
+		}
+		subtract_from_variable = {
+			nobles_influence = 10
+		}
 	}
 	else = {
-		set_variable = { populist_influence = 100 }
-		set_variable = { nobles_influence = 0 }
+		set_variable = {
+			populist_influence = 100
+		}
+		set_variable = {
+			nobles_influence = 0
+		}
 	}
 	hidden_effect = {
 		KOA_compare_opposition = yes
@@ -239,16 +247,28 @@ KOA_greatly_increase_populist_influence = {
 	else_if = {
 		limit = {
 			OR = {
-				check_variable = { populist_influence < 100 }
-				check_variable = { nobles_influence > 0 }
+				check_variable = {
+					populist_influence < 100
+				}
+				check_variable = {
+					nobles_influence > 0
+				}
 			}
 		}
-		add_to_variable = { populist_influence = 25 }
-		subtract_from_variable = { nobles_influence = 25 }
+		add_to_variable = {
+			populist_influence = 25
+		}
+		subtract_from_variable = {
+			nobles_influence = 25
+		}
 	}
 	else = {
-		set_variable = { populist_influence = 100 }
-		set_variable = { nobles_influence = 0 }
+		set_variable = {
+			populist_influence = 100
+		}
+		set_variable = {
+			nobles_influence = 0
+		}
 	}
 	hidden_effect = {
 		KOA_compare_opposition = yes
@@ -267,16 +287,28 @@ KOA_increase_nobles_influence = {
 	else_if = {
 		limit = {
 			OR = {
-				check_variable = { nobles_influence < 100 }
-				check_variable = { populist_influence > 0 }
+				check_variable = {
+					nobles_influence < 100
+				}
+				check_variable = {
+					populist_influence > 0
+				}
 			}
 		}
-		add_to_variable = { nobles_influence = 10 }
-		subtract_from_variable = { populist_influence = 10 }
+		add_to_variable = {
+			nobles_influence = 10
+		}
+		subtract_from_variable = {
+			populist_influence = 10
+		}
 	}
 	else = {
-		set_variable = { nobles_influence = 100 }
-		set_variable = { populist_influence = 0 }
+		set_variable = {
+			nobles_influence = 100
+		}
+		set_variable = {
+			populist_influence = 0
+		}
 	}
 	hidden_effect = {
 		KOA_compare_opposition = yes
@@ -295,16 +327,28 @@ KOA_greatly_increase_nobles_influence = {
 	else_if = {
 		limit = {
 			OR = {
-				check_variable = { nobles_influence < 100 }
-				check_variable = { populist_influence > 0 }
+				check_variable = {
+					nobles_influence < 100
+				}
+				check_variable = {
+					populist_influence > 0
+				}
 			}
 		}
-		add_to_variable = { nobles_influence = 25 }
-		subtract_from_variable = { populist_influence = 25 }
+		add_to_variable = {
+			nobles_influence = 25
+		}
+		subtract_from_variable = {
+			populist_influence = 25
+		}
 	}
 	else = {
-		set_variable = { nobles_influence = 100 }
-		set_variable = { populist_influence = 0 }
+		set_variable = {
+			nobles_influence = 100
+		}
+		set_variable = {
+			populist_influence = 0
+		}
 	}
 	hidden_effect = {
 		KOA_compare_opposition = yes
@@ -331,13 +375,11 @@ KOA_Switch_Empire_Idea_Meta = {
 				}
 				if = {
 					limit = {
-						AND = {
-							check_variable = {
-								KOA_new_empire_idea_level > 0
-							}
-							check_variable = {
-								KOA_new_empire_idea_level < 7
-							}
+						check_variable = {
+							KOA_new_empire_idea_level > 0
+						}
+						check_variable = {
+							KOA_new_empire_idea_level < 7
 						}
 					}
 					add_ideas = [IDEA_NAME]_[NEW_LEVEL]
@@ -367,35 +409,33 @@ KOA_release_SOT = {
 			add_state_core = 27
 			add_state_core = 7
 		}
-
 		KOA = {
-			SOT = { transfer_technology = yes }
+			SOT = {
+				inherit_technology = KOA
+			}
 			if = {
 				limit = {
 					has_country_flag = Southern_rally
 				}
 				clr_country_flag = Southern_rally
 			}
-			if = {
-				limit = {
-					OR = {
-						has_idea = KOA_South_Resistance_1
-						has_idea = KOA_South_Resistance_2
-						has_idea = KOA_South_Resistance_3
-					}
-					remove_ideas = KOA_South_Resistance_1
-					remove_ideas = KOA_South_Resistance_2
-					remove_ideas = KOA_South_Resistance_3
-				}
+			remove_ideas = {
+				KOA_South_Resistance_1
+				KOA_South_Resistance_2
+				KOA_South_Resistance_3
 			}
-			
 		}
-
 		every_owned_state = {
-			limit = { is_core_of = SOT }
-			SOT = { transfer_state = PREV }
+			limit = {
+				is_core_of = SOT
+			}
+			SOT = {
+				transfer_state = PREV
+			}
 			teleport_armies = {
-				limit = { tag = KOA }
+				limit = {
+					tag = KOA
+				}
 				to_state_array = owned_controlled_states
 			}
 		}
@@ -408,14 +448,30 @@ KOA_release_SOT = {
 		remove_state_core = 28
 		remove_state_core = 27
 		remove_state_core = 7
-		40 = { set_demilitarized_zone = yes }
-		41 = { set_demilitarized_zone = yes }
-		29 = { set_demilitarized_zone = yes }
-		37 = { set_demilitarized_zone = yes }
-		43 = { set_demilitarized_zone = yes }
-		42 = { set_demilitarized_zone = yes }
-		44 = { set_demilitarized_zone = yes }
-		45 = { set_demilitarized_zone = yes }
+		40 = {
+			set_demilitarized_zone = yes
+		}
+		41 = {
+			set_demilitarized_zone = yes
+		}
+		29 = {
+			set_demilitarized_zone = yes
+		}
+		37 = {
+			set_demilitarized_zone = yes
+		}
+		43 = {
+			set_demilitarized_zone = yes
+		}
+		42 = {
+			set_demilitarized_zone = yes
+		}
+		44 = {
+			set_demilitarized_zone = yes
+		}
+		45 = {
+			set_demilitarized_zone = yes
+		}
 	}
 }
 
@@ -430,35 +486,33 @@ KOA_release_NOR = {
 			add_state_core = 38
 			add_state_core = 39
 		}
-
 		KOA = {
-			NOR = { transfer_technology = yes }
+			NOR = {
+				inherit_technology = KOA
+			}
 			if = {
 				limit = {
 					has_country_flag = republican_rise
 				}
 				clr_country_flag = republican_rise
 			}
-			if = {
-				limit = {
-					OR = {
-						has_idea = KOA_Prower_army_support_1
-						has_idea = KOA_Prower_army_support_2
-						has_idea = KOA_Prower_army_support_3
-					}
-					remove_ideas = KOA_Prower_army_support_1
-					remove_ideas = KOA_Prower_army_support_2
-					remove_ideas = KOA_Prower_army_support_3
-				}
+			remove_ideas = {
+				KOA_Prower_army_support_1
+				KOA_Prower_army_support_2
+				KOA_Prower_army_support_3
 			}
-			
 		}
-
 		every_owned_state = {
-			limit = { is_core_of = NOR }
-			NOR = { transfer_state = PREV }
+			limit = {
+				is_core_of = NOR
+			}
+			NOR = {
+				transfer_state = PREV
+			}
 			teleport_armies = {
-				limit = { tag = KOA }
+				limit = {
+					tag = KOA
+				}
 				to_state_array = owned_controlled_states
 			}
 		}
@@ -481,35 +535,33 @@ KOA_release_UWM = {
 			add_state_core = 16
 			add_state_core = 5
 		}
-
 		KOA = {
-			UWM = { transfer_technology = yes }
+			UWM = {
+				inherit_technology = KOA
+			}
 			if = {
 				limit = {
 					has_country_flag = republican_rise
 				}
 				clr_country_flag = republican_rise
 			}
-			if = {
-				limit = {
-					OR = {
-						has_idea = KOA_General_Strike_1
-						has_idea = KOA_General_Strike_2
-						has_idea = KOA_General_Strike_3
-					}
-					remove_ideas = KOA_General_Strike_1
-					remove_ideas = KOA_General_Strike_2
-					remove_ideas = KOA_General_Strike_3
-				}
+			remove_ideas = {
+				KOA_General_Strike_1
+				KOA_General_Strike_2
+				KOA_General_Strike_3
 			}
-			
 		}
-
 		every_owned_state = {
-			limit = { is_core_of = UWM }
-			UWM = { transfer_state = PREV }
+			limit = {
+				is_core_of = UWM
+			}
+			UWM = {
+				transfer_state = PREV
+			}
 			teleport_armies = {
-				limit = { tag = KOA }
+				limit = {
+					tag = KOA
+				}
 				to_state_array = owned_controlled_states
 			}
 		}
@@ -522,7 +574,7 @@ KOA_release_UWM = {
 }
 
 KOA_Armistice_EGG = {
-	every_core_state = { 
+	every_core_state = {
 		limit = {
 			is_owned_by = EGG
 		}
