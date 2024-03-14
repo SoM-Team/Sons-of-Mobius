@@ -575,23 +575,23 @@ RCR_seventh_congress_of_soviets = {
 	}
 }
 
-RCR_red_army_buildup = {
-	recruit_prisoners = {
-		icon = GFX_decision_red_army
-		allowed = {
-			original_tag = RCR
-		}
-		fire_only_once = no
-		cost = 100
-		days_re_enable = 200
-		days_remove = 30
-		remove_effect = {
-		}
-	}
-	recruit_party_members = {
-		icon = GFX_decision_red_army
-	}
-}
+# RCR_red_army_buildup = {
+# 	recruit_prisoners = {
+# 		icon = GFX_decision_red_army
+# 		allowed = {
+# 			original_tag = RCR
+# 		}
+# 		fire_only_once = no
+# 		cost = 100
+# 		days_re_enable = 200
+# 		days_remove = 30
+# 		remove_effect = {
+# 		}
+# 	}
+# 	recruit_party_members = {
+# 		icon = GFX_decision_red_army
+# 	}
+# }
 
 RCR_war_and_peace_cat = {
 	wap_war_game = {
@@ -2404,9 +2404,17 @@ Country_Reconstruction = {
 		fire_only_once = yes
 		days_remove = 180
 		remove_effect = {
-			swap_ideas = {
-				remove_idea = Echo_Civil_War_1
-				add_idea = Echo_Civil_War_2
+			if = {
+				limit = {
+					has_idea = Echo_Civil_War_1
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_1
+					add_idea = Echo_Civil_War_2
+				}
+			}
+			else = {
+				remove_ideas = Echo_Civil_War_2
 			}
 		}
 	}
@@ -2418,7 +2426,18 @@ Country_Reconstruction = {
 		fire_only_once = yes
 		days_remove = 180
 		remove_effect = {
-			remove_ideas = Echo_Civil_War_2
+			if = {
+				limit = {
+					has_idea = Echo_Civil_War_1
+				}
+				swap_ideas = {
+					remove_idea = Echo_Civil_War_1
+					add_idea = Echo_Civil_War_2
+				}
+			}
+			else = {
+				remove_ideas = Echo_Civil_War_2
+			}
 		}
 	}
 }
