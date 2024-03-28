@@ -85,7 +85,7 @@ country_event = {
 			desc = "METAL_SONIC"
 			picture = "Portrait_Neo_Metal_Sonic.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
 		}
@@ -794,12 +794,12 @@ country_event = { ### Eggman insane lol
 			desc = "SNIVLEY_IS_PIDOR"
 			picture = "Portrait_Snicley_Robotnik.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
+		}
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = EGG_Snively_Rise
-		}
 	}
 }
 
@@ -860,7 +860,7 @@ country_event = { ### FIGHT
 			desc = "SNIVLEY_IS_PIDOR"
 			picture = "Portrait_Snicley_Robotnik.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
 		mark_focus_tree_layout_dirty = yes
@@ -1490,9 +1490,9 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 50
+						amount = -50
 					}
 				}
 			}
@@ -1504,9 +1504,9 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 75
+						amount = -75
 					}
 				}
 			}
@@ -1518,9 +1518,9 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 100
+						amount = -100
 					}
 				}
 			}	
@@ -1747,8 +1747,8 @@ country_event = {
 			base = 80
 		}
 		EGG = { add_to_faction = IRO }
-		ROOT =  {add_to_tech_sharing_group = robotech_research}
-		IRO = {add_to_tech_sharing_group = robotech_research}
+		# ROOT =  {add_to_tech_sharing_group = robotech_research}
+		# IRO = {add_to_tech_sharing_group = robotech_research}
          		
 	}
 }
@@ -1766,11 +1766,14 @@ country_event = {
 		ai_chance = {
 			base = 20
 		}
-		non_aggression_pact = IRO
+		diplomatic_relation = {
+			country = IRO
+			relation = non_aggression_pact
+		}
 		give_guarantee = IRO
 		IRO = {give_military_access = EGG}
-		ROOT =  {add_to_tech_sharing_group = robotech_research}
-		IRO = {add_to_tech_sharing_group = robotech_research}
+		# ROOT =  {add_to_tech_sharing_group = robotech_research}
+		# IRO = {add_to_tech_sharing_group = robotech_research}
 	}
 }
 
@@ -2087,16 +2090,17 @@ country_event = { #Jackal
 		ai_chance = {
 			base = 0
 		}
+		
 		EGG = {
 			puppet = INF
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = INF
 				autonomy_state = autonomy_dominion
-			}
-		}
-		else = {
-			EGG = {
-				puppet = INF
 			}
 		}
 		EGG_expand_INF = yes
@@ -2147,14 +2151,14 @@ country_event = { #Regina
 		}
 		EGG = {
 			puppet = IRO
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = IRO
 				autonomy_state = autonomy_dominion
-			}
-		}
-		else = {
-			EGG = {
-				puppet = IRO
 			}
 		}
 		EGG_expand_IRO = yes
@@ -2255,14 +2259,14 @@ country_event = {
 		}
 		EGG = {
 			puppet = ALD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = ALD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = ALD
 			}
 		}
 		EGG = {
@@ -2299,14 +2303,14 @@ country_event = {
 		}
 		EGG = {
 			puppet = CAD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = CAD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = CAD
 			}
 		}
 		EGG = {
@@ -2336,21 +2340,16 @@ country_event = {
 	option = {
 		name = egg.703.a
 		CHD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = CHD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = CHD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = CHD
 			}
 		}
 		EGG = {
@@ -2380,21 +2379,16 @@ country_event = {
 	option = {
 		name = egg.704.a
 		DOD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = DOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = DOD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = DOD
 			}
 		}
 		EGG = {
@@ -2424,21 +2418,16 @@ country_event = {
 	option = {
 		name = egg.705.a
 		EFD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = EFD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = EFD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = EFD
 			}
 		}
 		EGG = {
@@ -2468,21 +2457,16 @@ country_event = {
 	option = {
 		name = egg.706.a
 		EUD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = EUD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = EUD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = EUD
 			}
 		}
 		EGG = {
@@ -2512,21 +2496,16 @@ country_event = {
 	option = {
 		name = egg.707.a
 		HOD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = HOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = HOD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = HOD
 			}
 		}
 		EGG = {
@@ -2556,21 +2535,16 @@ country_event = {
 	option = {
 		name = egg.708.a
 		MED_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = MED
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = MED
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = MED
 			}
 		}
 		EGG = {
@@ -2600,21 +2574,16 @@ country_event = {
 	option = {
 		name = egg.709.a
 		RED_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = RED
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = RED
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = RED
 			}
 		}
 		EGG = {
@@ -2644,21 +2613,16 @@ country_event = {
 	option = {
 		name = egg.710.a
 		SAD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = SAD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = SAD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = SAD
 			}
 		}
 		EGG = {
@@ -2688,21 +2652,16 @@ country_event = {
 	option = {
 		name = egg.711.a
 		SWD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = SWD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = SWD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = SWD
 			}
 		}
 		EGG = {
@@ -2732,21 +2691,16 @@ country_event = {
 	option = {
 		name = egg.712.a
 		TRD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = TRD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = TRD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = TRD
 			}
 		}
 		EGG = {
@@ -2776,21 +2730,16 @@ country_event = {
 	option = {
 		name = egg.713.a
 		WOD_minus_cores = yes
-		IF = {
-			limit = {
-				has_dlc = "Together for Victory"
-			} 
-		}
 		EGG = {
 			puppet = WOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
 			set_autonomy = {
 				target = WOD
 				autonomy_state = autonomy_integrated_puppet
-			}
-		}
-		else = {
-			EGG = {
-				puppet = WOD
 			}
 		}
 		EGG = {
