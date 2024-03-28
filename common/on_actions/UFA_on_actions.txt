@@ -15,6 +15,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 2
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			404 = {
 				set_variable = {
@@ -28,6 +31,9 @@ on_actions = {
 				}
 				set_variable = {
 					popularity_prog = 3
+				}
+				set_variable = {
+					election_coeff = 1
 				}
 			}
 			390 = {
@@ -43,6 +49,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 4
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			347 = {
 				set_variable = {
@@ -56,6 +65,9 @@ on_actions = {
 				}
 				set_variable = {
 					popularity_prog = 1
+				}
+				set_variable = {
+					election_coeff = 1
 				}
 			}
 			344 = {
@@ -71,6 +83,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 4
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			340 = {
 				set_variable = {
@@ -84,6 +99,9 @@ on_actions = {
 				}
 				set_variable = {
 					popularity_prog = 2
+				}
+				set_variable = {
+					election_coeff = 1
 				}
 			}
 			369 = {
@@ -99,6 +117,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 1
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			519 = {
 				set_variable = {
@@ -112,6 +133,9 @@ on_actions = {
 				}
 				set_variable = {
 					popularity_prog = 4
+				}
+				set_variable = {
+					election_coeff = 1
 				}
 			}
 			405 = {
@@ -127,6 +151,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 1
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			677 = {
 				set_variable = {
@@ -140,6 +167,9 @@ on_actions = {
 				}
 				set_variable = {
 					popularity_prog = 2
+				}
+				set_variable = {
+					election_coeff = 1
 				}
 			}
 			687 = {
@@ -155,6 +185,9 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 5
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 			548 = {
 				set_variable = {
@@ -169,261 +202,45 @@ on_actions = {
 				set_variable = {
 					popularity_prog = 1
 				}
+				set_variable = {
+					election_coeff = 1
+				}
 			}
 		}
 	}
-}
-
-#TODO: actual coeffs
-on_actions = {
+	on_monthly = {
+		effect = {
+			add_to_variable = {
+				UFA_Federal_Unity = UFA_Federal_Unity_change
+			}
+		}
+	}
 	on_startup = {
 		effect = {
-			396 = {
-				set_variable = {
-					popularity_con = 2
-				}
-				set_variable = {
-					popularity_war = 4
-				}
-				set_variable = {
-					popularity_pac = 2
-				}
-				set_variable = {
-					popularity_prog = 2
-				}
-				set_variable = {
-					election_coeff = 1
-				}
+			set_variable = {
+				var = UFA_Federal_Unity
+				value = 100
 			}
-			404 = {
-				set_variable = {
-					popularity_con = 3
+		}
+	}
+	on_daily_UFA = {
+		effect = {
+			if = {
+				limit = {
+					has_stability > UFA_Federal_Unity
 				}
-				set_variable = {
-					popularity_war = 1
-				}
-				set_variable = {
-					popularity_pac = 4
-				}
-				set_variable = {
-					popularity_prog = 3
-				}
-				set_variable = {
-					election_coeff = 1
-				}
+				set_stability = federal_unity
 			}
-			390 = {
-				set_variable = {
-					popularity_con = 5
+		}
+	}
+	on_daily_UFA = {
+		effect = {
+			if = {
+				limit = {
+					has_war_support > UFA_Federal_Unity
 				}
-				set_variable = {
-					popularity_war = 3
-				}
-				set_variable = {
-					popularity_pac = 2
-				}
-				set_variable = {
-					popularity_prog = 4
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			347 = {
-				set_variable = {
-					popularity_con = 2
-				}
-				set_variable = {
-					popularity_war = 5
-				}
-				set_variable = {
-					popularity_pac = 4
-				}
-				set_variable = {
-					popularity_prog = 1
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			344 = {
-				set_variable = {
-					popularity_con = 1
-				}
-				set_variable = {
-					popularity_war = 1
-				}
-				set_variable = {
-					popularity_pac = 4
-				}
-				set_variable = {
-					popularity_prog = 4
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			340 = {
-				set_variable = {
-					popularity_con = 3
-				}
-				set_variable = {
-					popularity_war = 2
-				}
-				set_variable = {
-					popularity_pac = 4
-				}
-				set_variable = {
-					popularity_prog = 2
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			369 = {
-				set_variable = {
-					popularity_con = 4
-				}
-				set_variable = {
-					popularity_war = 3
-				}
-				set_variable = {
-					popularity_pac = 1
-				}
-				set_variable = {
-					popularity_prog = 1
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			519 = {
-				set_variable = {
-					popularity_con = 3
-				}
-				set_variable = {
-					popularity_war = 3
-				}
-				set_variable = {
-					popularity_pac = 2
-				}
-				set_variable = {
-					popularity_prog = 4
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			405 = {
-				set_variable = {
-					popularity_con = 3
-				}
-				set_variable = {
-					popularity_war = 3
-				}
-				set_variable = {
-					popularity_pac = 2
-				}
-				set_variable = {
-					popularity_prog = 1
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			677 = {
-				set_variable = {
-					popularity_con = 3
-				}
-				set_variable = {
-					popularity_war = 3
-				}
-				set_variable = {
-					popularity_pac = 3
-				}
-				set_variable = {
-					popularity_prog = 2
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			687 = {
-				set_variable = {
-					popularity_con = 3
-				}
-				set_variable = {
-					popularity_war = 1
-				}
-				set_variable = {
-					popularity_pac = 1
-				}
-				set_variable = {
-					popularity_prog = 5
-				}
-				set_variable = {
-					election_coeff = 1
-				}
-			}
-			548 = {
-				set_variable = {
-					popularity_con = 2
-				}
-				set_variable = {
-					popularity_war = 4
-				}
-				set_variable = {
-					popularity_pac = 4
-				}
-				set_variable = {
-					popularity_prog = 1
-				}
-				set_variable = {
-					election_coeff = 1
-				}
+				set_war_support = federal_unity
 			}
 		}
 	}
 }
-
-on_monthly = {
-	effect = {
-		add_to_variable = {
-			UFA_Federal_Unity = UFA_Federal_Unity_change
-			}
-	}
-}
-
-on_startup = {
-	set_variable = {
-		var = UFA_Federal_Unity
-		value = 100
-	}
-}
-
-on_daily_UFA = {
-	effect = {
-		if = {
-			limit = {
-				check_variable = {
-					stability > UFA_Federal_Unity
-				}
-			}
-			set_stability = federal_unity
-		}
-	}
-}
-
-on_daily_UFA = {
-	effect = {
-		if = {
-			limit = {
-				check_variable = {
-					war_support > UFA_Federal_Unity
-				}
-			}
-			set_war_support = federal_unity
-		}
-	}
-}
-
