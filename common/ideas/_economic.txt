@@ -84,7 +84,7 @@ ideas = {
 				conversion_cost_civ_to_mil_factor= 0.3
 				conversion_cost_mil_to_civ_factor = 0.3
 				max_fuel_factor = -0.25
-				stability_factor = 0.15
+				stability_factor = 0.1
 			}
 			
 			default = yes
@@ -100,6 +100,7 @@ ideas = {
 				has_government = purificationism
 				has_government = technocratic_despotism
 				has_government = neosocialism
+				has_government = katzerism
 				}
 			}
 			
@@ -129,7 +130,13 @@ ideas = {
 		partial_economic_mobilisation = {
 			
 			available = {
-				has_war_support > 0.25
+				OR = {
+					has_war_support > 0.25
+					has_government = katzerism
+					has_government = neosocialism
+					has_government = purificationism
+					has_government = technocratic_despotism
+				}
 			}
 
 			cost = 150
@@ -591,7 +598,6 @@ ideas = {
 			removal_cost = -1
 		
 			modifier = {
-				political_power_cost = 0.25
 				political_power_gain = -0.25
 				drift_defence_factor = -0.05
 				autonomy_gain_global_factor = -0.05
@@ -611,7 +617,6 @@ ideas = {
 		
 			modifier = {
 				research_speed_factor = -0.15
-				political_power_cost = 0.25
 				political_power_gain = -0.25
 				consumer_goods_factor = 0.05
 				fuel_gain_factor = -0.05
@@ -638,7 +643,6 @@ ideas = {
 		
 			modifier = {
 				research_speed_factor = -0.3
-				political_power_cost = 0.5
 				political_power_gain = -0.5
 				consumer_goods_factor = 0.15
 				stability_weekly = -0.02
@@ -691,7 +695,6 @@ ideas = {
 		
 			modifier = {
 				research_speed_factor = -0.5
-				political_power_cost = 0.75
 				political_power_gain = -0.75
 				consumer_goods_factor = 0.15
 				stability_weekly = -0.02
