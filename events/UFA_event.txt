@@ -72,160 +72,148 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ufa.1301.a
-		TYY = {
-			IF = {
-				limit = {
-					TYY = {
-						check_variable = {
-							TYY.Influenced_by_UFA < TYY.Influenced_by_RCSR
-						}
+		IF = {
+			limit = {
+				TYY = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = TYY
 				}
 			}
-			else_if = {
-				limit = {
-					TYY = {
-						check_variable = {
-							TYY.Influenced_by_UFA > TYY.Influenced_by_RCSR
-						}
-					}
-				}
-				UFA = {
-					add_to_faction = TYY
-				}
+			RCR = {
+				add_to_faction = TYY
 			}
 		}
-		SVT = {
-			IF = {
-				limit = {
-					SVT = {
-						check_variable = {
-							SVT.Influenced_by_UFA < SVT.Influenced_by_RCSR
-						}
+		else_if = {
+			limit = {
+				TYY = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = SVT
 				}
 			}
-			else_if = {
-				limit = {
-					SVT = {
-						check_variable = {
-							SVT.Influenced_by_UFA > SVT.Influenced_by_RCSR
-						}
-					}
-				}
-				UFA = {
-					add_to_faction = SVT
-				}
+			UFA = {
+				add_to_faction = TYY
 			}
 		}
-		LTG = {
-			IF = {
-				limit = {
-					LTG = {
-						check_variable = {
-							LTG.Influenced_by_UFA < LTG.Influenced_by_RCSR
-						}
+		IF = {
+			limit = {
+				SVT = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = LTG
 				}
 			}
-			else_if = {
-				limit = {
-					LTG = {
-						check_variable = {
-							LTG.Influenced_by_UFA > LTG.Influenced_by_RCSR
-						}
-					}
-				}
-				UFA = {
-					add_to_faction = LTG
-				}
+			RCR = {
+				add_to_faction = SVT
 			}
 		}
-		MER = {
-			IF = {
-				limit = {
-					MER = {
-						check_variable = {
-							MER.Influenced_by_UFA < MER.Influenced_by_RCSR
-						}
+		else_if = {
+			limit = {
+				SVT = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = MER
 				}
 			}
-			else_if = {
-				limit = {
-					MER = {
-						check_variable = {
-							MER.Influenced_by_UFA > MER.Influenced_by_RCSR
-						}
-					}
-				}
-				UFA = {
-					add_to_faction = MER
-				}
+			UFA = {
+				add_to_faction = SVT
 			}
 		}
-		CHE = {
-			IF = {
-				limit = {
-					CHE = {
-						check_variable = {
-							CHE.Influenced_by_UFA < CHE.Influenced_by_RCSR
-						}
+		IF = {
+			limit = {
+				LTG = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = CHE
 				}
 			}
-			else_if = {
-				limit = {
-					CHE = {
-						check_variable = {
-							CHE.Influenced_by_UFA > CHE.Influenced_by_RCSR
-						}
-					}
-				}
-				UFA = {
-					add_to_faction = CHE
-				}
+			RCR = {
+				add_to_faction = LTG
 			}
 		}
-		HOL = {
-			IF = {
-				limit = {
-					HOL = {
-						check_variable = {
-							HOL.Influenced_by_UFA < HOL.Influenced_by_RCSR
-						}
+		else_if = {
+			limit = {
+				LTG = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
 					}
-				}
-				RCR = {
-					add_to_faction = HOL
 				}
 			}
-			else_if = {
-				limit = {
-					HOL = {
-						check_variable = {
-							HOL.Influenced_by_UFA > HOL.Influenced_by_RCSR
-						}
+			UFA = {
+				add_to_faction = LTG
+			}
+		}
+		IF = {
+			limit = {
+				MER = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
 					}
 				}
-				UFA = {
-					add_to_faction = HOL
+			}
+			RCR = {
+				add_to_faction = MER
+			}
+		}
+		else_if = {
+			limit = {
+				MER = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
+					}
 				}
+			}
+			UFA = {
+				add_to_faction = MER
+			}
+		}
+		IF = {
+			limit = {
+				CHE = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
+					}
+				}
+			}
+			RCR = {
+				add_to_faction = CHE
+			}
+		}
+		else_if = {
+			limit = {
+				CHE = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
+					}
+				}
+			}
+			UFA = {
+				add_to_faction = CHE
+			}
+		}
+		IF = {
+			limit = {
+				HOL = {
+					check_variable = {
+						Influenced_by_UFA < Influenced_by_RCSR
+					}
+				}
+			}
+			RCR = {
+				add_to_faction = HOL
+			}
+		}
+		else_if = {
+			limit = {
+				HOL = {
+					check_variable = {
+						Influenced_by_UFA > Influenced_by_RCSR
+					}
+				}
+			}
+			UFA = {
+				add_to_faction = HOL
 			}
 		}
 	}
@@ -1066,7 +1054,7 @@ country_event = {
 		}
 		add_political_power = -100
 		add_to_variable = {
-			var =gov_corruption
+			var = gov_corruption
 			value = 2
 		}
 		add_popularity = {
@@ -1569,7 +1557,7 @@ country_event = {
 	option = {
 		name = ufa.75.b
 		add_to_variable = {
-			var =gov_corruption
+			var = gov_corruption
 			value = 3
 		}
 		add_political_power = -75
@@ -1581,7 +1569,7 @@ country_event = {
 	option = {
 		name = ufa.75.c
 		add_to_variable = {
-			var =gov_corruption
+			var = gov_corruption
 			value = 6
 		}
 		set_country_flag = Colony_Drop_available
@@ -1997,7 +1985,6 @@ country_event = {
 					}
 				}
 			}
-			
 		}
 	}
 }
