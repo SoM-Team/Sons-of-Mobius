@@ -9,20 +9,13 @@ monthly_effects = {
 			max = 100
 		}
 	}
-	log = "[GetDateText]: [Root.GetName]: first_every_month_script"
-	add_to_variable = { month_counter = 1 }
 	if = {
 		limit = {
-			check_variable = {
-				month_counter = 13
-			}
+			country_exists = RCR
 		}
-		set_variable = { month_counter = 1 }
-		first_every_year_script = yes
-	}
-	if = {
-		limit = { country_exists = RCR }
-		RCR = { RCR_bioweapon_effects = yes }
+		RCR = {
+			RCR_bioweapon_effects = yes
+		}
 	}
 	if = {
 		limit = {
@@ -30,148 +23,133 @@ monthly_effects = {
 		}
 		EGG_DEL_growth = yes
 	}
-	
 	if = {
-		limit = { country_exists = RCR }
-		RCR = { RCR_automation_effects = yes }
+		limit = {
+			country_exists = RCR
+		}
+		RCR = {
+			RCR_automation_effects = yes
+		}
 	}
 	if = {
-		limit = { 
-			AND = {
-				check_variable = {
-					RCR_AUTO > 50
-				}
-				check_variable = {
-					RCR_AUTO_GROW > 0
-				}
-				NOT = {
-					has_country_flag = ICS_ready
-				}
+		limit = {
+			check_variable = {
+				RCR_AUTO > 50
+			}
+			check_variable = {
+				RCR_AUTO_GROW > 0
+			}
+			NOT = {
+				has_country_flag = ICS_ready
 			}
 		}
-		RCR = { 
+		RCR = {
 			subtract_from_variable = {
 				RCR_AUTO_GROW = 8
 			}
 			clamp_variable = {
-				var = RCR_AUTO_GROW 
-				min = 0 
+				var = RCR_AUTO_GROW
+				min = 0
 				max = 10
 			}
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					WEC = { has_idea = Western_Committee }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+			}
+			WEC = {
+				has_idea = Western_Committee
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_WEC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_WEC_separatist
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					NOC = { has_idea = Northern_Committee }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+			}
+			NOC = {
+				has_idea = Northern_Committee
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_NOC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_NOC_separatist
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					NWC = { has_idea = Northwestern_Committee_neutral }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+			}
+			NWC = {
+				has_idea = Northwestern_Committee_neutral
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_NWC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_NWC_separatist
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					SIC = { has_idea = Siverian_Committee_neutral }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+			}
+			SIC = {
+				has_idea = Siverian_Committee_neutral
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_SIC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_SIC_separatist
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					SOC = { has_idea = Southern_Committee_neutral }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+				has_idea = Southern_Committee_neutral
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_SIC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_SIC_separatist
 		}
 	}
 	if = {
 		limit = {
-			AND = {
-					NOT = { has_idea = Political_Infighting }
-					NOT = { has_idea = Political_Infighting_waut }
-					NOT = { has_idea = Political_Infighting_wnat }
-					NOT = { has_idea = Political_Infighting_fin }
-					FEC = { has_idea = Far_Eastern_Committee }
+			NOT = {
+				has_idea = Political_Infighting
+				has_idea = Political_Infighting_waut
+				has_idea = Political_Infighting_wnat
+				has_idea = Political_Infighting_fin
+				has_idea = Far_Eastern_Committee
 			}
 		}
-		random_list = {
-			25 = {
-				activate_mission = RCR_FEC_separatist
-			} 
-			75 = {
-				
-			}
+		random = {
+			chance = 25
+			activate_mission = RCR_FEC_separatist
 		}
 	}
 }
