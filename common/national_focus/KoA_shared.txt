@@ -38,7 +38,7 @@ shared_focus = {
 		}
 		add_tech_bonus = {
 			name = Freedom_Fighters_Structure
-			category = cat_maneuver_warfare_theory
+			category = cat_contactless_battle_theory
 			uses = 1
 			bonus = 1
 		}
@@ -54,6 +54,11 @@ shared_focus = {
 	cost = 7
 	prerequisite = {
 		focus = KOA_Royal_Army
+	}
+	available = {
+		NOT = {
+			has_civil_war = yes
+		}
 	}
 	mutually_exclusive = {
 		focus = KOA_Freedom_Fighters_Structure
@@ -72,7 +77,7 @@ shared_focus = {
 		}
 		add_tech_bonus = {
 			name = Grand_Army
-			category = cat_grand_battle_plan			#contactless warfare, somehow
+			category = cat_maneuver_warfare_theory
 			uses = 1
 			bonus = 1
 		}
@@ -92,7 +97,13 @@ shared_focus = {
 	x = 62
 	y = 3
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		add_dynamic_modifier = {
+			modifier = Spirit_of_Freedom_Fighters
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_dig_in = 0.05
+		}
+		custom_effect_tooltip = Sally_Doctrine
 	}
 }
 
@@ -106,7 +117,28 @@ shared_focus = {
 	x = 60
 	y = 4
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		IF = {
+			limit = {
+				NOT = {
+					has_dlc = "La Resistance"
+				}
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_decryption = 10
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_encryption = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_operatives = 4
+			}
+		}
+		custom_effect_tooltip = Secret_Freedom_Fighters
 	}
 }
 
@@ -121,7 +153,10 @@ shared_focus = {
 	x = 63
 	y = 4
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_planning_speed = 0.05
+		}
+		custom_effect_tooltip = Theory_of_Operation
 	}
 }
 
@@ -151,7 +186,10 @@ shared_focus = {
 	x = 61
 	y = 5
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_morale = 0.05
+		}
+		custom_effect_tooltip = Hit_and_Run
 	}
 }
 
@@ -184,7 +222,13 @@ shared_focus = {
 	x = 65
 	y = 5
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_no_supply_grace = 72
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_defence = 0.05
+		}
+		custom_effect_tooltip = Underground_Ways
 	}
 }
 
@@ -199,7 +243,32 @@ shared_focus = {
 	x = 62
 	y = 6
 	completion_reward = {
+		custom_effect_tooltip = Destruction_of_Giants
 		#Sabotage the enemy: For 50 pp, you can cause damage to one to three military factories owned by the Eggman Empire.
+	}
+}
+
+shared_focus = {
+	id = KOA_Fast_And_Furious
+	text = KOA_Fast_And_Furious
+	icon = GFX_focus_Fast_And_Furious
+	cost = 7
+	prerequisite = {
+		focus = KOA_Stealth_Troops
+	}
+	prerequisite = {
+		focus = KOA_Underground_Ways
+	}
+	x = 64
+	y = 6
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_attack = 0.05
+		}
+		custom_effect_tooltip = Faster_Faster_Faster
 	}
 }
 
@@ -217,7 +286,46 @@ shared_focus = {
 	x = 66
 	y = 6
 	completion_reward = {
-		Increment_Ff_Spirit = yes
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_dig_in = 0.05
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_dlc = "La Resistance"
+				}
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_decryption = 2
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_encryption = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_operatives = 1
+			}
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_planning_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_morale = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_no_supply_grace = 24
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_defence = 0.05
+		}
+		custom_effect_tooltip = Sonic_Spirit
 	}
 }
 
@@ -239,8 +347,11 @@ shared_focus = {
 	y = 7
 	completion_reward = {
 		add_political_power = 50
-		Increment_Ff_Spirit = yes
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_experience_gain = 0.1
+		}
 		remove_ideas = Military_Conservatism_2
+		custom_effect_tooltip = People_Warfare
 	}
 }
 
@@ -383,7 +494,7 @@ shared_focus = {
 		add_tech_bonus = {
 			name = Crown_Atomic_Project
 			category = nuclear
-			uses = 3
+			uses = 2
 			bonus = 1
 		}
 	}
@@ -400,10 +511,10 @@ shared_focus = {
 	x = 77
 	y = 3
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik
-			add_idea = Two_War_Robotnik_2
+		add_to_variable = {
+			Second_Robotnik_War_army_organisation = 5
 		}
+		custom_effect_tooltip = Military_Revolution
 	}
 }
 
@@ -456,10 +567,10 @@ shared_focus = {
 	x = 78
 	y = 4
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_2
-			add_idea = Two_War_Robotnik_3
+		add_to_variable = {
+			Second_Robotnik_War_exp_gain_army = 0.1
 		}
+		custom_effect_tooltip = Reform_System_of_Ranks
 	}
 }
 
@@ -497,10 +608,10 @@ shared_focus = {
 	x = 77
 	y = 5
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_3
-			add_idea = Two_War_Robotnik_4
+		add_to_variable = {
+			Second_Robotnik_War_max_planning = 0.05
 		}
+		custom_effect_tooltip = Centralized_Command
 	}
 }
 
@@ -515,10 +626,10 @@ shared_focus = {
 	x = 72
 	y = 6
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_4
-			add_idea = Two_War_Robotnik_5
+		add_to_variable = {
+			Second_Robotnik_War_army_morale = 0.05
 		}
+		custom_effect_tooltip = Learn_From_Robotnik_War
 	}
 }
 
@@ -536,10 +647,10 @@ shared_focus = {
 	x = 74
 	y = 6
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_5
-			add_idea = Two_War_Robotnik_6
+		hidden_effect = {
+			add_ideas = Second_Robotnik_War_idea
 		}
+		custom_effect_tooltip = Develop_Robotic_Systems
 	}
 }
 
@@ -559,8 +670,8 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = Endurance_Warfare
-	text = Endurance_Warfare
+	id = KOA_Endurance_Warfare
+	text = KOA_Endurance_Warfare
 	icon = GFX_focus_Prepare_Long_War
 	cost = 7
 	prerequisite = {
@@ -569,10 +680,10 @@ shared_focus = {
 	x = 78
 	y = 6
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_6
-			add_idea = Two_War_Robotnik_7
+		add_to_variable = {
+			Second_Robotnik_War_army_defence = 0.1
 		}
+		custom_effect_tooltip = Endurance_Warfare
 	}
 }
 
@@ -597,7 +708,7 @@ shared_focus = {
 	icon = GFX_focus_Proffesional_Army
 	cost = 7
 	prerequisite = {
-		focus = Endurance_Warfare
+		focus = KOA_Endurance_Warfare
 	}
 	prerequisite = {
 		focus = KOA_Theory_Of_Cooperation
@@ -605,9 +716,9 @@ shared_focus = {
 	x = 77
 	y = 7
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = Two_War_Robotnik_7
-			add_idea = Army_of_Professionals
+		add_ideas = Army_of_Professionals
+		remove_dynamic_modifier = {
+			modifier = Second_Robotnik_War
 		}
 	}
 }
@@ -619,7 +730,6 @@ shared_focus = {
 	cost = 7
 	x = 39
 	y = 0
-	available_if_capitulated = no
 }
 
 shared_focus = {
@@ -629,17 +739,6 @@ shared_focus = {
 	cost = 7
 	x = 69
 	y = 0
-}
-
-shared_focus = {
-	id = KOA_Revolution_from_Above
-	icon = GFX_focus_Revolution_from_Above
-	cost = 7
-	x = 44
-	y = 8
-	available = {
-		has_country_flag = KOA_Red_Monarchy
-	}
 }
 
 shared_focus = {
@@ -654,7 +753,6 @@ shared_focus = {
 	}
 	x = 38
 	y = 1
-	available_if_capitulated = no
 	completion_reward = {
 		add_timed_idea = {
 			idea = The_Triumph_Of_Productivism
@@ -675,7 +773,6 @@ shared_focus = {
 	}
 	x = 35
 	y = 2
-	available_if_capitulated = no
 	completion_reward = {
 		add_timed_idea = {
 			idea = Advisors_from_Shvarcland
@@ -696,7 +793,6 @@ shared_focus = {
 	}
 	x = 38
 	y = 2
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -713,7 +809,6 @@ shared_focus = {
 	}
 	x = 36
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -728,7 +823,6 @@ shared_focus = {
 	}
 	x = 32
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -743,7 +837,6 @@ shared_focus = {
 	}
 	x = 34
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 		if = {
 			limit = {
@@ -753,7 +846,6 @@ shared_focus = {
 			random_owned_controlled_state = {
 				if = {
 					limit = {
-						
 					}
 					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
@@ -764,7 +856,6 @@ shared_focus = {
 				}
 				if = {
 					limit = {
-						
 					}
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
@@ -797,21 +888,11 @@ shared_focus = {
 				has_stability > 0.45
 			}
 			random_owned_controlled_state = {
-				if = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-				}
-				if = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
 			}
 			random_owned_controlled_state = {
@@ -836,7 +917,6 @@ shared_focus = {
 	}
 	x = 38
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 		add_timed_idea = {
 			idea = Protection_of_domestic_producers
@@ -857,7 +937,6 @@ shared_focus = {
 	}
 	x = 36
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -874,7 +953,6 @@ shared_focus = {
 	}
 	x = 34
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -891,7 +969,6 @@ shared_focus = {
 	}
 	x = 38
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -911,7 +988,6 @@ shared_focus = {
 	}
 	x = 36
 	y = 5
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -928,7 +1004,6 @@ shared_focus = {
 	}
 	x = 40
 	y = 1
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -945,7 +1020,6 @@ shared_focus = {
 	}
 	x = 40
 	y = 2
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -962,7 +1036,6 @@ shared_focus = {
 	}
 	x = 43
 	y = 2
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -977,7 +1050,6 @@ shared_focus = {
 	}
 	x = 40
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -992,7 +1064,6 @@ shared_focus = {
 	}
 	x = 42
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1009,7 +1080,6 @@ shared_focus = {
 	}
 	x = 40
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1024,7 +1094,6 @@ shared_focus = {
 	}
 	x = 39
 	y = 5
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1041,7 +1110,6 @@ shared_focus = {
 	}
 	x = 42
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1056,7 +1124,6 @@ shared_focus = {
 	}
 	x = 44
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1071,7 +1138,6 @@ shared_focus = {
 	}
 	x = 46
 	y = 3
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1088,7 +1154,6 @@ shared_focus = {
 	}
 	x = 44
 	y = 4
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1108,7 +1173,6 @@ shared_focus = {
 	}
 	x = 42
 	y = 5
-	available_if_capitulated = no
 	completion_reward = {
 	}
 }
@@ -1337,10 +1401,7 @@ shared_focus = {
 	x = 72
 	y = 5
 	completion_reward = {
-		swap_ideas = {
-			remove_idea = KOA_armand_d_colette_army
-			add_idea = KOA_jules_hedgehog_army
-		}
+		add_ideas = KOA_jules_hedgehog_army
 	}
 }
 
@@ -1609,82 +1670,48 @@ shared_focus = {
 	y = 5
 }
 
-shared_focus = {
-	id = KOA_Upgrade_Propogande
-	icon = GFX_focus_Upgrade_Propogande
-	cost = 7
-	prerequisite = {
-		focus = KOA_Open_Old
-	}
-	x = 2
-	y = 8
-	available_if_capitulated = yes
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Old_Planes
-	icon = GFX_focus_Old_Planes
-	cost = 7
-	prerequisite = {
-		focus = KOA_School_Amry
-	}
-	x = 0
-	y = 8
-	available_if_capitulated = yes
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Build_Guard_Mobotropolis
-	icon = GFX_focus_Build_Guard_Mobotropolis
-	cost = 7
-	prerequisite = {
-		focus = KOA_Old_Planes
-	}
-	prerequisite = {
-		focus = KOA_Upgrade_Propogande
-	}
-	x = 1
-	y = 9
-	available_if_capitulated = yes
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Fast_And_Furious
-	text = KOA_Fast_And_Furious
-	icon = GFX_focus_Fast_And_Furious
-	cost = 7
-	prerequisite = {
-		focus = KOA_Stealth_Troops
-	}
-	prerequisite = {
-		focus = KOA_Underground_Ways
-	}
-	x = 64
-	y = 6
-	completion_reward = {
-		set_temp_variable = {
-			si_idea = 2
-		}
-		set_temp_variable = {
-			si_idea_level_var = 2
-		}
-		set_temp_variable = {
-			si_new_level = spirit_of_the_freedom_fighters_level
-		}
-		add_to_variable = {
-			var = si_new_level
-			value = 1
-		}
-		Switch_Idea_Level = yes
-	}
-}
-
+# shared_focus = {
+# 	id = KOA_Upgrade_Propogande
+# 	icon = GFX_focus_Upgrade_Propogande
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_Open_Old
+# 	}
+# 	x = 2
+# 	y = 8
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
+# shared_focus = {
+# 	id = KOA_Old_Planes
+# 	icon = GFX_focus_Old_Planes
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_School_Amry
+# 	}
+# 	x = 0
+# 	y = 8
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
+# shared_focus = {
+# 	id = KOA_Build_Guard_Mobotropolis
+# 	icon = GFX_focus_Build_Guard_Mobotropolis
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_Old_Planes
+# 	}
+# 	prerequisite = {
+# 		focus = KOA_Upgrade_Propogande
+# 	}
+# 	x = 1
+# 	y = 9
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
 shared_focus = {
 	id = KOA_Operative_Destruction
 	text = KOA_Operative_Destruction
@@ -1720,13 +1747,13 @@ shared_focus = {
 		add_political_power = 75
 		if = {
 			limit = {
-				has_global_flag = KOA_Sally_Queen
+				has_country_flag = Queen_Sally
 			}
 			country_event = koa.300
 		}
 		else_if = {
 			limit = {
-				has_global_flag = KOA_Elias_Despot_King
+				has_country_flag = KOA_Elias_Despot_King
 			}
 			country_event = koa.302
 		}
@@ -1854,6 +1881,7 @@ shared_focus = {
 				modifier = KOA_Detente_Propositions
 			}
 		}
+		country_event = koa.305
 	}
 }
 
@@ -1877,6 +1905,7 @@ shared_focus = {
 		add_political_power = 50
 		RCR = {
 			add_political_power = 50
+			country_event = koa.306
 		}
 	}
 }
@@ -1893,16 +1922,6 @@ shared_focus = {
 		focus = KOA_Not_So_Different
 	}
 	completion_reward = {
-		set_variable = {
-			opinion_modifier_action = 0
-		}
-		set_variable = {
-			embargo_initiator = KOA
-		}
-		set_variable = {
-			embargo_target = RCR
-		}
-		Switch_Trade_Embargo = yes
 		country_event = koa.307
 		UFA = {
 			country_event = ufa.1300
@@ -1922,7 +1941,6 @@ shared_focus = {
 		focus = KOA_Not_So_Different
 	}
 	completion_reward = {
-		# TODO: Add border-crossing
 		army_experience = 75
 		add_command_power = 50
 		RCR = {
@@ -1933,6 +1951,14 @@ shared_focus = {
 		add_ideas = KOA_Rethenian_Military_Mission
 		news_event = koa.310
 		country_event = shared.1
+		diplomatic_relation = {
+			country = RCR
+			relation = military_access
+		}
+		diplomatic_relation = {
+			country = RCR
+			relation = offer_military_access
+		}
 	}
 }
 
@@ -2006,7 +2032,7 @@ shared_focus = {
 		}
 		if = {
 			limit = {
-				has_country_flag = KOA_Sally_Queen
+				has_country_flag = Queen_Sally
 			}
 			country_event = koa.313
 		}
@@ -2014,7 +2040,8 @@ shared_focus = {
 			limit = {
 				OR = {
 					has_country_flag = KOA_Elias_Despot_King
-					has_country_flag = KOA_Elias_Reformer_King
+					has_country_flag = Elias_Acorn_Reforms
+					has_country_flag = elias_crowned
 				}
 			}
 			country_event = koa.314
@@ -2042,10 +2069,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		country_event = koa.316
-		every_unit_leader = {
-			limit = {
-				has_id = 110
-			}
+		KOA_Vladimir_Acorn = {
 			add_logistics = 1
 			add_attack = 1
 		}
@@ -2169,11 +2193,21 @@ shared_focus = {
 					is_subject_of = EGG
 					is_puppet_of = EGG
 				}
-				every_state = {
-					limit = {
-						compliance < 30
-					}
-				}
+				# 76 = {
+				# 	compliance < 30
+				# }
+				# 78 = {
+				# 	compliance < 30
+				# }
+				# 77 = {
+				# 	compliance < 30
+				# }
+				# 67 = {
+				# 	compliance < 30
+				# }
+				# 63 = {
+				# 	compliance < 30
+				# }
 				check_variable = {
 					EGG.DEL_3_Submission < 20
 				}
@@ -2344,7 +2378,7 @@ shared_focus = {
 	available = {
 		NOT = {
 			HIB = {
-				has_government = technocratic_despotist
+				has_government = technocratic_despotism
 			}
 		}
 	}
@@ -2552,6 +2586,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		add_tech_bonus = {
+			name = Chips_on_Chips
 			bonus = 1
 			uses = 2
 			category = electronics

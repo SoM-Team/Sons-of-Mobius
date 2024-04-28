@@ -2031,7 +2031,7 @@ country_event = {
 		# Agree to meet in Stalegor
 		name = koa.305.b
 		add_popularity = {
-			ideology = katzerist
+			ideology = katzerism
 			popularity = 0.05
 		}
 	}
@@ -2064,6 +2064,16 @@ country_event = {
 
 	option = {
 		name = koa.307.a
+		set_variable = {
+			opinion_modifier_action = 0
+		}
+		set_variable = {
+			embargo_initiator = KOA
+		}
+		set_variable = {
+			embargo_target = RCR
+		}
+		Switch_Trade_Embargo = yes
 	}
 }
 
@@ -2109,13 +2119,8 @@ news_event = {
 
 	option = {
 		name = koa.310.a
-		every_country = {
-			limit = {
-				NOT = {
-					tag = EGG
-				}
-			}
-			add_war_support = 0.1
+		EGG = {
+			add_war_support = -0.1
 		}
 	}
 }
@@ -2259,10 +2264,7 @@ country_event = {
 				transfer_troops = yes
 			}
 			EGG = {
-				# TODO: Add country event with two choices
-				# 1) Declare war to KOA
-				# 2) Do nothing (-25 stability, -100 pp)
-				# AI will do 50/50
+				country_event = egg.76
 			}
 		}
 	}
@@ -3048,5 +3050,19 @@ country_event = {
 
 	option = {
 		name = koa.361.a
+	}
+}
+country_event = {
+	# Test
+	id = koa.1000
+	title = koa.1000.t
+	desc = koa.1000.d
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = koa.1000.a
 	}
 }
