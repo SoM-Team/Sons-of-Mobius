@@ -584,8 +584,8 @@ NProduction = {
 	CONVOY_MAX_NAV_FACTORIES_PER_LINE = 15,
 	CAPITAL_SHIP_MAX_NAV_FACTORIES_PER_LINE = 5,
 	MAX_MIL_FACTORIES_PER_LINE = 150,
-	-- RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 5,
-	-- RAILWAY_GUN_REPAIR_SPEED = 8.0,			-- Railway gun strength repair speed per factory
+	RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 5,
+	RAILWAY_GUN_REPAIR_SPEED = 8.0,			-- Railway gun strength repair speed per factory
 	EFFICIENCY_LOSS_PER_UNUSED_DAY = 1,		-- Daily loss of efficiency for unused factory slots ( efficiency is tracked per factory slot in the production line )
 	RESOURCE_PENALTY_WARNING_CRITICAL_RATIO =  0.8, -- Switch to red progress bar if penalty is over threshold
 	BASE_FACTORY_SPEED = 5, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
@@ -2004,34 +2004,34 @@ NNavy = {
 
 },
 
--- NRailwayGun = {
--- 	RAILWAY_GUN_RANGE = 30,							-- The range of railway guns in pixels
--- 	ATTACK_TO_FORTS_MODIFIER_FACTOR = 1.333,		-- Forts modifier is calculated by multiplying railway gun attack value with this and dividing by 100
--- 	ATTACK_TO_ENTRENCHMENT_MODIFIER_FACTOR = 0.8,		-- Entrenchment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
--- 	ATTACK_TO_BOMBARDMENT_MODIFIER_FACTOR = 0.4,	-- Bombardment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
--- 	DAILY_MANPOWER_GAIN_RATIO = 0.05,				-- Railway Guns will be able to gain this ratio of their max manpower daily
--- 	DISBAND_MANPOWER_LOSS = 0.0,					-- The ration of manpower lost on disbanding railway guns
--- 	ENCIRCLED_DISBAND_MANPOWER_FACTOR = 0.2,		-- The percentage of manpower returned when an encircled unit is disbanded
--- 	OUT_OF_SUPPLY_SPEED = -0.8,						-- Max speed reduction from supply for railway guns
--- 	BASE_CAPTURE_CHANCE = 0.2,						-- The base chance of railway guns being captured during an overrrun. Will be further modified by the equipment capture chance of the capturing unit.
--- 	ANNEX_RATIO = 0.5,								-- How many railway guns will be transferred on annexation
--- 	HOURS_BETWEEN_REDISTRIBUTION = 24,				-- Number of hours between redistribution of attached railway guns, tracked per army
--- 	DISTRIBUTION_RAILWAY_GUN_PRESENCE_SCORE = -100,					-- Score for Railway Guns in nearby provs. x3 if on that province. x2 if adjacent. x1 if 2 away.
--- 	DISTRIBUTION_OUR_UNITS_PRESENCE_SCORE = 1,	 					-- Score for our units in province when distributing Railway Guns
--- 	DISTRIBUTION_FRIENDLY_UNITS_PRESENCE_SCORE = 0,					-- Score for friendly units in province when distributing Railway Guns
--- 	DISTRIBUTION_HOSTILE_UNITS_PRESENCE_SCORE = -45,				-- Score for hostile units in province when distributing Railway Guns
--- 	DISTRIBUTION_COMBATS_PRESENCE_SCORE = -30,						-- Score for combats in province when distributing Railway Guns
--- 	DISTRIBUTION_COMBATS_INRANGE_SCORE = 15,						-- Score for combats in range when distributing Railway Guns
--- 	DISTRIBUTION_OUR_UNITS_INRANGE_SCORE = 2.5,						-- Score for our units in range when distributing Railway Guns
--- 	DISTRIBUTION_FRIENDLY_UNITS_INRANGE_SCORE = 1.5,				-- Score for friendly units in range when distributing Railway Guns
--- 	DISTRIBUTION_HOSTILE_UNITS_INRANGE_SCORE = 6,					-- Score for hostile units in range when distributing Railway Guns
--- 	DISTRIBUTION_DISTANCE_SCORE = -0.08,							-- Score for distance to province when distributing Railway Guns
--- 	DISTRIBUTION_PROVINCE_CONTROLLED_BY_ENEMY_SCORE = -3,			-- Score for staying in province controlled by enemy
--- 	DISTRIBUTION_PROVINCES_CONTROLLED_BY_ENEMY_INRANGE_SCORE = 15,	-- Score for provinces controlled by enemy in range when distributing Railway Guns
--- 	DISTRIBUTION_HOLD_POSITION_SCORE = 35,							-- Score for staying in the same province when distributing Railway Guns
--- 	DISTRIBUTION_NO_RAILWAY_SCORE = -500,							-- Score for provinces with no railways (need to be low, but we allow RG to enter port provinces without railways)
--- 	DISTRIBUTION_SUPPLY_DEFICIT_SCORE = -100,						-- Score for provinces without sufficient supply cap
--- },
+NRailwayGun = {
+	RAILWAY_GUN_RANGE = 30,							-- The range of railway guns in pixels
+	ATTACK_TO_FORTS_MODIFIER_FACTOR = 1.333,		-- Forts modifier is calculated by multiplying railway gun attack value with this and dividing by 100
+	ATTACK_TO_ENTRENCHMENT_MODIFIER_FACTOR = 0.8,		-- Entrenchment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
+	ATTACK_TO_BOMBARDMENT_MODIFIER_FACTOR = 0.4,	-- Bombardment modifier is calculated by multiplying railway gun attack value with this and dividing by 100
+	DAILY_MANPOWER_GAIN_RATIO = 0.05,				-- Railway Guns will be able to gain this ratio of their max manpower daily
+	DISBAND_MANPOWER_LOSS = 0.0,					-- The ration of manpower lost on disbanding railway guns
+	ENCIRCLED_DISBAND_MANPOWER_FACTOR = 0.2,		-- The percentage of manpower returned when an encircled unit is disbanded
+	OUT_OF_SUPPLY_SPEED = -0.8,						-- Max speed reduction from supply for railway guns
+	BASE_CAPTURE_CHANCE = 0.2,						-- The base chance of railway guns being captured during an overrrun. Will be further modified by the equipment capture chance of the capturing unit.
+	ANNEX_RATIO = 0.5,								-- How many railway guns will be transferred on annexation
+	HOURS_BETWEEN_REDISTRIBUTION = 24,				-- Number of hours between redistribution of attached railway guns, tracked per army
+	DISTRIBUTION_RAILWAY_GUN_PRESENCE_SCORE = -100,					-- Score for Railway Guns in nearby provs. x3 if on that province. x2 if adjacent. x1 if 2 away.
+	DISTRIBUTION_OUR_UNITS_PRESENCE_SCORE = 1,	 					-- Score for our units in province when distributing Railway Guns
+	DISTRIBUTION_FRIENDLY_UNITS_PRESENCE_SCORE = 0,					-- Score for friendly units in province when distributing Railway Guns
+	DISTRIBUTION_HOSTILE_UNITS_PRESENCE_SCORE = -45,				-- Score for hostile units in province when distributing Railway Guns
+	DISTRIBUTION_COMBATS_PRESENCE_SCORE = -30,						-- Score for combats in province when distributing Railway Guns
+	DISTRIBUTION_COMBATS_INRANGE_SCORE = 15,						-- Score for combats in range when distributing Railway Guns
+	DISTRIBUTION_OUR_UNITS_INRANGE_SCORE = 2.5,						-- Score for our units in range when distributing Railway Guns
+	DISTRIBUTION_FRIENDLY_UNITS_INRANGE_SCORE = 1.5,				-- Score for friendly units in range when distributing Railway Guns
+	DISTRIBUTION_HOSTILE_UNITS_INRANGE_SCORE = 6,					-- Score for hostile units in range when distributing Railway Guns
+	DISTRIBUTION_DISTANCE_SCORE = -0.08,							-- Score for distance to province when distributing Railway Guns
+	DISTRIBUTION_PROVINCE_CONTROLLED_BY_ENEMY_SCORE = -3,			-- Score for staying in province controlled by enemy
+	DISTRIBUTION_PROVINCES_CONTROLLED_BY_ENEMY_INRANGE_SCORE = 15,	-- Score for provinces controlled by enemy in range when distributing Railway Guns
+	DISTRIBUTION_HOLD_POSITION_SCORE = 35,							-- Score for staying in the same province when distributing Railway Guns
+	DISTRIBUTION_NO_RAILWAY_SCORE = -500,							-- Score for provinces with no railways (need to be low, but we allow RG to enter port provinces without railways)
+	DISTRIBUTION_SUPPLY_DEFICIT_SCORE = -100,						-- Score for provinces without sufficient supply cap
+},
 
 NTrade = {
 	DISTANCE_TRADE_FACTOR = -0.02,				-- Trade factor is modified by distance times this
@@ -2555,8 +2555,8 @@ NAI = {
 		0.0, -- air_ground_attack
 		0.0, -- air_visibility_factor
 		-- -- Railway gun Values
-		-- 0.0, -- railway_gun_attack
-		-- 0.0, -- railway_gun_attack_range
+		0.0, -- railway_gun_attack
+		0.0, -- railway_gun_attack_range
 		-- Common Values
 		1.0, -- max_organisation
 		1.0, -- max_strength
@@ -2962,7 +2962,7 @@ NAI = {
 	CONSTRUCTION_PRIO_CIV_FACTORY = 0.80,                                       -- base prio for civilian factories in the construction queue
 	CONSTRUCTION_PRIO_MIL_FACTORY = 0.70,                                       -- base prio for military factories in the construction queue
 	CONSTRUCTION_PRIO_RAILWAY = 4.00,                                           -- base prio for railways in the construction queue
-	-- CONSTRUCTION_PRIO_RAILWAY_GUN_REPAIR = 15.00,                               -- base prio for railway gun repairs in the construction queue
+	CONSTRUCTION_PRIO_RAILWAY_GUN_REPAIR = 15.00,                               -- base prio for railway gun repairs in the construction queue
 	CONSTRUCTION_PRIO_UNSPECIFIED = 0.50,                                       -- base prio for unspecified buildings (none of the categories above) in the construction queue
 	CONSTRUCTION_PRIO_FACTOR_OCCUPIED_TERRITORY = 1.00,                         -- factor prio with this if occupied territory
 	CONSTRUCTION_PRIO_FACTOR_OWNED_NONCORE = 1.50,                              -- factor prio with this if owned non-core territory
@@ -3060,12 +3060,12 @@ NAI = {
 	CONVOY_ESCORT_MUL_FROM_NO_CONVOYS = 0.02,                    -- score multiplier when no convoys are around
 	CONVOY_RAID_MIN_ENEMY_THREAT = 0.05,
 
-	-- RAILWAY_GUN_PRODUCTION_BASE_DIVISIONS_RATIO_PERCENT = 0,	-- Base ratio of desired railway guns to divisions for AI (5 means 5%). Can be modified by railway_guns_divisions_ratio AI strategy value
-	-- RAILWAY_GUN_PRODUCTION_MIN_DIVISONS = 20,					-- Minimum required number of divisions for the AI to consider producing railway guns
-	-- RAILWAY_GUN_PRODUCTION_MIN_FACTORIES = 10,					-- Minimum required number of military factories for the AI to consider producing railway guns
-	-- RAILWAY_GUN_PER_ARMY_CAP = 5,								-- Maximum railway guns assigned to one army for the AI
-	-- RAILWAY_GUN_ASSIGNMENT_SCORE_UNITCOUNT_MULTIPLIER = 10.0,	-- Score multiplier for favoring orders groups with more units when assigning railway guns
-	-- RAILWAY_GUN_ASSIGNMENT_SCORE_HOLD = 20,						-- Score for keeping current assignment when assigning railway guns
+	RAILWAY_GUN_PRODUCTION_BASE_DIVISIONS_RATIO_PERCENT = 0,	-- Base ratio of desired railway guns to divisions for AI (5 means 5%). Can be modified by railway_guns_divisions_ratio AI strategy value
+	RAILWAY_GUN_PRODUCTION_MIN_DIVISONS = 80,					-- Minimum required number of divisions for the AI to consider producing railway guns
+	RAILWAY_GUN_PRODUCTION_MIN_FACTORIES = 1,					-- Minimum required number of military factories for the AI to consider producing railway guns
+	RAILWAY_GUN_PER_ARMY_CAP = 1,								-- Maximum railway guns assigned to one army for the AI
+	RAILWAY_GUN_ASSIGNMENT_SCORE_UNITCOUNT_MULTIPLIER = 10.0,	-- Score multiplier for favoring orders groups with more units when assigning railway guns
+	RAILWAY_GUN_ASSIGNMENT_SCORE_HOLD = 20,						-- Score for keeping current assignment when assigning railway guns
 
 	MAX_UNIT_RATIO_FOR_INVASIONS = 0.4,                         -- countries won't use armies more than this ratio of total units for invasions
 	MIN_UNIT_RATIO_FOR_INVASIONS = 0.1,                         -- don't allocate more divisions than this for naval invasions
