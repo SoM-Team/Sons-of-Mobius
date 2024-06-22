@@ -184,7 +184,7 @@ guiTypes = {
 		iconType = {
 			name = "counter_ideology"
 			spriteType = "GFX_onmap_unit_counter_ideology"
-			position = { x=45 y=0 }
+			position = { x=45 y=9 }
 			alwaystransparent = yes
 		}
 
@@ -352,20 +352,20 @@ guiTypes = {
 		position = { x=0 y=0 }
 		size = { width = 58 height = 24 }
 		clipping = no
-	
+
 		buttonType = {
 			name = "count_bg"
 			quadTextureSprite = "GFX_onmap_unit_counter"
 			position = { x=0 y=0 }
 		}
-	
+
 		iconType ={
 			name ="group_marker"
 			spriteType = "GFX_UV_group_marker"
 			position = { x=55 y=2 }
 			alwaystransparent = yes
 		}
-	
+
 		iconType = {
 			name = "counter_ideology"
 			spriteType = "GFX_onmap_unit_counter_ideology"
@@ -644,6 +644,7 @@ guiTypes = {
 
 
 	#### RESOURCE MAP ICON
+	
 	containerWindowType = {
 		name = "resource_mapicon_item"
 		position = { x = 0 y = 0 }
@@ -653,7 +654,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "desc"
 			position = { x = 0 y = 0 }
-			font = "hoi_16mbs"
+			font = "century_gothic_16"
 			text = ""
 			maxWidth = 100
 			maxHeight = 20
@@ -667,6 +668,7 @@ guiTypes = {
 			position = { x= -25 y = -5 }
 		}
 	}
+
 	containerWindowType = {
 		name = "resource_mapicon"
 		#backGround =""
@@ -689,6 +691,24 @@ guiTypes = {
 			name = "flag"
 			quadTextureSprite ="GFX_flag_smallest"
 			position = { x= 20 y = -22 }
+		}
+	}
+
+	#### STATE MODIFIER MAP ICON
+
+	containerWindowType = {
+		name = "state_modifier_mapicon"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height = 0 }
+		orientation = center
+
+		gridboxtype = {
+			name = "modifiers_list"
+			position = { x = 0 y = 0 }
+			max_slots_vertical = 1
+			size = { width = 100%% height = 100%% }
+			slotsize = { width = 40 height = 40 }
+			format = "UPPER_LEFT"
 		}
 	}
 
@@ -1177,7 +1197,7 @@ guiTypes = {
 			position = {x=0 y=35}
 			spriteType = "GFX_mapicon_unit_no_orders"
 		}
-
+		
 		instantTextboxType = {
 			name = "supply_count_small"
 			position = { x=-7 y=-6 }
@@ -1702,7 +1722,7 @@ guiTypes = {
 			name = "decisions_gridbox"
 			position = { x = 0 y = 0 } #Set in code
 			size = { width = 100%% height = 100%% }
-			slotsize = { width = 50 height = 40 } ## Anything less than 50 width makes CP custom costs overlap unreadably
+			slotsize = { width = 130 height = 40 } ## Anything less than 50 width makes CP custom costs overlap unreadably
 			max_slots_horizontal = 3 #Set in code
 		}
 	}
@@ -2490,45 +2510,45 @@ guiTypes = {
 		}
 	}
 
-	# containerWindowType = {
-	# 	name = "railway_map_icon"
-	# 	position = { x=0 y=0 }
-	# 	size = { width = 20 height = 20 }
-	# 	clipping = no
+	containerWindowType = {
+		name = "railway_map_icon"
+		position = { x=0 y=0 }
+		size = { width = 20 height = 20 }
+		clipping = no
 
 
-	# 	iconType ={
-	# 		name ="bg"
-	# 		spriteType = "GFX_railway_mapicon_bg"
-	# 		position = { x=0 y=0 }
-	# 	}
+		iconType ={
+			name ="bg"
+			spriteType = "GFX_railway_mapicon_bg"
+			position = { x=0 y=0 }
+		}
 
-	# 	iconType ={
-	# 		name ="under_construction"
-	# 		spriteType = "GFX_under_construction"
-	# 		position = { x=0 y=-20 }
-	# 	}
+		iconType ={
+			name ="under_construction"
+			spriteType = "GFX_under_construction"
+			position = { x=0 y=-20 }
+		}
 
-	# 	instantTextBoxType = {
-	# 		name = "text"
-	# 		position = { x = -10 y = 1 }
-	# 		font = "century_gothic_black_16"
-	# 		borderSize = {x = 0 y = 0}
-	# 		text = "5"
-	# 		maxWidth = 40
-	# 		maxHeight = 32
-	# 		format = centre
-	# 		alwaystransparent = yes
-	# 	}
+		instantTextBoxType = {
+			name = "text"
+			position = { x = -10 y = 1 }
+			font = "hoi4_typewriter16"
+			borderSize = {x = 0 y = 0}
+			text = "5"
+			maxWidth = 40
+			maxHeight = 32
+			format = centre
+			alwaystransparent = yes
+		}
 
-	# 	iconType = {
-	# 		name ="cooldown"
-	# 		spriteType = "GFX_leader_en_route"
-	# 		position = { x=0 y=-6 }
-	# 		scale = 1
-	# 	}
-	# }
-
+		iconType = {
+			name ="cooldown"
+			spriteType = "GFX_leader_en_route"
+			position = { x=0 y=-6 }
+			scale = 1
+		}
+	}
+	
 	containerWindowType = {
 		name = "peace_mapicon"
 		position = { x=0 y=0 }
@@ -2566,7 +2586,7 @@ guiTypes = {
 			instantTextBoxType = {
 				name ="cost"
 				position = { x= 0 y = 6 }
-				font = "hoi_18mbs"
+				font = "century_gothic_18"
 				text = "9999"
 				format = CENTER
 				maxWidth = 100
@@ -2601,7 +2621,7 @@ guiTypes = {
 		instantTextboxType = {
 			name = "amount"
 			position = { x= 28 y = 3 }
-			font = "hoi_16mbs"
+			font = "century_gothic_16"
 			text = "99"
 			format = left
 			maxWidth = 30
