@@ -408,6 +408,116 @@ country_event = {
 }
 
 country_event = {
+	# Draft Evasion 1
+	id = shared.90
+	title = shared.90.t
+	desc = shared.90.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_idea = Aggressive_Mobilisation_1
+			has_idea = Aggressive_Mobilisation_2
+			has_idea = Aggressive_Mobilisation_3
+			has_idea = Aggressive_Mobilisation_4
+			has_idea = Aggressive_Mobilisation_5
+		}
+		has_war_support < 0.8
+		has_war = yes
+	}
+	option = {
+		name = shared.90.a
+	}
+}
+
+country_event = {
+	# Draft Evasion 2
+	id = shared.91
+	title = shared.91.t
+	desc = shared.91.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_idea = Aggressive_Mobilisation_1
+			has_idea = Aggressive_Mobilisation_2
+			has_idea = Aggressive_Mobilisation_3
+			has_idea = Aggressive_Mobilisation_4
+			has_idea = Aggressive_Mobilisation_5
+		}
+		has_war_support < 0.8
+		has_war = yes
+	}
+	option = {
+		name = shared.91.a
+	}
+}
+
+country_event = {
+	# Draft Evasion 3
+	id = shared.92
+	title = shared.92.t
+	desc = shared.92.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_idea = Aggressive_Mobilisation_1
+			has_idea = Aggressive_Mobilisation_2
+			has_idea = Aggressive_Mobilisation_3
+			has_idea = Aggressive_Mobilisation_4
+			has_idea = Aggressive_Mobilisation_5
+		}
+		has_war_support < 0.8
+		has_war = yes
+	}
+	option = {
+		name = shared.92.a
+	}
+}
+
+country_event = {
+	# Draft Evasion 4
+	id = shared.93
+	title = shared.93.t
+	desc = shared.93.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_idea = Aggressive_Mobilisation_1
+			has_idea = Aggressive_Mobilisation_2
+			has_idea = Aggressive_Mobilisation_3
+			has_idea = Aggressive_Mobilisation_4
+			has_idea = Aggressive_Mobilisation_5
+		}
+		has_war_support < 0.8
+		has_war = yes
+	}
+	option = {
+		name = shared.93.a
+	}
+}
+
+country_event = {
+	# Draft Evasion 5
+	id = shared.94
+	title = shared.94.t
+	desc = shared.94.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_idea = Aggressive_Mobilisation_1
+			has_idea = Aggressive_Mobilisation_2
+			has_idea = Aggressive_Mobilisation_3
+			has_idea = Aggressive_Mobilisation_4
+			has_idea = Aggressive_Mobilisation_5
+		}
+		has_war_support < 0.8
+		has_war = yes
+	}
+	option = {
+		name = shared.94.a
+	}
+}
+
+country_event = {
 	# Concept of Friendship Between Nations
 	id = shared.100
 	title = shared.100.t
@@ -1162,8 +1272,13 @@ country_event = {
 							is_country_leader = yes
 							has_ideology = progressism_transitionism_subtype
 						}
+						any_character = {
+							is_country_leader = yes
+							has_character_flag = Left_Wing_Social_Democrat
+						}
 						has_government = autonomous_socialism
 						has_government = katzerism
+						has_government = neosocialism
 					}
 					NOT = {
 						is_in_faction_with = RCR
@@ -1210,12 +1325,27 @@ country_event = {
 		RCR = {
 			add_to_faction = ROOT
 		}
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = RCR
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = Internationale_Trade_Relations
+				}
+			}
+		}
 	}
 	option = {
 		name = shared.121.b
 		RCR = {
 			add_political_power = -10
 		}
+		add_political_power = -10
 	}
 }
 
