@@ -1147,38 +1147,26 @@ country_event = {
 	option = {
 		name = shared.118.a
 		if = {
-			limit = {
-				check_variable = {
-					global.International_Temporary_Boon = 1					# ID of object of discussion - there can be plenty of them
-				}
-			}
-			every_country = {
-				limit = {
-					has_country_flag = Internationale_resolution_offered
-				}
-				country_event = shared.106
-			}
-			set_variable = {
-				global.International_Temporary_Boon = 0
-			}
-			clr_country_flag = Internationale_resolution_offered
-		}
+            limit = {
+                check_variable = {
+                    global.International_Temporary_Boon = 1                    # ID of object of discussion - there can be plenty of them
+                }
+            }
+            var:internationale_country_chosen = { country_event = shared.106 }
+            set_variable = {
+                global.International_Temporary_Boon = 0
+            }
+        }
 		else_if = {
 			limit = {
 				check_variable = {
 					global.International_Temporary_Boon = 2					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			every_country = {
-				limit = {
-					has_country_flag = Internationale_resolution_offered
-				}
-				country_event = shared.107
-			}
+			var:internationale_country_chosen = { country_event = shared.107 }
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
-			clr_country_flag = Internationale_resolution_offered
 		}
 		else_if = {
 			limit = {
@@ -1186,16 +1174,10 @@ country_event = {
 					global.International_Temporary_Boon = 3					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			every_country = {
-				limit = {
-					has_country_flag = Internationale_resolution_offered
-				}
-				country_event = shared.108
-			}
+			var:internationale_country_chosen = { country_event = shared.108 }
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
-			clr_country_flag = Internationale_resolution_offered
 		}
 		else_if = {
 			limit = {
@@ -1203,16 +1185,10 @@ country_event = {
 					global.International_Temporary_Boon = 4					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			every_country = {
-				limit = {
-					has_country_flag = Internationale_resolution_offered
-				}
-				country_event = shared.109
-			}
+			var:internationale_country_chosen = { country_event = shared.109 }
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
-			clr_country_flag = Internationale_resolution_offered
 		}
 		else_if = {
 			limit = {
@@ -1220,16 +1196,10 @@ country_event = {
 					global.International_Temporary_Boon = 5					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			every_country = {
-				limit = {
-					has_country_flag = Internationale_resolution_offered
-				}
-				country_event = shared.110
-			}
+			var:internationale_country_chosen = { country_event = shared.110 }
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
-			clr_country_flag = Internationale_resolution_offered
 		}
 	}
 }
@@ -1303,7 +1273,35 @@ country_event = {
 			limit = {
 				has_country_flag = Asked_for_Infrastructure
 			}
-			every_owned_state = {
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
