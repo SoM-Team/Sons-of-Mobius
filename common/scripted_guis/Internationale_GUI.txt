@@ -1,0 +1,28 @@
+scripted_gui = {
+	Internationale_Scripted_GUI = {
+		context_type = decision_category
+		window_name = Internationale_Choose_Country
+
+		dynamic_lists = {
+			Internationale_Country_List = {
+				array = global.internationale_members
+				change_scope = yes
+				entry_container = "Internationale_Country_Entry"
+			}
+		}
+
+		effects = {
+			Internationale_Country_Button_click = {
+				set_variable = {
+					ROOT.internationale_country_chosen = THIS
+				}
+			}
+		}
+
+		properties = {
+			Internationale_Country_Flag = {
+				image = "[This.GetFlag]"
+			}
+		}
+	}
+}

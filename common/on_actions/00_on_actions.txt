@@ -1,6 +1,17 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			clear_array = global.internationale_members
+			every_country = {
+				limit = {
+                    is_in_faction_with = RCR
+				}
+				add_to_array = {
+					array = global.internationale_members
+					value = THIS
+				}
+			}
+
 			every_country = {
 				calculate_ring_gain = yes
 			}
