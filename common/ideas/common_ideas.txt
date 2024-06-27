@@ -112,6 +112,257 @@ ideas = {
 				army_morale_factor = -0.1
 			}
 		}
+		Aggressive_Mobilisation_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 1000
+				stability_weekly = -0.001
+				war_support_weekly = -0.001
+			}
+		}
+		Aggressive_Mobilisation_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					num_of_factories > 10
+					surrender_progress > 0.05
+				}
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 2500
+				stability_weekly = -0.005
+				war_support_weekly = -0.005
+				army_org_factor = -0.05
+			}
+		}
+		Aggressive_Mobilisation_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					num_of_factories > 25
+					surrender_progress > 0.1
+				}
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 5000
+				stability_weekly = -0.015
+				war_support_weekly = -0.015
+				army_org_factor = -0.2
+			}
+		}
+		Aggressive_Mobilisation_4 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					num_of_factories > 50
+					surrender_progress > 0.2
+				}
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 10000
+				stability_weekly = -0.04
+				war_support_weekly = -0.04
+				army_org_factor = -0.5
+			}
+		}
+		Aggressive_Mobilisation_5 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					num_of_factories > 75
+					surrender_progress > 0.3
+				}
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				weekly_manpower = 20000
+				stability_weekly = -0.1
+				war_support_weekly = -0.1
+				army_org_factor = -0.8
+			}
+		}
+		Draft_Evasion_1 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.8
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				conscription_factor = -0.05
+				stability_weekly = -0.001
+				war_support_weekly = -0.001
+			}
+		}
+		Draft_Evasion_2 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.7
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = -0.05
+				conscription_factor = -0.1
+				stability_weekly = -0.003
+				war_support_weekly = -0.003
+			}
+		}
+		Draft_Evasion_3 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.6
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.1
+				production_speed_buildings_factor = -0.1
+				production_factory_max_efficiency_factor = -0.05
+				conscription_factor = -0.15
+				stability_weekly = -0.006
+				war_support_weekly = -0.006
+			}
+		}
+		Draft_Evasion_4 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.5
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_speed_buildings_factor = -0.15
+				production_factory_max_efficiency_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.05
+				conscription_factor = -0.25
+				stability_weekly = -0.01
+				war_support_weekly = -0.01
+			}
+		}
+		Draft_Evasion_5 = {
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.4
+				has_war = yes
+			}
+			cancel_if_invalid = yes
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.25
+				production_speed_buildings_factor = -0.3
+				production_factory_max_efficiency_factor = -0.1
+				conscription_factor = -0.4
+				stability_weekly = -0.015
+				war_support_weekly = -0.015
+			}
+		}
 	}
 	hidden_ideas = {
 		Rings_Infinite_Fuel = {
