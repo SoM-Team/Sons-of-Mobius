@@ -186,13 +186,198 @@ International_Decisions = {
 	# 		country_event = shared.110
 	# 	}
 	# }
+	International_Scientific_Reforms = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
+				# has_completed_focus = RCR_Way_of_Pallasov
+				has_government = katzerism
+			}
+			check_variable = {
+				rings > 49999
+			}
+		}
+		visible = {
+			NOT = {
+				has_idea = Friendship_of_Peoples_Science_5
+			}
+		}
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			set_global_flag = International_Scientific_Reforms
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_subject = no
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115
+			}
+		}
+	}
+	International_Social_Reforms = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
+				# has_completed_focus = RCR_Way_of_Pallasov
+				has_government = katzerism
+			}
+			check_variable = {
+				rings > 49999
+			}
+		}
+		visible = {
+			NOT = {
+				has_idea = Friendship_of_Peoples_Welfare_Programs_5
+			}
+		}
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			set_global_flag = International_Social_Reforms
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_subject = no
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115
+			}
+		}
+	}
+	International_Military_Reforms = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
+				# has_completed_focus = RCR_Way_of_Pallasov
+				has_government = katzerism
+			}
+			check_variable = {
+				rings > 49999
+			}
+		}
+		visible = {
+			NOT = {
+				has_idea = Friendship_of_Peoples_Para_Bellum_5
+			}
+		}
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			set_global_flag = International_Military_Reforms
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_subject = no
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115
+			}
+		}
+	}
+	International_Political_Reforms = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
+				# has_completed_focus = RCR_Way_of_Pallasov
+				has_government = katzerism
+			}
+			check_variable = {
+				rings > 49999
+			}
+		}
+		visible = {
+			NOT = {
+				has_idea = Friendship_of_Peoples_Politics_5
+			}
+		}
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			set_global_flag = International_Political_Reforms
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_subject = no
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115
+			}
+		}
+	}
+	International_Secret_Service_Reforms = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
+				# has_completed_focus = RCR_Way_of_Pallasov
+				has_government = katzerism
+			}
+			check_variable = {
+				rings > 49999
+			}
+		}
+		visible = {
+			NOT = {
+				has_idea = Friendship_of_Peoples_Espionage_5
+			}
+		}
+		cost = 0
+		days_remove = 3
+		complete_effect = {
+			set_global_flag = International_Secret_Service_Reforms
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_subject = no
+				}
+				country_event = shared.111
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				country_event = shared.115
+			}
+		}
+	}
 	International_Ask_for_Boon = {
 		allowed = {
 			always = yes
 		}
 		available = {
-			is_in_faction_with = RCR
-			RCR = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
 				# has_completed_focus = RCR_Way_of_Pallasov
 				has_government = katzerism
 			}
@@ -220,8 +405,8 @@ International_Decisions = {
 			always = yes
 		}
 		available = {
-			is_in_faction_with = RCR
-			RCR = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
 				# has_completed_focus = RCR_Way_of_Pallasov
 				has_government = katzerism
 			}
@@ -230,8 +415,10 @@ International_Decisions = {
 		cost = 0
 		days_remove = 3
 		complete_effect = {
-			hidden_effect = {
-				set_country_flag = Asked_for_Infrastructure
+			var:internationale_country_chosen = {
+				hidden_effect = {
+					set_country_flag = Infrastructure_Project_Recipient
+				}
 			}
 			every_other_country = {
 				limit = {
@@ -252,8 +439,8 @@ International_Decisions = {
 			always = yes
 		}
 		available = {
-			is_in_faction_with = RCR
-			RCR = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
 				# has_completed_focus = RCR_Way_of_Pallasov
 				has_government = katzerism
 			}
@@ -283,8 +470,8 @@ International_Decisions = {
 			always = yes
 		}
 		available = {
-			is_in_faction_with = RCR
-			RCR = {
+			# is_in_faction_with = RCR
+			var:faction_leader = {
 				# has_completed_focus = RCR_Way_of_Pallasov
 				has_government = katzerism
 			}
@@ -306,25 +493,6 @@ International_Decisions = {
 		remove_effect = {
 			hidden_effect = {
 				country_event = shared.115
-			}
-		}
-	}
-	International_Opinion_Modifier_Test = {
-		complete_effect = {
-			every_country = {
-				limit = {
-					is_in_faction_with = RCR
-				}
-				every_country = {
-					limit = {
-						is_in_faction_with = RCR
-					}
-	
-					add_opinion_modifier = {
-						target = PREV
-						modifier = Internationale_Trade_Relations
-					}
-				}
 			}
 		}
 	}
