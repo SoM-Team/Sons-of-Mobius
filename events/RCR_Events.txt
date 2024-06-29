@@ -294,8 +294,9 @@ country_event = {
 			}
 		}
 		set_country_flag = Shilov_coup
-		set_power_balance = {
-			id = Shilov_authority
+		set_variable = {
+			id = Shilov_power_balance
+			value = 0
 		}
 		hidden_effect = {
 			country_event = {
@@ -315,12 +316,12 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		OR = {
-			power_balance_value = {
-				id = Shilov_authority
+			check_variable = {
+				id = Shilov_power_balance
 				value > 0.49
 			}
-			power_balance_value = {
-				id = Shilov_authority
+			check_variable = {
+				id = Shilov_power_balance 
 				value < -0.49
 			}
 		}
@@ -671,12 +672,13 @@ country_event = {
 	desc = rcr.31.d
 	picture = GFX_report_event_arrest_em
 	trigger = {
-		power_balance_value = {
-			id = Shilov_authority
+		check_variable = {
+			id = Shilov_power_balance
 			value > 0.7
 		}
 	}
 	is_triggered_only = yes
+	fire_only_once = yes
 	option = {
 		name = rcr.31.a
 		kill_country_leader = yes
@@ -3172,8 +3174,8 @@ country_event = {
 		name = rcr.109.a
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0.7
 				}
 			}
@@ -3184,8 +3186,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < -0.7
 				}
 			}
@@ -3205,8 +3207,8 @@ country_event = {
 		name = rcr.109.b
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0.7
 				}
 			}
@@ -3217,8 +3219,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < -0.7
 				}
 			}
@@ -3238,8 +3240,8 @@ country_event = {
 		name = rcr.109.c
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0.7
 				}
 			}
@@ -3250,8 +3252,8 @@ country_event = {
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < -0.7
 				}
 			}
@@ -3278,9 +3280,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr.110.a
-		remove_power_balance = {
-			id = Shilov_authority
-		}
+		clear_variable = Shilov_power_balance
 		add_stability = 0.15
 		retire_character = RCR_Gennadiy_Shilov
 		retire_character = RCR_Dmitriy_Sadalov
@@ -3306,9 +3306,7 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr.111.a
-		remove_power_balance = {
-			id = Shilov_authority
-		}
+		clear_variable = Shilov_power_balance
 		add_stability = 0.1
 		retire_character = RCR_Gennadiy_Shilov
 		retire_character = RCR_Dmitriy_Sadalov
@@ -3334,12 +3332,11 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr.112.a
-		remove_power_balance = {
-			id = Shilov_authority
-		}
+		clear_variable = Shilov_power_balance
 		retire_character = RCR_Leona_Eismesser
 		retire_character = RCR_Fyodor_Shubin
 		retire_character = RCR_Nikolay_Koliuchkin
+		retire_character = RCR_Zoya_Shubina
 		add_stability = 0.05
 		add_war_support = 0.1
 	}
@@ -3441,25 +3438,25 @@ country_event = {
 		add_stability = -0.05
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = -0.1
 			}
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -3606,8 +3603,8 @@ country_event = {
 			}
 			add_war_support = 0.05
 			add_stability = 0.05
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -3707,8 +3704,8 @@ country_event = {
 		else = {
 			add_stability = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.1
 		}
 	}
@@ -3807,8 +3804,8 @@ country_event = {
 		else = {
 			add_war_support = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = 0.1
 		}
 	}
@@ -3957,25 +3954,25 @@ country_event = {
 			add_political_power = 50
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value > 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = -0.1
 				}
 			}
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value < 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = 0.1
 				}
 			}
@@ -4076,8 +4073,8 @@ country_event = {
 		else = {
 			add_stability = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.1
 		}
 	}
@@ -4177,8 +4174,8 @@ country_event = {
 			add_stability = 0.1
 		}
 		add_stability = 0.05
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.15
 		}
 	}
@@ -4327,25 +4324,25 @@ country_event = {
 			add_political_power = 50
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value > 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = -0.1
 				}
 			}
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value < 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = 0.1
 				}
 			}
@@ -4447,8 +4444,8 @@ country_event = {
 			add_war_support = 0.1
 		}
 		add_stability = -0.1
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = 0.15
 		}
 	}
@@ -4593,8 +4590,8 @@ country_event = {
 				add_ideas = Civil_Tension_1
 			}
 			add_war_support = 0.05
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -4694,8 +4691,8 @@ country_event = {
 		else = {
 			add_stability = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.1
 		}
 	}
@@ -4796,25 +4793,25 @@ country_event = {
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = -0.1
 			}
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -4917,25 +4914,25 @@ country_event = {
 		set_country_flag = Shilov_military_administration
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
-				value = -0.1
+			add_to_variable = {
+				id = Shilov_power_balance
+				value = 0.1
 			}
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -5083,8 +5080,8 @@ country_event = {
 			add_war_support = 0.05
 			add_stability = 0.05
 			set_country_flag = Shilov_mixed_administration
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.15
 			}
 		}
@@ -5185,8 +5182,8 @@ country_event = {
 			add_stability = 0.1
 		}
 		set_country_flag = Shilov_civilian_administration
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.15
 		}
 	}
@@ -5286,8 +5283,8 @@ country_event = {
 			add_war_support = 0.1
 		}
 		add_political_power = -50
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = 0.1
 		}
 	}
@@ -5436,25 +5433,25 @@ country_event = {
 			add_political_power = -100
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value > 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = -0.05
 				}
 			}
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value < 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = 0.05
 				}
 			}
@@ -5555,8 +5552,8 @@ country_event = {
 		else = {
 			add_stability = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.1
 		}
 	}
@@ -5658,25 +5655,25 @@ country_event = {
 		add_stability = -0.15
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = -0.1
 			}
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.1
 			}
 		}
@@ -5823,8 +5820,8 @@ country_event = {
 			}
 			add_war_support = 0.05
 			add_stability = -0.05
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 0.15
 			}
 		}
@@ -5925,8 +5922,8 @@ country_event = {
 			add_stability = 0.1
 		}
 		add_stability = -0.15
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.15
 		}
 	}
@@ -6074,25 +6071,25 @@ country_event = {
 			add_stability = 0.05
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value > 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = -0.1
 				}
 			}
 			if = {
 				limit = {
-					power_balance_value = {
-						id = Shilov_authority
+					check_variable = {
+						id = Shilov_power_balance
 						value < 0
 					}
 				}
-				add_power_balance_value = {
-					id = Shilov_authority
+				add_to_variable = {
+					id = Shilov_power_balance
 					value = 0.1
 				}
 			}
@@ -6193,8 +6190,8 @@ country_event = {
 		else = {
 			add_war_support = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = 0.1
 		}
 	}
@@ -6293,8 +6290,8 @@ country_event = {
 		else = {
 			add_stability = 0.1
 		}
-		add_power_balance_value = {
-			id = Shilov_authority
+		add_to_variable = {
+			id = Shilov_power_balance
 			value = -0.1
 		}
 	}
@@ -6313,12 +6310,12 @@ country_event = {
 			OR = {
 				has_stability < 20
 				has_war_support < 20
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0.7
 				}
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < -0.7
 				}
 			}
@@ -6332,13 +6329,13 @@ country_event = {
 		name = rcr.137.a
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value > 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = 1
 			}
 			country_event = {
@@ -6348,13 +6345,13 @@ country_event = {
 		}
 		if = {
 			limit = {
-				power_balance_value = {
-					id = Shilov_authority
+				check_variable = {
+					id = Shilov_power_balance
 					value < 0
 				}
 			}
-			add_power_balance_value = {
-				id = Shilov_authority
+			add_to_variable = {
+				id = Shilov_power_balance
 				value = -1
 			}
 			country_event = {
@@ -6365,9 +6362,10 @@ country_event = {
 		if = {
 			limit = {
 				NOT = {
-					has_power_balance = {
-						id = Shilov_authority
-					}
+					has_character = RCR_Yuriy_Pallasov
+					has_character = RCR_Leona_Eismesser
+					has_character = RCR_Nikolay_Koliuchkin
+					has_character = RCR_Fyodor_Shubin
 				}
 			}
 			country_event = rcr.138
@@ -6384,31 +6382,31 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = rcr.138.a
-		# add_popularity = {
-		# 	ideology = katzerism
-		# 	popularity = 0.15
-		# }
+		add_popularity = {
+			ideology = katzerism
+			popularity = 0.15
+		}
 		start_civil_war = {
 			ruling_party = katzerism
 			ideology = neosocialism
-			size = 0.15
+			size = 0.3
 			army_ratio = 0.25
-			navy_ratio = 0.1
+			navy_ratio = 0.15
 			air_ratio = 0.25
 			set_country_flag = Second_Rethenian_Civil_War
 		}
-		# retire_character = RCR_Gennadiy_Shilov
-		# retire_character = RCR_Dmitriy_Sadalov
-		# retire_character = RCR_Ivan_Turbin
-		# retire_character = RCR_Pavel_Ugryumov
-		# retire_character = RCR_Vladislav_Andreev
-		# retire_character = RCR_Adomas_Guboriavichus
-		# retire_character = RCR_Maria_Rakhmaninova
-		# retire_character = RCR_Boris_Dubovoy
-		# retire_character = RCR_Potap_Chenkov
-		# retire_character = RCR_Roman_Pozharskiy
-		# retire_character = RCR_Gavriil_Akvilov
-		# retire_character = RCR_Andrei_Verkhovskiy
+		retire_character = RCR_Gennadiy_Shilov
+		retire_character = RCR_Dmitriy_Sadalov
+		retire_character = RCR_Ivan_Turbin
+		retire_character = RCR_Pavel_Ugryumov
+		retire_character = RCR_Vladislav_Andreev
+		retire_character = RCR_Adomas_Guboriavichus
+		retire_character = RCR_Maria_Rakhmaninova
+		retire_character = RCR_Boris_Dubovoy
+		retire_character = RCR_Potap_Chenkov
+		retire_character = RCR_Roman_Pozharskiy
+		retire_character = RCR_Gavriil_Akvilov
+		retire_character = RCR_Andrei_Verkhovskiy
 	}
 }
 

@@ -1098,20 +1098,20 @@ country_event = {
 	}
 }
 
-country_event = {
-	# Mark offering country 
-	id = shared.116
-	title = shared.116.t
-	desc = shared.116.d
-	is_triggered_only = yes
-	hidden = yes
-	option = {
-		name = shared.116.a
-		ROOT = {
-			set_country_flag = Internationale_resolution_offered
-		}
-	}
-}
+# country_event = {
+# 	# Mark offering country 
+# 	id = shared.116
+# 	title = shared.116.t
+# 	desc = shared.116.d
+# 	is_triggered_only = yes
+# 	hidden = yes
+# 	option = {
+# 		name = shared.116.a
+# 		ROOT = {
+# 			set_country_flag = Internationale_resolution_offered
+# 		}
+# 	}
+# }
 
 country_event = {
 	# Type of boon
@@ -1222,7 +1222,57 @@ country_event = {
 	desc = shared.120.d
 	is_triggered_only = yes
 	option = {
-		name = shared.120.a
+		name = shared.120.
+		if = {
+			limit = {
+				has_global_flag = International_Scientific_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Scientific_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Scientific_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Social_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Social_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Social_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Military_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Military_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Military_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Political_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Political_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Political_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Secret_Service_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Secret_Service_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Secret_Service_Reforms
+		}
 		if = {
 			limit = {
 				check_variable = {
@@ -1264,14 +1314,14 @@ country_event = {
 			}
 			every_country = {
 				limit = {
-					has_war_with = ROOT
+					has_war_with = var:internationale_country_chosen
 				}
 				country_event = shared.122
 			}
 		}
 		if = {
 			limit = {
-				has_country_flag = Asked_for_Infrastructure
+				has_country_flag = Infrastructure_Project_Recipient
 			}
 			random_owned_state = {
 				add_building_construction = {
@@ -1336,6 +1386,9 @@ country_event = {
 					modifier = Internationale_Trade_Relations
 				}
 			}
+		}
+		add_to_variable = {
+			global.International_Volunteers = 0.5
 		}
 	}
 	option = {
