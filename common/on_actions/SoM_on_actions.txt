@@ -19,6 +19,65 @@ on_actions = {
 			}
 		}
 	}
+	on_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					is_in_faction_with = RCR
+				}
+				add_to_array = {
+					array = global.internationale_members 
+					value = THIS
+				}
+				every_country = {
+                    limit = {
+                        is_in_faction_with = RCR
+                    }
+                    add_opinion_modifier = {
+                        target = PREV
+                        modifier = Internationale_Trade_Relations
+                    }
+                    PREV = {
+                        add_opinion_modifier = {
+                            target = PREV
+                            modifier = Internationale_Trade_Relations
+                        }
+                    }
+                }
+			}
+		}
+	}
+	on_leave_faction = {
+		effect = {
+			if = {
+				limit = {
+					is_in_array = {
+						array = global.internationale_members 
+						value = THIS
+					}
+				}
+				remove_from_array = {
+					array = global.internationale_members 
+					value = THIS
+				}
+				every_country = {
+                    limit = {
+                        is_in_faction_with = RCR
+                    }
+                    remove_opinion_modifier = {
+                        target = PREV
+                        modifier = Internationale_Trade_Relations
+                    }
+                    PREV = {
+                        remove_opinion_modifier = {
+                            target = PREV
+                            modifier = Internationale_Trade_Relations
+                        }
+                    }
+                }
+			}
+		}
+	}
 	on_daily_EGG = {
         effect = {
             if = {
