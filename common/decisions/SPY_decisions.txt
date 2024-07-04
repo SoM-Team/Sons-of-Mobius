@@ -1,1595 +1,1633 @@
-# SPY_HUMAN = {
-#     defend_buff = { # Бонус на защиту технологий. Учитывается -только- при воровстве и диверсиях. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		}
-# 		cost = 200
-#         days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 200
-# 		modifier = {
-# 		}
-# 		visible = {
-# 		}
-# 		complete_effect = {
-# 		hidden_effect = {
-# 		add_timed_idea = {
-#             idea = SPYDEF_BONUS
-#             days = 200
-#         }
-# 		}
-# 		}
-# 		remove_effect = {
-# 	   hidden_effect = {
-# 	   }
-# 	}
-# 	}
-# 	steal_buff = { # Бонус на кражу технологий. Учитывается -только- при воровстве. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		cost = 150
-#         days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		hidden_effect = {
-# 		add_timed_idea = {
-#             idea = SPY_BONUS
-#             days = 100
-#         }
-# 		}
-# 		}
-# 		remove_effect = {
-# 	   hidden_effect = {
-# 	   }
-# 	}
-# 	}
-# 	resistance_buff = { # Бонус на диверсии. Учитывается -только- при диверсиях. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 				has_idea_with_trait = Resistance_Spy
-# 		}
-# 		cost = 150
-#         days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 		hidden_effect = {
-# 		add_timed_idea = {
-#             idea = RES_BONUS
-#             days = 100
-#         }
-# 		}
-# 		}
-# 		remove_effect = {
-# 	   hidden_effect = {
-# 	   }
-# 	}
-# 	}
-# 	##### Конец бонусов
-# 	steal_tech_bonus = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Tech_Spy
-# 		NOT = {
-# 		has_country_flag = Spy_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 200
-#         days_re_enable = 300
-# 		#fire_only_once = yes
-# 		days_remove = 75
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 			    AND = {
-# 				NOT = {is_owned_by = ROOT}
-# 				is_capital = yes
-# 				owner = {amount_research_slots > 1}
-# 				check_variable = {ROOT.StealPower > owner.DefendPower}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 		max_command_power = -5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Spy_On_Way
-# 		hidden_effect = {
-# 		FROM = {
-# 		owner = {
-# 		country_event = {
-#          id = spy.6
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		remove_effect = {
-# 		hidden_effect = {
-# 		random_list = {
-# 		ROOT.StealChance = {
-# 		if = {
-# 		limit = {
-# 		FROM = { owner = {amount_research_slots > 3} }
-# 		}
-# 		random_list = {
-# 		50 = {
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = radio_detection }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = radar_tech
-#         }
-# 		}
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = transistors  }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = electronics
-#         }
-# 		}
-# 		}
-# 		35 = {
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = experimental_rockets }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = rocketry
-#         }
-# 		}
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = atomic_research  }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = nuclear
-#         }
-# 		}
-# 		}
-# 		15 = {
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = industry
-#         }
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = infantry_tech
-#         }
-# 		add_tech_bonus = {
-#             bonus = 0.25
-#             uses = 1
-#             category = land_doctrine
-#         }
-# 		}
-# 		}
-# 		else = {
-# 		random_list = {
-# 		50 = {
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = radio_detection }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = radar_tech
-#         }
-# 		}
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = transistors  }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = electronics
-#         }
-# 		}
-# 		}
-# 		35 = {
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = experimental_rockets }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = rocketry
-#         }
-# 		}
-# 		if = {
-# 		limit = {
-# 		FROM = {owner = {has_tech = atomic_research  }}
-# 		}
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = nuclear
-#         }
-# 		}
-# 		}
-# 		15 = {
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = industry
-#         }
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = infantry_tech
-#         }
-# 		add_tech_bonus = {
-#             bonus = 0.1
-#             uses = 1
-#             category = land_doctrine
-#         }
-# 		}
-# 		}
-# 		}
-# 		#
-# 		}
-# 		news_event = {
-#          id = spy.11
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		#
-# 		ROOT.StealUnchance = {
-# 		random_list = {
-# 		50 = {
-# 		news_event = {
-#          id = spy.10
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		add_timed_idea = {
-#             idea = SPY_GOT
-#             days = 100
-#         }
-# 		PREV = {
-# 		owner = {
-# 		news_event = {
-#          id = spy.12
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		50 = {
-# 		news_event = {
-#          id = spy.9
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		clr_country_flag = Spy_On_Way
-# 		}
-# 	}	
-# 	steal_technologies = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Tech_Spy
-# 		NOT = {
-# 		has_country_flag = Spy_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 400
-#         days_re_enable = 500
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 			    AND = {
-# 				NOT = {is_owned_by = ROOT}
-# 				is_capital = yes
-# 				owner = {amount_research_slots > 1}
-# 				check_variable = {ROOT.StealPower > owner.DefendPower}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 		max_command_power = -5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Spy_On_Way
-# 		hidden_effect = {
-# 		FROM = {
-# 		owner = {
-# 		country_event = {
-#          id = spy.7
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		remove_effect = {
-# 		hidden_effect = {
-# 		random_list = {
-# 		ROOT.StealChance = {
-# 		FROM = {owner = {ROOT = {inherit_technology = PREV}}}
-# 		news_event = {
-#          id = spy.11
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		ROOT.StealUnchance = {
-# 		news_event = {
-#          id = spy.10
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		add_timed_idea = {
-#             idea = SPY_GOT
-#             days = 100
-#         }
-# 		PREV = {
-# 		owner = {
-# 		news_event = {
-#          id = spy.12
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	collect_technologies = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Tech_Spy
-# 		NOT = {
-# 		has_country_flag = Spy_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 100
-#         days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		max_command_power = -5
-# 		research_speed_factor = 0.05
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Spy_On_Way
-# 		}
-# 		remove_effect = {
-# 		clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	attack_on_unit_leader = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Resistance_Spy
-# 		NOT = {
-# 		has_country_flag = Res_On_Way
-# 		}
-# 		}
-# 		}#every_army_leader
-# 		cost = 150
-#         days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 70
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 			    AND = {
-# 				NOT = {is_owned_by = ROOT}
-# 				is_capital = yes
-# 				owner = {has_war_with = ROOT}
-# 				check_variable = {ROOT.ResistancePower > owner.DefendPower}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 		max_command_power = -5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Res_On_Way
-# 		hidden_effect = {
-# 		FROM = {
-# 		owner = {
-# 		country_event = {
-#          id = spy.8
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		remove_effect = {
-# 		hidden_effect = {
-# 		random_list = {
-# 		ROOT.ResistChance = {
-# 		FROM = {
-# 		owner = {
-# 		every_army_leader = {
-# 		random_list = {
-# 		50 = {
-# 		add_timed_unit_leader_trait = {
-#         trait = wounded
-#         days = 80
-#         }
-# 		}
-# 		50 = {
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		news_event = {
-#          id = spy.11
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		ROOT.ResistUnchance = {
-# 		random_list = {
-# 		50 = {
-# 		news_event = {
-#          id = spy.9
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		50 = {
-# 		news_event = {
-#          id = spy.10
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		add_timed_idea = {
-#             idea = RES_GOT
-#             days = 100
-#         }
-# 		FROM = {
-# 		owner = {
-# 		news_event = {
-#          id = spy.12
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	add_resistance = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Resistance_Spy
-# 		NOT = {
-# 		has_country_flag = Res_On_Way
-# 		}
-# 		}
-# 		}#every_army_leader
-# 		cost = 150
-#         days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 70
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 			    AND = {
-# 				NOT = {is_owned_by = ROOT}
-# 				is_capital = yes
-# 				owner = {has_war_with = ROOT}
-# 				check_variable = {ROOT.ResistancePower > owner.DefendPower}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 		max_command_power = -5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Res_On_Way
-# 		hidden_effect = {
-# 		FROM = {
-# 		owner = {
-# 		country_event = {
-#          id = spy.8
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		remove_effect = {
-# 		hidden_effect = {
-# 		random_list = {
-# 		ROOT.ResistChance = {
-# 		every_controlled_state = {
-# 		add_resistance = ROOT.ResistancePower
-# 		}
-# 		news_event = {
-#          id = spy.11
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		ROOT.ResistUnchance = {
-# 		random_list = {
-# 		50 = {
-# 		news_event = {
-#          id = spy.9
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		50 = {
-# 		news_event = {
-#          id = spy.10
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		add_timed_idea = {
-#             idea = RES_GOT
-#             days = 100
-#         }
-# 		FROM = {
-# 		owner = {
-# 		news_event = {
-#          id = spy.12
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	destroy_resistance = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_war = yes
-# 		has_idea_with_trait = Resistance_Spy
-# 		NOT = {
-# 		has_country_flag = Res_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 100
-#         days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		max_command_power = -5
-# 		resistance_target = -0.5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Res_On_Way
-# 		}
-# 		remove_effect = {
-# 		clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	recon_spy = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_war = yes
-# 		has_idea_with_trait = Tech_Spy
-# 		NOT = {
-# 		has_country_flag = Spy_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 100
-#         days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		max_command_power = -5
-# 		recon_factor = 0.5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Spy_On_Way
-# 		}
-# 		remove_effect = {
-# 		clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	steal_tech_slot = { 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		AND = {
-# 		has_idea_with_trait = Tech_Spy
-# 		NOT = {
-# 		has_country_flag = Spy_On_Way
-# 		}
-# 		}
-# 		}
-# 		cost = 300
-#         days_re_enable = 900
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 			    AND = {
-# 				NOT = {is_owned_by = ROOT}
-# 				is_capital = yes
-# 				owner = {amount_research_slots > 3}
-# 				check_variable = {ROOT.StealPower > owner.DefendPower}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 		max_command_power = -5
-# 		}
-# 		visible = {
-# 				has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 		set_country_flag = Spy_On_Way
-# 		hidden_effect = {
-# 		FROM = {
-# 		owner = {
-# 		country_event = {
-#          id = spy.7
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		remove_effect = {
-# 		hidden_effect = {
-# 		random_list = {
-# 		ROOT.StealChance = {
-# 		FROM = {add_research_slot = -1}
-# 		add_research_slot = 1
-# 		news_event = {
-#          id = spy.11
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		ROOT.StealUnchance = {
-# 		news_event = {
-#          id = spy.10
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		add_timed_idea = {
-#             idea = SPY_GOT
-#             days = 100
-#         }
-# 		PREV = {
-# 		owner = {
-# 		news_event = {
-#          id = spy.12
-#          days = 1
-#          random = 1
-#          random_days = 1
-#         }
-# 		}
-# 		}
-# 		}
-# 		}
-# 		}
-# 		clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# }
-# SPY_AI = {
-# 	defend_buff1 = {
-# 		# Бонус на защиту технологий. Учитывается -только- при воровстве и диверсиях. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 		}
-# 		cost = 200
-# 		days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 200
-# 		modifier = {
-# 		}
-# 		visible = {
-# 		}
-# 		complete_effect = {
-# 			hidden_effect = {
-# 				add_timed_idea = {
-# 					idea = SPYDEF_BONUS
-# 					days = 200
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 			}
-# 		}
-# 	}
-# 	steal_buff1 = {
-# 		# Бонус на кражу технологий. Учитывается -только- при воровстве. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		cost = 150
-# 		days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 			hidden_effect = {
-# 				add_timed_idea = {
-# 					idea = SPY_BONUS
-# 					days = 100
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 			}
-# 		}
-# 	}
-# 	resistance_buff1 = {
-# 		# Бонус на диверсии. Учитывается -только- при диверсиях. 
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			has_idea_with_trait = Resistance_Spy
-# 		}
-# 		cost = 150
-# 		days_re_enable = 50
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 			hidden_effect = {
-# 				add_timed_idea = {
-# 					idea = RES_BONUS
-# 					days = 100
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 			}
-# 		}
-# 	}
-# 	##### Конец бонусов
-# 	steal_tech_bonus1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_idea_with_trait = Tech_Spy
-# 				NOT = {
-# 					has_country_flag = Spy_On_Way
-# 				}
-# 			}
-# 		}
-# 		cost = 200
-# 		days_re_enable = 300
-# 		#fire_only_once = yes
-# 		days_remove = 75
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 				AND = {
-# 					NOT = {
-# 						is_owned_by = ROOT
-# 					}
-# 					is_capital = yes
-# 					owner = {
-# 						amount_research_slots > 1
-# 					}
-# 					check_variable = {
-# 						ROOT.StealPower > owner.DefendPower
-# 					}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 			max_command_power = -5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Spy_On_Way
-# 			hidden_effect = {
-# 				FROM = {
-# 					owner = {
-# 						country_event = {
-# 							id = spy.6
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 				random_list = {
-# 					ROOT.StealChance = {
-# 						if = {
-# 							limit = {
-# 								FROM = {
-# 									owner = {
-# 										amount_research_slots > 3
-# 									}
-# 								}
-# 							}
-# 							random_list = {
-# 								50 = {
-# 									if = {
-# 										limit = {
-# 											FROM = {
-# 												owner = {
-# 													has_tech = radio_detection
-# 												}
-# 											}
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.25
-# 											uses = 1
-# 											category = radar_tech
-# 										}
-# 									}
-# 									if = {
-# 										limit = {
-# 											FROM = {
-# 												owner = {
-# 													has_tech = transistors
-# 												}
-# 											}
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.25
-# 											uses = 1
-# 											category = electronics
-# 										}
-# 									}
-# 								}
-# 								35 = {
-# 									if = {
-# 										limit = {
-# 											FROM = {
-# 												owner = {
-# 													has_tech = experimental_rockets
-# 												}
-# 											}
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.25
-# 											uses = 1
-# 											category = rocketry
-# 										}
-# 									}
-# 									if = {
-# 										limit = {
-# 											FROM = {
-# 												owner = {
-# 													has_tech = atomic_research
-# 												}
-# 											}
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.25
-# 											uses = 1
-# 											category = nuclear
-# 										}
-# 									}
-# 								}
-# 								15 = {
-# 									add_tech_bonus = {
-# 										bonus = 0.25
-# 										uses = 1
-# 										category = industry
-# 									}
-# 									add_tech_bonus = {
-# 										bonus = 0.25
-# 										uses = 1
-# 										category = infantry_tech
-# 									}
-# 									add_tech_bonus = {
-# 										bonus = 0.25
-# 										uses = 1
-# 										category = land_doctrine
-# 									}
-# 								}
-# 							}
-# 							else = {
-# 								random_list = {
-# 									50 = {
-# 										if = {
-# 											limit = {
-# 												FROM = {
-# 													owner = {
-# 														has_tech = radio_detection
-# 													}
-# 												}
-# 											}
-# 											add_tech_bonus = {
-# 												bonus = 0.1
-# 												uses = 1
-# 												category = radar_tech
-# 											}
-# 										}
-# 										if = {
-# 											limit = {
-# 												FROM = {
-# 													owner = {
-# 														has_tech = transistors
-# 													}
-# 												}
-# 											}
-# 											add_tech_bonus = {
-# 												bonus = 0.1
-# 												uses = 1
-# 												category = electronics
-# 											}
-# 										}
-# 									}
-# 									35 = {
-# 										if = {
-# 											limit = {
-# 												FROM = {
-# 													owner = {
-# 														has_tech = experimental_rockets
-# 													}
-# 												}
-# 											}
-# 											add_tech_bonus = {
-# 												bonus = 0.1
-# 												uses = 1
-# 												category = rocketry
-# 											}
-# 										}
-# 										if = {
-# 											limit = {
-# 												FROM = {
-# 													owner = {
-# 														has_tech = atomic_research
-# 													}
-# 												}
-# 											}
-# 											add_tech_bonus = {
-# 												bonus = 0.1
-# 												uses = 1
-# 												category = nuclear
-# 											}
-# 										}
-# 									}
-# 									15 = {
-# 										add_tech_bonus = {
-# 											bonus = 0.1
-# 											uses = 1
-# 											category = industry
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.1
-# 											uses = 1
-# 											category = infantry_tech
-# 										}
-# 										add_tech_bonus = {
-# 											bonus = 0.1
-# 											uses = 1
-# 											category = land_doctrine
-# 										}
-# 									}
-# 								}
-# 							}
-# 							#
-# 						}
-# 						news_event = {
-# 							id = spy.11
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 					#
-# 					ROOT.StealUnchance = {
-# 						random_list = {
-# 							50 = {
-# 								news_event = {
-# 									id = spy.10
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 								add_timed_idea = {
-# 									idea = SPY_GOT
-# 									days = 100
-# 								}
-# 								PREV = {
-# 									owner = {
-# 										news_event = {
-# 											id = spy.12
-# 											days = 1
-# 											random = 1
-# 											random_days = 1
-# 										}
-# 									}
-# 								}
-# 							}
-# 							50 = {
-# 								news_event = {
-# 									id = spy.9
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 			clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	collect_technologies1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_idea_with_trait = Tech_Spy
-# 				NOT = {
-# 					has_country_flag = Spy_On_Way
-# 				}
-# 			}
-# 		}
-# 		cost = 100
-# 		days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 			max_command_power = -5
-# 			research_speed_factor = 0.05
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Spy_On_Way
-# 		}
-# 		remove_effect = {
-# 			clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	attack_on_unit_leader1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_idea_with_trait = Resistance_Spy
-# 				NOT = {
-# 					has_country_flag = Res_On_Way
-# 				}
-# 			}
-# 		}
-# 		#every_army_leader
-# 		cost = 150
-# 		days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 70
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 				AND = {
-# 					NOT = {
-# 						is_owned_by = ROOT
-# 					}
-# 					is_capital = yes
-# 					owner = {
-# 						has_war_with = ROOT
-# 					}
-# 					check_variable = {
-# 						ROOT.ResistancePower > owner.DefendPower
-# 					}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 			max_command_power = -5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Res_On_Way
-# 			hidden_effect = {
-# 				FROM = {
-# 					owner = {
-# 						country_event = {
-# 							id = spy.8
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 				random_list = {
-# 					ROOT.ResistChance = {
-# 						FROM = {
-# 							owner = {
-# 								every_army_leader = {
-# 									random_list = {
-# 										50 = {
-# 											add_timed_unit_leader_trait = {
-# 												trait = wounded
-# 												days = 80
-# 											}
-# 										}
-# 										50 = {
-# 										}
-# 									}
-# 								}
-# 							}
-# 						}
-# 						news_event = {
-# 							id = spy.11
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 					ROOT.ResistUnchance = {
-# 						random_list = {
-# 							50 = {
-# 								news_event = {
-# 									id = spy.9
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 							}
-# 							50 = {
-# 								news_event = {
-# 									id = spy.10
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 								add_timed_idea = {
-# 									idea = RES_GOT
-# 									days = 100
-# 								}
-# 								FROM = {
-# 									owner = {
-# 										news_event = {
-# 											id = spy.12
-# 											days = 1
-# 											random = 1
-# 											random_days = 1
-# 										}
-# 									}
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 			clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	add_resistance1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_idea_with_trait = Resistance_Spy
-# 				NOT = {
-# 					has_country_flag = Res_On_Way
-# 				}
-# 			}
-# 		}
-# 		#every_army_leader
-# 		cost = 150
-# 		days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 70
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 				AND = {
-# 					NOT = {
-# 						is_owned_by = ROOT
-# 					}
-# 					is_capital = yes
-# 					owner = {
-# 						has_war_with = ROOT
-# 					}
-# 					check_variable = {
-# 						ROOT.ResistancePower > owner.DefendPower
-# 					}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 			max_command_power = -5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Res_On_Way
-# 			hidden_effect = {
-# 				FROM = {
-# 					owner = {
-# 						country_event = {
-# 							id = spy.8
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 				random_list = {
-# 					ROOT.ResistChance = {
-# 						every_controlled_state = {
-# 							add_resistance = ROOT.ResistancePower
-# 						}
-# 						news_event = {
-# 							id = spy.11
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 					ROOT.ResistUnchance = {
-# 						random_list = {
-# 							50 = {
-# 								news_event = {
-# 									id = spy.9
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 							}
-# 							50 = {
-# 								news_event = {
-# 									id = spy.10
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 								add_timed_idea = {
-# 									idea = RES_GOT
-# 									days = 100
-# 								}
-# 								FROM = {
-# 									owner = {
-# 										news_event = {
-# 											id = spy.12
-# 											days = 1
-# 											random = 1
-# 											random_days = 1
-# 										}
-# 									}
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 			clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	destroy_resistance1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_war = yes
-# 				has_idea_with_trait = Resistance_Spy
-# 				NOT = {
-# 					has_country_flag = Res_On_Way
-# 				}
-# 			}
-# 		}
-# 		cost = 100
-# 		days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 			max_command_power = -5
-# 			resistance_target = -0.5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Resistance_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Res_On_Way
-# 		}
-# 		remove_effect = {
-# 			clr_country_flag = Res_On_Way
-# 		}
-# 	}
-# 	recon_spy1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_war = yes
-# 				has_idea_with_trait = Tech_Spy
-# 				NOT = {
-# 					has_country_flag = Spy_On_Way
-# 				}
-# 			}
-# 		}
-# 		cost = 100
-# 		days_re_enable = 80
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		modifier = {
-# 			max_command_power = -5
-# 			recon_factor = 0.5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Spy_On_Way
-# 		}
-# 		remove_effect = {
-# 			clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# 	steal_tech_slot1 = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			AND = {
-# 				has_idea_with_trait = Tech_Spy
-# 				NOT = {
-# 					has_country_flag = Spy_On_Way
-# 				}
-# 			}
-# 		}
-# 		cost = 300
-# 		days_re_enable = 900
-# 		#fire_only_once = yes
-# 		days_remove = 100
-# 		state_target = yes
-# 		on_map_mode = map_only
-# 		target_trigger = {
-# 			FROM = {
-# 				AND = {
-# 					NOT = {
-# 						is_owned_by = ROOT
-# 					}
-# 					is_capital = yes
-# 					owner = {
-# 						amount_research_slots > 3
-# 					}
-# 					check_variable = {
-# 						ROOT.StealPower > owner.DefendPower
-# 					}
-# 				}
-# 			}
-# 		}
-# 		modifier = {
-# 			max_command_power = -5
-# 		}
-# 		visible = {
-# 			has_idea_with_trait = Tech_Spy
-# 		}
-# 		complete_effect = {
-# 			set_country_flag = Spy_On_Way
-# 			hidden_effect = {
-# 				FROM = {
-# 					owner = {
-# 						country_event = {
-# 							id = spy.7
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 				}
-# 			}
-# 		}
-# 		remove_effect = {
-# 			hidden_effect = {
-# 				random_list = {
-# 					ROOT.StealChance = {
-# 						FROM = {
-# 							add_research_slot = -1
-# 						}
-# 						add_research_slot = 1
-# 						news_event = {
-# 							id = spy.11
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 					}
-# 					ROOT.StealUnchance = {
-# 						news_event = {
-# 							id = spy.10
-# 							days = 1
-# 							random = 1
-# 							random_days = 1
-# 						}
-# 						add_timed_idea = {
-# 							idea = SPY_GOT
-# 							days = 100
-# 						}
-# 						PREV = {
-# 							owner = {
-# 								news_event = {
-# 									id = spy.12
-# 									days = 1
-# 									random = 1
-# 									random_days = 1
-# 								}
-# 							}
-# 						}
-# 					}
-# 				}
-# 			}
-# 			clr_country_flag = Spy_On_Way
-# 		}
-# 	}
-# }
+SPY_HUMAN = {
+	defend_buff = {
+		# Бонус на защиту технологий. Учитывается -только- при воровстве и диверсиях. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+		}
+		cost = 200
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 200
+		modifier = {
+		}
+		visible = {
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = SPYDEF_BONUS
+					days = 200
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	steal_buff = {
+		# Бонус на кражу технологий. Учитывается -только- при воровстве. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			always = yes
+		}
+		cost = 150
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = SPY_BONUS
+					days = 100
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	resistance_buff = {
+		# Бонус на диверсии. Учитывается -только- при диверсиях. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			always = yes
+		}
+		cost = 150
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = RES_BONUS
+					days = 100
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	##### Конец бонусов
+	steal_tech_bonus = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 200
+		days_re_enable = 300
+		#fire_only_once = yes
+		days_remove = 75
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						amount_research_slots > 1
+					}
+					check_variable = {
+						ROOT.StealPower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.6
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.StealChance = {
+						if = {
+							limit = {
+								FROM = {
+									owner = {
+										amount_research_slots > 3
+									}
+								}
+							}
+							random_list = {
+								50 = {
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = radio_detection
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = radar_tech
+										}
+									}
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = transistors
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = electronics
+										}
+									}
+								}
+								35 = {
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = rocket_engines_manufacture
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = rocketry
+										}
+									}
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = nuclear_reactor
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = nuclear
+										}
+									}
+								}
+								15 = {
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = industry
+									}
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = infantry_tech
+									}
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = land_doctrine
+									}
+								}
+							}
+							else = {
+								random_list = {
+									50 = {
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = radio_detection
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = radar_tech
+											}
+										}
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = transistors
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = electronics
+											}
+										}
+									}
+									35 = {
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = rocket_engines_manufacture
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = rocketry
+											}
+										}
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = nuclear_reactor
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = nuclear
+											}
+										}
+									}
+									15 = {
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = industry
+										}
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = infantry_tech
+										}
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = land_doctrine
+										}
+									}
+								}
+							}
+							#
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					#
+					ROOT.StealUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = SPY_GOT
+									days = 100
+								}
+								PREV = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	steal_technologies = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 400
+		days_re_enable = 500
+		#fire_only_once = yes
+		days_remove = 100
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						amount_research_slots > 1
+					}
+					check_variable = {
+						ROOT.StealPower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.7
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.StealChance = {
+						FROM = {
+							owner = {
+								ROOT = {
+									inherit_technology = PREV
+								}
+							}
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.StealUnchance = {
+						news_event = {
+							id = spy.10
+							days = 1
+							random_days = 1
+						}
+						add_timed_idea = {
+							idea = SPY_GOT
+							days = 100
+						}
+						PREV = {
+							owner = {
+								news_event = {
+									id = spy.12
+									days = 1
+									random_days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	collect_technologies = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			research_speed_factor = 0.05
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	attack_on_unit_leader = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		#every_army_leader
+		cost = 150
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 70
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						has_war_with = ROOT
+					}
+					check_variable = {
+						ROOT.ResistancePower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.8
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.ResistChance = {
+						FROM = {
+							owner = {
+								every_army_leader = {
+									random_list = {
+										50 = {
+											add_timed_unit_leader_trait = {
+												trait = wounded
+												days = 80
+											}
+										}
+										50 = {
+										}
+									}
+								}
+							}
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.ResistUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = RES_GOT
+									days = 100
+								}
+								FROM = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Res_On_Way
+		}
+	}
+	add_resistance = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		#every_army_leader
+		cost = 150
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 70
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						has_war_with = ROOT
+					}
+					check_variable = {
+						ROOT.ResistancePower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.8
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.ResistChance = {
+						every_controlled_state = {
+							add_resistance = ROOT.ResistancePower
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.ResistUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = RES_GOT
+									days = 100
+								}
+								FROM = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Res_On_Way
+		}
+	}
+	destroy_resistance = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				has_war = yes
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			resistance_target = -0.5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Res_On_Way
+		}
+	}
+	recon_spy = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				has_war = yes
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			recon_factor = 0.5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	steal_tech_slot = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 300
+		days_re_enable = 900
+		#fire_only_once = yes
+		days_remove = 100
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						amount_research_slots > 3
+					}
+					check_variable = {
+						ROOT.StealPower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.7
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.StealChance = {
+						# FROM = {
+						# 	add_research_slot = -1
+						# }
+						add_research_slot = 1
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.StealUnchance = {
+						news_event = {
+							id = spy.10
+							days = 1
+							random_days = 1
+						}
+						add_timed_idea = {
+							idea = SPY_GOT
+							days = 100
+						}
+						PREV = {
+							owner = {
+								news_event = {
+									id = spy.12
+									days = 1
+									random_days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Spy_On_Way
+		}
+	}
+}
+
+SPY_AI = {
+	defend_buff1 = {
+		# Бонус на защиту технологий. Учитывается -только- при воровстве и диверсиях. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+		}
+		cost = 200
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 200
+		modifier = {
+		}
+		visible = {
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = SPYDEF_BONUS
+					days = 200
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	steal_buff1 = {
+		# Бонус на кражу технологий. Учитывается -только- при воровстве. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			always = yes
+		}
+		cost = 150
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = SPY_BONUS
+					days = 100
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	resistance_buff1 = {
+		# Бонус на диверсии. Учитывается -только- при диверсиях. 
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			always = yes
+		}
+		cost = 150
+		days_re_enable = 50
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_timed_idea = {
+					idea = RES_BONUS
+					days = 100
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+			}
+		}
+	}
+	##### Конец бонусов
+	steal_tech_bonus1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 200
+		days_re_enable = 300
+		#fire_only_once = yes
+		days_remove = 75
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						amount_research_slots > 1
+					}
+					check_variable = {
+						ROOT.StealPower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.6
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.StealChance = {
+						if = {
+							limit = {
+								FROM = {
+									owner = {
+										amount_research_slots > 3
+									}
+								}
+							}
+							random_list = {
+								50 = {
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = radio_detection
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = radar_tech
+										}
+									}
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = transistors
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = electronics
+										}
+									}
+								}
+								35 = {
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = rocket_engines_manufacture
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = rocketry
+										}
+									}
+									if = {
+										limit = {
+											FROM = {
+												owner = {
+													has_tech = nuclear_reactor
+												}
+											}
+										}
+										add_tech_bonus = {
+											bonus = 0.25
+											uses = 1
+											category = nuclear
+										}
+									}
+								}
+								15 = {
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = industry
+									}
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = infantry_tech
+									}
+									add_tech_bonus = {
+										bonus = 0.25
+										uses = 1
+										category = land_doctrine
+									}
+								}
+							}
+							else = {
+								random_list = {
+									50 = {
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = radio_detection
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = radar_tech
+											}
+										}
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = transistors
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = electronics
+											}
+										}
+									}
+									35 = {
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = rocket_engines_manufacture
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = rocketry
+											}
+										}
+										if = {
+											limit = {
+												FROM = {
+													owner = {
+														has_tech = nuclear_reactor
+													}
+												}
+											}
+											add_tech_bonus = {
+												bonus = 0.1
+												uses = 1
+												category = nuclear
+											}
+										}
+									}
+									15 = {
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = industry
+										}
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = infantry_tech
+										}
+										add_tech_bonus = {
+											bonus = 0.1
+											uses = 1
+											category = land_doctrine
+										}
+									}
+								}
+							}
+							#
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					#
+					ROOT.StealUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = SPY_GOT
+									days = 100
+								}
+								PREV = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	collect_technologies1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			research_speed_factor = 0.05
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	attack_on_unit_leader1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		#every_army_leader
+		cost = 150
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 70
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						has_war_with = ROOT
+					}
+					check_variable = {
+						ROOT.ResistancePower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.8
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.ResistChance = {
+						FROM = {
+							owner = {
+								every_army_leader = {
+									random_list = {
+										50 = {
+											add_timed_unit_leader_trait = {
+												trait = wounded
+												days = 80
+											}
+										}
+										50 = {
+										}
+									}
+								}
+							}
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.ResistUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = RES_GOT
+									days = 100
+								}
+								FROM = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Res_On_Way
+		}
+	}
+	add_resistance1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		#every_army_leader
+		cost = 150
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 70
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						has_war_with = ROOT
+					}
+					check_variable = {
+						ROOT.ResistancePower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.8
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.ResistChance = {
+						every_controlled_state = {
+							add_resistance = ROOT.ResistancePower
+						}
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.ResistUnchance = {
+						random_list = {
+							50 = {
+								news_event = {
+									id = spy.9
+									days = 1
+									random_days = 1
+								}
+							}
+							50 = {
+								news_event = {
+									id = spy.10
+									days = 1
+									random_days = 1
+								}
+								add_timed_idea = {
+									idea = RES_GOT
+									days = 100
+								}
+								FROM = {
+									owner = {
+										news_event = {
+											id = spy.12
+											days = 1
+											random_days = 1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Res_On_Way
+		}
+	}
+	destroy_resistance1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				has_war = yes
+				always = yes
+				NOT = {
+					has_country_flag = Res_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			resistance_target = -0.5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Res_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Res_On_Way
+		}
+	}
+	recon_spy1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				has_war = yes
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 100
+		days_re_enable = 80
+		#fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			max_command_power = -5
+			recon_factor = 0.5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+		}
+		remove_effect = {
+			clr_country_flag = Spy_On_Way
+		}
+	}
+	steal_tech_slot1 = {
+		icon = generic_nationalism
+		allowed = {
+		}
+		available = {
+			AND = {
+				always = yes
+				NOT = {
+					has_country_flag = Spy_On_Way
+				}
+			}
+		}
+		cost = 300
+		days_re_enable = 900
+		#fire_only_once = yes
+		days_remove = 100
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				AND = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+					is_capital = yes
+					owner = {
+						amount_research_slots > 3
+					}
+					check_variable = {
+						ROOT.StealPower > owner.DefendPower
+					}
+				}
+			}
+		}
+		modifier = {
+			max_command_power = -5
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			set_country_flag = Spy_On_Way
+			hidden_effect = {
+				FROM = {
+					owner = {
+						country_event = {
+							id = spy.7
+							days = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				random_list = {
+					ROOT.StealChance = {
+						# FROM = {
+						# 	add_research_slot = -1
+						# }
+						add_research_slot = 1
+						news_event = {
+							id = spy.11
+							days = 1
+							random_days = 1
+						}
+					}
+					ROOT.StealUnchance = {
+						news_event = {
+							id = spy.10
+							days = 1
+							random_days = 1
+						}
+						add_timed_idea = {
+							idea = SPY_GOT
+							days = 100
+						}
+						PREV = {
+							owner = {
+								news_event = {
+									id = spy.12
+									days = 1
+									random_days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = Spy_On_Way
+		}
+	}
+}

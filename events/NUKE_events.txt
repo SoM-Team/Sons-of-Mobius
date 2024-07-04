@@ -1,354 +1,440 @@
 add_namespace = nuke
-
-news_event = {		# Сбита одна ракета 
+news_event = {
+	# Сбита одна ракета 
 	id = nuke.1
 	title = nuke.1.t
 	desc = nuke.1.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.1.a
 	}
 }
 
-news_event = {		# Сбито две ракеты
+news_event = {
+	# Сбито две ракеты
 	id = nuke.2
 	title = nuke.2.t
 	desc = nuke.2.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.2.a
 	}
 }
-news_event = {		# Сбито три ракеты
+
+news_event = {
+	# Сбито три ракеты
 	id = nuke.3
 	title = nuke.3.t
 	desc = nuke.3.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.3.a
 	}
 }
-news_event = {		# Сбито четыре ракеты
+
+news_event = {
+	# Сбито четыре ракеты
 	id = nuke.4
 	title = nuke.4.t
 	desc = nuke.4.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.4.a
 	}
 }
-news_event = {		# Сбито пять ракет
+
+news_event = {
+	# Сбито пять ракет
 	id = nuke.5
 	title = nuke.5.t
 	desc = nuke.5.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.5.a
 	}
 }
-news_event = {		# Сбито шесть ракет
+
+news_event = {
+	# Сбито шесть ракет
 	id = nuke.6
 	title = nuke.6.t
 	desc = nuke.6.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.6.a
 	}
 }
 
-news_event = {		# Сбито ноль ракет
+news_event = {
+	# Сбито ноль ракет
 	id = nuke.7
 	title = nuke.7.t
 	desc = nuke.7.d
 	picture = GFX_report_event_smd
-
 	is_triggered_only = yes
-
 	option = {
 		name = nuke.7.a
 	}
 }
 
-
-country_event = {		# Чистильщик флагов
+country_event = {
+	# Чистильщик флагов
 	id = nuke.8
 	title = nuke.8.t
 	desc = nuke.8.d
 	picture = GFX_report_event_diplomatic_message
-
 	trigger = {
-	OR = {
-	any_state = {
-	has_state_flag = {
-    flag = light_rad_state
-    days > 199
-    }
+		OR = {
+			any_state = {
+				has_state_flag = {
+					flag = light_rad_state
+					days > 199
+				}
+			}
+			#
+			any_state = {
+				has_state_flag = {
+					flag = medium_rad_state
+					days > 399
+				}
+			}
+			#
+			any_state = {
+				has_state_flag = {
+					flag = light_rad_state
+					days > 599
+				}
+			}
+		}
 	}
-	#
-	any_state = {
-	has_state_flag = {
-    flag = medium_rad_state
-    days > 399
-    }
-	}
-	#
-	any_state = {
-	has_state_flag = {
-    flag = light_rad_state
-    days > 599
-    }
-	}
-	}
-	}
-	
 	hidden = yes
-
 	option = {
 		name = nuke.8.a
 		every_state = {
-		if = {
-		limit = {
-		has_state_flag = {
-        flag = light_rad_state
-        days > 199
-        }
-		}
-		clr_state_flag = light_rad_state
-		}
-		#
-		if = {
-		limit = {
-		has_state_flag = {
-        flag = medium_rad_state
-        days > 399
-        }
-		}
-		clr_state_flag = medium_rad_state
-		}
-		#
-		if = {
-		limit = {
-		has_state_flag = {
-        flag = heavy_rad_state
-        days > 599
-        }
-		}
-		clr_state_flag = heavy_rad_state
-		}
+			if = {
+				limit = {
+					has_state_flag = {
+						flag = light_rad_state
+						days > 199
+					}
+				}
+				clr_state_flag = light_rad_state
+			}
+			#
+			if = {
+				limit = {
+					has_state_flag = {
+						flag = medium_rad_state
+						days > 399
+					}
+				}
+				clr_state_flag = medium_rad_state
+			}
+			#
+			if = {
+				limit = {
+					has_state_flag = {
+						flag = heavy_rad_state
+						days > 599
+					}
+				}
+				clr_state_flag = heavy_rad_state
+			}
 		}
 	}
 }
 
-country_event = {		# Установщик радиации
+country_event = {
+	# Установщик радиации
 	id = nuke.9
 	title = nuke.9.t
 	desc = nuke.9.d
 	picture = GFX_report_event_diplomatic_message
-
 	trigger = {
-	any_country = {
-	OR = {
-	AND = {
-	check_variable = {count_rad_light > states_50}
-	NOT = {has_idea = Light_radiation}
+		any_country = {
+			OR = {
+				AND = {
+					check_variable = {
+						count_rad_light > states_50
+					}
+					NOT = {
+						has_idea = Light_radiation
+					}
+				}
+				#
+				AND = {
+					check_variable = {
+						count_rad_medium > states_50
+					}
+					NOT = {
+						has_idea = Medium_radiation
+					}
+				}
+				#
+				AND = {
+					check_variable = {
+						count_rad_heavy > states_50
+					}
+					NOT = {
+						has_idea = Heavy_radiation
+					}
+				}
+				#
+				AND = {
+					check_variable = {
+						count_rad_total > states_70
+					}
+					NOT = {
+						has_idea = Medium_radiation
+					}
+				}
+			}
+		}
 	}
-	#
-	AND = {
-	check_variable = {count_rad_medium > states_50}
-	NOT = {has_idea = Medium_radiation}
-	}
-	#
-	AND = {
-	check_variable = {count_rad_heavy > states_50}
-	NOT = {has_idea = Heavy_radiation}
-	}
-	#
-	AND = {
-	check_variable = {count_rad_total > states_70}
-	NOT = {has_idea = Medium_radiation}
-	}
-	}
-	}
-	}
-	
 	hidden = yes
-
 	option = {
 		name = nuke.9.a
 		every_country = {
-		if = {
-		limit = {check_variable = {count_rad_heavy > states_50}}
-		add_timed_idea = {
-            idea = Heavy_radiation
-            days = 600
-        }
-		remove_ideas = Medium_radiation
-		remove_ideas = Light_radiation
-		else = {
-		if = {
-		limit = {check_variable = {count_rad_medium > states_50}}
-		add_timed_idea = {
-            idea = Medium_radiation
-            days = 400
-        }
-		remove_ideas = Light_radiation
-		else = {
-		if = {
-		limit = {check_variable = {count_rad_light > states_50}}
-		add_timed_idea = {
-            idea = Light_radiation
-            days = 200
-        }
-		else = {
-		if = {
-		limit = {check_variable = {count_rad_total > states_70}}
-		add_timed_idea = {
-		    idea = Medium_radiation
-            days = 200
+			if = {
+				limit = {
+					check_variable = {
+						count_rad_heavy > states_50
+					}
+				}
+				add_timed_idea = {
+					idea = Heavy_radiation
+					days = 600
+				}
+				remove_ideas = Medium_radiation
+				remove_ideas = Light_radiation
+				else = {
+					if = {
+						limit = {
+							check_variable = {
+								count_rad_medium > states_50
+							}
+						}
+						add_timed_idea = {
+							idea = Medium_radiation
+							days = 400
+						}
+						remove_ideas = Light_radiation
+						else = {
+							if = {
+								limit = {
+									check_variable = {
+										count_rad_light > states_50
+									}
+								}
+								add_timed_idea = {
+									idea = Light_radiation
+									days = 200
+								}
+								else = {
+									if = {
+										limit = {
+											check_variable = {
+												count_rad_total > states_70
+											}
+										}
+										add_timed_idea = {
+											idea = Medium_radiation
+											days = 200
+										}
+										remove_ideas = Light_radiation
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
-		remove_ideas = Light_radiation
-		}
-		}
-		}
-		}
-		}
-		}
-		}
-	    }
 	}
 }
 
-country_event = {		# Счетчик флагов
+country_event = {
+	# Счетчик флагов
 	id = nuke.10
 	title = nuke.10.t
 	desc = nuke.10.d
 	picture = GFX_report_event_diplomatic_message
-
 	trigger = {
-	any_state = {
-	OR = {
-	has_state_flag = light_rad_state
-	has_state_flag = medium_rad_state
-	has_state_flag = heavy_rad_state
+		any_state = {
+			OR = {
+				has_state_flag = light_rad_state
+				has_state_flag = medium_rad_state
+				has_state_flag = heavy_rad_state
+			}
+		}
 	}
+	mean_time_to_happen = {
+		days = 30
 	}
-	}
-	
-	mean_time_to_happen = { days = 30 }
-	
 	hidden = yes
-
 	option = {
 		name = nuke.10.a
 		every_country = {
-		set_variable = { count_rad_light = 0}
-		set_variable = { count_rad_medium = 0}
-		set_variable = { count_rad_heavy = 0}
-		set_variable = { count_rad_total = 0}
-		#
-		every_controlled_state = {
-		if = {
-		limit = {has_state_flag = light_rad_state}
-		PREV = {add_to_variable = {count_rad_light = 1} }
-		}
-		if = {
-		limit = {has_state_flag = medium_rad_state}
-		PREV = {add_to_variable = {count_rad_medium = 1} }
-		}
-		if = {
-		limit = {has_state_flag = heavy_rad_state}
-		PREV = {add_to_variable = {count_rad_heavy = 1} }
-		}
-		}
-		#
-		add_to_variable = {count_rad_total = count_rad_light}
-		add_to_variable = {count_rad_total = count_rad_medium}
-		add_to_variable = {count_rad_total = count_rad_heavy}
-		#
-		set_variable = { states_50 = num_controlled_states}
-		set_variable = { states_70 = num_controlled_states}
-		divide_variable = {states_50 = 4} # Де-факто множители, чем выше множитель, тем меньший процент от регионов должен быть заражен для получения эффекта
-		divide_variable = {states_70 = 3} #
-		add_to_variable = {states_50 = -1}
-		if = {
-		limit = {check_variable = {num_controlled_states = 1}}
-		set_variable = { states_50 = 0}
-		}
+			set_variable = {
+				count_rad_light = 0
+			}
+			set_variable = {
+				count_rad_medium = 0
+			}
+			set_variable = {
+				count_rad_heavy = 0
+			}
+			set_variable = {
+				count_rad_total = 0
+			}
+			#
+			every_controlled_state = {
+				if = {
+					limit = {
+						has_state_flag = light_rad_state
+					}
+					PREV = {
+						add_to_variable = {
+							count_rad_light = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = medium_rad_state
+					}
+					PREV = {
+						add_to_variable = {
+							count_rad_medium = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = heavy_rad_state
+					}
+					PREV = {
+						add_to_variable = {
+							count_rad_heavy = 1
+						}
+					}
+				}
+			}
+			#
+			add_to_variable = {
+				count_rad_total = count_rad_light
+			}
+			add_to_variable = {
+				count_rad_total = count_rad_medium
+			}
+			add_to_variable = {
+				count_rad_total = count_rad_heavy
+			}
+			#
+			set_variable = {
+				states_50 = num_controlled_states
+			}
+			set_variable = {
+				states_70 = num_controlled_states
+			}
+			divide_variable = {
+				states_50 = 4
+			}			# Де-факто множители, чем выше множитель, тем меньший процент от регионов должен быть заражен для получения эффекта
+			divide_variable = {
+				states_70 = 3
+			}			#
+			add_to_variable = {
+				states_50 = -1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						num_controlled_states = 1
+					}
+				}
+				set_variable = {
+					states_50 = 0
+				}
+			}
 		}
 	}
 }
 
-
-
-country_event = {		# Чистильщик радиации
+country_event = {
+	# Чистильщик радиации
 	id = nuke.11
 	title = nuke.11.t
 	desc = nuke.11.d
 	picture = GFX_report_event_diplomatic_message
-
 	trigger = {
-	any_country = {
-	OR = {
-	AND = {
-	check_variable = {count_rad_light < states_50}
-	has_idea = Light_radiation
+		any_country = {
+			OR = {
+				AND = {
+					check_variable = {
+						count_rad_light < states_50
+					}
+					has_idea = Light_radiation
+				}
+				#
+				AND = {
+					check_variable = {
+						count_rad_total < states_70
+					}
+					check_variable = {
+						count_rad_medium < states_50
+					}
+					has_idea = Medium_radiation
+				}
+				#
+				AND = {
+					check_variable = {
+						count_rad_heavy < states_50
+					}
+					has_idea = Heavy_radiation
+				}
+				#
+			}
+		}
 	}
-	#
-	AND = {
-	check_variable = {count_rad_total < states_70}
-	check_variable = {count_rad_medium < states_50}
-	has_idea = Medium_radiation
-	}
-	#
-	AND = {
-	check_variable = {count_rad_heavy < states_50}
-	has_idea = Heavy_radiation
-	}
-	#
-	}
-	}
-	}
-	
 	hidden = yes
-
 	option = {
 		name = nuke.11.a
 		every_country = {
-		if = {
-		limit = {check_variable = {count_rad_heavy < states_50}}
-		remove_ideas = Heavy_radiation
-		}
-		if = {
-		limit = {
-		AND = {
-		check_variable = {count_rad_medium < states_50}
-		check_variable = {count_rad_total < states_70}
-		}
-		}
-		remove_ideas = Medium_radiation
-		}
-		if = {
-		limit = {check_variable = {count_rad_light < states_50}}
-		remove_ideas = Light_radiation
-		}
+			if = {
+				limit = {
+					check_variable = {
+						count_rad_heavy < states_50
+					}
+				}
+				remove_ideas = Heavy_radiation
+			}
+			if = {
+				limit = {
+					AND = {
+						check_variable = {
+							count_rad_medium < states_50
+						}
+						check_variable = {
+							count_rad_total < states_70
+						}
+					}
+				}
+				remove_ideas = Medium_radiation
+			}
+			if = {
+				limit = {
+					check_variable = {
+						count_rad_light < states_50
+					}
+				}
+				remove_ideas = Light_radiation
+			}
 		}
 	}
 }
