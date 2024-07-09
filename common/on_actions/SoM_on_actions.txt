@@ -101,6 +101,17 @@ on_actions = {
 			add_to_variable = {
 				rings = rings_total_net_gain
 			}
+			every_country = {
+				set_variable = {
+					Casualties_Ratio = max_manpower
+				}
+				divide_variable = {
+					Casualties_Ratio = 1000
+				}
+				divide_variable = {
+					Casualties_Ratio = casualties
+				}
+			}
 		}
 	}
 	on_monthly_RCR = {
@@ -139,6 +150,7 @@ on_actions = {
 	}
 	on_startup = {
 		effect = {
+			
 			KKE = {
 				country_event = kke.1
 			}
@@ -437,6 +449,9 @@ on_actions = {
 				}
 			}
 			every_country = {
+				set_variable = {
+					Casualties_Ratio = 0
+				}
 				set_variable = {
 					global.International_Votes = 0
 				}

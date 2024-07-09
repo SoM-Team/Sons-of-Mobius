@@ -415,17 +415,31 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		OR = {
-			has_idea = Aggressive_Mobilisation_1
-			has_idea = Aggressive_Mobilisation_2
-			has_idea = Aggressive_Mobilisation_3
-			has_idea = Aggressive_Mobilisation_4
-			has_idea = Aggressive_Mobilisation_5
+			AND = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.8
+				has_war = yes
+			}
+			AND = {
+				has_war_support < 0.2
+				has_war = yes
+			}
+			AND = {
+				has_war_support < 0.5
+				has_stability < 0.3
+				has_war = yes
+			}
 		}
-		has_war_support < 0.8
-		has_war = yes
 	}
 	option = {
 		name = shared.90.a
+		add_ideas = Draft_Evasion_1
 	}
 }
 
@@ -435,19 +449,12 @@ country_event = {
 	title = shared.91.t
 	desc = shared.91.d
 	is_triggered_only = yes
-	trigger = {
-		OR = {
-			has_idea = Aggressive_Mobilisation_1
-			has_idea = Aggressive_Mobilisation_2
-			has_idea = Aggressive_Mobilisation_3
-			has_idea = Aggressive_Mobilisation_4
-			has_idea = Aggressive_Mobilisation_5
-		}
-		has_war_support < 0.8
-		has_war = yes
-	}
 	option = {
-		name = shared.91.a
+		name = shared.91.
+		swap_ideas = {
+			remove_idea = Draft_Evasion_1
+			add_idea = Draft_Evasion_2
+		}
 	}
 }
 
@@ -457,19 +464,12 @@ country_event = {
 	title = shared.92.t
 	desc = shared.92.d
 	is_triggered_only = yes
-	trigger = {
-		OR = {
-			has_idea = Aggressive_Mobilisation_1
-			has_idea = Aggressive_Mobilisation_2
-			has_idea = Aggressive_Mobilisation_3
-			has_idea = Aggressive_Mobilisation_4
-			has_idea = Aggressive_Mobilisation_5
-		}
-		has_war_support < 0.8
-		has_war = yes
-	}
 	option = {
 		name = shared.92.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_2
+			add_idea = Draft_Evasion_3
+		}
 	}
 }
 
@@ -479,19 +479,12 @@ country_event = {
 	title = shared.93.t
 	desc = shared.93.d
 	is_triggered_only = yes
-	trigger = {
-		OR = {
-			has_idea = Aggressive_Mobilisation_1
-			has_idea = Aggressive_Mobilisation_2
-			has_idea = Aggressive_Mobilisation_3
-			has_idea = Aggressive_Mobilisation_4
-			has_idea = Aggressive_Mobilisation_5
-		}
-		has_war_support < 0.8
-		has_war = yes
-	}
 	option = {
 		name = shared.93.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_3
+			add_idea = Draft_Evasion_4
+		}
 	}
 }
 
@@ -501,19 +494,935 @@ country_event = {
 	title = shared.94.t
 	desc = shared.94.d
 	is_triggered_only = yes
-	trigger = {
-		OR = {
-			has_idea = Aggressive_Mobilisation_1
-			has_idea = Aggressive_Mobilisation_2
-			has_idea = Aggressive_Mobilisation_3
-			has_idea = Aggressive_Mobilisation_4
-			has_idea = Aggressive_Mobilisation_5
-		}
-		has_war_support < 0.8
-		has_war = yes
-	}
 	option = {
 		name = shared.94.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_4
+			add_idea = Draft_Evasion_5
+		}
+	}
+}
+
+country_event = {
+	# Spiral of Escalation / "No War" eventually turns into "War against War"
+	id = shared.95
+	title = shared.95.t
+	desc = shared.95.d
+	is_triggered_only = yes
+	option = {
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				katzerism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = katzerism
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				autonomous_socialism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = autonomous_socialism
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				neosocialism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = neosocialism
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				progressism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = progressism
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_stability > 0.3
+					has_war_support > 0.3
+				}
+			}
+			add_stability = -0.1
+			add_war_support = -0.1
+			if = {
+				limit = {
+					has_government = neosocialism
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerism
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = autonomous_socialism
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = progressism
+				}
+				add_popularity = {
+					ideology = progressism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = progressive_liberalism
+				}
+				add_popularity = {
+					ideology = progressive_liberalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = orthodox_liberalism
+				}
+				add_popularity = {
+					ideology = orthodox_liberalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = conservatism
+				}
+				add_popularity = {
+					ideology = conservatism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = autocracy
+				}
+				add_popularity = {
+					ideology = autocracy
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = legalism
+				}
+				add_popularity = {
+					ideology = legalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = technocratic_despotism
+				}
+				add_popularity = {
+					ideology = technocratic_despotism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = purificationism
+				}
+				add_popularity = {
+					ideology = purificationism
+					popularity = -0.1
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Spiral of Escalation / Peaceful Demands
+	id = shared.96
+	title = shared.96.t
+	desc = shared.96.d
+	is_triggered_only = yes
+	option = {
+		name = shared.96.a		# Pretend That Nothing Happened
+		add_political_power = -25
+		add_war_support = -0.05
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_1
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_1
+				add_idea = Draft_Evasion_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_2
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_2
+				add_idea = Draft_Evasion_3
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_3
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_3
+				add_idea = Draft_Evasion_4
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_4
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_4
+				add_idea = Draft_Evasion_5
+			}
+		}
+	}
+	option = {
+		name = shared.96.b		# Improve Living Standards
+		if = {
+			limit = {
+				has_idea = scraping_the_barrel
+			}
+			add_ideas = all_adults_serve
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = all_adults_serve
+			}
+			add_ideas = service_by_requirement
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = service_by_requirement
+			}
+			add_ideas = extensive_conscription
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = extensive_conscription
+			}
+			add_ideas = limited_conscription
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = limited_conscription
+			}
+			add_ideas = volunteer_only
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+	}
+	option = {
+		name = shared.96.c		# Smash Them Down Brutally 
+		add_manpower = -10000
+		add_stability = -0.05
+		add_war_support = -0.1
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_popularity = {
+				ideology = progressism
+				popularity = 0.075
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = 0.025
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = 0.025
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = 0.025
+			}
+		}
+	}
+}
+
+country_event = {
+	# (Anti-)War Propaganda Base
+	id = shared.97
+	title = shared.97.t
+	desc = shared.97.d
+	is_triggered_only = yes
+	option = {
+		name = shared.97.a
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Leftist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Centrist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_war_with = ROOT
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+				ROOT = {
+					NOT = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_ideas = Rightist_War_Propaganda_1
+		}
+	}
+}
+
+country_event = {
+	# (Anti-)War Propaganda Upgrade
+	id = shared.98
+	title = shared.98.t
+	desc = shared.98.d
+	is_triggered_only = yes
+	option = {
+		name = shared.98.a
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+					has_country_flag = Leftist_Foreign_Support
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = autonomous_socialism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2a
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = katzerism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2k
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = neosocialism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2n
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Centrist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_war_with = ROOT
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+				ROOT = {
+					NOT = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_ideas = Rightist_War_Propaganda_1
+		}
+	}
+}
+
+country_event = {
+	# 
+	id = shared.99
+	title = shared.99.t
+	desc = shared.99.d
+	is_triggered_only = yes
+	option = {
+		name = shared.99.a
 	}
 }
 
@@ -1112,7 +2021,6 @@ country_event = {
 # 		}
 # 	}
 # }
-
 country_event = {
 	# Type of boon
 	id = shared.117
@@ -1147,23 +2055,27 @@ country_event = {
 	option = {
 		name = shared.118.a
 		if = {
-            limit = {
-                check_variable = {
-                    global.International_Temporary_Boon = 1                    # ID of object of discussion - there can be plenty of them
-                }
-            }
-            var:internationale_country_chosen = { country_event = shared.106 }
-            set_variable = {
-                global.International_Temporary_Boon = 0
-            }
-        }
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 1					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.106
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
 		else_if = {
 			limit = {
 				check_variable = {
 					global.International_Temporary_Boon = 2					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			var:internationale_country_chosen = { country_event = shared.107 }
+			var:internationale_country_chosen = {
+				country_event = shared.107
+			}
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
@@ -1174,7 +2086,9 @@ country_event = {
 					global.International_Temporary_Boon = 3					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			var:internationale_country_chosen = { country_event = shared.108 }
+			var:internationale_country_chosen = {
+				country_event = shared.108
+			}
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
@@ -1185,7 +2099,9 @@ country_event = {
 					global.International_Temporary_Boon = 4					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			var:internationale_country_chosen = { country_event = shared.109 }
+			var:internationale_country_chosen = {
+				country_event = shared.109
+			}
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
@@ -1196,7 +2112,9 @@ country_event = {
 					global.International_Temporary_Boon = 5					# ID of object of discussion - there can be plenty of them
 				}
 			}
-			var:internationale_country_chosen = { country_event = shared.110 }
+			var:internationale_country_chosen = {
+				country_event = shared.110
+			}
 			set_variable = {
 				global.International_Temporary_Boon = 0
 			}
@@ -1223,6 +2141,51 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = shared.120.
+		random_country = {
+			limit = {
+				has_idea = Leftist_Anti_War_Propaganda_1
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = katzerism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2k
+			}
+		}
+		random_country = {
+			limit = {
+				has_idea = Leftist_Anti_War_Propaganda_1
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2a
+			}
+		}
+		random_country = {
+			limit = {
+				has_idea = Leftist_Anti_War_Propaganda_1
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = neosocialism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2n
+			}
+		}
 		if = {
 			limit = {
 				has_global_flag = International_Scientific_Reforms
@@ -1396,14 +2359,7 @@ country_event = {
 		name = shared.122.a
 		every_country = {
 			limit = {
-				OR = {
-					AND = {
-						has_war_together_with = ROOT
-						has_war_with = RCR
-					}
-					tag = ROOT
-					has_war_with = RCR
-				}
+				has_war_with = RCR
 			}
 			every_country = {
 				limit = {
@@ -1414,13 +2370,65 @@ country_event = {
 			}
 		}
 	}
-	# option = {
-	# 	name = shared.122.b
-	# 	every_country = {
-	# 		limit = {
-	# 			is_in_faction_with = RCR
-	# 		}
-	# 		add_war_support = 0.05
-	# 	}
-	# }
+	option = {
+		name = shared.122.b
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+			}
+			add_war_support = 0.05
+		}
+	}
+}
+
+country_event = {
+	# Internationale Faction Leader Election
+	id = shared.123
+	title = shared.123.t
+	desc = shared.123.d
+	is_triggered_only = yes
+	option = {
+		name = shared.123.a
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+			}
+			if = {
+				limit = {
+					check_variable = {
+						Internationale_Leadership_Votes > max_value
+					}
+				}
+				set_variable = {
+					max_value = Internationale_Leadership_Votes
+				}
+				set_variable = {
+					max_tag = THIS
+				}
+			}
+		}
+		var:max_tag = {
+			set_faction_leader = yes
+		}
+		hidden_effect = {
+			country_event = shared.124
+		}
+	}
+}
+
+country_event = {
+	# Internationale Faction Leader Election
+	id = shared.124
+	title = shared.124.t
+	desc = shared.124.d
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.124.a
+		every_country = {
+			clear_variable = max_value
+			clear_variable = max_tag
+			clear_variable = Internationale_Leadership_Votes
+		}
+	}
 }
