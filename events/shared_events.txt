@@ -2396,22 +2396,22 @@ country_event = {
 			if = {
 				limit = {
 					check_variable = {
-						Internationale_Leadership_Votes > max_value
+						Internationale_Leadership_Votes > max_value_internationale_votes
 					}
 				}
 				set_variable = {
-					max_value = Internationale_Leadership_Votes
+					max_value_internationale_votes = Internationale_Leadership_Votes
 				}
 				set_variable = {
 					max_tag = THIS
 				}
 			}
 		}
-		var:max_tag = {
-			set_faction_leader = yes
-		}
 		hidden_effect = {
-			country_event = shared.124
+			country_event = {
+				id = shared.124
+				days = 1
+			}
 		}
 	}
 }
@@ -2426,9 +2426,12 @@ country_event = {
 	option = {
 		name = shared.124.a
 		every_country = {
-			clear_variable = max_value
+			clear_variable = max_value_internationale_votes
 			clear_variable = max_tag
 			clear_variable = Internationale_Leadership_Votes
+		}
+		var:max_tag = {
+			set_faction_leader = yes
 		}
 	}
 }
