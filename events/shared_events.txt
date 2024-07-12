@@ -2389,30 +2389,6 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = shared.123.a
-		every_country = {
-			limit = {
-				is_in_faction_with = RCR
-			}
-			if = {
-				limit = {
-					check_variable = {
-						Internationale_Leadership_Votes > max_value_internationale_votes
-					}
-				}
-				set_variable = {
-					max_value_internationale_votes = Internationale_Leadership_Votes
-				}
-				set_variable = {
-					max_tag = THIS
-				}
-			}
-		}
-		hidden_effect = {
-			country_event = {
-				id = shared.124
-				days = 1
-			}
-		}
 	}
 }
 
@@ -2425,13 +2401,5 @@ country_event = {
 	hidden = yes
 	option = {
 		name = shared.124.a
-		every_country = {
-			clear_variable = max_value_internationale_votes
-			clear_variable = max_tag
-			clear_variable = Internationale_Leadership_Votes
-		}
-		var:max_tag = {
-			set_faction_leader = yes
-		}
 	}
 }
