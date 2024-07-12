@@ -311,13 +311,46 @@ International_Decisions = {
 			always = no
 		}
 		timeout_effect = {
-			every_country = {
+			if = {
 				limit = {
-					is_in_faction_with = RCR
+					NOT = {
+						has_global_flag = Internationale_Leader_Vote_done
+					}
 				}
-				clr_country_flag = Faction_Leader_Vote_is_Given
+
+				every_country = {
+					limit = {
+						is_in_faction_with = RCR
+					}
+					clr_country_flag = Faction_Leader_Vote_is_Given
+				}
+			
+				set_variable = { max_value_internationale_votes = -1 }
+				clear_variable = max_tag
+				every_country = {
+					limit = {
+						is_in_faction_with = RCR
+					}
+					if = {
+						limit = {
+							check_variable = {
+								Internationale_Leadership_Votes > PREV.max_value_internationale_votes
+							}
+						}
+						set_variable = {
+							PREV.max_value_internationale_votes = Internationale_Leadership_Votes
+						}
+						set_variable = {
+							PREV.max_tag = THIS
+						}
+					}
+					clear_variable = Internationale_Leadership_Votes
+				}
+				set_global_flag = Internationale_Leader_Vote_done
+				var:max_tag = {
+					set_faction_leader = yes
+				}
 			}
-			country_event = shared.123
 		}
 	}
 	International_Give_Vote_in_Faction_Leader_Election = {
