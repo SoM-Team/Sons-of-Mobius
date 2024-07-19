@@ -306,7 +306,7 @@ International_Decisions = {
 		}
 	}
 	International_Faction_Leader_Election = {
-		days_mission_timeout = 3		# 365
+		days_mission_timeout = 3		# TODO: 365
 		available = {
 			always = no
 		}
@@ -317,15 +317,15 @@ International_Decisions = {
 						has_global_flag = Internationale_Leader_Vote_done
 					}
 				}
-
 				every_country = {
 					limit = {
 						is_in_faction_with = RCR
 					}
 					clr_country_flag = Faction_Leader_Vote_is_Given
 				}
-			
-				set_variable = { max_value_internationale_votes = -1 }
+				set_variable = {
+					max_value_internationale_votes = -1
+				}
 				clear_variable = max_tag
 				every_country = {
 					limit = {
@@ -351,6 +351,12 @@ International_Decisions = {
 					set_faction_leader = yes
 				}
 			}
+			hidden_effect = {
+				country_event = {
+					id = shared.123
+					days = 1
+				}
+			}
 		}
 	}
 	International_Give_Vote_in_Faction_Leader_Election = {
@@ -360,9 +366,15 @@ International_Decisions = {
 			}
 			NOT = {
 				var:internationale_country_chosen = {
-					is_faction_leader = yes
+					OR = {
+						is_faction_leader = yes
+						is_puppet = yes
+					}
 				}
 			}
+		}
+		ai_will_do = {
+			
 		}
 		complete_effect = {
 			var:internationale_country_chosen = {
