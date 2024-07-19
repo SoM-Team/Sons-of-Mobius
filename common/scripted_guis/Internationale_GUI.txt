@@ -8,6 +8,25 @@ scripted_gui = {
 				array = global.internationale_members
 				change_scope = yes
 				entry_container = "Internationale_Country_Entry"
+				
+				ai_weights = {
+					Internationale_Country_Button_click = {
+						ai_will_do = {
+							base = 1
+
+							modifier = {
+								set_temp_variable = {
+									temp_factor = 1
+								}
+								divide_temp_variable = {
+									temp_factor = global.internationale_members^num
+								}
+
+								factor = temp_factor
+							}
+						}
+					}
+				}
 			}
 		}
 
@@ -22,6 +41,16 @@ scripted_gui = {
 		properties = {
 			Internationale_Country_Button = {
 				image = "[This.GetFlag]"
+			}
+		}
+
+		ai_enabled = {
+			always = yes
+		}
+
+		ai_check = {
+			NOT = {
+				has_country_flag = Faction_Leader_Vote_is_Given
 			}
 		}
 	}
