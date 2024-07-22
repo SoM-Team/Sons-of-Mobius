@@ -223,6 +223,13 @@ International_Decisions = {
 			}
 		}
 	}
+	Test_CHE = {
+		complete_effect = {
+			CHE = {
+				add_ideas = Leftist_Anti_War_Propaganda_1
+			}
+		}
+	}
 	International_Foreign_Anti_War_Support = {
 		allowed = {
 			always = yes
@@ -230,13 +237,30 @@ International_Decisions = {
 		available = {
 			is_in_faction_with = RCR
 			is_faction_leader = yes
-			any_country = {
-				has_idea = Leftist_Anti_War_Propaganda_1
+		}
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					has_idea = Leftist_Anti_War_Propaganda_1
+				}
 			}
 		}
 		cost = 0
 		days_remove = 3
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_major = yes
+				factor = 10
+			}
+		}
 		complete_effect = {
+			owner = {
+				set_country_flag = International_Propaganda_Target
+			}
 			every_other_country = {
 				limit = {
 					is_in_faction_with = ROOT
@@ -259,11 +283,46 @@ International_Decisions = {
 			is_in_faction_with = RCR
 			is_faction_leader = yes
 		}
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					OR = {
+						any_character = {
+							is_country_leader = yes
+							has_ideology = progressism_transitionism_subtype
+						}
+						any_character = {
+							is_country_leader = yes
+							has_character_flag = Left_Wing_Social_Democrat
+						}
+						has_government = autonomous_socialism
+						has_government = katzerism
+						has_government = neosocialism
+					}
+					NOT = {
+						is_in_faction_with = RCR
+					}
+				}
+			}
+		}
 		cost = 0
 		days_remove = 3
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_major = yes
+				factor = 10
+			}
+		}
 		complete_effect = {
 			hidden_effect = {
 				set_global_flag = International_Invite_Country
+				owner = {
+					set_country_flag = International_Candidate_for_Alliance
+				}
 			}
 			every_other_country = {
 				limit = {

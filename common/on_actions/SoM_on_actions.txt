@@ -26,24 +26,24 @@ on_actions = {
 					is_in_faction_with = RCR
 				}
 				add_to_array = {
-					array = global.internationale_members 
+					array = global.internationale_members
 					value = THIS
 				}
 				every_country = {
-                    limit = {
-                        is_in_faction_with = RCR
-                    }
-                    add_opinion_modifier = {
-                        target = PREV
-                        modifier = Internationale_Trade_Relations
-                    }
-                    PREV = {
-                        add_opinion_modifier = {
-                            target = PREV
-                            modifier = Internationale_Trade_Relations
-                        }
-                    }
-                }
+					limit = {
+						is_in_faction_with = RCR
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Internationale_Trade_Relations
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Internationale_Trade_Relations
+						}
+					}
+				}
 			}
 		}
 	}
@@ -52,52 +52,51 @@ on_actions = {
 			if = {
 				limit = {
 					is_in_array = {
-						array = global.internationale_members 
+						array = global.internationale_members
 						value = THIS
 					}
 				}
 				remove_from_array = {
-					array = global.internationale_members 
+					array = global.internationale_members
 					value = THIS
 				}
 				every_country = {
-                    limit = {
-                        is_in_faction_with = RCR
-                    }
-                    remove_opinion_modifier = {
-                        target = PREV
-                        modifier = Internationale_Trade_Relations
-                    }
-                    PREV = {
-                        remove_opinion_modifier = {
-                            target = PREV
-                            modifier = Internationale_Trade_Relations
-                        }
-                    }
-                }
+					limit = {
+						is_in_faction_with = RCR
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Internationale_Trade_Relations
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Internationale_Trade_Relations
+						}
+					}
+				}
 			}
 		}
 	}
 	on_daily_EGG = {
-        effect = {
-            if = {
-                limit = {
-                    has_country_flag = EGG_has_warp_topaz
-                }
-                every_enemy_country = {
-                    70 = {
-                        every_state_division = {
-                            destroy_unit = yes
-                        }
-                    }
-                }
-            }
-        }
-    }
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = EGG_has_warp_topaz
+				}
+				every_enemy_country = {
+					70 = {
+						every_state_division = {
+							destroy_unit = yes
+						}
+					}
+				}
+			}
+		}
+	}
 	on_monthly = {
 		effect = {
 			calculate_ring_gain = yes
-
 			add_to_variable = {
 				rings = rings_total_net_gain
 			}
@@ -150,7 +149,6 @@ on_actions = {
 	}
 	on_startup = {
 		effect = {
-			
 			KKE = {
 				country_event = kke.1
 			}
@@ -1503,6 +1501,27 @@ on_actions = {
 					bonus = 0.75
 					category = air_equipment
 				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					any_country = {
+						is_in_faction_with = RCR
+						NOT = {
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							any_character = {
+								is_country_leader = yes
+								has_ideology = progressism_transitionism_subtype
+							}
+						}
+					}
+				}
+				country_event = shared.124
 			}
 		}
 	}

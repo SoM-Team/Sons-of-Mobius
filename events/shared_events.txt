@@ -2143,7 +2143,7 @@ country_event = {
 		name = shared.120.
 		random_country = {
 			limit = {
-				has_idea = Leftist_Anti_War_Propaganda_1
+				has_country_flag = International_Propaganda_Target
 				RCR = {
 					any_country = {
 						is_faction_leader = yes
@@ -2158,7 +2158,7 @@ country_event = {
 		}
 		random_country = {
 			limit = {
-				has_idea = Leftist_Anti_War_Propaganda_1
+				has_country_flag = International_Propaganda_Target
 				RCR = {
 					any_country = {
 						is_faction_leader = yes
@@ -2173,7 +2173,7 @@ country_event = {
 		}
 		random_country = {
 			limit = {
-				has_idea = Leftist_Anti_War_Propaganda_1
+				has_country_flag = International_Propaganda_Target
 				RCR = {
 					any_country = {
 						is_faction_leader = yes
@@ -2250,22 +2250,7 @@ country_event = {
 			}
 			random_country = {
 				limit = {
-					OR = {
-						any_character = {
-							is_country_leader = yes
-							has_ideology = progressism_transitionism_subtype
-						}
-						any_character = {
-							is_country_leader = yes
-							has_character_flag = Left_Wing_Social_Democrat
-						}
-						has_government = autonomous_socialism
-						has_government = katzerism
-						has_government = neosocialism
-					}
-					NOT = {
-						is_in_faction_with = RCR
-					}
+					has_country_flag = International_Candidate_for_Alliance
 				}
 				country_event = shared.121
 			}
@@ -2397,14 +2382,31 @@ country_event = {
 	}
 }
 
-# country_event = {
-# 	# Internationale Faction Leader Election
-# 	id = shared.124
-# 	title = shared.124.t
-# 	desc = shared.124.d
-# 	is_triggered_only = yes
-# 	hidden = yes
-# 	option = {
-# 		name = shared.124.a
-# 	}
-# }
+country_event = {
+	# Banish Traitors
+	id = shared.124
+	title = shared.124.t
+	desc = shared.124.d
+	is_triggered_only = yes
+	hidden = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+					any_character = {
+						is_country_leader = yes
+						has_ideology = progressism_transitionism_subtype
+					}
+				}
+			}
+			leave_faction = yes
+		}
+	}
+	option = {
+		name = shared.124.a
+	}
+}
