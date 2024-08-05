@@ -295,6 +295,10 @@ focus_tree = {
 					id = koa.110
 				}
 				mark_focus_tree_layout_dirty = yes
+				promote_character = {
+					character = KOA_Elias_Acorn
+					ideology = legalism_aristocratic_democracy_subtype
+				}
 			}
 		}
 	}
@@ -708,11 +712,11 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Civil_War
 	country = {
-				factor = 0
-				modifier = {
-					add = 10
-					has_country_flag = Acorn_Civil_War_started
-				}
+		factor = 0
+		modifier = {
+			add = 10
+			has_country_flag = Acorn_Civil_War_started
+		}
 	}
 	default = no
 	#ARMY TREE
@@ -738,6 +742,20 @@ focus_tree = {
 				id = koa.121
 			}
 			set_country_flag = KOA_Elias_Despot_King
+			add_country_leader_role = {
+				character = KOA_Elias_Acorn
+				promote_leader = yes
+				country_leader = {
+					ideology = autocracy_absolute_monarchy_subtype
+					expire = "3265.1.1"
+				}
+			}
+			set_politics = {
+				ruling_party = autocracy
+				elections_allowed = no
+				last_election = "3235.1.1"
+				election_frequency = 48
+			}
 		}
 	}
 	focus = {
@@ -912,9 +930,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			#effect_TBA?
-			}
 		}
-	
+	}
 	focus = {
 		id = KOA_Secret_Freedom_Fighters_CW
 		text = KOA_Secret_Freedom_Fighters_CW
@@ -1255,11 +1272,11 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Elias_Reformer
 	country = {
-				factor = 0
-				modifier = {
-					add = 10
-				has_country_flag = Elias_Acorn_Reforms
-				}
+		factor = 0
+		modifier = {
+			add = 10
+			has_country_flag = Elias_Acorn_Reforms
+		}
 	}
 	default = no
 	#ARMY TREE
@@ -1268,7 +1285,6 @@ focus_tree = {
 	shared_focus = KOA_Masters_of_Mobius
 	#Economic Tree
 	shared_focus = KOA_New_Crown_Economic
-
 	focus = {
 		id = KOA_The_Royal_Republic
 		text = KOA_The_Royal_Republic
@@ -1277,7 +1293,7 @@ focus_tree = {
 		x = 18
 		y = 0
 		available = {
-#			has_country_flag = Elias_Acorn_Reforms
+			#			has_country_flag = Elias_Acorn_Reforms
 		}
 		completion_reward = {
 			add_stability = 0.05
@@ -1291,9 +1307,10 @@ focus_tree = {
 				character = KOA_Elias_Acorn
 				promote_leader = yes
 				country_leader = {
-					ideology = legalism_aristocratic_democracy_subtype
-					expire = "1965.1.1.1"
-					traits = {  }
+					ideology = conservatism_social_conservatism_subtype
+					expire = "3265.1.1"
+					traits = {
+					}
 				}
 			}
 			#Change the country name to “Republic of Acorn”
@@ -1372,7 +1389,7 @@ focus_tree = {
 				council_support > 59
 			}
 			check_variable = {
-				council_factionalism <31
+				council_factionalism < 31
 			}
 		}
 		prerequisite = {
@@ -1396,7 +1413,7 @@ focus_tree = {
 				council_support > 64
 			}
 			check_variable = {
-				council_factionalism <31
+				council_factionalism < 31
 			}
 		}
 		prerequisite = {
@@ -1470,7 +1487,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_dlc = "La Resistance" }
+				limit = {
+					has_dlc = "La Resistance"
+				}
 				create_intelligence_agency = yes
 			}
 			else = {
@@ -1543,11 +1562,11 @@ focus_tree = {
 				gov_corruption = -20
 			}
 			retire_character = KOA_Geoffrey_St_John
-#			if = {
-#				limit = { has_dlc = "La Resistance" }
-#				retire Geoffrey as operative
-#			}
-#			country_event = koa.???
+			#			if = {
+			#				limit = { has_dlc = "La Resistance" }
+			#				retire Geoffrey as operative
+			#			}
+			#			country_event = koa.???
 		}
 	}
 	focus = {
@@ -1689,14 +1708,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			if = {
-				limit = { has_idea = KOA_The_New_Mind_of_Nation_2 }
+				limit = {
+					has_idea = KOA_The_New_Mind_of_Nation_2
+				}
 				swap_ideas = {
 					remove_idea = KOA_The_New_Mind_of_Nation_2
 					add_idea = KOA_The_New_Mind_of_Nation_4
 				}
 			}
 			else_if = {
-				limit = { has_idea = KOA_The_New_Mind_of_Nation_3 }
+				limit = {
+					has_idea = KOA_The_New_Mind_of_Nation_3
+				}
 				swap_ideas = {
 					remove_idea = KOA_The_New_Mind_of_Nation_3
 					add_idea = KOA_The_New_Mind_of_Nation_5
@@ -1705,7 +1728,6 @@ focus_tree = {
 			add_political_power = 75
 		}
 	}
-
 	focus = {
 		id = KOA_Question_of_Budget
 		text = KOA_Question_of_Budget
@@ -1807,7 +1829,27 @@ focus_tree = {
 				level = 2
 				build_only_on_allied = yes
 				fallback = yes
-				path = { 5366 5346 5292 5200 5163 5094 5048 4928 4905 4893 4702 4739 4701 4818 4772 4658 4573 4499 4378 }
+				path = {
+					5366
+					5346
+					5292
+					5200
+					5163
+					5094
+					5048
+					4928
+					4905
+					4893
+					4702
+					4739
+					4701
+					4818
+					4772
+					4658
+					4573
+					4499
+					4378
+				}
 				start_province = 5366
 				target_province = 4378
 			}
@@ -2022,12 +2064,12 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Red_Sally
 	country = {
-				factor = 0
-				modifier = {
-					add = 10
-					has_country_flag = Sally_becomes_Red
-				}
-			}
+		factor = 0
+		modifier = {
+			add = 10
+			has_country_flag = Sally_becomes_Red
+		}
+	}
 	default = no
 	#ARMY TREE
 	shared_focus = KOA_Grand_Military_Reforms
@@ -2198,11 +2240,11 @@ focus_tree = {
 focus_tree = {
 	id = Kingdom_Akorn_Queen_Sally
 	country = {
-					factor = 0
-					modifier = {
-						add = 10
-						has_country_flag = Queen_Sally
-					}
+		factor = 0
+		modifier = {
+			add = 10
+			has_country_flag = Queen_Sally
+		}
 	}
 	default = no
 	#ARMY TREE
@@ -2224,8 +2266,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 100
-			set_variable = { nobles_influence = 50 }
-			set_variable = { populist_influence = 50 }
+			set_variable = {
+				nobles_influence = 50
+			}
+			set_variable = {
+				populist_influence = 50
+			}
 			set_global_flag = KOA_Populist_vs_Noble
 			KOA = {
 				country_event = {
@@ -2314,7 +2360,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 1 }
+				set_variable = {
+					KOA_new_populist_idea_level = 1
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			country_event = {
@@ -2355,7 +2403,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 2 }
+				set_variable = {
+					KOA_new_populist_idea_level = 2
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2376,15 +2426,17 @@ focus_tree = {
 		completion_reward = {
 			KOA_increase_nobles_influence = yes
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 3 }
+				set_variable = {
+					KOA_new_populist_idea_level = 3
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Nobles_influence_increase_tooltip
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
 			add_tech_bonus = {
 				bonus = 0.5
-            	uses = 1
-            	category = agriculture_tech_group
+				uses = 1
+				category = agriculture_tech_group
 			}
 		}
 	}
@@ -2406,7 +2458,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 4 }
+				set_variable = {
+					KOA_new_populist_idea_level = 4
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2510,7 +2564,9 @@ focus_tree = {
 		completion_reward = {
 			KOA_increase_nobles_influence = yes
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 5 }
+				set_variable = {
+					KOA_new_populist_idea_level = 5
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			KOA = {
@@ -2534,7 +2590,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 6 }
+				set_variable = {
+					KOA_new_populist_idea_level = 6
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
@@ -2553,7 +2611,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 7 }
+				set_variable = {
+					KOA_new_populist_idea_level = 7
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			create_corps_commander = {
@@ -2600,7 +2660,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 8 }
+				set_variable = {
+					KOA_new_populist_idea_level = 8
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
@@ -2620,7 +2682,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 9 }
+				set_variable = {
+					KOA_new_populist_idea_level = 9
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Southern_oppression_idea_up
@@ -2643,7 +2707,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 10 }
+				set_variable = {
+					KOA_new_populist_idea_level = 10
+				}
 				KOA_Switch_Populist_Idea = yes
 			}
 			add_political_power = 100
@@ -2668,12 +2734,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_populist_idea_level = 0 }
+				set_variable = {
+					KOA_new_populist_idea_level = 0
+				}
 				KOA_Switch_Populist_Idea = yes
 				add_ideas = KOA_Southern_Glory
 			}
 			add_political_power = 125
-			subtract_from_variable = { gov_corruption = 0.02 }
+			subtract_from_variable = {
+				gov_corruption = 0.02
+			}
 			KOA = {
 				country_event = {
 					id = koa.143
@@ -2695,7 +2765,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 1 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 1
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA = {
@@ -2718,7 +2790,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 2 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 2
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA_increase_populist_influence = yes
@@ -2738,7 +2812,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 3 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 3
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA_increase_nobles_influence = yes
@@ -2764,7 +2840,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 4 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 4
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA_increase_nobles_influence = yes
@@ -2795,7 +2873,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 5 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 5
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			add_popularity = {
@@ -2824,7 +2904,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 6 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 6
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Northern_winds_idea_up
@@ -2843,7 +2925,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 7 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 7
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			create_corps_commander = {
@@ -2890,7 +2974,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 8 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 8
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			custom_effect_tooltip = KOA_Northern_winds_idea_up
@@ -2910,7 +2996,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 9 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 9
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			KOA = {
@@ -2935,7 +3023,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 10 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 10
+				}
 				KOA_Switch_Nobles_Idea = yes
 			}
 			add_political_power = 75
@@ -2962,7 +3052,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			hidden_effect = {
-				set_variable = { KOA_new_nobles_idea_level = 0 }
+				set_variable = {
+					KOA_new_nobles_idea_level = 0
+				}
 				KOA_Switch_Nobles_Idea = yes
 				add_ideas = KOA_Northern_Dawn
 			}
@@ -3218,7 +3310,6 @@ focus_tree = {
 					}
 				}
 			}
-			
 			country_event = {
 				id = koa.157
 			}
