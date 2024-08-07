@@ -1,0 +1,134 @@
+Space_decisions = {
+	space_send_probe = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			always = yes
+		}
+		visible = {
+			NOT = {
+				check_variable = {
+					planet_exploration^planet_chosen > 0
+				}
+			}
+		}
+
+		complete_effect = {
+			set_variable = {
+				planet_exploration^planet_chosen = 1
+			}
+		}
+	}
+
+	space_send_lander = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			check_variable = {
+				planet_exploration^planet_chosen > 0
+			}
+		}
+		visible = {
+			NOT = {
+				check_variable = {
+					planet_exploration^planet_chosen > 1
+				}
+			}
+		}
+
+		complete_effect = {
+			set_variable = {
+				planet_exploration^planet_chosen = 2
+			}
+		}
+	}
+
+	space_send_colonists = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			check_variable = {
+				planet_exploration^planet_chosen > 1
+			}
+		}
+		visible = {
+			NOT = {
+				check_variable = {
+					planet_exploration^planet_chosen > 2
+				}
+			}
+		}
+
+		complete_effect = {
+			set_variable = {
+				planet_exploration^planet_chosen = 3
+			}
+		}
+	}
+
+	space_search_for_resources = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			check_variable = {
+				planet_exploration^planet_chosen > 2
+			}
+		}
+		visible = {
+			NOT = {
+				check_variable = {
+					planet_exploration^planet_chosen > 3
+				}
+			}
+		}
+
+		complete_effect = {
+			# set_country_flag = {
+			# 	flag = planet_exploration^planet_chosen
+			# 	value = 4
+			# }
+		}
+	}
+
+	space_build_a_miner = {
+		# allowed = {
+		# 	always = yes
+		# }
+		# available = {
+		# 	always = yes
+		# }
+		# visible = {
+		# 	always = yes
+		# }
+
+		complete_effect = {
+			add_political_power = 1
+		}
+	}
+
+	space_transport_setup = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			check_variable = {
+				planet_exploration^planet_chosen > 2
+			}
+		}
+		visible = {
+			NOT = {
+				check_variable = {
+					planet_exploration^planet_chosen > 3
+				}
+			}
+		}
+
+		complete_effect = {
+			add_political_power = 1
+		}
+	}
+}
