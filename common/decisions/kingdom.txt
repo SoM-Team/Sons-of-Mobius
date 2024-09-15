@@ -2651,3 +2651,69 @@ KOA_Derobotization_Effort = { #interior policies
 		}
 	}
 }
+
+KOA_Council = {
+	Come_to_an_Agreement = {
+		cost = 25
+		days_re_enable = 10
+
+		complete_effect = {
+			subtract_from_variable = {
+				council_factionalism = 5
+			}
+			clamp_variable = {
+				var = council_factionalism
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Consolidate_the_Factions = {
+		cost = 100
+		days_re_enable = 50
+
+		complete_effect = {
+			add_to_variable = {
+				council_factionalism = 20
+			}
+			clamp_variable = {
+				var = council_factionalism
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Advertise_the_Council_Efforts = {
+		cost = 25
+		days_re_enable = 10
+
+		complete_effect = {
+			add_to_variable = {
+				council_support = 5
+			}
+			clamp_variable = {
+				var = council_support
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Council_Support_Campaign = {
+		cost = 100
+		days_re_enable = 50
+
+		complete_effect = {
+			add_to_variable = {
+				council_support = 20
+			}
+			clamp_variable = {
+				var = council_support
+				min = 0
+				max = 100
+			}
+		}
+	}
+}
