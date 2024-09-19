@@ -36,9 +36,8 @@ focus_tree = {
 		y = 1
 		cost = 2
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Oil_Crisis_3235
-				add_idea = Oil_Crisis_3235_1
+			add_to_variable = {
+				Oil_Crisis_Political_Power = -0.5
 			}
 			add_days_mission_timeout = {
 				mission = UFA_Oil_Worsens
@@ -65,9 +64,8 @@ focus_tree = {
 				amount = 10
 				state = 394
 			}
-			swap_ideas = {
-				remove_idea = Oil_Crisis_3235_1
-				add_idea = Oil_Crisis_3235_2
+			add_to_variable = {
+				Oil_Crisis_Trade_Opinion = 0.1
 			}
 			add_days_mission_timeout = {
 				mission = UFA_Oil_Worsens
@@ -183,7 +181,7 @@ focus_tree = {
 		y = 5
 		cost = 1
 		completion_reward = {
-			remove_ideas = Oil_Crisis_3235_2
+			remove_mission = UFA_Oil_Worsens
 		}
 	}
 	focus = {
@@ -1195,6 +1193,7 @@ focus_tree = {
 			has_completed_focus = UFA_President_Michael
 		}
 		completion_reward = {
+			add_political_power = 50
 		}
 	}
 	focus = {
@@ -1211,6 +1210,12 @@ focus_tree = {
 			focus = UFA_Internal_Affairs
 		}
 		completion_reward = {
+			add_popularity = {
+				ideology = orthodox_liberalism
+				popularity = 0.05
+			}
+			add_stability = -0.05
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -2293,6 +2298,12 @@ focus_tree = {
 				}
 			}
 			#KoA gains 1x 50% research bonus to computers, industry, and infantry equipment
+			UFA = {
+				add_political_power = 25
+				add_to_variable = {
+					rings = 50000
+				}
+			}
 		}
 	}
 	focus = {
@@ -5509,7 +5520,7 @@ focus_tree = {
 				limit = {
 					has_government = conservatism
 				}
-				add_country_leader_trait = Captain_of_Industry
+				add_country_leader_trait = Industrialist
 			}
 		}
 	}
@@ -6373,6 +6384,7 @@ focus_tree = {
 			focus = UFA_Amphibious_Assault
 		}
 		completion_reward = {
+			add_ideas = UFA_Pax_Foederatio
 			#Gain National Spirit ‘Pax Foederatio’, Effect: +10% naval range
 		}
 	}
@@ -6391,7 +6403,12 @@ focus_tree = {
 			focus = UFA_Sure_Sucks_Down_There
 		}
 		completion_reward = {
-			#2x 100% bonus for Strategic Destruction
+			add_tech_bonus = {
+				name = "Back to the Stone Age"
+				category = cat_strategic_domination
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6409,7 +6426,12 @@ focus_tree = {
 			focus = UFA_Back_to_the_Stone_Age
 		}
 		completion_reward = {
-			#2x 100% bonus for Strategic Destruction
+			add_tech_bonus = {
+				name = "Maintain Flexibility"
+				category = cat_operational_integrity
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6427,7 +6449,12 @@ focus_tree = {
 			focus = UFA_Back_to_the_Stone_Age
 		}
 		completion_reward = {
-			#2x 100% bonus for Strategic Destruction
+			add_tech_bonus = {
+				name = "Sure Sucks Down There"
+				category = cat_doct_civil_defense
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6442,6 +6469,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			#3x 50% bonus for fighters and interceptors
+			add_tech_bonus = {
+				name = "Blue Eagles"
+				category = light_interceptor
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				name = "Blue Eagles"
+				category = light_fighter
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6456,6 +6495,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			#2x 100% bonus for Helicopters
+			add_tech_bonus = {
+				name = "Rotary Aircraft"
+				category = cat_helicopter
+				uses = 2
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6484,7 +6529,12 @@ focus_tree = {
 			focus = UFA_Back_to_the_Stone_Age
 		}
 		completion_reward = {
-			#2x 100% bonus for Strategic Destruction
+			add_tech_bonus = {
+				name = "Long Distance Campaigns"
+				category = cat_strategic_bomber
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6498,7 +6548,12 @@ focus_tree = {
 			focus = UFA_Maintain_Flexibility
 		}
 		completion_reward = {
-			#1x 100% bonus for tactical bombers.
+			add_tech_bonus = {
+				name = "Balanced Design"
+				category = tactical_bomber
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6512,7 +6567,12 @@ focus_tree = {
 			focus = UFA_Sure_Sucks_Down_There
 		}
 		completion_reward = {
-			#1x 100 bonus for Close Air Support
+			add_tech_bonus = {
+				name = "Combined Air Support"
+				category = cas_bomber
+				uses = 1
+				bonus = 1
+			}
 		}
 	}
 	focus = {
@@ -6536,6 +6596,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			#1X 100% bonus for Air Carriers, 1x -100% ahead of time penalty for Air Carriers
+			add_tech_bonus = {
+				name = "Archangeli"
+				category = giga_air
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				name = "Archangeli"
+				category = giga_air
+				uses = 1
+				ahead_reduction = 1
+			}
 		}
 	}
 }
