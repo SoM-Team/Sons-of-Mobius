@@ -198,6 +198,12 @@ technologies = {
 			leads_to_tech = sleeveless_mechanism
 			research_cost_coeff = 1
 		}
+		category_light_infantry = {
+			breakthrough = 0.05
+		}
+		category_all_infantry = {
+			soft_attack = 0.02
+		}
 		research_cost = 3.5
 		start_year = 3244
 		folder = {
@@ -589,6 +595,22 @@ technologies = {
 		enable_equipments = {
 			energy_infantry_equipment_1
 		}
+		enable_subunits = {
+			advanced_infantry
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					NOT = {
+						has_template_containing_unit = advanced_infantry
+					}
+				}
+				hidden_effect = {
+					load_oob = "unlock_advanced_infantry"
+				}
+				custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			}
+		}
 		path = {
 			leads_to_tech = assault_energy_weapon
 			research_cost_coeff = 1
@@ -618,6 +640,9 @@ technologies = {
 	battery_boost = {
 		research_cost = 4.1
 		start_year = 3227
+		advanced_infantry = {
+			defense = 0.1
+		}
 		folder = {
 			name = infantry_folder
 			position = {
@@ -667,6 +692,10 @@ technologies = {
 	inf_guidance_system = {
 		research_cost = 4.1
 		start_year = 3239
+		advanced_infantry = {
+			soft_attack = 0.05
+			breakthrough = 0.05
+		}
 		folder = {
 			name = infantry_folder
 			position = {
@@ -720,6 +749,10 @@ technologies = {
 		}
 		research_cost = 4.1
 		start_year = 3242
+		advanced_infantry = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+		}
 		folder = {
 			name = infantry_folder
 			position = {
@@ -739,6 +772,10 @@ technologies = {
 	railgun = {
 		research_cost = 4.1
 		start_year = 3242
+		advanced_infantry = {
+			hard_attack = 0.05
+			breakthrough = 0.05
+		}
 		folder = {
 			name = infantry_folder
 			position = {
@@ -788,6 +825,9 @@ technologies = {
 	autonomous_recharging = {
 		research_cost = 4.1
 		start_year = 3248
+		advanced_infantry = {
+			defense = 0.1
+		}
 		folder = {
 			name = infantry_folder
 			position = {
