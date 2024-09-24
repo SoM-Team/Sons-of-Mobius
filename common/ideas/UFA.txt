@@ -407,11 +407,9 @@ ideas = {
 		UFA_Outsource_Order = {
 			allowed = {
 				tag = UFA
-
 			}
 			available = {
 				tag = UFA
-
 			}
 			removal_cost = -1
 			modifier = {
@@ -768,6 +766,139 @@ ideas = {
 				custom_modifier_tooltip = UFA_Heavy_Loans
 			}
 		}
+		UFA_Minor_Dependency = {
+			cancel = {
+				NOT = {
+					OR = {
+						has_idea = UFA_Small_Loans
+						has_idea = UFA_Medium_Loans
+						has_idea = UFA_Big_Loans
+						has_idea = UFA_Heavy_Loans
+					}
+					OR = {
+						has_idea = UFA_Received_Weapons
+						has_idea = UFA_Received_Aviation
+						has_idea = UFA_Received_Vehicles
+						has_idea = UFA_Received_Civilian_Advisors
+						has_idea = UFA_Received_Military_Advisors
+					}
+				}
+			}
+			on_add = {
+				if = {
+					limit = {
+						has_idea = closed_economy
+					}
+					add_ideas = limited_exports
+				}
+			}
+			targeted_modifier = {
+				tag = UFA
+				trade_opinion_factor = 0.1
+				trade_cost_for_target_factor = -0.1
+			}
+		}
+		UFA_Medium_Dependency = {
+			cancel = {
+				NOT = {
+					OR = {
+						has_idea = UFA_Small_Loans
+						has_idea = UFA_Medium_Loans
+						has_idea = UFA_Big_Loans
+						has_idea = UFA_Heavy_Loans
+					}
+					OR = {
+						has_idea = UFA_Received_Weapons
+						has_idea = UFA_Received_Aviation
+						has_idea = UFA_Received_Vehicles
+						has_idea = UFA_Received_Civilian_Advisors
+						has_idea = UFA_Received_Military_Advisors
+					}
+				}
+			}
+			on_add = {
+				if = {
+					limit = {
+						OR = {
+							has_idea = closed_economy
+							has_idea = limited_exports
+						}
+					}
+					add_ideas = export_focus
+				}
+			}
+			targeted_modifier = {
+				tag = UFA
+				trade_opinion_factor = 0.2
+				trade_cost_for_target_factor = -0.3
+			}
+		}
+		UFA_Big_Dependency = {
+			cancel = {
+				NOT = {
+					OR = {
+						has_idea = UFA_Small_Loans
+						has_idea = UFA_Medium_Loans
+						has_idea = UFA_Big_Loans
+						has_idea = UFA_Heavy_Loans
+					}
+					OR = {
+						has_idea = UFA_Received_Weapons
+						has_idea = UFA_Received_Aviation
+						has_idea = UFA_Received_Vehicles
+						has_idea = UFA_Received_Civilian_Advisors
+						has_idea = UFA_Received_Military_Advisors
+					}
+				}
+			}
+			on_add = {
+				if = {
+					limit = {
+						OR = {
+							has_idea = closed_economy
+							has_idea = limited_exports
+							has_idea = export_focus
+						}
+					}
+					add_ideas = free_trade
+				}
+			}
+			targeted_modifier = {
+				tag = UFA
+				trade_opinion_factor = 0.35
+				trade_cost_for_target_factor = -0.6
+			}
+		}
+		UFA_Heavy_Dependency = {
+			cancel = {
+				NOT = {
+					OR = {
+						has_idea = UFA_Small_Loans
+						has_idea = UFA_Medium_Loans
+						has_idea = UFA_Big_Loans
+						has_idea = UFA_Heavy_Loans
+					}
+					OR = {
+						has_idea = UFA_Received_Weapons
+						has_idea = UFA_Received_Aviation
+						has_idea = UFA_Received_Vehicles
+						has_idea = UFA_Received_Civilian_Advisors
+						has_idea = UFA_Received_Military_Advisors
+					}
+				}
+			}
+			targeted_modifier = {
+				tag = UFA
+				trade_opinion_factor = 0.5
+				trade_cost_for_target_factor = -0.9
+			}
+			on_add = {
+				add_ideas = free_trade
+			}
+			modifier = {
+				trade_laws_cost_factor = 39
+			}
+		}
 	}
 	tank_manufacturer = {
 		designer = yes
@@ -927,17 +1058,34 @@ ideas = {
 			}
 		}
 	}
-#	theorist = {
-#		Professor_Pickle = {
-#			allowed = {
-#				original_tag = UFA
-#			}
-#			traits = {
-#				Absent_Minded_Professor
-#			}
-#			research_bonus = {
-#				construction_tech = 0.2
-#			}
-#		}
-#	}
+	#	theorist = {
+	#		Professor_Pickle = {
+	#			allowed = {
+	#				original_tag = UFA
+	#			}
+	#			traits = {
+	#				Absent_Minded_Professor
+	#			}
+	#			research_bonus = {
+	#				construction_tech = 0.2
+	#			}
+	#		}
+	#	}
+	hidden_ideas = {
+		UFA_Received_Weapons = {
+			removal_cost = -1
+		}
+		UFA_Received_Vehicles = {
+			removal_cost = -1
+		}
+		UFA_Received_Aviation = {
+			removal_cost = -1
+		}
+		UFA_Received_Civilian_Advisors = {
+			removal_cost = -1
+		}
+		UFA_Received_Military_Advisors = {
+			removal_cost = -1
+		}
+	}
 }
