@@ -3740,14 +3740,16 @@ UFA_Jackalstan_Ops = {
 		}
 		complete_effect = {
 			set_country_flag = UFA_Jackalstan_Ops
+			custom_effect_tooltip = UFA_Jackalstan_Ops_Started
 		}
 		cost = 0		#operations success mechanic
 	}
-	UFA_Investigate_Jackalstan_1 = {
+	UFA_Sabotage_Jackalstan_Politics = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
+			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Investigate_Jackalstan
 			command_power > 14
 		}
@@ -3755,15 +3757,25 @@ UFA_Jackalstan_Ops = {
 			has_completed_focus = UFA_Infiltrate_Jackalstan
 		}
 		complete_effect = {
-			add_political_power = 1
+			add_command_power = -15
+			custom_effect_tooltip = UFA_Sabotage_Jackalstan_Politics
 		}
-		cost = 0		#operations success mechanic
+		days_remove = 30
+		remove_effect = {
+			INF = {
+				add_political_power = -25
+				add_stability = -0.01
+				add_war_support = -0.01
+			}
+		}
+		cost = 30		#operations success mechanic
 	}
-	UFA_Investigate_Jackalstan_2 = {
+	UFA_Sabotage_Jackalstan_Military_Industry = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
+			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Investigate_Jackalstan
 			command_power > 14
 		}
@@ -3771,15 +3783,28 @@ UFA_Jackalstan_Ops = {
 			has_completed_focus = UFA_Infiltrate_Jackalstan
 		}
 		complete_effect = {
-			add_political_power = 2
+			add_command_power = -15
+			custom_effect_tooltip = UFA_Sabotage_Jackalstan_Military_Industry
+		}
+		days_remove = 30
+		remove_effect = {
+			INF = {
+				random_core_state = {
+					damage_building = {
+						type = arms_factory
+						damage = 0.75
+					}
+				}
+			}
 		}
 		cost = 0		#operations success mechanic
 	}
-	UFA_Investigate_Jackalstan_3 = {
+	UFA_Sabotage_Jackalstan_Civilian_Industry = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
+			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Investigate_Jackalstan
 			command_power > 14
 		}
@@ -3787,15 +3812,28 @@ UFA_Jackalstan_Ops = {
 			has_completed_focus = UFA_Infiltrate_Jackalstan
 		}
 		complete_effect = {
-			add_political_power = 3
+			add_command_power = -15
+			custom_effect_tooltip = UFA_Sabotage_Jackalstan_Civilian_Industry
+		}
+		days_remove = 30
+		remove_effect = {
+			INF = {
+				random_core_state = {
+					damage_building = {
+						type = industrial_complex
+						damage = 0.75
+					}
+				}
+			}
 		}
 		cost = 0		#operations success mechanic
 	}
-	UFA_Investigate_Jackalstan_4 = {
+	UFA_Weaken_The_Ruby = {
 		allowed = {
 			tag = UFA
 		}
 		available = {
+			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Investigate_Jackalstan
 			command_power > 14
 		}
@@ -3803,9 +3841,16 @@ UFA_Jackalstan_Ops = {
 			has_completed_focus = UFA_Infiltrate_Jackalstan
 		}
 		complete_effect = {
-			add_political_power = 4
+			add_command_power = -15
+			custom_effect_tooltip = UFA_Weaken_the_Ruby
 		}
-		cost = 0		#operations success mechanic
+		days_remove = 30
+		remove_effect = {
+			add_to_variable = {
+				inf_phantom_ruby_energy = -10
+			}
+		}
+		cost = 25		#operations success mechanic
 	}
 	UFA_Zero_Hour = {
 		allowed = {
@@ -3814,14 +3859,26 @@ UFA_Jackalstan_Ops = {
 		available = {
 			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_The_Start_of_Infinity
+			command_power > 24
 		}
 		visible = {
 			has_completed_focus = UFA_Investigate_Jackalstan
 		}
 		complete_effect = {
-			country_event = ufa.25
+			add_command_power = -25
 		}
-		cost = 0		#operations success mechanic
+		days_remove = 180
+		remove_effect = {
+			country_event = ufa.25
+			678 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		cost = 50		#operations success mechanic
 	}
 	UFA_Desert_Underground = {
 		allowed = {
@@ -3830,14 +3887,26 @@ UFA_Jackalstan_Ops = {
 		available = {
 			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Contact_the_Resistance
+			command_power > 24
 		}
 		visible = {
 			has_completed_focus = UFA_Investigate_Jackalstan
 		}
 		complete_effect = {
-			country_event = ufa.26
+			add_command_power = -25
 		}
-		cost = 0		#operations success mechanic
+		days_remove = 180
+		remove_effect = {
+			country_event = ufa.26
+			678 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		cost = 50		#operations success mechanic
 	}
 	UFA_Phantom_Thief = {
 		allowed = {
@@ -3846,14 +3915,22 @@ UFA_Jackalstan_Ops = {
 		available = {
 			has_country_flag = UFA_Jackalstan_Ops
 			has_completed_focus = UFA_Operation_Phantom_Thief
+			command_power > 74
 		}
 		visible = {
 			has_completed_focus = UFA_Investigate_Jackalstan
 		}
 		complete_effect = {
 			#Jackalstan loses all bonuses from Phantom Ruby 
+			set_variable = {
+				inf_phantom_ruby_energy = 0
+			}
+			INF = {
+				set_country_flag = Ruby_Is_Stolen
+			} 
+			add_command_power = -75
 		}
-		cost = 0		#operations success mechanic
+		cost = 100		#operations success mechanic
 	}
 }
 
@@ -4203,6 +4280,330 @@ UFA_Eggman_Ops = {
 		}
 		cost = 0
 		days_re_enable = 120
+	}
+}
+
+UFA_Acorn_Ops = {
+	Offer_Small_Loans_to_the_Kingdom = {
+		available = {
+			check_variable = {
+				rings > 100000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				country_event = ufa.101
+			}
+		}
+		cost = 0
+	}
+	Offer_Medium_Loans_to_the_Kingdom = {
+		available = {
+			check_variable = {
+				rings > 250000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				country_event = ufa.102
+			}
+		}
+		cost = 0
+	}
+	Offer_Big_Loans_to_the_Kingdom = {
+		available = {
+			check_variable = {
+				rings > 500000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				country_event = ufa.103
+			}
+		}
+		cost = 0
+	}
+	Offer_Heavy_Loans_to_the_Kingdom = {
+		available = {
+			check_variable = {
+				rings > 1000000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				country_event = ufa.104
+			}
+		}
+		cost = 0
+	}
+	Send_Weapons_to_the_Kingdom = {
+		available = {
+			has_equipment = {
+				infantry_equipment > 1000
+			}
+			has_equipment = {
+				support_equipment > 100
+			}
+			has_equipment = {
+				artillery_equipment > 100
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 100
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 100
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -1000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -100
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = -100
+				}
+			}
+		}
+		cost = 0
+	}
+	Send_Vehicles_to_the_Kingdom = {
+		available = {
+			has_equipment = {
+				motorized_equipment > 250
+			}
+			has_equipment = {
+				apc_mechanized_equipment > 100
+			}
+			has_equipment = {
+				main_battle_tank_equipment > 50
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 250
+				}
+				add_equipment_to_stockpile = {
+					type = apc_mechanized_equipment
+					amount = 100
+				}
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = 50
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -250
+				}
+				add_equipment_to_stockpile = {
+					type = apc_mechanized_equipment
+					amount = -100
+				}
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = -50
+				}
+			}
+		}
+		cost = 0
+	}
+	Send_Aviation_to_the_Kingdom = {
+		available = {
+			has_equipment = {
+				jet_fighter_equipment > 10
+			}
+			has_equipment = {
+				jet_CAS_equipment > 10
+			}
+			has_equipment = {
+				attack_helicopter_equipment > 30
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				add_equipment_to_stockpile = {
+					type = jet_fighter_equipment
+					amount = 10
+				}
+				add_equipment_to_stockpile = {
+					type = jet_CAS_equipment
+					amount = 10
+				}
+				add_equipment_to_stockpile = {
+					type = attack_helicopter_equipment
+					amount = 30
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = jet_fighter_equipment
+					amount = -10
+				}
+				add_equipment_to_stockpile = {
+					type = jet_CAS_equipment
+					amount = -10
+				}
+				add_equipment_to_stockpile = {
+					type = attack_helicopter_equipment
+					amount = -30
+				}
+			}
+		}
+		cost = 0
+	}
+	Send_Political_Advisors_to_the_Kingdom = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				add_political_power = 50
+			}
+		}
+		cost = 0
+	}
+	Send_Military_Advisors_to_the_Kingdom = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			KOA = {
+				army_experience = 15
+				navy_experience = 15
+				air_experience = 15
+				add_command_power = 15
+			}
+		}
+		cost = 0
+	}
+	to_the_Republic = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_A_New_Republic
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+	to_the_Baronies = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Divide_the_Grove
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+
+	Discredit_the_Reds = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Red_Leaf
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+	Sabotage_the_Red_Industry = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Red_Leaf
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+	Sabotage_the_Red_Political_System = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Red_Leaf
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+	Sabotage_the_Red_Military = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Red_Leaf
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
+	}
+	Steal_the_Rings_from_Reds = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Red_Leaf
+		}
+		complete_effect = {
+			
+		}
+		cost = 0
 	}
 }
 

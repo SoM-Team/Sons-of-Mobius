@@ -2105,6 +2105,14 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			custom_effect_tooltip = Publicize_the_Madness
+			INF = {
+				add_political_power = -75
+				add_stability = -0.1
+				add_popularity = {
+					ideology = purificationism
+					popularity = 0.1
+				}
+			}
 		}
 	}
 	focus = {
@@ -2120,7 +2128,7 @@ focus_tree = {
 		y = 3
 		cost = 4
 		completion_reward = {
-			country_event = ufa.26
+			custom_effect_tooltip = Contact_the_Resistance
 		}
 	}
 	focus = {
@@ -2238,6 +2246,28 @@ focus_tree = {
 		y = 4
 		bypass = {
 			#acorn civil war has been avoided
+			AND = {
+				KOA = {
+					OR = {
+						has_completed_focus = KOA_The_One_Who_Was_Ready
+						has_completed_focus = KOA_The_Royal_Republic
+						has_completed_focus = KOA_Revolution_from_Above
+					}
+				}
+				NOT = {
+					KOA = {
+						OR = {
+							has_civil_war = yes
+							has_war_with = UWM
+							has_war_with = SOT
+							has_war_with = NOR
+						}
+					}
+				}
+				NOT = {
+					has_global_flag = KOA_civil_war_started
+				}
+			}
 		}
 		prerequisite = {
 			focus = UFA_An_Eternal_Branch
@@ -2315,6 +2345,14 @@ focus_tree = {
 		y = 2
 		bypass = {
 			#acorn civil war has started
+			KOA = {
+				OR = {
+					has_civil_war = yes
+					has_war_with = UWM
+					has_war_with = SOT
+					has_war_with = NOR
+				}
+			}
 		}
 		prerequisite = {
 			focus = UFA_An_Eternal_Branch
@@ -2977,6 +3015,10 @@ focus_tree = {
 		completion_reward = {
 			#Get Event: Containment Theories
 			custom_effect_tooltip = Spectre_Haunting_Yurashia
+			add_popularity = {
+				ideology = progressism
+				popularity = -0.05
+			}
 		}
 	}
 	focus = {
@@ -3262,6 +3304,7 @@ focus_tree = {
 		cost = 1
 		completion_reward = {
 			custom_effect_tooltip = Game_Theory
+			add_political_power = 15
 		}
 	}
 	focus = {
@@ -3278,6 +3321,7 @@ focus_tree = {
 		cost = 1
 		completion_reward = {
 			custom_effect_tooltip = Reinforce_the_Cordon
+			add_political_power = 15
 		}
 	}
 	focus = {
@@ -3643,6 +3687,7 @@ focus_tree = {
 					category = infantry_weapons
 				}
 			}
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -4380,7 +4425,7 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			custom_effect_tooltip = Cold_Comfort
-			#
+			add_political_power = 35
 		}
 	}
 	focus = {
@@ -4445,6 +4490,7 @@ focus_tree = {
 		cost = 1
 		completion_reward = {
 			custom_effect_tooltip = Looking_East
+			add_political_power = 15
 		}
 	}
 	focus = {
@@ -4798,6 +4844,10 @@ focus_tree = {
 		cost = 4
 		completion_reward = {
 			custom_effect_tooltip = Halt_the_Dominoes
+			add_war_support = 0.05
+			army_experience = 15
+			navy_experience = 15
+			air_experience = 15
 		}
 	}
 	focus = {
@@ -5379,7 +5429,12 @@ focus_tree = {
 			focus = They_Are_Not_Taxes
 		}
 		completion_reward = {
-			#
+			add_tech_bonus = {
+				name = "City Escape"
+				category = construction_tech
+				bonus = 0.25
+				uses = 1
+			}
 		}
 	}
 	focus = {
@@ -6280,7 +6335,12 @@ focus_tree = {
 			focus = UFA_The_Biggest_Guns
 		}
 		completion_reward = {
-			#2x 100% bonus for Base Strike doctrine
+			add_tech_bonus = {
+				name = "Mothership Theory"
+				category = general_military_options_fleet_tree
+				bonus = 1
+				uses = 2
+			}
 		}
 	}
 	focus = {
@@ -6297,7 +6357,12 @@ focus_tree = {
 			focus = UFA_Mothership_Theory
 		}
 		completion_reward = {
-			#2x 100% bonus for Fleet in Being doctrine
+			add_tech_bonus = {
+				name = "The Biggest Guns"
+				category = blue_sea_fleet_tree
+				bonus = 1
+				uses = 2
+			}
 		}
 	}
 	focus = {
@@ -6311,7 +6376,12 @@ focus_tree = {
 			focus = UFA_Expand_Seagate
 		}
 		completion_reward = {
-			#2x 100% bonus for Fleet in Being doctrine
+			add_tech_bonus = {
+				name = "Build a Screen"
+				category = mio_cat_tech_all_screen_ship_and_modules
+				bonus = 0.5
+				uses = 4
+			}
 		}
 	}
 	focus = {
@@ -6325,7 +6395,12 @@ focus_tree = {
 			focus = UFA_Build_a_Screen
 		}
 		completion_reward = {
-			#2x 100 bonus for Submarines
+			add_tech_bonus = {
+				name = "Interdiction Strategems"
+				category = mio_cat_tech_all_submarine_and_modules
+				bonus = 1
+				uses = 2
+			}
 		}
 	}
 	focus = {
@@ -6339,7 +6414,18 @@ focus_tree = {
 			focus = UFA_Build_a_Screen
 		}
 		completion_reward = {
-			#1x 100% bonus to Transport ships, 1x 100% bonus to Marines
+			add_tech_bonus = {
+				name = "Amphibious Assault"
+				category = marine_tech
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = "Amphibious Assault"
+				category = tp_tech
+				bonus = 1
+				uses = 1
+			}
 		}
 	}
 	focus = {
@@ -6353,7 +6439,12 @@ focus_tree = {
 			focus = UFA_Mothership_Theory
 		}
 		completion_reward = {
-			#1x 100% bonus for Carriers
+			add_tech_bonus = {
+				name = "Floating Fortress"
+				category = cv_tech
+				bonus = 1
+				uses = 1
+			}
 		}
 	}
 	focus = {
@@ -6367,7 +6458,12 @@ focus_tree = {
 			focus = UFA_The_Biggest_Guns
 		}
 		completion_reward = {
-			#1x 100% bonus for Battleships
+			add_tech_bonus = {
+				name = "Aquatic Arsenals"
+				category = bb_tech
+				bonus = 1
+				uses = 1
+			}
 		}
 	}
 	focus = {
@@ -6385,7 +6481,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = UFA_Pax_Foederatio
-			#Gain National Spirit ‘Pax Foederatio’, Effect: +10% naval range
 		}
 	}
 	focus = {
