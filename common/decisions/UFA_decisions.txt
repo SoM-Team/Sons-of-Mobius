@@ -6669,31 +6669,19 @@ UFA_Acorn_Ops = {
 		}
 		complete_effect = {
 			UWM = {
-				add_stability = -0.05
-				add_popularity = {
-					ideology = katzerism
-					popularity = -0.025
-				}
-				add_popularity = {
-					ideology = neosocialism
-					popularity = -0.025
-				}
-				add_popularity = {
-					ideology = autonomous_socialism
-					popularity = -0.025
-				}
-				hidden_effect = {
-					add_war_support = 0.05
-					add_political_power = 50
+				add_stability = -0.025
+				add_timed_idea = {
+					idea = UFA_Discreditation_of_Government
+					days = 90
 				}
 			}
 		}
 		days_re_enable = 90
-		cost = 0
+		cost = 50
 	}
 	Sabotage_the_Red_Industry = {
 		available = {
-			always = yes
+			command_power > 74
 		}
 		visible = { 
 			has_completed_focus = UFA_Red_Leaf
@@ -6723,9 +6711,12 @@ UFA_Acorn_Ops = {
 					}
 				}
 			}
+			UFA = {
+				add_command_power = -75
+			}
 		}
 		days_re_enable = 90
-		cost = 0
+		cost = 25
 	}
 	Sabotage_the_Red_Political_System = {
 		available = {
@@ -6743,24 +6734,29 @@ UFA_Acorn_Ops = {
 			}
 		}
 		days_re_enable = 90
-		cost = 0
+		cost = 100
 	}
 	Sabotage_the_Red_Military = {
 		available = {
-			always = yes
+			command_power > 74
 		}
 		visible = { 
 			has_completed_focus = UFA_Red_Leaf
 		}
 		complete_effect = {
-			random_owned_state = {
-				damage_units = {
-					army = yes
-					damage = 0.5
-					org_damage = 0.75
+			UWM = {
+				random_owned_state = {
+					damage_units = {
+						army = yes
+						damage = 0.5
+						org_damage = 0.75
+					}
 				}
+				add_command_power = -30
 			}
-			add_command_power = -30
+			UFA = {
+				add_command_power = -75
+			}
 		}
 		days_re_enable = 90
 		cost = 0
@@ -6779,6 +6775,829 @@ UFA_Acorn_Ops = {
 				}
 			}
 			custom_effect_tooltip = Block_Funds_for_Reds_tooltip
+		}
+		days_re_enable = 90
+		cost = 50
+	}
+	Protect_the_Stability_of_the_Republic = {
+		available = {
+			NOR = {
+				NOT = {
+					OR = {
+						has_war_with = KOA 
+						has_war_with = SOT
+						has_war_with = UWM
+					}
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = UFA_Let_Freedom_Ring
+		}
+		cost = 50
+		days_re_enable = 90
+		complete_effect = {
+			NOR = {
+				add_stability = 0.05
+				add_political_power = 25
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+			}
+		}
+	}
+}
+
+UFA_Eastern_Ops = {
+	Offer_Small_Loans_to_the_Aiguojun = {
+		available = {
+			check_variable = {
+				rings > 100000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				country_event = ufa.101
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+		}
+		cost = 0
+	}
+	Offer_Medium_Loans_to_the_Aiguojun = {
+		available = {
+			check_variable = {
+				rings > 250000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				country_event = ufa.102
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+		}
+		cost = 0
+	}
+	Offer_Big_Loans_to_the_Aiguojun = {
+		available = {
+			check_variable = {
+				rings > 500000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				country_event = ufa.103
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+		}
+		cost = 0
+	}
+	Offer_Heavy_Loans_to_the_Aiguojun = {
+		available = {
+			check_variable = {
+				rings > 1000000
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				country_event = ufa.104
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Received_Weapons
+							has_idea = UFA_Received_Aviation
+							has_idea = UFA_Received_Vehicles
+							has_idea = UFA_Received_Civilian_Advisors
+							has_idea = UFA_Received_Military_Advisors
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+		}
+		cost = 0
+	}
+	Send_Weapons_to_the_Aiguojun = {
+		available = {
+			has_equipment = {
+				infantry_equipment > 2500
+			}
+			has_equipment = {
+				support_equipment > 250
+			}
+			has_equipment = {
+				artillery_equipment > 250
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2500
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 250
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 250
+				}
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+				add_timed_idea = {
+					idea = UFA_Received_Weapons
+					days = 120
+				}
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -2500
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = -250
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = -250
+				}
+			}
+		}
+		days_re_enable = 90
+		cost = 0
+	}
+	Send_Vehicles_to_the_Aiguojun = {
+		available = {
+			has_equipment = {
+				motorized_equipment > 625
+			}
+			has_equipment = {
+				apc_mechanized_equipment > 250
+			}
+			has_equipment = {
+				main_battle_tank_equipment > 125
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 625
+				}
+				add_equipment_to_stockpile = {
+					type = apc_mechanized_equipment
+					amount = 250
+				}
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = 125
+				}
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+				add_timed_idea = {
+					idea = UFA_Received_Vehicles
+					days = 120
+				}
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = -625
+				}
+				add_equipment_to_stockpile = {
+					type = apc_mechanized_equipment
+					amount = -250
+				}
+				add_equipment_to_stockpile = {
+					type = main_battle_tank_equipment
+					amount = -125
+				}
+			}
+		}
+		days_re_enable = 90
+		cost = 0
+	}
+	Send_Aviation_to_the_Aiguojun = {
+		available = {
+			has_equipment = {
+				jet_fighter_equipment > 25
+			}
+			has_equipment = {
+				jet_CAS_equipment > 25
+			}
+			has_equipment = {
+				attack_helicopter_equipment > 75
+			}
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				add_equipment_to_stockpile = {
+					type = jet_fighter_equipment
+					amount = 25
+				}
+				add_equipment_to_stockpile = {
+					type = jet_CAS_equipment
+					amount = 25
+				}
+				add_equipment_to_stockpile = {
+					type = attack_helicopter_equipment
+					amount = 75
+				}
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+				add_timed_idea = {
+					idea = UFA_Received_Aviation
+					days = 120
+				}
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+			UFA = {
+				add_equipment_to_stockpile = {
+					type = jet_fighter_equipment
+					amount = -25
+				}
+				add_equipment_to_stockpile = {
+					type = jet_CAS_equipment
+					amount = -25
+				}
+				add_equipment_to_stockpile = {
+					type = attack_helicopter_equipment
+					amount = -75
+				}
+			}
+		}
+		days_re_enable = 90
+		cost = 0
+	}
+	Send_Political_Advisors_to_the_Aiguojun = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				add_political_power = 100
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+				add_timed_idea = {
+					idea = UFA_Received_Civilian_Advisors
+					days = 120
+				}
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
+		}
+		days_re_enable = 90
+		cost = 0
+	}
+	Send_Military_Advisors_to_the_Aiguojun = {
+		available = {
+			always = yes
+		}
+		visible = { 
+			has_completed_focus = UFA_Support_the_Legitimate_Government
+		}
+		complete_effect = {
+			FRE = {
+				army_experience = 45
+				navy_experience = 45
+				air_experience = 45
+				add_command_power = 45
+				add_opinion_modifier = {
+					target = UFA
+					modifier = UFA_Recent_Aid
+				}
+				add_timed_idea = {
+					idea = UFA_Received_Military_Advisors
+					days = 120
+				}
+				if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Big_Dependency
+					}
+					add_ideas = UFA_Heavy_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Medium_Dependency
+					}
+					add_ideas = UFA_Big_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						has_idea = UFA_Minor_Dependency
+					}
+					add_ideas = UFA_Medium_Dependency
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_idea = UFA_Small_Loans
+							has_idea = UFA_Medium_Loans
+							has_idea = UFA_Big_Loans
+							has_idea = UFA_Heavy_Loans
+						}
+						NOT = {
+							OR = {
+								has_idea = UFA_Minor_Dependency
+								has_idea = UFA_Medium_Dependency
+								has_idea = UFA_Big_Dependency
+								has_idea = UFA_Heavy_Dependency
+							}
+						}
+					}
+					add_ideas = UFA_Minor_Dependency
+				}
+			}
 		}
 		days_re_enable = 90
 		cost = 0
