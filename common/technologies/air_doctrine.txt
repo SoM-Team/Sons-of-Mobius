@@ -453,7 +453,7 @@ technologies = {
 		xp_unlock_cost = 100
 		
 		path = {
-			leads_to_tech = drone_integration
+			leads_to_tech = air_ambushes
 			research_cost_coeff = 1 
 		}
 		
@@ -490,6 +490,51 @@ technologies = {
 		}
 	}	
 
+	air_ambushes = {
+
+		# EFFECT ########
+		# Work in progress WIP
+		###########
+		xp_research_type = air
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = drone_integration
+			research_cost_coeff = 1 
+		}
+		
+		doctrine = yes	
+		research_cost = 3
+		
+		categories = {
+			air_doctrine
+			cat_doct_civil_defense
+			
+		}
+		
+		folder = {
+			name = air_doctrine_folder
+			position = { x = 0 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				ai_land_doctrine_tier_1_trigger = yes
+				factor = 2
+			}
+			modifier = {
+				ai_land_doctrine_tier_2_trigger = yes
+				factor = 2
+			}
+		}
+		
+		ai_research_weights = {
+			air_doctrine = -1.0
+			medium_air = -0.5
+			heavy_air = -1.5
+		}
+	}	
 
 	drone_integration = {
 
@@ -515,7 +560,7 @@ technologies = {
 		
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 14 }
+			position = { x = 0 y = 16 }
 		}
 		
 		ai_will_do = {
@@ -562,7 +607,7 @@ technologies = {
 		
 		folder = {
 			name = air_doctrine_folder
-			position = { x = 0 y = 16 }
+			position = { x = 0 y = 18 }
 		}
 		
 		ai_will_do = {
@@ -1372,7 +1417,7 @@ technologies = {
 		
 		# EFFECT ########
 		guided_missile = {
-			range = 0.15
+			air_range = 0.15
 		}
 		###########
 		
