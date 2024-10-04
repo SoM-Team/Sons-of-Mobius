@@ -1253,13 +1253,38 @@ KOA_Stop_The_Rev = {
 	    }
 		
 		timeout_effect = {
-			country_event = {
-				id = koa.88
-				days = 3
+			if = {
+				limit = {
+					check_variable = {
+						baron_power > 19
+					}
+				}
+				country_event = {
+					id = koa.88
+					days = 3
+				}
 			}
-			country_event = {
-				id = koa.89
-				days = 1
+			if = {
+				limit = {
+					check_variable = {
+						union_power > 19
+					}
+				}
+				country_event = {
+					id = koa.90
+					days = 2
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						prower_power > 19
+					}
+				}
+				country_event = {
+					id = koa.89
+					days = 1
+				}
 			}
 		}
 
