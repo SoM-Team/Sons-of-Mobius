@@ -100,6 +100,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_green
 						clr_global_flag = gem_hunt
 						clr_global_flag = greengemexist
+						set_global_flag = green_emerald_found
 						clear_variable = global.gem_green_country
 						PREV = {
 							capital_scope = {
@@ -180,6 +181,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_blue
 						clr_global_flag = gem_hunt
 						clr_global_flag = bluegemexist
+						set_global_flag = blue_emerald_found
 						clear_variable = global.gem_blue_country
 						PREV = {
 							capital_scope = {
@@ -260,6 +262,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_red
 						clr_global_flag = gem_hunt
 						clr_global_flag = redgemexist
+						set_global_flag = red_emerald_found
 						clear_variable = global.gem_red_country
 						PREV = {
 							capital_scope = {
@@ -339,6 +342,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_white
 						clr_global_flag = gem_hunt
 						clr_global_flag = whitegemexist
+						set_global_flag = white_emerald_found
 						clear_variable = global.gem_white_country
 						PREV = {
 							capital_scope = {
@@ -418,6 +422,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_turquoise
 						clr_global_flag = gem_hunt
 						clr_global_flag = turquoisegemexist
+						set_global_flag = turquoise_emerald_found
 						clear_variable = global.gem_turquoise_country
 						PREV = {
 							capital_scope = {
@@ -497,6 +502,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_yellow
 						clr_global_flag = gem_hunt
 						clr_global_flag = yellowgemexist
+						set_global_flag = yellow_emerald_found
 						clear_variable = global.gem_yellow_country
 						PREV = {
 							capital_scope = {
@@ -576,6 +582,7 @@ GEM_HUNT = {
 						clr_state_flag = gem_purple
 						clr_global_flag = gem_hunt
 						clr_global_flag = purplegemexist
+						set_global_flag = purple_emerald_found
 						clear_variable = global.gem_purple_country
 						PREV = {
 							capital_scope = {
@@ -618,11 +625,9 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
+		visible = {
 			AND = {
-				any_owned_state = {
-					has_state_flag = green_emerald_state
-				}
+				has_country_flag = green_emerald
 				NOT = {
 					has_country_flag = gemmoving
 				}
@@ -641,19 +646,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = green_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = green_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -684,10 +676,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = red_emerald_state
-			}
+		visible = {
+			has_country_flag = red_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -707,19 +697,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = red_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = red_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -750,10 +727,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = blue_emerald_state
-			}
+		visible = {
+			has_country_flag = blue_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -773,19 +748,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = blue_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = blue_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -816,10 +778,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = white_emerald_state
-			}
+		visible = {
+			has_country_flag = white_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -839,19 +799,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = white_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = white_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -882,10 +829,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = turquoise_emerald_state
-			}
+		visible = {
+			has_country_flag = turquoise_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -905,19 +850,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = turquoise_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = turquoise_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -948,10 +880,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = yellow_emerald_state
-			}
+		visible = {
+			has_country_flag = yellow_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -971,19 +901,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = yellow_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = yellow_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -1014,10 +931,8 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_owned_state = {
-				has_state_flag = purple_emerald_state
-			}
+		visible = {
+			has_country_flag = purple_emerald
 			NOT = {
 				has_country_flag = gemmoving
 			}
@@ -1037,19 +952,6 @@ GEM_SPY = {
 		#fire_only_once = yes
 		days_remove = 3
 		modifier = {
-		}
-		visible = {
-			AND = {
-				#has_idea = spy_steal
-				FROM = {
-					NOT = {
-						has_state_flag = purple_emerald_state
-					}
-				}
-				any_owned_state = {
-					has_state_flag = purple_emerald_state
-				}
-			}
 		}
 		complete_effect = {
 			set_country_flag = gemmoving
@@ -1080,22 +982,6 @@ GEM_SPY = {
 		icon = generic_nationalism
 		allowed = {
 		}
-		available = {
-			any_state = {
-				NOT = {
-					is_owned_by = ROOT
-				}
-				OR = {
-					has_state_flag = green_emerald_state
-					has_state_flag = red_emerald_state
-					has_state_flag = blue_emerald_state
-					has_state_flag = white_emerald_state
-					has_state_flag = turquoise_emerald_state
-					has_state_flag = yellow_emerald_state
-					has_state_flag = purple_emerald_state
-				}
-			}
-		}
 		state_target = yes
 		on_map_mode = map_only
 		target_trigger = {
@@ -1121,22 +1007,47 @@ GEM_SPY = {
 		modifier = {
 		}
 		visible = {
-			AND = {
-				#has_idea = spy_steal
-				any_state = {
-					AND = {
-						NOT = {
-							is_owned_by = ROOT
-						}
-						OR = {
-							has_state_flag = green_emerald_state
-							has_state_flag = red_emerald_state
-							has_state_flag = blue_emerald_state
-							has_state_flag = white_emerald_state
-							has_state_flag = turquoise_emerald_state
-							has_state_flag = yellow_emerald_state
-							has_state_flag = purple_emerald_state
-						}
+			OR = {
+				AND = {
+					has_global_flag = green_emerald_found
+					NOT = {
+						has_country_flag = green_emerald
+					}
+				}
+				AND = {
+					has_global_flag = red_emerald_found
+					NOT = {
+						has_country_flag = red_emerald
+					}
+				}
+				AND = {
+					has_global_flag = blue_emerald_found
+					NOT = {
+						has_country_flag = blue_emerald
+					}
+				}
+				AND = {
+					has_global_flag = white_emerald_found
+					NOT = {
+						has_country_flag = white_emerald
+					}
+				}
+				AND = {
+					has_global_flag = turquoise_emerald_found
+					NOT = {
+						has_country_flag = turquoise_emerald
+					}
+				}
+				AND = {
+					has_global_flag = yellow_emerald_found
+					NOT = {
+						has_country_flag = yellow_emerald
+					}
+				}
+				AND = {
+					has_global_flag = purple_emerald_found
+					NOT = {
+						has_country_flag = purple_emerald
 					}
 				}
 			}
@@ -1149,15 +1060,13 @@ GEM_SPY = {
 					limit = {
 						FROM = {
 							NOT = {
-								OR = {
-									has_state_flag = green_emerald_state
-									has_state_flag = red_emerald_state
-									has_state_flag = blue_emerald_state
-									has_state_flag = white_emerald_state
-									has_state_flag = turquoise_emerald_state
-									has_state_flag = yellow_emerald_state
-									has_state_flag = purple_emerald_state
-								}
+								has_state_flag = green_emerald_state
+								has_state_flag = red_emerald_state
+								has_state_flag = blue_emerald_state
+								has_state_flag = white_emerald_state
+								has_state_flag = turquoise_emerald_state
+								has_state_flag = yellow_emerald_state
+								has_state_flag = purple_emerald_state
 							}
 						}
 					}
