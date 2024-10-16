@@ -1007,3 +1007,82 @@ Mobilization_and_Draft_Evasion = {
 		}
 	}
 }
+
+Derobotization_Effort = {
+    Integrate_Robians_in_Army = {
+		available = {
+			command_power > 49
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			add_command_power = -50
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization
+				add_idea = Consequences_of_Roboticization_2
+			}
+		}
+	}
+
+	Integrate_Robians_in_Military_High_Staff = {
+		available = {
+			has_army_experience > 74
+			has_decision = Integrate_Robians_in_Army
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			army_experience = -75
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization_2
+				add_idea = Consequences_of_Roboticization_3
+			}
+		}
+	}
+
+	Expand_Robian_Employment = {
+		available = {
+			has_political_power > 99
+			has_decision = Integrate_Robians_in_Military_High_Staff
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			add_political_power = -100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization_3
+				add_idea = Consequences_of_Roboticization_4
+			}
+		}
+	}
+
+	Mass_Deroboticization_Campaign = {
+		available = {
+			has_decision = Expand_Robian_Employment
+			check_variable = {
+				rings > 99999
+			}
+		}
+		fire_only_once = yes
+		
+		days_remove = 120
+		complete_effect = {
+			add_to_variable = {
+				var = rings
+				value = -100000
+			}
+		}
+		remove_effect = {
+			remove_ideas = Consequences_of_Roboticization_4
+		}
+	}
+}
