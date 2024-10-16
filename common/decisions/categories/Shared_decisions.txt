@@ -46,3 +46,48 @@ Mobilization_and_Draft_Evasion = {
 		always = yes
 	}
 }
+
+Derobotization_Effort = {
+    visible = {
+        NOT = {
+            is_in_faction_with = EGG
+        }
+        OR = {
+            has_completed_focus = KOA_Robian_Integration
+            has_completed_focus = KOA_Back_to_Mobian
+
+            AND = {
+                NOT = {
+                    tag = KOA
+                }
+                has_global_flag = KOA_Assist_in_Derobotization_flag
+                has_opinion = {
+                    target = KOA
+                    value > 50
+                }
+            }
+        }
+    }
+
+    allowed = {
+        OR = {
+            tag = KOA
+            tag = OLP
+            tag = KUN
+            tag = SWA
+            tag = PSR
+            tag = HIB
+            tag = AVI
+            tag = ANG
+            tag = PIR
+            tag = HIB
+            tag = GDK
+            tag = NEA
+            tag = CRI
+            tag = UMK
+            tag = STD
+            tag = CNS
+            tag = FLU
+        }
+    }
+}
