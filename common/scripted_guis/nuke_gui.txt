@@ -1,0 +1,40 @@
+scripted_gui = {
+	nuke_override_gui = {
+		context_type = selected_state_context
+		window_name = som_nuke_button
+		parent_window_name = countrystateview
+
+		triggers = {
+			nuke_province_override_click_enabled = {
+				ROOT = {
+					has_country_flag = MBRProject
+					num_of_nukes > 0
+					check_variable = {
+						mbr > 0
+					}
+					any_controlled_state = {
+						check_variable = {
+							distance_to@PREV.PREV < PREV.mbr_range
+						}
+					}
+				}
+				owner = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		effects = {
+			nuke_province_override_click = {
+				ROOT = {
+					set_variable = {
+						nuked_state = PREV
+					}
+					country_event = {
+						id = nuke.12
+						days = 1
+					}
+				}
+			}
+		}
+	}
+}
