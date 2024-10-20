@@ -143,25 +143,13 @@ on_actions = {
 		effect = {
 			calculate_ring_gain = yes
 			set_temp_variable = {
-				t = 2000000
+				r = rings_total_net_gain
 			}
-			subtract_from_temp_variable = {
-				t = rings_total_net_gain
+			divide_temp_variable = {
+				r = 1000
 			}
-			if = {
-				limit = {
-					check_variable = {
-						rings > t
-					}
-				}
-				set_variable = {
-					rings = 2000000
-				}
-			}
-			else = {
-				add_to_variable = {
-					rings = rings_total_net_gain
-				}
+			add_to_variable = {
+				rings = r
 			}
 			every_country = {
 				set_variable = {
