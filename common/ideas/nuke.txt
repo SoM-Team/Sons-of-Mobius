@@ -79,4 +79,1832 @@ ideas = {
 			}
 		}
 	}
+
+	hidden_ideas = {
+		nuke_explosion = {
+			on_remove = {
+				custom_effect_tooltip = launchmbr
+				hidden_effect = {
+					var:nuked_state = {
+						owner = {
+							if = {
+								limit = {
+									is_ai = no
+								}
+								play_song = "air_alarm"
+							}
+						}
+					}
+					set_temp_variable = {
+						temp1 = 0
+					}
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 1
+							}
+						}
+						if = {
+							limit = {
+								AND = {
+									var:nuked_state = {
+										owner = {
+											check_variable = {
+												smd < 1
+											}
+										}
+									}
+									var:nuked_state = {
+										owner = {
+											NOT = {
+												any_controlled_state = {
+													check_variable = {
+														non_damaged_building_level@radar_station > 5
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							launch_nuke = {
+								#province = 
+								state = var:nuked_state
+								controller = nuked_state:owner
+								use_nuke = yes
+							}
+							else = {
+								var:nuked_state = {
+									owner = {
+										add_to_variable = {
+											smd = -1
+										}
+									}
+								}
+								add_to_temp_variable = {
+									temp1 = 1
+								}
+							}
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 2
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 0
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 1
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 3
+							}
+						}
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 0
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 1
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 2
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 4
+							}
+						}
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 0
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 1
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 2
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 3
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 5
+							}
+						}
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 0
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 1
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 2
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 3
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 4
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+					}
+					#
+					if = {
+						limit = {
+							check_variable = {
+								mbr_power = 6
+							}
+						}
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 0
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 1
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 2
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 3
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 4
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+						###
+						if = {
+							limit = {
+								var:nuked_state = {
+									owner = {
+										AND = {
+											check_variable = {
+												smd > 0
+											}
+											check_variable = {
+												smd_power > 5
+											}
+											any_controlled_state = {
+												check_variable = {
+													non_damaged_building_level@radar_station > 5
+												}
+											}
+										}
+									}
+								}
+							}
+							random_list = {
+								25 = {
+									launch_nuke = {
+										#province = 
+										state = var:nuked_state
+										controller = nuked_state:owner
+										use_nuke = yes
+									}
+								}
+								75 = {
+									add_to_temp_variable = {
+										temp1 = 1
+									}
+								}
+							}
+							var:nuked_state = {
+								owner = {
+									add_to_variable = {
+										smd = -1
+									}
+								}
+							}
+							else = {
+								launch_nuke = {
+									#province = 
+									state = var:nuked_state
+									controller = nuked_state:owner
+									use_nuke = yes
+								}
+							}
+						}
+					}
+					########################################
+					set_variable = {
+						smd_count = temp1
+					}
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									check_variable = {
+										mbr_power = 2
+									}
+									check_variable = {
+										smd_count = 0
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 3
+									}
+									check_variable = {
+										smd_count = 1
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 4
+									}
+									check_variable = {
+										smd_count = 2
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 5
+									}
+									check_variable = {
+										smd_count = 3
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 6
+									}
+									check_variable = {
+										smd_count = 4
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							add_extra_state_shared_building_slots = -1
+							random_list = {
+								25 = {
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_state_flag = medium_rad_state
+													has_state_flag = heavy_rad_state
+												}
+											}
+										}
+										clr_state_flag = light_rad_state
+										set_state_flag = light_rad_state
+									}
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_dynamic_modifier = {
+														modifier = Radiation_medium
+														# scope = var:nuked_state
+													}
+													has_dynamic_modifier = {
+														modifier = Radiation_heavy
+														# scope = var:nuked_state
+													}
+												}
+											}
+										}
+										remove_dynamic_modifier = {
+											modifier = Radiation_light
+										}
+										add_dynamic_modifier = {
+											modifier = Radiation_light
+											# scope = var:nuked_state
+											days = 200
+										}
+									}
+								}
+								75 = {
+								}
+							}
+							owner = {
+								add_manpower = -20000
+							}
+						}
+					}
+					##
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									check_variable = {
+										mbr_power = 3
+									}
+									check_variable = {
+										smd_count = 0
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 4
+									}
+									check_variable = {
+										smd_count = 1
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 5
+									}
+									check_variable = {
+										smd_count = 2
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 6
+									}
+									check_variable = {
+										smd_count = 3
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							add_extra_state_shared_building_slots = -2
+							#
+							random_list = {
+								40 = {
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_state_flag = medium_rad_state
+													has_state_flag = heavy_rad_state
+												}
+											}
+										}
+										clr_state_flag = light_rad_state
+										set_state_flag = light_rad_state
+									}
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_dynamic_modifier = {
+														modifier = Radiation_medium
+														# scope = var:nuked_state
+													}
+													has_dynamic_modifier = {
+														modifier = Radiation_heavy
+														# scope = var:nuked_state
+													}
+												}
+											}
+										}
+										remove_dynamic_modifier = {
+											modifier = Radiation_light
+										}
+										add_dynamic_modifier = {
+											modifier = Radiation_light
+											# scope = var:nuked_state
+											days = 200
+										}
+									}
+								}
+								15 = {
+									if = {
+										limit = {
+											NOT = {
+												has_state_flag = heavy_rad_state
+											}
+										}
+										set_state_flag = medium_rad_state
+										clr_state_flag = light_rad_state
+									}
+									if = {
+										limit = {
+											NOT = {
+												has_dynamic_modifier = {
+													modifier = Radiation_heavy
+													# scope = var:nuked_state
+												}
+											}
+										}
+										remove_dynamic_modifier = {
+											modifier = Radiation_light
+										}
+										remove_dynamic_modifier = {
+											modifier = Radiation_medium
+										}
+										add_dynamic_modifier = {
+											modifier = Radiation_medium
+											# scope = var:nuked_state
+											days = 400
+										}
+									}
+								}
+								45 = {
+								}
+							}
+							#
+							owner = {
+								add_manpower = -40000
+								random_list = {
+									10 = {
+										add_timed_idea = {
+											idea = Technogenic_accidents
+											days = 100
+										}
+									}
+									90 = {
+									}
+								}
+							}
+						}
+					}
+					##
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									check_variable = {
+										mbr_power = 4
+									}
+									check_variable = {
+										smd_count = 0
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 5
+									}
+									check_variable = {
+										smd_count = 1
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 6
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							add_extra_state_shared_building_slots = -3
+							random_list = {
+								45 = {
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_state_flag = medium_rad_state
+													has_state_flag = heavy_rad_state
+												}
+											}
+										}
+										clr_state_flag = light_rad_state
+										set_state_flag = light_rad_state
+										if = {
+											limit = {
+												NOT = {
+													OR = {
+														has_dynamic_modifier = {
+															modifier = Radiation_heavy
+															# scope = var:nuked_state
+														}
+														has_dynamic_modifier = {
+															modifier = Radiation_medium
+															# scope = var:nuked_state
+														}
+													}
+												}
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_light
+											}
+											add_dynamic_modifier = {
+												modifier = Radiation_light
+												# scope = var:nuked_state
+												days = 200
+											}
+										}
+									}
+								}
+								35 = {
+									if = {
+										limit = {
+											NOT = {
+												has_state_flag = heavy_rad_state
+											}
+										}
+										clr_state_flag = light_rad_state
+										clr_state_flag = medium_rad_state
+										set_state_flag = medium_rad_state
+										if = {
+											limit = {
+												NOT = {
+													has_dynamic_modifier = {
+														modifier = Radiation_heavy
+														# scope = var:nuked_state
+													}
+												}
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_light
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_medium
+											}
+											add_dynamic_modifier = {
+												modifier = Radiation_medium
+												# scope = var:nuked_state
+												days = 400
+											}
+										}
+									}
+								}
+								20 = {
+								}
+							}
+							#
+							owner = {
+								add_manpower = -60000
+								random_list = {
+									25 = {
+										add_timed_idea = {
+											idea = Technogenic_accidents
+											days = 100
+										}
+									}
+									75 = {
+									}
+								}
+							}
+						}
+					}
+					##
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									check_variable = {
+										mbr_power = 5
+									}
+									check_variable = {
+										smd_count = 0
+									}
+								}
+								AND = {
+									check_variable = {
+										mbr_power = 6
+									}
+									check_variable = {
+										smd_count = 1
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							add_extra_state_shared_building_slots = -4
+							random_list = {
+								45 = {
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_state_flag = medium_rad_state
+													has_state_flag = heavy_rad_state
+												}
+											}
+										}
+										clr_state_flag = light_rad_state
+										set_state_flag = light_rad_state
+										if = {
+											limit = {
+												NOT = {
+													OR = {
+														has_dynamic_modifier = {
+															modifier = Radiation_heavy
+															# scope = var:nuked_state
+														}
+														has_dynamic_modifier = {
+															modifier = Radiation_medium
+															# scope = var:nuked_state
+														}
+													}
+												}
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_light
+											}
+											add_dynamic_modifier = {
+												modifier = Radiation_light
+												# scope = var:nuked_state
+												days = 200
+											}
+										}
+									}
+								}
+								40 = {
+									if = {
+										limit = {
+											NOT = {
+												has_state_flag = heavy_rad_state
+											}
+										}
+										clr_state_flag = light_rad_state
+										clr_state_flag = medium_rad_state
+										set_state_flag = medium_rad_state
+										if = {
+											limit = {
+												NOT = {
+													has_dynamic_modifier = {
+														modifier = Radiation_heavy
+														# scope = var:nuked_state
+													}
+												}
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_light
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_medium
+											}
+											add_dynamic_modifier = {
+												modifier = Radiation_medium
+												# scope = var:nuked_state
+												days = 400
+											}
+										}
+									}
+								}
+								15 = {
+								}
+							}
+							#
+							owner = {
+								add_manpower = -100000
+								random_list = {
+									35 = {
+										add_timed_idea = {
+											idea = Technogenic_accidents
+											days = 100
+										}
+									}
+									65 = {
+									}
+								}
+							}
+						}
+					}
+					##
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									check_variable = {
+										mbr_power = 6
+									}
+									check_variable = {
+										smd_count = 0
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							add_extra_state_shared_building_slots = -5
+							random_list = {
+								60 = {
+									if = {
+										limit = {
+											NOT = {
+												OR = {
+													has_state_flag = medium_rad_state
+													has_state_flag = heavy_rad_state
+												}
+											}
+										}
+										clr_state_flag = light_rad_state
+										clr_state_flag = medium_rad_state
+										set_state_flag = medium_rad_state
+										if = {
+											limit = {
+												NOT = {
+													has_dynamic_modifier = {
+														modifier = Radiation_heavy
+														# scope = var:nuked_state
+													}
+												}
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_light
+											}
+											remove_dynamic_modifier = {
+												modifier = Radiation_medium
+											}
+											add_dynamic_modifier = {
+												modifier = Radiation_medium
+												# scope = var:nuked_state
+												days = 400
+											}
+										}
+									}
+								}
+								40 = {
+									clr_state_flag = light_rad_state
+									clr_state_flag = medium_rad_state
+									clr_state_flag = heavy_rad_state
+									set_state_flag = heavy_rad_state
+									remove_dynamic_modifier = {
+										modifier = Radiation_light
+									}
+									remove_dynamic_modifier = {
+										modifier = Radiation_medium
+									}
+									remove_dynamic_modifier = {
+										modifier = Radiation_heavy
+									}
+									add_dynamic_modifier = {
+										modifier = Radiation_heavy
+										# scope = var:nuked_state
+										days = 600
+									}
+								}
+							}
+							owner = {
+								add_manpower = -120000
+								random_list = {
+									40 = {
+										add_timed_idea = {
+											idea = Technogenic_accidents
+											days = 100
+										}
+									}
+									60 = {
+									}
+								}
+							}
+						}
+					}
+					###
+					if = {
+						limit = {
+							var:nuked_state = {
+								owner = {
+									AND = {
+										has_country_flag = SMDProject
+										any_controlled_state = {
+											check_variable = {
+												non_damaged_building_level@radar_station > 5
+											}
+										}
+									}
+								}
+							}
+						}
+						var:nuked_state = {
+							owner = {
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 0
+											}
+										}
+									}
+									news_event = {
+										id = nuke.7
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 1
+											}
+										}
+									}
+									news_event = {
+										id = nuke.1
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 2
+											}
+										}
+									}
+									news_event = {
+										id = nuke.2
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 3
+											}
+										}
+									}
+									news_event = {
+										id = nuke.3
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 4
+											}
+										}
+									}
+									news_event = {
+										id = nuke.4
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 5
+											}
+										}
+									}
+									news_event = {
+										id = nuke.5
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+								if = {
+									limit = {
+										ROOT = {
+											check_variable = {
+												smd_count = 6
+											}
+										}
+									}
+									news_event = {
+										id = nuke.6
+										days = 1
+										random = 1
+										random_days = 1
+									}
+								}
+							}
+						}
+					}
+					clear_variable = smd_count
+				}
+			}
+		}
+	}
 }

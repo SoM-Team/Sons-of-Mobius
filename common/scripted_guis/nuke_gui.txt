@@ -1,0 +1,31 @@
+scripted_gui = {
+	nuke_override_gui = {
+		context_type = selected_state_context
+		window_name = som_nuke_button
+		parent_window_name = countrystateview
+
+		triggers = {
+			nuke_province_override_click_enabled = {
+				ROOT = {
+					NOT = {
+						has_idea = nuke_explosion
+					}
+				}
+			}
+		}
+		effects = {
+			nuke_province_override_click = {
+				ROOT = {
+					set_variable = {
+						nuked_state = PREV
+					}
+					add_timed_idea = {
+						idea = nuke_explosion
+						days = 1
+					}
+				}
+				log = "Override test"
+			}
+		}
+	}
+}
