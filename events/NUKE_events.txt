@@ -438,3 +438,650 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = nuke.12
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+		var:nuked_state = {
+			owner = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					play_song = "air_alarm"
+				}
+			}
+		}
+		set_temp_variable = {
+			smd_count = 0
+		}
+
+		for_loop_effect = {
+			value = i
+			end = mbr_power
+
+			if = {
+				limit = {
+					var:nuked_state = {
+						owner = {
+							check_variable = {
+								smd > 0
+							}
+							check_variable = {
+								smd_power > i
+							}
+							any_controlled_state = {
+								check_variable = {
+									non_damaged_building_level@radar_station > 5
+								}
+							}
+						}
+					}
+				}
+				random_list = {
+					25 = {
+						launch_nuke = {
+							#province = 
+							state = var:nuked_state
+							controller = nuked_state:owner
+							use_nuke = yes
+						}
+					}
+					75 = {
+						add_to_temp_variable = {
+							smd_count = 1
+						}
+					}
+				}
+				var:nuked_state = {
+					owner = {
+						add_to_variable = {
+							smd = -1
+						}
+					}
+				}
+			}
+			else = {
+				launch_nuke = {
+					#province = 
+					state = var:nuked_state
+					controller = nuked_state:owner
+					use_nuke = yes
+				}
+			}
+		}
+		########################################
+		set_temp_variable = {
+			t = mbr_power
+		}
+		subtract_from_temp_variable = {
+			t = smd_count
+		}
+		if = {
+			limit = {
+				check_variable = {
+					t = 2
+				}
+			}
+			var:nuked_state = {
+				add_extra_state_shared_building_slots = -1
+				random_list = {
+					25 = {
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_state_flag = medium_rad_state
+										has_state_flag = heavy_rad_state
+									}
+								}
+							}
+							clr_state_flag = light_rad_state
+							set_state_flag = light_rad_state
+						}
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_dynamic_modifier = {
+											modifier = Radiation_medium
+											# scope = var:nuked_state
+										}
+										has_dynamic_modifier = {
+											modifier = Radiation_heavy
+											# scope = var:nuked_state
+										}
+									}
+								}
+							}
+							remove_dynamic_modifier = {
+								modifier = Radiation_light
+							}
+							add_dynamic_modifier = {
+								modifier = Radiation_light
+								# scope = var:nuked_state
+								days = 200
+							}
+						}
+					}
+					75 = {
+					}
+				}
+				owner = {
+					add_manpower = -20000
+				}
+			}
+		}
+		##
+		if = {
+			limit = {
+				check_variable = {
+					t = 3
+				}
+			}
+			var:nuked_state = {
+				add_extra_state_shared_building_slots = -2
+				#
+				random_list = {
+					40 = {
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_state_flag = medium_rad_state
+										has_state_flag = heavy_rad_state
+									}
+								}
+							}
+							clr_state_flag = light_rad_state
+							set_state_flag = light_rad_state
+						}
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_dynamic_modifier = {
+											modifier = Radiation_medium
+											# scope = var:nuked_state
+										}
+										has_dynamic_modifier = {
+											modifier = Radiation_heavy
+											# scope = var:nuked_state
+										}
+									}
+								}
+							}
+							remove_dynamic_modifier = {
+								modifier = Radiation_light
+							}
+							add_dynamic_modifier = {
+								modifier = Radiation_light
+								# scope = var:nuked_state
+								days = 200
+							}
+						}
+					}
+					15 = {
+						if = {
+							limit = {
+								NOT = {
+									has_state_flag = heavy_rad_state
+								}
+							}
+							set_state_flag = medium_rad_state
+							clr_state_flag = light_rad_state
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_dynamic_modifier = {
+										modifier = Radiation_heavy
+										# scope = var:nuked_state
+									}
+								}
+							}
+							remove_dynamic_modifier = {
+								modifier = Radiation_light
+							}
+							remove_dynamic_modifier = {
+								modifier = Radiation_medium
+							}
+							add_dynamic_modifier = {
+								modifier = Radiation_medium
+								# scope = var:nuked_state
+								days = 400
+							}
+						}
+					}
+					45 = {
+					}
+				}
+				#
+				owner = {
+					add_manpower = -40000
+					random_list = {
+						10 = {
+							add_timed_idea = {
+								idea = Technogenic_accidents
+								days = 100
+							}
+						}
+						90 = {
+						}
+					}
+				}
+			}
+		}
+		##
+		if = {
+			limit = {
+				check_variable = {
+					t = 4
+				}
+			}
+			var:nuked_state = {
+				add_extra_state_shared_building_slots = -3
+				random_list = {
+					45 = {
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_state_flag = medium_rad_state
+										has_state_flag = heavy_rad_state
+									}
+								}
+							}
+							clr_state_flag = light_rad_state
+							set_state_flag = light_rad_state
+							if = {
+								limit = {
+									NOT = {
+										OR = {
+											has_dynamic_modifier = {
+												modifier = Radiation_heavy
+												# scope = var:nuked_state
+											}
+											has_dynamic_modifier = {
+												modifier = Radiation_medium
+												# scope = var:nuked_state
+											}
+										}
+									}
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_light
+								}
+								add_dynamic_modifier = {
+									modifier = Radiation_light
+									# scope = var:nuked_state
+									days = 200
+								}
+							}
+						}
+					}
+					35 = {
+						if = {
+							limit = {
+								NOT = {
+									has_state_flag = heavy_rad_state
+								}
+							}
+							clr_state_flag = light_rad_state
+							clr_state_flag = medium_rad_state
+							set_state_flag = medium_rad_state
+							if = {
+								limit = {
+									NOT = {
+										has_dynamic_modifier = {
+											modifier = Radiation_heavy
+											# scope = var:nuked_state
+										}
+									}
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_light
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_medium
+								}
+								add_dynamic_modifier = {
+									modifier = Radiation_medium
+									# scope = var:nuked_state
+									days = 400
+								}
+							}
+						}
+					}
+					20 = {
+					}
+				}
+				#
+				owner = {
+					add_manpower = -60000
+					random_list = {
+						25 = {
+							add_timed_idea = {
+								idea = Technogenic_accidents
+								days = 100
+							}
+						}
+						75 = {
+						}
+					}
+				}
+			}
+		}
+		##
+		if = {
+			limit = {
+				check_variable = {
+					t = 5
+				}
+			}
+			var:nuked_state = {
+				add_extra_state_shared_building_slots = -4
+				random_list = {
+					45 = {
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_state_flag = medium_rad_state
+										has_state_flag = heavy_rad_state
+									}
+								}
+							}
+							clr_state_flag = light_rad_state
+							set_state_flag = light_rad_state
+							if = {
+								limit = {
+									NOT = {
+										OR = {
+											has_dynamic_modifier = {
+												modifier = Radiation_heavy
+												# scope = var:nuked_state
+											}
+											has_dynamic_modifier = {
+												modifier = Radiation_medium
+												# scope = var:nuked_state
+											}
+										}
+									}
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_light
+								}
+								add_dynamic_modifier = {
+									modifier = Radiation_light
+									# scope = var:nuked_state
+									days = 200
+								}
+							}
+						}
+					}
+					40 = {
+						if = {
+							limit = {
+								NOT = {
+									has_state_flag = heavy_rad_state
+								}
+							}
+							clr_state_flag = light_rad_state
+							clr_state_flag = medium_rad_state
+							set_state_flag = medium_rad_state
+							if = {
+								limit = {
+									NOT = {
+										has_dynamic_modifier = {
+											modifier = Radiation_heavy
+											# scope = var:nuked_state
+										}
+									}
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_light
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_medium
+								}
+								add_dynamic_modifier = {
+									modifier = Radiation_medium
+									# scope = var:nuked_state
+									days = 400
+								}
+							}
+						}
+					}
+					15 = {
+					}
+				}
+				#
+				owner = {
+					add_manpower = -100000
+					random_list = {
+						35 = {
+							add_timed_idea = {
+								idea = Technogenic_accidents
+								days = 100
+							}
+						}
+						65 = {
+						}
+					}
+				}
+			}
+		}
+		##
+		if = {
+			limit = {
+				check_variable = {
+					t = 6
+				}
+			}
+			var:nuked_state = {
+				add_extra_state_shared_building_slots = -5
+				random_list = {
+					60 = {
+						if = {
+							limit = {
+								NOT = {
+									OR = {
+										has_state_flag = medium_rad_state
+										has_state_flag = heavy_rad_state
+									}
+								}
+							}
+							clr_state_flag = light_rad_state
+							clr_state_flag = medium_rad_state
+							set_state_flag = medium_rad_state
+							if = {
+								limit = {
+									NOT = {
+										has_dynamic_modifier = {
+											modifier = Radiation_heavy
+											# scope = var:nuked_state
+										}
+									}
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_light
+								}
+								remove_dynamic_modifier = {
+									modifier = Radiation_medium
+								}
+								add_dynamic_modifier = {
+									modifier = Radiation_medium
+									# scope = var:nuked_state
+									days = 400
+								}
+							}
+						}
+					}
+					40 = {
+						clr_state_flag = light_rad_state
+						clr_state_flag = medium_rad_state
+						clr_state_flag = heavy_rad_state
+						set_state_flag = heavy_rad_state
+						remove_dynamic_modifier = {
+							modifier = Radiation_light
+						}
+						remove_dynamic_modifier = {
+							modifier = Radiation_medium
+						}
+						remove_dynamic_modifier = {
+							modifier = Radiation_heavy
+						}
+						add_dynamic_modifier = {
+							modifier = Radiation_heavy
+							# scope = var:nuked_state
+							days = 600
+						}
+					}
+				}
+				owner = {
+					add_manpower = -120000
+					random_list = {
+						40 = {
+							add_timed_idea = {
+								idea = Technogenic_accidents
+								days = 100
+							}
+						}
+						60 = {
+						}
+					}
+				}
+			}
+		}
+		###
+		if = {
+			limit = {
+				var:nuked_state = {
+					owner = {
+						AND = {
+							has_country_flag = SMDProject
+							any_controlled_state = {
+								check_variable = {
+									non_damaged_building_level@radar_station > 5
+								}
+							}
+						}
+					}
+				}
+			}
+			var:nuked_state = {
+				owner = {
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 0
+								}
+							}
+						}
+						news_event = {
+							id = nuke.7
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 1
+								}
+							}
+						}
+						news_event = {
+							id = nuke.1
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 2
+								}
+							}
+						}
+						news_event = {
+							id = nuke.2
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 3
+								}
+							}
+						}
+						news_event = {
+							id = nuke.3
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 4
+								}
+							}
+						}
+						news_event = {
+							id = nuke.4
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 5
+								}
+							}
+						}
+						news_event = {
+							id = nuke.5
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+					if = {
+						limit = {
+							ROOT = {
+								check_variable = {
+									smd_count = 6
+								}
+							}
+						}
+						news_event = {
+							id = nuke.6
+							days = 1
+							random = 1
+							random_days = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}
