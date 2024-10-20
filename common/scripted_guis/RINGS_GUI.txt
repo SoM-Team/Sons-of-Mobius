@@ -47,7 +47,7 @@ scripted_gui = {
 		triggers = {
 			rings_buy_science_button_click_enabled = {
 				check_variable = {
-					rings > 999999
+					rings > 999.999
 				}
 				NOT = {
 					has_country_flag = rings_science_bought
@@ -57,7 +57,7 @@ scripted_gui = {
 			rings_buy_energy_button_click_enabled = {
 				or = {
 					check_variable = {
-						rings > 249999
+						rings > 249.999
 					}
 					has_idea = Rings_Infinite_Fuel
 				}
@@ -65,7 +65,7 @@ scripted_gui = {
 
 			rings_buy_politics_button_click_enabled = {
 				check_variable = {
-					rings > 149999
+					rings > 149.999
 				}
 			}
 		}
@@ -75,14 +75,14 @@ scripted_gui = {
 				if = {
 					limit = {
 						check_variable = {
-							rings > 999999
+							rings > 999.999
 						}
 						NOT = {
 							has_country_flag = rings_science_bought
 						}
 					}
 					add_to_variable = {
-						rings = -1000000	
+						rings = -1000	
 					}
 					add_research_slot = 1
 					set_country_flag = rings_science_bought
@@ -105,7 +105,7 @@ scripted_gui = {
 				if = {
 					limit = {
 						check_variable = {
-							rings > 149999
+							rings > 149.999
 						}
 						NOT = {
 							has_country_flag = rings_science_bought
@@ -113,7 +113,7 @@ scripted_gui = {
 					}
 
 					add_to_variable = {
-						rings = -150000
+						rings = -150
 					}
 
 					add_war_support = 0.2
@@ -138,13 +138,13 @@ scripted_gui = {
 					}
 					add_ideas = Rings_Infinite_Fuel
 					add_to_variable = {
-						rings = -250000
+						rings = -250
 					}
 				}
 				else = {
 					remove_ideas = Rings_Infinite_Fuel
 					# add_to_variable = {
-					# 	rings = 250000
+					# 	rings = 250
 					# }
 				}
 				calculate_ring_gain = yes
@@ -166,13 +166,19 @@ scripted_gui = {
 			}
 			rings_buy_resources_trade_confirm_click = {
 				if = {
+					set_temp_variable = {
+						cost = rings_buy_cost
+					}
+					divide_temp_variable = {
+						cost = 1000
+					}
 					limit = {
 						check_variable = {
-							rings > rings_buy_cost
+							rings > cost
 						}
 					}
 					subtract_from_variable = {
-						rings = rings_buy_cost
+						rings = cost
 					}
 					random_owned_state = {
 						add_resource = {
@@ -355,8 +361,14 @@ scripted_gui = {
 			}
 			rings_buy_nukes_trade_confirm_click = {
 				#clr_country_flag = rings_buy_nukes_trade_open
+				set_temp_variable = {
+					t = rings_buy_nukes_gain
+				}
+				divide_temp_variable = {
+					t = 1000
+				}
 				add_to_variable = {
-					rings = rings_buy_nukes_gain
+					rings = t
 				}
 				# subtract_from_variable = {
 				# 	num_of_nukes = rings_buy_nukes_blue_amount
@@ -456,7 +468,13 @@ scripted_gui = {
 			}
 			rings_sell_confirm_click = {
 				#clr_country_flag = rings_sell_open
-				add_to_variable = { rings = rings_sell_gain } 
+				set_temp_variable = {
+					t = rings_sell_gain
+				}
+				divide_temp_variable = {
+					t = 1000
+				}
+				add_to_variable = { rings = t } 
 				set_variable = { rings_sell_gain = 0 } 
 				set_variable = { rings_sell_civilian_amount = 0 } 
 				set_variable = { rings_sell_military_amount = 0 } 
