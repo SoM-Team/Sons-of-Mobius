@@ -443,6 +443,25 @@ entity = {
 	}
 }
 
+# TODO: a custom model
+entity = {
+	name = "building_power_plant"
+	pdxmesh = "building_oil_refinery"
+	
+	locator = { name = "damage_locator_01"	position = { 0.4 0.4 -0.1 } }
+	locator = { name = "damage_locator_02"	position = { -1.4 0.2 0.2 } }
+	locator = { name = "damage_locator_03"	position = { -0.0 0.5 -1.2 } }
+	
+	default_state = "idle"
+	state = { name = "idle" 
+	}
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_03" particle = "building_damaged_particle" }
+	}
+}
+
 entity = {
 	name = "building_industrial_complex"
 	pdxmesh = "building_industrial_complex"
