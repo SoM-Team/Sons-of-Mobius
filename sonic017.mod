@@ -2,7 +2,7 @@ name = "Sonic Optional Version 0.17"
 
 path = "mod/sonic017/"
 
-supported_version = "1.12.*"
+supported_version = "1.15.*"
 
 tags = {
 	"National Focuses"
@@ -18,6 +18,7 @@ replace_path = "common/ai_templates"
 replace_path = "common/autonomous_states" 
 replace_path = "common/bookmarks" 
 replace_path = "common/bop"
+replace_path = "common/buildings" 
 replace_path = "common/characters"
 replace_path = "common/countries"
 replace_path = "common/country_leader"
