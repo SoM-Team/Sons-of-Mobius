@@ -1,0 +1,42 @@
+ability = {
+	Drop_Satellite = {
+		name = ABILITY_DROP_SATELLITE
+		desc = ABILITY_DROP_SATELLITE_DESC
+		sound_effect = satellite_crash		### we can look for a good sound
+		type = army_leader
+		cost = 0.3
+		allowed = {
+			OWNER = {
+				has_country_flag = INF_kamikaze_satellite_enabled
+			}
+			NOT = {
+				has_trait = exhausted_order_trait
+			}
+			is_leading_army_group = no
+			check_variable = {
+				INF_kamikaze_satellite > 0
+			}
+		}
+		duration = 168
+		one_time_effect = {
+			add_timed_unit_leader_trait = {
+				trait = exhausted_order_trait
+				days = 15
+			}
+			add_temporary_buff_to_units = {
+				combat_offense = 0.75
+				combat_breakthrough = 0.9
+				org_damage_multiplier = -0.65
+				str_damage_multiplier = -0.4
+				cannot_retreat_while_attacking = 1
+				days = 7
+				tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+			}
+			OWNER = {
+				subtract_from_variable = {
+					INF_kamikaze_satellite = 1
+				}
+			}
+		}
+	}
+}
