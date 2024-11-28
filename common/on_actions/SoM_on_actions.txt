@@ -1080,7 +1080,37 @@ on_actions = {
 	}
 	on_monthly_EGG = {
 		effect = {
-			#EGG_monthly_effects = yes
+			set_variable = {
+				robo_states = 0
+			}
+			every_controlled_state = {
+				if = {
+					limit = {
+						has_state_flag = Roboticized
+					}
+					add_to_variable = {
+						prev.robo_states = 1
+					}
+				}
+			}
+			set_variable = {
+				robian_positive_impact = robo_states
+			}
+			set_variable = {
+				robian_workers = robian_positive_impact
+			}
+			multiply_variable = {
+				robian_workers = 0.01
+			}
+			set_variable = {
+				robian_negative_impact = robo_states
+			}
+			set_variable = {
+				robian_spies = robian_negative_impact
+			}
+			multiply_variable = {
+				robian_spies = -0.01
+			}
 		}
 	}
 	on_monthly_NOC = {
