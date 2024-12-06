@@ -1612,4 +1612,997 @@ focus_tree = {
 		x = 21
 		y = 14
 	}
+
+	focus = {
+		id = INF_The_Splendid_Petrocracy
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		x = 35
+		y = 0
+		completion_reward = { 
+			add_political_power = 150
+
+			set_variable = {
+				petrocracy_influence = 25
+			}
+			set_variable = {
+				petrocracy_satisfaction = 60
+			}
+
+			add_dynamic_modifier = {
+				modifier = INF_petro_bonus
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Blood_of_JExOil
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = -4
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 180
+				state = 718
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Muscles_of_JABIC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 1
+			}
+
+			if = {
+				limit = {
+					has_idea = INF_JNC
+				}
+				swap_ideas = {
+					remove_idea = INF_JNC
+					add_idea = INF_JNC_2
+				}
+			}
+
+			country_event = inf_petro.3
+		}
+	}
+
+	focus = {
+		id = INF_Brains_of_JAAC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = synth_resources
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = excavation_tech
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Eyes_of_JackalNet
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			680 = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}		
+			add_ideas = INF_The_Jackalnet
+			country_event = inf_petro.4
+		}
+	}
+
+	focus = {
+		id = INF_Wings_of_JASEC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 4
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = air_equipment
+			}
+			715 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			set_country_flag = INF_Deyland_Space			
+		}
+	}
+
+	focus = {
+		id = INF_Deepen_Ties_With_Robotnik
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Brains_of_JAAC
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Brains_of_JAAC
+		}
+		mutually_exclusive = {
+			focus = INF_Acquire_United_Federation_Tech
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+
+			add_offsite_building = { 
+				type = arms_factory 
+				level = 3 
+			}
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				category = robot_techs
+			}
+			diplomatic_relation = {
+				country = EGG
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_equipment_to_stockpile = {
+				type = light_robots_equipment_2
+				amount = 750
+				producer = EGG
+			}
+			add_equipment_to_stockpile = {
+				type = medium_robot_equipment_1
+				amount = 350
+				producer = EGG
+			}				
+		}
+	}
+
+	focus = {
+		id = INF_Acquire_United_Federation_Tech
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Brains_of_JAAC
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Brains_of_JAAC
+		}
+
+		available = {
+			has_completed_focus = INF_Distract_Their_Eyes
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Extend_the_Pipeline
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Blood_of_JExOil
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Blood_of_JExOil
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			country_event = inf_petro.6
+		}
+	}
+
+	focus = {
+		id = INF_Compound_N110
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Muscles_of_JABIC
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Muscles_of_JABIC
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			country_event = inf_petro.7
+		}
+	}
+	
+	focus = {
+		id = INF_Connecting_the_Jackalstan
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Eyes_of_JackalNet
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Eyes_of_JackalNet
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = INF_The_Jackalnet
+				add_idea = INF_The_Jackalnet_2
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Ifrit_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Wings_of_JASEC
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Wings_of_JASEC
+		}
+		available = {
+			has_country_flag = INF_Deyland_Space # localisation: “We have established control over Deyland Space Center
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}			
+		completion_reward = {
+			715 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Negotiate_with_Rethenia
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Extend_the_Pipeline
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Extend_the_Pipeline
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+			country_event = inf_rcr.1
+		}
+	}
+
+	focus = {
+		id = INF_Subvert_the_Oil_Trade
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Compound_N110
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Compound_N110
+		}
+		mutually_exclusive = {
+			focus = INF_Negotiate_with_Rethenia
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 10
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Shai_Hulud_Project
+		icon = GFX_obsolete_template_overlay
+		cost = x
+		relative_position_id = INF_Deepen_Ties_With_Robotnik
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Deepen_Ties_With_Robotnik
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = INF_Eshkal_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Acquire_United_Federation_Tech
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Acquire_United_Federation_Tech
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = { }
+	}
+
+	focus = {
+		id = INF_SatNet_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Connecting_the_Jackalstan
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Connecting_the_Jackalstan
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Siark_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Ifrit_Project
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Ifrit_Project
+		}
+		mutually_exclusive = {
+			focus = INF_SatNet_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Manipulate_the_Oil_Market
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Subvert_the_Oil_Trade
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Negotiate_with_Rethenia
+			focus = INF_Subvert_the_Oil_Trade
+			focus = INF_Shai_Hulud_Project
+			focus = INF_Eshkal_Project
+			focus = INF_SatNet_Project
+			focus = INF_Siark_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Oil_Price_Controls
+		}
+	}
+
+	focus = {
+		id = INF_Virtual_Facility
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_SatNet_Project
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Negotiate_with_Rethenia
+			focus = INF_Subvert_the_Oil_Trade
+			focus = INF_Shai_Hulud_Project
+			focus = INF_Eshkal_Project
+			focus = INF_SatNet_Project
+			focus = INF_Siark_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Industrial_Virtual_Reality
+		}
+	}
+
+	focus = {
+		id = INF_Shadow_Fleet
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Manipulate_the_Oil_Market
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = { }
+	}
+
+	focus = {
+		id = INF_Infiltrate_Hostile_Markets
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Shadow_Fleet
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Shadow_Fleet
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			set_global_flag = INF_Oil_Weapon
+		}
+	}
+
+	focus = {
+		id = INF_Peoples_Benefits
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Manipulate_the_Oil_Market
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			country_event = inf_petro.8
+		}
+	}
+
+	focus = {
+		id = INF_Order_Deserves_Everything
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_influence = 15
+			}
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+			716 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			719 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Reward_The_Management
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		mutually_exclusive = {
+			focus = INF_Order_Deserves_Everything
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 15
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 2
+			}
+			540 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			713 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Basic_Income
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		mutually_exclusive = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 50
+			714 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			717 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Automated_Oil_Processing
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Virtual_Facility
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = INF_Industrial_Virtual_Reality
+				add_idea = INF_Industrial_Virtual_Reality_2
+			}
+			add_resource = {
+				type = oil
+				amount = 75
+				state = 716
+			}
+			add_resource = {
+				type = oil
+				amount = 75
+				state = 718
+			}		
+		}
+	}
+
+	focus = {
+		id = INF_Industrial_Colossus
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Automated_Oil_Processing
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Automated_Oil_Processing
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			716 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			718 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			203 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}				
+		}
+	}
+
+	focus = {
+		id = INF_Concepts_of_Infinite_Energy
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Infiltrate_Hostile_Markets
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = INF_JNC_Board_of_Directors_Meetup
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Reward_The_Management
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		completion_reward = {
+			country_event = inf_petro.9
+
+			set_temp_variable = {
+				t = petrocracy_satisfaction
+			}
+			divide_temp_variable = {
+				t = 100
+			}
+			multiply_temp_variable = {
+				t = 0.25
+			}
+			add_stability = t
+
+			set_temp_variable = {
+				t = petrocracy_satisfaction
+			}
+			multiply_temp_variable = {
+				t = 1.5
+			}
+			add_political_power = t
+		}
+	}
+
+	focus = {
+		id = INF_Multi_Purpose_Petrochemicals
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Industrial_Colossus
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Multi_Purpose_Petrochemicals
+		}
+	}
+
+	focus = {
+		id = INF_Question_of_Top_Management
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_JNC_Board_of_Directors_Meetup
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Concepts_of_Infinite_Energy
+		}
+		prerequisite = {
+			focus = INF_JNC_Board_of_Directors_Meetup
+		}
+		prerequisite = {
+			focus = INF_Multi_Purpose_Petrochemicals
+		}
+		completion_reward = {
+			country_event = inf_petro.10
+		}
+	}
 }

@@ -16,3 +16,110 @@
 # 		}
 # 	}
 # }
+
+on_action = {
+	on_daily = {
+		effect = {
+			set_variable = {
+				petro_fuel_coeff = petrocracy_influence
+			}
+			divide_variable = {
+				petro_fuel_coeff = 25
+			}
+			round_variable = petro_fuel_coeff
+			multiply_variable = {
+				petro_fuel_coeff = 0.05
+			}
+			set_variable = {
+				petro_research_coeff = petro_fuel_coeff
+			}
+			divide_variable = {
+				petro_research_coeff = 2
+			}
+		}
+	}
+
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = INF_Oil_Weapon
+					OR = {
+						ROOT = {
+							tag = INF
+						}
+						FROM = {
+							tag = INF
+						}
+					}
+				}
+				INF = {
+					if = {
+						limit = {
+							has_war_with = KOA
+							has_idea = INF_Extended_Oil_Exports_to_KOA
+						}
+						remove_ideas = INF_Extended_Oil_Exports_to_KOA
+						KOA = {
+							country_event = inf_petro.14
+
+							remove_ideas = Extended_Oil_Imports
+							add_timed_idea = {
+								idea = Fuel_Supply_Subversions
+								days = 100
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_war_with = SWA
+							has_idea = INF_Extended_Oil_Exports_to_SWA
+						}
+						remove_ideas = INF_Extended_Oil_Exports_to_SWA
+						SWA = {
+							country_event = inf_petro.14
+
+							remove_ideas = Extended_Oil_Imports
+							add_timed_idea = {
+								idea = Fuel_Supply_Subversions
+								days = 100
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_war_with = UFA
+							has_idea = INF_Extended_Oil_Exports_to_UFA
+						}
+						remove_ideas = INF_Extended_Oil_Exports_to_UFA
+						UFA = {
+							country_event = inf_petro.14
+
+							remove_ideas = Extended_Oil_Imports
+							add_timed_idea = {
+								idea = Fuel_Supply_Subversions
+								days = 100
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_war_with = MER
+							has_idea = INF_Extended_Oil_Exports_to_MER
+						}
+						remove_ideas = INF_Extended_Oil_Exports_to_MER
+						MER = {
+							country_event = inf_petro.14
+
+							remove_ideas = Extended_Oil_Imports
+							add_timed_idea = {
+								idea = Fuel_Supply_Subversions
+								days = 100
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
