@@ -1,0 +1,285 @@
+focus_tree = {
+	id = RCR_start
+	default = yes
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = RCR
+		}
+	}
+	continuous_focus_position = {
+		x = 250
+		y = 1500
+	}
+
+	focus = {
+		id = RCR_Race_Against_Time
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		x = 5
+		y = 0
+		completion_reward = {
+			add_political_power = 150
+			country_event = rcr_start.3
+		}
+	}
+
+	focus = {
+		id = RCR_Legend_of_Stalegor_the_Bogatyr
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Race_Against_Time
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Race_Against_Time
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_timed_idea = {
+				idea = RCR_Descendants_of_Stalegor
+				days = 30
+			}
+			country_event = rcr_start.4
+		}
+	}
+
+	focus = {
+		id = RCR_Legacy_of_the_Acorns
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Race_Against_Time
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Race_Against_Time
+		}
+		completion_reward = {
+			add_stability = -0.05
+			add_manpower = -50
+
+			country_event = rcr_start.5
+		}
+	}
+
+	focus = {
+		id = RCR_Revolutionary_Beast
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Legacy_of_the_Acorns
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Legacy_of_the_Acorns
+		}
+		prerequisite = {
+			focus = RCR_Legend_of_Stalegor_the_Bogatyr
+		}
+		completion_reward = {
+			country_event = rcr_start.8
+		}
+	}
+
+	focus = {
+		id = RCR_Our_Workers_Vanguard
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Revolutionary_Beast
+		x = -2
+		y = 2
+
+		prerequisite = {
+			focus = RCR_Revolutionary_Beast
+		}
+		completion_reward = {
+			add_political_power = 100
+			country_event = rcr_start.12
+		}
+	}
+
+	focus = {
+		id = RCR_Our_Brave_Red_Army
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Revolutionary_Beast
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Revolutionary_Beast
+		}
+		completion_reward = {
+			add_command_power = 50
+			army_experience = 50
+
+			country_event = rcr_start.13
+		}
+	}
+
+	focus = {
+		id = RCR_Our_Invisible_Front
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Revolutionary_Beast
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Revolutionary_Beast
+		}
+		completion_reward = {
+			add_political_power = 100
+
+			country_event = rcr_start.14
+		}
+	}
+
+	focus = {
+		id = RCR_Our_Bright_Minds
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Revolutionary_Beast
+		x = 2
+		y = 2
+
+		prerequisite = {
+			focus = RCR_Revolutionary_Beast
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = computing_tech
+			}
+
+			country_event = rcr_start.15
+		}
+	}
+
+	focus = {
+		id = RCR_Our_Far_Reaching_Hands
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Revolutionary_Beast
+		x = 0
+		y = 3
+
+		prerequisite = {
+			focus = RCR_Our_Workers_Vanguard
+		}
+		prerequisite = {
+			focus = RCR_Our_Brave_Red_Army
+		}
+		prerequisite = {
+			focus = RCR_Our_Invisible_Front
+		}
+		prerequisite = {
+			focus = RCR_Our_Bright_Minds
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = advanced_materials
+			}			
+
+			country_event = rcr_start.16
+		}
+	}
+
+	focus = {
+		id = RCR_Matters_of_National_Economy 
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Our_Far_Reaching_Hands
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Our_Far_Reaching_Hands
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = industry
+			}
+			
+			country_event = rcr_start.17
+		}
+	}
+
+	focus = {
+		id = RCR_Issues_of_National_Security 
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Our_Far_Reaching_Hands
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = RCR_Our_Far_Reaching_Hands
+		}
+		completion_reward = {
+			add_command_power = 50
+			add_political_power = 100
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 1
+				category = computing_tech
+			}
+
+			country_event = rcr_start.18
+		}
+	}
+
+	focus = {
+		id = RCR_No_Countries_for_Old_Heroes
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Our_Far_Reaching_Hands
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = RCR_Matters_of_National_Economy
+		}
+		prerequisite = {
+			focus = RCR_Issues_of_National_Security
+		}
+		allow_branch = {
+			NOT = {
+				has_country_flag = RCR_shilov_in_plot
+			}
+		}
+		completion_reward = {
+			country_event = rcr_start.19
+		}
+	}
+
+	focus = {
+		id = RCR_Two_Steps_Behind
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = RCR_Our_Far_Reaching_Hands
+		x = 0
+		y = 2
+
+		prerequisite = {
+			focus = RCR_Matters_of_National_Economy
+		}
+		prerequisite = {
+			focus = RCR_Issues_of_National_Security
+		}
+		allow_branch = {
+			has_country_flag = RCR_shilov_in_plot
+		}
+		completion_reward = {
+			country_event = rcr_start.20
+		}
+	}
+}
