@@ -1238,3 +1238,67 @@ Derobotization_Effort = {
 		}
 	}
 }
+Targeted_Derobotization = {
+	Deroboticize_This_State = {
+		icon = GFX_decision_roboticize
+		allowed = {
+			NOT = {
+				tag = EGG
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				has_state_flag = Roboticized
+			}
+		}
+		on_map_mode = map_only
+		available = {
+			if = {
+				limit = {
+					is_debug = yes
+				}
+				always = yes
+			}
+			else = {
+				NOT = {
+					has_country_flag = Derobotization_in_progress
+				}
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cancel_trigger = {
+			NOT = {
+				has_full_control_of_state = FROM
+			}
+		}
+		fire_only_once = no
+		days_remove = 21
+		custom_cost_trigger = {
+			has_political_power > 4
+			command_power > 4
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			set_country_flag = Derobotization_in_progress
+			hidden_effect = {
+				add_political_power = -5
+				add_command_power = -5
+			}
+		}
+		remove_effect = {
+			clr_country_flag = Derobotization_in_progress
+			FROM = {
+				clr_state_flag = Roboticized
+				add_manpower = 50000
+			}
+			add_stability = 0.015
+		}
+	}
+}
