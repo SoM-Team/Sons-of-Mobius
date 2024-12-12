@@ -8598,3 +8598,181 @@ RCR_unification_decision = {
 		}
 	}
 }
+
+RCR_start = {
+	RCR_Stalegor_is_freezing = {
+		days_mission_timeout = 45
+		fire_only_once = yes
+		activation = {
+			has_completed_focus = RCR_Race_Against_Time
+		}
+		highlight_states = {
+			highlight_state_targets = { state = 315 }
+			highlight_provinces = { 9229 }
+		}
+		available = {
+			has_railway_connection = {
+				start_province = 9280
+				target_province = 9229
+			}
+		}
+		complete_effect = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = katzerism
+				popularity = 0.05
+			}
+			### Country event: “Labour Warms”: The workers of Energograd thermal power plant welcome the train arriving to the platform, full of coal. A solemn demonstration meets the train. / “Труд согревает”: рабочие Энергоградской ТЭС встречают поезд, полный угля, на платформе. Торжественная демонстрация вокруг поезда.
+			country_event = rcr_start.1
+		}
+		timeout_effect = {
+			6 ={
+				add_manpower = -50000
+			}
+			add_stability = -0.15
+			add_political_power = -200
+			add_popularity = {
+				ideology = katzerism
+				popularity = -0.15
+			}
+			### Country event: “The City Must Survive”: Heating points are being organized all around the city. However, people start fighting for them. One queue leads to mass crush with deaths. / “Город должен жить”: По всему городу организуют пункты обогрева. Мест не хватает. Горожане начинают драться за них. Одна очередь ведет к массовой давке со смертями..
+			country_event = rcr_start.2
+		}
+	}
+
+	RCR_Hunt_down_the_Restoration = {
+		days_mission_timeout = 10
+		selectable_mission = yes
+		fire_only_once = yes
+		activation = {
+			has_completed_focus = RCR_Legacy_of_the_Acorns
+		}
+
+		available = {
+			has_manpower > 499
+			command_power > 24
+		}
+
+		complete_effect = {
+			add_command_power = -25
+			add_manpower = -500
+
+			country_event = rcr_start.6
+		}
+
+		timeout_effect = {
+			country_event = rcr_start.7
+		}
+	}
+
+	RCR_inspection = {
+		days_remove = 1
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_country_flag = RCR_akvilov_inspection
+				has_country_flag = RCR_turbin_inspection
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_country_flag = RCR_turbin_inspection
+				}
+				country_event = rcr_start.9
+				clr_country_flag = RCR_turbin_inspection
+				set_country_flag = RCR_turbin_inspection_2
+			}
+			else = {
+				country_event = rcr_start.10
+				clr_country_flag = RCR_akvilov_inspection
+			}
+		}
+	}
+
+	RCR_inspection_2 = {
+		days_remove = 1
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = RCR_turbin_inspection_2
+		}
+
+		remove_effect = {
+			add_political_power = 300
+			add_command_power = 175
+			clr_country_flag = RCR_turbin_inspection_2
+		}
+	}
+
+	RCR_Sweep_Belokamensk = {
+		days_mission_timeout = 5
+		selectable_mission = yes
+
+		activation = {
+			has_completed_focus = RCR_Revolutionary_Beast
+		}
+		available = {
+			command_power > 24
+
+			divisions_in_state = {
+				size = 6
+				state = 257
+			}
+		}
+
+		complete_effect = {
+			add_command_power = -25
+			random_list = {
+				25 = {
+
+				}
+				25 = {
+					add_manpower = -50
+				}
+				25 = {
+					add_manpower = -150
+				}
+				25 = {
+					add_manpower = -250
+				}
+			}
+			add_to_variable = {
+				army_experience = 25
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 1000
+			}
+			set_country_flag = RCR_interrogate_krokhmal
+		}
+
+		timeout_effect = {
+			add_political_power = -100
+			add_stability = -0.1
+			add_manpower = -500
+		}
+	}
+
+	RCR_interrogate_krokhmal = {
+		cost = 50
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = RCR_interrogate_krokhmal
+		}
+
+		complete_effect = {
+			clr_country_flag = RCR_interrogate_krokhmal
+			country_event = rcr_start.11
+		}
+	}
+}
