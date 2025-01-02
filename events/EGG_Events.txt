@@ -1,70 +1,64 @@
 ﻿############################
 # I AM THE EGGMAN I HAVE A MASTER PLAN
 ############################
-
-add_namespace = egg 
+add_namespace = egg
 add_namespace = egg.intro
 ######################################
 # hello everybody i am old communist 
 ######################################
-
-country_event = {
-	id = egg.intro.1
-	title = egg.intro.1.t
-	desc = egg.intro.1.d
-	picture = GFX_report_event_eggman_empire
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = egg.intro.1.a 
-		country_event = {
-			id = egg.intro.2
-		}
-	}
-	option = {
-		name = egg.intro.1.b
-		
-	}
-}
-## 
-country_event = {
-	id = egg.intro.2
-	title = egg.intro.2.t
-	desc = egg.intro.2.d
-	picture = GFX_report_event_eggman_empire
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = egg.intro.2.a 
-		
-	}
-	option = {
-		name = egg.intro.2.b
-		country_event = {
-			id = egg.intro.1
-		}
-	}
-}
-
+#country_event = {
+#	id = egg.intro.1
+#	title = egg.intro.1.t
+#	desc = egg.intro.1.d
+#	picture = GFX_report_event_eggman_empire
+#	
+#	fire_only_once = yes
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = egg.intro.1.a 
+#		country_event = {
+#			id = egg.intro.2
+#		}
+#	}
+#	option = {
+#		name = egg.intro.1.b
+#		
+#	}
+#}
+# 
+#country_event = {
+#	id = egg.intro.2
+#	title = egg.intro.2.t
+#	desc = egg.intro.2.d
+#	picture = GFX_report_event_eggman_empire
+#	
+#	fire_only_once = yes
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = egg.intro.2.a 
+#		
+#	}
+#	option = {
+#		name = egg.intro.2.b
+#		country_event = {
+#			id = egg.intro.1
+#		}
+#	}
+#}
 country_event = {
 	id = egg.1
 	title = egg.1.t
 	desc = egg.1.d
 	picture = GFX_report_event_soviet_rethenia
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
-		name = egg.1.a 
+		name = egg.1.a
 	}
-	
 }
 
 country_event = {
@@ -72,20 +66,22 @@ country_event = {
 	title = egg.2.t
 	desc = egg.2.d
 	picture = GFX_report_event_neo_metal_sonic
-	
-	fire_only_once = yes	
+	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
-		name = egg.2.a 
-		ai_chance = { factor = 100 } 
-		trigger = { tag = EGG }
+		name = egg.2.a
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			tag = EGG
+		}
 		create_country_leader = {
 			name = "Neo Metal Sonic"
 			desc = "METAL_SONIC"
 			picture = "Portrait_Neo_Metal_Sonic.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
 		}
@@ -100,9 +96,7 @@ country_event = {
 	title = egg.3.t
 	desc = egg.3.d
 	picture = GFX_report_event_ff_subversion
-	
-	is_triggered_only = yes 
-	
+	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
 			random_owned_state = {
@@ -115,26 +109,25 @@ country_event = {
 			}
 		}
 	}
-	
 	option = {
 		name = egg.3.a
 		add_stability = -0.025
 		if = {
 			add_to_variable = {
-					ff_activity = 22
-				}	
+				ff_activity = 22
+			}
 			clamp_variable = {
 				var = ff_activity
 				min = 0
 				max = 100
 			}
 			limit = {
-						has_idea = Freedom_fighters_saboteurs
-					}
+				has_idea = Freedom_fighters_saboteurs
+			}
 			event_target:sabotage_state = {
 				damage_building = {
 					type = industrial_complex
-					damage = 1.0
+					damage = 1
 				}
 				if = {
 					limit = {
@@ -145,11 +138,12 @@ country_event = {
 							event_target:sabotage_state = {
 								damage_building = {
 									type = arms_factory
-									damage = 1.0
+									damage = 1
 								}
 							}
 						}
-						25 = {}
+						25 = {
+						}
 					}
 				}
 				if = {
@@ -161,7 +155,7 @@ country_event = {
 							event_target:sabotage_state = {
 								damage_building = {
 									type = infrastructure
-									damage = 2.0
+									damage = 2
 								}
 							}
 						}
@@ -169,11 +163,12 @@ country_event = {
 							event_target:sabotage_state = {
 								damage_building = {
 									type = infrastructure
-									damage = 1.0
+									damage = 1
 								}
 							}
 						}
-						25 = {}
+						25 = {
+						}
 					}
 				}
 				random_list = {
@@ -197,11 +192,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-						has_idea = Freedom_fighters_saboteurs_1
-					}
+				has_idea = Freedom_fighters_saboteurs_1
+			}
 			add_to_variable = {
-					ff_activity = 20
-					}
+				ff_activity = 20
+			}
 			clamp_variable = {
 				var = ff_activity
 				min = 0
@@ -225,7 +220,8 @@ country_event = {
 								}
 							}
 						}
-						25 = {}
+						25 = {
+						}
 					}
 				}
 				if = {
@@ -245,11 +241,12 @@ country_event = {
 							event_target:sabotage_state = {
 								damage_building = {
 									type = infrastructure
-									damage = 1.0
+									damage = 1
 								}
 							}
 						}
-						25 = {}
+						25 = {
+						}
 					}
 				}
 				random_list = {
@@ -273,11 +270,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-						has_idea = Freedom_fighters_saboteurs_2
-					}
+				has_idea = Freedom_fighters_saboteurs_2
+			}
 			add_to_variable = {
-					ff_activity = 15
-				}
+				ff_activity = 15
+			}
 			clamp_variable = {
 				var = ff_activity
 				min = 0
@@ -301,7 +298,8 @@ country_event = {
 								}
 							}
 						}
-						40 = {}
+						40 = {
+						}
 					}
 				}
 				if = {
@@ -325,7 +323,8 @@ country_event = {
 								}
 							}
 						}
-						40 = {}
+						40 = {
+						}
 					}
 				}
 				random_list = {
@@ -349,11 +348,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-						has_idea = Freedom_fighters_saboteurs_3
-					}
+				has_idea = Freedom_fighters_saboteurs_3
+			}
 			add_to_variable = {
-					ff_activity = 12
-				}
+				ff_activity = 12
+			}
 			clamp_variable = {
 				var = ff_activity
 				min = 0
@@ -377,7 +376,8 @@ country_event = {
 								}
 							}
 						}
-						30 = {}
+						30 = {
+						}
 					}
 				}
 				if = {
@@ -389,7 +389,7 @@ country_event = {
 							event_target:sabotage_state = {
 								damage_building = {
 									type = infrastructure
-									damage = 1.0
+									damage = 1
 								}
 							}
 						}
@@ -401,7 +401,8 @@ country_event = {
 								}
 							}
 						}
-						45 = {}
+						45 = {
+						}
 					}
 				}
 				random_list = {
@@ -425,12 +426,12 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = egg.4
 	title = egg.4.t
 	desc = egg.4.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -439,17 +440,12 @@ country_event = {
 		has_idea = Freedom_fighters_saboteurs
 		has_country_flag = EGG_start_repressions
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 7
+		days = 7
 	}
-	
-	
 	option = {
-		name = egg.4.a 
+		name = egg.4.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs
 			add_idea = Freedom_fighters_saboteurs_1
@@ -462,7 +458,6 @@ country_event = {
 	title = egg.5.t
 	desc = egg.5.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -470,17 +465,12 @@ country_event = {
 		}
 		has_idea = Freedom_fighters_saboteurs_1
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
-	
 	option = {
-		name = egg.5.a 
+		name = egg.5.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs_1
 			add_idea = Freedom_fighters_saboteurs
@@ -493,7 +483,6 @@ country_event = {
 	title = egg.6.t
 	desc = egg.6.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -501,17 +490,12 @@ country_event = {
 		}
 		has_idea = Freedom_fighters_saboteurs_1
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
-	
 	option = {
-		name = egg.6.a 
+		name = egg.6.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs_1
 			add_idea = Freedom_fighters_saboteurs_2
@@ -524,7 +508,6 @@ country_event = {
 	title = egg.7.t
 	desc = egg.7.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -532,17 +515,12 @@ country_event = {
 		}
 		has_idea = Freedom_fighters_saboteurs_2
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
-	
 	option = {
-		name = egg.7.a 
+		name = egg.7.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs_2
 			add_idea = Freedom_fighters_saboteurs_1
@@ -555,7 +533,6 @@ country_event = {
 	title = egg.8.t
 	desc = egg.8.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -563,17 +540,12 @@ country_event = {
 		}
 		has_idea = Freedom_fighters_saboteurs_2
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
-	
 	option = {
-		name = egg.8.a 
+		name = egg.8.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs_2
 			add_idea = Freedom_fighters_saboteurs_3
@@ -587,7 +559,6 @@ country_event = {
 	title = egg.9.t
 	desc = egg.9.d
 	picture = GFX_report_event_attack_on_ff
-	
 	trigger = {
 		original_tag = EGG
 		check_variable = {
@@ -595,22 +566,16 @@ country_event = {
 		}
 		has_idea = Freedom_fighters_saboteurs_3
 	}
-	
 	fire_only_once = yes
-	
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
-	
 	option = {
-		name = egg.9.a 
+		name = egg.9.a
 		swap_ideas = {
 			remove_idea = Freedom_fighters_saboteurs_3
 			add_idea = Freedom_fighters_saboteurs_2
 		}
-		
 	}
 }
 
@@ -619,14 +584,13 @@ country_event = {
 	title = egg.10.t
 	desc = egg.10.d
 	picture = GFX_report_event_attack_sand_blast_city
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-	
+	is_triggered_only = yes
 	option = {
-		name = egg.10.a 
-		subtract_from_variable = { ff_activity = 15 }
+		name = egg.10.a
+		subtract_from_variable = {
+			ff_activity = 15
+		}
 		add_manpower = -15000
 		57 = {
 			damage_building = {
@@ -664,22 +628,19 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = egg.11
 	title = egg.11.t
 	desc = egg.11.d
 	picture = GFX_report_event_eggman_triumphant
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-	
+	is_triggered_only = yes
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
 	option = {
-		name = egg.11.a 
+		name = egg.11.a
 		add_stability = 0.1
 		add_political_power = 125
 		clr_country_flag = EGG_destroy_HQ
@@ -693,13 +654,10 @@ country_event = {
 	title = egg.12.t
 	desc = egg.12.d
 	picture = GFX_report_event_attack_on_ff
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.12.a 
+		name = egg.12.a
 		set_country_flag = EGG_start_repressions
 		custom_effect_tooltip = egg.12.tt
 	}
@@ -710,13 +668,10 @@ country_event = {
 	title = egg.13.t
 	desc = egg.13.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.13.a 
+		name = egg.13.a
 		add_stability = -0.15
 		add_war_support = -0.2
 		custom_effect_tooltip = egg.13.tt
@@ -729,30 +684,24 @@ country_event = {
 	title = egg.14.t
 	desc = egg.14.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.14.a 
+		name = egg.14.a
 		add_manpower = -10000
-		
 	}
 }
 
-country_event = { ### ADAM
+country_event = {
+	### ADAM
 	id = egg.15
 	title = egg.15.t
 	desc = egg.15.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.15.a 
+		name = egg.15.a
 		set_variable = {
 			EGG.AI_Choice = 1
 		}
@@ -763,7 +712,7 @@ country_event = { ### ADAM
 		add_political_power = -50
 	}
 	option = {
-		name = egg.15.b 
+		name = egg.15.b
 		set_variable = {
 			EGG.AI_Choice = 2
 		}
@@ -774,18 +723,16 @@ country_event = { ### ADAM
 	}
 }
 
-country_event = { ### Eggman insane lol 
+country_event = {
+	### Eggman insane lol 
 	id = egg.16
 	title = egg.16.t
 	desc = egg.16.d
 	picture = GFX_report_event_eggman_durka
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.16.a 
+		name = egg.16.a
 		custom_effect_tooltip = Snively_takes_over
 		set_cosmetic_tag = SNIV_EGG
 		set_global_flag = EGGSnively
@@ -794,21 +741,21 @@ country_event = { ### Eggman insane lol
 			desc = "SNIVLEY_IS_PIDOR"
 			picture = "Portrait_Snicley_Robotnik.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
+		}
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = EGG_Snively_Rise
-		}
 	}
 }
 
-country_event = { ### FIGHT
+country_event = {
+	### FIGHT
 	id = egg.17
 	title = egg.17.t
 	desc = egg.17.d
 	picture = GFX_report_event_ff_on_march
-	
 	immediate = {
 		57 = {
 			damage_building = {
@@ -846,12 +793,10 @@ country_event = { ### FIGHT
 			add_manpower = -75000
 		}
 	}
-	
 	fire_only_once = yes
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.17.a 
+		name = egg.17.a
 		custom_effect_tooltip = Snively_takes_over
 		set_cosmetic_tag = SNIV_EGG
 		set_global_flag = EGGSnively
@@ -860,11 +805,11 @@ country_event = { ### FIGHT
 			desc = "SNIVLEY_IS_PIDOR"
 			picture = "Portrait_Snicley_Robotnik.dds"
 			expire = "1965.1.1"
-			ideology = technocratic_despotist_subtype
+			ideology = technocratic_despotism_subtype
 			traits = {
 			}
-		mark_focus_tree_layout_dirty = yes
-		complete_national_focus = EGG_Snively_Rise
+			mark_focus_tree_layout_dirty = yes
+			complete_national_focus = EGG_Snively_Rise
 		}
 	}
 	option = {
@@ -876,35 +821,32 @@ country_event = { ### FIGHT
 	}
 }
 
-country_event = { ### Eggman cool
+country_event = {
+	### Eggman cool
 	id = egg.18
 	title = egg.18.t
 	desc = egg.18.d
 	picture = GFX_report_event_eggman_triumphant
-	
 	fire_only_once = yes
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.18.a 
+		name = egg.18.a
 		set_global_flag = EGGEggman
 		mark_focus_tree_layout_dirty = yes
 		complete_national_focus = EGG_Ensure_Control
 	}
 }
 
-country_event = { ### REWORK PROJECTS
+country_event = {
+	### REWORK PROJECTS
 	id = egg.19
 	title = egg.19.t
 	desc = egg.19.d
 	picture = GFX_report_event_eggman_triumphant
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.19.a 
+		name = egg.19.a
 		add_tech_bonus = {
 			bonus = 0.5
 			uses = 3
@@ -915,56 +857,50 @@ country_event = { ### REWORK PROJECTS
 			uses = 2
 			category = electronics
 		}
-		add_timed_idea = { 
+		add_timed_idea = {
 			idea = EGG_back_to_blueprints
-			days = 365 
+			days = 365
 		}
 	}
 }
 
-country_event = { ### KILL SABOTEURS
+country_event = {
+	### KILL SABOTEURS
 	id = egg.20
 	title = egg.20.t
 	desc = egg.20.d
 	picture = GFX_report_event_eggman_triumphant
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.20.a 
+		name = egg.20.a
 		add_manpower = -15000
 	}
 }
 
-country_event = { ### DEL RESPOND
+country_event = {
+	### DEL RESPOND
 	id = egg.21
 	title = egg.21.t
 	desc = egg.21.d
 	picture = GFX_report_event_eggman_triumphant
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.21.a 
+		name = egg.21.a
 	}
 }
 
-country_event = { ### ADAM: PART 2
+country_event = {
+	### ADAM: PART 2
 	id = egg.22
 	title = egg.22.t
 	desc = egg.22.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.22.a ### FIX
+		name = egg.22.a		### FIX
 		if = {
 			limit = {
 				check_variable = {
@@ -982,7 +918,7 @@ country_event = { ### ADAM: PART 2
 		}
 	}
 	option = {
-		name = egg.22.b ### DESTROY
+		name = egg.22.b		### DESTROY
 		if = {
 			limit = {
 				check_variable = {
@@ -1001,23 +937,21 @@ country_event = { ### ADAM: PART 2
 	}
 }
 
-country_event = { ### ADAM: PART 3.1
+country_event = {
+	### ADAM: PART 3.1
 	id = egg.23
 	title = egg.23.t
 	desc = egg.23.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.23.a ### FIX
+		name = egg.23.a		### FIX
 		swap_ideas = {
-			remove_idea = Ai_failure 
+			remove_idea = Ai_failure
 			add_idea = Ai_LOYAL
 		}
-		add_to_variable = { 
+		add_to_variable = {
 			EGG.METAL_SONIC_Influence = 20
 		}
 		add_to_variable = {
@@ -1028,41 +962,37 @@ country_event = { ### ADAM: PART 3.1
 	}
 }
 
-country_event = { ### ADAM: PART 3.2
+country_event = {
+	### ADAM: PART 3.2
 	id = egg.24
 	title = egg.24.t
 	desc = egg.24.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.24.a ### FIX
+		name = egg.24.a		### FIX
 		swap_ideas = {
-			remove_idea = Ai_failure 
+			remove_idea = Ai_failure
 			add_idea = Ai_LOYAL
 		}
-		add_to_variable = { 
+		add_to_variable = {
 			EGG.METAL_SONIC_Influence = 30
 		}
 		custom_effect_tooltip = MS_increase
 	}
 }
 
-country_event = { ### ADAM: PART 3.3
+country_event = {
+	### ADAM: PART 3.3
 	id = egg.25
 	title = egg.25.t
 	desc = egg.25.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.25.a ### DESTROY
+		name = egg.25.a		### DESTROY
 		remove_ideas = Ai_failure
 		add_to_variable = {
 			EGG.Regime_Stability = 30
@@ -1071,18 +1001,16 @@ country_event = { ### ADAM: PART 3.3
 	}
 }
 
-country_event = { ### ADAM: PART 3.4
+country_event = {
+	### ADAM: PART 3.4
 	id = egg.26
 	title = egg.26.t
 	desc = egg.26.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.26.a ### DESTROY
+		name = egg.26.a		### DESTROY
 		remove_ideas = Ai_failure
 		add_to_variable = {
 			EGG.Regime_Stability = 15
@@ -1095,20 +1023,18 @@ country_event = { ### ADAM: PART 3.4
 	}
 }
 
-country_event = { ### CHIPS
+country_event = {
+	### CHIPS
 	id = egg.27
 	title = egg.27.t
 	desc = egg.27.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.27.a 
+		name = egg.27.a
 		if = {
-			limit = { 
+			limit = {
 				has_idea = Robian_Disobedience_1
 			}
 			swap_ideas = {
@@ -1116,8 +1042,8 @@ country_event = { ### CHIPS
 				add_idea = Robian_Disobedience_2
 			}
 		}
-		else_if = { 
-			limit = { 
+		else_if = {
+			limit = {
 				has_idea = Robian_Disobedience_2
 			}
 			swap_ideas = {
@@ -1134,20 +1060,18 @@ country_event = { ### CHIPS
 	}
 }
 
-country_event = { ### LABOR
+country_event = {
+	### LABOR
 	id = egg.28
 	title = egg.28.t
 	desc = egg.28.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.28.a 
+		name = egg.28.a
 		if = {
-			limit = { 
+			limit = {
 				has_idea = Robian_Disobedience_2
 			}
 			swap_ideas = {
@@ -1155,8 +1079,8 @@ country_event = { ### LABOR
 				add_idea = Robian_Disobedience_3
 			}
 		}
-		else_if = { 
-			limit = { 
+		else_if = {
+			limit = {
 				has_idea = Robian_Disobedience_3
 			}
 			swap_ideas = {
@@ -1173,29 +1097,27 @@ country_event = { ### LABOR
 	}
 }
 
-country_event = { ### HAIL
+country_event = {
+	### HAIL
 	id = egg.29
 	title = egg.29.t
 	desc = egg.29.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.29.a 
+		name = egg.29.a
 		if = {
-			limit = { 
+			limit = {
 				has_idea = Robian_Disobedience_1
 			}
 			swap_ideas = {
 				remove_idea = Robian_Disobedience_1
 				add_idea = Robian_Disobedience_2
-				}
+			}
 		}
-		else_if = { 
-			limit = { 
+		else_if = {
+			limit = {
 				has_idea = Robian_Disobedience_2
 			}
 			swap_ideas = {
@@ -1212,20 +1134,18 @@ country_event = { ### HAIL
 	}
 }
 
-country_event = { ### DEMORALIZE
+country_event = {
+	### DEMORALIZE
 	id = egg.30
 	title = egg.30.t
 	desc = egg.30.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.30.a 
+		name = egg.30.a
 		if = {
-			limit = { 
+			limit = {
 				has_idea = Robian_Disobedience_2
 			}
 			swap_ideas = {
@@ -1233,8 +1153,8 @@ country_event = { ### DEMORALIZE
 				add_idea = Robian_Disobedience_3
 			}
 		}
-		else_if = { 
-			limit = { 
+		else_if = {
+			limit = {
 				has_idea = Robian_Disobedience_3
 			}
 			swap_ideas = {
@@ -1251,18 +1171,16 @@ country_event = { ### DEMORALIZE
 	}
 }
 
-country_event = { ### END PERSONALITY
+country_event = {
+	### END PERSONALITY
 	id = egg.31
 	title = egg.31.t
 	desc = egg.31.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.31.a 
+		name = egg.31.a
 		swap_ideas = {
 			remove_idea = Robian_Disobedience_5
 			add_idea = Robian_Obedience
@@ -1270,18 +1188,16 @@ country_event = { ### END PERSONALITY
 	}
 }
 
-country_event = { ### BIOENGINEERING
+country_event = {
+	### BIOENGINEERING
 	id = egg.32
 	title = egg.32.t
 	desc = egg.32.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.32.a 
+		name = egg.32.a
 		add_timed_idea = {
 			idea = EGG_bio_innovations
 			days = 365
@@ -1293,27 +1209,54 @@ country_event = { ### BIOENGINEERING
 	}
 }
 
-country_event = { ### METAL WORKS
+country_event = {
+	### METAL WORKS
 	id = egg.33
 	title = egg.33.t
 	desc = egg.33.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.33.a 
-		add_timed_idea = { 
-			idea = EGG_military_investments
-			days = 365 
-		}
+		name = egg.33.a
+		add_ideas = EGG_military_investments
 		70 = {
 			add_building_construction = {
 				type = arms_factory
 				level = 2
-			instant_build = yes
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		68 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		61 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		60 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 2
+		}
+		62 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
 			}
 			add_extra_state_shared_building_slots = 2
 		}
@@ -1325,38 +1268,34 @@ country_event = { ### METAL WORKS
 }
 
 ### TRAITORS!
-country_event = { ### LIEN DA 
+country_event = {
+	### LIEN DA 
 	id = egg.34
 	title = egg.34.t
 	desc = egg.34.d
 	picture = GFX_report_event_dark_egg_legion
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.34.a 
+		name = egg.34.a
 		custom_effect_tooltip = HAHA_TRAITORS
 		#delete_unit_template_and_units = {
 		#	division_template = "D.E.L. Regiment"
 		#	disband = no #will refund equipment and manpower
 		#}
 	}
-}	
+}
 
-country_event = { ### CLOVE
+country_event = {
+	### CLOVE
 	id = egg.35
 	title = egg.35.t
 	desc = egg.35.d
 	picture = GFX_report_event_dark_egg_legion
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.35.a 
+		name = egg.35.a
 		custom_effect_tooltip = HAHA_TRAITORS
 		end_puppet = NRD
 		NRD = {
@@ -1364,7 +1303,7 @@ country_event = { ### CLOVE
 		}
 	}
 	option = {
-		name = egg.35.b 
+		name = egg.35.b
 		custom_effect_tooltip = HAHA_TRAITORS
 		NRD = {
 			leave_faction = yes
@@ -1377,18 +1316,16 @@ country_event = { ### CLOVE
 	}
 }
 
-country_event = { ### RABBIT
+country_event = {
+	### RABBIT
 	id = egg.36
 	title = egg.36.t
 	desc = egg.36.d
 	picture = GFX_report_event_dark_egg_legion
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.36.a 
+		name = egg.36.a
 		custom_effect_tooltip = HAHA_TRAITORS
 		GDD = {
 			leave_faction = yes
@@ -1396,7 +1333,7 @@ country_event = { ### RABBIT
 		end_puppet = GDD
 	}
 	option = {
-		name = egg.36.b 
+		name = egg.36.b
 		custom_effect_tooltip = HAHA_TRAITORS
 		GDD = {
 			leave_faction = yes
@@ -1409,18 +1346,16 @@ country_event = { ### RABBIT
 	}
 }
 
-country_event = { ### THUNDERPUSSY!
+country_event = {
+	### THUNDERPUSSY!
 	id = egg.37
 	title = egg.37.t
 	desc = egg.37.d
 	picture = GFX_report_event_dark_egg_legion
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.37.a 
+		name = egg.37.a
 		custom_effect_tooltip = HAHA_TRAITORS
 		SOU = {
 			leave_faction = yes
@@ -1428,7 +1363,7 @@ country_event = { ### THUNDERPUSSY!
 		end_puppet = SOU
 	}
 	option = {
-		name = egg.37.b 
+		name = egg.37.b
 		custom_effect_tooltip = HAHA_TRAITORS
 		SOU = {
 			leave_faction = yes
@@ -1440,20 +1375,19 @@ country_event = { ### THUNDERPUSSY!
 		}
 	}
 }
-	
-country_event = { ### Oil subversion!
+
+country_event = {
+	### Oil subversion!
 	id = egg.308
 	title = egg.308.t
 	desc = egg.308.d
 	picture = GFX_report_event_eggman_durka
-	
-	fire_only_once = yes		
-	is_triggered_only = yes 
-			
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.308.a 
+		name = egg.308.a
 		random_list = {
-			40 = { 
+			40 = {
 				random_owned_state = {
 					limit = {
 						has_resources_amount = {
@@ -1461,9 +1395,9 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 50
+						amount = -50
 					}
 				}
 			}
@@ -1475,9 +1409,9 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 75
+						amount = -75
 					}
 				}
 			}
@@ -1489,252 +1423,683 @@ country_event = { ### Oil subversion!
 							amount > 49
 						}
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 100
+						amount = -100
 					}
 				}
-			}	
+			}
 		}
 	}
 }
-	
+
 ### Eggman focus events
-country_event = { 
+country_event = {
+	#Ensure control
 	id = egg.38
 	title = egg.38.t
 	desc = egg.38.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.38.a 
+		name = egg.38.a
 	}
 }
 
-country_event = { 
+country_event = {
+	#Promise prosperity
 	id = egg.39
 	title = egg.39.t
 	desc = egg.39.d
-	
 	fire_only_once = yes
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.39.a 
+		name = egg.39.a
 	}
 }
 
-country_event = { 
+country_event = {
+	#Eggmanland
 	id = egg.40
 	title = egg.40.t
 	desc = egg.40.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
-	option = {
-		name = egg.40.a 
-	}
-}
-	
-country_event = { 
-	id = egg.41
-	title = egg.41.t
-	desc = egg.41.d
-	
 	fire_only_once = yes
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.41.a 
-	}
-}
-		
-country_event = { 
-	id = egg.42
-	title = egg.42.t
-	desc = egg.42.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
-	option = {
-		name = egg.42.a 
-	}
-}
-	
-country_event = { 
-	id = egg.43
-	title = egg.43.t
-	desc = egg.43.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
-	option = {
-		name = egg.43.a 
-	}
-}
-		
-country_event = { 
-	id = egg.44
-	title = egg.44.t
-	desc = egg.44.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
-	option = {
-		name = egg.44.a 
-	}
-}
-		
-country_event = { 
-	id = egg.45
-	title = egg.45.t
-	desc = egg.45.d
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
-	option = {
-		name = egg.45.a 
+		name = egg.40.a
 	}
 }
 
-    
-country_event = { 
+country_event = {
+	#Discredit Sonic
+	id = egg.41
+	title = egg.41.t
+	desc = egg.41.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.41.a
+	}
+}
+
+country_event = {
+	#Reward the loyal
+	id = egg.42
+	title = egg.42.t
+	desc = egg.42.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.42.a
+	}
+}
+
+country_event = {
+	#Eggman paradise
+	id = egg.43
+	title = egg.43.t
+	desc = egg.43.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.43.a
+	}
+}
+
+country_event = {
+	#Show helplessnes
+	id = egg.44
+	title = egg.44.t
+	desc = egg.44.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.44.a
+	}
+}
+
+country_event = {
+	#Maximal terror
+	id = egg.45
+	title = egg.45.t
+	desc = egg.45.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.45.a
+	}
+}
+
+country_event = {
+	#Industrial duty
 	id = egg.46
 	title = egg.46.t
 	desc = egg.46.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.46.a 
+		name = egg.46.a
 	}
 }
-	
-country_event = { 
+
+country_event = {
+	#Every mobian is a hostage
 	id = egg.47
 	title = egg.47.t
 	desc = egg.47.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.47.a 
+		name = egg.47.a
 	}
 }
-	
-country_event = { 
+
+country_event = {
+	#Barracks
 	id = egg.48
 	title = egg.48.t
 	desc = egg.48.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.48.a 
+		name = egg.48.a
 	}
 }
-		
-country_event = { 
+
+country_event = {
+	#No more hypocricy 
 	id = egg.49
 	title = egg.49.t
 	desc = egg.49.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.49.a 
+		name = egg.49.a
 	}
 }
-  
-country_event = { 
+
+country_event = {
+	#Northamer mobiks
 	id = egg.50
 	title = egg.50.t
 	desc = egg.50.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.50.a 
+		name = egg.50.a
 	}
 }
-	
-country_event = { 
+
+country_event = {
+	#Studiopolis corridor
 	id = egg.51
 	title = egg.51.t
 	desc = egg.51.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.51.a 
+		name = egg.51.a
 	}
 }
-	
-country_event = { 
+
+country_event = {
 	id = egg.alliance
 	title = egg.alliance.t
 	desc = egg.alliance.d
-	
 	fire_only_once = yes
-	
-	is_triggered_only = yes 
-		
+	is_triggered_only = yes
 	option = {
-		name = egg.alliance.a 
-		EGG  = {country_event = {id = egg.52} }
+		name = egg.alliance.a
+		EGG = {
+			country_event = {
+				id = egg.52
+			}
+		}
 	}
 	option = {
-		name = egg.alliance.b 
-		EGG  = {country_event = {id = egg.53} }
+		name = egg.alliance.b
+		EGG = {
+			country_event = {
+				id = egg.53
+			}
+		}
 	}
-	
 }
-	
-country_event = { 
+
+country_event = {
 	id = egg.52
 	title = egg.52.t
 	desc = egg.52.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
 		name = egg.52.a
-		EGG = { add_to_faction = IRO }
-		ROOT =  {add_to_tech_sharing_group = robotech_research}
-		IRO = {add_to_tech_sharing_group = robotech_research}
-         		
+		ai_chance = {
+			base = 80
+		}
+		EGG = {
+			add_to_faction = IRO
+		}
+		# ROOT =  {add_to_tech_sharing_group = robotech_research}
+		# IRO = {add_to_tech_sharing_group = robotech_research}
 	}
 }
-    
-country_event = { 
+
+country_event = {
 	id = egg.53
 	title = egg.53.t
 	desc = egg.53.d
-	
-	fire_only_once = yes	
-	is_triggered_only = yes 
-		
+	fire_only_once = yes
+	is_triggered_only = yes
 	option = {
-		name = egg.53.a 
+		name = egg.53.a
+		ai_chance = {
+			base = 20
+		}
+		diplomatic_relation = {
+			country = IRO
+			relation = non_aggression_pact
+		}
 		give_guarantee = IRO
-		IRO = {give_military_access = EGG}
-		ROOT =  {add_to_tech_sharing_group = robotech_research}
-		IRO = {add_to_tech_sharing_group = robotech_research}
+		IRO = {
+			give_military_access = EGG
+		}
+		# ROOT =  {add_to_tech_sharing_group = robotech_research}
+		# IRO = {add_to_tech_sharing_group = robotech_research}
+	}
+}
+
+country_event = {
+	#Egg fleet
+	id = egg.54
+	title = egg.54.t
+	desc = egg.54.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.54.a
+	}
+}
+
+country_event = {
+	#Spy media
+	id = egg.55
+	title = egg.55.t
+	desc = egg.55.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.55.a
+	}
+}
+
+country_event = {
+	#Legionisation looks cool
+	id = egg.56
+	title = egg.56.t
+	desc = egg.56.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.56.a
+		add_stability = 0.05
+		add_war_support = 0.05
+	}
+}
+
+country_event = {
+	#Legionisation is actually terrible
+	id = egg.57
+	title = egg.57.t
+	desc = egg.57.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.57.a
+		add_stability = -0.15
+		add_war_support = -0.2
+	}
+}
+
+country_event = {
+	#Flying Artillery
+	id = egg.58
+	title = egg.58.t
+	desc = egg.58.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.58.a
+	}
+}
+
+country_event = {
+	#Pursue Knothole Rats
+	id = egg.59
+	title = egg.59.t
+	desc = egg.59.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.59.a
+	}
+}
+
+country_event = {
+	#Knothole annihilated
+	id = egg.60
+	title = egg.60.t
+	desc = egg.60.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.60.a
+		launch_nuke = {
+			province = 4905
+		}
+		KOA = {
+			add_stability = -0.2
+			add_war_support = -0.15
+		}
+		7 = {
+			add_state_modifier = {
+				modifier = {
+					local_resources = -1
+					local_factories = -1
+					local_manpower = -0.95
+					local_supplies = -0.9
+					local_org_regain = -0.8
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Global Misinformation
+	id = egg.61
+	title = egg.61.t
+	desc = egg.61.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.61.a
+	}
+}
+
+country_event = {
+	#Satellites
+	id = egg.62
+	title = egg.62.t
+	desc = egg.62.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.62.a
+	}
+}
+
+country_event = {
+	#Eggman line
+	id = egg.63
+	title = egg.63.t
+	desc = egg.63.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.63.a
+	}
+}
+
+country_event = {
+	#Death Egg mk2
+	id = egg.64
+	title = egg.64.t
+	desc = egg.64.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.64.a
+	}
+}
+
+country_event = {
+	#Albion operation
+	id = egg.65
+	title = egg.65.t
+	desc = egg.65.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.65.a
+	}
+}
+
+country_event = {
+	#Empire marches on
+	id = egg.66
+	title = egg.66.t
+	desc = egg.66.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.66.a
+		add_country_leader_trait = Technocratic_Emperor
+	}
+}
+
+country_event = {
+	#Nuclear
+	id = egg.67
+	title = egg.67.t
+	desc = egg.67.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.67.a
+		add_ideas = {
+			EGG_Nuclear_Threat
+		}
+	}
+}
+
+country_event = {
+	#Alien Weapons
+	id = egg.68
+	title = egg.68.t
+	desc = egg.68.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.68.a
+		swap_ideas = {
+			remove_idea = modernization_army_3
+			add_idea = modernization_army_4
+		}
+	}
+}
+
+country_event = {
+	#Expand Robosphere
+	id = egg.69
+	title = egg.69.t
+	desc = egg.69.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.69.a
+		if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			add_ideas = EGG_World_Conquest_Plans
+		}
+		else = {
+			add_ideas = EGG_World_Conquest_Plans_1
+		}
+	}
+}
+
+country_event = {
+	#Station Square landing
+	id = egg.70
+	title = egg.70.t
+	desc = egg.70.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.70.a
+		create_wargoal = {
+			target = UFA
+			type = annex_everything
+		}
+		add_timed_idea = {
+			idea = EGG_attack_United_Federation
+			days = 730
+		}
+	}
+}
+
+country_event = {
+	#Kill RCSR
+	id = egg.71
+	title = egg.71.t
+	desc = egg.71.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.71.a
+		create_wargoal = {
+			target = RCR
+			type = annex_everything
+		}
+		add_timed_idea = {
+			idea = EGG_attack_Rethenia
+			days = 730
+		}
+	}
+}
+
+country_event = {
+	#Jackal
+	id = egg.72
+	title = egg.72.t
+	desc = egg.72.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.72.a
+	}
+}
+
+country_event = {
+	#Jackal
+	id = egg.972
+	title = egg.972.t
+	desc = egg.972.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.972.a
+		ai_chance = {
+			base = 0
+		}
+		EGG = {
+			puppet = INF
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = INF
+				autonomy_state = autonomy_dominion
+			}
+		}
+		EGG_expand_INF = yes
+	}
+	option = {
+		name = egg.972.b
+		ai_chance = {
+			base = 100
+		}
+		EGG = {
+			create_wargoal = {
+				target = INF
+				type = puppet_wargoal_focus
+			}
+			add_timed_idea = {
+				idea = EGG_attack_Jackalstan
+				days = 730
+			}
+		}
+	}
+}
+
+country_event = {
+	#Regina
+	id = egg.73
+	title = egg.73.t
+	desc = egg.73.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.73.a
+	}
+}
+
+country_event = {
+	#Regina
+	id = egg.973
+	title = egg.973.t
+	desc = egg.973.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.973.a
+		ai_chance = {
+			base = 40
+		}
+		EGG = {
+			puppet = IRO
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = IRO
+				autonomy_state = autonomy_dominion
+			}
+		}
+		EGG_expand_IRO = yes
+	}
+	option = {
+		name = egg.73.b
+		ai_chance = {
+			base = 60
+		}
+		EGG = {
+			create_wargoal = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_timed_idea = {
+				idea = EGG_attack_Iron_Dominion
+				days = 730
+			}
+		}
+	}
+}
+
+country_event = {
+	#Super Eggman
+	id = egg.74
+	title = egg.74.t
+	desc = egg.74.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.74.a
+		add_country_leader_trait = Eggman_the_Undefeatable
+	}
+}
+
+country_event = {
+	id = egg.75
+	title = egg.75.t
+	desc = egg.75.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.75.a
+	}
+}
+
+country_event = {
+	#Bouregard is traitor
+	id = egg.76
+	title = egg.76.t
+	desc = egg.76.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.76.a
+		declare_war_on = {
+			target = KOA
+			type = annex_everything
+		}
+		GDD_Beauregard_Rabbot = {
+			set_nationality = KOA
+		}
+	}
+	option = {
+		name = egg.76.b
+		add_stability = -0.25
+		add_political_power = -100
+		GDD_Beauregard_Rabbot = {
+			set_nationality = KOA
+		}
 	}
 }
 
@@ -1743,11 +2108,8 @@ country_event = {
 	id = egg.100
 	title = egg.100.t
 	desc = egg.100.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = egg.100.a
 	}
@@ -1758,12 +2120,1310 @@ country_event = {
 	id = egg.101
 	title = egg.101.t
 	desc = egg.101.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = egg.101.a
+	}
+}
+
+country_event = {
+	# Create Albion DEL
+	id = egg.701
+	title = egg.701.t
+	desc = egg.701.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.701.a
+		ALD_minus_cores = yes
+		IF = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+		}
+		EGG = {
+			puppet = ALD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = ALD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		ALD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Cat Nation DEL
+	id = egg.702
+	title = egg.702.t
+	desc = egg.702.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.702.a
+		CAD_minus_cores = yes
+		IF = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+		}
+		EGG = {
+			puppet = CAD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = CAD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		CAD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Charnales DEL
+	id = egg.703
+	title = egg.703.t
+	desc = egg.703.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.703.a
+		CHD_minus_cores = yes
+		EGG = {
+			puppet = CHD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = CHD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		CHD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Downunda DEL
+	id = egg.704
+	title = egg.704.t
+	desc = egg.704.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.704.a
+		DOD_minus_cores = yes
+		EGG = {
+			puppet = DOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = DOD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		DOD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Efrika DEL
+	id = egg.705
+	title = egg.705.t
+	desc = egg.705.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.705.a
+		EFD_minus_cores = yes
+		EGG = {
+			puppet = EFD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = EFD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		EFD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Eurish DEL
+	id = egg.706
+	title = egg.706.t
+	desc = egg.706.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.706.a
+		EUD_minus_cores = yes
+		EGG = {
+			puppet = EUD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = EUD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		EUD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Holoska DEL
+	id = egg.707
+	title = egg.707.t
+	desc = egg.707.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.707.a
+		HOD_minus_cores = yes
+		EGG = {
+			puppet = HOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = HOD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		HOD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Mercia DEL
+	id = egg.708
+	title = egg.708.t
+	desc = egg.708.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.708.a
+		MED_minus_cores = yes
+		EGG = {
+			puppet = MED
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = MED
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		MED = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Rethenian DEL
+	id = egg.709
+	title = egg.709.t
+	desc = egg.709.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.709.a
+		RED_minus_cores = yes
+		EGG = {
+			puppet = RED
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = RED
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		RED = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Stalegor DEL
+	id = egg.710
+	title = egg.710.t
+	desc = egg.710.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.710.a
+		SAD_minus_cores = yes
+		EGG = {
+			puppet = SAD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = SAD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		SAD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Swartzland DEL
+	id = egg.711
+	title = egg.711.t
+	desc = egg.711.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.711.a
+		SWD_minus_cores = yes
+		EGG = {
+			puppet = SWD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = SWD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		SWD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Tralius DEL
+	id = egg.712
+	title = egg.712.t
+	desc = egg.712.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.712.a
+		TRD_minus_cores = yes
+		EGG = {
+			puppet = TRD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = TRD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		TRD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Create Wolfpack DEL
+	id = egg.713
+	title = egg.713.t
+	desc = egg.713.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.713.a
+		WOD_minus_cores = yes
+		EGG = {
+			puppet = WOD
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = WOD
+				autonomy_state = autonomy_integrated_puppet
+			}
+		}
+		EGG = {
+			add_stability = 0.01
+			add_war_support = 0.01
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		WOD = {
+			add_ideas = EGG_DEL_defence
+		}
+	}
+}
+
+country_event = {
+	# Sage Appears
+	id = egg.1111
+	title = egg.1111.t
+	desc = egg.1111.d
+	picture = GFX_Sage_night
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.1111.a
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Ollpaon is conquered by Eggman
+	id = egg.600
+	title = egg.600.t
+	desc = egg.600.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.600.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 184
+				}
+				OLP = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 184
+				}
+				OLP = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Hibulia is conquered by Eggman
+	id = egg.601
+	title = egg.601.t
+	desc = egg.601.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.601.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 200
+				}
+				HIB = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 200
+				}
+				HIB = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Umkiria is conquered by Eggman
+	id = egg.602
+	title = egg.602.t
+	desc = egg.602.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.602.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 188
+				}
+				UMK = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 188
+				}
+				UMK = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Kungaria is conquered by Eggman
+	id = egg.603
+	title = egg.603.t
+	desc = egg.603.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.603.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 114
+				}
+				KUN = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 114
+				}
+				KUN = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Psarska is conquered by Eggman
+	id = egg.604
+	title = egg.604.t
+	desc = egg.604.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.604.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 174
+				}
+				PSR = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 174
+				}
+				PSR = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Estado Pireneo is conquered by Eggman
+	id = egg.605
+	title = egg.605.t
+	desc = egg.605.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.605.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 119
+				}
+				PIR = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 119
+				}
+				PIR = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Criardia is conquered by Eggman
+	id = egg.606
+	title = egg.606.t
+	desc = egg.606.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.606.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 205
+				}
+				CRI = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 205
+				}
+				CRI = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because New Avalon is conquered by Eggman
+	id = egg.607
+	title = egg.607.t
+	desc = egg.607.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.607.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 84
+				}
+				NEA = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NRD = {
+					controls_state = 84
+				}
+				NEA = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	#Freedom Fighters reappear because Great Desert Protectorate is conquered by Eggman
+	id = egg.608
+	title = egg.608.t
+	desc = egg.608.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = egg.608.a
+		if = {
+			limit = {
+				EGG = {
+					controls_state = 59
+				}
+				GDK = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				GDD = {
+					controls_state = 59
+				}
+				GDK = {
+					has_capitulated = yes
+				}
+			}
+			EGG = {
+				if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_3
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_3
+						add_idea = Freedom_fighters_saboteurs_2
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_2
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_2
+						add_idea = Freedom_fighters_saboteurs_1
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = Freedom_fighters_saboteurs_1
+					}
+					swap_ideas = {
+						remove_idea = Freedom_fighters_saboteurs_1
+						add_idea = Freedom_fighters_saboteurs
+					}
+				}
+			}
+		}
 	}
 }

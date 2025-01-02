@@ -28,6 +28,29 @@ Switch_Legacy_of_Deroboticization = {
 	}
 }
 
+# Increment_Ff_Spirit = {
+#     meta_effect = {
+#         text = {
+#             FROM = {
+#                 set_temp_variable = {
+#                     si_idea = 2
+#                 }
+#                 set_temp_variable = {
+#                     si_idea_level_var = 2
+#                 }
+#                 set_temp_variable = {
+#                     si_new_level = spirit_of_the_freedom_fighters_level
+#                 }
+#                 add_to_temp_variable = {
+#                     var = si_new_level
+#                     value = 1
+#                 }
+#                 Switch_Idea_Level = yes
+#             }
+#         }
+#     }
+# }
+
 Switch_Idea_Level = {
     # Variables:
     # si_idea: Idea name token
@@ -203,6 +226,7 @@ Fortificate_Borders_Against_Reds = {
                 level = 3
                 instant_build = yes
                 province = {
+                    all_provinces = yes
                     limit_to_border = yes
                 }
             }
@@ -219,8 +243,8 @@ Steal_Rings_Random = {
     randomize_temp_variable = {
         var = rings_steal_temp
         distribution = uniform
-        min = 1
-        max = 500
+        min = 0.001
+        max = 0.500
     }
     round_temp_variable = rings_steal_temp
     set_variable = { 
@@ -240,8 +264,8 @@ Steal_Rings = {
             add_to_variable = {
                 ROOT.rings = [RINGS_AMOUNT]
             }
-            clear_variable = steal_rings_amount
+            clear_variable = rings_steal_amount
 		}
-		RINGS_AMOUNT = "[?steal_rings_amount|.0]"
+		RINGS_AMOUNT = "[?rings_steal_amount|.0]"
 	}
 }

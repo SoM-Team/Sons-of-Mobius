@@ -1,17 +1,13 @@
 add_namespace = shared
-
+add_namespace = wars
 country_event = {
-    # Exercise Zapad
-    # Fired from KOA "Rethenian Military Comission" focus
-
-    id = shared.1
-    title = shared.1.t
-    desc = shared.1.d
-
-    fire_only_once = no
-
+	# Exercise Zapad
+	# Fired from KOA "Rethenian Military Comission" focus
+	id = shared.1
+	title = shared.1.t
+	desc = shared.1.d
+	fire_only_once = no
 	is_triggered_only = yes
-
 	option = {
 		name = shared.1.a
 	}
@@ -22,18 +18,14 @@ country_event = {
 	id = shared.2
 	title = shared.2.t
 	desc = shared.2.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
-    immediate = {
-        add_timed_idea = {
-            idea = The_Agreement
-            days = 1825
-        }
-    }
-
+	immediate = {
+		add_timed_idea = {
+			idea = The_Agreement
+			days = 1825
+		}
+	}
 	option = {
 		name = shared.2.a
 	}
@@ -44,11 +36,8 @@ country_event = {
 	id = shared.3
 	title = shared.3.t
 	desc = shared.3.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		FROM = {
@@ -67,11 +56,8 @@ country_event = {
 	id = shared.4
 	title = shared.4.t
 	desc = shared.4.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# For KOA
 		name = shared.4.a
@@ -83,7 +69,7 @@ country_event = {
 				target = RCR
 				type = annex_everything
 			}
-			add_timed_idea = { 
+			add_timed_idea = {
 				idea = KOA_Operation_Firework
 				days = 90
 			}
@@ -103,11 +89,8 @@ news_event = {
 	id = shared.5
 	title = shared.5.t
 	desc = shared.5.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = shared.5.a
 	}
@@ -118,11 +101,8 @@ news_event = {
 	id = shared.6
 	title = shared.6.t
 	desc = shared.6.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = shared.6.a
 	}
@@ -133,11 +113,8 @@ country_event = {
 	id = shared.7
 	title = shared.7.t
 	desc = shared.7.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		name = shared.7.a
@@ -145,7 +122,6 @@ country_event = {
 			give_guarantee = FROM
 		}
 	}
-
 	option = {
 		# Disagree
 		name = shared.7.b
@@ -158,11 +134,8 @@ country_event = {
 	id = shared.8
 	title = shared.8.t
 	desc = shared.8.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		name = shared.8.a
@@ -190,17 +163,16 @@ country_event = {
 					}
 				}
 				add_building_construction = {
-					type = anti_air
+					type = anti_air_building
 					level = 1
 					instant_build = yes
 				}
 			}
-        	set_variable = {
+			set_variable = {
 				THIS.much_obliged = 1
 			}
 		}
 	}
-
 	option = {
 		# Disagree
 		name = shared.8.b
@@ -215,11 +187,8 @@ country_event = {
 	id = shared.9
 	title = shared.9.t
 	desc = shared.9.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		name = shared.9.a
@@ -244,11 +213,8 @@ country_event = {
 	id = shared.10
 	title = shared.10.t
 	desc = shared.10.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		name = shared.10.a
@@ -266,14 +232,13 @@ country_event = {
 					}
 				}
 				add_building_construction = {
-					type = anti_air
+					type = anti_air_building
 					level = 1
 					instant_build = yes
 				}
 			}
 		}
 	}
-
 	option = {
 		# Disagree
 		name = shared.10.b
@@ -288,11 +253,8 @@ country_event = {
 	id = shared.11
 	title = shared.11.t
 	desc = shared.11.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = shared.11.a
 	}
@@ -303,11 +265,8 @@ country_event = {
 	id = shared.12
 	title = shared.12.t
 	desc = shared.12.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Require a peace
 		name = shared.12.a
@@ -319,13 +278,9 @@ country_event = {
 	id = shared.13
 	title = shared.13.t
 	desc = shared.13.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	# TODO: Add events for ROOT.
-
 	option = {
 		# Accept
 		# TODO: There should be some kind of weakening
@@ -333,11 +288,17 @@ country_event = {
 		THIS = {
 			if = {
 				limit = {
-					check_variable = { legacy_of_deroboticization_level > 1 }
+					check_variable = {
+						legacy_of_deroboticization_level > 1
+					}
 				}
-				set_variable = { legacy_of_deroboticization_level_new = legacy_of_deroboticization_level }
+				set_variable = {
+					legacy_of_deroboticization_level_new = legacy_of_deroboticization_level
+				}
 				Switch_Legacy_of_Deroboticization = yes
-				subtract_from_variable = { legacy_of_deroboticization_level = 1 }
+				subtract_from_variable = {
+					legacy_of_deroboticization_level = 1
+				}
 			}
 		}
 	}
@@ -352,11 +313,8 @@ country_event = {
 	id = shared.14
 	title = shared.14.t
 	desc = shared.14.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# KOA waits for an answer
 		name = shared.14.a
@@ -364,7 +322,6 @@ country_event = {
 			tag = KOA
 		}
 	}
-
 	option = {
 		# UFA accepts an offer
 		name = shared.14.b
@@ -381,7 +338,6 @@ country_event = {
 			days = 1
 		}
 	}
-
 	option = {
 		# UFA declines an offer
 		name = shared.14.c
@@ -397,10 +353,8 @@ country_event = {
 	id = shared.15
 	title = shared.15.t
 	desc = shared.15.d
-
 	fire_only_once = no
 	is_triggered_only = yes
-
 	option = {
 		name = shared.15.a
 	}
@@ -411,11 +365,8 @@ news_event = {
 	id = shared.16
 	title = shared.16.t
 	desc = shared.16.d
-
 	fire_only_once = no
-	
 	is_triggered_only = yes
-
 	option = {
 		name = shared.16.a
 	}
@@ -426,11 +377,8 @@ news_event = {
 	id = shared.17
 	title = shared.17.t
 	desc = shared.17.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = shared.17.a
 	}
@@ -441,10 +389,8 @@ country_event = {
 	id = shared.18
 	title = shared.18.t
 	desc = shared.18.d
-
 	fire_only_once = no
 	is_triggered_only = yes
-
 	option = {
 		name = shared.18.a
 	}
@@ -455,12 +401,7188 @@ country_event = {
 	id = shared.19
 	title = shared.19.t
 	desc = shared.19.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = shared.19.a
+	}
+}
+
+country_event = {
+	# Draft Evasion 1
+	id = shared.90
+	title = shared.90.t
+	desc = shared.90.d
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			AND = {
+				OR = {
+					has_idea = Aggressive_Mobilisation_1
+					has_idea = Aggressive_Mobilisation_2
+					has_idea = Aggressive_Mobilisation_3
+					has_idea = Aggressive_Mobilisation_4
+					has_idea = Aggressive_Mobilisation_5
+				}
+				has_war_support < 0.8
+				has_war = yes
+			}
+			AND = {
+				has_war_support < 0.2
+				has_war = yes
+			}
+			AND = {
+				has_war_support < 0.5
+				has_stability < 0.3
+				has_war = yes
+			}
+		}
+	}
+	option = {
+		name = shared.90.a
+		add_ideas = Draft_Evasion_1
+	}
+}
+
+country_event = {
+	# Draft Evasion 2
+	id = shared.91
+	title = shared.91.t
+	desc = shared.91.d
+	is_triggered_only = yes
+	option = {
+		name = shared.91.
+		swap_ideas = {
+			remove_idea = Draft_Evasion_1
+			add_idea = Draft_Evasion_2
+		}
+	}
+}
+
+country_event = {
+	# Draft Evasion 3
+	id = shared.92
+	title = shared.92.t
+	desc = shared.92.d
+	is_triggered_only = yes
+	option = {
+		name = shared.92.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_2
+			add_idea = Draft_Evasion_3
+		}
+	}
+}
+
+country_event = {
+	# Draft Evasion 4
+	id = shared.93
+	title = shared.93.t
+	desc = shared.93.d
+	is_triggered_only = yes
+	option = {
+		name = shared.93.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_3
+			add_idea = Draft_Evasion_4
+		}
+	}
+}
+
+country_event = {
+	# Draft Evasion 5
+	id = shared.94
+	title = shared.94.t
+	desc = shared.94.d
+	is_triggered_only = yes
+	option = {
+		name = shared.94.a
+		swap_ideas = {
+			remove_idea = Draft_Evasion_4
+			add_idea = Draft_Evasion_5
+		}
+	}
+}
+
+country_event = {
+	# Spiral of Escalation / "No War" eventually turns into "War against War"
+	id = shared.95
+	title = shared.95.t
+	desc = shared.95.d
+	is_triggered_only = yes
+	option = {
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				katzerism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = katzerism
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				autonomous_socialism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = autonomous_socialism
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				neosocialism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = neosocialism
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				progressism > 0.35
+				has_stability < 0.3
+				has_war_support < 0.3
+			}
+			start_civil_war = {
+				ideology = progressism
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_stability > 0.3
+					has_war_support > 0.3
+				}
+			}
+			add_stability = -0.1
+			add_war_support = -0.1
+			if = {
+				limit = {
+					has_government = neosocialism
+				}
+				add_popularity = {
+					ideology = neosocialism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = katzerism
+				}
+				add_popularity = {
+					ideology = katzerism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = autonomous_socialism
+				}
+				add_popularity = {
+					ideology = autonomous_socialism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = progressism
+				}
+				add_popularity = {
+					ideology = progressism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = progressive_liberalism
+				}
+				add_popularity = {
+					ideology = progressive_liberalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = orthodox_liberalism
+				}
+				add_popularity = {
+					ideology = orthodox_liberalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = conservatism
+				}
+				add_popularity = {
+					ideology = conservatism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = autocracy
+				}
+				add_popularity = {
+					ideology = autocracy
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = legalism
+				}
+				add_popularity = {
+					ideology = legalism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = technocratic_despotism
+				}
+				add_popularity = {
+					ideology = technocratic_despotism
+					popularity = -0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = purificationism
+				}
+				add_popularity = {
+					ideology = purificationism
+					popularity = -0.1
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Spiral of Escalation / Peaceful Demands
+	id = shared.96
+	title = shared.96.t
+	desc = shared.96.d
+	is_triggered_only = yes
+	option = {
+		name = shared.96.a		# Pretend That Nothing Happened
+		add_political_power = -25
+		add_war_support = -0.05
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_1
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_1
+				add_idea = Draft_Evasion_2
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_2
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_2
+				add_idea = Draft_Evasion_3
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_3
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_3
+				add_idea = Draft_Evasion_4
+			}
+		}
+		if = {
+			limit = {
+				has_idea = Draft_Evasion_4
+			}
+			swap_ideas = {
+				remove_idea = Draft_Evasion_4
+				add_idea = Draft_Evasion_5
+			}
+		}
+	}
+	option = {
+		name = shared.96.b		# Improve Living Standards
+		if = {
+			limit = {
+				has_idea = scraping_the_barrel
+			}
+			add_ideas = all_adults_serve
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = all_adults_serve
+			}
+			add_ideas = service_by_requirement
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = service_by_requirement
+			}
+			add_ideas = extensive_conscription
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = extensive_conscription
+			}
+			add_ideas = limited_conscription
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+		if = {
+			limit = {
+				has_idea = limited_conscription
+			}
+			add_ideas = volunteer_only
+			add_stability = 0.05
+			add_political_power = -50
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_5
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_5
+					add_idea = Aggressive_Mobilisation_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_4
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_4
+					add_idea = Aggressive_Mobilisation_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_3
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_3
+					add_idea = Aggressive_Mobilisation_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_2
+				}
+				swap_ideas = {
+					remove_idea = Aggressive_Mobilisation_2
+					add_idea = Aggressive_Mobilisation_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Aggressive_Mobilisation_1
+				}
+				remove_ideas = Aggressive_Mobilisation_1
+			}
+			add_timed_idea = {
+				idea = Conscription_Relaxation_Granted
+				days = 120
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_5
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_5
+					add_idea = Draft_Evasion_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_4
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_4
+					add_idea = Draft_Evasion_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_3
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_3
+					add_idea = Draft_Evasion_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_2
+				}
+				swap_ideas = {
+					remove_idea = Draft_Evasion_2
+					add_idea = Draft_Evasion_1
+				}
+			}
+			if = {
+				limit = {
+					has_idea = Draft_Evasion_1
+				}
+				remove_ideas = Draft_Evasion_1
+			}
+		}
+	}
+	option = {
+		name = shared.96.c		# Smash Them Down Brutally 
+		add_manpower = -10000
+		add_stability = -0.05
+		add_war_support = -0.1
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_popularity = {
+				ideology = progressism
+				popularity = 0.075
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = 0.025
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = 0.025
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = 0.025
+			}
+		}
+	}
+}
+
+country_event = {
+	# (Anti-)War Propaganda Base
+	id = shared.97
+	title = shared.97.t
+	desc = shared.97.d
+	is_triggered_only = yes
+	option = {
+		name = shared.97.a
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Leftist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Centrist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_war_with = ROOT
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+				ROOT = {
+					NOT = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_ideas = Rightist_War_Propaganda_1
+		}
+	}
+}
+
+country_event = {
+	# (Anti-)War Propaganda Upgrade
+	id = shared.98
+	title = shared.98.t
+	desc = shared.98.d
+	is_triggered_only = yes
+	option = {
+		name = shared.98.a
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+					has_country_flag = Leftist_Foreign_Support
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = autonomous_socialism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2a
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = katzerism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2k
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+				has_country_flag = Leftist_Foreign_Support
+				any_country = {
+					is_in_faction_with = RCR
+					is_faction_leader = yes
+					has_government = neosocialism
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2n
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
+			add_ideas = Centrist_Anti_War_Propaganda_1
+		}
+		if = {
+			limit = {
+				any_country = {
+					has_war_with = ROOT
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+				ROOT = {
+					NOT = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			add_ideas = Rightist_War_Propaganda_1
+		}
+	}
+}
+
+country_event = {
+	# 
+	id = shared.99
+	title = shared.99.t
+	desc = shared.99.d
+	is_triggered_only = yes
+	option = {
+		name = shared.99.a
+	}
+}
+
+country_event = {
+	# Concept of Friendship Between Nations
+	id = shared.100
+	title = shared.100.t
+	desc = shared.100.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.100.a
+	}
+}
+
+country_event = {
+	# Shared Science Upgrade
+	id = shared.101
+	title = shared.101.t
+	desc = shared.101.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.101.a
+		if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Science_1
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Science_1
+				add_idea = Friendship_of_Peoples_Science_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Science_2
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Science_2
+				add_idea = Friendship_of_Peoples_Science_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Science_3
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Science_3
+				add_idea = Friendship_of_Peoples_Science_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Science_4
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Science_4
+				add_idea = Friendship_of_Peoples_Science_5
+			}
+		}
+	}
+}
+
+country_event = {
+	# Shared Welfare Programs Upgrade
+	id = shared.102
+	title = shared.102.t
+	desc = shared.102.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.102.a
+		if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Welfare_Programs_1
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Welfare_Programs_1
+				add_idea = Friendship_of_Peoples_Welfare_Programs_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Welfare_Programs_2
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Welfare_Programs_2
+				add_idea = Friendship_of_Peoples_Welfare_Programs_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Welfare_Programs_3
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Welfare_Programs_3
+				add_idea = Friendship_of_Peoples_Welfare_Programs_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Welfare_Programs_4
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Welfare_Programs_4
+				add_idea = Friendship_of_Peoples_Welfare_Programs_5
+			}
+		}
+	}
+}
+
+country_event = {
+	# Shared Military Upgrade
+	id = shared.103
+	title = shared.103.t
+	desc = shared.103.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.103.a
+		if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Para_Bellum_1
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Para_Bellum_1
+				add_idea = Friendship_of_Peoples_Para_Bellum_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Para_Bellum_2
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Para_Bellum_2
+				add_idea = Friendship_of_Peoples_Para_Bellum_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Para_Bellum_3
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Para_Bellum_3
+				add_idea = Friendship_of_Peoples_Para_Bellum_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Para_Bellum_4
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Para_Bellum_4
+				add_idea = Friendship_of_Peoples_Para_Bellum_5
+			}
+		}
+	}
+}
+
+country_event = {
+	# Shared Political Upgrade
+	id = shared.104
+	title = shared.104.t
+	desc = shared.104.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.104.a
+		if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Politics_1
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Politics_1
+				add_idea = Friendship_of_Peoples_Politics_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Politics_2
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Politics_2
+				add_idea = Friendship_of_Peoples_Politics_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Politics_3
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Politics_3
+				add_idea = Friendship_of_Peoples_Politics_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Politics_4
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Politics_4
+				add_idea = Friendship_of_Peoples_Politics_5
+			}
+		}
+	}
+}
+
+country_event = {
+	# Shared Espionage Upgrade
+	id = shared.105
+	title = shared.105.t
+	desc = shared.105.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = shared.105.a
+		if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Espionage_1
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Espionage_1
+				add_idea = Friendship_of_Peoples_Espionage_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Espionage_2
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Espionage_2
+				add_idea = Friendship_of_Peoples_Espionage_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Espionage_3
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Espionage_3
+				add_idea = Friendship_of_Peoples_Espionage_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = Friendship_of_Peoples_Espionage_4
+			}
+			swap_ideas = {
+				remove_idea = Friendship_of_Peoples_Espionage_4
+				add_idea = Friendship_of_Peoples_Espionage_5
+			}
+		}
+	}
+}
+
+country_event = {
+	# Temporary Science Buff
+	id = shared.106
+	title = shared.106.t
+	desc = shared.106.d
+	picture = GFX_Katzerist_Scientists
+	is_triggered_only = yes
+	# hidden = yes
+	option = {
+		name = shared.106.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					is_subject = yes
+					tag = BRC
+					tag = WEC
+					tag = SOC
+					tag = FEC
+					tag = SIC
+					tag = NWC
+					tag = NOC
+				}
+			}
+			add_timed_idea = {
+				idea = Friendship_of_Peoples_Give_Scientific_Help
+				days = 180
+			}
+		}
+		multiply_variable = {
+			Scientific_Help_Multiplier = global.Helping_Countries_Science
+		}
+		add_dynamic_modifier = {
+			modifier = Friendship_of_Peoples_Scientific_Help
+			days = 180
+		}
+		add_timed_idea = {
+			idea = Friendship_of_Peoples_Receive_Scientific_Help_0
+			days = 180
+		}
+	}
+}
+
+country_event = {
+	# Temporary Welfare Buff
+	id = shared.107
+	title = shared.107.t
+	desc = shared.107.d
+	is_triggered_only = yes
+	# hidden = yes
+	option = {
+		name = shared.107.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					is_subject = yes
+					tag = BRC
+					tag = WEC
+					tag = SOC
+					tag = FEC
+					tag = SIC
+					tag = NWC
+					tag = NOC
+				}
+			}
+			add_timed_idea = {
+				idea = Friendship_of_Peoples_Give_Welfare_Programs_Help
+				days = 180
+			}
+		}
+		multiply_variable = {
+			Welfare_Help_Multiplier = global.Helping_Countries_Welfare
+		}
+		multiply_variable = {
+			Welfare_Help_Multiplier_negative = global.Helping_Countries_Welfare
+		}
+		multiply_variable = {
+			Welfare_Help_Multiplier_small = global.Helping_Countries_Welfare
+		}
+		add_dynamic_modifier = {
+			modifier = Friendship_of_Peoples_Welfare_Help
+			days = 180
+		}
+	}
+}
+
+country_event = {
+	# Temporary Military Buff
+	id = shared.108
+	title = shared.108.t
+	desc = shared.108.d
+	is_triggered_only = yes
+	# hidden = yes
+	option = {
+		name = shared.108.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					is_subject = yes
+					tag = BRC
+					tag = WEC
+					tag = SOC
+					tag = FEC
+					tag = SIC
+					tag = NWC
+					tag = NOC
+				}
+			}
+			add_timed_idea = {
+				idea = Friendship_of_Peoples_Give_Military_Help
+				days = 180
+			}
+		}
+		multiply_variable = {
+			Military_Help_Multiplier = global.Helping_Countries_Military
+		}
+		multiply_variable = {
+			Military_Help_Multiplier_negative = global.Helping_Countries_Military
+		}
+		add_dynamic_modifier = {
+			modifier = Friendship_of_Peoples_Military_Help
+			days = 180
+		}
+	}
+}
+
+country_event = {
+	# Temporary Political Buff
+	id = shared.109
+	title = shared.109.t
+	desc = shared.109.d
+	is_triggered_only = yes
+	# hidden = yes
+	option = {
+		name = shared.109.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					is_subject = yes
+					tag = BRC
+					tag = WEC
+					tag = SOC
+					tag = FEC
+					tag = SIC
+					tag = NWC
+					tag = NOC
+				}
+			}
+			add_timed_idea = {
+				idea = Friendship_of_Peoples_Give_Political_Help
+				days = 180
+			}
+		}
+		multiply_variable = {
+			Political_Help_Multiplier = global.Helping_Countries_Political
+		}
+		multiply_variable = {
+			Political_Help_Multiplier_negative = global.Helping_Countries_Political
+		}
+		add_dynamic_modifier = {
+			modifier = Friendship_of_Peoples_Political_Help
+			days = 180
+		}
+		add_stability = 0.05
+	}
+}
+
+country_event = {
+	# Temporary Espionage Buff
+	id = shared.110
+	title = shared.110.t
+	desc = shared.110.d
+	is_triggered_only = yes
+	# hidden = yes
+	option = {
+		name = shared.110.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					is_subject = yes
+					tag = BRC
+					tag = WEC
+					tag = SOC
+					tag = FEC
+					tag = SIC
+					tag = NWC
+					tag = NOC
+				}
+			}
+			add_timed_idea = {
+				idea = Friendship_of_Peoples_Give_Espionage_Help
+				days = 180
+			}
+		}
+		multiply_variable = {
+			Espionage_Help_Multiplier = global.Helping_Countries_Espionage
+		}
+		multiply_variable = {
+			Espionage_Help_Multiplier_2 = global.Helping_Countries_Espionage
+		}
+		multiply_variable = {
+			Espionage_Help_Multiplier_negative = global.Helping_Countries_Espionage
+		}
+		multiply_variable = {
+			Espionage_Help_Multiplier_large = global.Helping_Countries_Espionage
+		}
+		add_dynamic_modifier = {
+			modifier = Friendship_of_Peoples_Espionage_Help
+			days = 180
+		}
+	}
+}
+
+country_event = {
+	# Voting
+	id = shared.111
+	title = shared.111.t
+	desc = shared.111.d
+	is_triggered_only = yes
+	option = {
+		name = shared.111.a
+		add_to_variable = {
+			global.International_Votes = 1
+		}
+	}
+	# option = {
+	# 	name = shared.111.b
+	# 	add_to_variable = {
+	# 		global.International_Votes = -1
+	# 	}
+	# }
+	# option = {
+	# 	name = shared.111.c
+	# }
+}
+
+country_event = {
+	# Type of boon
+	id = shared.112
+	title = shared.112.t
+	desc = shared.112.d
+	is_triggered_only = yes
+	option = {
+		name = shared.112.a		#scientific boon
+		set_variable = {
+			global.International_Temporary_Boon = 1
+		}
+	}
+	option = {
+		name = shared.112.b		#welfare boon
+		set_variable = {
+			global.International_Temporary_Boon = 2
+		}
+	}
+	option = {
+		name = shared.112.c		#other options
+		country_event = shared.113
+	}
+}
+
+country_event = {
+	# Type of boon
+	id = shared.113
+	title = shared.113.t
+	desc = shared.113.d
+	is_triggered_only = yes
+	option = {
+		name = shared.113.a		#military boon
+		set_variable = {
+			global.International_Temporary_Boon = 3
+		}
+	}
+	option = {
+		name = shared.113.b		#political boon
+		set_variable = {
+			global.International_Temporary_Boon = 4
+		}
+	}
+	option = {
+		name = shared.113.c		#other options
+		country_event = shared.114
+	}
+}
+
+country_event = {
+	# Type of boon
+	id = shared.114
+	title = shared.114.t
+	desc = shared.114.d
+	is_triggered_only = yes
+	option = {
+		name = shared.114.a		#espionage_boon
+		set_variable = {
+			global.International_Temporary_Boon = 5
+		}
+	}
+	option = {
+		name = shared.114.b		#other options
+		country_event = shared.112
+	}
+}
+
+country_event = {
+	# Votes Are Counted
+	id = shared.115
+	title = shared.115.t
+	desc = shared.115.d
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.115.a
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Votes > 0
+				}
+			}
+			country_event = shared.120
+		}
+		else = {
+			country_event = shared.119
+		}
+	}
+}
+
+# country_event = {
+# 	# Mark offering country 
+# 	id = shared.116
+# 	title = shared.116.t
+# 	desc = shared.116.d
+# 	is_triggered_only = yes
+# 	hidden = yes
+# 	option = {
+# 		name = shared.116.a
+# 		ROOT = {
+# 			set_country_flag = Internationale_resolution_offered
+# 		}
+# 	}
+# }
+country_event = {
+	# Type of boon
+	id = shared.117
+	title = shared.117.t
+	desc = shared.117.d
+	is_triggered_only = yes
+	option = {
+		name = shared.117.a		#scientific boon
+		set_variable = {
+			global.International_Temporary_Boon = 1
+		}
+	}
+	option = {
+		name = shared.117.b		#welfare boon
+		set_variable = {
+			global.International_Temporary_Boon = 2
+		}
+	}
+	option = {
+		name = shared.117.c		#other oprions
+		country_event = shared.112
+	}
+}
+
+country_event = {
+	# Decision is Reached - Boon is Granted
+	id = shared.118
+	title = shared.118.t
+	desc = shared.118.d
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.118.a
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 1					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.106
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 2					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.107
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 3					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.108
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 4					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.109
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon = 5					# ID of object of discussion - there can be plenty of them
+				}
+			}
+			var:internationale_country_chosen = {
+				country_event = shared.110
+			}
+			set_variable = {
+				global.International_Temporary_Boon = 0
+			}
+		}
+	}
+}
+
+country_event = {
+	# Voting is Failed
+	id = shared.119
+	title = shared.119.t
+	desc = shared.119.d
+	is_triggered_only = yes
+	option = {
+		name = shared.119.a
+	}
+}
+
+country_event = {
+	# Voting is Successful
+	id = shared.120
+	title = shared.120.t
+	desc = shared.120.d
+	is_triggered_only = yes
+	option = {
+		name = shared.120.
+		random_country = {
+			limit = {
+				has_country_flag = International_Propaganda_Target
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = katzerism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2k
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = International_Propaganda_Target
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = autonomous_socialism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2a
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = International_Propaganda_Target
+				RCR = {
+					any_country = {
+						is_faction_leader = yes
+						has_government = neosocialism
+					}
+				}
+			}
+			swap_ideas = {
+				remove_idea = Leftist_Anti_War_Propaganda_1
+				add_idea = Leftist_Anti_War_Propaganda_2n
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Scientific_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Scientific_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Scientific_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Social_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Social_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Social_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Military_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Military_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Military_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Political_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Political_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Political_Reforms
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Secret_Service_Reforms
+			}
+			add_timed_idea = {
+				idea = Investing_in_Secret_Service_Reforms
+				days = 180
+			}
+			clr_global_flag = International_Secret_Service_Reforms
+		}
+		if = {
+			limit = {
+				check_variable = {
+					global.International_Temporary_Boon > 0
+				}
+			}
+			country_event = shared.118
+		}
+		if = {
+			limit = {
+				has_global_flag = International_Invite_Country
+			}
+			random_country = {
+				limit = {
+					has_country_flag = International_Candidate_for_Alliance
+				}
+				country_event = shared.121
+			}
+			clr_global_flag = International_Invite_Country
+		}
+		if = {
+			limit = {
+				has_global_flag = International_White_Peace
+			}
+			every_country = {
+				limit = {
+					has_war_with = var:internationale_country_chosen
+				}
+				country_event = shared.122
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = Infrastructure_Project_Recipient
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Invitation in alliance
+	id = shared.121
+	title = shared.121.t
+	desc = shared.121.d
+	is_triggered_only = yes
+	option = {
+		name = shared.121.a
+		RCR = {
+			add_to_faction = ROOT
+		}
+		add_to_variable = {
+			global.International_Volunteers = 0.5
+		}
+	}
+	option = {
+		name = shared.121.b
+		RCR = {
+			add_political_power = -10
+		}
+		add_political_power = -10
+	}
+}
+
+country_event = {
+	# White peace offer
+	id = shared.122
+	title = shared.122.t
+	desc = shared.122.d
+	is_triggered_only = yes
+	option = {
+		name = shared.122.a
+		every_country = {
+			limit = {
+				has_war_with = RCR
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = RCR
+					has_war_with = PREV
+				}
+				white_peace = PREV
+			}
+		}
+	}
+	option = {
+		name = shared.122.b
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+			}
+			add_war_support = 0.05
+		}
+	}
+}
+
+country_event = {
+	# Internationale Faction Leader Election
+	id = shared.123
+	title = shared.123.t
+	desc = shared.123.d
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = shared.123.a
+		every_country = {
+			clr_global_flag = Internationale_Leader_Vote_done
+		}
+		activate_mission = International_Faction_Leader_Election
+	}
+}
+
+country_event = {
+	# Banish Traitors
+	id = shared.124
+	title = shared.124.t
+	desc = shared.124.d
+	is_triggered_only = yes
+	hidden = yes
+	immediate = {
+		every_country = {
+			limit = {
+				is_in_faction_with = RCR
+				NOT = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+					any_character = {
+						is_country_leader = yes
+						has_ideology = progressism_transitionism_subtype
+					}
+				}
+			}
+			leave_faction = yes
+		}
+	}
+	option = {
+		name = shared.124.a
+	}
+}
+
+country_event = {
+	id = wars.1	# Eggman attacks KoA 
+	title = wars.1.t
+	desc = wars.1.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.1.a
+		EGG = {
+			declare_war_on = {
+				target = KOA
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.2	# Swartzland attacks Tyynimia 
+	title = wars.2.t
+	desc = wars.2.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.2.a
+		SWA = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.3	# Swartzland attacks Latigalia 
+	title = wars.3.t
+	desc = wars.3.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.3.a
+		SWA = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.4	# United Federation attacks Jackalstan
+	title = wars.4.t
+	desc = wars.4.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.4.a
+		UFA = {
+			declare_war_on = {
+				target = INF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.5	# First Civil War in Chernivschina 
+	title = wars.5.t
+	desc = wars.5.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.5.a
+		CHE = {
+			start_civil_war = {
+				ideology = autonomous_socialism
+				ruling_party = legalism
+				army_ratio = 0.25
+				air_ratio = 0.25
+				states = {
+					364
+					365
+					366
+					271
+					273
+				}
+			}
+			CHE_Stepan_Sukhovey = {
+				clr_character_flag = imprisoned
+			}
+			add_threat = 2
+		}
+	}
+}
+
+country_event = {
+	id = wars.6	# Second Civil War in Chernivschina 
+	title = wars.6.t
+	desc = wars.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.6.a
+		CHE = {
+			start_civil_war = {
+				ideology = orthodox_liberalism
+				army_ratio = 0.35
+				air_ratio = 0.35
+				size = 0.35
+			}
+			add_threat = 3.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.7	# Civil War in Svetlales
+	title = wars.7.t
+	desc = wars.7.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.7.a
+		SVT = {
+			start_civil_war = {
+				ideology = conservatism
+				army_ratio = 0.35
+				air_ratio = 0.35
+				size = 0.35
+			}
+			add_threat = 3.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.8	# Rethenia attacks Cherniwschina, puppet
+	title = wars.8.t
+	desc = wars.8.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.8.a
+		RCR = {
+			declare_war_on = {
+				target = CHE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.9	# Rethenia attacks Cherniwschina, annex_everything
+	title = wars.9.t
+	desc = wars.9.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.9.a
+		RCR = {
+			declare_war_on = {
+				target = CHE
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.10	# Rethenia attacks Svetlales, puppet
+	title = wars.10.t
+	desc = wars.10.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.10.a
+		RCR = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.11	# Rethenia attacks Svetlales, annex_everything
+	title = wars.11.t
+	desc = wars.11.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.11.a
+		RCR = {
+			declare_war_on = {
+				target = SVT
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.12	# Rethenia attacks Latigalia, puppet
+	title = wars.12.t
+	desc = wars.12.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.12.a
+		RCR = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.13	# Rethenia attacks Latigalia, annex_everything
+	title = wars.13.t
+	desc = wars.13.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.13.a
+		RCR = {
+			declare_war_on = {
+				target = LTG
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.14	# Rethenia attacks Tyynimia, puppet
+	title = wars.14.t
+	desc = wars.14.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.14.a
+		RCR = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.15	# Rethenia attacks Tyynimia, annex_everything
+	title = wars.15.t
+	desc = wars.15.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.15.a
+		RCR = {
+			declare_war_on = {
+				target = TYY
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.16	# Rethenia attacks Kurgakistan, puppet
+	title = wars.16.t
+	desc = wars.16.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.16.a
+		RCR = {
+			declare_war_on = {
+				target = TUK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.17	# Rethenia attacks Kurgakistan, annex_everything
+	title = wars.17.t
+	desc = wars.17.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.17.a
+		RCR = {
+			declare_war_on = {
+				target = TUK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.18	# Rethenia attacks Holoska, puppet
+	title = wars.18.t
+	desc = wars.18.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.18.a
+		RCR = {
+			declare_war_on = {
+				target = HOL
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.19	# Rethenia attacks Holoska, annex_everything
+	title = wars.19.t
+	desc = wars.19.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.19.a
+		RCR = {
+			declare_war_on = {
+				target = HOL
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.20	# Iron Dominion attacks Kun Empire
+	title = wars.20.t
+	desc = wars.20.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.20.a
+		IRO = {
+			declare_war_on = {
+				target = KUE
+				type = annex_everything
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.21	# Gegam attacks Nikko
+	title = wars.21.t
+	desc = wars.21.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.21.a
+		GEG = {
+			declare_war_on = {
+				target = NIK
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.22	# Ka'Zu attacks Nikko
+	title = wars.22.t
+	desc = wars.22.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.22.a
+		KAE = {
+			declare_war_on = {
+				target = NIK
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.23	# Kuasa attacks Nikko
+	title = wars.23.t
+	desc = wars.23.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.23.a
+		KUA = {
+			declare_war_on = {
+				target = NIK
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.24	# Red Shigai attacks Xinyuan
+	title = wars.24.t
+	desc = wars.24.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.24.a
+		PSG = {
+			declare_war_on = {
+				target = REI
+				type = annex_everything
+			}
+			add_threat = 5.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.25	# Iron Dominion attacks Aiguojun
+	title = wars.25.t
+	desc = wars.25.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.25.a
+		IRO = {
+			declare_war_on = {
+				target = FRE
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.26	# Kordovian civil war
+	title = wars.26.t
+	desc = wars.26.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.26.a
+		GKR = {
+			add_popularity = {
+				ideology = legalism
+				popularity = 0.25
+			}
+			start_civil_war = {
+				ideology = legalism
+				size = 0.4
+			}
+			add_threat = 3.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.27	# Kurgakistan civil war
+	title = wars.27.t
+	desc = wars.27.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.27.a
+		TUK = {
+			start_civil_war = {
+				ideology = autocracy
+			}
+			add_threat = 3.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.28	# Aiguojun attacks Yun
+	title = wars.28.t
+	desc = wars.28.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.28.a
+		FRE = {
+			declare_war_on = {
+				target = GOS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.29	# Aiguojun attacks Meiyuan
+	title = wars.29.t
+	desc = wars.29.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.29.a
+		FRE = {
+			declare_war_on = {
+				target = SHI
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.30	# Red Shigai attacks Yun
+	title = wars.30.t
+	desc = wars.30.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.30.a
+		PSG = {
+			declare_war_on = {
+				target = GOS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.31	# Red Shigai attacks Iron Dominion
+	title = wars.31.t
+	desc = wars.31.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.31.a
+		PSG = {
+			declare_war_on = {
+				target = IRO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.32	# Holoskan civil war
+	title = wars.32.t
+	desc = wars.32.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.32.a
+		HOL = {
+			start_civil_war = {
+				ideology = purificationism
+			}
+			add_threat = 3.5
+		}
+	}
+}
+
+country_event = {
+	id = wars.33	# Hiboulia attacks Olppaon
+	title = wars.33.t
+	desc = wars.33.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.33.a
+		HIB = {
+			declare_war_on = {
+				target = OLP
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.34	# Swartzland attacks Criardia
+	title = wars.34.t
+	desc = wars.34.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.34.a
+		SWA = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.35	# Swartzland attacks Pirenia
+	title = wars.35.t
+	desc = wars.35.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.35.a
+		SWA = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.36	# Canines attack Felines
+	title = wars.36.t
+	desc = wars.36.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.36.a
+		WOL = {
+			declare_war_on = {
+				target = MIS
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.37	# Felines attack Canines
+	title = wars.37.t
+	desc = wars.37.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.37.a
+		MIS = {
+			declare_war_on = {
+				target = WOL
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.38	# Jungleo-Ido attacks Kordovia
+	title = wars.38.t
+	desc = wars.38.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.38.a
+		JUN = {
+			declare_war_on = {
+				target = GKR
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.39	# United Federation attacks Cherniwschina
+	title = wars.39.t
+	desc = wars.39.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.39.a
+		UFA = {
+			declare_war_on = {
+				target = CHE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.40	# United Federation attacks Svetlales
+	title = wars.40.t
+	desc = wars.40.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.40.a
+		UFA = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.41	# United Federation attacks Latigalia
+	title = wars.41.t
+	desc = wars.41.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.41.a
+		UFA = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.42	# United Federation attacks Tyynimia
+	title = wars.42.t
+	desc = wars.42.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.42.a
+		UFA = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.43	# United Federation attacks Kurgakistan
+	title = wars.43.t
+	desc = wars.43.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.43.a
+		UFA = {
+			declare_war_on = {
+				target = TUK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.44	# Jackalstan attacks Bharatsha
+	title = wars.44.t
+	desc = wars.44.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.44.a
+		INF = {
+			declare_war_on = {
+				target = BHA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.45	# Jackalstan attacks Middleland
+	title = wars.45.t
+	desc = wars.45.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.45.a
+		INF = {
+			declare_war_on = {
+				target = MID
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.46	# Gegam attacks Transashia
+	title = wars.46.t
+	desc = wars.46.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.46.a
+		GEG = {
+			declare_war_on = {
+				target = TRA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.47	# Gegam attacks Krolang
+	title = wars.47.t
+	desc = wars.47.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.47.a
+		GEG = {
+			declare_war_on = {
+				target = KRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.48	# War between Gascarma, Dorcean Brotherhood and Dorcean Revolutionary Front
+	title = wars.48.t
+	desc = wars.48.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.48.a
+		DBH = {
+			declare_war_on = {
+				target = KOG
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		KOG = {
+			declare_war_on = {
+				target = WDF
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		WDF = {
+			declare_war_on = {
+				target = DBH
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.49	# War on Azulia
+	title = wars.49.t
+	desc = wars.49.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.49.a
+		ABC = {
+			declare_war_on = {
+				target = AMD
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		PRO = {
+			declare_war_on = {
+				target = ABC
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		AMD = {
+			declare_war_on = {
+				target = PRO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.50	# Kukku attacks Flicky
+	title = wars.50.t
+	desc = wars.50.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.50.a
+		KKE = {
+			declare_war_on = {
+				target = FLU
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.51	# Ka'Zu attacks Transashia
+	title = wars.51.t
+	desc = wars.51.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.51.a
+		KAE = {
+			declare_war_on = {
+				target = TRA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.52	# Ka'Zu attacks Krolang
+	title = wars.52.t
+	desc = wars.52.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.52.a
+		KAE = {
+			declare_war_on = {
+				target = KRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.53	# Aiguojun attacks Iron Dominion
+	title = wars.53.t
+	desc = wars.53.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.53.a
+		FRE = {
+			declare_war_on = {
+				target = IRO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.54	# Aiguojun attacks Yun
+	title = wars.54.t
+	desc = wars.54.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.54.a
+		FRE = {
+			declare_war_on = {
+				target = GOS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.55	# Aiguojun attacks Meiyuan
+	title = wars.55.t
+	desc = wars.55.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.55.a
+		FRE = {
+			declare_war_on = {
+				target = GOS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.56	# Kuasa attacks Transashia
+	title = wars.56.t
+	desc = wars.56.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.56.a
+		KUA = {
+			declare_war_on = {
+				target = TRA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.57	# Kuasa attacks Krolang
+	title = wars.57.t
+	desc = wars.57.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.57.a
+		KUA = {
+			declare_war_on = {
+				target = KRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.58	# Northamer DEL civil war
+	title = wars.58.t
+	desc = wars.58.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.58.a
+		NRD_rebellion = yes
+		add_threat = 10
+		NRD = {
+			declare_war_on = {
+				target = VUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = LTN
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = RSB
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = {
+	id = wars.59	# Soumerca DEL attacks Zincumia
+	title = wars.59.t
+	desc = wars.59.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.59.a
+		SOU = {
+			declare_war_on = {
+				target = ZIN
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.60	# Eggman attacks Hiboulia
+	title = wars.60.t
+	desc = wars.60.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.60.a
+		EGG = {
+			declare_war_on = {
+				target = HIB
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.61	# Eggman attacks Olppaon
+	title = wars.61.t
+	desc = wars.61.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.61.a
+		EGG = {
+			declare_war_on = {
+				target = OLP
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.62	# Eggman attacks New Avalon
+	title = wars.62.t
+	desc = wars.62.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.62.a
+		EGG = {
+			declare_war_on = {
+				target = NEA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.63	# Eggman attacks Kungaria
+	title = wars.63.t
+	desc = wars.63.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.63.a
+		EGG = {
+			declare_war_on = {
+				target = NEA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.64	# Eggman attacks Great Desert Protectorate
+	title = wars.64.t
+	desc = wars.64.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.64.a
+		EGG = {
+			declare_war_on = {
+				target = GDK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.65	# Eggman attacks Consulia
+	title = wars.65.t
+	desc = wars.65.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.65.a
+		EGG = {
+			declare_war_on = {
+				target = CNS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.66	# Eggman attacks Studiopolis
+	title = wars.66.t
+	desc = wars.66.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.66.a
+		EGG = {
+			declare_war_on = {
+				target = STD
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.67	# Eggman attacks Acrons again
+	title = wars.67.t
+	desc = wars.67.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.67.a
+		EGG = {
+			declare_war_on = {
+				target = KOA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.68	# Hiboulia attacks Umkiria
+	title = wars.68.t
+	desc = wars.68.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.68.a
+		HIB = {
+			declare_war_on = {
+				target = UMK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.69	# Hiboulia attacks Olppaon (puppet)
+	title = wars.69.t
+	desc = wars.69.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.69.a
+		HIB = {
+			declare_war_on = {
+				target = OLP
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.70	# Hiboulia attacks Umkiria (puppet)
+	title = wars.70.t
+	desc = wars.70.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.70.a
+		HIB = {
+			declare_war_on = {
+				target = UMK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.71	# Swartzland attacks Psarska
+	title = wars.71.t
+	desc = wars.71.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.71.a
+		SWA = {
+			declare_war_on = {
+				target = PSR
+				type = take_claimed_state
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.72	# Psarska attacks Swartzland
+	title = wars.72.t
+	desc = wars.72.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.72.a
+		PSR = {
+			declare_war_on = {
+				target = SWA
+				type = take_claimed_state
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.73	# Psarska attacks Criardia
+	title = wars.73.t
+	desc = wars.73.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.73.a
+		PSR = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.74	# Psarska attacks Pirenia
+	title = wars.74.t
+	desc = wars.74.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.74.a
+		PSR = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.75	# Swartzland attacks Rethenia
+	title = wars.75.t
+	desc = wars.75.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.75.a
+		SWA = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.76	# Acorns attack Eggman
+	title = wars.76.t
+	desc = wars.76.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.76.a
+		KOA = {
+			declare_war_on = {
+				target = EGG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.77	# Acorns attack Psarska
+	title = wars.77.t
+	desc = wars.77.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.77.a
+		KOA = {
+			declare_war_on = {
+				target = PSR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.78	# Acorns attack Criardia
+	title = wars.78.t
+	desc = wars.78.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.78.a
+		KOA = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.79	# Acorns attack Pirenia
+	title = wars.79.t
+	desc = wars.79.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.79.a
+		KOA = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.80	# Acorns attack Avisla
+	title = wars.80.t
+	desc = wars.80.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.80.a
+		KOA = {
+			declare_war_on = {
+				target = AVI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.81	# Rethenia attack Eggman
+	title = wars.81.t
+	desc = wars.81.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.81.a
+		RCR = {
+			declare_war_on = {
+				target = EGG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.82	# Rethenia attack Swartzland
+	title = wars.82.t
+	desc = wars.82.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.82.a
+		RCR = {
+			declare_war_on = {
+				target = SWA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.83	# Rethenia attack Iron Dominion
+	title = wars.83.t
+	desc = wars.83.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.83.a
+		RCR = {
+			declare_war_on = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.84	# Iron Dominion attacks Yun 
+	title = wars.84.t
+	desc = wars.84.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.84.a
+		IRO = {
+			declare_war_on = {
+				target = GOS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.85	# Iron Dominion attacks Meiyuan
+	title = wars.85.t
+	desc = wars.85.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.85.a
+		IRO = {
+			declare_war_on = {
+				target = SHI
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.86	# Iron Dominion attacks Yinyuan
+	title = wars.86.t
+	desc = wars.86.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.86.a
+		IRO = {
+			declare_war_on = {
+				target = JAT
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.87	# Iron Dominion attacks Xinyuan
+	title = wars.87.t
+	desc = wars.87.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.87.a
+		IRO = {
+			declare_war_on = {
+				target = REI
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.88	# Iron Dominion attacks Red Shigai
+	title = wars.88.t
+	desc = wars.88.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.88.a
+		IRO = {
+			declare_war_on = {
+				target = PSG
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.89	# Jackalstan attacks Suidefrika
+	title = wars.89.t
+	desc = wars.89.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.89.a
+		INF = {
+			declare_war_on = {
+				target = RSE
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.90	# Jackalstan attacks Bharatsha
+	title = wars.90.t
+	desc = wars.90.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.90.a
+		INF = {
+			declare_war_on = {
+				target = BHA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.91	# Jackalstan attacks Middleland
+	title = wars.91.t
+	desc = wars.91.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.91.a
+		INF = {
+			declare_war_on = {
+				target = MID
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.92	# Jackalstan attacks Huranjan-Karab
+	title = wars.92.t
+	desc = wars.92.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.92.a
+		INF = {
+			declare_war_on = {
+				target = HUR
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.93	# Jackalstan attacks Nikko
+	title = wars.93.t
+	desc = wars.93.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.93.a
+		INF = {
+			declare_war_on = {
+				target = NIK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.94	# Jackalstan attacks United Federation
+	title = wars.94.t
+	desc = wars.94.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.94.a
+		INF = {
+			declare_war_on = {
+				target = UFA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.95	# Bharatsha civil war
+	title = wars.95.t
+	desc = wars.95.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.95.a
+		BHA = {
+			add_popularity = {
+				ideology = purificationism
+				popularity = 0.25
+			}
+			start_civil_war = {
+				ideology = purificationism
+			}
+		}
+	}
+}
+
+country_event = {
+	id = wars.96	# Transashia attacks Krolang
+	title = wars.96.t
+	desc = wars.96.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.96.a
+		TRA = {
+			declare_war_on = {
+				target = KRO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.97	# Azulian unification war continues
+	title = wars.97.t
+	desc = wars.97.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.97.a
+		AMD = {
+			declare_war_on = {
+				target = UDA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		PRO = {
+			declare_war_on = {
+				target = UDA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+		ABC = {
+			declare_war_on = {
+				target = UDA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.98	# Kukku invasion on Dorcia and Gaskarma
+	title = wars.98.t
+	desc = wars.98.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.98.a
+		KKE = {
+			declare_war_on = {
+				target = KOG
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = WDF
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = DBH
+				type = annex_everything
+			}
+			add_threat = 12
+		}
+	}
+}
+
+country_event = {
+	id = wars.99	# Soumerca DEL attacks Patu Tribe
+	title = wars.99.t
+	desc = wars.99.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.99.a
+		SOU = {
+			declare_war_on = {
+				target = PAT
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.100	# Soumerca DEL attacks Llama Empire
+	title = wars.100.t
+	desc = wars.100.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.100.a
+		SOU = {
+			declare_war_on = {
+				target = LAM
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.101	# Soumerca DEL attacks Fire Islands
+	title = wars.101.t
+	desc = wars.101.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.101.a
+		SOU = {
+			declare_war_on = {
+				target = FIR
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.102	# Eggman attacks Umkiria
+	title = wars.102.t
+	desc = wars.102.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.102.a
+		EGG = {
+			declare_war_on = {
+				target = UMK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.103	# Eggman attacks Psarska
+	title = wars.103.t
+	desc = wars.103.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.103.a
+		EGG = {
+			declare_war_on = {
+				target = PSR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.104	# Eggman attacks Swartzland
+	title = wars.104.t
+	desc = wars.104.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.104.a
+		EGG = {
+			declare_war_on = {
+				target = SWA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.105	# Eggman attacks Criardia
+	title = wars.105.t
+	desc = wars.105.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.105.a
+		EGG = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.106	# Eggman attacks Pirenia
+	title = wars.106.t
+	desc = wars.106.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.106.a
+		EGG = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.107	# Eggman attacks Avisla
+	title = wars.107.t
+	desc = wars.107.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.107.a
+		EGG = {
+			declare_war_on = {
+				target = AVI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.108	# Swartzland attacks Mercia
+	title = wars.108.t
+	desc = wars.108.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.108.a
+		SWA = {
+			declare_war_on = {
+				target = MER
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.109	# Swartzland attacks Svetlales
+	title = wars.109.t
+	desc = wars.109.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.109.a
+		SWA = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.110	# Swartzland attacks Rethenia
+	title = wars.110.t
+	desc = wars.110.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.110.a
+		SWA = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.111	# Cordovia attacks Soumerca DEL
+	title = wars.111.t
+	desc = wars.111.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.111.a
+		GKR = {
+			declare_war_on = {
+				target = SOU
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.112	# Mercia attacks Swartzland
+	title = wars.112.t
+	desc = wars.112.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.112.a
+		MER = {
+			declare_war_on = {
+				target = SWA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.113	# Rethenia attacks Eggman
+	title = wars.113.t
+	desc = wars.113.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.113.a
+		RCR = {
+			declare_war_on = {
+				target = EGG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.114	# Rethenia attacks Swartzland
+	title = wars.114.t
+	desc = wars.114.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.114.a
+		RCR = {
+			declare_war_on = {
+				target = SWA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.115	# Rethenia attacks Mercia
+	title = wars.115.t
+	desc = wars.115.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.115.a
+		RCR = {
+			declare_war_on = {
+				target = MER
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.116	# Rethenia attacks United Federation
+	title = wars.116.t
+	desc = wars.116.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.116.a
+		RCR = {
+			declare_war_on = {
+				target = UFA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.117	# Kukku attacks Acorns
+	title = wars.117.t
+	desc = wars.117.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.117.a
+		KKE = {
+			declare_war_on = {
+				target = KOA
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.118	# Kukku attacks Avisla
+	title = wars.118.t
+	desc = wars.118.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.118.a
+		KKE = {
+			declare_war_on = {
+				target = AVI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.119	# Kukku attacks Azulia
+	title = wars.119.t
+	desc = wars.119.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.119.a
+		KKE = {
+			declare_war_on = {
+				target = ABC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = PRO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = AMD
+				type = annex_everything
+			}
+			add_threat = 12
+		}
+	}
+}
+
+country_event = {
+	id = wars.120	# Kukku attacks Angel Island
+	title = wars.120.t
+	desc = wars.120.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.120.a
+		KKE = {
+			declare_war_on = {
+				target = ANG
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.121	# Soumerca DEL attacks Cordovia
+	title = wars.121.t
+	desc = wars.121.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.121.a
+		SOU = {
+			declare_war_on = {
+				target = GKR
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.122	# Soumerca DEL attacks Jungleo-Ido
+	title = wars.122.t
+	desc = wars.122.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.122.a
+		SOU = {
+			declare_war_on = {
+				target = JUN
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.123	# Soumerca DEL attacks Estado-de-Lagarto
+	title = wars.123.t
+	desc = wars.123.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.123.a
+		SOU = {
+			declare_war_on = {
+				target = EST
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.124	# Soumerca DEL attacks Fanto-Domingo
+	title = wars.124.t
+	desc = wars.124.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.124.a
+		SOU = {
+			declare_war_on = {
+				target = FAN
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.125	# Soumerca DEL attacks Pirates
+	title = wars.125.t
+	desc = wars.125.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.125.a
+		SOU = {
+			declare_war_on = {
+				target = PIC
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.126	# Eggman attacks Mercia
+	title = wars.126.t
+	desc = wars.126.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.126.a
+		EGG = {
+			declare_war_on = {
+				target = MER
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.127	# Eggman attacks Cherniwschina
+	title = wars.127.t
+	desc = wars.127.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.127.a
+		EGG = {
+			declare_war_on = {
+				target = CHE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.128	# Eggman attacks Svetlales
+	title = wars.128.t
+	desc = wars.128.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.128.a
+		EGG = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.129	# Eggman attacks Latigalia
+	title = wars.129.t
+	desc = wars.129.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.129.a
+		EGG = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.130	# Eggman attacks Tyynimia
+	title = wars.130.t
+	desc = wars.130.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.130.a
+		EGG = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.131	# Eggman attacks Rethenia
+	title = wars.131.t
+	desc = wars.131.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.131.a
+		EGG = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.132	# Acorns attack Hiboulia
+	title = wars.132.t
+	desc = wars.132.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.132.a
+		KOA = {
+			declare_war_on = {
+				target = HIB
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.133	# Acorns attack Olppaon
+	title = wars.133.t
+	desc = wars.133.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.133.a
+		KOA = {
+			declare_war_on = {
+				target = OLP
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.134	# Acorns attack Umkiria
+	title = wars.134.t
+	desc = wars.134.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.134.a
+		KOA = {
+			declare_war_on = {
+				target = UMK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.135	# Acorns attack Consulia
+	title = wars.135.t
+	desc = wars.135.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.135.a
+		KOA = {
+			declare_war_on = {
+				target = CNS
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.136	# Acorns attack Studiopolis
+	title = wars.136.t
+	desc = wars.136.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.136.a
+		KOA = {
+			declare_war_on = {
+				target = STD
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.137	# Acorns attack Mercia
+	title = wars.137.t
+	desc = wars.137.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.137.a
+		KOA = {
+			declare_war_on = {
+				target = MER
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.138	# Acorns attack Cherniwschina
+	title = wars.138.t
+	desc = wars.138.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.138.a
+		KOA = {
+			declare_war_on = {
+				target = CHE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.139	# Acorns attack Svetlales
+	title = wars.139.t
+	desc = wars.139.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.139.a
+		KOA = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.140	# Acorns attack Latigalia
+	title = wars.140.t
+	desc = wars.140.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.140.a
+		KOA = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.141	# Acorns attack Tyynimia
+	title = wars.141.t
+	desc = wars.141.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.141.a
+		KOA = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.142	# Acorns attack Rethenia
+	title = wars.142.t
+	desc = wars.142.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.142.a
+		KOA = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.143	# Acorns attack Iron Dominion
+	title = wars.143.t
+	desc = wars.143.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.143.a
+		KOA = {
+			declare_war_on = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.144	# United Federation attack Iron Dominion
+	title = wars.144.t
+	desc = wars.144.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.144.a
+		UFA = {
+			declare_war_on = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.145	# Mercia attack Svetlales
+	title = wars.145.t
+	desc = wars.145.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.145.a
+		MER = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.146	# Mercia attack Latigalia
+	title = wars.146.t
+	desc = wars.146.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.146.a
+		MER = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.147	# Mercia attack Rethenia
+	title = wars.147.t
+	desc = wars.147.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.147.a
+		MER = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.148	# Rethenia attack Psarska
+	title = wars.148.t
+	desc = wars.148.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.148.a
+		RCR = {
+			declare_war_on = {
+				target = PSR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.149	# Rethenia attack Acorns
+	title = wars.149.t
+	desc = wars.149.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.149.a
+		RCR = {
+			declare_war_on = {
+				target = KOA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.150	# Iron Dominion attacks Rethenia
+	title = wars.150.t
+	desc = wars.150.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.150.a
+		IRO = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.151	# Nikko attacks Gegam, Kuasa and Ka'Zu
+	title = wars.151.t
+	desc = wars.151.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.151.a
+		NIK = {
+			declare_war_on = {
+				target = GEG
+				type = puppet_wargoal_focus
+			}
+			declare_war_on = {
+				target = KAE
+				type = puppet_wargoal_focus
+			}
+			declare_war_on = {
+				target = KUA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.152	# Kukku attack Hiboulia
+	title = wars.152.t
+	desc = wars.152.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.152.a
+		KKE = {
+			declare_war_on = {
+				target = HIB
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.153	# Kukku attack Olppaon
+	title = wars.153.t
+	desc = wars.153.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.153.a
+		KKE = {
+			declare_war_on = {
+				target = OLP
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.154	# Kukku attack UF protectorate of Azulia
+	title = wars.154.t
+	desc = wars.154.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.154.a
+		KKE = {
+			declare_war_on = {
+				target = UDA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.155	# Soumercan DEL attacks Wolfpack
+	title = wars.155.t
+	desc = wars.155.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.155.a
+		SOU = {
+			declare_war_on = {
+				target = WOL
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.156	# Soumercan DEL attacks Kitties
+	title = wars.156.t
+	desc = wars.156.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.156.a
+		SOU = {
+			declare_war_on = {
+				target = MIS
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.157	# Soumercan DEL attacks Bananas
+	title = wars.157.t
+	desc = wars.157.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.157.a
+		SOU = {
+			declare_war_on = {
+				target = BAN
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.158	# Soumercan DEL attacks Lao
+	title = wars.158.t
+	desc = wars.158.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.158.a
+		SOU = {
+			declare_war_on = {
+				target = LAO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.159	# Soumercan DEL attacks Rio
+	title = wars.159.t
+	desc = wars.159.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.159.a
+		SOU = {
+			declare_war_on = {
+				target = RIO
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.160	# Eggman attacks Wolfpack
+	title = wars.160.t
+	desc = wars.160.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.160.a
+		EGG = {
+			declare_war_on = {
+				target = WOL
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.161	# Eggman attacks Kitties
+	title = wars.161.t
+	desc = wars.161.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.161.a
+		EGG = {
+			declare_war_on = {
+				target = MIS
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.162	# Eggman attacks Bananas
+	title = wars.162.t
+	desc = wars.162.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.162.a
+		EGG = {
+			declare_war_on = {
+				target = BAN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.163	# Eggman attacks Lao
+	title = wars.163.t
+	desc = wars.163.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.163.a
+		EGG = {
+			declare_war_on = {
+				target = LAO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.164	# Eggman attacks Rio
+	title = wars.164.t
+	desc = wars.164.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.164.a
+		EGG = {
+			declare_war_on = {
+				target = RIO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.165	# Eggman attacks Kordovia
+	title = wars.165.t
+	desc = wars.165.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.165.a
+		EGG = {
+			declare_war_on = {
+				target = GKR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.166	# Eggman attacks Jungleo-Ido
+	title = wars.166.t
+	desc = wars.166.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.166.a
+		EGG = {
+			declare_war_on = {
+				target = JUN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.167	# Eggman attacks Estado-de-Lagarto
+	title = wars.167.t
+	desc = wars.167.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.167.a
+		EGG = {
+			declare_war_on = {
+				target = EST
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.168	# Eggman attacks Leonus
+	title = wars.168.t
+	desc = wars.168.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.168.a
+		EGG = {
+			declare_war_on = {
+				target = LEO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.169	# Eggman attacks United Federation
+	title = wars.169.t
+	desc = wars.169.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.169.a
+		EGG = {
+			declare_war_on = {
+				target = UFA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.170	# Eggman attacks Kurgakistan
+	title = wars.170.t
+	desc = wars.170.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.170.a
+		EGG = {
+			declare_war_on = {
+				target = TUK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.171	# Swartzland attacks Jackalstan
+	title = wars.171.t
+	desc = wars.171.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.171.a
+		SWA = {
+			declare_war_on = {
+				target = INF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.172	# Swartzland attacks Bharatsha
+	title = wars.172.t
+	desc = wars.172.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.172.a
+		SWA = {
+			declare_war_on = {
+				target = BHA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.173	# Swartzland attacks Middleland
+	title = wars.173.t
+	desc = wars.173.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.173.a
+		SWA = {
+			declare_war_on = {
+				target = MID
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.174	# Swartzland attacks Huranjan-Karab
+	title = wars.174.t
+	desc = wars.174.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.174.a
+		SWA = {
+			declare_war_on = {
+				target = HUR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.175	# Swartzland attacks Nikko
+	title = wars.175.t
+	desc = wars.175.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.175.a
+		SWA = {
+			declare_war_on = {
+				target = NIK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.176	# Acorns attack Kungaria
+	title = wars.176.t
+	desc = wars.176.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.176.a
+		KOA = {
+			declare_war_on = {
+				target = KUN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.177	# Acorns attack Jackalstan
+	title = wars.177.t
+	desc = wars.177.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.177.a
+		KOA = {
+			declare_war_on = {
+				target = INF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.178	# Acorns attack Bharatsha
+	title = wars.178.t
+	desc = wars.178.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.178.a
+		KOA = {
+			declare_war_on = {
+				target = BHA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.179	# Acorns attack Middleland
+	title = wars.179.t
+	desc = wars.179.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.179.a
+		KOA = {
+			declare_war_on = {
+				target = MID
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.180	# Acorns attack Huranjan-Karab
+	title = wars.180.t
+	desc = wars.180.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.180.a
+		KOA = {
+			declare_war_on = {
+				target = HUR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.181	# United Federation attacks Iron Dominion
+	title = wars.181.t
+	desc = wars.181.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.181.a
+		UFA = {
+			declare_war_on = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.182	# Rethenia attacks Umkiria
+	title = wars.182.t
+	desc = wars.182.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.182.a
+		RCR = {
+			declare_war_on = {
+				target = UMK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.183	# Rethenia attacks Criardia
+	title = wars.183.t
+	desc = wars.183.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.183.a
+		RCR = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.184	# Rethenia attacks Pirenia
+	title = wars.184.t
+	desc = wars.184.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.184.a
+		RCR = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.185	# Rethenia attacks Kungaria
+	title = wars.185.t
+	desc = wars.185.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.185.a
+		RCR = {
+			declare_war_on = {
+				target = KUN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.186	# Iron Dominion attacks Kurgakistan
+	title = wars.186.t
+	desc = wars.186.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.186.a
+		IRO = {
+			declare_war_on = {
+				target = TUK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.187	# Iron Dominion attacks Holoska
+	title = wars.187.t
+	desc = wars.187.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.187.a
+		IRO = {
+			declare_war_on = {
+				target = HOL
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.188	# Kukku attacks UF puppet in Azulia
+	title = wars.188.t
+	desc = wars.188.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.188.a
+		KKE = {
+			declare_war_on = {
+				target = UDA
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.189	# Aiguojun attacks Kurgakistan
+	title = wars.189.t
+	desc = wars.189.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.189.a
+		FRE = {
+			declare_war_on = {
+				target = TUK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.190	# Aiguojun attacks Red Shigai
+	title = wars.190.t
+	desc = wars.190.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.190.a
+		FRE = {
+			declare_war_on = {
+				target = PSG
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.191	# Red Shigai attacks Kurgakistan
+	title = wars.191.t
+	desc = wars.191.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.191.a
+		PSG = {
+			declare_war_on = {
+				target = TUK
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.192	# Red Shigai attacks Aiguojun
+	title = wars.192.t
+	desc = wars.192.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.192.a
+		PSG = {
+			declare_war_on = {
+				target = FRE
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.193	# Soumerca DEL attacks United Federation
+	title = wars.193.t
+	desc = wars.193.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.193.a
+		SOU = {
+			declare_war_on = {
+				target = UFA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 4
+		}
+	}
+}
+
+country_event = {
+	id = wars.194	# Eggman attacks Iron Dominion 
+	title = wars.194.t
+	desc = wars.194.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.194.a
+		EGG = {
+			declare_war_on = {
+				target = IRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.195	# Eggman attacks Gegam
+	title = wars.195.t
+	desc = wars.195.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.195.a
+		EGG = {
+			declare_war_on = {
+				target = GEG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.196	# Eggman attacks Transashia
+	title = wars.196.t
+	desc = wars.196.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.196.a
+		EGG = {
+			declare_war_on = {
+				target = TRA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.197	# Eggman attacks Krolang
+	title = wars.197.t
+	desc = wars.197.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.197.a
+		EGG = {
+			declare_war_on = {
+				target = KRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.198	# Eggman attacks Zincumia
+	title = wars.198.t
+	desc = wars.198.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.198.a
+		EGG = {
+			declare_war_on = {
+				target = ZIN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.199	# Eggman attacks Fanto Domingo
+	title = wars.199.t
+	desc = wars.199.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.199.a
+		EGG = {
+			declare_war_on = {
+				target = FAN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.200	# Eggman attacks Patu Tribe
+	title = wars.200.t
+	desc = wars.200.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.200.a
+		EGG = {
+			declare_war_on = {
+				target = PAT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.201	# Eggman attacks Llama Empire
+	title = wars.201.t
+	desc = wars.201.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.201.a
+		EGG = {
+			declare_war_on = {
+				target = LAM
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.202	# Eggman attacks Dorcean Brotherhood
+	title = wars.202.t
+	desc = wars.202.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.202.a
+		EGG = {
+			declare_war_on = {
+				target = DBH
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.203	# Eggman attacks Kingdom of Gascarma
+	title = wars.203.t
+	desc = wars.203.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.203.a
+		EGG = {
+			declare_war_on = {
+				target = KOG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.204	# Eggman attacks West Dorcean Revolutionary Front
+	title = wars.204.t
+	desc = wars.204.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.204.a
+		EGG = {
+			declare_war_on = {
+				target = WDF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.205	# Eggman attacks Azulian Military District
+	title = wars.205.t
+	desc = wars.205.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.205.a
+		EGG = {
+			declare_war_on = {
+				target = AMD
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.206	# Eggman attacks Propan State
+	title = wars.206.t
+	desc = wars.206.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.206.a
+		EGG = {
+			declare_war_on = {
+				target = PRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.207	# Eggman attacks Azulian Black Concord
+	title = wars.207.t
+	desc = wars.207.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.207.a
+		EGG = {
+			declare_war_on = {
+				target = ABC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.208	# Eggman attacks Angel Island
+	title = wars.208.t
+	desc = wars.208.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.208.a
+		EGG = {
+			declare_war_on = {
+				target = ANG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.209	# Eggman attacks Pirate Confederation
+	title = wars.209.t
+	desc = wars.209.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.209.a
+		EGG = {
+			declare_war_on = {
+				target = PIC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.210	# Eggman attacks Arctic Federation
+	title = wars.210.t
+	desc = wars.210.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.210.a
+		EGG = {
+			declare_war_on = {
+				target = ARC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.211	# Psarska attacks Cherniwschina
+	title = wars.211.t
+	desc = wars.211.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.211.a
+		PSR = {
+			declare_war_on = {
+				target = CHE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.212	# Psarska attacks Svyetlales
+	title = wars.212.t
+	desc = wars.212.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.212.a
+		PSR = {
+			declare_war_on = {
+				target = SVT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.213	# Psarska attacks Latigalia
+	title = wars.213.t
+	desc = wars.213.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.213.a
+		PSR = {
+			declare_war_on = {
+				target = LTG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.214	# Psarska attacks Tyynimia
+	title = wars.214.t
+	desc = wars.214.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.214.a
+		PSR = {
+			declare_war_on = {
+				target = TYY
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.215	# Psarska attacks Soviet Retenia
+	title = wars.215.t
+	desc = wars.215.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.215.a
+		PSR = {
+			declare_war_on = {
+				target = RCR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.216	# Kingdom Akorn attacks Nikko
+	title = wars.216.t
+	desc = wars.216.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.216.a
+		KOA = {
+			declare_war_on = {
+				target = NIK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.217	# Kingdom Akorn attacks Gegam Republic
+	title = wars.217.t
+	desc = wars.217.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.217.a
+		KOA = {
+			declare_war_on = {
+				target = GEG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.218	# Kingdom Akorn attacks Transashia
+	title = wars.218.t
+	desc = wars.218.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.218.a
+		KOA = {
+			declare_war_on = {
+				target = TRA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.219	# Kingdom Akorn attacks Krolang
+	title = wars.219.t
+	desc = wars.219.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.219.a
+		KOA = {
+			declare_war_on = {
+				target = KRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.220	# Kingdom Akorn attacks Zincumia
+	title = wars.220.t
+	desc = wars.220.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.220.a
+		KOA = {
+			declare_war_on = {
+				target = ZIN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.221	# Kingdom Akorn attacks Fanto Domingo
+	title = wars.221.t
+	desc = wars.221.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.221.a
+		KOA = {
+			declare_war_on = {
+				target = FAN
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.222	# Kingdom Akorn attacks Patu Tribe
+	title = wars.222.t
+	desc = wars.222.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.222.a
+		KOA = {
+			declare_war_on = {
+				target = PAT
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.223	# Kingdom Akorn attacks Llama Empire
+	title = wars.223.t
+	desc = wars.223.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.223.a
+		KOA = {
+			declare_war_on = {
+				target = LAM
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.224	# Kingdom Akorn attacks Dorcean Brotherhood
+	title = wars.224.t
+	desc = wars.224.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.224.a
+		KOA = {
+			declare_war_on = {
+				target = DBH
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.225	# Kingdom Akorn attacks Kingdom of Gascarma
+	title = wars.225.t
+	desc = wars.225.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.225.a
+		KOA = {
+			declare_war_on = {
+				target = KOG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.226	# Kingdom Akorn attacks West Dorcean Revolutionary Front
+	title = wars.226.t
+	desc = wars.226.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.226.a
+		KOA = {
+			declare_war_on = {
+				target = WDF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.227	# Kingdom Akorn attacks Azulian Military District
+	title = wars.227.t
+	desc = wars.227.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.227.a
+		KOA = {
+			declare_war_on = {
+				target = AMD
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.228	# Kingdom Akorn attacks Propan State
+	title = wars.228.t
+	desc = wars.228.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.228.a
+		KOA = {
+			declare_war_on = {
+				target = PRO
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.229	# Kingdom Akorn attacks Azulian Black Concord
+	title = wars.229.t
+	desc = wars.229.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.229.a
+		KOA = {
+			declare_war_on = {
+				target = ABC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.230	# Kingdom Akorn attacks Kukku Empire
+	title = wars.230.t
+	desc = wars.230.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.230.a
+		KOA = {
+			declare_war_on = {
+				target = KKE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.231	# Kingdom Akorn attacks Pirate Confederation
+	title = wars.231.t
+	desc = wars.231.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.231.a
+		KOA = {
+			declare_war_on = {
+				target = PIC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.232	# Kingdom Akorn attacks Arctic Federation
+	title = wars.232.t
+	desc = wars.232.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.232.a
+		KOA = {
+			declare_war_on = {
+				target = ARC
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.233	# Kingdom Akorn attacks Kazu Empire
+	title = wars.233.t
+	desc = wars.233.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.233.a
+		KOA = {
+			declare_war_on = {
+				target = KAE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.234	# Kingdom Akorn attacks Downunda
+	title = wars.234.t
+	desc = wars.234.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.234.a
+		KOA = {
+			declare_war_on = {
+				target = DOW
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.235	# Kingdom Akorn attacks PSGR
+	title = wars.235.t
+	desc = wars.235.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.235.a
+		KOA = {
+			declare_war_on = {
+				target = PSG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.236	# United Federation attacks Psarska
+	title = wars.236.t
+	desc = wars.236.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.236.a
+		UFA = {
+			declare_war_on = {
+				target = PSR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.237	# United Federation attacks Criardie
+	title = wars.237.t
+	desc = wars.237.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.237.a
+		UFA = {
+			declare_war_on = {
+				target = CRI
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.238	# United Federation attacks Pirenia
+	title = wars.238.t
+	desc = wars.238.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.238.a
+		UFA = {
+			declare_war_on = {
+				target = PIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.239	# United Federation civil war
+	title = wars.239.t
+	desc = wars.239.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.239.a
+		UFA = {
+			add_popularity = {
+				ideology = purificationism
+				popularity = 0.25
+			}
+			start_civil_war = {
+				ideology = purificationism
+			}
+		}
+	}
+}
+
+country_event = {
+	id = wars.240	# United Federation attacks Soleanna
+	title = wars.240.t
+	desc = wars.240.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.240.a
+		UFA = {
+			declare_war_on = {
+				target = SOE
+				type = annex_everything
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.241	# Mercia attacks United Federation
+	title = wars.241.t
+	desc = wars.241.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.241.a
+		MER = {
+			declare_war_on = {
+				target = UFA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.242	# Cherniwschina attacks United Federation
+	title = wars.242.t
+	desc = wars.242.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.242.a
+		CHE = {
+			declare_war_on = {
+				target = UFA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.243	# Soviet Retenia attacks New Avalon
+	title = wars.243.t
+	desc = wars.243.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.243.a
+		RCR = {
+			declare_war_on = {
+				target = NEA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.244	# Soviet Retenia attacks Great Desert DEL
+	title = wars.244.t
+	desc = wars.244.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.244.a
+		RCR = {
+			declare_war_on = {
+				target = GDD
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.245	# Soviet Retenia attacks Consulia 
+	title = wars.245.t
+	desc = wars.245.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.245.a
+		RCR = {
+			declare_war_on = {
+				target = CNS
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.246	# Soviet Retenia attacks Studiopolis 
+	title = wars.246.t
+	desc = wars.246.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.246.a
+		RCR = {
+			declare_war_on = {
+				target = STD
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.247	# Iron Dominion attacks United Federation
+	title = wars.247.t
+	desc = wars.247.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.247.a
+		IRO = {
+			declare_war_on = {
+				target = UFA
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.248	# PSGR attacks United Federation
+	title = wars.248.t
+	desc = wars.248.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.248.a
+		PSG = {
+			declare_war_on = {
+				target = UFA
+				type = take_claimed_state
+			}
+			add_threat = 3
+		}
+	}
+}
+
+country_event = {
+	id = wars.249	# Eggman attacks Kazu Empire 
+	title = wars.249.t
+	desc = wars.249.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.249.a
+		EGG = {
+			declare_war_on = {
+				target = KAE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.250	# Eggman attacks Downunda
+	title = wars.250.t
+	desc = wars.250.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.250.a
+		EGG = {
+			declare_war_on = {
+				target = DOW
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.251	# Eggman attacks Aiguojun  
+	title = wars.251.t
+	desc = wars.251.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.251.a
+		EGG = {
+			declare_war_on = {
+				target = FRE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.252	# Eggman attacks PSGR  
+	title = wars.252.t
+	desc = wars.252.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.252.a
+		EGG = {
+			declare_war_on = {
+				target = PSG
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.253	# Eggman attacks Holoska  
+	title = wars.253.t
+	desc = wars.253.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.253.a
+		EGG = {
+			declare_war_on = {
+				target = HOL
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.254	# Eggman attacks UF District of Azulia  
+	title = wars.254.t
+	desc = wars.254.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.254.a
+		EGG = {
+			declare_war_on = {
+				target = UDA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.255	# Eggman attacks Fire Islands  
+	title = wars.255.t
+	desc = wars.255.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.255.a
+		EGG = {
+			declare_war_on = {
+				target = FIR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.256	# Eggman attacks Kuasa Kingdom  
+	title = wars.256.t
+	desc = wars.256.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.256.a
+		EGG = {
+			declare_war_on = {
+				target = KUA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.257	# Eggman attacks Soleanna  
+	title = wars.257.t
+	desc = wars.257.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.257.a
+		EGG = {
+			declare_war_on = {
+				target = SOE
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.258	# United Federation attacks Downunda
+	title = wars.258.t
+	desc = wars.258.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.258.a
+		UFA = {
+			declare_war_on = {
+				target = DOW
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.259	# Soviet Retenia attacks Jackal Land 
+	title = wars.259.t
+	desc = wars.259.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.259.a
+		RCR = {
+			declare_war_on = {
+				target = INF
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.260	# Soviet Retenia attacks Bharatsha
+	title = wars.260.t
+	desc = wars.260.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.260.a
+		RCR = {
+			declare_war_on = {
+				target = BHA
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.261	# Soviet Retenia attacks Middleland Governor-Generality
+	title = wars.261.t
+	desc = wars.261.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.261.a
+		RCR = {
+			declare_war_on = {
+				target = MID
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.262	# Soviet Retenia attacks Huranjan-Karab
+	title = wars.262.t
+	desc = wars.262.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.262.a
+		RCR = {
+			declare_war_on = {
+				target = HUR
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.263	# Soviet Retenia attacks Nikko
+	title = wars.263.t
+	desc = wars.263.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.263.a
+		RCR = {
+			declare_war_on = {
+				target = NIK
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.264	# Iron Dominion attacks Jackal Land
+	title = wars.264.t
+	desc = wars.264.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.264.a
+		IRO = {
+			declare_war_on = {
+				target = INF
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.265	# Iron Dominion attacks Bharatsha
+	title = wars.265.t
+	desc = wars.265.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.265.a
+		IRO = {
+			declare_war_on = {
+				target = BHA
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.266	# Iron Dominion attacks Middleland Governor-Generality
+	title = wars.266.t
+	desc = wars.266.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.266.a
+		IRO = {
+			declare_war_on = {
+				target = MID
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.267	# Iron Dominion attacks Nikko
+	title = wars.267.t
+	desc = wars.267.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.267.a
+		IRO = {
+			declare_war_on = {
+				target = NIK
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.268	# Iron Dominion attacks Gegam Republic
+	title = wars.268.t
+	desc = wars.268.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.268.a
+		IRO = {
+			declare_war_on = {
+				target = GEG
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.269	# Iron Dominion attacks Transashia
+	title = wars.269.t
+	desc = wars.269.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.269.a
+		IRO = {
+			declare_war_on = {
+				target = TRA
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.270	# Iron Dominion attacks Krolang
+	title = wars.270.t
+	desc = wars.270.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.270.a
+		IRO = {
+			declare_war_on = {
+				target = KRO
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.271	# Iron Dominion attacks Downunda
+	title = wars.271.t
+	desc = wars.271.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.271.a
+		IRO = {
+			declare_war_on = {
+				target = DOW
+				type = puppet_wargoal_focus
+			}
+			add_threat = 5
+		}
+	}
+}
+
+country_event = {
+	id = wars.272	# West Dorcean Revolutionary Front attacks Azulian Military District
+	title = wars.272.t
+	desc = wars.272.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.272.a
+		WDF = {
+			declare_war_on = {
+				target = AMD
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.273	# West Dorcean Revolutionary Front attacks Propan State
+	title = wars.273.t
+	desc = wars.273.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.273.a
+		WDF = {
+			declare_war_on = {
+				target = PRO
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.274	# West Dorcean Revolutionary Front attacks Azulian Black Concord
+	title = wars.274.t
+	desc = wars.274.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.274.a
+		WDF = {
+			declare_war_on = {
+				target = ABC
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.275	# West Dorcean Revolutionary Front attacks UF District of Azulia
+	title = wars.275.t
+	desc = wars.275.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.275.a
+		WDF = {
+			declare_war_on = {
+				target = UDA
+				type = annex_everything
+			}
+			add_threat = 10
+		}
+	}
+}
+
+country_event = {
+	id = wars.901	# escalation = neighbouring lands
+	title = wars.901.t
+	desc = wars.901.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.901.a  # calm down
+		# abandon all claims on their land, -20 pp, +5% stability, +50 relationships (decay 1)
+	}
+	option = {
+		name = wars.901.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.902	# escalation = their mobilization
+	title = wars.902.t
+	desc = wars.902.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.902.a  # calm down
+		
+	}
+	option = {
+		name = wars.902.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.903	# escalation = they have units near our borders
+	title = wars.903.t
+	desc = wars.903.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.903.a  # calm down
+		
+	}
+	option = {
+		name = wars.903.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.904	# escalation = our embargo on them
+	title = wars.904.t
+	desc = wars.904.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.904.a  # calm down
+		
+	}
+	option = {
+		name = wars.904.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.905	# escalation = spies
+	title = wars.905.t
+	desc = wars.905.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.905.a  # calm down
+		
+	}
+	option = {
+		name = wars.905.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.906	# escalation = diplomatic scandal
+	title = wars.906.t
+	desc = wars.906.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.906.a  # calm down
+		
+	}
+	option = {
+		name = wars.906.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.907	# escalation = defamation
+	title = wars.907.t
+	desc = wars.907.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.907.a  # calm down
+		
+	}
+	option = {
+		name = wars.907.b  # prepare for war
+		
+	}
+}
+
+country_event = {
+	id = wars.908	# final decision - war or peace
+	title = wars.908.t
+	desc = wars.908.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = wars.908.a  # calm down
+		
+	}
+	option = {
+		name = wars.908.b  # prepare for war
+		
 	}
 }

@@ -93,44 +93,44 @@ is_controlled_by_ROOT_or_ally = {
 
 ai_air_doctrine_tier_1_trigger = {
 	OR = {
-		has_tech = naval_strike_tactics
-		has_tech = direct_ground_support
-		has_tech = low_echelon_support
+		has_tech = doct_civil_defense
+		has_tech = doct_new_battle_order
+		has_tech = doct_battlefield_clearance
 	}
 }
 
 ai_air_doctrine_tier_2_trigger = {
 	OR = {
-		has_tech = multialtitude_flying
-		has_tech = hunt_and_destroy
-		has_tech = operational_destruction
+		has_tech = aircraft_radio_cloaking
+		has_tech = cas_dominance
+		has_tech = multidisciplinary_target_detection
 	}
 }
 ai_air_doctrine_tier_3_trigger = {
 	OR = {
-		has_tech = flying_fortress
-		has_tech = naval_strike_torpedo_tactics
-		has_tech = infiltration_bombing
+		has_tech = suppression_of_countermeasures
+		has_tech = reconnaissance_drones
+		has_tech = drone_integration
 	}
 }
 
 ai_land_doctrine_tier_1_trigger = {
 	OR = {
-		has_tech = elastic_defence
-		has_tech = mobile_defence
-		has_tech = grand_assault
-		has_tech = defence_in_depth
+		has_tech = coverage_tactics
+		has_tech = adaptive_formations
+		has_tech = equipment_of_positions
+		has_tech = t_coverage_tactics
 	}
 }
 
 ai_land_doctrine_tier_2_trigger = {
 	OR = {
-		has_tech = kampfgruppe
-		has_tech = mechanised_offensive
-		has_tech = branch_interoperation
-		has_tech = infiltration_assault
-		has_tech = vast_offensives
-		has_tech = large_front_offensive
+		has_tech = cutting_an_artery
+		has_tech = intellectual_tactics
+		has_tech = horde_of_machines
+		has_tech = satellite_correction
+		has_tech = t_engineering_war
+		has_tech = t_ideological_war
 	}
 }
 
@@ -140,92 +140,92 @@ anti_submarine_strategy_required_trigger = {
 	}
 }
 
-enemy_has_equal_or_better_radar_tech_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = enemy_has_equal_or_better_radar_tech_trigger_tt
-		if = {
-			limit = {
-				ROOT = { 
-					has_tech = radio_detection 
-					NOT = {
-						has_tech = decimetric_radar
-					}
-				} 
-			}
-			FROM = { 
-				OR = {
-					has_tech = radio_detection 
-					has_tech = decimetric_radar
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				ROOT = { 
-					has_tech = decimetric_radar 
-					NOT = {
-						has_tech = improved_decimetric_radar
-					}
-				} 
-			}
-			FROM = { 
-				OR = {
-					has_tech = decimetric_radar 
-					has_tech = improved_decimetric_radar
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				ROOT = { 
-					has_tech = improved_decimetric_radar 
-					NOT = {
-						has_tech = centimetric_radar
-					}
-				} 
-			}
-			FROM = { 
-				OR = {
-					has_tech = improved_decimetric_radar 
-					has_tech = centimetric_radar
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				ROOT = { 
-					has_tech = centimetric_radar 
-					NOT = {
-						has_tech = improved_centimetric_radar
-					}
-				} 
-			}
-			FROM = { 
-				OR = {
-					has_tech = centimetric_radar 
-					has_tech = improved_centimetric_radar
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				ROOT = { 
-					has_tech = improved_centimetric_radar 
-					NOT = {
-						has_tech = advanced_centimetric_radar
-					}
-				} 
-			}
-			FROM = { 
-				OR = {
-					has_tech = improved_centimetric_radar 
-					has_tech = advanced_centimetric_radar
-				}
-			}
-		}
-		#no more steps needed because end of research tree is reached
-	}
-}
+# enemy_has_equal_or_better_radar_tech_trigger = {
+# 	custom_trigger_tooltip = {
+# 		tooltip = enemy_has_equal_or_better_radar_tech_trigger_tt
+# 		if = {
+# 			limit = {
+# 				ROOT = { 
+# 					has_tech = radio_detection 
+# 					NOT = {
+# 						has_tech = decimetric_radar
+# 					}
+# 				} 
+# 			}
+# 			FROM = { 
+# 				OR = {
+# 					has_tech = radio_detection 
+# 					has_tech = decimetric_radar
+# 				}
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				ROOT = { 
+# 					has_tech = decimetric_radar 
+# 					NOT = {
+# 						has_tech = improved_decimetric_radar
+# 					}
+# 				} 
+# 			}
+# 			FROM = { 
+# 				OR = {
+# 					has_tech = decimetric_radar 
+# 					has_tech = improved_decimetric_radar
+# 				}
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				ROOT = { 
+# 					has_tech = improved_decimetric_radar 
+# 					NOT = {
+# 						has_tech = centimetric_radar
+# 					}
+# 				} 
+# 			}
+# 			FROM = { 
+# 				OR = {
+# 					has_tech = improved_decimetric_radar 
+# 					has_tech = centimetric_radar
+# 				}
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				ROOT = { 
+# 					has_tech = centimetric_radar 
+# 					NOT = {
+# 						has_tech = improved_centimetric_radar
+# 					}
+# 				} 
+# 			}
+# 			FROM = { 
+# 				OR = {
+# 					has_tech = centimetric_radar 
+# 					has_tech = improved_centimetric_radar
+# 				}
+# 			}
+# 		}
+# 		else_if = {
+# 			limit = {
+# 				ROOT = { 
+# 					has_tech = improved_centimetric_radar 
+# 					NOT = {
+# 						has_tech = advanced_centimetric_radar
+# 					}
+# 				} 
+# 			}
+# 			FROM = { 
+# 				OR = {
+# 					has_tech = improved_centimetric_radar 
+# 					has_tech = advanced_centimetric_radar
+# 				}
+# 			}
+# 		}
+# 		#no more steps needed because end of research tree is reached
+# 	}
+# }
 
 is_available_to_collaboration_government = { # occupied_countries.1 should be updated along with this
 	NOT = {

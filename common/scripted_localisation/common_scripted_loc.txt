@@ -43,3 +43,61 @@ defined_text = {
 		localization_key = NO_FACTION
 	}
 }
+
+defined_text = {
+	name = get_rings_amount
+	text = {
+		trigger = {
+			set_temp_variable = {
+				r = rings
+			}
+			set_temp_variable = {
+				rem = rings
+			}
+			if = {
+				limit = {
+					check_variable = {
+						rem < 0
+					}
+				}
+				multiply_temp_variable = {
+					rem = -1
+				}
+			}
+			check_variable = {
+				rem < 1
+			}
+			multiply_temp_variable = {
+				r = 1000
+			}
+		}
+		localization_key = RINGS_AMOUNT
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				rem < 1000
+			}
+		}
+		localization_key = RINGS_AMOUNT_K
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				rem < 1000000
+			}
+			divide_temp_variable = {
+				r = 1000
+			}
+		}
+		localization_key = RINGS_AMOUNT_M
+	}
+	text = {
+		trigger = {
+			divide_temp_variable = {
+				r = 1000000
+			}
+		}
+		localization_key = RINGS_AMOUNT_B
+	}
+}

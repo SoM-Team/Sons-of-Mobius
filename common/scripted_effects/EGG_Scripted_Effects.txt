@@ -1,33 +1,2383 @@
-
 EGG_DEL_growth = {
 	if = {
 		limit = {
 			has_idea = EGG_Crisis_Empire
 		}
-		add_to_variable = { EGG.DEL_1_Submission = EGG.DEL_1_Submission_rate }
-		clamp_variable = { 
+		add_to_variable = {
+			EGG.DEL_1_Submission = EGG.DEL_1_Submission_rate
+		}
+		clamp_variable = {
 			var = EGG.DEL_1_Submission
-			min = 0 
-			max = 100 
+			min = 0
+			max = 100
 		}
-		add_to_variable = { EGG.DEL_2_Submission = EGG.DEL_2_Submission_rate }
-		clamp_variable = { 
+		add_to_variable = {
+			EGG.DEL_2_Submission = EGG.DEL_2_Submission_rate
+		}
+		clamp_variable = {
 			var = EGG.DEL_2_Submission
-			min = 0 
-			max = 100 
+			min = 0
+			max = 100
 		}
-		add_to_variable = { EGG.DEL_3_Submission = EGG.DEL_3_Submission_rate }
-		clamp_variable = { 
+		add_to_variable = {
+			EGG.DEL_3_Submission = EGG.DEL_3_Submission_rate
+		}
+		clamp_variable = {
 			var = EGG.DEL_3_Submission
-			min = 0 
-			max = 100 
+			min = 0
+			max = 100
 		}
-		add_to_variable = { EGG.DEL_4_Submission = EGG.DEL_4_Submission_rate }
-		clamp_variable = { 
+		add_to_variable = {
+			EGG.DEL_4_Submission = EGG.DEL_4_Submission_rate
+		}
+		clamp_variable = {
 			var = EGG.DEL_4_Submission
-			min = 0 
-			max = 100 
+			min = 0
+			max = 100
 		}
 	}
 }
 
+EGG_create_ALD = {
+	hidden_effect = {
+		ALD = {
+			add_state_core = 249
+			add_state_core = 248
+			add_state_core = 247
+			add_state_core = 246
+			add_state_core = 250
+			add_state_core = 251
+		}
+		EGG = {
+			ALD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = ALD
+			}
+			ALD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+ALD_minus_cores = {
+	hidden_effect = {
+		ALD = {
+			remove_state_core = 249
+			remove_state_core = 248
+			remove_state_core = 247
+			remove_state_core = 246
+			remove_state_core = 250
+			remove_state_core = 251
+			add_state_claim = 249
+			add_state_claim = 248
+			add_state_claim = 247
+			add_state_claim = 246
+			add_state_claim = 250
+			add_state_claim = 251
+		}
+	}
+}
+
+EGG_create_CAD = {
+	hidden_effect = {
+		CAD = {
+			add_state_core = 523
+			add_state_core = 629
+			add_state_core = 628
+			add_state_core = 624
+			add_state_core = 623
+			add_state_core = 630
+			add_state_core = 626
+			add_state_core = 625
+			add_state_core = 546
+			add_state_core = 548
+			add_state_core = 547
+			add_state_core = 545
+			add_state_core = 544
+			add_state_core = 543
+			add_state_core = 550
+			add_state_core = 549
+			add_state_core = 632
+			add_state_core = 524
+			add_state_core = 631
+			add_state_core = 563
+			add_state_core = 558
+			add_state_core = 551
+			add_state_core = 525
+			add_state_core = 553
+			add_state_core = 526
+			add_state_core = 554
+			add_state_core = 555
+			add_state_core = 560
+			add_state_core = 559
+			add_state_core = 557
+			add_state_core = 556
+			add_state_core = 552
+			add_state_core = 565
+			add_state_core = 627
+		}
+		EGG = {
+			CAD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = CAD
+			}
+			CAD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+CAD_minus_cores = {
+	hidden_effect = {
+		CAD = {
+			remove_state_core = 523
+			remove_state_core = 629
+			remove_state_core = 628
+			remove_state_core = 624
+			remove_state_core = 623
+			remove_state_core = 630
+			remove_state_core = 626
+			remove_state_core = 625
+			remove_state_core = 546
+			remove_state_core = 548
+			remove_state_core = 547
+			remove_state_core = 545
+			remove_state_core = 544
+			remove_state_core = 543
+			remove_state_core = 550
+			remove_state_core = 549
+			remove_state_core = 632
+			remove_state_core = 524
+			remove_state_core = 631
+			remove_state_core = 563
+			remove_state_core = 558
+			remove_state_core = 551
+			remove_state_core = 525
+			remove_state_core = 553
+			remove_state_core = 526
+			remove_state_core = 554
+			remove_state_core = 555
+			remove_state_core = 560
+			remove_state_core = 559
+			remove_state_core = 557
+			remove_state_core = 556
+			remove_state_core = 552
+			remove_state_core = 565
+			remove_state_core = 627
+			add_state_claim = 523
+			add_state_claim = 629
+			add_state_claim = 628
+			add_state_claim = 624
+			add_state_claim = 623
+			add_state_claim = 630
+			add_state_claim = 626
+			add_state_claim = 625
+			add_state_claim = 546
+			add_state_claim = 548
+			add_state_claim = 547
+			add_state_claim = 545
+			add_state_claim = 544
+			add_state_claim = 543
+			add_state_claim = 550
+			add_state_claim = 549
+			add_state_claim = 632
+			add_state_claim = 524
+			add_state_claim = 631
+			add_state_claim = 563
+			add_state_claim = 558
+			add_state_claim = 551
+			add_state_claim = 525
+			add_state_claim = 553
+			add_state_claim = 526
+			add_state_claim = 554
+			add_state_claim = 555
+			add_state_claim = 560
+			add_state_claim = 559
+			add_state_claim = 557
+			add_state_claim = 556
+			add_state_claim = 552
+			add_state_claim = 565
+			add_state_claim = 627
+		}
+	}
+}
+
+EGG_create_CHD = {
+	hidden_effect = {
+		CHD = {
+			add_state_core = 239
+			add_state_core = 237
+			add_state_core = 238
+			add_state_core = 235
+			add_state_core = 242
+			add_state_core = 241
+			add_state_core = 240
+			add_state_core = 243
+			add_state_core = 244
+			add_state_core = 236
+			add_state_core = 223
+			add_state_core = 222
+			add_state_core = 233
+			add_state_core = 232
+			add_state_core = 224
+			add_state_core = 219
+			add_state_core = 218
+			add_state_core = 216
+			add_state_core = 215
+			add_state_core = 214
+			add_state_core = 217
+			add_state_core = 221
+			add_state_core = 220
+			add_state_core = 225
+			add_state_core = 229
+			add_state_core = 228
+			add_state_core = 227
+			add_state_core = 213
+			add_state_core = 212
+			add_state_core = 226
+			add_state_core = 234
+		}
+		EGG = {
+			CHD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = CHD
+			}
+			CHD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+CHD_minus_cores = {
+	hidden_effect = {
+		CHD = {
+			remove_state_core = 239
+			remove_state_core = 237
+			remove_state_core = 238
+			remove_state_core = 235
+			remove_state_core = 242
+			remove_state_core = 241
+			remove_state_core = 240
+			remove_state_core = 243
+			remove_state_core = 244
+			remove_state_core = 236
+			remove_state_core = 223
+			remove_state_core = 222
+			remove_state_core = 233
+			remove_state_core = 232
+			remove_state_core = 224
+			remove_state_core = 219
+			remove_state_core = 218
+			remove_state_core = 216
+			remove_state_core = 215
+			remove_state_core = 214
+			remove_state_core = 217
+			remove_state_core = 221
+			remove_state_core = 220
+			remove_state_core = 225
+			remove_state_core = 229
+			remove_state_core = 228
+			remove_state_core = 227
+			remove_state_core = 213
+			remove_state_core = 212
+			remove_state_core = 226
+			remove_state_core = 234
+			add_state_claim = 239
+			add_state_claim = 237
+			add_state_claim = 238
+			add_state_claim = 235
+			add_state_claim = 242
+			add_state_claim = 241
+			add_state_claim = 240
+			add_state_claim = 243
+			add_state_claim = 244
+			add_state_claim = 236
+			add_state_claim = 223
+			add_state_claim = 222
+			add_state_claim = 233
+			add_state_claim = 232
+			add_state_claim = 224
+			add_state_claim = 219
+			add_state_claim = 218
+			add_state_claim = 216
+			add_state_claim = 215
+			add_state_claim = 214
+			add_state_claim = 217
+			add_state_claim = 221
+			add_state_claim = 220
+			add_state_claim = 225
+			add_state_claim = 229
+			add_state_claim = 228
+			add_state_claim = 227
+			add_state_claim = 213
+			add_state_claim = 212
+			add_state_claim = 226
+			add_state_claim = 234
+		}
+	}
+}
+
+EGG_create_DOD = {
+	hidden_effect = {
+		DOD = {
+			add_state_core = 518
+			add_state_core = 511
+			add_state_core = 509
+			add_state_core = 512
+			add_state_core = 513
+			add_state_core = 514
+			add_state_core = 515
+			add_state_core = 516
+			add_state_core = 517
+			add_state_core = 510
+		}
+		EGG = {
+			DOD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = DOD
+			}
+			DOD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+DOD_minus_cores = {
+	hidden_effect = {
+		DOD = {
+			remove_state_core = 518
+			remove_state_core = 511
+			remove_state_core = 509
+			remove_state_core = 512
+			remove_state_core = 513
+			remove_state_core = 514
+			remove_state_core = 515
+			remove_state_core = 516
+			remove_state_core = 517
+			remove_state_core = 510
+			add_state_claim = 518
+			add_state_claim = 511
+			add_state_claim = 509
+			add_state_claim = 512
+			add_state_claim = 513
+			add_state_claim = 514
+			add_state_claim = 515
+			add_state_claim = 516
+			add_state_claim = 517
+			add_state_claim = 510
+		}
+	}
+}
+
+EGG_create_EFD = {
+	hidden_effect = {
+		EFD = {
+			add_state_core = 539
+			add_state_core = 756
+			add_state_core = 755
+			add_state_core = 743
+			add_state_core = 775
+			add_state_core = 760
+			add_state_core = 757
+			add_state_core = 758
+			add_state_core = 754
+			add_state_core = 753
+			add_state_core = 759
+			add_state_core = 751
+			add_state_core = 747
+			add_state_core = 748
+			add_state_core = 750
+			add_state_core = 744
+			add_state_core = 745
+			add_state_core = 773
+			add_state_core = 731
+			add_state_core = 730
+			add_state_core = 729
+			add_state_core = 542
+			add_state_core = 733
+			add_state_core = 728
+			add_state_core = 726
+			add_state_core = 725
+			add_state_core = 724
+			add_state_core = 541
+			add_state_core = 732
+			add_state_core = 722
+			add_state_core = 723
+			add_state_core = 724
+			add_state_core = 734
+			add_state_core = 720
+			add_state_core = 713
+			add_state_core = 714
+			add_state_core = 715
+			add_state_core = 718
+			add_state_core = 719
+			add_state_core = 540
+			add_state_core = 203
+			add_state_core = 717
+			add_state_core = 716
+			add_state_core = 735
+			add_state_core = 741
+			add_state_core = 739
+			add_state_core = 746
+			add_state_core = 738
+			add_state_core = 737
+			add_state_core = 736
+			add_state_core = 749
+			add_state_core = 742
+			add_state_core = 762
+			add_state_core = 763
+			add_state_core = 752
+			add_state_core = 766
+			add_state_core = 764
+			add_state_core = 536
+			add_state_core = 765
+			add_state_core = 761
+			add_state_core = 774
+			add_state_core = 727
+			add_state_core = 721
+			add_state_core = 740
+		}
+		EGG = {
+			EFD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = EFD
+			}
+			EFD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+EFD_minus_cores = {
+	hidden_effect = {
+		EFD = {
+			remove_state_core = 539
+			remove_state_core = 756
+			remove_state_core = 755
+			remove_state_core = 743
+			remove_state_core = 775
+			remove_state_core = 760
+			remove_state_core = 757
+			remove_state_core = 758
+			remove_state_core = 754
+			remove_state_core = 753
+			remove_state_core = 759
+			remove_state_core = 751
+			remove_state_core = 747
+			remove_state_core = 748
+			remove_state_core = 750
+			remove_state_core = 744
+			remove_state_core = 745
+			remove_state_core = 773
+			remove_state_core = 731
+			remove_state_core = 730
+			remove_state_core = 729
+			remove_state_core = 542
+			remove_state_core = 733
+			remove_state_core = 728
+			remove_state_core = 726
+			remove_state_core = 725
+			remove_state_core = 724
+			remove_state_core = 541
+			remove_state_core = 732
+			remove_state_core = 722
+			remove_state_core = 723
+			remove_state_core = 724
+			remove_state_core = 734
+			remove_state_core = 720
+			remove_state_core = 713
+			remove_state_core = 714
+			remove_state_core = 715
+			remove_state_core = 718
+			remove_state_core = 719
+			remove_state_core = 540
+			remove_state_core = 203
+			remove_state_core = 717
+			remove_state_core = 716
+			remove_state_core = 735
+			remove_state_core = 741
+			remove_state_core = 739
+			remove_state_core = 746
+			remove_state_core = 738
+			remove_state_core = 737
+			remove_state_core = 736
+			remove_state_core = 749
+			remove_state_core = 742
+			remove_state_core = 762
+			remove_state_core = 763
+			remove_state_core = 752
+			remove_state_core = 766
+			remove_state_core = 764
+			remove_state_core = 536
+			remove_state_core = 765
+			remove_state_core = 761
+			remove_state_core = 740
+			remove_state_core = 721
+			remove_state_core = 727
+			remove_state_core = 774
+			add_state_claim = 539
+			add_state_claim = 756
+			add_state_claim = 755
+			add_state_claim = 743
+			add_state_claim = 775
+			add_state_claim = 760
+			add_state_claim = 757
+			add_state_claim = 758
+			add_state_claim = 754
+			add_state_claim = 753
+			add_state_claim = 759
+			add_state_claim = 751
+			add_state_claim = 747
+			add_state_claim = 748
+			add_state_claim = 750
+			add_state_claim = 744
+			add_state_claim = 745
+			add_state_claim = 773
+			add_state_claim = 731
+			add_state_claim = 730
+			add_state_claim = 729
+			add_state_claim = 542
+			add_state_claim = 733
+			add_state_claim = 728
+			add_state_claim = 726
+			add_state_claim = 725
+			add_state_claim = 724
+			add_state_claim = 541
+			add_state_claim = 732
+			add_state_claim = 722
+			add_state_claim = 723
+			add_state_claim = 724
+			add_state_claim = 734
+			add_state_claim = 720
+			add_state_claim = 713
+			add_state_claim = 714
+			add_state_claim = 715
+			add_state_claim = 718
+			add_state_claim = 719
+			add_state_claim = 540
+			add_state_claim = 203
+			add_state_claim = 717
+			add_state_claim = 716
+			add_state_claim = 735
+			add_state_claim = 741
+			add_state_claim = 739
+			add_state_claim = 746
+			add_state_claim = 738
+			add_state_claim = 737
+			add_state_claim = 736
+			add_state_claim = 749
+			add_state_claim = 742
+			add_state_claim = 762
+			add_state_claim = 763
+			add_state_claim = 752
+			add_state_claim = 766
+			add_state_claim = 764
+			add_state_claim = 536
+			add_state_claim = 765
+			add_state_claim = 761
+			add_state_claim = 774
+			add_state_claim = 727
+			add_state_claim = 721
+			add_state_claim = 740
+		}
+	}
+}
+
+EGG_create_EUD = {
+	hidden_effect = {
+		EUD = {
+			add_state_core = 396
+			add_state_core = 381
+			add_state_core = 383
+			add_state_core = 382
+			add_state_core = 399
+			add_state_core = 398
+			add_state_core = 384
+			add_state_core = 386
+			add_state_core = 385
+			add_state_core = 387
+			add_state_core = 388
+			add_state_core = 389
+			add_state_core = 397
+			add_state_core = 395
+			add_state_core = 394
+			add_state_core = 393
+			add_state_core = 391
+			add_state_core = 392
+			add_state_core = 348
+			add_state_core = 347
+			add_state_core = 345
+			add_state_core = 349
+			add_state_core = 346
+			add_state_core = 371
+			add_state_core = 370
+			add_state_core = 339
+			add_state_core = 336
+			add_state_core = 369
+			add_state_core = 338
+			add_state_core = 337
+			add_state_core = 335
+			add_state_core = 333
+			add_state_core = 334
+			add_state_core = 340
+			add_state_core = 341
+			add_state_core = 342
+			add_state_core = 343
+			add_state_core = 344
+			add_state_core = 404
+			add_state_core = 403
+			add_state_core = 402
+			add_state_core = 401
+			add_state_core = 400
+			add_state_core = 407
+			add_state_core = 406
+			add_state_core = 405
+			add_state_core = 698
+			add_state_core = 687
+			add_state_core = 697
+			add_state_core = 696
+			add_state_core = 695
+			add_state_core = 686
+			add_state_core = 688
+			add_state_core = 685
+			add_state_core = 694
+			add_state_core = 693
+			add_state_core = 692
+			add_state_core = 689
+			add_state_core = 691
+			add_state_core = 684
+			add_state_core = 683
+			add_state_core = 690
+			add_state_core = 676
+			add_state_core = 675
+			add_state_core = 674
+			add_state_core = 671
+			add_state_core = 672
+			add_state_core = 670
+			add_state_core = 669
+			add_state_core = 673
+			add_state_core = 677
+			add_state_core = 679
+			add_state_core = 667
+			add_state_core = 668
+			add_state_core = 678
+			add_state_core = 680
+			add_state_core = 681
+			add_state_core = 682
+			add_state_core = 653
+			add_state_core = 654
+			add_state_core = 660
+			add_state_core = 656
+			add_state_core = 657
+			add_state_core = 655
+			add_state_core = 537
+			add_state_core = 666
+			add_state_core = 652
+			add_state_core = 659
+			add_state_core = 662
+			add_state_core = 665
+			add_state_core = 664
+			add_state_core = 663
+			add_state_core = 658
+			add_state_core = 661
+			add_state_core = 390
+		}
+		EGG = {
+			EUD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = EUD
+			}
+			EUD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+EUD_minus_cores = {
+	hidden_effect = {
+		EUD = {
+			remove_state_core = 396
+			remove_state_core = 381
+			remove_state_core = 383
+			remove_state_core = 382
+			remove_state_core = 399
+			remove_state_core = 398
+			remove_state_core = 384
+			remove_state_core = 386
+			remove_state_core = 385
+			remove_state_core = 387
+			remove_state_core = 388
+			remove_state_core = 389
+			remove_state_core = 397
+			remove_state_core = 395
+			remove_state_core = 394
+			remove_state_core = 393
+			remove_state_core = 391
+			remove_state_core = 392
+			remove_state_core = 348
+			remove_state_core = 347
+			remove_state_core = 345
+			remove_state_core = 349
+			remove_state_core = 346
+			remove_state_core = 371
+			remove_state_core = 370
+			remove_state_core = 339
+			remove_state_core = 336
+			remove_state_core = 369
+			remove_state_core = 338
+			remove_state_core = 337
+			remove_state_core = 335
+			remove_state_core = 333
+			remove_state_core = 334
+			remove_state_core = 340
+			remove_state_core = 341
+			remove_state_core = 342
+			remove_state_core = 343
+			remove_state_core = 344
+			remove_state_core = 404
+			remove_state_core = 403
+			remove_state_core = 402
+			remove_state_core = 401
+			remove_state_core = 400
+			remove_state_core = 407
+			remove_state_core = 406
+			remove_state_core = 405
+			remove_state_core = 698
+			remove_state_core = 687
+			remove_state_core = 697
+			remove_state_core = 696
+			remove_state_core = 695
+			remove_state_core = 686
+			remove_state_core = 688
+			remove_state_core = 685
+			remove_state_core = 694
+			remove_state_core = 693
+			remove_state_core = 692
+			remove_state_core = 689
+			remove_state_core = 691
+			remove_state_core = 684
+			remove_state_core = 683
+			remove_state_core = 690
+			remove_state_core = 676
+			remove_state_core = 675
+			remove_state_core = 674
+			remove_state_core = 671
+			remove_state_core = 672
+			remove_state_core = 670
+			remove_state_core = 669
+			remove_state_core = 673
+			remove_state_core = 677
+			remove_state_core = 679
+			remove_state_core = 667
+			remove_state_core = 668
+			remove_state_core = 678
+			remove_state_core = 680
+			remove_state_core = 681
+			remove_state_core = 682
+			remove_state_core = 653
+			remove_state_core = 654
+			remove_state_core = 660
+			remove_state_core = 656
+			remove_state_core = 657
+			remove_state_core = 655
+			remove_state_core = 537
+			remove_state_core = 666
+			remove_state_core = 652
+			remove_state_core = 659
+			remove_state_core = 662
+			remove_state_core = 665
+			remove_state_core = 664
+			remove_state_core = 663
+			remove_state_core = 658
+			remove_state_core = 661
+			remove_state_core = 390
+			add_state_claim = 396
+			add_state_claim = 381
+			add_state_claim = 383
+			add_state_claim = 382
+			add_state_claim = 399
+			add_state_claim = 398
+			add_state_claim = 384
+			add_state_claim = 386
+			add_state_claim = 385
+			add_state_claim = 387
+			add_state_claim = 388
+			add_state_claim = 389
+			add_state_claim = 397
+			add_state_claim = 395
+			add_state_claim = 394
+			add_state_claim = 393
+			add_state_claim = 391
+			add_state_claim = 392
+			add_state_claim = 348
+			add_state_claim = 347
+			add_state_claim = 345
+			add_state_claim = 349
+			add_state_claim = 346
+			add_state_claim = 371
+			add_state_claim = 370
+			add_state_claim = 339
+			add_state_claim = 336
+			add_state_claim = 369
+			add_state_claim = 338
+			add_state_claim = 337
+			add_state_claim = 335
+			add_state_claim = 333
+			add_state_claim = 334
+			add_state_claim = 340
+			add_state_claim = 341
+			add_state_claim = 342
+			add_state_claim = 343
+			add_state_claim = 344
+			add_state_claim = 404
+			add_state_claim = 403
+			add_state_claim = 402
+			add_state_claim = 401
+			add_state_claim = 400
+			add_state_claim = 407
+			add_state_claim = 406
+			add_state_claim = 405
+			add_state_claim = 698
+			add_state_claim = 687
+			add_state_claim = 697
+			add_state_claim = 696
+			add_state_claim = 695
+			add_state_claim = 686
+			add_state_claim = 688
+			add_state_claim = 685
+			add_state_claim = 694
+			add_state_claim = 693
+			add_state_claim = 692
+			add_state_claim = 689
+			add_state_claim = 691
+			add_state_claim = 684
+			add_state_claim = 683
+			add_state_claim = 690
+			add_state_claim = 676
+			add_state_claim = 675
+			add_state_claim = 674
+			add_state_claim = 671
+			add_state_claim = 672
+			add_state_claim = 670
+			add_state_claim = 669
+			add_state_claim = 673
+			add_state_claim = 677
+			add_state_claim = 679
+			add_state_claim = 667
+			add_state_claim = 668
+			add_state_claim = 678
+			add_state_claim = 680
+			add_state_claim = 681
+			add_state_claim = 682
+			add_state_claim = 653
+			add_state_claim = 654
+			add_state_claim = 660
+			add_state_claim = 656
+			add_state_claim = 657
+			add_state_claim = 655
+			add_state_claim = 537
+			add_state_claim = 666
+			add_state_claim = 652
+			add_state_claim = 659
+			add_state_claim = 662
+			add_state_claim = 665
+			add_state_claim = 664
+			add_state_claim = 663
+			add_state_claim = 658
+			add_state_claim = 661
+			add_state_claim = 390
+		}
+	}
+}
+
+EGG_create_HOD = {
+	hidden_effect = {
+		HOD = {
+			add_state_core = 290
+			add_state_core = 292
+			add_state_core = 291
+			add_state_core = 293
+			add_state_core = 297
+			add_state_core = 294
+			add_state_core = 289
+			add_state_core = 295
+			add_state_core = 288
+			add_state_core = 299
+			add_state_core = 287
+			add_state_core = 285
+			add_state_core = 286
+			add_state_core = 296
+		}
+		EGG = {
+			HOD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = HOD
+			}
+			HOD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+HOD_minus_cores = {
+	hidden_effect = {
+		HOD = {
+			remove_state_core = 290
+			remove_state_core = 292
+			remove_state_core = 291
+			remove_state_core = 293
+			remove_state_core = 297
+			remove_state_core = 294
+			remove_state_core = 289
+			remove_state_core = 295
+			remove_state_core = 288
+			remove_state_core = 299
+			remove_state_core = 287
+			remove_state_core = 285
+			remove_state_core = 286
+			remove_state_core = 296
+			add_state_claim = 290
+			add_state_claim = 292
+			add_state_claim = 291
+			add_state_claim = 293
+			add_state_claim = 297
+			add_state_claim = 294
+			add_state_claim = 289
+			add_state_claim = 295
+			add_state_claim = 288
+			add_state_claim = 299
+			add_state_claim = 287
+			add_state_claim = 285
+			add_state_claim = 286
+			add_state_claim = 296
+		}
+	}
+}
+
+EGG_create_MED = {
+	hidden_effect = {
+		MED = {
+			add_state_core = 354
+			add_state_core = 355
+			add_state_core = 356
+			add_state_core = 357
+			add_state_core = 358
+			add_state_core = 360
+			add_state_core = 377
+			add_state_core = 376
+			add_state_core = 373
+			add_state_core = 361
+			add_state_core = 375
+			add_state_core = 372
+			add_state_core = 351
+			add_state_core = 350
+			add_state_core = 352
+			add_state_core = 353
+			add_state_core = 359
+			add_state_core = 380
+			add_state_core = 362
+			add_state_core = 363
+			add_state_core = 364
+			add_state_core = 366
+			add_state_core = 367
+			add_state_core = 368
+			add_state_core = 378
+			add_state_core = 374
+			add_state_core = 379
+		}
+		EGG = {
+			MED = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = MED
+			}
+			MED = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+MED_minus_cores = {
+	hidden_effect = {
+		MED = {
+			remove_state_core = 354
+			remove_state_core = 355
+			remove_state_core = 356
+			remove_state_core = 357
+			remove_state_core = 358
+			remove_state_core = 360
+			remove_state_core = 377
+			remove_state_core = 376
+			remove_state_core = 373
+			remove_state_core = 361
+			remove_state_core = 375
+			remove_state_core = 372
+			remove_state_core = 351
+			remove_state_core = 350
+			remove_state_core = 352
+			remove_state_core = 353
+			remove_state_core = 359
+			remove_state_core = 380
+			remove_state_core = 362
+			remove_state_core = 363
+			remove_state_core = 364
+			remove_state_core = 366
+			remove_state_core = 367
+			remove_state_core = 368
+			remove_state_core = 378
+			remove_state_core = 374
+			remove_state_core = 379
+			add_state_claim = 354
+			add_state_claim = 355
+			add_state_claim = 356
+			add_state_claim = 357
+			add_state_claim = 358
+			add_state_claim = 360
+			add_state_claim = 377
+			add_state_claim = 376
+			add_state_claim = 373
+			add_state_claim = 361
+			add_state_claim = 375
+			add_state_claim = 372
+			add_state_claim = 351
+			add_state_claim = 350
+			add_state_claim = 352
+			add_state_claim = 353
+			add_state_claim = 359
+			add_state_claim = 380
+			add_state_claim = 362
+			add_state_claim = 363
+			add_state_claim = 364
+			add_state_claim = 366
+			add_state_claim = 367
+			add_state_claim = 368
+			add_state_claim = 378
+			add_state_claim = 374
+			add_state_claim = 379
+		}
+	}
+}
+
+EGG_create_RED = {
+	hidden_effect = {
+		RED = {
+			add_state_core = 282
+			add_state_core = 281
+			add_state_core = 284
+			add_state_core = 300
+			add_state_core = 298
+			add_state_core = 280
+			add_state_core = 283
+			add_state_core = 301
+			add_state_core = 303
+			add_state_core = 279
+			add_state_core = 303
+			add_state_core = 278
+			add_state_core = 304
+			add_state_core = 305
+			add_state_core = 306
+			add_state_core = 302
+			add_state_core = 266
+		}
+		EGG = {
+			RED = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = RED
+			}
+			RED = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+RED_minus_cores = {
+	hidden_effect = {
+		RED = {
+			remove_state_core = 282
+			remove_state_core = 281
+			remove_state_core = 284
+			remove_state_core = 300
+			remove_state_core = 298
+			remove_state_core = 280
+			remove_state_core = 283
+			remove_state_core = 301
+			remove_state_core = 303
+			remove_state_core = 279
+			remove_state_core = 303
+			remove_state_core = 278
+			remove_state_core = 304
+			remove_state_core = 305
+			remove_state_core = 306
+			remove_state_core = 302
+			remove_state_core = 266
+			add_state_claim = 282
+			add_state_claim = 281
+			add_state_claim = 284
+			add_state_claim = 300
+			add_state_claim = 298
+			add_state_claim = 280
+			add_state_claim = 283
+			add_state_claim = 301
+			add_state_claim = 303
+			add_state_claim = 279
+			add_state_claim = 303
+			add_state_claim = 278
+			add_state_claim = 304
+			add_state_claim = 305
+			add_state_claim = 306
+			add_state_claim = 302
+			add_state_claim = 266
+		}
+	}
+}
+
+EGG_create_SAD = {
+	hidden_effect = {
+		SAD = {
+			add_state_core = 6
+			add_state_core = 261
+			add_state_core = 258
+			add_state_core = 257
+			add_state_core = 256
+			add_state_core = 329
+			add_state_core = 331
+			add_state_core = 315
+			add_state_core = 313
+			add_state_core = 314
+			add_state_core = 325
+			add_state_core = 262
+			add_state_core = 263
+			add_state_core = 265
+			add_state_core = 268
+			add_state_core = 267
+			add_state_core = 264
+			add_state_core = 307
+			add_state_core = 308
+			add_state_core = 310
+			add_state_core = 309
+			add_state_core = 312
+			add_state_core = 311
+			add_state_core = 318
+			add_state_core = 316
+			add_state_core = 320
+			add_state_core = 319
+			add_state_core = 322
+			add_state_core = 317
+			add_state_core = 277
+			add_state_core = 276
+			add_state_core = 321
+			add_state_core = 323
+			add_state_core = 275
+			add_state_core = 324
+			add_state_core = 272
+			add_state_core = 326
+			add_state_core = 270
+			add_state_core = 327
+			add_state_core = 330
+			add_state_core = 328
+			add_state_core = 269
+			add_state_core = 274
+			add_state_core = 273
+			add_state_core = 332
+			add_state_core = 365
+			add_state_core = 271
+			add_state_core = 259
+			add_state_core = 260
+			add_state_core = 245
+			add_state_core = 230
+			add_state_core = 231
+			add_state_core = 229
+			add_state_core = 255
+			add_state_core = 254
+			add_state_core = 252
+			add_state_core = 253
+		}
+		EGG = {
+			SAD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = SAD
+			}
+			SAD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+SAD_minus_cores = {
+	hidden_effect = {
+		SAD = {
+			remove_state_core = 6
+			remove_state_core = 261
+			remove_state_core = 258
+			remove_state_core = 257
+			remove_state_core = 256
+			remove_state_core = 329
+			remove_state_core = 331
+			remove_state_core = 315
+			remove_state_core = 313
+			remove_state_core = 314
+			remove_state_core = 325
+			remove_state_core = 262
+			remove_state_core = 263
+			remove_state_core = 265
+			remove_state_core = 268
+			remove_state_core = 267
+			remove_state_core = 264
+			remove_state_core = 307
+			remove_state_core = 308
+			remove_state_core = 310
+			remove_state_core = 309
+			remove_state_core = 312
+			remove_state_core = 311
+			remove_state_core = 318
+			remove_state_core = 316
+			remove_state_core = 320
+			remove_state_core = 319
+			remove_state_core = 322
+			remove_state_core = 317
+			remove_state_core = 277
+			remove_state_core = 276
+			remove_state_core = 321
+			remove_state_core = 323
+			remove_state_core = 275
+			remove_state_core = 324
+			remove_state_core = 272
+			remove_state_core = 326
+			remove_state_core = 270
+			remove_state_core = 327
+			remove_state_core = 330
+			remove_state_core = 328
+			remove_state_core = 269
+			remove_state_core = 274
+			remove_state_core = 273
+			remove_state_core = 332
+			remove_state_core = 365
+			remove_state_core = 271
+			remove_state_core = 259
+			remove_state_core = 260
+			remove_state_core = 245
+			remove_state_core = 230
+			remove_state_core = 231
+			remove_state_core = 229
+			remove_state_core = 255
+			remove_state_core = 254
+			remove_state_core = 252
+			remove_state_core = 253
+			add_state_claim = 6
+			add_state_claim = 261
+			add_state_claim = 258
+			add_state_claim = 257
+			add_state_claim = 256
+			add_state_claim = 329
+			add_state_claim = 331
+			add_state_claim = 315
+			add_state_claim = 313
+			add_state_claim = 314
+			add_state_claim = 325
+			add_state_claim = 262
+			add_state_claim = 263
+			add_state_claim = 265
+			add_state_claim = 268
+			add_state_claim = 267
+			add_state_claim = 264
+			add_state_claim = 307
+			add_state_claim = 308
+			add_state_claim = 310
+			add_state_claim = 309
+			add_state_claim = 312
+			add_state_claim = 311
+			add_state_claim = 318
+			add_state_claim = 316
+			add_state_claim = 320
+			add_state_claim = 319
+			add_state_claim = 322
+			add_state_claim = 317
+			add_state_claim = 277
+			add_state_claim = 276
+			add_state_claim = 321
+			add_state_claim = 323
+			add_state_claim = 275
+			add_state_claim = 324
+			add_state_claim = 272
+			add_state_claim = 326
+			add_state_claim = 270
+			add_state_claim = 327
+			add_state_claim = 330
+			add_state_claim = 328
+			add_state_claim = 269
+			add_state_claim = 274
+			add_state_claim = 273
+			add_state_claim = 332
+			add_state_claim = 365
+			add_state_claim = 271
+			add_state_claim = 259
+			add_state_claim = 260
+			add_state_claim = 245
+			add_state_claim = 230
+			add_state_claim = 231
+			add_state_claim = 229
+			add_state_claim = 255
+			add_state_claim = 254
+			add_state_claim = 252
+			add_state_claim = 253
+		}
+	}
+}
+
+EGG_create_SWD = {
+	hidden_effect = {
+		SWD = {
+			add_state_core = 159
+			add_state_core = 170
+			add_state_core = 168
+			add_state_core = 169
+			add_state_core = 167
+			add_state_core = 152
+			add_state_core = 160
+			add_state_core = 166
+			add_state_core = 165
+			add_state_core = 150
+			add_state_core = 146
+			add_state_core = 139
+			add_state_core = 149
+			add_state_core = 151
+			add_state_core = 157
+			add_state_core = 164
+			add_state_core = 158
+			add_state_core = 157
+			add_state_core = 148
+			add_state_core = 138
+			add_state_core = 137
+			add_state_core = 140
+			add_state_core = 147
+			add_state_core = 153
+			add_state_core = 155
+			add_state_core = 163
+			add_state_core = 156
+			add_state_core = 162
+			add_state_core = 154
+			add_state_core = 136
+			add_state_core = 135
+			add_state_core = 134
+			add_state_core = 141
+			add_state_core = 133
+			add_state_core = 143
+			add_state_core = 142
+			add_state_core = 132
+			add_state_core = 144
+			add_state_core = 129
+			add_state_core = 145
+			add_state_core = 211
+			add_state_core = 210
+			add_state_core = 208
+			add_state_core = 209
+			add_state_core = 207
+			add_state_core = 202
+		}
+		EGG = {
+			SWD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = SWD
+			}
+			SWD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+SWD_minus_cores = {
+	hidden_effect = {
+		SWD = {
+			remove_state_core = 159
+			remove_state_core = 170
+			remove_state_core = 168
+			remove_state_core = 169
+			remove_state_core = 167
+			remove_state_core = 152
+			remove_state_core = 160
+			remove_state_core = 166
+			remove_state_core = 165
+			remove_state_core = 150
+			remove_state_core = 146
+			remove_state_core = 139
+			remove_state_core = 149
+			remove_state_core = 151
+			remove_state_core = 157
+			remove_state_core = 164
+			remove_state_core = 158
+			remove_state_core = 157
+			remove_state_core = 148
+			remove_state_core = 138
+			remove_state_core = 137
+			remove_state_core = 140
+			remove_state_core = 147
+			remove_state_core = 153
+			remove_state_core = 155
+			remove_state_core = 163
+			remove_state_core = 156
+			remove_state_core = 162
+			remove_state_core = 154
+			remove_state_core = 136
+			remove_state_core = 135
+			remove_state_core = 134
+			remove_state_core = 141
+			remove_state_core = 133
+			remove_state_core = 143
+			remove_state_core = 142
+			remove_state_core = 132
+			remove_state_core = 144
+			remove_state_core = 129
+			remove_state_core = 145
+			remove_state_core = 211
+			remove_state_core = 210
+			remove_state_core = 208
+			remove_state_core = 209
+			remove_state_core = 207
+			remove_state_core = 202
+			add_state_claim = 159
+			add_state_claim = 170
+			add_state_claim = 168
+			add_state_claim = 169
+			add_state_claim = 167
+			add_state_claim = 152
+			add_state_claim = 160
+			add_state_claim = 166
+			add_state_claim = 165
+			add_state_claim = 150
+			add_state_claim = 146
+			add_state_claim = 139
+			add_state_claim = 149
+			add_state_claim = 151
+			add_state_claim = 157
+			add_state_claim = 164
+			add_state_claim = 158
+			add_state_claim = 157
+			add_state_claim = 148
+			add_state_claim = 138
+			add_state_claim = 137
+			add_state_claim = 140
+			add_state_claim = 147
+			add_state_claim = 153
+			add_state_claim = 155
+			add_state_claim = 163
+			add_state_claim = 156
+			add_state_claim = 162
+			add_state_claim = 154
+			add_state_claim = 136
+			add_state_claim = 135
+			add_state_claim = 134
+			add_state_claim = 141
+			add_state_claim = 133
+			add_state_claim = 143
+			add_state_claim = 142
+			add_state_claim = 132
+			add_state_claim = 144
+			add_state_claim = 129
+			add_state_claim = 145
+			add_state_claim = 211
+			add_state_claim = 210
+			add_state_claim = 208
+			add_state_claim = 209
+			add_state_claim = 207
+			add_state_claim = 202
+		}
+	}
+}
+
+EGG_create_TRD = {
+	hidden_effect = {
+		TRD = {
+			add_state_core = 486
+			add_state_core = 485
+			add_state_core = 487
+			add_state_core = 488
+			add_state_core = 489
+			add_state_core = 490
+			add_state_core = 492
+			add_state_core = 484
+			add_state_core = 483
+			add_state_core = 482
+			add_state_core = 481
+			add_state_core = 480
+			add_state_core = 479
+			add_state_core = 478
+			add_state_core = 491
+			add_state_core = 477
+			add_state_core = 508
+			add_state_core = 504
+			add_state_core = 503
+			add_state_core = 502
+			add_state_core = 505
+			add_state_core = 506
+			add_state_core = 501
+			add_state_core = 507
+			add_state_core = 444
+			add_state_core = 443
+			add_state_core = 442
+			add_state_core = 769
+			add_state_core = 441
+			add_state_core = 772
+			add_state_core = 440
+			add_state_core = 770
+			add_state_core = 771
+			add_state_core = 439
+			add_state_core = 498
+			add_state_core = 497
+			add_state_core = 499
+			add_state_core = 496
+			add_state_core = 500
+			add_state_core = 494
+			add_state_core = 495
+			add_state_core = 493
+		}
+		EGG = {
+			TRD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = TRD
+			}
+			TRD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+TRD_minus_cores = {
+	hidden_effect = {
+		TRD = {
+			remove_state_core = 486
+			remove_state_core = 485
+			remove_state_core = 487
+			remove_state_core = 488
+			remove_state_core = 489
+			remove_state_core = 490
+			remove_state_core = 492
+			remove_state_core = 484
+			remove_state_core = 483
+			remove_state_core = 482
+			remove_state_core = 481
+			remove_state_core = 480
+			remove_state_core = 479
+			remove_state_core = 478
+			remove_state_core = 491
+			remove_state_core = 477
+			remove_state_core = 508
+			remove_state_core = 504
+			remove_state_core = 503
+			remove_state_core = 502
+			remove_state_core = 505
+			remove_state_core = 506
+			remove_state_core = 501
+			remove_state_core = 507
+			remove_state_core = 444
+			remove_state_core = 443
+			remove_state_core = 442
+			remove_state_core = 769
+			remove_state_core = 441
+			remove_state_core = 772
+			remove_state_core = 440
+			remove_state_core = 770
+			remove_state_core = 771
+			remove_state_core = 439
+			remove_state_core = 498
+			remove_state_core = 497
+			remove_state_core = 499
+			remove_state_core = 496
+			remove_state_core = 500
+			remove_state_core = 494
+			remove_state_core = 495
+			remove_state_core = 493
+			add_state_claim = 486
+			add_state_claim = 485
+			add_state_claim = 487
+			add_state_claim = 488
+			add_state_claim = 489
+			add_state_claim = 490
+			add_state_claim = 492
+			add_state_claim = 484
+			add_state_claim = 483
+			add_state_claim = 482
+			add_state_claim = 481
+			add_state_claim = 480
+			add_state_claim = 479
+			add_state_claim = 478
+			add_state_claim = 491
+			add_state_claim = 477
+			add_state_claim = 508
+			add_state_claim = 504
+			add_state_claim = 503
+			add_state_claim = 502
+			add_state_claim = 505
+			add_state_claim = 506
+			add_state_claim = 501
+			add_state_claim = 507
+			add_state_claim = 444
+			add_state_claim = 443
+			add_state_claim = 442
+			add_state_claim = 769
+			add_state_claim = 441
+			add_state_claim = 772
+			add_state_claim = 440
+			add_state_claim = 770
+			add_state_claim = 771
+			add_state_claim = 439
+			add_state_claim = 498
+			add_state_claim = 497
+			add_state_claim = 499
+			add_state_claim = 496
+			add_state_claim = 500
+			add_state_claim = 494
+			add_state_claim = 495
+			add_state_claim = 493
+		}
+	}
+}
+
+EGG_create_WOD = {
+	hidden_effect = {
+		WOD = {
+			add_state_core = 520
+			add_state_core = 620
+			add_state_core = 618
+			add_state_core = 616
+			add_state_core = 615
+			add_state_core = 619
+			add_state_core = 621
+			add_state_core = 617
+			add_state_core = 622
+			add_state_core = 610
+			add_state_core = 611
+			add_state_core = 612
+			add_state_core = 613
+			add_state_core = 614
+			add_state_core = 521
+			add_state_core = 607
+			add_state_core = 605
+			add_state_core = 606
+			add_state_core = 608
+			add_state_core = 609
+			add_state_core = 522
+			add_state_core = 562
+			add_state_core = 527
+			add_state_core = 561
+			add_state_core = 564
+		}
+		EGG = {
+			WOD = {
+				inherit_technology = EGG
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = WOD
+			}
+			WOD = {
+				transfer_state = PREV
+			}
+			teleport_armies = {
+				limit = {
+					tag = EGG
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+}
+
+WOD_minus_cores = {
+	hidden_effect = {
+		WOD = {
+			remove_state_core = 520
+			remove_state_core = 620
+			remove_state_core = 618
+			remove_state_core = 616
+			remove_state_core = 615
+			remove_state_core = 619
+			remove_state_core = 621
+			remove_state_core = 617
+			remove_state_core = 622
+			remove_state_core = 610
+			remove_state_core = 611
+			remove_state_core = 612
+			remove_state_core = 613
+			remove_state_core = 614
+			remove_state_core = 521
+			remove_state_core = 607
+			remove_state_core = 605
+			remove_state_core = 606
+			remove_state_core = 608
+			remove_state_core = 609
+			remove_state_core = 522
+			remove_state_core = 562
+			remove_state_core = 527
+			remove_state_core = 561
+			remove_state_core = 564
+			add_state_claim = 520
+			add_state_claim = 620
+			add_state_claim = 618
+			add_state_claim = 616
+			add_state_claim = 615
+			add_state_claim = 619
+			add_state_claim = 621
+			add_state_claim = 617
+			add_state_claim = 622
+			add_state_claim = 610
+			add_state_claim = 611
+			add_state_claim = 612
+			add_state_claim = 613
+			add_state_claim = 614
+			add_state_claim = 521
+			add_state_claim = 607
+			add_state_claim = 605
+			add_state_claim = 606
+			add_state_claim = 608
+			add_state_claim = 609
+			add_state_claim = 522
+			add_state_claim = 562
+			add_state_claim = 527
+			add_state_claim = 561
+			add_state_claim = 564
+		}
+	}
+}
+
+EGG_expand_NRD = {
+	hidden_effect = {
+		NRD = {
+			add_state_claim = 201
+			add_state_claim = 199
+			add_state_claim = 197
+			add_state_claim = 198
+			add_state_claim = 200
+			add_state_claim = 196
+			add_state_claim = 195
+			add_state_claim = 126
+			add_state_claim = 185
+			add_state_claim = 183
+			add_state_claim = 184
+			add_state_claim = 182
+			add_state_claim = 181
+			add_state_claim = 180
+			add_state_claim = 124
+			add_state_claim = 179
+			add_state_claim = 123
+			add_state_claim = 114
+			add_state_claim = 113
+			add_state_claim = 193
+			add_state_claim = 186
+			add_state_claim = 187
+			add_state_claim = 189
+			add_state_claim = 192
+			add_state_claim = 190
+			add_state_claim = 191
+			add_state_claim = 171
+			add_state_claim = 172
+			add_state_claim = 768
+			add_state_claim = 161
+			add_state_claim = 767
+			add_state_claim = 173
+			add_state_claim = 177
+			add_state_claim = 175
+			add_state_claim = 178
+			add_state_claim = 176
+			add_state_claim = 130
+			add_state_claim = 131
+			add_state_claim = 122
+			add_state_claim = 115
+			add_state_claim = 128
+			add_state_claim = 205
+			add_state_claim = 204
+			add_state_claim = 127
+			add_state_claim = 121
+			add_state_claim = 116
+			add_state_claim = 117
+			add_state_claim = 120
+			add_state_claim = 119
+			add_state_claim = 118
+			add_state_claim = 188
+			add_state_claim = 88
+			add_state_claim = 87
+			add_state_claim = 86
+			add_state_claim = 84
+			add_state_claim = 85
+			add_state_claim = 83
+		}
+	}
+}
+
+EGG_expand_SOU = {
+	hidden_effect = {
+		SOU = {
+			add_state_claim = 530
+			add_state_claim = 592
+			add_state_claim = 591
+			add_state_claim = 588
+			add_state_claim = 589
+			add_state_claim = 590
+			add_state_claim = 579
+			add_state_claim = 533
+			add_state_claim = 567
+			add_state_claim = 568
+			add_state_claim = 569
+			add_state_claim = 570
+			add_state_claim = 566
+			add_state_claim = 528
+			add_state_claim = 584
+			add_state_claim = 531
+			add_state_claim = 586
+			add_state_claim = 587
+			add_state_claim = 585
+			add_state_claim = 532
+			add_state_claim = 583
+			add_state_claim = 582
+			add_state_claim = 580
+			add_state_claim = 571
+			add_state_claim = 572
+			add_state_claim = 573
+			add_state_claim = 574
+			add_state_claim = 575
+			add_state_claim = 576
+			add_state_claim = 577
+			add_state_claim = 534
+			add_state_claim = 578
+			add_state_claim = 636
+			add_state_claim = 633
+			add_state_claim = 635
+			add_state_claim = 637
+			add_state_claim = 650
+			add_state_claim = 649
+			add_state_claim = 648
+			add_state_claim = 535
+			add_state_claim = 651
+			add_state_claim = 647
+			add_state_claim = 646
+			add_state_claim = 638
+			add_state_claim = 640
+			add_state_claim = 642
+			add_state_claim = 643
+			add_state_claim = 644
+			add_state_claim = 645
+			add_state_claim = 777
+			add_state_claim = 639
+			add_state_claim = 776
+		}
+	}
+}
+
+EGG_expand_GDD = {
+	hidden_effect = {
+		GDD = {
+			add_state_claim = 82
+			add_state_claim = 79
+			add_state_claim = 80
+			add_state_claim = 81
+			add_state_claim = 64
+			add_state_claim = 206
+			add_state_claim = 59
+			add_state_claim = 58
+		}
+	}
+}
+
+EGG_expand_IRO = {
+	hidden_effect = {
+		IRO = {
+			add_state_core = 462
+			add_state_core = 415
+			add_state_core = 463
+			add_state_core = 460
+			add_state_core = 458
+			add_state_core = 457
+			add_state_core = 456
+			add_state_core = 459
+			add_state_core = 455
+			add_state_core = 466
+			add_state_core = 467
+			add_state_core = 465
+			add_state_core = 464
+			add_state_core = 468
+			add_state_core = 454
+			add_state_core = 453
+			add_state_core = 475
+			add_state_core = 476
+			add_state_core = 469
+			add_state_core = 474
+			add_state_core = 473
+			add_state_core = 452
+			add_state_core = 447
+			add_state_core = 448
+			add_state_core = 446
+			add_state_core = 449
+			add_state_core = 472
+			add_state_core = 471
+			add_state_core = 445
+			add_state_core = 451
+			add_state_core = 450
+			add_state_core = 435
+			add_state_core = 436
+			add_state_core = 437
+			add_state_core = 438
+			add_state_core = 417
+			add_state_core = 416
+			add_state_core = 431
+			add_state_core = 418
+			add_state_core = 419
+			add_state_core = 432
+			add_state_core = 430
+			add_state_core = 429
+			add_state_core = 470
+			add_state_core = 428
+			add_state_core = 427
+			add_state_core = 426
+			add_state_core = 433
+			add_state_core = 434
+			add_state_core = 420
+			add_state_core = 421
+			add_state_core = 422
+			add_state_core = 423
+			add_state_core = 424
+			add_state_core = 425
+			add_state_core = 701
+			add_state_core = 702
+			add_state_core = 700
+			add_state_core = 699
+			add_state_core = 519
+			add_state_core = 711
+			add_state_core = 710
+			add_state_core = 712
+			add_state_core = 706
+			add_state_core = 709
+			add_state_core = 707
+			add_state_core = 705
+			add_state_core = 708
+			add_state_core = 704
+			add_state_core = 703
+		}
+		EGG = {
+			every_owned_state = {
+				limit = {
+					is_core_of = IRO
+				}
+				IRO = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+}
+
+EGG_expand_IRO_2 = {
+	hidden_effect = {
+		IRO = {
+			add_state_claim = 462
+			add_state_claim = 415
+			add_state_claim = 463
+			add_state_claim = 460
+			add_state_claim = 458
+			add_state_claim = 457
+			add_state_claim = 456
+			add_state_claim = 459
+			add_state_claim = 455
+			add_state_claim = 466
+			add_state_claim = 467
+			add_state_claim = 465
+			add_state_claim = 464
+			add_state_claim = 468
+			add_state_claim = 454
+			add_state_claim = 453
+			add_state_claim = 475
+			add_state_claim = 476
+			add_state_claim = 469
+			add_state_claim = 474
+			add_state_claim = 473
+			add_state_claim = 452
+			add_state_claim = 447
+			add_state_claim = 448
+			add_state_claim = 446
+			add_state_claim = 449
+			add_state_claim = 472
+			add_state_claim = 471
+			add_state_claim = 445
+			add_state_claim = 451
+			add_state_claim = 450
+			add_state_claim = 435
+			add_state_claim = 436
+			add_state_claim = 437
+			add_state_claim = 438
+			add_state_claim = 417
+			add_state_claim = 416
+			add_state_claim = 431
+			add_state_claim = 418
+			add_state_claim = 419
+			add_state_claim = 432
+			add_state_claim = 430
+			add_state_claim = 429
+			add_state_claim = 470
+			add_state_claim = 428
+			add_state_claim = 427
+			add_state_claim = 426
+			add_state_claim = 433
+			add_state_claim = 434
+			add_state_claim = 420
+			add_state_claim = 421
+			add_state_claim = 422
+			add_state_claim = 423
+			add_state_claim = 424
+			add_state_claim = 425
+			add_state_claim = 701
+			add_state_claim = 702
+			add_state_claim = 700
+			add_state_claim = 699
+			add_state_claim = 519
+			add_state_claim = 711
+			add_state_claim = 710
+			add_state_claim = 712
+			add_state_claim = 706
+			add_state_claim = 709
+			add_state_claim = 707
+			add_state_claim = 705
+			add_state_claim = 708
+			add_state_claim = 704
+			add_state_claim = 703
+		}
+	}
+}
+
+EGG_expand_INF = {
+	hidden_effect = {
+		INF = {
+			add_state_claim = 539
+			add_state_claim = 756
+			add_state_claim = 755
+			add_state_claim = 743
+			add_state_claim = 775
+			add_state_claim = 760
+			add_state_claim = 757
+			add_state_claim = 758
+			add_state_claim = 754
+			add_state_claim = 753
+			add_state_claim = 759
+			add_state_claim = 751
+			add_state_claim = 747
+			add_state_claim = 748
+			add_state_claim = 750
+			add_state_claim = 744
+			add_state_claim = 745
+			add_state_claim = 773
+			add_state_claim = 731
+			add_state_claim = 730
+			add_state_claim = 729
+			add_state_claim = 542
+			add_state_claim = 733
+			add_state_claim = 728
+			add_state_claim = 726
+			add_state_claim = 725
+			add_state_claim = 724
+			add_state_claim = 541
+			add_state_claim = 732
+			add_state_claim = 722
+			add_state_claim = 723
+			add_state_claim = 724
+			add_state_claim = 734
+			add_state_claim = 720
+			add_state_claim = 713
+			add_state_claim = 714
+			add_state_claim = 715
+			add_state_claim = 718
+			add_state_claim = 719
+			add_state_claim = 540
+			add_state_claim = 203
+			add_state_claim = 717
+			add_state_claim = 716
+			add_state_claim = 735
+			add_state_claim = 741
+			add_state_claim = 739
+			add_state_claim = 746
+			add_state_claim = 738
+			add_state_claim = 737
+			add_state_claim = 736
+			add_state_claim = 749
+			add_state_claim = 742
+			add_state_claim = 762
+			add_state_claim = 763
+			add_state_claim = 752
+			add_state_claim = 766
+			add_state_claim = 764
+			add_state_claim = 536
+			add_state_claim = 765
+			add_state_claim = 761
+			add_state_claim = 774
+			add_state_claim = 727
+			add_state_claim = 721
+			add_state_claim = 740
+			add_state_claim = 396
+			add_state_claim = 381
+			add_state_claim = 383
+			add_state_claim = 382
+			add_state_claim = 399
+			add_state_claim = 398
+			add_state_claim = 384
+			add_state_claim = 386
+			add_state_claim = 385
+			add_state_claim = 387
+			add_state_claim = 388
+			add_state_claim = 389
+			add_state_claim = 397
+			add_state_claim = 395
+			add_state_claim = 394
+			add_state_claim = 393
+			add_state_claim = 391
+			add_state_claim = 392
+			add_state_claim = 348
+			add_state_claim = 347
+			add_state_claim = 345
+			add_state_claim = 349
+			add_state_claim = 346
+			add_state_claim = 371
+			add_state_claim = 370
+			add_state_claim = 339
+			add_state_claim = 336
+			add_state_claim = 369
+			add_state_claim = 338
+			add_state_claim = 337
+			add_state_claim = 335
+			add_state_claim = 333
+			add_state_claim = 334
+			add_state_claim = 340
+			add_state_claim = 341
+			add_state_claim = 342
+			add_state_claim = 343
+			add_state_claim = 344
+			add_state_claim = 404
+			add_state_claim = 403
+			add_state_claim = 402
+			add_state_claim = 401
+			add_state_claim = 400
+			add_state_claim = 407
+			add_state_claim = 406
+			add_state_claim = 405
+			add_state_claim = 698
+			add_state_claim = 687
+			add_state_claim = 697
+			add_state_claim = 696
+			add_state_claim = 695
+			add_state_claim = 686
+			add_state_claim = 688
+			add_state_claim = 685
+			add_state_claim = 694
+			add_state_claim = 693
+			add_state_claim = 692
+			add_state_claim = 689
+			add_state_claim = 691
+			add_state_claim = 684
+			add_state_claim = 683
+			add_state_claim = 690
+			add_state_claim = 676
+			add_state_claim = 675
+			add_state_claim = 674
+			add_state_claim = 671
+			add_state_claim = 672
+			add_state_claim = 670
+			add_state_claim = 669
+			add_state_claim = 673
+			add_state_claim = 677
+			add_state_claim = 679
+			add_state_claim = 667
+			add_state_claim = 668
+			add_state_claim = 678
+			add_state_claim = 680
+			add_state_claim = 681
+			add_state_claim = 682
+			add_state_claim = 653
+			add_state_claim = 654
+			add_state_claim = 660
+			add_state_claim = 656
+			add_state_claim = 657
+			add_state_claim = 655
+			add_state_claim = 537
+			add_state_claim = 666
+			add_state_claim = 652
+			add_state_claim = 659
+			add_state_claim = 662
+			add_state_claim = 665
+			add_state_claim = 664
+			add_state_claim = 663
+			add_state_claim = 658
+			add_state_claim = 661
+			add_state_claim = 390
+		}
+	}
+}
+
+NRD_rebellion = {
+	hidden_effect = {
+		NRD = {
+			every_owned_state = {
+				limit = {
+					is_core_of = LTN
+				}
+				LTN = {
+					transfer_state = PREV
+					add_state_claim = 112
+					add_state_claim = 98
+					add_state_claim = 94
+				}
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = VUL
+				}
+				VUL = {
+					transfer_state = PREV
+					add_state_claim = 112
+					add_state_claim = 98
+				}
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = RSB
+				}
+				RSB = {
+					transfer_state = PREV
+				}
+			}
+			remove_state_core = 125
+			remove_state_core = 97
+			remove_state_core = 96
+			remove_state_core = 95
+			remove_state_core = 89
+			remove_state_core = 112
+			remove_state_core = 98
+		}
+	}
+}

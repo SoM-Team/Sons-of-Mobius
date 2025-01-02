@@ -1,5 +1,4 @@
 technologies = {
-	
 	@1918 = 0
 	@1936 = 2
 	@1938 = 4
@@ -11,158 +10,131 @@ technologies = {
 	@1944 = 16
 	@1945 = 18
 	@1946 = 20
-	
-#------------------------------------------------------------------------#
-#------------------------ Пехотное вооружение ---------------------------#
-#------------------------------------------------------------------------#
-	
+	#------------------------------------------------------------------------#
+	#------------------------ Пехотное вооружение ---------------------------#
+	#------------------------------------------------------------------------#
 	#Примитивное оружие
 	infantry_weapons = {
-
 		enable_equipments = {
 			infantry_equipment_0
 		}
-		
 		enable_subunits = {
 			infantry
 		}
-		
 		path = {
 			leads_to_tech = magazine_rifle
 			research_cost_coeff = 1
-		}		
-
-		research_cost = 1.0
+		}
+		research_cost = 1
 		start_year = 3200
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 0 }
+			position = {
+				x = 2
+				y = 0
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-	
+	#------------------------------------------------------------------------#
 	#Магазинная винтовка
 	magazine_rifle = {
-
 		enable_equipments = {
 			infantry_equipment_1
 		}
-		
 		path = {
 			leads_to_tech = assault_complex
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3
 		start_year = 3215
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 4 }
+			position = {
+				x = 2
+				y = 4
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------ Огнестрельное оружие --------------------------#
-#------------------------------------------------------------------------#
-	
+	#------------------------ Огнестрельное оружие --------------------------#
+	#------------------------------------------------------------------------#
 	#Штурмовой комплекс
 	assault_complex = {
-
 		enable_equipments = {
 			infantry_equipment_2
 		}
-		
 		path = {
 			leads_to_tech = assault_complex2
 			research_cost_coeff = 1
 		}
-
 		path = {
 			leads_to_tech = reflex_sight
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = armor_piercing_cartridges
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = fragmentation_grenade
 			research_cost_coeff = 1
-		}		
-
+		}
 		research_cost = 4
 		start_year = 3225
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 8 }
+			position = {
+				x = 2
+				y = 8
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовой комплекс 39
 	assault_complex2 = {
-
 		enable_equipments = {
 			infantry_equipment_3
 		}
-		
 		path = {
 			leads_to_tech = barrel_extension
 			research_cost_coeff = 1
-		}	
-
+		}
 		research_cost = 4
 		start_year = 3239
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 16 }
+			position = {
+				x = 2
+				y = 16
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Удлинение ствола
 	barrel_extension = {
-
 		category_all_infantry = {
 			soft_attack = 0.04
 		}
@@ -172,100 +144,89 @@ technologies = {
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		path = {
 			leads_to_tech = assault_complex3
 			research_cost_coeff = 1
-		}	
-
+		}
 		research_cost = 3.5
 		start_year = 3241
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 20 }
+			position = {
+				x = 2
+				y = 20
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовой комплекс 42
 	assault_complex3 = {
-
 		enable_equipments = {
 			infantry_equipment_4
 		}
-		
 		path = {
 			leads_to_tech = lightweight_construction
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4
 		start_year = 3242
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 22 }
+			position = {
+				x = 2
+				y = 22
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Облегчение конструкции
 	lightweight_construction = {
-	
-	
-		
 		#idea = better_weapons_production
-		
 		path = {
 			leads_to_tech = sleeveless_mechanism
 			research_cost_coeff = 1
-		}	
-
+		}
+		category_light_infantry = {
+			breakthrough = 0.05
+		}
+		category_all_infantry = {
+			soft_attack = 0.02
+		}
 		research_cost = 3.5
 		start_year = 3244
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 26 }
+			position = {
+				x = 2
+				y = 26
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Безгильзовый механизм
 	sleeveless_mechanism = {
-		
 		path = {
 			leads_to_tech = assault_complex4
 			research_cost_coeff = 1
-		}	
+		}
 		category_light_infantry = {
 			breakthrough = 0.05
 		}
@@ -274,53 +235,46 @@ technologies = {
 		}
 		research_cost = 3.5
 		start_year = 3248
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 28 }
+			position = {
+				x = 2
+				y = 28
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовой комплекс 50
 	assault_complex4 = {
-
 		enable_equipments = {
 			infantry_equipment_5
 		}
-		
 		research_cost = 4
 		start_year = 3250
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 30 }
+			position = {
+				x = 2
+				y = 30
+			}
 		}
-		
 		categories = {
 			infantry_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#---------------------------- Гранаты -----------------------------------#
-#------------------------------------------------------------------------#
-
+	#---------------------------- Гранаты -----------------------------------#
+	#------------------------------------------------------------------------#
 	#Осколочная граната
 	fragmentation_grenade = {
-
 		category_light_infantry = {
 			soft_attack = 0.05
 			breakthrough = 0.03
@@ -336,34 +290,30 @@ technologies = {
 			breakthrough = 0.02
 			defense = 0.02
 		}
-		
 		path = {
 			leads_to_tech = thermal_grenade
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3.5
 		start_year = 3225
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 6 y = 8 }
+			position = {
+				x = 6
+				y = 8
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_grenades
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Термическая граната
 	thermal_grenade = {
-
 		category_light_infantry = {
 			soft_attack = 0.03
 			hard_attack = 0.15
@@ -374,61 +324,54 @@ technologies = {
 			hard_attack = 0.15
 			ap_attack = 0.25
 		}
-		
 		path = {
 			leads_to_tech = emp_grenade
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3.5
 		start_year = 3240
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 6 y = 18 }
+			position = {
+				x = 6
+				y = 18
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_grenades
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#ЭМИ-граната
 	emp_grenade = {
-
 		category_light_infantry = {
 			hard_attack = 0.2
 		}
-		
 		research_cost = 3.5
 		start_year = 3244
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 6 y = 26 }
+			position = {
+				x = 6
+				y = 26
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_grenades
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#---------------------------- Прицелы -----------------------------------#
-#------------------------------------------------------------------------#
-
+	#---------------------------- Прицелы -----------------------------------#
+	#------------------------------------------------------------------------#
 	#Коллиматорные прицел
 	reflex_sight = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
@@ -438,34 +381,30 @@ technologies = {
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		path = {
-			leads_to_tech = holographic_sight 
+			leads_to_tech = holographic_sight
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3
 		start_year = 3226
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 10 }
+			position = {
+				x = 0
+				y = 10
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_sights
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Голографические прицел
 	holographic_sight = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
@@ -475,34 +414,30 @@ technologies = {
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		path = {
-			leads_to_tech = thermal_sight 
+			leads_to_tech = thermal_sight
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3
 		start_year = 3240
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_sights
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Тепловизионный прицел
 	thermal_sight = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
@@ -512,34 +447,30 @@ technologies = {
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		path = {
-			leads_to_tech = ai_sight 
+			leads_to_tech = ai_sight
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3.9
 		start_year = 3243
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 24 }
+			position = {
+				x = 0
+				y = 24
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_sights
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#ИИ-прицел
 	ai_sight = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
@@ -549,422 +480,392 @@ technologies = {
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
-		
 		research_cost = 3.9
 		start_year = 3250
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 30 }
+			position = {
+				x = 0
+				y = 30
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_sights
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#---------------------------- Патроны -----------------------------------#
-#------------------------------------------------------------------------#	
-	
+	#---------------------------- Патроны -----------------------------------#
+	#------------------------------------------------------------------------#	
 	#Бронебойные патроны
 	armor_piercing_cartridges = {
-
 		category_light_infantry = {
 			hard_attack = 0.05
 		}
-		
 		path = {
 			leads_to_tech = incendiary_cartridges
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2.5
 		start_year = 3225
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 10 }
+			position = {
+				x = 4
+				y = 10
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_cartridges
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#	
-	
+	#------------------------------------------------------------------------#	
 	#Зажигательные патроны
 	incendiary_cartridges = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
-		
 		apc_mechanized = {
 			soft_attack = 0.03
 		}
-		
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		path = {
 			leads_to_tech = smart_cartridges
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3.5
 		start_year = 3230
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 13 }
+			position = {
+				x = 4
+				y = 13
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_cartridges
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#	
-	
+	#------------------------------------------------------------------------#	
 	#Умные патроны
 	smart_cartridges = {
-
 		category_light_infantry = {
 			soft_attack = 0.04
 		}
-		
 		apc_mechanized = {
 			soft_attack = 0.03
 		}
-		
 		ifv_mechanized = {
 			soft_attack = 0.02
 		}
-		
 		research_cost = 3.5
 		start_year = 3244
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 26 }
+			position = {
+				x = 4
+				y = 26
+			}
 		}
-		
 		categories = {
 			infantry_weapons
+			infantry_cartridges
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-#------------------------- Энергооружие ---------------------------------#
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
+	#------------------------- Энергооружие ---------------------------------#
+	#------------------------------------------------------------------------#
 	#Первое энергооружие
 	first_energy_weapon = {
-
 		enable_equipments = {
 			energy_infantry_equipment_1
 		}
-		
+		enable_subunits = {
+			advanced_infantry
+		}
+		on_research_complete = {
+			if = {
+				limit = {
+					NOT = {
+						has_template_containing_unit = advanced_infantry
+					}
+				}
+				hidden_effect = {
+					load_oob = "unlock_advanced_infantry"
+				}
+				custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			}
+		}
 		path = {
 			leads_to_tech = assault_energy_weapon
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = battery_boost
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4.2
 		start_year = 3225
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 8 }
+			position = {
+				x = 10
+				y = 8
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Усиление батареи
 	battery_boost = {
-		
 		research_cost = 4.1
 		start_year = 3227
-		
+		advanced_infantry = {
+			defense = 0.1
+		}
 		folder = {
 			name = infantry_folder
-			position = { x = 12 y = 11 }
+			position = {
+				x = 12
+				y = 11
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие
 	assault_energy_weapon = {
-
 		enable_equipments = {
 			energy_infantry_equipment_2
 		}
-		
 		path = {
 			leads_to_tech = assault_energy_weapon2
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = inf_guidance_system
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4.2
 		start_year = 3237
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 14 }
+			position = {
+				x = 10
+				y = 14
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Система наведения
 	inf_guidance_system = {
-		
 		research_cost = 4.1
 		start_year = 3239
-		
+		advanced_infantry = {
+			soft_attack = 0.05
+			breakthrough = 0.05
+		}
 		folder = {
 			name = infantry_folder
-			position = { x = 12 y = 16 }
+			position = {
+				x = 12
+				y = 16
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие 2
 	assault_energy_weapon2 = {
-
 		enable_equipments = {
 			energy_infantry_equipment_3
 		}
-		
 		path = {
 			leads_to_tech = projectile_acceleration
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = railgun
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4.2
 		start_year = 3240
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 18 }
+			position = {
+				x = 10
+				y = 18
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Ускорение снаряда
 	projectile_acceleration = {
-		
 		path = {
 			leads_to_tech = assault_energy_weapon3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4.1
 		start_year = 3242
-		
+		advanced_infantry = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+		}
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 22 }
+			position = {
+				x = 10
+				y = 22
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Рельса
 	railgun = {
-		
 		research_cost = 4.1
 		start_year = 3242
-		
+		advanced_infantry = {
+			hard_attack = 0.05
+			breakthrough = 0.05
+		}
 		folder = {
 			name = infantry_folder
-			position = { x = 12 y = 22 }
+			position = {
+				x = 12
+				y = 22
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие 3
 	assault_energy_weapon3 = {
-
 		enable_equipments = {
 			energy_infantry_equipment_4
 		}
-		
 		path = {
 			leads_to_tech = assault_energy_weapon4
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = autonomous_recharging
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 4.2
 		start_year = 3244
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 24 }
+			position = {
+				x = 10
+				y = 24
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Автономная подзарядка
 	autonomous_recharging = {
-		
 		research_cost = 4.1
 		start_year = 3248
-		
+		advanced_infantry = {
+			defense = 0.1
+		}
 		folder = {
 			name = infantry_folder
-			position = { x = 12 y = 27 }
+			position = {
+				x = 12
+				y = 27
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-#------------------------------------------------------------------------#
-
+	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие 4
 	assault_energy_weapon4 = {
-
 		enable_equipments = {
 			energy_infantry_equipment_5
 		}
-		
 		research_cost = 4.2
 		start_year = 3250
-		
 		folder = {
 			name = infantry_folder
-			position = { x = 10 y = 30 }
+			position = {
+				x = 10
+				y = 30
+			}
 		}
-		
 		categories = {
 			energy_weapons
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
-	
 	personal_equipment = {
-		
 		research_cost = 1
-		
 		category_all_infantry = {
 			max_organisation = 1
 		}
@@ -972,15 +873,15 @@ technologies = {
 			leads_to_tech = steel_helmet
 			research_cost_coeff = 1
 		}
-	
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 0 }
+			position = {
+				x = 0
+				y = 0
+			}
 		}
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 5
 				date > "3237.1.1"
@@ -988,9 +889,7 @@ technologies = {
 		}
 	}
 	steel_helmet = {
-		
 		research_cost = 1
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1005,12 +904,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
 		}
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 5
 				date > "3237.1.1"
@@ -1018,9 +918,7 @@ technologies = {
 		}
 	}
 	spec_camo = {
-		
 		research_cost = 2
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1031,12 +929,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 4 }
+			position = {
+				x = 5
+				y = 4
+			}
 		}
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 5
 				date > "3237.1.1"
@@ -1044,10 +943,8 @@ technologies = {
 		}
 	}
 	kevlar = {
-		
 		research_cost = 2
 		start_year = 3237
-		
 		category_all_infantry = {
 			breakthrough = 0.01
 			defense = 0.02
@@ -1063,12 +960,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 6 }
+			position = {
+				x = 5
+				y = 6
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3238.1.1"
@@ -1076,24 +974,22 @@ technologies = {
 		}
 	}
 	night_equipment_1 = {
-		
 		research_cost = 2
 		start_year = 3237
-		
 		land_night_attack = 0.1
-		
 		path = {
 			leads_to_tech = night_equipment_2
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 9 y = 6 }
+			position = {
+				x = 9
+				y = 6
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3238.1.1"
@@ -1101,24 +997,22 @@ technologies = {
 		}
 	}
 	night_equipment_2 = {
-		
 		research_cost = 2
 		start_year = 3239
-		
-		land_night_attack = 0.10
-		
+		land_night_attack = 0.1
 		path = {
 			leads_to_tech = night_equipment_3
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 9 y = 10 }
+			position = {
+				x = 9
+				y = 10
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3240.1.1"
@@ -1126,24 +1020,22 @@ technologies = {
 		}
 	}
 	night_equipment_3 = {
-		
 		research_cost = 2
 		start_year = 3242
-		
-		land_night_attack = 0.10
-		
+		land_night_attack = 0.1
 		path = {
 			leads_to_tech = night_equipment_4
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 9 y = 16 }
+			position = {
+				x = 9
+				y = 16
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3243.1.1"
@@ -1151,24 +1043,22 @@ technologies = {
 		}
 	}
 	night_equipment_4 = {
-		
 		research_cost = 2
 		start_year = 3245
-		
-		land_night_attack = 0.10
-		
+		land_night_attack = 0.1
 		path = {
 			leads_to_tech = night_equipment_5
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 9 y = 22 }
+			position = {
+				x = 9
+				y = 22
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3246.1.1"
@@ -1176,20 +1066,18 @@ technologies = {
 		}
 	}
 	night_equipment_5 = {
-		
 		research_cost = 2
 		start_year = 3249
-		
-		land_night_attack = 0.10
-		
+		land_night_attack = 0.1
 		folder = {
 			name = infantry_folder
-			position = { x = 9 y = 30 }
+			position = {
+				x = 9
+				y = 30
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 5
 				date > "3250.1.1"
@@ -1197,10 +1085,8 @@ technologies = {
 		}
 	}
 	inf_composite_armor = {
-		
 		research_cost = 2
 		start_year = 3239
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1217,15 +1103,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 10 }
+			position = {
+				x = 5
+				y = 10
+			}
 		}
 		categories = {
 			body_armor
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
@@ -1233,10 +1120,8 @@ technologies = {
 		}
 	}
 	infantry_armor_1 = {
-		
 		research_cost = 2
 		start_year = 3242
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1252,12 +1137,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 16 }
+			position = {
+				x = 5
+				y = 16
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3243.1.1"
@@ -1265,10 +1151,8 @@ technologies = {
 		}
 	}
 	infantry_armor_2 = {
-		
 		research_cost = 2
 		start_year = 3245
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1280,15 +1164,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 22 }
+			position = {
+				x = 5
+				y = 22
+			}
 		}
 		categories = {
 			body_armor
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
@@ -1296,10 +1181,8 @@ technologies = {
 		}
 	}
 	infantry_armor_3 = {
-		
 		research_cost = 2.5
 		start_year = 3248
-		
 		category_all_infantry = {
 			breakthrough = 0.02
 			defense = 0.02
@@ -1311,14 +1194,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 28 }
+			position = {
+				x = 5
+				y = 28
+			}
 		}
 		categories = {
 			body_armor
 		}
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3249.1.1"
@@ -1326,10 +1211,8 @@ technologies = {
 		}
 	}
 	infantry_armor_4 = {
-		
 		research_cost = 6
 		start_year = 3250
-		
 		category_all_infantry = {
 			breakthrough = 0.05
 			defense = 0.05
@@ -1338,14 +1221,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 32 }
+			position = {
+				x = 5
+				y = 32
+			}
 		}
 		categories = {
 			body_armor
 		}
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 0
 				is_major = no
@@ -1357,28 +1242,26 @@ technologies = {
 		}
 	}
 	additional_equipment_1 = {
-		
 		research_cost = 2
 		start_year = 3239
-		
 		no_supply_grace = 6
 		out_of_supply_factor = -0.04
 		category_all_infantry = {
 			default_morale = 0.03
 		}
-		
 		path = {
 			leads_to_tech = additional_equipment_2
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 10 }
+			position = {
+				x = 7
+				y = 10
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
@@ -1386,28 +1269,26 @@ technologies = {
 		}
 	}
 	additional_equipment_2 = {
-		
 		research_cost = 2
 		start_year = 3241
-		
 		no_supply_grace = 6
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.03
 		}
-		
 		path = {
 			leads_to_tech = additional_equipment_3
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 14 }
+			position = {
+				x = 7
+				y = 14
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3242.1.1"
@@ -1415,28 +1296,26 @@ technologies = {
 		}
 	}
 	additional_equipment_3 = {
-		
 		research_cost = 2
 		start_year = 3243
-		
 		no_supply_grace = 6
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.03
 		}
-		
 		path = {
 			leads_to_tech = additional_equipment_4
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 18 }
+			position = {
+				x = 7
+				y = 18
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3244.1.1"
@@ -1444,28 +1323,26 @@ technologies = {
 		}
 	}
 	additional_equipment_4 = {
-		
 		research_cost = 2
 		start_year = 3246
-		
 		no_supply_grace = 6
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.02
 		}
-		
 		path = {
 			leads_to_tech = additional_equipment_5
 			research_cost_coeff = 1
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 24 }
+			position = {
+				x = 7
+				y = 24
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3247.1.1"
@@ -1473,10 +1350,8 @@ technologies = {
 		}
 	}
 	additional_equipment_5 = {
-		
 		research_cost = 2
 		start_year = 3250
-		
 		no_supply_grace = 6
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
@@ -1484,12 +1359,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 32 }
+			position = {
+				x = 7
+				y = 32
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3251.1.1"
@@ -1497,9 +1373,7 @@ technologies = {
 		}
 	}
 	infantry_support_equipment_1 = {
-		
 		research_cost = 1.5
-		
 		category_all_infantry = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -1518,12 +1392,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 4 }
+			position = {
+				x = 0
+				y = 4
+			}
 		}
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 5
 				date > "3237.1.1"
@@ -1531,10 +1406,8 @@ technologies = {
 		}
 	}
 	mortar_focus = {
-		
 		research_cost = 2.5
 		start_year = 3238
-		
 		category_all_infantry = {
 			breakthrough = 0.06
 		}
@@ -1544,14 +1417,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 1 y = 8 }
+			position = {
+				x = 1
+				y = 8
+			}
 		}
 		XOR = {
-            machinegun_focus
-        }
+			machinegun_focus
+		}
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 0
 				is_major = no
@@ -1563,10 +1438,8 @@ technologies = {
 		}
 	}
 	machinegun_focus = {
-		
 		research_cost = 1.5
 		start_year = 3238
-		
 		category_all_infantry = {
 			defense = 0.04
 		}
@@ -1576,14 +1449,16 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = -1 y = 8 }
+			position = {
+				x = -1
+				y = 8
+			}
 		}
 		XOR = {
-            mortar_focus
-        }
+			mortar_focus
+		}
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 0
 				is_major = yes
@@ -1595,10 +1470,8 @@ technologies = {
 		}
 	}
 	infantry_support_equipment_2 = {
-		
 		research_cost = 1.5
 		start_year = 3240
-		
 		category_all_infantry = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -1609,7 +1482,10 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
 		ai_will_do = {
 			factor = 4
@@ -1624,10 +1500,8 @@ technologies = {
 		}
 	}
 	infantry_support_equipment_3 = {
-		
 		research_cost = 1.5
 		start_year = 3243
-		
 		category_all_infantry = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -1638,7 +1512,10 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
 		ai_will_do = {
 			factor = 4
@@ -1653,10 +1530,8 @@ technologies = {
 		}
 	}
 	infantry_support_equipment_4 = {
-		
 		research_cost = 1.5
 		start_year = 3246
-		
 		category_all_infantry = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -1667,7 +1542,10 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 24 }
+			position = {
+				x = 0
+				y = 24
+			}
 		}
 		ai_will_do = {
 			factor = 4
@@ -1682,17 +1560,18 @@ technologies = {
 		}
 	}
 	infantry_support_equipment_5 = {
-		
 		research_cost = 2.5
 		start_year = 3249
-		
 		category_all_infantry = {
 			breakthrough = 0.07
 			defense = 0.03
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 30 }
+			position = {
+				x = 0
+				y = 30
+			}
 		}
 		ai_will_do = {
 			factor = 4
@@ -1707,10 +1586,8 @@ technologies = {
 		}
 	}
 	antitank_equipment_1 = {
-		
 		research_cost = 2.5
 		start_year = 3236
-		
 		category_light_infantry = {
 			hard_attack = 1
 			ap_attack = 1
@@ -1725,12 +1602,13 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 4 }
+			position = {
+				x = 3
+				y = 4
+			}
 		}
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 5
 				date > "3237.1.1"
@@ -1738,10 +1616,8 @@ technologies = {
 		}
 	}
 	antitank_equipment_2 = {
-		
 		research_cost = 2.5
 		start_year = 3238
-		
 		category_light_infantry = {
 			hard_attack = 1
 			ap_attack = 1
@@ -1756,17 +1632,17 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 8 }
+			position = {
+				x = 3
+				y = 8
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 3
 				date > "3240.1.1"
@@ -1774,10 +1650,8 @@ technologies = {
 		}
 	}
 	antitank_equipment_3 = {
-		
 		research_cost = 2.5
 		start_year = 3241
-		
 		category_light_infantry = {
 			hard_attack = 1
 			ap_attack = 0.9
@@ -1792,17 +1666,17 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 14 }
+			position = {
+				x = 3
+				y = 14
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3242.1.1"
 			}
-			
 			modifier = {
 				factor = 4
 				date > "3243.1.1"
@@ -1810,10 +1684,8 @@ technologies = {
 		}
 	}
 	antitank_equipment_4 = {
-		
 		research_cost = 3
 		start_year = 3245
-		
 		category_light_infantry = {
 			hard_attack = 1.5
 			ap_attack = 0.8
@@ -1828,17 +1700,17 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 22 }
+			position = {
+				x = 3
+				y = 22
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
 			}
-			
 			modifier = {
 				factor = 3
 				date > "3247.1.1"
@@ -1846,10 +1718,8 @@ technologies = {
 		}
 	}
 	antitank_equipment_5 = {
-		
 		research_cost = 3
 		start_year = 3249
-		
 		category_light_infantry = {
 			hard_attack = 2
 			ap_attack = 0.7
@@ -1860,31 +1730,28 @@ technologies = {
 		}
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 30 }
+			position = {
+				x = 3
+				y = 30
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 3
 				date > "3250.1.1"
 			}
 		}
 	}
-	
-	
-	
 	motorised_infantry = {
-
 		enable_subunits = {
 			motorized
+			bunch_of_refuellers
 		}
-
 		enable_equipments = {
 			motorized_equipment_1
+			refueller
 		}
-
 		on_research_complete = {
 			if = {
 				limit = {
@@ -1894,47 +1761,50 @@ technologies = {
 				}
 				hidden_effect = {
 					load_oob = "unlock_motorized"
-				}			
+				}
 				custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-		
 		path = {
 			leads_to_tech = mechanised_infantry_on_apc_1
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 1936
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 0 }
+			position = {
+				x = 0
+				y = 0
+			}
 		}
-		
 		folder = {
 			name = support_folder
-			position = { x = 7 y = 9 }
+			position = {
+				x = 7
+				y = 9
+			}
 		}
-		
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "1937.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "1938.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "1939.1.1"
@@ -1946,51 +1816,37 @@ technologies = {
 		}
 	}
 	motorized_rocket_unit = {
-
 		enable_subunits = {
 			motorized_rocket_brigade
 		}
 		enable_equipments = {
 			motorized_rocket_equipment_1
 		}
-	
 		research_cost = 1.5
 		start_year = 1939
-		
 		ai_will_do = {
 			factor = 1
-			
-			modifier = {
-				factor = 2
-				tag = SOV
-			}
 		}
-		
 		categories = {
 			mot_rockets
 		}
 	}
 	tech_bmd1 = {
-
 		enable_subunits = {
 			bmd_mechanized
 		}
 		enable_equipments = {
 			bmd_mechanized_equipment_1
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -1999,26 +1855,21 @@ technologies = {
 		}
 	}
 	tech_airborne_artillery1 = {
-
 		enable_subunits = {
 			airborne_artillery
 		}
 		enable_equipments = {
 			airborne_artillery_equipment_1
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2027,23 +1878,18 @@ technologies = {
 		}
 	}
 	tech_bmd2 = {
-
 		enable_equipments = {
 			bmd_mechanized_equipment_2
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2052,23 +1898,18 @@ technologies = {
 		}
 	}
 	tech_airborne_artillery2 = {
-
 		enable_equipments = {
 			airborne_artillery_equipment_2
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2077,23 +1918,18 @@ technologies = {
 		}
 	}
 	tech_bmd3 = {
-
 		enable_equipments = {
 			bmd_mechanized_equipment_3
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2102,23 +1938,18 @@ technologies = {
 		}
 	}
 	tech_airborne_artillery3 = {
-
 		enable_equipments = {
 			airborne_artillery_equipment_3
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2127,23 +1958,18 @@ technologies = {
 		}
 	}
 	tech_bmd4 = {
-
 		enable_equipments = {
 			bmd_mechanized_equipment_4
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2152,23 +1978,18 @@ technologies = {
 		}
 	}
 	tech_airborne_artillery4 = {
-
 		enable_equipments = {
 			airborne_artillery_equipment_4
 		}
-	
 		research_cost = 1.5
 		start_year = 3225
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 10
 				tag = RCR
 			}
 		}
-		
 		categories = {
 			para_tech
 			motorized_equipment
@@ -2176,13 +1997,10 @@ technologies = {
 			cat_mechanized_equipment
 		}
 	}
-	
 	mechanised_infantry_on_ifv_1 = {
-
 		enable_subunits = {
 			ifv_mechanized
 		}
-
 		enable_equipments = {
 			ifv_mechanized_equipment_1
 		}
@@ -2190,40 +2008,42 @@ technologies = {
 			leads_to_tech = smoke_grenade_on_ifv
 			research_cost_coeff = 1
 		}
-
-		
 		sub_technologies = {
 			tech_bmd1
 			tech_airborne_artillery1
 		}
 		on_research_complete = {
-				hidden_effect = {
-					load_oob = "unlock_mechanized_ifv"
-				}			
-				custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			hidden_effect = {
+				load_oob = "unlock_mechanized_ifv"
+			}
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-
 		research_cost = 2
 		start_year = 3215
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 4 }
+			position = {
+				x = 3
+				y = 4
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
@@ -2234,9 +2054,7 @@ technologies = {
 			}
 		}
 	}
-	
 	smoke_grenade_on_ifv = {
-
 		ifv_mechanized = {
 			defense = 0.04
 			breakthrough = 0.04
@@ -2245,37 +2063,33 @@ technologies = {
 			leads_to_tech = tech_100mm_ifv
 			research_cost_coeff = 1
 		}
-
 		research_cost = 1.5
 		start_year = 3236
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 6 }
+			position = {
+				x = 3
+				y = 6
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
 			}
 		}
 	}
-	
 	tech_100mm_ifv = {
-
 		ifv_mechanized = {
 			soft_attack = 0.03
 			hard_attack = 0.03
@@ -2288,37 +2102,33 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_ifv_2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 1.5
 		start_year = 3237
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 8 }
+			position = {
+				x = 3
+				y = 8
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
 		}
 	}
-	
 	rockets_ifv_1 = {
-
 		ifv_mechanized = {
 			hard_attack = 0.15
 			ap_attack = 0.1
@@ -2328,37 +2138,33 @@ technologies = {
 			leads_to_tech = rockets_ifv_2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3238
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 10 }
+			position = {
+				x = 5
+				y = 10
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
 			}
 		}
 	}
-	
 	rockets_ifv_2 = {
-
 		ifv_mechanized = {
 			hard_attack = 0.15
 			ap_attack = 0.1
@@ -2368,37 +2174,33 @@ technologies = {
 			leads_to_tech = rockets_ifv_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 14 }
+			position = {
+				x = 5
+				y = 14
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3242.1.1"
 			}
 		}
 	}
-	
 	rockets_ifv_3 = {
-
 		ifv_mechanized = {
 			hard_attack = 0.15
 			ap_attack = 0.1
@@ -2408,77 +2210,68 @@ technologies = {
 			leads_to_tech = rockets_ifv_4
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3244
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 22 }
+			position = {
+				x = 5
+				y = 22
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
 			}
 		}
 	}
-	
 	rockets_ifv_4 = {
-
 		ifv_mechanized = {
 			hard_attack = 0.15
 			ap_attack = 0.1
 			air_attack = 0.15
 		}
-
 		research_cost = 2
 		start_year = 3248
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 30 }
+			position = {
+				x = 5
+				y = 30
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3249.1.1"
 			}
 		}
 	}
-
 	mechanised_infantry_on_ifv_2 = {
-
 		enable_equipments = {
 			ifv_mechanized_equipment_2
 		}
-		
 		path = {
 			leads_to_tech = shield_generator_ifv
 			research_cost_coeff = 1
 		}
-		
 		sub_technologies = {
 			tech_bmd2
 			tech_airborne_artillery2
@@ -2487,33 +2280,30 @@ technologies = {
 			leads_to_tech = mortar_ivf
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 12 }
+			position = {
+				x = 3
+				y = 12
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3242.1.1"
@@ -2524,9 +2314,7 @@ technologies = {
 			}
 		}
 	}
-	
 	shield_generator_ifv = {
-
 		ifv_mechanized = {
 			defense = 0.06
 		}
@@ -2534,39 +2322,36 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_ifv_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 3.2
 		start_year = 3241
 		folder = {
 			name = infantry_folder
-			position = { x = 2 y = 16 }
+			position = {
+				x = 2
+				y = 16
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
 		XOR = {
-            mortar_ivf
-        }
+			mortar_ivf
+		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
 		}
 	}
-	
 	mortar_ivf = {
-
 		ifv_mechanized = {
 			soft_attack = 0.05
 			breakthrough = 0.03
@@ -2575,50 +2360,48 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_ifv_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2.5
 		start_year = 3241
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 16 }
+			position = {
+				x = 4
+				y = 16
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
 		XOR = {
-            shield_generator_ifv
-        }
+			shield_generator_ifv
+		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
 		}
 	}
-
 	mechanised_infantry_on_ifv_3 = {
-
 		enable_equipments = {
 			ifv_mechanized_equipment_3
 		}
-
 		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 20 }
+			position = {
+				x = 3
+				y = 20
+			}
 		}
-		
 		sub_technologies = {
 			tech_bmd3
 			tech_airborne_artillery3
@@ -2628,24 +2411,20 @@ technologies = {
 			armor
 			cat_mechanized_equipment
 		}
-
 		path = {
-			leads_to_tech = reactive_armour_ifv
+			leads_to_tech = nanite_armour_ifv
 			research_cost_coeff = 1
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
@@ -2656,9 +2435,7 @@ technologies = {
 			}
 		}
 	}
-	
-	reactive_armour_ifv = {
-
+	nanite_armour_ifv = {
 		ifv_mechanized = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -2667,14 +2444,15 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_ifv_4
 			research_cost_coeff = 1
 		}
-
 		research_cost = 3.2
 		start_year = 3245
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 24 }
+			position = {
+				x = 3
+				y = 24
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
@@ -2682,25 +2460,20 @@ technologies = {
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3247.1.1"
 			}
 		}
 	}
-
 	mechanised_infantry_on_ifv_4 = {
-
 		enable_equipments = {
 			ifv_mechanized_equipment_3
 		}
-
 		sub_technologies = {
 			tech_bmd4
 			tech_airborne_artillery4
@@ -2709,16 +2482,16 @@ technologies = {
 		start_year = 3247
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 28 }
+			position = {
+				x = 3
+				y = 28
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-
-		
 		sub_technologies = {
 			mechanised_infantry_on_ifv_4_with_active_pro_sys
 		}
@@ -2728,38 +2501,30 @@ technologies = {
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3248.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3249.1.1"
 			}
 		}
 	}
-
 	mechanised_infantry_on_ifv_4_with_active_pro_sys = {
-
 		enable_equipments = {
-			ifv_mechanized_equipment_4_aps
+			ifv_mechanized_equipment_4
 		}
-
 		research_cost = 3
 		start_year = 3247
 		sub_tech_index = 1
-		
 		categories = {
 			motorized_equipment
 			armor
 			cat_mechanized_equipment
 		}
-
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 2
 				date > "3249.1.1"
@@ -2770,22 +2535,21 @@ technologies = {
 			}
 		}
 	}
-	
 	electronic_intelligence_ifv = {
-
 		ifv_mechanized = {
 			breakthrough = 0.04
 			defense = 0.04
 			recon = 0.05
 		}
-
 		research_cost = 3.5
 		start_year = 3250
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 34 }
+			position = {
+				x = 3
+				y = 34
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			armor
@@ -2793,21 +2557,17 @@ technologies = {
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3251.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3252.1.1"
 			}
 		}
 	}
-
 	mechanised_infantry_on_apc_1 = {
-
 		enable_equipments = {
 			apc_mechanized_equipment_1
 		}
@@ -2815,28 +2575,32 @@ technologies = {
 			apc_mechanized
 		}
 		motorized = {
-			hardness = 1.0
+			hardness = 1
 		}
 		mot_artillery_brigade = {
-			hardness = 1.0
+			hardness = 1
 		}
 		mot_anti_tank_brigade = {
-			hardness = 1.0
+			hardness = 1
 		}
 		mot_anti_air_brigade = {
-			hardness = 1.0
+			hardness = 1
 		}
 		mot_rocket_artillery_brigade = {
-			hardness = 1.0
+			hardness = 1
 		}
-
 		on_research_complete = {
 			hidden_effect = {
 				load_oob = "unlock_mechanized"
-			}			
+			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-
 		path = {
 			leads_to_tech = apc_turret
 			research_cost_coeff = 1
@@ -2845,31 +2609,25 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_ifv_1
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3215
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 4 }
+			position = {
+				x = 0
+				y = 4
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			modifier = {
-				tag = USA
-				factor = 2
-			}
 		}
 	}
-
 	apc_turret = {
-
 		apc_mechanized = {
 			soft_attack = 0.03
 			breakthrough = 0.02
@@ -2879,76 +2637,67 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_apc_2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3238.1.1"
 			}
 		}
 	}
-	
 	mechanised_infantry_on_apc_2 = {
-
 		enable_equipments = {
 			apc_mechanized_equipment_2
 		}
-		
 		path = {
 			leads_to_tech = self_defense_system_apc
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3241.1.1"
 			}
 		}
 	}
-
 	self_defense_system_apc = {
-
 		apc_mechanized = {
 			soft_attack = 0.03
 			breakthrough = 0.02
@@ -2958,67 +2707,60 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_apc_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3241
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 16 }
+			position = {
+				x = 0
+				y = 16
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3242.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3243.1.1"
 			}
 		}
 	}
-	
 	mechanised_infantry_on_apc_3 = {
-
 		enable_equipments = {
 			apc_mechanized_equipment_3
 		}
-
 		research_cost = 3
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 20 }
+			position = {
+				x = 0
+				y = 20
+			}
 		}
 		path = {
 			leads_to_tech = tech_45mm_apc
 			research_cost_coeff = 1
 		}
-
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3245.1.1"
@@ -3026,7 +2768,6 @@ technologies = {
 		}
 	}
 	tech_45mm_apc = {
-
 		apc_mechanized = {
 			soft_attack = 0.02
 			breakthrough = 0.01
@@ -3036,68 +2777,60 @@ technologies = {
 			leads_to_tech = mechanised_infantry_on_apc_4
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3245
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 24 }
+			position = {
+				x = 0
+				y = 24
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3246.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3247.1.1"
 			}
 		}
 	}
-	
-	
 	mechanised_infantry_on_apc_4 = {
-
 		enable_equipments = {
 			apc_mechanized_equipment_4
 		}
-
 		research_cost = 3
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 28 }
+			position = {
+				x = 0
+				y = 28
+			}
 		}
 		path = {
 			leads_to_tech = 90mm_apc
 			research_cost_coeff = 1
 		}
-
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3245.1.1"
@@ -3105,7 +2838,6 @@ technologies = {
 		}
 	}
 	90mm_apc = {
-
 		apc_mechanized = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -3116,28 +2848,26 @@ technologies = {
 			leads_to_tech = rockets_apc
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3248
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 30 }
+			position = {
+				x = 0
+				y = 30
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3250.1.1"
@@ -3145,7 +2875,6 @@ technologies = {
 		}
 	}
 	rockets_apc = {
-
 		apc_mechanized = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -3153,92 +2882,83 @@ technologies = {
 			defense = 0.03
 		}
 		path = {
-			leads_to_tech = reactive_armour_apc
+			leads_to_tech = nanite_armour_apc
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3249
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 32 }
+			position = {
+				x = 0
+				y = 32
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3250.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3251.1.1"
 			}
 		}
 	}
-	reactive_armour_apc = {
-
+	nanite_armour_apc = {
 		apc_mechanized = {
 			breakthrough = 0.03
 			defense = 0.03
 		}
-
 		research_cost = 2
 		start_year = 3250
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 34 }
+			position = {
+				x = 0
+				y = 34
+			}
 		}
-		
 		categories = {
 			motorized_equipment
 			infantry_tech
 			cat_mechanized_equipment
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3251.1.1"
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3252.1.1"
 			}
 		}
 	}
-	
-	
-	
 	paratroopers = {
-
 		enable_subunits = {
 			paratrooper
 		}
-		
 		path = {
 			leads_to_tech = paratroopers2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
 		}
-		
 		on_research_complete_limit = {
 			NOT = {
 				has_template_containing_unit = paratrooper
@@ -3249,157 +2969,110 @@ technologies = {
 				load_oob = "unlock_paratroopers"
 			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-		
 		categories = {
 			para_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
 			}
 		}
 	}
-	
 	paratroopers2 = {
-
 		paratrooper = {
 			max_organisation = 5
 			soft_attack = 0.05
 		}
-		
 		path = {
 			leads_to_tech = paratroopers3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 1.5
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
-		
 		categories = {
 			para_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
 			}
 		}
 	}
-
 	paratroopers3 = {
-
 		paratrooper = {
 			max_organisation = 5
 			soft_attack = 0.05
 		}
-		
 		path = {
 			leads_to_tech = paratroopers4
 			research_cost_coeff = 1
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
-		
 		categories = {
 			para_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
 			}
 		}
 	}
-
 	paratroopers4 = {
-
 		paratrooper = {
 			max_organisation = 5
 		}
-
 		research_cost = 2
 		start_year = 3247
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
-		
 		categories = {
 			para_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
 			}
 		}
 	}
-	
 	marines = {
-
 		enable_subunits = {
 			marine
 		}
-		
 		on_research_complete_limit = {
 			NOT = {
 				has_template_containing_unit = marine
@@ -3408,43 +3081,37 @@ technologies = {
 		on_research_complete = {
 			hidden_effect = {
 				load_oob = "unlock_marines"
-			}			
+			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-
 		path = {
 			leads_to_tech = marines2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
 		}
-		
 		categories = {
 			marine_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
-			
-			modifier = {
-				factor = 3
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 3
-				tag = JAP
-			}
 		}
 	}
-	
 	marines2 = {
-
 		marine = {
 			max_organisation = 5
 			soft_attack = 0.05
@@ -3453,36 +3120,24 @@ technologies = {
 			leads_to_tech = marines3
 			research_cost_coeff = 1
 		}
-		
-
 		research_cost = 1.5
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
-		
 		categories = {
 			marine_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
-			
-			modifier = {
-				factor = 3
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 3
-				tag = JAP
-			}
 		}
 	}
-	
 	marines3 = {
-
 		marine = {
 			max_organisation = 5
 			soft_attack = 0.05
@@ -3491,71 +3146,48 @@ technologies = {
 			leads_to_tech = marines4
 			research_cost_coeff = 1
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
-		
 		categories = {
 			marine_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
-			
-			modifier = {
-				factor = 3
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 3
-				tag = JAP
-			}
 		}
-	}	
-	
+	}
 	marines4 = {
-
 		marine = {
 			max_organisation = 5
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
-		
 		categories = {
 			marine_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
-			
-			modifier = {
-				factor = 3
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 3
-				tag = JAP
-			}
 		}
-	}	
-	
+	}
 	tech_jagers = {
-
 		enable_subunits = {
 			jagers
 		}
-
 		on_research_complete_limit = {
 			NOT = {
 				has_template_containing_unit = jagers
@@ -3566,128 +3198,118 @@ technologies = {
 				load_oob = "unlock_jagers"
 			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_jagers2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 1936
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
 		}
-		
 		categories = {
+			jagers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	
 	tech_jagers2 = {
-
 		jagers = {
 			max_organisation = 5
 			soft_attack = 0.05
 		}
-		
 		path = {
 			leads_to_tech = tech_jagers3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 1.5
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
-		
 		categories = {
+			jagers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				factor = 2
-				tag = USA
-			}
-			
-			modifier = {
-				factor = 2
-			}
-			
-			modifier = {
-				factor = 2
-				tag = ENG
 			}
 		}
 	}
-	
 	tech_jagers3 = {
-
 		jagers = {
 			max_organisation = 5
 			soft_attack = 0.05
 		}
-		
 		path = {
 			leads_to_tech = tech_jagers4
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
-		
 		categories = {
+			jagers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
 		}
 	}
-	
 	tech_jagers4 = {
-
 		jagers = {
 			max_organisation = 5
 		}
-		
 		path = {
 			leads_to_tech = tech_jagers4
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3247
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
-		
 		categories = {
+			jagers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.5
 		}
 	}
-	
 	tech_mountaineers = {
-
 		enable_subunits = {
 			mountaineers
 		}
-
 		on_research_complete_limit = {
 			NOT = {
 				has_template_containing_unit = mountaineers
@@ -3698,32 +3320,35 @@ technologies = {
 				load_oob = "unlock_mountineers"
 			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_mountaineers2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 1936
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 2 }
+			position = {
+				x = 0
+				y = 2
+			}
 		}
-		
 		categories = {
-			infantry_tech
 			mountaineers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	
 	tech_mountaineers2 = {
-
 		mountaineers = {
 			max_organisation = 5
 			soft_attack = 0.05
@@ -3732,26 +3357,24 @@ technologies = {
 			leads_to_tech = tech_mountaineers3
 			research_cost_coeff = 1
 		}
-
-
 		research_cost = 1.5
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 6 }
+			position = {
+				x = 0
+				y = 6
+			}
 		}
-		
 		categories = {
-			infantry_tech
 			mountaineers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	
-	tech_mountaineers3 = {	
+	tech_mountaineers3 = {
 		mountaineers = {
 			max_organisation = 5
 			soft_attack = 0.05
@@ -3760,52 +3383,49 @@ technologies = {
 			leads_to_tech = tech_mountaineers4
 			research_cost_coeff = 1
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 12 }
+			position = {
+				x = 0
+				y = 12
+			}
 		}
-		
 		categories = {
-			infantry_tech
 			mountaineers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	
-	tech_mountaineers4 = {	
+	tech_mountaineers4 = {
 		mountaineers = {
 			max_organisation = 5
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3247
 		folder = {
 			name = infantry_folder
-			position = { x = 0 y = 18 }
+			position = {
+				x = 0
+				y = 18
+			}
 		}
-		
 		categories = {
-			infantry_tech
 			mountaineers_tech
+			special_troops
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-
 	tech_special_forces = {
 		category_special_forces = {
 			acclimatization_hot_climate_gain_factor = 0.05
 			acclimatization_cold_climate_gain_factor = 0.05
 		}
-		
 		#dependencies = {
 		#	OR = {
 		#		marines = 1
@@ -3813,161 +3433,157 @@ technologies = {
 		#		mountaineer = 1
 		#	}
 		#}
-
 		path = {
 			leads_to_tech = advanced_special_forces
 			research_cost_coeff = 1
 		}
-
 		path = {
 			leads_to_tech = improved_special_forces
 			research_cost_coeff = 1
 		}
-
 		path = {
 			leads_to_tech = special_forces_survival_training_1
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 2 }
+			position = {
+				x = 4
+				y = 2
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	special_forces_survival_training_1 = {
-
 		category_special_forces = {
 			acclimatization_hot_climate_gain_factor = 0.15
 			acclimatization_cold_climate_gain_factor = 0.15
 		}
-		
 		special_forces_out_of_supply_factor = -0.06
-		
 		path = {
 			leads_to_tech = special_forces_tactics_training_1
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3238
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 4 }
+			position = {
+				x = 7
+				y = 4
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	special_forces_tactics_training_1 = {
-
 		category_special_forces = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-		
 		path = {
 			leads_to_tech = special_forces_survival_training_2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 8 }
+			position = {
+				x = 7
+				y = 8
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	special_forces_survival_training_2 = {
-
 		category_special_forces = {
 			acclimatization_hot_climate_gain_factor = 0.15
 			acclimatization_cold_climate_gain_factor = 0.15
 		}
-		
 		special_forces_out_of_supply_factor = -0.06
-		
 		path = {
 			leads_to_tech = special_forces_tactics_training_2
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3243
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 12 }
+			position = {
+				x = 7
+				y = 12
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	special_forces_tactics_training_2 = {
-
 		category_special_forces = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-		
 		path = {
 			leads_to_tech = special_forces_nanocostume
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = infantry_folder
-			position = { x = 7 y = 16 }
+			position = {
+				x = 7
+				y = 16
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	special_forces_nanocostume = {
-
 		category_special_forces = {
 			breakthrough = 0.5
 			defense = 0.15
@@ -3978,126 +3594,122 @@ technologies = {
 		}
 		special_forces_training_time_factor = 0.15
 		special_forces_out_of_supply_factor = 0.03
-		
 		research_cost = 4
 		start_year = 3250
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 20 }
+			position = {
+				x = 5
+				y = 20
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	advanced_special_forces = {
-		xor={
+		xor = {
 			improved_special_forces
 		}
-
 		category_special_forces = {
 			max_organisation = 5
 			defense = 0.05
 			breakthrough = 0.03
 		}
-
 		special_forces_training_time_factor = 0.1
-		
 		path = {
 			leads_to_tech = extreme_environment_training
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 6 }
+			position = {
+				x = 3
+				y = 6
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-
 	improved_special_forces = {
-		xor={
+		xor = {
 			advanced_special_forces
 		}
-
 		special_forces_cap = 0.05
 		special_forces_training_time_factor = -0.1
-		
 		path = {
 			leads_to_tech = survival_training
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3239
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 6 }
+			position = {
+				x = 5
+				y = 6
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-
-
 	extreme_environment_training = {
-
 		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.50
-			acclimatization_cold_climate_gain_factor = 0.50
+			acclimatization_hot_climate_gain_factor = 0.5
+			acclimatization_cold_climate_gain_factor = 0.5
 		}
-		
 		special_forces_no_supply_grace = 48
 		special_forces_training_time_factor = 0.1
-		
 		path = {
 			leads_to_tech = special_drugs_for_special_forces
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3242
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 10 }
+			position = {
+				x = 3
+				y = 10
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	special_drugs_for_special_forces = { 
-
+	special_drugs_for_special_forces = {
 		category_special_forces = {
 			acclimatization_hot_climate_gain_factor = 0.25
 			acclimatization_cold_climate_gain_factor = 0.25
@@ -4106,66 +3718,63 @@ technologies = {
 			default_morale = -0.02
 			max_organisation = -2
 		}
-		
 		special_forces_no_supply_grace = 36
 		special_forces_training_time_factor = 0.05
-		
 		path = {
 			leads_to_tech = elite_forces
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3245
 		folder = {
 			name = infantry_folder
-			position = { x = 3 y = 14 }
+			position = {
+				x = 3
+				y = 14
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
 	survival_training = {
-
 		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.20
-			acclimatization_cold_climate_gain_factor = 0.20
+			acclimatization_hot_climate_gain_factor = 0.2
+			acclimatization_cold_climate_gain_factor = 0.2
 		}
-		
 		special_forces_out_of_supply_factor = -0.1
-		
 		path = {
 			leads_to_tech = special_equipment_for_special_forces
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3242
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 10 }
+			position = {
+				x = 5
+				y = 10
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-	
 	special_equipment_for_special_forces = {
-
 		marine = {
 			river = {
 				defence = 0.05
@@ -4192,8 +3801,8 @@ technologies = {
 				movement = 0.1
 			}
 			fort = {
-				defence = 0.10
-				attack = 0.10
+				defence = 0.1
+				attack = 0.1
 			}
 		}
 		mountaineers = {
@@ -4224,8 +3833,8 @@ technologies = {
 				movement = 0.1
 			}
 			fort = {
-				defence = 0.10
-				attack = 0.10
+				defence = 0.1
+				attack = 0.1
 			}
 		}
 		paratrooper = {
@@ -4258,104 +3867,103 @@ technologies = {
 				movement = 0.1
 			}
 			fort = {
-				defence = 0.10
-				attack = 0.10
+				defence = 0.1
+				attack = 0.1
 			}
 		}
-		
-		
-		
 		special_forces_cap = 0.02
 		special_forces_out_of_supply_factor = -0.1
-	
-		
 		path = {
 			leads_to_tech = elite_forces
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3242
 		folder = {
 			name = infantry_folder
-			position = { x = 5 y = 14 }
+			position = {
+				x = 5
+				y = 14
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-
 	elite_forces = {
 		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.20
-			acclimatization_cold_climate_gain_factor = 0.20
+			acclimatization_hot_climate_gain_factor = 0.2
+			acclimatization_cold_climate_gain_factor = 0.2
 			max_organisation = 5
 			soft_attack = 0.05
 		}
-			
 		path = {
 			leads_to_tech = special_forces_nanocostume
 			research_cost_coeff = 1
 		}
 		special_forces_no_supply_grace = 48
-
 		research_cost = 2
 		start_year = 3247
 		folder = {
 			name = infantry_folder
-			position = { x = 4 y = 18 }
+			position = {
+				x = 4
+				y = 18
+			}
 		}
-		
 		categories = {
 			mountaineers_tech
 			marine_tech
 			para_tech
+			special_troops
+			special_troops_upgrades
 		}
-		
 		ai_will_do = {
 			factor = 0.7
 		}
 	}
-
 	jungle_warfare = {
-
 		research_cost = 1
-
 		# only from focus!!! #####
 		allow = {
 			always = no
 		}
-
-
 		#If you change these
 		#Change the custom tooltip too: RAJ_jungle_training_effect
 		marine = {
 			jungle = {
-				attack = 0.05 
+				attack = 0.05
 				movement = 0.1
 			}
 		}
-
 		mountaineers = {
 			jungle = {
 				attack = 0.05
 				movement = 0.1
 			}
 		}
-
 		paratrooper = {
 			jungle = {
 				attack = 0.05
 				movement = 0.1
 			}
 		}
-
+	}
+	penal_infantry = {
+		allow = {
+			always = no
+		}
+		research_cost = 1
+		start_year = 1936
+		enable_subunits = {
+			penal_battalion
+		}
 	}
 }

@@ -3,72 +3,60 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_1_Submission < 20
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_1_Submission < 20
 					}
 				}
 				EGG = { country_event = egg.34 }
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_2_Submission < 20
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_2_Submission < 20
 					}
 				}
 				EGG = { country_event = egg.35 }
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_3_Submission < 20
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_3_Submission < 20
 					}
 				}
 				EGG = { country_event = egg.36 }
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_4_Submission < 20
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_4_Submission < 20
 					}
 				}
 				EGG = { country_event = egg.37 }
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_1_Submission < 40
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_1_Submission < 40
 					}
 				}
 				EGG = { add_ideas = DEL_weak_units }
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_2_Submission < 40
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_2_Submission < 40
 					}
 				}
 				NRD = {
@@ -79,12 +67,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_3_Submission < 40
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_3_Submission < 40
 					}
 				}
 				GDD = {
@@ -95,15 +81,13 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						OR = {
-							FROM = { is_in_faction_with = RCR }
-							FROM = { is_in_faction_with = KOA }
-							FROM = { is_in_faction_with = SWA }
-							FROM = { is_in_faction_with = PSR }
-							FROM = { is_in_faction_with = IRO }
-						}
+					ROOT = { tag = EGG }
+					OR = {
+						FROM = { is_in_faction_with = RCR }
+						FROM = { is_in_faction_with = KOA }
+						FROM = { is_in_faction_with = SWA }
+						FROM = { is_in_faction_with = PSR }
+						FROM = { is_in_faction_with = IRO }
 					}
 				}
 				EGG = {
@@ -117,12 +101,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						ROOT = { tag = EGG }
-						FROM = { is_in_faction_with = KOA }
-						check_variable = {
-							EGG.DEL_4_Submission < 40
-						}
+					ROOT = { tag = EGG }
+					FROM = { is_in_faction_with = KOA }
+					check_variable = {
+						EGG.DEL_4_Submission < 40
 					}
 				}
 				SOU = {
@@ -148,82 +130,64 @@ on_actions = {
 			add_to_variable = {
 				EGG.DEL_4_Submission = EGG.DEL_4_Submission_rate
 			}
-			if ={
+			if = {
 				limit = {
-					has_dynamic_modifier = EGG_Draining_warfare
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
+					}
 				}
 				random_owned_state = {
 					limit = {
-						has_resources_amount = {
-							resource = oil
-							amount > 0
-							state = THIS
-						}
+						oil > 0
 					}
-					destroy_resource = {
+					add_resource = {
 						type = oil
-						amount = 11
+						amount = -11
 					}
 				}
 				random_owned_state = {
 					limit = {
-						has_resources_amount = {
-							resource = steel
-							amount > 0
-							state = THIS
-						}
+						steel > 0
 					}
-					destroy_resource = {
+					add_resource = {
 						type = steel
-						amount = 15
+						amount = -15
 					}
 				}
 				random_owned_state = {
 					limit = {
-						has_resources_amount = {
-							resource = tungsten
-							amount > 0
-							state = THIS
-						}
+						tungsten > 0
 					}
-					destroy_resource = {
+					add_resource = {
 						type = tungsten
-						amount = 7
+						amount = -7
 					}
 				}
 				random_owned_state = {
 					limit = {
-						has_resources_amount = {
-							resource = chromium
-							amount > 0
-							state = THIS
-						}
+						chromium > 0
 					}
-					destroy_resource = {
+					add_resource = {
 						type = chromium
-						amount = 7
+						amount = -7
 					}
 				}
 				random_owned_state = {
 					limit = {
-						has_resources_amount = {
-							resource = aluminium
-							amount > 0
-							state = THIS
-						}
+						aluminium > 0
 					}
-					destroy_resource = {
+					add_resource = {
 						type = aluminium
-						amount = 10
+						amount = -10
 					}
 				}
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						casualties > 100000
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					casualties > 100000
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
@@ -231,10 +195,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						casualties > 200000
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					casualties > 200000
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
@@ -242,10 +206,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						casualties > 300000
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					casualties > 300000
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
@@ -253,10 +217,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						casualties > 400000
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					casualties > 400000
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
@@ -264,10 +228,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						casualties > 500000
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					casualties > 500000
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
@@ -275,14 +239,185 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						has_dynamic_modifier = EGG_Draining_warfare
-						has_damaged_buildings = yes
+					has_dynamic_modifier = {
+						modifier = EGG_Draining_warfare
 					}
+					has_damaged_buildings = yes
 				}
 				add_to_variable = {
 					EGG_war_devastation = 0.01
 				}
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = OLP }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.600 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = OLP }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.600 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = HIB }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.601 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = HIB }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.601 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = UMK }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.602 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = UMK }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.602 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = KUN }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.603 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = KUN }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.603 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = PSR }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.604 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = PSR }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.604 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = PIR }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.605 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = PIR }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.605 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = CRI }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.606 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = CRI }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.606 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = NEA }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.607 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = NEA }
+					FROM = { tag = NRD }
+				}
+				FROM = { country_event = egg.607 }
+			}
+		}
+	}
+
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = GDK }
+					FROM = { tag = EGG }
+				}
+				FROM = { country_event = egg.608 }
+			}
+				else_if = {
+				limit = {
+					ROOT = { tag = GDK }
+					FROM = { tag = GDD }
+				}
+				FROM = { country_event = egg.608 }
 			}
 		}
 	}

@@ -8,8 +8,10 @@ focus_tree = {
 		}
 	}
 	default = no
-	continuous_focus_position = { x = 50 y = 5000 }
-	
+	continuous_focus_position = {
+		x = 50
+		y = 5000
+	}
 	focus = {
 		id = INF_the_Phantom_Ruby
 		icon = GFX_focus_the_Ruby
@@ -52,7 +54,7 @@ focus_tree = {
 		y = 1
 	}
 	focus = {
-		id = INF_purge_our_enemies
+		id = INF_Crackdown_on_Monarchists
 		icon = GFX_focus_purge_enemies
 		cost = 7
 		prerequisite = {
@@ -75,11 +77,17 @@ focus_tree = {
 		id = INF_loyal_soldiers
 		icon = GFX_focus_loyal_soldiers
 		cost = 7
-		available = {
-			command_power > 69
-		}
 		prerequisite = {
 			focus = INF_brain_washing
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = Loyal_soldiers
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_ideas = INF_Loyal_Military
 		}
 		x = 9
 		y = 2
@@ -94,18 +102,21 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_steal_the_Gold
 		}
+		completion_reward = {
+			add_ideas = INF_Slave_Industry
+		}
 		x = 11
 		y = 2
 	}
 	focus = {
-		id = INF_build_factories
+		id = INF_Industrial_Backbone
 		icon = GFX_focus_build_factories
 		cost = 7
 		prerequisite = {
 			focus = INF_brain_washing
 		}
 		prerequisite = {
-			focus = INF_purge_our_enemies
+			focus = INF_Crackdown_on_Monarchists
 		}
 		completion_reward = {
 			203 = {
@@ -130,7 +141,7 @@ focus_tree = {
 		icon = GFX_focus_buy_Eggman_weapon
 		cost = 7
 		prerequisite = {
-			focus = INF_purge_our_enemies
+			focus = INF_Crackdown_on_Monarchists
 		}
 		completion_reward = {
 			713 = {
@@ -148,12 +159,15 @@ focus_tree = {
 	focus = {
 		id = INF_I_cant_resist
 		icon = GFX_focus_i_cant_resist
-		cost = 7
+		cost = 1
 		prerequisite = {
 			focus = INF_buy_Eggman_weapon
 		}
 		prerequisite = {
-			focus = INF_build_factories
+			focus = INF_Industrial_Backbone
+		}
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 13
 		y = 3
@@ -161,12 +175,15 @@ focus_tree = {
 	focus = {
 		id = INF_this_pain_persists
 		icon = GFX_focus_pain
-		cost = 7
+		cost = 1
 		prerequisite = {
 			focus = INF_Enslave_workers
 		}
 		prerequisite = {
 			focus = INF_loyal_soldiers
+		}
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 11
 		y = 3
@@ -182,7 +199,7 @@ focus_tree = {
 			focus = INF_this_pain_persists
 		}
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
+			add_political_power = 150
 		}
 		x = 12
 		y = 4
@@ -194,14 +211,14 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
 		}
-		allow_branch = {
-			has_completed_focus = INF_But_thats_what_it_takes_to_be_Infinite
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 12
 		y = 5
 	}
 	focus = {
-		id = INF_operation_Kraken
+		id = INF_Steal_Their_Brains
 		icon = GFX_focus_steal_minds
 		cost = 7
 		prerequisite = {
@@ -212,49 +229,66 @@ focus_tree = {
 		}
 		x = 14
 		y = 6
-	}	
+	}
 	focus = {
-		id = INF_operation_Metal
+		id = INF_Take_Their_Weapons
 		icon = GFX_focus_take_their_robots
 		cost = 7
 		prerequisite = {
 			focus = INF_I_am_the_sharpest_of_blades
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = Operation_Meral
+				bonus = 0.75
+				uses = 2
+				category = infantry_weapons
+			}
+		}
 		x = 12
 		y = 6
 	}
 	focus = {
-		id = INF_reroot_Federation
+		id = INF_Distract_Their_Eyes
 		icon = GFX_focus_distract_federation
 		cost = 7
 		prerequisite = {
 			focus = INF_I_am_the_sharpest_of_blades
 		}
+		completion_reward = {
+			add_decryption = {
+				target = UFA
+				amount = 5
+			}
+		}
 		x = 10
 		y = 6
 	}
 	focus = {
-		id = INF_trophy_divisions
+		id = INF_Make_Them_Die_For_Us
 		icon = GFX_focus_trophy_divisions
 		cost = 7
 		prerequisite = {
-			focus = INF_operation_Metal
+			focus = INF_Take_Their_Weapons
 		}
 		prerequisite = {
-			focus = INF_reroot_Federation
+			focus = INF_Distract_Their_Eyes
+		}
+		completion_reward = {
+			add_ideas = INF_Chinks_In_Their_Armour
 		}
 		x = 11
 		y = 7
 	}
 	focus = {
-		id = INF_stolen_blueprints
+		id = INF_Study_Their_Technology
 		icon = GFX_focus_stolen_blueprints
 		cost = 7
 		prerequisite = {
-			focus = INF_operation_Metal
+			focus = INF_Take_Their_Weapons
 		}
 		prerequisite = {
-			focus = INF_operation_Kraken
+			focus = INF_Steal_Their_Brains
 		}
 		completion_reward = {
 			add_ideas = INF_Copying_Our_Enemies
@@ -263,14 +297,30 @@ focus_tree = {
 		y = 7
 	}
 	focus = {
-		id = INF_Ruby_Radar
+		id = INF_See_Them_Through
 		icon = GFX_focus_ruby_radar
 		cost = 7
 		prerequisite = {
-			focus = INF_trophy_divisions
+			focus = INF_Make_Them_Die_For_Us
 		}
 		prerequisite = {
-			focus = INF_stolen_blueprints
+			focus = INF_Study_Their_Technology
+		}
+		completion_reward = {
+			add_decryption = {
+				target = UFA
+				amount = 0.5
+			}
+			every_owned_state = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_technology = {
+				radio_detection = 1
+			}
 		}
 		x = 12
 		y = 8
@@ -280,7 +330,10 @@ focus_tree = {
 		icon = GFX_focus_tidal_wave
 		cost = 7
 		prerequisite = {
-			focus = INF_Ruby_Radar
+			focus = INF_See_Them_Through
+		}
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 12
 		y = 9
@@ -291,6 +344,9 @@ focus_tree = {
 		cost = 7
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
+		}
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 6
 		y = 5
@@ -315,21 +371,67 @@ focus_tree = {
 		y = 6
 	}
 	focus = {
-		id = INF_Motorized_death
+		id = INF_Death_on_Wheels
 		icon = GFX_focus_motorized_death
 		cost = 7
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = Motorized_death
+				bonus = 0.5
+				uses = 2
+				category = motorized_equipment
+			}
+			add_tech_bonus = {
+				name = Motorized_death
+				bonus = 0.5
+				uses = 2
+				category = cat_mechanized_equipment
+			}
+		}
 		x = 6
 		y = 6
 	}
 	focus = {
-		id = INF_Rubber_and_oil
+		id = INF_Gas_and_Tires
 		icon = GFX_focus_oil_and_rubber
 		cost = 7
 		prerequisite = {
 			focus = INF_I_am_a_dangerous_weapon
+		}
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 716
+			}
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 713
+			}
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 540
+			}
+			add_resource = {
+				type = rubber
+				amount = 2
+				state = 716
+			}
+			add_resource = {
+				type = rubber
+				amount = 2
+				state = 713
+			}
+			add_resource = {
+				type = rubber
+				amount = 2
+				state = 540
+			}
 		}
 		x = 8
 		y = 6
@@ -339,13 +441,16 @@ focus_tree = {
 		icon = GFX_focus_foxtrot_plan
 		cost = 7
 		prerequisite = {
-			focus = INF_Rubber_and_oil
+			focus = INF_Gas_and_Tires
 		}
 		prerequisite = {
-			focus = INF_Motorized_death
+			focus = INF_Death_on_Wheels
 		}
 		mutually_exclusive = {
 			focus = INF_Tango_plan
+		}
+		completion_reward = {
+			add_ideas = INF_Foxtrot_Plan
 		}
 		x = 7
 		y = 7
@@ -358,10 +463,13 @@ focus_tree = {
 			focus = INF_Fury_road
 		}
 		prerequisite = {
-			focus = INF_Motorized_death
+			focus = INF_Death_on_Wheels
 		}
 		mutually_exclusive = {
 			focus = INF_Foxtrot_plan
+		}
+		completion_reward = {
+			add_ideas = INF_Tango_Plan
 		}
 		x = 5
 		y = 7
@@ -413,7 +521,7 @@ focus_tree = {
 		y = 8
 	}
 	focus = {
-		id = INF_Boost_motorized_production
+		id = INF_We_Need_More_Cars
 		icon = GFX_focus_boost_motorized_production
 		cost = 7
 		prerequisite = {
@@ -433,7 +541,7 @@ focus_tree = {
 			focus = INF_Infinite_Guard
 		}
 		prerequisite = {
-			focus = INF_Boost_motorized_production
+			focus = INF_We_Need_More_Cars
 			focus = INF_introduce_ICV
 		}
 		completion_reward = {
@@ -441,14 +549,14 @@ focus_tree = {
 				change_state_after_war = yes
 				attacker = {
 					state = 540
-					num_provinces = 1755
+					num_provinces = 5
 					on_win = inf_border_conflict.2
 					on_lose = inf_border_conflict.3
 					on_cancel = inf_border_conflict.4
 				}
 				defender = {
 					state = 741
-					num_provinces = 1672
+					num_provinces = 6
 					on_win = inf_border_conflict.3
 					on_lose = inf_border_conflict.2
 					on_cancel = inf_border_conflict.4
@@ -465,11 +573,46 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_introduce_ICV
 		}
+		completion_reward = {
+			203 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			718 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
 		x = 2
 		y = 9
 	}
 	focus = {
-		id = INF_head_to_head
+		id = INF_Face_to_Face
 		icon = GFX_focus_head_to_head
 		cost = 7
 		prerequisite = {
@@ -478,18 +621,28 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_Infinite_Guard
 		}
+		completion_reward = {
+			add_ideas = INF_Improved_Training
+		}
 		x = 4
 		y = 9
 	}
 	focus = {
-		id = INF_infiltration_school
+		id = INF_Deep_Infiltration
 		icon = GFX_focus_infiltration_squad
 		cost = 7
 		prerequisite = {
-			focus = INF_Boost_motorized_production
+			focus = INF_We_Need_More_Cars
 		}
 		prerequisite = {
 			focus = INF_Infinite_Guard
+		}
+		completion_reward = {
+			add_decryption = {
+				target = BHA
+				amount = 0.5
+			}
+			add_ideas = INF_Deep_Infiltration
 		}
 		x = 8
 		y = 9
@@ -499,7 +652,25 @@ focus_tree = {
 		icon = GFX_focus_plan_snake
 		cost = 7
 		prerequisite = {
-			focus = INF_Boost_motorized_production
+			focus = INF_We_Need_More_Cars
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = INF
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 		x = 10
 		y = 9
@@ -511,18 +682,21 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_But_thats_what_it_takes_to_be_Infinite
 		}
+		completion_reward = {
+			add_threat = 5
+		}
 		x = 19
 		y = 5
 	}
 	focus = {
-		id = INF_demoralize_army
+		id = INF_Disintegrate_Their_Army
 		icon = GFX_focus_demoralize_army
 		cost = 7
 		prerequisite = {
 			focus = INF_cut_you_down
 		}
 		mutually_exclusive = {
-			focus = INF_demoralize_society
+			focus = INF_Disintegrate_Their_Society
 		}
 		completion_reward = {
 			UFA = {
@@ -533,14 +707,14 @@ focus_tree = {
 		y = 6
 	}
 	focus = {
-		id = INF_demoralize_society
+		id = INF_Disintegrate_Their_Society
 		icon = GFX_focus_demoralize_society
 		cost = 7
 		prerequisite = {
 			focus = INF_cut_you_down
 		}
 		mutually_exclusive = {
-			focus = INF_demoralize_army
+			focus = INF_Disintegrate_Their_Army
 		}
 		completion_reward = {
 			UFA = {
@@ -551,11 +725,11 @@ focus_tree = {
 		y = 6
 	}
 	focus = {
-		id = INF_steal_resourses
+		id = INF_False_Resourses
 		icon = GFX_focus_fake_resourses
 		cost = 7
 		prerequisite = {
-			focus = INF_demoralize_society
+			focus = INF_Disintegrate_Their_Society
 		}
 		completion_reward = {
 			set_global_flag = INF_Fake_Resources_Completed
@@ -569,7 +743,16 @@ focus_tree = {
 		icon = GFX_focus_take_hostages
 		cost = 7
 		prerequisite = {
-			focus = INF_demoralize_society
+			focus = INF_Disintegrate_Their_Society
+		}
+		completion_reward = {
+			UFA = {
+				add_stability = -0.1
+				#retire_character = UFA_Shadow_the_Hedgehog
+			}
+			INF = {
+				add_stability = 0.1
+			}
 		}
 		x = 21
 		y = 7
@@ -579,8 +762,13 @@ focus_tree = {
 		icon = GFX_focus_prepare_mutinies
 		cost = 7
 		prerequisite = {
-			focus = INF_demoralize_society
-			focus = INF_demoralize_army
+			focus = INF_Disintegrate_Their_Society
+			focus = INF_Disintegrate_Their_Army
+		}
+		completion_reward = {
+			UFA = {
+				add_stability = -0.1
+			}
 		}
 		x = 19
 		y = 7
@@ -590,7 +778,7 @@ focus_tree = {
 		icon = GFX_focus_arrange_desertion
 		cost = 7
 		prerequisite = {
-			focus = INF_demoralize_army
+			focus = INF_Disintegrate_Their_Army
 		}
 		completion_reward = {
 			UFA = {
@@ -600,7 +788,7 @@ focus_tree = {
 					}
 					remove_ideas = UFA_Collapsing_Army_1
 				}
-				if = {
+				else_if = {
 					limit = {
 						has_idea = UFA_Collapsing_Army_3
 					}
@@ -613,11 +801,11 @@ focus_tree = {
 		y = 7
 	}
 	focus = {
-		id = INF_brainwash_our_troops
+		id = INF_brainwash_troops
 		icon = GFX_focus_brainwash_troops
 		cost = 7
 		prerequisite = {
-			focus = INF_demoralize_army
+			focus = INF_Disintegrate_Their_Army
 		}
 		completion_reward = {
 			UFA = {
@@ -640,14 +828,34 @@ focus_tree = {
 		y = 7
 	}
 	focus = {
-		id = INF_entice_divisions
+		id = INF_All_Your_Army_Belongs_To_Me
 		icon = GFX_focus_entice_divisions
 		cost = 7
 		prerequisite = {
 			focus = INF_arrange_desertion
 		}
 		prerequisite = {
-			focus = INF_brainwash_our_troops
+			focus = INF_brainwash_troops
+		}
+		completion_reward = {
+			random_owned_state = {
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+				create_unit = {
+					division = "name = \"Infantry Assualt Division\" division_template = \"Infantry Assualt Division\" start_experience_factor = 1 start_equipment_factor = 1"
+					owner = INF
+				}
+			}
 		}
 		x = 16
 		y = 8
@@ -662,7 +870,7 @@ focus_tree = {
 		completion_reward = {
 			UFA = {
 				country_event = {
-					id = ufa.100
+					id = ufa.1000
 				}
 			}
 		}
@@ -670,14 +878,24 @@ focus_tree = {
 		y = 8
 	}
 	focus = {
-		id = INF_steal_industry
+		id = INF_All_Your_Base_Belongs_To_Me
 		icon = GFX_focus_steal_factories
 		cost = 7
 		prerequisite = {
-			focus = INF_steal_resourses
+			focus = INF_False_Resourses
 		}
 		prerequisite = {
 			focus = INF_take_hostages
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
 		}
 		x = 22
 		y = 8
@@ -690,8 +908,11 @@ focus_tree = {
 			focus = INF_riots_everywhere
 		}
 		prerequisite = {
-			focus = INF_steal_industry
-			focus = INF_entice_divisions
+			focus = INF_All_Your_Base_Belongs_To_Me
+			focus = INF_All_Your_Army_Belongs_To_Me
+		}
+		completion_reward = {
+			add_threat = 5
 		}
 		x = 19
 		y = 9
@@ -709,6 +930,15 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_this_is_an_illusion
 		}
+		completion_reward = {
+			declare_war_on = {
+				target = BHA
+			}
+			BHA = {
+				leave_faction = yes
+			}
+			#country_event = { id = inf.106 }
+		}
 		x = 12
 		y = 10
 	}
@@ -719,6 +949,13 @@ focus_tree = {
 		prerequisite = {
 			focus = INF_take_whats_mine
 		}
+		completion_reward = {
+			declare_war_on = {
+				target = UFA
+				type = annex_everything
+			}
+			set_major = yes
+		}
 		x = 12
 		y = 11
 	}
@@ -727,7 +964,7 @@ focus_tree = {
 		icon = GFX_focus_huranjan
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
 		}
 		completion_reward = {
 			create_wargoal = {
@@ -743,7 +980,7 @@ focus_tree = {
 		icon = GFX_focus_install_AA
 		cost = 7
 		prerequisite = {
-			focus =  INF_Huranjan_direction
+			focus = INF_Huranjan_direction
 		}
 		completion_reward = {
 			every_state = {
@@ -762,7 +999,7 @@ focus_tree = {
 		icon = GFX_focus_ATGM
 		cost = 7
 		prerequisite = {
-			focus =  INF_Huranjan_direction
+			focus = INF_Huranjan_direction
 		}
 		completion_reward = {
 			add_equipment_to_stockpile = {
@@ -770,6 +1007,7 @@ focus_tree = {
 				amount = 500
 			}
 			add_tech_bonus = {
+				name = ATGM_stock
 				category = cat_anti_tank
 				bonus = 1
 				uses = 1
@@ -783,10 +1021,10 @@ focus_tree = {
 		icon = GFX_focus_west_frontier
 		cost = 7
 		prerequisite = {
-			focus =  INF_ATGM_stock
+			focus = INF_ATGM_stock
 		}
 		prerequisite = {
-			focus =  INF_build_AA
+			focus = INF_build_AA
 		}
 		bypass = {
 			if = {
@@ -809,6 +1047,7 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 					province = {
+						all_provinces = yes
 						limit_to_border = yes
 					}
 				}
@@ -822,20 +1061,9 @@ focus_tree = {
 		icon = GFX_focus_bharatsha_integration
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
 		}
 		completion_reward = {
-			BHA = {
-				if = {
-					limit = {
-						exists = no
-						every_state = {
-							is_controlled_by = INF
-						}
-					}
-					add_core_of = INF
-				}
-			}
 			country_event = {
 				id = inf.105
 			}
@@ -848,7 +1076,10 @@ focus_tree = {
 		icon = GFX_focus_bharatsha_slaves
 		cost = 7
 		prerequisite = {
-			focus =  INF_integrating_Bharatshan_land
+			focus = INF_integrating_Bharatshan_land
+		}
+		completion_reward = {
+			add_ideas = INF_Enslaved_Bharatshans
 		}
 		x = 6
 		y = 13
@@ -858,7 +1089,7 @@ focus_tree = {
 		icon = GFX_focus_bharatsha_divisions
 		cost = 7
 		prerequisite = {
-			focus =  INF_integrating_Bharatshan_land
+			focus = INF_integrating_Bharatshan_land
 		}
 		completion_reward = {
 			random_owned_state = {
@@ -896,7 +1127,7 @@ focus_tree = {
 		icon = GFX_focus_local_autority
 		cost = 7
 		prerequisite = {
-			focus =  INF_integrating_Bharatshan_land
+			focus = INF_integrating_Bharatshan_land
 		}
 		completion_reward = {
 			add_stability = 0.15
@@ -909,10 +1140,10 @@ focus_tree = {
 		icon = GFX_focus_bharatshan_math
 		cost = 7
 		prerequisite = {
-			focus =  INF_enslave_bharatshans
+			focus = INF_enslave_bharatshans
 		}
 		prerequisite = {
-			focus =  INF_Bharatshan_divisions
+			focus = INF_Bharatshan_divisions
 		}
 		completion_reward = {
 			add_ideas = INF_Bharatshian_Maths
@@ -928,10 +1159,10 @@ focus_tree = {
 		icon = GFX_focus_bharatsha_railroad
 		cost = 7
 		prerequisite = {
-			focus =  INF_local_authority
+			focus = INF_local_authority
 		}
 		prerequisite = {
-			focus =  INF_Bharatshan_divisions
+			focus = INF_Bharatshan_divisions
 		}
 		completion_reward = {
 			every_owned_state = {
@@ -949,7 +1180,10 @@ focus_tree = {
 		icon = GFX_focus_jackal_proud
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
+		}
+		completion_reward = {
+			add_ideas = INF_Rapid_Expansionism
 		}
 		x = 11
 		y = 12
@@ -959,7 +1193,7 @@ focus_tree = {
 		icon = GFX_focus_hail_leader
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
 		}
 		completion_reward = {
 			add_stability = 0.25
@@ -972,10 +1206,10 @@ focus_tree = {
 		icon = GFX_focus_infinite_empire
 		cost = 7
 		prerequisite = {
-			focus =  INF_hail_the_leader
+			focus = INF_hail_the_leader
 		}
 		prerequisite = {
-			focus =  INF_Jackal_Pride
+			focus = INF_Jackal_Pride
 		}
 		completion_reward = {
 			add_war_support = 0.3
@@ -988,7 +1222,10 @@ focus_tree = {
 		icon = GFX_focus_requisition
 		cost = 7
 		prerequisite = {
-			focus =  INF_Infinite_Empire
+			focus = INF_Infinite_Empire
+		}
+		completion_reward = {
+			add_ideas = INF_Temporary_Requisition
 		}
 		x = 11
 		y = 14
@@ -998,7 +1235,7 @@ focus_tree = {
 		icon = GFX_focus_conscription
 		cost = 7
 		prerequisite = {
-			focus =  INF_Infinite_Empire
+			focus = INF_Infinite_Empire
 		}
 		completion_reward = {
 			add_ideas = INF_Patriotic_Conscription_Idea
@@ -1007,14 +1244,14 @@ focus_tree = {
 		y = 14
 	}
 	focus = {
-		id = INF_Long_March
+		id = INF_Long_War
 		icon = GFX_focus_long_war
 		cost = 7
 		prerequisite = {
-			focus =  INF_Conscription
+			focus = INF_Conscription
 		}
 		prerequisite = {
-			focus =  INF_Requisition
+			focus = INF_Requisition
 		}
 		completion_reward = {
 			add_timed_idea = {
@@ -1030,10 +1267,10 @@ focus_tree = {
 		icon = GFX_focus_plunder_banks
 		cost = 7
 		prerequisite = {
-			focus =  INF_Requisition
+			focus = INF_Requisition
 		}
 		mutually_exclusive = {
-			focus =  INF_revanchist_restitution
+			focus = INF_revanchist_restitution
 		}
 		completion_reward = {
 			add_ideas = INF_Plundered_Banks
@@ -1046,7 +1283,7 @@ focus_tree = {
 		icon = GFX_focus_finish_industrialization
 		cost = 7
 		prerequisite = {
-			focus =  INF_plunder_banks
+			focus = INF_plunder_banks
 		}
 		completion_reward = {
 			every_owned_state = {
@@ -1069,10 +1306,19 @@ focus_tree = {
 		icon = GFX_focus_revanchist_restitution
 		cost = 7
 		prerequisite = {
-			focus =  INF_Requisition
+			focus = INF_Requisition
 		}
 		mutually_exclusive = {
-			focus =  INF_plunder_banks
+			focus = INF_plunder_banks
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = INF
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			add_ideas = INF_Revanchist_Exploitation
 		}
 		x = 10
 		y = 15
@@ -1082,10 +1328,13 @@ focus_tree = {
 		icon = GFX_focus_zomby_humanity
 		cost = 7
 		prerequisite = {
-			focus =  INF_Conscription
+			focus = INF_Conscription
 		}
 		mutually_exclusive = {
-			focus =  INF_slash_overlander
+			focus = INF_slash_overlander
+		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Controlled
 		}
 		x = 14
 		y = 15
@@ -1095,10 +1344,15 @@ focus_tree = {
 		icon = GFX_focus_collaborationism
 		cost = 7
 		prerequisite = {
-			focus =  INF_revanchist_restitution
+			focus = INF_revanchist_restitution
 		}
 		prerequisite = {
-			focus =  INF_zomby_overlander
+			focus = INF_zomby_overlander
+		}
+		completion_reward = {
+			every_owned_state = {
+				add_compliance = 15
+			}
 		}
 		x = 12
 		y = 16
@@ -1108,10 +1362,13 @@ focus_tree = {
 		icon = GFX_focus_slash_overlander
 		cost = 7
 		prerequisite = {
-			focus =  INF_Conscription
+			focus = INF_Conscription
 		}
 		mutually_exclusive = {
-			focus =  INF_zomby_overlander
+			focus = INF_zomby_overlander
+		}
+		completion_reward = {
+			add_ideas = INF_Overlanders_Extinct
 		}
 		x = 16
 		y = 15
@@ -1121,7 +1378,10 @@ focus_tree = {
 		icon = GFX_focus_experimantal_squad
 		cost = 7
 		prerequisite = {
-			focus =  INF_slash_overlander
+			focus = INF_slash_overlander
+		}
+		completion_reward = {
+			add_ideas = INF_9_14_6_Squad
 		}
 		x = 15
 		y = 16
@@ -1135,6 +1395,14 @@ focus_tree = {
 			focus = INF_enforce_collaborationism
 			focus = INF_finish_industrialization
 		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = Its_only_me_and_you
+				bonus = 0.75
+				uses = 1
+				category = nuclear
+			}
+		}
 		x = 12
 		y = 17
 	}
@@ -1147,13 +1415,15 @@ focus_tree = {
 		}
 		x = 12
 		y = 18
+		completion_reward = {
+		}
 	}
 	focus = {
-		id = INF_great_Jackal
+		id = INF_Nikkon_Mission
 		icon = GFX_focus_great_jackal
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
 		}
 		completion_reward = {
 			NIK = {
@@ -1168,7 +1438,21 @@ focus_tree = {
 		icon = GFX_focus_wonsung_fleet
 		cost = 7
 		prerequisite = {
-			focus =  INF_great_Jackal
+			focus = INF_Nikkon_Mission
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = Wonsung_fleet
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				name = Wonsung_fleet
+				bonus = 0.5
+				uses = 2
+				category = naval_equipment
+			}
 		}
 		x = 14
 		y = 13
@@ -1178,7 +1462,23 @@ focus_tree = {
 		icon = GFX_focus_industrial_sun
 		cost = 7
 		prerequisite = {
-			focus =  INF_great_Jackal
+			focus = INF_Nikkon_Mission
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = Industrial_Sun
+				bonus = 0.75
+				uses = 1
+				category = industry
+			}
+			203 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
 		}
 		x = 16
 		y = 13
@@ -1188,7 +1488,10 @@ focus_tree = {
 		icon = GFX_focus_rice_meal
 		cost = 7
 		prerequisite = {
-			focus =  INF_great_Jackal
+			focus = INF_Nikkon_Mission
+		}
+		completion_reward = {
+			add_ideas = INF_Fresh_Food
 		}
 		x = 18
 		y = 13
@@ -1198,10 +1501,10 @@ focus_tree = {
 		icon = GFX_focus_wonsung_electronics
 		cost = 7
 		prerequisite = {
-			focus =  INF_Wonsung_fleet
+			focus = INF_Wonsung_fleet
 		}
 		prerequisite = {
-			focus =  INF_Industrial_Sun
+			focus = INF_Industrial_Sun
 		}
 		completion_reward = {
 			add_tech_bonus = {
@@ -1218,10 +1521,10 @@ focus_tree = {
 		icon = GFX_focus_project_kamikaze
 		cost = 7
 		prerequisite = {
-			focus =  INF_Industrial_Sun
+			focus = INF_Industrial_Sun
 		}
 		prerequisite = {
-			focus =  INF_rice_meal
+			focus = INF_rice_meal
 		}
 		completion_reward = {
 			set_rule = {
@@ -1232,11 +1535,11 @@ focus_tree = {
 		y = 14
 	}
 	focus = {
-		id = INF_Rethenian_agreement
+		id = INF_Deal_With_the_Reds
 		icon = GFX_focus_rethenian_agreement
 		cost = 7
 		prerequisite = {
-			focus =  INF_and_start_this_war
+			focus = INF_and_start_this_war
 		}
 		completion_reward = {
 			diplomatic_relation = {
@@ -1253,7 +1556,7 @@ focus_tree = {
 		icon = GFX_focus_buy_rethenian_tanks
 		cost = 7
 		prerequisite = {
-			focus =  INF_Rethenian_agreement
+			focus = INF_Deal_With_the_Reds
 		}
 		completion_reward = {
 			RCR = {
@@ -1270,7 +1573,7 @@ focus_tree = {
 		icon = GFX_focus_prisoner_exchange
 		cost = 7
 		prerequisite = {
-			focus =  INF_Rethenian_agreement
+			focus = INF_Deal_With_the_Reds
 		}
 		completion_reward = {
 			random_owned_state = {
@@ -1291,14 +1594,14 @@ focus_tree = {
 		y = 13
 	}
 	focus = {
-		id = INF_eat_the_Red
+		id = INF_Red_Means_Dead
 		icon = GFX_focus_eat_the_red
 		cost = 7
 		prerequisite = {
-			focus =  INF_buy_their_tanks
+			focus = INF_buy_their_tanks
 		}
 		prerequisite = {
-			focus =  INF_prisoner_exchange
+			focus = INF_prisoner_exchange
 		}
 		completion_reward = {
 			create_wargoal = {
@@ -1309,5 +1612,1011 @@ focus_tree = {
 		x = 21
 		y = 14
 	}
-}	
+
+	focus = {
+		id = INF_The_Splendid_Petrocracy
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		x = 35
+		y = 0
+		completion_reward = { 
+			add_political_power = 150
+
+			set_variable = {
+				petrocracy_influence = 25
+			}
+			set_variable = {
+				petrocracy_satisfaction = 60
+			}
+
+			add_dynamic_modifier = {
+				modifier = INF_petro_bonus
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Blood_of_JExOil
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = -4
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 180
+				state = 718
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Muscles_of_JABIC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 1
+			}
+
+			if = {
+				limit = {
+					has_idea = INF_JNC
+				}
+				swap_ideas = {
+					remove_idea = INF_JNC
+					add_idea = INF_JNC_2
+				}
+			}
+
+			country_event = inf_petro.3
+		}
+	}
+
+	focus = {
+		id = INF_Brains_of_JAAC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = synth_resources
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = excavation_tech
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Eyes_of_JackalNet
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			680 = {
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = electronics
+			}		
+			add_ideas = INF_The_Jackalnet
+			country_event = inf_petro.4
+		}
+	}
+
+	focus = {
+		id = INF_Wings_of_JASEC
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_The_Splendid_Petrocracy
+		x = 4
+		y = 1
+
+		prerequisite = {
+			focus = INF_The_Splendid_Petrocracy
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 2
+				category = rocketry
+			}
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 3
+				category = air_equipment
+			}
+			715 = {
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			set_country_flag = INF_Deyland_Space			
+		}
+	}
+
+	focus = {
+		id = INF_Deepen_Ties_With_Robotnik
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Brains_of_JAAC
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Brains_of_JAAC
+		}
+		mutually_exclusive = {
+			focus = INF_Acquire_United_Federation_Tech
+		}
+
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+
+			add_offsite_building = { 
+				type = arms_factory 
+				level = 3 
+			}
+			add_tech_bonus = {
+				bonus = 0.75
+				uses = 3
+				category = robot_techs
+			}
+			diplomatic_relation = {
+				country = EGG
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_equipment_to_stockpile = {
+				type = light_robots_equipment_2
+				amount = 750
+				producer = EGG
+			}
+			add_equipment_to_stockpile = {
+				type = medium_robot_equipment_1
+				amount = 350
+				producer = EGG
+			}				
+		}
+	}
+
+	focus = {
+		id = INF_Acquire_United_Federation_Tech
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Brains_of_JAAC
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Brains_of_JAAC
+		}
+		mutually_exclusive = {
+			focus = INF_Deepen_Ties_With_Robotnik
+		}
+
+		available = {
+			has_completed_focus = INF_Distract_Their_Eyes
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Extend_the_Pipeline
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Blood_of_JExOil
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Blood_of_JExOil
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+
+		completion_reward = {
+			country_event = inf_petro.6
+		}
+	}
+
+	focus = {
+		id = INF_Compound_N110
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Muscles_of_JABIC
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Muscles_of_JABIC
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			country_event = inf_petro.7
+		}
+	}
 	
+	focus = {
+		id = INF_Connecting_the_Jackalstan
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Eyes_of_JackalNet
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Eyes_of_JackalNet
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = INF_The_Jackalnet
+				add_idea = INF_The_Jackalnet_2
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Ifrit_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Wings_of_JASEC
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Wings_of_JASEC
+		}
+		available = {
+			has_country_flag = INF_Deyland_Space # localisation: “We have established control over Deyland Space Center
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}			
+		completion_reward = {
+			715 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Negotiate_with_Rethenia
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Extend_the_Pipeline
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Extend_the_Pipeline
+		}
+		mutually_exclusive = {
+			focus = INF_Subvert_the_Oil_Trade
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+			country_event = inf_rcr.1
+		}
+	}
+
+	focus = {
+		id = INF_Subvert_the_Oil_Trade
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Compound_N110
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Compound_N110
+		}
+		mutually_exclusive = {
+			focus = INF_Negotiate_with_Rethenia
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 10
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Shai_Hulud_Project
+		icon = GFX_obsolete_template_overlay
+		cost = x
+		relative_position_id = INF_Deepen_Ties_With_Robotnik
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Deepen_Ties_With_Robotnik
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = INF_Eshkal_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Acquire_United_Federation_Tech
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Acquire_United_Federation_Tech
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = { }
+	}
+
+	focus = {
+		id = INF_SatNet_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Connecting_the_Jackalstan
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Connecting_the_Jackalstan
+		}
+		mutually_exclusive = {
+			focus = INF_Siark_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 25
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Siark_Project
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Ifrit_Project
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Ifrit_Project
+		}
+		mutually_exclusive = {
+			focus = INF_SatNet_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 50
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Manipulate_the_Oil_Market
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Subvert_the_Oil_Trade
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Negotiate_with_Rethenia
+			focus = INF_Subvert_the_Oil_Trade
+			focus = INF_Shai_Hulud_Project
+			focus = INF_Eshkal_Project
+			focus = INF_SatNet_Project
+			focus = INF_Siark_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Oil_Price_Controls
+		}
+	}
+
+	focus = {
+		id = INF_Virtual_Facility
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_SatNet_Project
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Negotiate_with_Rethenia
+			focus = INF_Subvert_the_Oil_Trade
+			focus = INF_Shai_Hulud_Project
+			focus = INF_Eshkal_Project
+			focus = INF_SatNet_Project
+			focus = INF_Siark_Project
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Industrial_Virtual_Reality
+		}
+	}
+
+	focus = {
+		id = INF_Shadow_Fleet
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Manipulate_the_Oil_Market
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = { }
+	}
+
+	focus = {
+		id = INF_Infiltrate_Hostile_Markets
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Shadow_Fleet
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Shadow_Fleet
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			set_global_flag = INF_Oil_Weapon
+		}
+	}
+
+	focus = {
+		id = INF_Peoples_Benefits
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Manipulate_the_Oil_Market
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			country_event = inf_petro.8
+		}
+	}
+
+	focus = {
+		id = INF_Order_Deserves_Everything
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = -2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		mutually_exclusive = {
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			subtract_from_variable = {
+				petrocracy_influence = 15
+			}
+			subtract_from_variable = {
+				petrocracy_satisfaction = 15
+			}
+			716 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			719 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Reward_The_Management
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		mutually_exclusive = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Basic_Income
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_to_variable = {
+				petrocracy_influence = 15
+			}
+			add_to_variable = {
+				petrocracy_satisfaction = 10
+			}
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 2
+			}
+			540 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			713 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+	}
+
+	focus = {
+		id = INF_Basic_Income
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Peoples_Benefits
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Peoples_Benefits
+		}
+		mutually_exclusive = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_stability = 0.15
+			add_political_power = 50
+			714 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			717 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = INF_Automated_Oil_Processing
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Virtual_Facility
+		x = 2
+		y = 1
+
+		prerequisite = {
+			focus = INF_Manipulate_the_Oil_Market
+		}
+		prerequisite = {
+			focus = INF_Virtual_Facility
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = INF_Industrial_Virtual_Reality
+				add_idea = INF_Industrial_Virtual_Reality_2
+			}
+			add_resource = {
+				type = oil
+				amount = 75
+				state = 716
+			}
+			add_resource = {
+				type = oil
+				amount = 75
+				state = 718
+			}		
+		}
+	}
+
+	focus = {
+		id = INF_Industrial_Colossus
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Automated_Oil_Processing
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Automated_Oil_Processing
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			716 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			718 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			203 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}				
+		}
+	}
+
+	focus = {
+		id = INF_Concepts_of_Infinite_Energy
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Infiltrate_Hostile_Markets
+		x = 1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = INF_JNC_Board_of_Directors_Meetup
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Reward_The_Management
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		completion_reward = {
+			country_event = inf_petro.9
+
+			set_temp_variable = {
+				t = petrocracy_satisfaction
+			}
+			divide_temp_variable = {
+				t = 100
+			}
+			multiply_temp_variable = {
+				t = 0.25
+			}
+			add_stability = t
+
+			set_temp_variable = {
+				t = petrocracy_satisfaction
+			}
+			multiply_temp_variable = {
+				t = 1.5
+			}
+			add_political_power = t
+		}
+	}
+
+	focus = {
+		id = INF_Multi_Purpose_Petrochemicals
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_Industrial_Colossus
+		x = -1
+		y = 1
+
+		prerequisite = {
+			focus = INF_Infiltrate_Hostile_Markets
+		}
+		prerequisite = {
+			focus = INF_Order_Deserves_Everything
+			focus = INF_Reward_The_Management
+			focus = INF_Basic_Income
+		}
+		prerequisite = {
+			focus = INF_Industrial_Colossus
+		}
+		available = {
+			check_variable = {
+				petrocracy_satisfaction > 75
+			}
+		}
+		completion_reward = {
+			add_ideas = INF_Multi_Purpose_Petrochemicals
+		}
+	}
+
+	focus = {
+		id = INF_Question_of_Top_Management
+		icon = GFX_obsolete_template_overlay
+		cost = 5
+		relative_position_id = INF_JNC_Board_of_Directors_Meetup
+		x = 0
+		y = 1
+
+		prerequisite = {
+			focus = INF_Concepts_of_Infinite_Energy
+		}
+		prerequisite = {
+			focus = INF_JNC_Board_of_Directors_Meetup
+		}
+		prerequisite = {
+			focus = INF_Multi_Purpose_Petrochemicals
+		}
+		completion_reward = {
+			country_event = inf_petro.10
+		}
+	}
+}

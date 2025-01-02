@@ -1,0 +1,3144 @@
+shared_focus = {
+	id = KOA_Royal_Army
+	text = KOA_Royal_Army
+	icon = GFX_focus_Royal_Army
+	cost = 7
+	prerequisite = {
+		focus = KOA_Grand_Military_Reforms
+	}
+	x = 69
+	y = 1
+	completion_reward = {
+		army_experience = 50
+	}
+}
+
+shared_focus = {
+	id = KOA_Freedom_Fighters_Structure
+	text = KOA_Freedom_Fighters_Structure
+	icon = GFX_focus_Freedom_Fighters_Structure
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Army
+	}
+	mutually_exclusive = {
+		focus = KOA_Grand_Army
+	}
+	completion_reward = {
+		army_experience = 50
+		swap_ideas = {
+			remove_idea = Military_Conservatism_1
+			add_idea = Military_Conservatism_2
+		}
+		add_tech_bonus = {
+			name = Freedom_Fighters_Structure
+			category = cat_unrestricted_warfare_theory
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			name = Freedom_Fighters_Structure
+			category = cat_contactless_battle_theory
+			uses = 1
+			bonus = 1
+		}
+	}
+	x = 66
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Grand_Army
+	text = KOA_Grand_Army
+	icon = GFX_focus_Grand_Army
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Army
+	}
+	available = {
+		NOT = {
+			has_civil_war = yes
+		}
+	}
+	mutually_exclusive = {
+		focus = KOA_Freedom_Fighters_Structure
+	}
+	completion_reward = {
+		army_experience = 50
+		swap_ideas = {
+			remove_idea = Military_Conservatism_1
+			add_idea = Military_Conservatism_2
+		}
+		add_tech_bonus = {
+			name = Grand_Army
+			category = cat_automated_warfare_theory
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			name = Grand_Army
+			category = cat_maneuver_warfare_theory
+			uses = 1
+			bonus = 1
+		}
+	}
+	x = 72
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Sally_Doctrine
+	text = KOA_Sally_Doctrine
+	icon = GFX_focus_Sally_Doctrine
+	cost = 7
+	prerequisite = {
+		focus = KOA_Freedom_Fighters_Structure
+	}
+	x = 62
+	y = 3
+	completion_reward = {
+		add_dynamic_modifier = {
+			modifier = Spirit_of_Freedom_Fighters
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_dig_in = 0.05
+		}
+		custom_effect_tooltip = Sally_Doctrine
+	}
+}
+
+shared_focus = {
+	id = KOA_Secret_Freedom_Fighters
+	icon = GFX_focus_Secret_Freedom_Fighters
+	cost = 7
+	prerequisite = {
+		focus = KOA_Sally_Doctrine
+	}
+	x = 60
+	y = 4
+	completion_reward = {
+		IF = {
+			limit = {
+				NOT = {
+					has_dlc = "La Resistance"
+				}
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_decryption = 10
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_encryption = 10
+			}
+		}
+		else_if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_operatives = 4
+			}
+		}
+		custom_effect_tooltip = Secret_Freedom_Fighters
+	}
+}
+
+shared_focus = {
+	id = KOA_Theory_Of_Operation
+	text = KOA_Theory_Of_Operation
+	icon = GFX_focus_Theory_Of_Operation
+	cost = 7
+	prerequisite = {
+		focus = KOA_Sally_Doctrine
+	}
+	x = 63
+	y = 4
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_planning_speed = 0.05
+		}
+		custom_effect_tooltip = Theory_of_Operation
+	}
+}
+
+shared_focus = {
+	id = KOA_Develop_Engineering
+	text = KOA_Develop_Engineering
+	icon = GFX_focus_Develop_Engineering
+	cost = 7
+	prerequisite = {
+		focus = KOA_Sally_Doctrine
+	}
+	x = 65
+	y = 4
+	completion_reward = {
+		add_ideas = Engineering_Tactics
+	}
+}
+
+shared_focus = {
+	id = KOA_Hit_and_Run
+	text = KOA_Hit_and_Run
+	icon = GFX_focus_Hit_and_Run
+	cost = 7
+	prerequisite = {
+		focus = KOA_Secret_Freedom_Fighters
+	}
+	x = 61
+	y = 5
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_morale = 0.05
+		}
+		custom_effect_tooltip = Hit_and_Run
+	}
+}
+
+shared_focus = {
+	id = KOA_Stealth_Troops
+	text = KOA_Stealth_Troops
+	icon = GFX_focus_Stealth_Troops
+	cost = 7
+	prerequisite = {
+		focus = KOA_Secret_Freedom_Fighters
+	}
+	prerequisite = {
+		focus = KOA_Theory_Of_Operation
+	}
+	x = 63
+	y = 5
+	completion_reward = {
+		#Gets event: “Military Buildup (Stealth)”
+	}
+}
+
+shared_focus = {
+	id = KOA_Underground_Ways
+	text = KOA_Underground_Ways
+	icon = GFX_focus_Underground_Ways
+	cost = 7
+	prerequisite = {
+		focus = KOA_Develop_Engineering
+	}
+	x = 65
+	y = 5
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_no_supply_grace = 72
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_defence = 0.05
+		}
+		custom_effect_tooltip = Underground_Ways
+	}
+}
+
+shared_focus = {
+	id = KOA_Destruction_of_Giants
+	text = KOA_Destruction_of_Giants
+	icon = GFX_focus_Destruction_of_Giants
+	cost = 7
+	prerequisite = {
+		focus = KOA_Hit_and_Run
+	}
+	x = 62
+	y = 6
+	completion_reward = {
+		custom_effect_tooltip = Destruction_of_Giants
+		#Sabotage the enemy: For 50 pp, you can cause damage to one to three military factories owned by the Eggman Empire.
+	}
+}
+
+shared_focus = {
+	id = KOA_Fast_And_Furious
+	text = KOA_Fast_And_Furious
+	icon = GFX_focus_Fast_And_Furious
+	cost = 7
+	prerequisite = {
+		focus = KOA_Stealth_Troops
+	}
+	prerequisite = {
+		focus = KOA_Underground_Ways
+	}
+	x = 64
+	y = 6
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_attack = 0.05
+		}
+		custom_effect_tooltip = Faster_Faster_Faster
+	}
+}
+
+shared_focus = {
+	id = KOA_Sonic_Spirit
+	text = KOA_Sonic_Spirit
+	icon = GFX_focus_Sonic_Spirit
+	cost = 7
+	prerequisite = {
+		focus = KOA_Propaganda_School
+	}
+	prerequisite = {
+		focus = KOA_Underground_Ways
+	}
+	x = 66
+	y = 6
+	completion_reward = {
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_dig_in = 0.05
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_dlc = "La Resistance"
+				}
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_decryption = 2
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_encryption = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			add_to_variable = {
+				Spirit_of_Freedom_Fighters_operatives = 1
+			}
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_planning_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_morale = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_speed = 0.05
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_no_supply_grace = 24
+		}
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_special_forces_defence = 0.05
+		}
+		custom_effect_tooltip = Sonic_Spirit
+	}
+}
+
+shared_focus = {
+	id = KOA_People_Warfare
+	text = KOA_People_Warfare
+	icon = GFX_focus_People_Warfare
+	cost = 7
+	prerequisite = {
+		focus = KOA_Destruction_of_Giants
+	}
+	prerequisite = {
+		focus = KOA_Fast_And_Furious
+	}
+	prerequisite = {
+		focus = KOA_Sonic_Spirit
+	}
+	x = 64
+	y = 7
+	completion_reward = {
+		add_political_power = 50
+		add_to_variable = {
+			Spirit_of_Freedom_Fighters_army_experience_gain = 0.1
+		}
+		remove_ideas = Military_Conservatism_2
+		custom_effect_tooltip = People_Warfare
+	}
+}
+
+shared_focus = {
+	id = KOA_Revive_Military_Industry
+	text = KOA_Revive_Military_Industry
+	icon = GFX_focus_Revive_Military_Industry
+	cost = 7
+	prerequisite = {
+		focus = KOA_Grand_Army
+		focus = KOA_Freedom_Fighters_Structure
+	}
+	x = 69
+	y = 3
+	completion_reward = {
+		1 = {
+			add_building_construction = {
+				type = arms_factory
+				level = 4
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_War_Medic_Corps
+	text = KOA_War_Medic_Corps
+	icon = GFX_focus_War_Medic_Corps
+	cost = 7
+	prerequisite = {
+		focus = KOA_Revive_Military_Industry
+	}
+	x = 67
+	y = 4
+	completion_reward = {
+		#Gets Event: “Military Buildup (Medics)”
+	}
+}
+
+shared_focus = {
+	id = KOA_Rifle_Standards
+	text = KOA_Rifle_Standards
+	icon = GFX_focus_Rifle_Standards
+	cost = 7
+	prerequisite = {
+		focus = KOA_Revive_Military_Industry
+	}
+	x = 69
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			name = Armament_Standards
+			category = infantry_weapons
+			uses = 1
+			bonus = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Revive_Officer_Corps
+	text = KOA_Revive_Officer_Corps
+	icon = GFX_focus_Revive_Officer_Corps
+	cost = 7
+	prerequisite = {
+		focus = KOA_Revive_Military_Industry
+	}
+	x = 71
+	y = 4
+	completion_reward = {
+		add_ideas = Revived_Army_Corps
+	}
+}
+
+shared_focus = {
+	id = KOA_Propaganda_School
+	text = KOA_Propaganda_School
+	icon = GFX_focus_Propaganda_School
+	cost = 7
+	prerequisite = {
+		focus = KOA_War_Medic_Corps
+	}
+	x = 68
+	y = 5
+	completion_reward = {
+		add_ideas = Anti_Eggman_Propaganda
+	}
+}
+
+shared_focus = {
+	id = KOA_Mes_Braves
+	text = KOA_Mes_Braves
+	icon = GFX_focus_Mes_Braves
+	cost = 7
+	prerequisite = {
+		focus = KOA_Rifle_Standards
+	}
+	prerequisite = {
+		focus = KOA_Revive_Officer_Corps
+	}
+	x = 70
+	y = 5
+	completion_reward = {
+		# Gets event: “Military Buildup (Special Forces)”
+	}
+}
+
+shared_focus = {
+	id = KOA_Mil_Res
+	text = KOA_Mil_Res
+	icon = GFX_focus_Armament_Research_Center
+	cost = 7
+	prerequisite = {
+		focus = KOA_Propaganda_School
+	}
+	prerequisite = {
+		focus = KOA_Mes_Braves
+	}
+	x = 69
+	y = 6
+	completion_reward = {
+		add_timed_idea = {
+			idea = Armament_Research_Center
+			days = 730
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Project_Crown_Atomic
+	icon = GFX_focus_Project_Crown_Atomic
+	cost = 7
+	prerequisite = {
+		focus = KOA_Mil_Res
+	}
+	x = 69
+	y = 7
+	completion_reward = {
+		add_tech_bonus = {
+			name = Crown_Atomic_Project
+			category = nuclear
+			uses = 2
+			bonus = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Military_Revolution
+	text = KOA_Military_Revolution
+	icon = GFX_focus_Military_Revolution
+	cost = 7
+	prerequisite = {
+		focus = KOA_Grand_Army
+	}
+	x = 77
+	y = 3
+	completion_reward = {
+		add_to_variable = {
+			Second_Robotnik_War_army_organisation = 5
+		}
+		custom_effect_tooltip = Military_Revolution
+	}
+}
+
+shared_focus = {
+	id = KOA_Tank_Corps
+	text = KOA_Tank_Corps
+	icon = GFX_focus_Tank_Corps
+	cost = 7
+	prerequisite = {
+		focus = KOA_Military_Revolution
+	}
+	x = 73
+	y = 4
+	completion_reward = {
+		add_tech_bonus = {
+			name = Acorn_Tank_Corps
+			category = armor
+			uses = 2
+			bonus = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Heavy_Weaponry
+	text = KOA_Heavy_Weaponry
+	icon = GFX_focus_Heavy_Weaponry
+	cost = 7
+	prerequisite = {
+		focus = KOA_Military_Revolution
+	}
+	x = 76
+	y = 4
+	completion_reward = {
+		add_timed_idea = {
+			idea = Master_the_Heavy_Weaponry
+			days = 730
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Reform_System_Of_Ranks
+	text = KOA_Reform_System_Of_Ranks
+	icon = GFX_focus_Reform_System_Of_Ranks
+	cost = 7
+	prerequisite = {
+		focus = KOA_Military_Revolution
+	}
+	x = 78
+	y = 4
+	completion_reward = {
+		add_to_variable = {
+			Second_Robotnik_War_exp_gain_army = 0.1
+		}
+		custom_effect_tooltip = Reform_System_of_Ranks
+	}
+}
+
+shared_focus = {
+	id = KOA_Motorized_Troops
+	text = KOA_Motorized_Troops
+	icon = GFX_focus_Motorized_Troops
+	cost = 7
+	prerequisite = {
+		focus = KOA_Tank_Corps
+	}
+	prerequisite = {
+		focus = KOA_Heavy_Weaponry
+	}
+	x = 75
+	y = 5
+	completion_reward = {
+		add_tech_bonus = {
+			name = Motorized_Royal_Guard
+			category = motorized_equipment
+			bonus = 2
+			uses = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Centralized_Command
+	text = KOA_Centralized_Command
+	icon = GFX_focus_Centralized_Command
+	cost = 7
+	prerequisite = {
+		focus = KOA_Reform_System_Of_Ranks
+	}
+	x = 77
+	y = 5
+	completion_reward = {
+		add_to_variable = {
+			Second_Robotnik_War_max_planning = 0.05
+		}
+		custom_effect_tooltip = Centralized_Command
+	}
+}
+
+shared_focus = {
+	id = KOA_Learn_From_Robotnik_War
+	text = KOA_Learn_From_Robotnik_War
+	icon = GFX_focus_analyzing_frw
+	cost = 7
+	prerequisite = {
+		focus = KOA_Return_Of_Jules
+	}
+	x = 72
+	y = 6
+	completion_reward = {
+		add_to_variable = {
+			Second_Robotnik_War_army_morale = 0.05
+		}
+		custom_effect_tooltip = Learn_From_Robotnik_War
+	}
+}
+
+shared_focus = {
+	id = KOA_Develop_Robotic_Systems
+	text = KOA_Develop_Robotic_Systems
+	icon = GFX_focus_Develop_Robotic_Systems
+	cost = 7
+	prerequisite = {
+		focus = KOA_Motorized_Troops
+	}
+	prerequisite = {
+		focus = KOA_Return_Of_Jules
+	}
+	x = 74
+	y = 6
+	completion_reward = {
+		hidden_effect = {
+			add_ideas = Second_Robotnik_War_idea
+		}
+		custom_effect_tooltip = Develop_Robotic_Systems
+	}
+}
+
+shared_focus = {
+	id = KOA_Theory_Of_Cooperation
+	text = KOA_Theory_Of_Cooperation
+	icon = GFX_focus_Theory_Of_Cooperation
+	cost = 7
+	prerequisite = {
+		focus = KOA_Heavy_Weaponry
+	}
+	x = 76
+	y = 6
+	completion_reward = {
+		#Gets event: “Military Buildup: (Tanks, Trucks, and Guns)”.
+	}
+}
+
+shared_focus = {
+	id = KOA_Endurance_Warfare
+	text = KOA_Endurance_Warfare
+	icon = GFX_focus_Prepare_Long_War
+	cost = 7
+	prerequisite = {
+		focus = KOA_Centralized_Command
+	}
+	x = 78
+	y = 6
+	completion_reward = {
+		add_to_variable = {
+			Second_Robotnik_War_army_defence = 0.1
+		}
+		custom_effect_tooltip = Endurance_Warfare
+	}
+}
+
+shared_focus = {
+	id = KOA_Better_than_GUN
+	text = KOA_Better_than_GUN
+	icon = GFX_focus_Better_than_GUN
+	cost = 7
+	prerequisite = {
+		focus = KOA_Motorized_Troops
+	}
+	x = 75
+	y = 7
+	completion_reward = {
+		add_ideas = Overshadow_GUN
+	}
+}
+
+shared_focus = {
+	id = KOA_Proffesional_Army
+	text = KOA_Proffesional_Army
+	icon = GFX_focus_Proffesional_Army
+	cost = 7
+	prerequisite = {
+		focus = KOA_Endurance_Warfare
+	}
+	prerequisite = {
+		focus = KOA_Theory_Of_Cooperation
+	}
+	x = 77
+	y = 7
+	completion_reward = {
+		add_ideas = Army_of_Professionals
+		remove_dynamic_modifier = {
+			modifier = Second_Robotnik_War
+		}
+	}
+}
+
+#Economic Treee
+shared_focus = {
+	id = KOA_New_Crown_Economic
+	icon = GFX_focus_new_royal_economy
+	cost = 7
+	x = 39
+	y = 0
+}
+
+shared_focus = {
+	id = KOA_Grand_Military_Reforms
+	text = KOA_Grand_Military_Reforms
+	icon = GFX_focus_Grand_Military_Reforms
+	cost = 7
+	x = 69
+	y = 0
+}
+
+shared_focus = {
+	id = KOA_The_Triumph_Of_Productivism
+	icon = GFX_focus_KOA_productivism
+	cost = 7
+	prerequisite = {
+		focus = KOA_New_Crown_Economic
+	}
+	mutually_exclusive = {
+		focus = KOA_Ecologic_Tradition_Akorn
+	}
+	x = 38
+	y = 1
+	completion_reward = {
+		add_timed_idea = {
+			idea = The_Triumph_Of_Productivism
+			days = 730
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Akorn_socialism
+	icon = GFX_focus_KOA_Akorn_socialism
+	cost = 7
+	prerequisite = {
+		focus = KOA_The_Triumph_Of_Productivism
+	}
+	mutually_exclusive = {
+		focus = KOA_unlock_magazine
+	}
+	x = 35
+	y = 2
+	completion_reward = {
+		add_timed_idea = {
+			idea = Advisors_from_Shvarcland
+			days = 730
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_unlock_magazine
+	icon = GFX_focus_KOA_unlock_magazine
+	cost = 7
+	prerequisite = {
+		focus = KOA_The_Triumph_Of_Productivism
+	}
+	mutually_exclusive = {
+		focus = KOA_Akorn_socialism
+	}
+	x = 38
+	y = 2
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Prom_nanit
+	icon = GFX_focus_KOA_Prom_nanit
+	cost = 7
+	prerequisite = {
+		focus = KOA_unlock_magazine
+		focus = KOA_Akorn_socialism
+		focus = KOA_unlock_magazine
+		focus = KOA_Akorn_socialism
+	}
+	x = 36
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Soviet_Shvarlander
+	icon = GFX_focus_soviet_shvarlander
+	cost = 7
+	prerequisite = {
+		focus = KOA_Akorn_socialism
+		focus = KOA_unlock_magazine
+	}
+	x = 32
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Auto_coorparation
+	icon = GFX_focus_KOA_Auto_coorparation
+	cost = 7
+	prerequisite = {
+		focus = KOA_Akorn_socialism
+		focus = KOA_unlock_magazine
+	}
+	x = 34
+	y = 3
+	completion_reward = {
+		if = {
+			limit = {
+				controls_state > 2
+				has_stability > 0.45
+			}
+			random_owned_controlled_state = {
+				if = {
+					limit = {
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				if = {
+					limit = {
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				controls_state < 3
+				has_stability > 0.45
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Defense_Soviet_prom
+	icon = GFX_focus_KOA_Defense_Soviet_prom
+	cost = 7
+	prerequisite = {
+		focus = KOA_unlock_magazine
+		focus = KOA_Akorn_socialism
+	}
+	x = 38
+	y = 3
+	completion_reward = {
+		add_timed_idea = {
+			idea = Protection_of_domestic_producers
+			days = 730
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_AES_Mobotropolis
+	icon = GFX_focus_KOA_AES_Mobotropolis
+	cost = 7
+	prerequisite = {
+		focus = KOA_Prom_nanit
+	}
+	prerequisite = {
+		focus = KOA_Defense_Soviet_prom
+	}
+	x = 36
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Tech_Overlander
+	icon = GFX_focus_KOA_Tech_Overlander
+	cost = 7
+	prerequisite = {
+		focus = KOA_Soviet_Shvarlander
+	}
+	prerequisite = {
+		focus = KOA_Auto_coorparation
+	}
+	x = 34
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Robot_Farm
+	icon = GFX_focus_KOA_Robot_Farm
+	cost = 7
+	prerequisite = {
+		focus = KOA_Defense_Soviet_prom
+	}
+	prerequisite = {
+		focus = KOA_Prom_nanit
+	}
+	x = 38
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_New_Sever
+	icon = GFX_focus_KOA_New_Sever
+	cost = 7
+	prerequisite = {
+		focus = KOA_Tech_Overlander
+	}
+	prerequisite = {
+		focus = KOA_AES_Mobotropolis
+	}
+	prerequisite = {
+		focus = KOA_Robot_Farm
+	}
+	x = 36
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Ecologic_Tradition_Akorn
+	icon = GFX_focus_KOA_Ecologic_Tradition_Akorn
+	cost = 7
+	prerequisite = {
+		focus = KOA_New_Crown_Economic
+	}
+	mutually_exclusive = {
+		focus = KOA_The_Triumph_Of_Productivism
+	}
+	x = 40
+	y = 1
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Codding_Economic
+	icon = GFX_focus_KOA_Codding_Economic
+	cost = 7
+	prerequisite = {
+		focus = KOA_Ecologic_Tradition_Akorn
+	}
+	mutually_exclusive = {
+		focus = KOA_Eco_Management
+	}
+	x = 40
+	y = 2
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Eco_Management
+	icon = GFX_focus_KOA_Eco_Management
+	cost = 7
+	prerequisite = {
+		focus = KOA_Ecologic_Tradition_Akorn
+	}
+	mutually_exclusive = {
+		focus = KOA_Codding_Economic
+	}
+	x = 43
+	y = 2
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Import_Federation
+	icon = GFX_focus_KOA_Import_Federation
+	cost = 7
+	prerequisite = {
+		focus = KOA_Eco_Management
+		focus = KOA_Codding_Economic
+	}
+	x = 40
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Build_init
+	icon = GFX_focus_KOA_Build_init
+	cost = 7
+	prerequisite = {
+		focus = KOA_Eco_Management
+		focus = KOA_Codding_Economic
+	}
+	x = 42
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Concern_Chak_Morgan
+	icon = GFX_focus_KOA_Concern_Chak_Morgan
+	cost = 7
+	prerequisite = {
+		focus = KOA_Import_Federation
+	}
+	prerequisite = {
+		focus = KOA_Build_init
+	}
+	x = 40
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Statistic_Heavy_Artillery
+	icon = GFX_focus_KOA_Statistic_Heavy_Artillery
+	cost = 7
+	prerequisite = {
+		focus = KOA_Concern_Chak_Morgan
+		focus = KOA_Robot_Farm
+	}
+	x = 39
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_New_New_city
+	icon = GFX_focus_KOA_New_New_city
+	cost = 7
+	prerequisite = {
+		focus = KOA_Build_init
+	}
+	prerequisite = {
+		focus = KOA_Import_Federation
+	}
+	x = 42
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Forest_resourse
+	icon = GFX_focus_kings_university
+	cost = 7
+	prerequisite = {
+		focus = KOA_Eco_Management
+		focus = KOA_Codding_Economic
+	}
+	x = 44
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Zombie_A
+	icon = GFX_focus_KOA_Zombie_A
+	cost = 7
+	prerequisite = {
+		focus = KOA_Eco_Management
+		focus = KOA_Codding_Economic
+	}
+	x = 46
+	y = 3
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_New_Road
+	icon = GFX_focus_KOA_New_Road
+	cost = 7
+	prerequisite = {
+		focus = KOA_Forest_resourse
+	}
+	prerequisite = {
+		focus = KOA_Zombie_A
+	}
+	x = 44
+	y = 4
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_Region
+	icon = GFX_focus_KOA_Region
+	cost = 7
+	prerequisite = {
+		focus = KOA_New_New_city
+	}
+	prerequisite = {
+		focus = KOA_New_Road
+	}
+	prerequisite = {
+		focus = KOA_Concern_Chak_Morgan
+	}
+	x = 42
+	y = 5
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = KOA_the_Aviation_Unit
+	text = KOA_the_Aviation_Unit
+	icon = GFX_focus_the_Aviation_Unit
+	cost = 7
+	prerequisite = {
+		focus = KOA_Grand_Military_Reforms
+	}
+	x = 53
+	y = 1
+}
+
+shared_focus = {
+	id = KOA_ROSE_System
+	text = KOA_ROSE_System
+	icon = GFX_focus_radar
+	cost = 7
+	prerequisite = {
+		focus = KOA_the_Aviation_Unit
+	}
+	x = 51
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Missile_Defence
+	text = KOA_Missile_Defence
+	icon = GFX_focus_PVO_equipment
+	cost = 7
+	prerequisite = {
+		focus = KOA_ROSE_System
+	}
+	x = 50
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Inspect_Aircrafts
+	text = KOA_Inspect_Aircrafts
+	icon = GFX_focus_Inspect_Aircrafts
+	cost = 7
+	prerequisite = {
+		focus = KOA_the_Aviation_Unit
+	}
+	x = 53
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Manouver_Priority
+	text = KOA_Manouver_Priority
+	icon = GFX_focus_Manouver_Priority
+	cost = 7
+	prerequisite = {
+		focus = KOA_Inspect_Aircrafts
+	}
+	mutually_exclusive = {
+		focus = KOA_Speed_Priority
+	}
+	x = 52
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Dogfight
+	text = KOA_Dogfight
+	icon = GFX_focus_Dogfight
+	cost = 7
+	prerequisite = {
+		focus = KOA_Manouver_Priority
+	}
+	x = 51
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Control_The_Sky
+	text = KOA_Control_The_Sky
+	icon = GFX_focus_Control_The_Sky
+	cost = 7
+	prerequisite = {
+		focus = KOA_Dogfight
+	}
+	x = 47
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Fighter_Bomber
+	text = KOA_Fighter_Bomber
+	icon = GFX_focus_Fighter_Bomber
+	cost = 7
+	prerequisite = {
+		focus = KOA_Dogfight
+	}
+	x = 49
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Speed_Priority
+	text = KOA_Speed_Priority
+	icon = GFX_focus_Speed_Priority
+	cost = 7
+	prerequisite = {
+		focus = KOA_Inspect_Aircrafts
+	}
+	mutually_exclusive = {
+		focus = KOA_Manouver_Priority
+	}
+	x = 54
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Strategic_Bomber
+	text = KOA_Strategic_Bomber
+	icon = GFX_focus_Strategic_Bomber
+	cost = 7
+	prerequisite = {
+		focus = KOA_Manouver_Priority
+		focus = KOA_Speed_Priority
+	}
+	x = 53
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Death_From_Above
+	text = KOA_Death_From_Above
+	icon = GFX_focus_destruction_bomb
+	cost = 7
+	prerequisite = {
+		focus = KOA_Speed_Priority
+	}
+	x = 55
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Flight_School
+	text = KOA_Flight_School
+	icon = GFX_focus_flight_school
+	cost = 7
+	prerequisite = {
+		focus = KOA_Death_From_Above
+		focus = KOA_Dogfight
+	}
+	x = 53
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Aviation_Industry
+	text = KOA_Aviation_Industry
+	icon = GFX_focus_air_materials
+	cost = 7
+	prerequisite = {
+		focus = KOA_the_Aviation_Unit
+	}
+	x = 55
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Missile_Development
+	text = KOA_Missile_Development
+	icon = GFX_focus_Missile_Development
+	cost = 7
+	prerequisite = {
+		focus = KOA_Strategic_Bomber
+		focus = KOA_Death_From_Above
+	}
+	x = 55
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Friederik_Airfield
+	text = KOA_Friederik_Airfield
+	icon = GFX_focus_Friederik_Airfield
+	cost = 7
+	prerequisite = {
+		focus = KOA_Aviation_Industry
+	}
+	x = 56
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Stealth_Fighter
+	text = KOA_Stealth_Fighter
+	icon = GFX_focus_faster_than_Sonic
+	cost = 7
+	prerequisite = {
+		focus = KOA_Death_From_Above
+	}
+	x = 57
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Destroy_their_AA
+	text = KOA_Destroy_their_AA
+	icon = GFX_focus_Destroy_their_AA
+	cost = 7
+	prerequisite = {
+		focus = KOA_Death_From_Above
+	}
+	x = 59
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Return_Of_Jules
+	text = KOA_Return_Of_Jules
+	icon = GFX_focus_Return_Of_Jules
+	cost = 7
+	prerequisite = {
+		focus = KOA_Revive_Officer_Corps
+	}
+	x = 72
+	y = 5
+	completion_reward = {
+		add_ideas = KOA_jules_hedgehog_army
+	}
+}
+
+shared_focus = {
+	id = KOA_Royal_Navy
+	text = KOA_Royal_Navy
+	icon = GFX_focus_Royal_Navy
+	cost = 7
+	prerequisite = {
+		focus = KOA_Grand_Military_Reforms
+	}
+	x = 85
+	y = 1
+}
+
+shared_focus = {
+	id = KOA_Freedom_Marines
+	text = KOA_Freedom_Marines
+	icon = GFX_focus_Freedom_Marines
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Navy
+	}
+	x = 80
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Protect_the_Strait
+	text = KOA_Protect_the_Strait
+	icon = GFX_focus_Protect_the_Strait
+	cost = 7
+	prerequisite = {
+		focus = KOA_Freedom_Marines
+	}
+	x = 79
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Armor_for_Marines
+	text = KOA_Armor_for_Marines
+	icon = GFX_focus_Armor_for_Marines
+	cost = 7
+	prerequisite = {
+		focus = KOA_Freedom_Marines
+	}
+	x = 81
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Conscript_Vessels
+	text = KOA_Conscript_Vessels
+	icon = GFX_focus_Conscript_Vessels
+	cost = 7
+	prerequisite = {
+		focus = KOA_Armor_for_Marines
+	}
+	prerequisite = {
+		focus = KOA_Protect_the_Strait
+	}
+	x = 80
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Learn_from_UF
+	icon = GFX_focus_Learn_from_UF
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Navy
+	}
+	mutually_exclusive = {
+		focus = KOA_Own_School
+	}
+	x = 84
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_UF_Instructors
+	text = KOA_UF_Instructors
+	icon = GFX_focus_UF_Instructors
+	cost = 7
+	prerequisite = {
+		focus = KOA_Learn_from_UF
+	}
+	x = 83
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Carrier_Buildup
+	text = KOA_Carrier_Buildup
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_UF_Instructors
+	}
+	x = 82
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Own_School
+	text = KOA_Own_School
+	icon = GFX_focus_Own_School
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Navy
+	}
+	mutually_exclusive = {
+		focus = KOA_Learn_from_UF
+	}
+	x = 86
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Navigation_Research
+	text = KOA_Navigation_Research
+	icon = GFX_focus_Navigation_Research
+	cost = 7
+	prerequisite = {
+		focus = KOA_Learn_from_UF
+		focus = KOA_Own_School
+	}
+	x = 85
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Submarine_Development
+	text = KOA_Submarine_Development
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_UF_Instructors
+	}
+	prerequisite = {
+		focus = KOA_Navigation_Research
+	}
+	x = 84
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Old_Navy_Experience
+	text = KOA_Old_Navy_Experience
+	icon = GFX_focus_Old_Navy_Experience
+	cost = 7
+	prerequisite = {
+		focus = KOA_Own_School
+	}
+	x = 87
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Destroyer_Overhaul
+	text = KOA_Destroyer_Overhaul
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_Old_Navy_Experience
+	}
+	prerequisite = {
+		focus = KOA_Navigation_Research
+	}
+	x = 86
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_More_Guns_better
+	text = KOA_More_Guns_better
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_Old_Navy_Experience
+	}
+	x = 88
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Naval_Academy
+	text = KOA_Naval_Academy
+	icon = GFX_focus_Naval_Academy
+	cost = 7
+	prerequisite = {
+		focus = KOA_Royal_Navy
+	}
+	x = 90
+	y = 2
+}
+
+shared_focus = {
+	id = KOA_Recruit_Naval_Races
+	text = KOA_Recruit_Naval_Races
+	icon = GFX_focus_Recruit_Naval_Races
+	cost = 7
+	prerequisite = {
+		focus = KOA_Naval_Academy
+	}
+	x = 89
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Naval_Bureau
+	text = KOA_Naval_Bureau
+	icon = GFX_focus_Naval_Bureau
+	cost = 7
+	prerequisite = {
+		focus = KOA_Naval_Academy
+	}
+	x = 91
+	y = 3
+}
+
+shared_focus = {
+	id = KOA_Grand_Port
+	text = KOA_Grand_Port
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_Naval_Bureau
+	}
+	prerequisite = {
+		focus = KOA_Recruit_Naval_Races
+	}
+	x = 90
+	y = 4
+}
+
+shared_focus = {
+	id = KOA_Rule_the_Seas
+	text = KOA_Rule_the_Seas
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_Destroyer_Overhaul
+	}
+	prerequisite = {
+		focus = KOA_More_Guns_better
+	}
+	prerequisite = {
+		focus = KOA_Grand_Port
+	}
+	x = 88
+	y = 5
+}
+
+shared_focus = {
+	id = KOA_Tails_Design
+	text = KOA_Tails_Design
+	icon = GFX_focus_Tails_Design
+	cost = 7
+	prerequisite = {
+		focus = KOA_Strategic_Bomber
+		focus = KOA_Dogfight
+	}
+	x = 51
+	y = 5
+}
+
+# shared_focus = {
+# 	id = KOA_Upgrade_Propogande
+# 	icon = GFX_focus_Upgrade_Propogande
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_Open_Old
+# 	}
+# 	x = 2
+# 	y = 8
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
+# shared_focus = {
+# 	id = KOA_Old_Planes
+# 	icon = GFX_focus_Old_Planes
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_School_Amry
+# 	}
+# 	x = 0
+# 	y = 8
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
+# shared_focus = {
+# 	id = KOA_Build_Guard_Mobotropolis
+# 	icon = GFX_focus_Build_Guard_Mobotropolis
+# 	cost = 7
+# 	prerequisite = {
+# 		focus = KOA_Old_Planes
+# 	}
+# 	prerequisite = {
+# 		focus = KOA_Upgrade_Propogande
+# 	}
+# 	x = 1
+# 	y = 9
+# 	available_if_capitulated = yes
+# 	completion_reward = {
+# 	}
+# }
+shared_focus = {
+	id = KOA_Operative_Destruction
+	text = KOA_Operative_Destruction
+	icon = GFX_goal_unknown
+	cost = 7
+	prerequisite = {
+		focus = KOA_Submarine_Development
+	}
+	prerequisite = {
+		focus = KOA_Carrier_Buildup
+	}
+	prerequisite = {
+		focus = KOA_Conscript_Vessels
+	}
+	x = 82
+	y = 5
+}
+
+# TODO: Check focuses "Stop Holding Back!" and "Mercian Trailblazers"
+# Foreign Politics focuses
+shared_focus = {
+	id = KOA_Masters_of_Mobius
+	text = KOA_Masters_of_Mobius
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Project_Crown_Atomic
+	x = 0
+	y = 2
+	available = {
+		has_country_flag = KOA_Foreign_Politics_Available
+	}
+	completion_reward = {
+		add_political_power = 75
+		if = {
+			limit = {
+				has_country_flag = Queen_Sally
+			}
+			country_event = koa.300
+		}
+		else_if = {
+			limit = {
+				has_country_flag = KOA_Elias_Despot_King
+			}
+			country_event = koa.302
+		}
+		else = {
+			country_event = koa.301
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Bright_Tomorrow
+	text = KOA_To_Bright_Tomorrow
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Masters_of_Mobius
+	x = -2
+	y = 1
+	available = {
+		has_global_flag = KOA_Foreign_Liberation
+	}
+	prerequisite = {
+		focus = KOA_Masters_of_Mobius
+	}
+	mutually_exclusive = {
+		focus = KOA_To_Glorious_Yesterday
+	}
+	completion_reward = {
+		every_country = {
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							is_in_faction_with = INF
+						}
+						NOT = {
+							is_in_faction_with = EGG
+						}
+						NOT = {
+							tag = INF
+						}
+						NOT = {
+							tag = EGG
+						}
+					}
+				}
+				add_opinion_modifier = {
+					target = KOA
+					modifier = KOA_Peaceful_Missionaries
+				}
+			}
+		}
+		news_event = koa.303
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Glorious_Yesterday
+	text = KOA_To_Glorious_Yesterday
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Masters_of_Mobius
+	x = 2
+	y = 1
+	available = {
+		has_global_flag = KOA_Foreign_Aggression
+	}
+	prerequisite = {
+		focus = KOA_Masters_of_Mobius
+	}
+	mutually_exclusive = {
+		focus = KOA_To_Bright_Tomorrow
+	}
+	completion_reward = {
+		every_country = {
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							is_in_faction_with = INF
+						}
+						NOT = {
+							is_in_faction_with = EGG
+						}
+						NOT = {
+							original_tag = INF
+						}
+						NOT = {
+							original_tag = EGG
+						}
+					}
+				}
+				add_opinion_modifier = {
+					target = KOA
+					modifier = KOA_Old_Imperialist
+				}
+			}
+		}
+		news_event = koa.304
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Retenia_With_Love
+	text = KOA_To_Retenia_With_Love
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Bright_Tomorrow
+	x = -4
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Bright_Tomorrow
+	}
+	mutually_exclusive = {
+		focus = KOA_The_Eastern_Blizzard
+	}
+	completion_reward = {
+		add_opinion_modifier = {
+			target = RCR
+			modifier = KOA_Detente_Propositions
+		}
+		RCR = {
+			# TODO: Add country event call for RCR
+			add_opinion_modifier = {
+				target = KOA
+				modifier = KOA_Detente_Propositions
+			}
+		}
+		country_event = koa.305
+	}
+}
+
+shared_focus = {
+	id = KOA_Not_So_Different
+	text = KOA_Not_So_Different
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Retenia_With_Love
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Retenia_With_Love
+	}
+	prerequisite = {
+		focus = KOA_Northamer_Collective_Security
+	}
+	completion_reward = {
+		# TODO: Make koa.306 shared.
+		country_event = koa.306
+		add_political_power = 50
+		RCR = {
+			add_political_power = 50
+			country_event = koa.306
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Break_the_Embargo
+	text = KOA_Break_the_Embargo
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Not_So_Different
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = KOA_Not_So_Different
+	}
+	completion_reward = {
+		country_event = koa.307
+		UFA = {
+			country_event = ufa.1300
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Rethenian_Military_Comission
+	text = KOA_Rethenian_Military_Comission
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Not_So_Different
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_Not_So_Different
+	}
+	completion_reward = {
+		army_experience = 75
+		add_command_power = 50
+		RCR = {
+			army_experience = 75
+			add_command_power = 50
+			country_event = shared.1
+		}
+		add_ideas = KOA_Rethenian_Military_Mission
+		news_event = koa.310
+		country_event = shared.1
+		diplomatic_relation = {
+			country = RCR
+			relation = military_access
+		}
+		diplomatic_relation = {
+			country = RCR
+			relation = offer_military_access
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Call_For_the_Feast
+	text = KOA_Call_For_the_Feast
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Not_So_Different
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = KOA_Not_So_Different
+	}
+	completion_reward = {
+		add_ideas = Cultural_Exchange
+		country_event = shared.19
+		add_stability = 0.05
+		RCR = {
+			add_ideas = Cultural_Exchange
+			country_event = shared.19
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Mobians_Forever
+	text = KOA_Mobians_Forever
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Not_So_Different
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = KOA_Break_the_Embargo
+	}
+	prerequisite = {
+		focus = KOA_Rethenian_Military_Comission
+	}
+	prerequisite = {
+		focus = KOA_Call_For_the_Feast
+	}
+	completion_reward = {
+		country_event = shared.2
+		RCR = {
+			country_event = shared.2
+		}
+		# TODO: Add news event "The Knothole Treaty" for all countries
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Eastern_Blizzard
+	text = KOA_The_Eastern_Blizzard
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Bright_Tomorrow
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Bright_Tomorrow
+		focus = KOA_To_Glorious_Yesterday
+	}
+	mutually_exclusive = {
+		focus = KOA_To_Retenia_With_Love
+	}
+	completion_reward = {
+		add_opinion_modifier = {
+			target = RCR
+			modifier = The_Eastern_Blizzard
+		}
+		if = {
+			limit = {
+				has_country_flag = Queen_Sally
+			}
+			country_event = koa.313
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_country_flag = KOA_Elias_Despot_King
+					has_country_flag = Elias_Acorn_Reforms
+					has_country_flag = elias_crowned
+				}
+			}
+			country_event = koa.314
+		}
+		news_event = koa.315
+		RCR = {
+			add_opinion_modifier = {
+				target = KOA
+				modifier = The_Eastern_Blizzard
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Old_Good_Dynasty
+	text = KOA_Old_Good_Dynasty
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Eastern_Blizzard
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_The_Eastern_Blizzard
+	}
+	completion_reward = {
+		country_event = koa.316
+		KOA_Vladimir_Acorn = {
+			add_logistics = 1
+			add_attack = 1
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Amass_Around_Reds
+	text = KOA_Amass_Around_Reds
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Eastern_Blizzard
+	x = 0
+	y = 2
+	prerequisite = {
+		focus = KOA_Old_Good_Dynasty
+	}
+	completion_reward = {
+		custom_effect_tooltip = KOA_Amass_Around_Reds_Tooltip
+	}
+}
+
+shared_focus = {
+	id = KOA_Aint_I_Right
+	text = KOA_Aint_I_Right
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Eastern_Blizzard
+	x = 0
+	y = 3
+	prerequisite = {
+		focus = KOA_Amass_Around_Reds
+	}
+	completion_reward = {
+		country_event = shared.4
+		RCR = {
+			country_event = shared.4
+		}
+		declare_war_on = {
+			target = RCR
+			type = annex_everything
+		}
+		add_ideas = KOA_Operation_Firework
+		custom_effect_tooltip = KOA_Global_war_tooltip
+		news_event = super.100
+		news_event = shared.5
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Root_of_All_Evils
+	text = KOA_The_Root_of_All_Evils
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Glorious_Yesterday
+	x = 0
+	y = 1
+	available = {
+		OR = {
+			has_completed_focus = KOA_Freedom_Fighters_Structure
+			has_completed_focus = KOA_Grand_Army
+		}
+	}
+	prerequisite = {
+		focus = KOA_To_Bright_Tomorrow
+		focus = KOA_To_Glorious_Yesterday
+	}
+	completion_reward = {
+		country_event = koa.317
+		add_war_support = 0.1
+		if = {
+			limit = {
+				has_completed_focus = KOA_Freedom_Fighters_Structure
+			}
+			add_ideas = KOA_Sally_Buff
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = KOA_Grand_Army
+			}
+			add_ideas = KOA_Amadeus_Buff
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Not_So_Loyal_Ones
+	text = KOA_Not_So_Loyal_Ones
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Root_of_All_Evils
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = KOA_The_Root_of_All_Evils
+	}
+	completion_reward = {
+		custom_effect_tooltip = KOA_Not_So_Loyal_Ones_Tooltip
+		country_event = koa.318
+	}
+}
+
+shared_focus = {
+	id = KOA_Meeting_with_Beauregard
+	text = KOA_Meeting_with_Beauregard
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Root_of_All_Evils
+	x = -1
+	y = 2
+	prerequisite = {
+		focus = KOA_Not_So_Loyal_Ones
+	}
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = KOA_Meeting_with_Beauregard_Trigger_Tooltip
+		}
+		GDD = {
+			AND = {
+				OR = {
+					is_subject_of = EGG
+					is_puppet_of = EGG
+				}
+				# 76 = {
+				# 	compliance < 30
+				# }
+				# 78 = {
+				# 	compliance < 30
+				# }
+				# 77 = {
+				# 	compliance < 30
+				# }
+				# 67 = {
+				# 	compliance < 30
+				# }
+				# 63 = {
+				# 	compliance < 30
+				# }
+				check_variable = {
+					EGG.DEL_3_Submission < 20
+				}
+			}
+		}
+	}
+	completion_reward = {
+		country_event = koa.319
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Guerilla_Answered
+	text = KOA_The_Guerilla_Answered
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Root_of_All_Evils
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = KOA_The_Root_of_All_Evils
+	}
+	available = {
+		OR = {
+			has_completed_focus = KOA_Freedom_Fighters_Structure
+			has_completed_focus = KOA_Grand_Army
+		}
+	}
+	completion_reward = {
+		country_event = koa.320
+	}
+}
+
+shared_focus = {
+	id = KOA_Short_Circuit
+	text = KOA_Short_Circuit
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Root_of_All_Evils
+	x = 1
+	y = 2
+	prerequisite = {
+		focus = KOA_The_Guerilla_Answered
+	}
+	completion_reward = {
+		add_ideas = KOA_Hacking_The_Egg
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Showdown_Resumes
+	text = KOA_The_Showdown_Resumes
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Root_of_All_Evils
+	x = 0
+	y = 3
+	prerequisite = {
+		focus = KOA_Meeting_with_Beauregard
+	}
+	prerequisite = {
+		focus = KOA_Short_Circuit
+	}
+	completion_reward = {
+		country_event = koa.321
+		news_event = shared.6
+		# Add super event call
+	}
+}
+
+shared_focus = {
+	id = KOA_Northamer_Collective_Security
+	text = KOA_Northamer_Collective_Security
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Bright_Tomorrow
+	x = -10
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Bright_Tomorrow
+	}
+	completion_reward = {
+		add_political_power = 50
+		every_country = {
+			limit = {
+				any_state = {
+					is_capital = yes
+					NOT = {
+						is_on_continent = northamer
+					}
+				}
+				NOT = {
+					is_in_faction_with = EGG
+				}
+			}
+			add_opinion_modifier = {
+				target = KOA
+				modifier = Security_Incentive
+			}
+			KOA = {
+				add_opinion_modifier = {
+					target = FROM
+					modifier = Security_Incentive
+				}
+			}
+		}
+		country_event = koa.322
+	}
+}
+
+shared_focus = {
+	id = KOA_Offer_Protection
+	text = KOA_Offer_Protection
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = KOA_Northamer_Collective_Security
+	}
+	completion_reward = {
+		custom_effect_tooltip = KOA_Offer_Protection_Tooltip
+		# TODO: Add ability for KOA to intervene any war in the region
+	}
+}
+
+shared_focus = {
+	id = KOA_Convince_the_Stubborn
+	text = KOA_Convince_the_Stubborn
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_Northamer_Collective_Security
+	}
+	completion_reward = {
+		custom_effect_tooltip = KOA_Convince_the_Stubborn_Tooltip
+	}
+}
+
+shared_focus = {
+	id = KOA_Assist_in_Deroboticization
+	text = KOA_Assist_in_Deroboticization
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = KOA_Northamer_Collective_Security
+	}
+	completion_reward = {
+		custom_effect_tooltip = KOA_Assist_in_Deroboticization_Tooltip
+		set_global_flag = KOA_Assist_in_Derobotization_flag
+	}
+}
+
+shared_focus = {
+	id = KOA_Hiboulian_Bases
+	text = KOA_Hiboulian_Bases
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = 4
+	y = 1
+	available = {
+		NOT = {
+			HIB = {
+				has_government = technocratic_despotism
+			}
+		}
+	}
+	prerequisite = {
+		focus = KOA_Northamer_Collective_Security
+	}
+	completion_reward = {
+		country_event = koa.323
+		custom_effect_tooltip = KOA_Hiboulian_Bases_Tooltip
+	}
+}
+
+shared_focus = {
+	id = KOA_Pacify_the_Region
+	text = KOA_Pacify_the_Region
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = -1
+	y = 2
+	available = {
+		PSR = {
+			OR = {
+				is_in_faction_with = KOA
+				is_puppet_of = KOA
+			}
+		}
+	}
+	prerequisite = {
+		focus = KOA_Offer_Protection
+	}
+	prerequisite = {
+		focus = KOA_Convince_the_Stubborn
+	}
+	prerequisite = {
+		focus = KOA_Assist_in_Deroboticization
+	}
+	completion_reward = {
+		country_event = koa.324
+	}
+}
+
+shared_focus = {
+	id = KOA_Infiltrate_Studiopolis
+	text = KOA_Infiltrate_Studiopolis
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = 1
+	y = 2
+	bypass = {
+		STD = {
+			exists = no
+		}
+	}
+	prerequisite = {
+		focus = KOA_Offer_Protection
+	}
+	prerequisite = {
+		focus = KOA_Convince_the_Stubborn
+	}
+	prerequisite = {
+		focus = KOA_Assist_in_Deroboticization
+	}
+	completion_reward = {
+		country_event = koa.325
+	}
+}
+
+shared_focus = {
+	id = KOA_Swartzland_Brothers
+	text = KOA_Swartzland_Brothers
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Northamer_Collective_Security
+	x = 0
+	y = 3
+	available = {
+		SWA = {
+			exists = yes
+		}
+	}
+	prerequisite = {
+		focus = KOA_Pacify_the_Region
+	}
+	prerequisite = {
+		focus = KOA_Infiltrate_Studiopolis
+	}
+	# TODO: Add custom tooltips.
+	completion_reward = {
+		custom_effect_tooltip = KOA_Swartzland_Brothers_Tooltip
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Big_Uncle
+	text = KOA_The_Big_Uncle
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Bright_Tomorrow
+	x = -15
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Bright_Tomorrow
+	}
+	completion_reward = {
+		add_opinion_modifier = {
+			modifier = KOA_UFA_rely_on_allies
+			target = UFA
+		}
+		country_event = shared.18
+		UFA = {
+			add_opinion_modifier = {
+				modifier = KOA_UFA_rely_on_allies
+				target = KOA
+			}
+			country_event = shared.18
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_GUN_Lessons
+	text = KOA_GUN_Lessons
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_The_Big_Uncle
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_The_Big_Uncle
+	}
+	completion_reward = {
+		army_experience = 75
+		air_experience = 25
+		UFA = {
+			army_experience = 75
+			air_experience = 25
+		}
+		add_ideas = KOA_GUN_Military_Mission
+		country_event = koa.337
+	}
+}
+
+shared_focus = {
+	id = KOA_Robots_on_Robots
+	text = KOA_Robots_on_Robots
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_GUN_Lessons
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = KOA_GUN_Lessons
+	}
+	completion_reward = {
+		add_equipment_to_stockpile = {
+			type = light_robots_equipment
+			amount = 500
+			producer = UFA
+		}
+		add_equipment_to_stockpile = {
+			type = medium_robot_equipment
+			amount = 300
+			producer = UFA
+		}
+		add_equipment_to_stockpile = {
+			type = heavy_robot_equipment
+			amount = 100
+			producer = UFA
+		}
+		add_ideas = KOA_Robotic_Contract
+	}
+}
+
+shared_focus = {
+	id = KOA_Bills_on_Bills
+	text = KOA_Bills_on_Bills
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_GUN_Lessons
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_GUN_Lessons
+	}
+	completion_reward = {
+		add_ideas = KOA_Federation_Debts_Loom
+		UFA = {
+			add_ideas = UFA_Federation_Debts_Loom
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Chips_on_Chips
+	text = KOA_Chips_on_Chips
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_GUN_Lessons
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = KOA_GUN_Lessons
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = Chips_on_Chips
+			bonus = 1
+			uses = 2
+			category = electronics
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Mutual_Obligations
+	text = KOA_Mutual_Obligations
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_GUN_Lessons
+	x = -1
+	y = 2
+	prerequisite = {
+		focus = KOA_Robots_on_Robots
+	}
+	prerequisite = {
+		focus = KOA_Bills_on_Bills
+	}
+	prerequisite = {
+		focus = KOA_Chips_on_Chips
+	}
+	completion_reward = {
+		country_event = shared.14
+		hidden_effect = {
+			UFA = {
+				country_event = shared.14
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Live_and_Learn
+	text = KOA_Live_and_Learn
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_GUN_Lessons
+	x = 1
+	y = 2
+	prerequisite = {
+		focus = KOA_Robots_on_Robots
+	}
+	prerequisite = {
+		focus = KOA_Bills_on_Bills
+	}
+	prerequisite = {
+		focus = KOA_Chips_on_Chips
+	}
+	completion_reward = {
+		country_event = koa.338
+	}
+}
+
+shared_focus = {
+	id = KOA_Rally_for_Richard
+	text = KOA_Rally_for_Richard
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Glorious_Yesterday
+	x = 4
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Glorious_Yesterday
+	}
+	completion_reward = {
+		if = {
+			limit = {
+				SWA = {
+					is_in_faction_with = KOA
+				}
+			}
+			country_event = koa.339
+		}
+		else = {
+			country_event = koa.340
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Reichsmacht_at_Service
+	text = KOA_Reichsmacht_at_Service
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Rally_for_Richard
+	x = -1
+	y = 1
+	available = {
+		SWA = {
+			is_in_faction_with = KOA
+		}
+	}
+	prerequisite = {
+		focus = KOA_Rally_for_Richard
+	}
+	completion_reward = {
+		add_ideas = KOA_Reichsmacht_Lessons
+		army_experience = 50
+		country_event = koa.341
+	}
+}
+
+shared_focus = {
+	id = KOA_Flugwaffe_Mission
+	text = KOA_Flugwaffe_Mission
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Rally_for_Richard
+	x = -1
+	y = 2
+	prerequisite = {
+		focus = KOA_Reichsmacht_at_Service
+	}
+	completion_reward = {
+		add_ideas = KOA_Flugwaffe_Missions
+		air_experience = 75
+		country_event = koa.342
+	}
+}
+
+shared_focus = {
+	id = KOA_Industrial_Imperialism
+	text = KOA_Industrial_Imperialism
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Rally_for_Richard
+	x = 1
+	y = 1
+	available = {
+		SWA = {
+			is_in_faction_with = KOA
+		}
+	}
+	prerequisite = {
+		focus = KOA_Rally_for_Richard
+	}
+	completion_reward = {
+		add_ideas = KOA_Industrial_Hegemony
+		every_country = {
+			limit = {
+				AND = {
+					is_in_faction_with = KOA
+					is_faction_leader = no
+				}
+			}
+			add_ideas = COMMON_Giving_Fruits
+			add_opinion_modifier = {
+				target = FROM
+				modifier = KOA_Industrial_Imperialism_Opinion
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Question_of_Colonies
+	text = KOA_Question_of_Colonies
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Rally_for_Richard
+	x = 1
+	y = 2
+	prerequisite = {
+		focus = KOA_Industrial_Imperialism
+	}
+	completion_reward = {
+		country_event = koa.345
+	}
+}
+
+shared_focus = {
+	id = KOA_The_Iron_Acorn
+	text = KOA_The_Iron_Acorn
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Rally_for_Richard
+	x = 0
+	y = 3
+	prerequisite = {
+		focus = KOA_Flugwaffe_Mission
+	}
+	prerequisite = {
+		focus = KOA_Question_of_Colonies
+	}
+	completion_reward = {
+		add_political_power = 100
+		add_stability = 0.1
+		add_war_support = 0.1
+		add_opinion_modifier = {
+			target = SWA
+			modifier = KOA_SWA_Bloodline_Ties
+		}
+		SWA = {
+			add_opinion_modifier = {
+				target = KOA
+				modifier = KOA_SWA_Bloodline_Ties
+			}
+		}
+		country_event = koa.346
+	}
+}
+
+shared_focus = {
+	id = KOA_Spread_the_Word
+	text = KOA_Spread_the_Word
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Glorious_Yesterday
+	x = 8
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Glorious_Yesterday
+	}
+	completion_reward = {
+		country_event = koa.347
+		add_political_power = 75
+		set_variable = {
+			KOA_new_empire_idea_level = 1
+		}
+		KOA_Switch_Empire_Idea_Meta = yes
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Jewel_of_Bharatsha
+	text = KOA_To_Jewel_of_Bharatsha
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Spread_the_Word
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = KOA_Spread_the_Word
+	}
+	completion_reward = {
+		if = {
+			limit = {
+				BHA = {
+					is_in_faction_with = KOA
+				}
+			}
+			set_variable = {
+				KOA_new_empire_idea_level = 2
+			}
+			KOA_Switch_Empire_Idea_Meta = yes
+			country_event = koa.348
+		}
+		else = {
+			country_event = koa.349
+		}
+	}
+	# TODO: The game crashes if Bharatsha accepts
+	# faction invitation
+}
+
+shared_focus = {
+	id = KOA_To_Mercian_Waves
+	text = KOA_To_Mercian_Waves
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Spread_the_Word
+	x = -1
+	y = 2
+	prerequisite = {
+		focus = KOA_To_Jewel_of_Bharatsha
+	}
+	completion_reward = {
+		if = {
+			limit = {
+				MER = {
+					is_in_faction_with = KOA
+				}
+			}
+			set_variable = {
+				KOA_new_empire_idea_level = 3
+			}
+			KOA_Switch_Empire_Idea_Meta = yes
+			country_event = koa.350
+		}
+		else = {
+			country_event = koa.351
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Hills_of_Downunda
+	text = KOA_To_Hills_of_Downunda
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Spread_the_Word
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = KOA_Spread_the_Word
+	}
+	completion_reward = {
+		# TODO: Add decisions
+		# TODO: Remove MER idea
+		if = {
+			limit = {
+				DOW = {
+					is_in_faction_with = KOA
+				}
+			}
+			set_variable = {
+				KOA_new_empire_idea_level = 4
+			}
+			KOA_Switch_Empire_Idea_Meta = yes
+			country_event = koa.352
+		}
+		else = {
+			country_event = koa.353
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_To_Jade_Dragon
+	text = KOA_To_Jade_Dragon
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Spread_the_Word
+	x = 1
+	y = 2
+	prerequisite = {
+		focus = KOA_To_Hills_of_Downunda
+	}
+	completion_reward = {
+		country_event = koa.354
+	}
+}
+
+shared_focus = {
+	id = KOA_We_the_Empire
+	text = KOA_We_the_Empire
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Spread_the_Word
+	x = 0
+	y = 3
+	available = {
+		KOA = {
+			is_in_faction_with = BHA
+			is_in_faction_with = MER
+			is_in_faction_with = DOW
+		}
+	}
+	prerequisite = {
+		focus = KOA_To_Mercian_Waves
+	}
+	prerequisite = {
+		focus = KOA_To_Jade_Dragon
+	}
+	completion_reward = {
+		set_variable = {
+			KOA_new_empire_idea_level = 5
+		}
+		KOA_Switch_Empire_Idea_Meta = yes
+		country_event = koa.355
+	}
+}
+
+shared_focus = {
+	id = KOA_Mutual_Settlements
+	text = KOA_Mutual_Settlements
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_To_Glorious_Yesterday
+	x = 14
+	y = 1
+	prerequisite = {
+		focus = KOA_To_Glorious_Yesterday
+	}
+	completion_reward = {
+		country_event = koa.356
+	}
+}
+
+shared_focus = {
+	id = KOA_Traitorous_Race
+	text = KOA_Traitorous_Race
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Mutual_Settlements
+	x = -1
+	y = 1
+	available = {
+		# TODO: Add condition
+	}
+	prerequisite = {
+		focus = KOA_Mutual_Settlements
+	}
+	completion_reward = {
+		add_political_power = 75
+		country_event = koa.357
+	}
+}
+
+shared_focus = {
+	id = KOA_Nationalize_Federal_Assets
+	text = KOA_Nationalize_Federal_Assets
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Traitorous_Race
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = KOA_Traitorous_Race
+	}
+	completion_reward = {
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		UFA = {
+			country_event = ufa.1350
+		}
+		# TODO: Add opinion modifier
+	}
+}
+
+shared_focus = {
+	id = KOA_Recall_the_Great_War
+	text = KOA_Recall_the_Great_War
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Traitorous_Race
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_Traitorous_Race
+	}
+	completion_reward = {
+		add_ideas = KOA_Shoot_The_Bald
+	}
+}
+
+shared_focus = {
+	id = KOA_Unneccessary_Escalation
+	text = KOA_Unneccessary_Escalation
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Traitorous_Race
+	x = -1
+	y = 2
+	available = {
+		NOT = {
+			country_exists = EGG
+		}
+	}
+	prerequisite = {
+		focus = KOA_Nationalize_Federal_Assets
+	}
+	prerequisite = {
+		focus = KOA_Recall_the_Great_War
+	}
+	completion_reward = {
+		# TODO: Add custom tooltip
+		country_event = koa.358
+	}
+}
+
+shared_focus = {
+	id = KOA_A_Friend_to_Rely_On
+	text = KOA_A_Friend_to_Rely_On
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_Mutual_Settlements
+	x = 1
+	y = 1
+	available = {
+		# TODO: Add condition
+	}
+	prerequisite = {
+		focus = KOA_Mutual_Settlements
+	}
+	completion_reward = {
+		add_political_power = 75
+		country_event = koa.360
+	}
+}
+
+shared_focus = {
+	id = KOA_Share_Markets
+	text = KOA_Share_Markets
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_A_Friend_to_Rely_On
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = KOA_A_Friend_to_Rely_On
+	}
+	completion_reward = {
+		add_ideas = KOA_Good_Old_Business
+		UFA = {
+			add_ideas = UFA_Good_Old_Business
+			country_event = ufa.1352
+		}
+	}
+}
+
+shared_focus = {
+	id = KOA_Armanent_Shipments
+	text = KOA_Armanent_Shipments
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_A_Friend_to_Rely_On
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = KOA_A_Friend_to_Rely_On
+	}
+	completion_reward = {
+		# TODO: Add decisions
+	}
+}
+
+shared_focus = {
+	id = KOA_Welcome_to_Accord
+	text = KOA_Welcome_to_Accord
+	icon = GFX_goal_unknown
+	cost = 4
+	relative_position_id = KOA_A_Friend_to_Rely_On
+	x = 1
+	y = 2
+	prerequisite = {
+		focus = KOA_Share_Markets
+	}
+	prerequisite = {
+		focus = KOA_Armanent_Shipments
+	}
+	completion_reward = {
+		UFA = {
+			country_event = ufa.1353
+		}
+	}
+}

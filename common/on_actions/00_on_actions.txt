@@ -1,18 +1,35 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			clear_array = global.internationale_members
+			every_country = {
+				limit = {
+                    is_in_faction_with = RCR
+				}
+				add_to_array = {
+					array = global.internationale_members
+					value = THIS
+				}
+			}
+
+			every_country = {
+				calculate_ring_gain = yes
+			}
 			
 			KOA = {
-				set_country_flag = { flag = leader_has_bio value = 1}
+				set_country_flag = leader_has_bio
 			}
 			RCR = {
-				set_country_flag = { flag = leader_has_bio value = 1}
+				set_country_flag = leader_has_bio
 			}
 			UFA = {
-				set_country_flag = { flag = leader_has_bio value = 1}
+				set_country_flag = leader_has_bio
 			}
             INF = {
-                set_variable = { var = inf_phantom_ruby_energy value = 100}
+                set_variable = { 
+					var = inf_phantom_ruby_energy 
+					value = 100
+				}
             }
 
 		}

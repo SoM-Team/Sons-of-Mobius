@@ -1,16 +1,13 @@
 leader_traits = {
-		drunkard = { 
-			type = land
-			trait_type = personality_trait
-		
-			modifier = {
+	drunkard = {
+		type = land
+		trait_type = personality_trait
+		modifier = {
 			max_dig_in = 1
 		}
-		
 		modifier = {
-			army_morale_factor = -0.20
+			army_morale_factor = -0.2
 		}
-		
 		planning_skill = -1
 		attack_skill_factor = 1
 		logistics_skill_factor = 1
@@ -18,16 +15,81 @@ leader_traits = {
 			experience_gain_factor = -0.25
 		}
 	}
-
 	operative_fear_of_pain = {
 		type = operative
 		trait_type = personality_trait
-
-		#new_commander_weight = {
-		#}
-
+		new_commander_weight = {
+			factor = 0
+		}
 		modifier = {
-			enemy_operative_intel_extraction_rate = 0.5
+			enemy_operative_intel_extraction_rate = 2
+		}
+	}
+	operative_empath = {
+		type = operative
+		trait_type = personality_trait
+		new_commander_weight = {
+			factor = 0
+		}
+		modifier = {
+			own_operative_detection_chance_factor = -0.35
+			own_operative_capture_chance_factor = -0.1
+			operation_rescue_operative_risk = -0.05
+			operation_rescue_operative_cost = -0.05
+			operation_boost_resistance_risk = -0.1
+			operation_boost_resistance_cost = -0.1
+			operation_boost_resistance_outcome = 0.5
+			boost_ideology_mission_factor = 0.5
+			control_trade_mission_factor = 0.5
+			diplomatic_pressure_mission_factor = 0.5
+			propaganda_mission_factor = 0.5
+			root_out_resistance_effectiveness_factor = 0.25
+			intel_network_gain_factor = 0.3
+			operation_coup_government_risk = -0.1
+			operation_coup_government_cost = -0.1
+			operation_coup_government_outcome = 0.5
+			operation_infiltrate_risk = -0.2
+			operation_infiltrate_outcome = 0.5
+			operation_infiltrate_cost = -0.2
+			operation_collaboration_government_outcome = 0.5
+			operation_collaboration_government_risk = -0.2
+			operation_collaboration_government_cost = -0.2
+		}
+	}
+	sword_of_people = {
+		type = land
+		trait_type = personality_trait
+		modifier = {
+			army_morale_factor = 0.05
+			army_attack_factor = 0.05
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+		
+	}
+	sword_of_acorn_holder = {
+		type = land
+		trait_type = personality_trait
+		modifier = {
+			army_morale_factor = 0.25
+			army_attack_factor = 0.25
+			army_defence_factor = 0.25
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+		
+	}
+	
+	exhausted_order_trait = {
+		type = land
+		trait_type = status_trait
+		allowed = {
+			always = no
+		}
+		modifier = {
+			planning_speed = -0.05
 		}
 	}
 }

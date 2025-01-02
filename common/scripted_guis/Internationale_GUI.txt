@@ -1,0 +1,57 @@
+scripted_gui = {
+	Internationale_Scripted_GUI = {
+		context_type = decision_category
+		window_name = Internationale_Choose_Country
+
+		dynamic_lists = {
+			Internationale_Country_List = {
+				array = global.internationale_members
+				change_scope = yes
+				entry_container = "Internationale_Country_Entry"
+				
+				ai_weights = {
+					Internationale_Country_Button_click = {
+						ai_will_do = {
+							base = 1
+
+							modifier = {
+								set_temp_variable = {
+									temp_factor = 1
+								}
+								divide_temp_variable = {
+									temp_factor = global.internationale_members^num
+								}
+
+								factor = temp_factor
+							}
+						}
+					}
+				}
+			}
+		}
+
+		effects = {
+			Internationale_Country_Button_click = {
+				set_variable = {
+					ROOT.internationale_country_chosen = THIS
+				}
+			}
+		}
+
+		properties = {
+			Internationale_Country_Button = {
+				image = "[This.GetFlag]"
+			}
+		}
+
+		ai_enabled = {
+			always = yes
+		}
+
+		ai_check = {
+			NOT = {
+				has_country_flag = Faction_Leader_Vote_is_Given
+			}
+		}
+	}
+}

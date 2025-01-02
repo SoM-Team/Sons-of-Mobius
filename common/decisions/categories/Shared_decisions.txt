@@ -1,0 +1,112 @@
+International_Decisions = {
+	allowed = {
+		always = yes
+	}
+	available = {
+		is_in_faction_with = RCR
+		NOT = {
+			is_puppet = yes
+		}
+	}
+	visible = {
+		is_in_faction_with = RCR
+	}
+
+	scripted_gui = Internationale_Scripted_GUI
+}
+
+Shilov_Union_Decisions = {
+	allowed = {
+		original_tag = RCR
+	}
+	available = {
+		# has_government = neosocialism
+		has_country_leader = RCR_Gennadiy_Shilov
+	}
+	visible = {
+		# has_government = neosocialism
+		has_country_leader = RCR_Gennadiy_Shilov
+	}
+}
+
+Test_decisions = {
+	allowed = {
+		always = yes
+	}
+	available = {
+		always = yes
+	}
+}
+
+Mobilization_and_Draft_Evasion = {
+	allowed = {
+		always = yes
+	}
+	available = {
+		always = yes
+	}
+}
+
+Derobotization_Effort = {
+    visible = {
+        NOT = {
+            is_in_faction_with = EGG
+        }
+        OR = {
+            has_completed_focus = KOA_Robian_Integration
+            has_completed_focus = KOA_Back_to_Mobian
+
+            AND = {
+                NOT = {
+                    tag = KOA
+                }
+                has_global_flag = KOA_Assist_in_Derobotization_flag
+                has_opinion = {
+                    target = KOA
+                    value > 50
+                }
+            }
+        }
+    }
+
+    allowed = {
+        OR = {
+            tag = KOA
+            tag = OLP
+            tag = KUN
+            tag = SWA
+            tag = PSR
+            tag = HIB
+            tag = AVI
+            tag = ANG
+            tag = PIR
+            tag = HIB
+            tag = GDK
+            tag = NEA
+            tag = CRI
+            tag = UMK
+            tag = STD
+            tag = CNS
+            tag = FLU
+        }
+    }
+}
+
+Targeted_Derobotization = {
+    allowed = {
+        NOT = {
+            tag = EGG
+            tag = IRO
+        }
+    }
+    available = {
+        any_controlled_state = {
+            has_state_flag = Roboticized
+        }
+    }
+    visible = {
+        any_controlled_state = {
+            has_state_flag = Roboticized
+        }
+    }
+}

@@ -17,6 +17,41 @@ KOA_Her_Majesty_Path = {
 	}
 }
 
+KOA_Test = {
+    Sally_Queen = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Queen_Sally
+			load_focus_tree = Kingdom_Akorn_Queen_Sally
+		}
+	}
+	Acorn_Civil_War_started = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Acorn_Civil_War_started
+			load_focus_tree = Kingdom_Akorn_Civil_War
+		}
+	}
+	Elias_Reformer = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Elias_Acorn_Reforms
+			load_focus_tree = Kingdom_Akorn_Elias_Reformer
+		}
+	}
+	Red_Sally = {
+		fire_only_once = yes
+		cost = 0
+		complete_effect = {
+			set_country_flag = Sally_becomes_Red
+			load_focus_tree = Kingdom_Akorn_Red_Sally
+		}
+	}
+}
+
 KOA_Amass_Around_Reds_Decisions = {
 	KOA_Invite_Cherniwschina = {
 		fire_only_once = yes
@@ -110,9 +145,144 @@ KOA_Amass_Around_Reds_Decisions = {
 	}
 }
 
+KOA_Build_the_Railroads = {
+	From_Knothole_to_Faunida = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 26
+			controls_state = 25
+			controls_state = 24
+			controls_state = 7
+		}
+		days_remove = 90
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5366 4797 4665 4533 4481 4398 4299 4225 4188 4137 4099 4060 3977 3864 }
+				start_province = 5366
+				target_province = 3864
+			}
+		}
+	}
+	From_Faunida_to_Silvaniana = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 26
+			controls_state = 25
+			controls_state = 23
+			controls_state = 22
+		}
+		days_remove = 120
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 3864 3926 3934 4001 4054 4069 4093 4122 4187 4242 4298 4380 4452 4459 4362 4397 4396 4378 }
+				start_province = 3864
+				target_province = 4378
+			}
+		}
+	}
+	From_Silvaniana_to_Knothole = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 22
+			controls_state = 21
+			controls_state = 28
+			controls_state = 27
+		}
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4378 4493 4498 4572 4613 4637 4693 4745 4842 4922 4962 4952 4939 4891 4836 4713 4658 4772 }
+				start_province = 4378
+				target_province = 4772
+			}
+		}
+	}
+	Minor_Southern_Railways = {
+		fire_only_once = yes
+		cost = 50
+		available = {
+			num_of_civilian_factories_available_for_projects > 9
+			command_power > 24
+			has_manpower > 29999
+			controls_state = 22
+			controls_state = 23
+			controls_state = 28
+			controls_state = 27
+		}
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 10
+		}
+		complete_effect = {
+			add_command_power = -25
+		}
+		remove_effect = {
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4452 4556 4648 4739 }
+				start_province = 4452
+				target_province = 4739
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 4378 4499 4573 4658 }
+				start_province = 4378
+				target_province = 4658
+			}
+		}
+	}
+}
+
 KOA_The_Guerilla_Army_Decisions = {
 
 	KOA_Freedom_Fighters_Support = {
+		visible = {
+			has_completed_focus = KOA_The_Guerilla_Answered
+		}
+		cost = 100
 		complete_effect = {
 			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
 			EGG = {
@@ -122,25 +292,68 @@ KOA_The_Guerilla_Army_Decisions = {
 			}
 			custom_effect_tooltip = KOA_Freedom_Fighters_Support_tooltip
 		}
-		visible = {
-			has_completed_focus = KOA_The_Guerilla_Answered
-		}
 		days_re_enable = 5
 	}
 
 	KOA_Sabotage_The_Eggmans_Factories = {
 		complete_effect = {
 			custom_effect_tooltip = KOA_Freedom_Fighters_Arms_Factory_Tooltip
-			EGG = {
-				random_owned_state = {
-					damage_building = {
-						type = arms_factory
-						damage = 0.5
+			33 = {
+				EGG = {
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
 					}
+					add_to_variable = { 
+						ff_activity = 10
+					}	
 				}
-				add_to_variable = { 
-					ff_activity = 10
-				}	
+			}
+			33 = {
+				EGG = {
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
+					}
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
+					}
+					add_to_variable = { 
+						ff_activity = 10
+					}	
+				}
+			}
+			33 = {
+				EGG = {
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
+					}
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
+					}
+					random_owned_state = {
+						damage_building = {
+							type = arms_factory
+							damage = 0.5
+						}
+					}
+					add_to_variable = { 
+						ff_activity = 10
+					}	
+				}
 			}
 		}
 		visible = {
@@ -168,6 +381,77 @@ KOA_The_Guerilla_Army_Decisions = {
 			has_completed_focus = KOA_The_Guerilla_Answered
 		}
 		days_re_enable = 60
+	}
+
+	KOA_Sabotage_The_Eggmans_Industry = {
+		complete_effect = {
+			custom_effect_tooltip = KOA_Freedom_Fighters_Arms_Factory_Tooltip
+			random_list = {
+				10 = {
+					EGG = {
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						add_to_variable = { 
+							ff_activity = 10
+						}	
+					}
+				}
+				10 = {
+					EGG = {
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						add_to_variable = { 
+							ff_activity = 10
+						}	
+					}
+				}
+				10 = {
+					EGG = {
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						random_owned_state = {
+							damage_building = {
+								type = arms_factory
+								damage = 0.75
+							}
+						}
+						add_to_variable = { 
+							ff_activity = 10
+						}	
+					}
+				}
+			}
+			
+		}
+		visible = {
+			has_completed_focus = KOA_Destruction_of_Giants
+		}
+		days_re_enable = 60
+		cost = 50
 	}
 
 	KOA_Cyber_Attack_On_Processing_Plants = {
@@ -772,6 +1056,8 @@ KOA_Resistance_in_EGG = {
 	}
 
 	KOA_Increase_Guerilla_Activity = {
+		state_target = yes
+		on_map_mode = map_only
 		fire_only_once = no
 		custom_cost_trigger = {
 			command_power > 74
@@ -821,7 +1107,7 @@ KOA_Hiboulian_Bases_Decisions = {
 				}
 				random_owned_state = {
 					add_building_construction = {
-						type = anti_air
+						type = anti_air_building
 						level = 2
 						instant_build = yes
 					}
@@ -839,7 +1125,9 @@ KOA_Hiboulian_Bases_Decisions = {
 		complete_effect = {
 			HIB = {
 				random_owned_state = {
-					is_coastal = yes
+					limit = {
+						is_coastal = yes
+					}
 					add_building_construction = {
 						type = air_base
 						level = 2
@@ -865,8 +1153,10 @@ KOA_Hiboulian_Bases_Decisions = {
 		complete_effect = {
 			HIB = {
 				every_state = {
-					any_neighbor_state = {
-						is_owned_and_controlled_by = EGG
+					limit = {
+						any_neighbor_state = {
+							is_owned_and_controlled_by = EGG
+						}
 					}
 					add_building_construction = {
 						type = infrastructure
@@ -967,13 +1257,38 @@ KOA_Stop_The_Rev = {
 	    }
 		
 		timeout_effect = {
-			country_event = {
-				id = koa.88
-				days = 3
+			if = {
+				limit = {
+					check_variable = {
+						baron_power > 19
+					}
+				}
+				country_event = {
+					id = koa.88
+					days = 3
+				}
 			}
-			country_event = {
-				id = koa.89
-				days = 1
+			if = {
+				limit = {
+					check_variable = {
+						union_power > 19
+					}
+				}
+				country_event = {
+					id = koa.90
+					days = 2
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						prower_power > 19
+					}
+				}
+				country_event = {
+					id = koa.89
+					days = 1
+				}
 			}
 		}
 
@@ -1884,9 +2199,462 @@ KOA_Exchange_Armaments_With_RCR_Decisions = {
 
 		complete_effect = {
 			RCR = {
-				
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 500
+				}
 			}
 		}
 	}
 
+}
+
+KOA_Armament_Shipments = {
+	Buy_Infantry_Equipment = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings >0.999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+			}
+		}
+	}
+
+	Buy_IFVs = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings >0.999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = mechanized_equipment 
+				amount = 500
+			}
+		}
+	}
+
+	Buy_Tanks = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings >0.999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = main_battle_tank_equipment
+				amount = 100
+			}
+		}
+	}
+
+	Buy_Jet_CAS = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings >0.999
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		complete_effect = {
+			UFA = {
+				add_to_variable = {
+					var = rings
+					value = 1000
+				}
+			}
+			add_to_variable = {
+				var = rings
+				value = -1000
+			}
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = CAS_equipment
+				amount = 20
+			}
+		}
+	}
+}
+
+KOA_Operation_VENOM = {
+	Send_a_Spy_After_Geoffrey = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			has_political_power > 24
+		}
+		days_remove = 10
+		complete_effect = {
+			add_political_power = -25
+		}
+		remove_effect = {
+			add_to_variable = {
+				SID_power = 10
+			}
+			custom_effect_tooltip = Send_a_Spy_After_Geoffrey
+		}
+	}
+
+	Bribe_Naugus_Servants = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			check_variable = {
+				SID_power > 14
+			}
+		}
+		days_remove = 25
+		complete_effect = {
+			add_to_variable = {
+				SID_power = -15
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+				Naugus_Power = -15
+			}
+			custom_effect_tooltip = Bribe_Naugus_Servants
+		}
+	}	
+
+	Replace_Castle_of_Acorn_Guards = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			has_political_power > 49
+		}
+		days_remove = 19
+		complete_effect = {
+			add_political_power = -50
+		}
+		remove_effect = {
+			add_to_variable = {
+				Naugus_Power = -10
+			}
+			custom_effect_tooltip = Bribe_Naugus_Servants
+		}
+	}	
+
+	Search_for_Naugus_Plans = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			check_variable = {
+				Naugus_Power < 75
+			}
+			command_power > 29
+		}
+		days_remove = 36
+		complete_effect = {
+			add_command_power = -30
+		}
+		remove_effect = {
+			add_to_variable = {
+				SID_power = 25
+			}
+			custom_effect_tooltip = Search_for_Naugus_Plans
+		}
+	}	
+
+	Interrogate_Geoffrey_St_John = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			check_variable = {
+				Naugus_Power < 50
+			}
+			command_power > 24
+			has_political_power > 74
+		}
+		fire_only_once = yes
+		days_remove = 7
+		complete_effect = {
+			add_command_power = -25
+			add_political_power = -75
+		}
+		remove_effect = {
+			add_to_variable = {
+				SID_power = 50
+			}
+			#country_event = koa.???
+			custom_effect_tooltip = Interrogate_Geoffrey_St_John
+		}
+	}
+
+	Assassinate_Ixis_Naugus = {
+		allowed = {
+			tag = KOA
+		}
+		
+		available = {
+			check_variable = {
+				Naugus_Power < 25
+			}
+			check_variable = {
+				SID_power > 99
+			}
+			has_completed_focus = KOA_Deal_With_Naugus
+		}
+		fire_only_once = yes
+		days_remove = 15
+		remove_effect = {
+			#country_event = koa.??? #kill Naugus
+			custom_effect_tooltip = Assassinate_Ixis_Naugus
+		}
+	}
+}
+
+KOA_Handling_the_Budget = {
+    Military_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 53.999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Military_Question_Answered
+			add_offsite_building = {
+				type = arms_factory
+				level = 3
+			}
+			add_timed_idea = {
+				idea = KOA_Military_Priority
+				days = 1825
+			}
+		}
+	}
+
+	Industrial_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 32.999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Industrial_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Industrial_Priority
+				days = 1825
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+	}
+
+	Social_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 24.999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			add_timed_idea = {
+				idea = KOA_Social_Priority
+				days = 1825
+			}
+			set_country_flag = Social_Question_Answered
+		}
+	}
+
+	Scientific_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 31.999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Scientific_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Scientific_Priority
+				days = 1825
+			}
+		}
+	}
+
+	Ecological_Spending = {
+		allowed = {
+			tag = KOA
+		}
+		available = {
+			check_variable = {
+				rings > 14.999
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = Ecological_Question_Answered
+			add_timed_idea = {
+				idea = KOA_Ecological_Priority
+				days = 1825
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 10
+			}
+		}
+	}
+}
+
+KOA_Council = {
+	Come_to_an_Agreement = {
+		cost = 25
+		days_re_enable = 10
+
+		complete_effect = {
+			subtract_from_variable = {
+				council_factionalism = 5
+			}
+			clamp_variable = {
+				var = council_factionalism
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Consolidate_the_Factions = {
+		cost = 100
+		days_re_enable = 50
+
+		complete_effect = {
+			add_to_variable = {
+				council_factionalism = 20
+			}
+			clamp_variable = {
+				var = council_factionalism
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Advertise_the_Council_Efforts = {
+		cost = 25
+		days_re_enable = 10
+
+		complete_effect = {
+			add_to_variable = {
+				council_support = 5
+			}
+			clamp_variable = {
+				var = council_support
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	Council_Support_Campaign = {
+		cost = 100
+		days_re_enable = 50
+
+		complete_effect = {
+			add_to_variable = {
+				council_support = 20
+			}
+			clamp_variable = {
+				var = council_support
+				min = 0
+				max = 100
+			}
+		}
+	}
 }

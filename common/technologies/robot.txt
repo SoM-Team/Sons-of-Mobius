@@ -1,24 +1,18 @@
 technologies = {
 	programmed_electronics = {
-
 		# small boost to research speed
 		research_speed_factor = 0.04
-		
 		path = {
 			leads_to_tech = robotization_machine
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = quantum_processor 
+			leads_to_tech = quantum_processor
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 20
-			
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
@@ -26,27 +20,25 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -3 y = 0 }
+			position = {
+				x = -3
+				y = 0
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	robotization_machine = {
-
 		# small boost to division recovery rate
 		army_morale_factor = 0.04
-		
 		path = {
 			leads_to_tech = fiw_robians
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2.5
-		
 		ai_will_do = {
 			factor = 20
-			
 			modifier = {
 				factor = 2
 				date > "3237.1.1"
@@ -54,19 +46,20 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 2 }
+			position = {
+				x = -7
+				y = 2
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	fiw_robians = {
-
 		enable_equipments = {
 			empty_robians_equipment_1
 			robians_equipment_1
 		}
-		
 		enable_subunits = {
 			robians
 		}
@@ -74,18 +67,21 @@ technologies = {
 			leads_to_tech = light_robots_1
 			research_cost_coeff = 1
 		}
-
 		on_research_complete = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			hidden_effect = {
 				load_oob = "unlock_robians"
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		research_cost = 3
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.5
 				date > "3237.1.1"
@@ -97,17 +93,18 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 4 }
+			position = {
+				x = -7
+				y = 4
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	quantum_processor = {
-
 		# small boost to research speed
 		research_speed_factor = 0.04
-		
 		path = {
 			leads_to_tech = light_robots_1
 			research_cost_coeff = 1
@@ -116,17 +113,13 @@ technologies = {
 			leads_to_tech = medium_robot_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 3.5
-		
 		ai_will_do = {
 			factor = 6
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 3
 				date > "3238.1.1"
@@ -134,14 +127,16 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 4 }
+			position = {
+				x = 1
+				y = 4
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	medium_robot_1 = {
-
 		enable_equipments = {
 			medium_robot_equipment_1
 		}
@@ -156,18 +151,21 @@ technologies = {
 			leads_to_tech = heavy_robot_1
 			research_cost_coeff = 1
 		}
-
 		on_research_complete = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			hidden_effect = {
 				load_oob = "unlock_medium_robots"
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 4
 				is_major = yes
@@ -180,7 +178,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 8 }
+			position = {
+				x = 1
+				y = 8
+			}
 		}
 		categories = {
 			robot_techs
@@ -188,7 +189,6 @@ technologies = {
 		}
 	}
 	heavy_robot_1 = {
-
 		enable_equipments = {
 			heavy_robot_equipment_1
 		}
@@ -199,18 +199,21 @@ technologies = {
 			leads_to_tech = energy_ring_reactor
 			research_cost_coeff = 1
 		}
-
 		on_research_complete = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			hidden_effect = {
 				load_oob = "unlock_heavy_robots"
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
@@ -218,7 +221,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 5 y = 10 }
+			position = {
+				x = 5
+				y = 10
+			}
 		}
 		categories = {
 			robot_techs
@@ -226,7 +232,6 @@ technologies = {
 		}
 	}
 	energy_ring_reactor = {
-		
 		heavy_robots = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -239,19 +244,14 @@ technologies = {
 			max_organisation = 4
 			default_morale = 0.05
 		}
-		
-		
 		path = {
 			leads_to_tech = heavy_robot_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2.5
 		start_year = 3238
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 3
 				date > "3238.1.1"
@@ -259,7 +259,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 5 y = 12 }
+			position = {
+				x = 5
+				y = 12
+			}
 		}
 		categories = {
 			robot_techs
@@ -267,7 +270,6 @@ technologies = {
 		}
 	}
 	heavy_robot_2 = {
-
 		enable_equipments = {
 			heavy_robot_equipment_2
 		}
@@ -275,17 +277,17 @@ technologies = {
 			leads_to_tech = heavy_robot_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3240
-		
 		ai_will_do = {
 			factor = 1
-			
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 5 y = 14 }
+			position = {
+				x = 5
+				y = 14
+			}
 		}
 		categories = {
 			robot_techs
@@ -293,7 +295,6 @@ technologies = {
 		}
 	}
 	heavy_robot_3 = {
-
 		enable_equipments = {
 			heavy_robot_equipment_3
 		}
@@ -301,17 +302,17 @@ technologies = {
 			leads_to_tech = mega_robot_1
 			research_cost_coeff = 1
 		}
-
 		research_cost = 2
 		start_year = 3243
-		
 		ai_will_do = {
 			factor = 1
-			
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 5 y = 16 }
+			position = {
+				x = 5
+				y = 16
+			}
 		}
 		categories = {
 			robot_techs
@@ -319,7 +320,6 @@ technologies = {
 		}
 	}
 	identification_system_friend_or_foe = {
-
 		category_robots = {
 			max_organisation = 2
 			default_morale = 0.05
@@ -328,12 +328,9 @@ technologies = {
 			leads_to_tech = medium_robot_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 4
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
@@ -341,14 +338,16 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 10 }
+			position = {
+				x = 1
+				y = 10
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	medium_robot_2 = {
-
 		enable_equipments = {
 			medium_robot_equipment_2
 		}
@@ -361,10 +360,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3238
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 7
 				is_major = yes
@@ -373,7 +370,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 12 }
+			position = {
+				x = 1
+				y = 12
+			}
 		}
 		categories = {
 			robot_techs
@@ -381,9 +381,6 @@ technologies = {
 		}
 	}
 	reinforced_main_caliber = {
-
-
-
 		heavy_robots = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -394,17 +391,14 @@ technologies = {
 			hard_attack = 0.1
 			ap_attack = 0.1
 		}
-		
 		path = {
 			leads_to_tech = medium_robot_3
 			research_cost_coeff = 1
 		}
 		research_cost = 2.5
 		start_year = 3240
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 8
 				date > "3240.1.1"
@@ -412,14 +406,16 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 14 }
+			position = {
+				x = 1
+				y = 14
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	medium_robot_3 = {
-
 		enable_equipments = {
 			medium_robot_equipment_3
 		}
@@ -432,10 +428,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3243
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 7
 				is_major = yes
@@ -444,7 +438,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = 1 y = 16 }
+			position = {
+				x = 1
+				y = 16
+			}
 		}
 		categories = {
 			robot_techs
@@ -452,7 +449,6 @@ technologies = {
 		}
 	}
 	light_robots_1 = {
-
 		enable_equipments = {
 			light_robots_equipment_1
 		}
@@ -465,18 +461,21 @@ technologies = {
 			leads_to_tech = power_station
 			research_cost_coeff = 1
 		}
-
 		on_research_complete = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			hidden_effect = {
 				load_oob = "unlock_light_robots"
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 30
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
@@ -484,7 +483,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 6 }
+			position = {
+				x = -7
+				y = 6
+			}
 		}
 		categories = {
 			robot_techs
@@ -492,8 +494,6 @@ technologies = {
 		}
 	}
 	power_station = {
-
-		
 		light_robots = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -504,13 +504,9 @@ technologies = {
 			leads_to_tech = light_robots_2
 			research_cost_coeff = 1
 		}
-
-		
 		research_cost = 1.5
-		
 		ai_will_do = {
 			factor = 30
-			
 			modifier = {
 				factor = 3
 				date > "3237.1.1"
@@ -518,14 +514,16 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 8 }
+			position = {
+				x = -7
+				y = 8
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	light_robots_2 = {
-
 		enable_equipments = {
 			light_robots_equipment_2
 		}
@@ -538,11 +536,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 2
-		
 		ai_will_do = {
 			factor = 1
-			
-			
 			modifier = {
 				factor = 3
 				is_major = yes
@@ -555,7 +550,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 10 }
+			position = {
+				x = -7
+				y = 10
+			}
 		}
 		categories = {
 			robot_techs
@@ -563,7 +561,6 @@ technologies = {
 		}
 	}
 	drone_robots_1 = {
-
 		enable_equipments = {
 			drone_equipment_1
 		}
@@ -573,10 +570,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3238
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.5
 				is_major = yes
@@ -589,7 +584,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -3 y = 12 }
+			position = {
+				x = -3
+				y = 12
+			}
 		}
 		categories = {
 			robot_techs
@@ -597,8 +595,7 @@ technologies = {
 		}
 	}
 	rocket_weaponry = {
-
-		air_cas_present_factor = 0.20
+		air_cas_present_factor = 0.2
 		category_robots = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -609,7 +606,6 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3240
-		
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -625,7 +621,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -3 y = 14 }
+			position = {
+				x = -3
+				y = 14
+			}
 		}
 		categories = {
 			robot_techs
@@ -633,7 +632,6 @@ technologies = {
 		}
 	}
 	drone_robots_2 = {
-
 		enable_equipments = {
 			drone_equipment_2
 		}
@@ -643,7 +641,6 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3243
-		
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -659,7 +656,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -3 y = 16 }
+			position = {
+				x = -3
+				y = 16
+			}
 		}
 		categories = {
 			robot_techs
@@ -667,8 +667,6 @@ technologies = {
 		}
 	}
 	guidance_system = {
-
-		
 		category_robots = {
 			soft_attack = 0.1
 			hard_attack = 0.1
@@ -677,13 +675,10 @@ technologies = {
 			leads_to_tech = light_robots_3
 			research_cost_coeff = 1
 		}
-
 		research_cost = 1.5
 		start_year = 3238
-		
 		ai_will_do = {
 			factor = 3
-			
 			modifier = {
 				factor = 3
 				date > "3238.1.1"
@@ -695,14 +690,16 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 12 }
+			position = {
+				x = -7
+				y = 12
+			}
 		}
 		categories = {
 			robot_techs
 		}
 	}
 	light_robots_3 = {
-
 		enable_equipments = {
 			light_robots_equipment_3
 		}
@@ -716,10 +713,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3240
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3240.1.1"
@@ -735,7 +730,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 14 }
+			position = {
+				x = -7
+				y = 14
+			}
 		}
 		categories = {
 			robot_techs
@@ -743,7 +741,6 @@ technologies = {
 		}
 	}
 	androids_1 = {
-
 		enable_equipments = {
 			androids_equipment_0
 		}
@@ -752,17 +749,20 @@ technologies = {
 		}
 		research_cost = 3
 		start_year = 3243
-		
-
 		on_research_complete = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 			hidden_effect = {
 				load_oob = "unlock_androids"
 			}
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				date > "3243.1.1"
@@ -778,7 +778,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -11 y = 16 }
+			position = {
+				x = -11
+				y = 16
+			}
 		}
 		categories = {
 			robot_techs
@@ -786,7 +789,6 @@ technologies = {
 		}
 	}
 	self_repair_system = {
-		
 		category_robots = {
 			default_morale = 0.1
 		}
@@ -800,10 +802,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3243
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				date > "3243.1.1"
@@ -819,7 +819,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -7 y = 16 }
+			position = {
+				x = -7
+				y = 16
+			}
 		}
 		categories = {
 			robot_techs
@@ -827,7 +830,6 @@ technologies = {
 		}
 	}
 	mega_robot_1 = {
-
 		enable_equipments = {
 			mega_robot_equipment_1
 		}
@@ -836,10 +838,8 @@ technologies = {
 		}
 		research_cost = 2
 		start_year = 3245
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 300
 				original_tag = EGG
@@ -848,7 +848,10 @@ technologies = {
 		}
 		folder = {
 			name = robot_folder
-			position = { x = -1 y = 18 }
+			position = {
+				x = -1
+				y = 18
+			}
 		}
 		categories = {
 			robot_techs
@@ -856,4 +859,3 @@ technologies = {
 		}
 	}
 }
-		

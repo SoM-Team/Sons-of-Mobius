@@ -1,6 +1,4 @@
 technologies = {
-	
-	
 	@3230 = 0
 	@3236 = 2
 	@3237 = 4
@@ -14,95 +12,87 @@ technologies = {
 	@3248 = 20
 	@3249 = 22
 	@3250 = 24
-	
 	#################################################################################
 	######## ура, я поняла что использовать года вместо координат классно!!! ########
 	#################################################################################
-
-	tech_main_battle_tank_opening = {
-
-
-		path = {
-			leads_to_tech = tech_main_battle_tank_new_cumulative_generation
-			research_cost_coeff = 1
-		}
-		research_cost = 3
-		start_year = 3236
-		
-		
-
-		on_research_complete = {
-			set_technology = {
-				tech_main_battle_tank_1 = 1
-			}
-			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
-		}
-		
-		folder = {
-			name = primitive_armour_folder
-			position = { x = 0 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-		categories = {
-			armor
-			cat_medium_armor
-		}
-	}
+	# tech_main_battle_tank_opening = {
+	# 	path = {
+	# 		leads_to_tech = tech_main_battle_tank_new_cumulative_generation
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 3
+	# 	start_year = 3236
+	# 	on_research_complete = {
+	# 		set_technology = {
+	# 			tech_main_battle_tank_1 = 1
+	# 		}
+	# 		custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	folder = {
+	# 		name = primitive_armour_folder
+	# 		position = {
+	# 			x = 0
+	# 			y = 8
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 5
+	# 	}
+	# 	categories = {
+	# 		armor
+	# 		cat_medium_armor
+	# 	}
+	# }
 	tech_main_battle_tank_1 = {
-
 		enable_equipments = {
 			main_battle_tank_equipment_1
 		}
 		enable_subunits = {
 			main_battle_armor
 		}
-		
-
 		on_research_complete = {
 			hidden_effect = {
 				load_oob = "unlock_main_battle_tanks"
 			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_2
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3230
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = 0 }
+			position = {
+				x = 2
+				y = 0
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -114,55 +104,49 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_2 = {
-
 		enable_equipments = {
 			main_battle_tank_equipment_2
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_improved_machine_gun
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = tech_tank_smoke_grenades
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = tech_heavy_assault_tank_1 
+			leads_to_tech = tech_heavy_assault_tank_1
 			research_cost_coeff = 0.9
 		}
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3236 }
+			position = {
+				x = 0
+				y = @3236
+			}
 		}
-		
 		sub_technologies = {
 			tech_military_engineering_vehicle_2
 			tech_medium_tank_artillery_2
 			tech_armoured_recovery_vehicle_2
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -173,78 +157,61 @@ technologies = {
 			cat_medium_armor
 		}
 	}
-	
 	tech_military_engineering_vehicle_2 = {
-
 		enable_equipments = {
 			military_engineering_vehicle_equipment_2
 		}
 		enable_subunits = {
 			military_engineering_vehicle
 		}
-	
 		research_cost = 0.6
 		start_year = 3236
-		
 		ai_will_do = {
 			factor = 0.25
 		}
-		
 		categories = {
 			armor
 			cat_medium_armor
 		}
 	}
-	
 	tech_medium_tank_artillery_2 = {
-
 		enable_equipments = {
 			medium_tank_artillery_equipment_2
 		}
 		enable_subunits = {
 			medium_tank_artillery
 		}
-	
 		research_cost = 0.6
 		start_year = 3236
-		
 		ai_will_do = {
 			factor = 0.25
 		}
-		
 		categories = {
 			armor
 			cat_medium_armor
 		}
 	}
-	
 	tech_armoured_recovery_vehicle_2 = {
-
 		enable_equipments = {
 			armoured_recovery_vehicle_equipment_2
 		}
 		enable_subunits = {
 			armoured_recovery_vehicle
 		}
-	
 		research_cost = 0.6
 		start_year = 3236
-		
 		ai_will_do = {
 			factor = 0.25
 		}
-		
 		categories = {
 			armor
 			cat_medium_armor
 		}
 	}
 	tech_main_battle_tank_improved_machine_gun = {
-
 		main_battle_armor = {
 			soft_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_new_cumulative_generation
 			research_cost_coeff = 1
@@ -253,27 +220,25 @@ technologies = {
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3237 }
+			position = {
+				x = 0
+				y = @3237
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -285,11 +250,9 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_new_cumulative_generation = {
-
 		main_battle_armor = {
 			hard_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_face_armor
 			research_cost_coeff = 1
@@ -298,22 +261,21 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3238 }
+			position = {
+				x = 0
+				y = @3238
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -325,12 +287,10 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_face_armor = {
-
 		main_battle_armor = {
 			breakthrough = 0.03
 			defense = 0.03
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_3
 			research_cost_coeff = 1
@@ -339,22 +299,21 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3239 }
+			position = {
+				x = 0
+				y = @3239
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
@@ -366,41 +325,36 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_3 = {
-
 		enable_equipments = {
 			main_battle_tank_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_new_tank_gun
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_tank_superalloy
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3240 }
+			position = {
+				x = 0
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3242.1.1"
@@ -412,12 +366,10 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_new_tank_gun = {
-
 		main_battle_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_plasma_gun
 			research_cost_coeff = 1
@@ -426,22 +378,21 @@ technologies = {
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3242 }
+			position = {
+				x = 0
+				y = @3242
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -453,11 +404,9 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_plasma_gun = {
-
 		main_battle_armor = {
 			soft_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_4
 			research_cost_coeff = 1
@@ -466,22 +415,21 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3244 }
+			position = {
+				x = 0
+				y = @3244
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -493,36 +441,32 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_4 = {
-
 		enable_equipments = {
 			main_battle_tank_equipment_4
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_second_tank_gun
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3246 }
+			position = {
+				x = 0
+				y = @3246
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3247.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3248.1.1"
@@ -534,14 +478,12 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_second_tank_gun = {
-
 		main_battle_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.1
 			breakthrough = 0.03
 			defense = 0.03
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_new_tank_gun_2
 			research_cost_coeff = 1
@@ -550,22 +492,21 @@ technologies = {
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3248 }
+			position = {
+				x = 0
+				y = @3248
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3250.1.1"
@@ -577,12 +518,10 @@ technologies = {
 		}
 	}
 	tech_main_battle_tank_new_tank_gun_2 = {
-
 		main_battle_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_main_battle_tank_4
 			research_cost_coeff = 1
@@ -591,22 +530,21 @@ technologies = {
 		start_year = 3250
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3250 }
+			position = {
+				x = 0
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3251.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3252.1.1"
@@ -621,7 +559,6 @@ technologies = {
 	##### Общие техи танков #####
 	#############################
 	tech_tank_smoke_grenades = {
-
 		main_battle_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -640,22 +577,21 @@ technologies = {
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3237 }
+			position = {
+				x = 2
+				y = @3237
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -668,7 +604,6 @@ technologies = {
 		}
 	}
 	tech_tank_basic_reactive_armor = {
-
 		main_battle_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -687,22 +622,21 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3238 }
+			position = {
+				x = 2
+				y = @3238
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -715,7 +649,6 @@ technologies = {
 		}
 	}
 	tech_tank_trajectory_calculation_system = {
-
 		main_battle_armor = {
 			soft_attack = 0.03
 			hard_attack = 0.03
@@ -736,22 +669,21 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3239 }
+			position = {
+				x = 2
+				y = @3239
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
@@ -764,7 +696,6 @@ technologies = {
 		}
 	}
 	tech_tank_superalloy = {
-
 		main_battle_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -781,22 +712,21 @@ technologies = {
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3242 }
+			position = {
+				x = 2
+				y = @3242
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -809,7 +739,6 @@ technologies = {
 		}
 	}
 	tech_tank_advanced_reactive_armor = {
-
 		main_battle_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -828,22 +757,21 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3243 }
+			position = {
+				x = 2
+				y = @3243
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -856,7 +784,6 @@ technologies = {
 		}
 	}
 	tech_tank_shield_generator = {
-
 		main_battle_armor = {
 			defense = 0.08
 			max_organisation = 1
@@ -869,22 +796,21 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3244 }
+			position = {
+				x = 2
+				y = @3244
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -900,7 +826,6 @@ technologies = {
 	####### Тяжелые танки #######
 	#############################
 	tech_heavy_assault_tank_1 = {
-
 		enable_equipments = {
 			heavy_tank_equipment_1
 		}
@@ -911,37 +836,33 @@ technologies = {
 			leads_to_tech = tech_tank_smoke_grenades
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_rockets
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3236 }
+			position = {
+				x = 4
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1.2
-			
 			modifier = {
 				factor = 0
 				is_major = no
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -954,7 +875,7 @@ technologies = {
 	}
 	tech_heavy_assault_tank_rockets = {
 		heavy_armor = {
-			air_attack = 0.20
+			air_attack = 0.2
 			soft_attack = 0.05
 			hard_attack = 0.05
 		}
@@ -962,27 +883,25 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3238 }
+			position = {
+				x = 4
+				y = @3238
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_double_shot
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -994,7 +913,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_double_shot = {
-	
 		heavy_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -1003,27 +921,25 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3239 }
+			position = {
+				x = 4
+				y = @3239
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
@@ -1035,7 +951,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_2 = {
-
 		enable_equipments = {
 			heavy_tank_equipment_2
 		}
@@ -1043,32 +958,29 @@ technologies = {
 			leads_to_tech = tech_tank_superalloy
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_anti_infantry
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3240 }
+			position = {
+				x = 4
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1.2
-			
 			modifier = {
 				factor = 0
 				is_major = no
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3242.1.1"
@@ -1080,7 +992,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_anti_infantry = {
-	
 		heavy_armor = {
 			soft_attack = 0.06
 		}
@@ -1088,22 +999,21 @@ technologies = {
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3242 }
+			position = {
+				x = 4
+				y = @3242
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_advanced_rockets
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -1115,7 +1025,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_advanced_rockets = {
-	
 		heavy_armor = {
 			air_attack = 0.2
 			hard_attack = 0.05
@@ -1125,22 +1034,21 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3243 }
+			position = {
+				x = 4
+				y = @3243
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_railgun_prototype
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -1152,28 +1060,29 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_railgun_prototype = {
-	
-		
 		research_cost = 2
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3244 }
+			position = {
+				x = 4
+				y = @3244
+			}
 		}
-	
+		heavy_armor = {
+			hard_attack = 0.05
+			breakthrough = 0.05
+		}
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -1185,31 +1094,28 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_3 = {
-
 		enable_equipments = {
 			heavy_tank_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_railgun_buff
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3246 }
+			position = {
+				x = 4
+				y = @3246
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1.2
-			
 			modifier = {
 				factor = 1.2
 				date > "3247.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3248.1.1"
@@ -1221,7 +1127,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_railgun_buff = {
-	
 		heavy_armor = {
 			hard_attack = 0.05
 			soft_attack = 0.05
@@ -1230,22 +1135,21 @@ technologies = {
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3248 }
+			position = {
+				x = 4
+				y = @3248
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_heavy_assault_tank_anti_infantry_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3250.1.1"
@@ -1257,7 +1161,6 @@ technologies = {
 		}
 	}
 	tech_heavy_assault_tank_anti_infantry_2 = {
-	
 		heavy_armor = {
 			soft_attack = 0.1
 		}
@@ -1265,17 +1168,17 @@ technologies = {
 		start_year = 3250
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3250 }
+			position = {
+				x = 4
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3251.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3252.1.1"
@@ -1289,40 +1192,38 @@ technologies = {
 	################################################################################
 	####################### Ракетные технологии ####################################
 	################################################################################
-	
-	tech_armored_rockets_vehicle = { 
-	#### начальная теха
-	
+	tech_armored_rockets_vehicle = {
+		#### начальная теха
 		research_cost = 0.5
 		start_year = 3230
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3230 }
+			position = {
+				x = 3
+				y = @3230
+			}
 		}
-	
+		enable_equipments = {
+			railway_gun_equipment_1
+		}
 		path = {
 			leads_to_tech = tech_armored_anti_tank_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_1
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -1331,51 +1232,44 @@ technologies = {
 		categories = {
 			armor
 		}
-		
 	}
 	###################################################################
 	###################### ПТРК на боевой машине ######################
 	###################################################################
 	tech_armored_anti_tank_1 = {
-
 		enable_equipments = {
 			armored_anti_tank_equipment_1
 		}
 		enable_subunits = {
 			armored_anti_tank_brigade
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_machine_gun_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_locator_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3236 }
+			position = {
+				x = -1
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -1386,9 +1280,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
 	tech_armored_anti_tank_machine_gun_1 = {
-		
 		armored_anti_tank_brigade = {
 			soft_attack = 0.2
 		}
@@ -1396,22 +1288,21 @@ technologies = {
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3237 }
+			position = {
+				x = -1
+				y = @3237
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_upg_1
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -1422,9 +1313,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
 	tech_armored_anti_tank_upg_1 = {
-	
 		armored_anti_tank_brigade = {
 			hard_attack = 0.1
 			ap_attack = 0.1
@@ -1433,22 +1322,21 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3238 }
+			position = {
+				x = -1
+				y = @3238
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -1460,42 +1348,36 @@ technologies = {
 		}
 	}
 	tech_armored_anti_tank_2 = {
-
 		enable_equipments = {
 			armored_anti_tank_equipment_2
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_machine_gun_2
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_locator_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3240 }
+			position = {
+				x = -1
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3242.1.1"
@@ -1506,9 +1388,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
 	tech_armored_anti_tank_machine_gun_2 = {
-	
 		armored_anti_tank_brigade = {
 			soft_attack = 0.2
 		}
@@ -1516,22 +1396,21 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3243 }
+			position = {
+				x = -1
+				y = @3243
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_upg_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
@@ -1542,9 +1421,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
 	tech_armored_anti_tank_upg_2 = {
-	
 		armored_anti_tank_brigade = {
 			hard_attack = 0.1
 			ap_attack = 0.1
@@ -1553,22 +1430,21 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3244 }
+			position = {
+				x = -1
+				y = @3244
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -1580,42 +1456,36 @@ technologies = {
 		}
 	}
 	tech_armored_anti_tank_3 = {
-
 		enable_equipments = {
 			armored_anti_tank_equipment_3
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_upg_3
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_reactive_armor_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3246 }
+			position = {
+				x = -1
+				y = @3246
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3247.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3248.1.1"
@@ -1626,9 +1496,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
 	tech_armored_anti_tank_upg_3 = {
-	
 		armored_anti_tank_brigade = {
 			hard_attack = 0.1
 			ap_attack = 0.1
@@ -1637,22 +1505,21 @@ technologies = {
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = -1 y = @3248 }
+			position = {
+				x = -1
+				y = @3248
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_reactive_armor_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3250.1.1"
@@ -1666,15 +1533,11 @@ technologies = {
 	###################################################################
 	###################### ЗРПК и ПТРК апгрейды #######################
 	###################################################################
-	
-	
 	tech_aat_aaa_locator_1 = {
-	
 		armored_anti_tank_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
 		}
-	
 		armored_anti_air_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
@@ -1683,22 +1546,21 @@ technologies = {
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3237 }
+			position = {
+				x = 1
+				y = @3237
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_aiming_upg_1
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -1710,11 +1572,9 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_aiming_upg_1 = {
-	
 		armored_anti_tank_brigade = {
 			hard_attack = 0.05
 		}
-	
 		armored_anti_air_brigade = {
 			air_attack = 0.05
 		}
@@ -1722,9 +1582,11 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3239 }
+			position = {
+				x = 1
+				y = @3239
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_2
 			research_cost_coeff = 1
@@ -1733,15 +1595,12 @@ technologies = {
 			leads_to_tech = tech_armored_anti_air_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
@@ -1753,12 +1612,10 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_locator_2 = {
-	
 		armored_anti_tank_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
 		}
-	
 		armored_anti_air_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
@@ -1767,22 +1624,21 @@ technologies = {
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3242 }
+			position = {
+				x = 1
+				y = @3242
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_aiming_upg_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -1794,11 +1650,9 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_aiming_upg_2 = {
-	
 		armored_anti_tank_brigade = {
 			hard_attack = 0.05
 		}
-	
 		armored_anti_air_brigade = {
 			air_attack = 0.05
 		}
@@ -1806,22 +1660,21 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3243 }
+			position = {
+				x = 1
+				y = @3243
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_locator_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -1833,12 +1686,10 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_locator_3 = {
-	
 		armored_anti_tank_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
 		}
-	
 		armored_anti_air_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
@@ -1847,9 +1698,11 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3244 }
+			position = {
+				x = 1
+				y = @3244
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_tank_3
 			research_cost_coeff = 1
@@ -1858,15 +1711,12 @@ technologies = {
 			leads_to_tech = tech_armored_anti_air_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -1878,13 +1728,11 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_reactive_armor_1 = {
-	
 		armored_anti_tank_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
 			armor_value = 0.05
 		}
-	
 		armored_anti_air_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
@@ -1893,9 +1741,11 @@ technologies = {
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3248 }
+			position = {
+				x = 1
+				y = @3248
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_reactive_armor_2
 			research_cost_coeff = 1
@@ -1904,15 +1754,12 @@ technologies = {
 			leads_to_tech = tech_aat_aaa_shield_generator
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -1924,13 +1771,11 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_reactive_armor_2 = {
-	
 		armored_anti_tank_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
 			armor_value = 0.05
 		}
-	
 		armored_anti_air_brigade = {
 			breakthrough = 0.1
 			defense = 0.1
@@ -1939,22 +1784,21 @@ technologies = {
 		start_year = 3249
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3249 }
+			position = {
+				x = 0
+				y = @3249
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_4
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -1966,11 +1810,9 @@ technologies = {
 		}
 	}
 	tech_aat_aaa_shield_generator = {
-	
 		armored_anti_tank_brigade = {
 			defense = 0.5
 		}
-	
 		armored_anti_air_brigade = {
 			defense = 0.5
 		}
@@ -1978,22 +1820,21 @@ technologies = {
 		start_year = 3249
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3249 }
+			position = {
+				x = 2
+				y = @3249
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_armored_anti_air_4
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -2005,26 +1846,24 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_4 = {
-
 		enable_equipments = {
 			armored_anti_air_equipment_4
 		}
-		
 		research_cost = 2.5
 		start_year = 3250
 		folder = {
 			name = armour_folder
-			position = { x = 1 y = @3250 }
+			position = {
+				x = 1
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 2
 				date > "3251.1.1"
@@ -2039,14 +1878,12 @@ technologies = {
 	############### Зенитный ракетно-пушечный комплекс ################
 	###################################################################
 	tech_armored_anti_air_1 = {
-
 		enable_equipments = {
 			armored_anti_air_equipment_1
 		}
 		enable_subunits = {
 			armored_anti_air_brigade
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_trajectory_calculation_1
 			research_cost_coeff = 1
@@ -2059,27 +1896,25 @@ technologies = {
 			leads_to_tech = tech_aat_aaa_locator_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3236 }
+			position = {
+				x = 3
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -2091,8 +1926,6 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_trajectory_calculation_1 = {
-	
-
 		armored_anti_air_brigade = {
 			defense = 0.1
 			breakthrough = 0.1
@@ -2102,22 +1935,21 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3238 }
+			position = {
+				x = 3
+				y = @3238
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_armored_anti_air_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -2129,46 +1961,40 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_2 = {
-
 		enable_equipments = {
 			armored_anti_air_equipment_2
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_trajectory_calculation_2
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_locator_2
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_aaa_mr_launch_system_3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3240 }
+			position = {
+				x = 3
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3242.1.1"
@@ -2180,8 +2006,6 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_trajectory_calculation_2 = {
-	
-
 		armored_anti_air_brigade = {
 			defense = 0.1
 			breakthrough = 0.1
@@ -2191,22 +2015,21 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3243 }
+			position = {
+				x = 3
+				y = @3243
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_armored_anti_air_bonus_attack_speed
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -2218,8 +2041,6 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_bonus_attack_speed = {
-	
-
 		armored_anti_air_brigade = {
 			defense = 0.1
 			breakthrough = 0.1
@@ -2229,22 +2050,21 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3244 }
+			position = {
+				x = 3
+				y = @3244
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_armored_anti_air_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -2256,41 +2076,36 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_3 = {
-
 		enable_equipments = {
 			armored_anti_air_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_aat_aaa_reactive_armor_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_140mm_gun
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3246 }
+			position = {
+				x = 3
+				y = @3246
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3247.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3248.1.1"
@@ -2302,8 +2117,6 @@ technologies = {
 		}
 	}
 	tech_armored_anti_air_140mm_gun = {
-	
-
 		armored_anti_air_brigade = {
 			defense = 0.25
 			breakthrough = 0.25
@@ -2315,22 +2128,21 @@ technologies = {
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 3 y = @3248 }
+			position = {
+				x = 3
+				y = @3248
+			}
 		}
-		
 		path = {
 			leads_to_tech = tech_aat_aaa_shield_generator
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3250.1.1"
@@ -2345,8 +2157,6 @@ technologies = {
 	###################### ЗРПК и РСЗО апгрейды ########################
 	####################################################################
 	tech_aaa_mr_launch_system_1 = {
-
-		
 		motorized_rocket_brigade = {
 			soft_attack = 0.03
 			breakthrough = 0.05
@@ -2357,33 +2167,29 @@ technologies = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_aaa_mr_launch_system_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = 5 y = @3237 }
+			position = {
+				x = 5
+				y = @3237
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -2395,8 +2201,6 @@ technologies = {
 		}
 	}
 	tech_aaa_mr_launch_system_2 = {
-
-		
 		motorized_rocket_brigade = {
 			soft_attack = 0.03
 			breakthrough = 0.05
@@ -2407,8 +2211,6 @@ technologies = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_2
 			research_cost_coeff = 1
@@ -2417,27 +2219,25 @@ technologies = {
 			leads_to_tech = tech_motorized_rocket_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 5 y = @3239 }
+			position = {
+				x = 5
+				y = @3239
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
@@ -2449,8 +2249,6 @@ technologies = {
 		}
 	}
 	tech_aaa_mr_launch_system_3 = {
-
-		
 		motorized_rocket_brigade = {
 			soft_attack = 0.03
 			breakthrough = 0.05
@@ -2461,33 +2259,29 @@ technologies = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-		
-	
 		path = {
 			leads_to_tech = tech_aaa_mr_launch_system_4
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 5 y = @3242 }
+			position = {
+				x = 5
+				y = @3242
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3243.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
@@ -2499,8 +2293,6 @@ technologies = {
 		}
 	}
 	tech_aaa_mr_launch_system_4 = {
-
-		
 		motorized_rocket_brigade = {
 			soft_attack = 0.03
 			breakthrough = 0.05
@@ -2511,37 +2303,33 @@ technologies = {
 			breakthrough = 0.05
 			defense = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_3
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_armored_anti_air_3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 5 y = @3244 }
+			position = {
+				x = 5
+				y = @3244
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -2556,49 +2344,43 @@ technologies = {
 	################ Реактивная система залпового огня #################
 	####################################################################
 	tech_motorized_rocket_1 = {
-
 		enable_equipments = {
 			motorized_rocket_equipment_1
 		}
 		enable_subunits = {
 			motorized_rocket_brigade
 		}
-	
 		path = {
 			leads_to_tech = tech_aaa_mr_launch_system_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_aiming_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3236 }
+			position = {
+				x = 7
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 0
 				is_major = no
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -2610,37 +2392,33 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_aiming_1 = {
-
 		motorized_rocket_brigade = {
 			breakthrough = 0.2
 			defense = 0.2
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_upg_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3237
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3237 }
+			position = {
+				x = 7
+				y = @3237
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
@@ -2652,31 +2430,28 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_upg_1 = {
-
 		motorized_rocket_brigade = {
 			soft_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3238 }
+			position = {
+				x = 7
+				y = @3238
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3239.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3240.1.1"
@@ -2688,36 +2463,32 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_2 = {
-
 		enable_equipments = {
 			motorized_rocket_equipment_2
 		}
-	
 		path = {
 			leads_to_tech = tech_aaa_mr_launch_system_3
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_upg_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3240 }
+			position = {
+				x = 7
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3241.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3242.1.1"
@@ -2729,31 +2500,28 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_upg_2 = {
-
 		motorized_rocket_brigade = {
 			soft_attack = 0.05
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_smart
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3243 }
+			position = {
+				x = 7
+				y = @3243
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3244.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
@@ -2765,33 +2533,30 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_smart = {
-
 		motorized_rocket_brigade = {
 			soft_attack = 0.05
 			breakthrough = 0.2
 			defense = 0.2
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3244 }
+			position = {
+				x = 7
+				y = @3244
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3245.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3246.1.1"
@@ -2803,31 +2568,28 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_3 = {
-
 		enable_equipments = {
 			motorized_rocket_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_aiming_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3246 }
+			position = {
+				x = 7
+				y = @3246
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3247.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3248.1.1"
@@ -2839,32 +2601,29 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_aiming_2 = {
-
 		motorized_rocket_brigade = {
 			breakthrough = 0.2
 			defense = 0.2
 		}
-	
 		path = {
 			leads_to_tech = tech_motorized_rocket_nuclear_rockets
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3248 }
+			position = {
+				x = 7
+				y = @3248
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3249.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3250.1.1"
@@ -2876,7 +2635,6 @@ technologies = {
 		}
 	}
 	tech_motorized_rocket_nuclear_rockets = {
-
 		motorized_rocket_brigade = {
 			breakthrough = 1
 			defense = 1
@@ -2886,27 +2644,32 @@ technologies = {
 		}
 		on_research_complete = {
 			custom_effect_tooltip = tech_warning_nuclear_rockets
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
 		path = {
 			leads_to_tech = tech_motorized_rocket_3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 1
 		start_year = 3250
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = @3250 }
+			position = {
+				x = 7
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3251.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "3252.1.1"
@@ -2919,28 +2682,25 @@ technologies = {
 	}
 	##### ээээ почему комментарии на русском ??? 
 	heavy_engine_for_ht_rg = {
-
-		
 		path = {
 			leads_to_tech = tech_hover_tank_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_railgun_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3230
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = 0 }
+			position = {
+				x = 2
+				y = 0
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
@@ -2952,7 +2712,6 @@ technologies = {
 		}
 	}
 	tech_hover_tank_1 = {
-
 		enable_equipments = {
 			hovertank_equipment_1
 		}
@@ -2961,26 +2720,31 @@ technologies = {
 		}
 		on_research_complete = {
 			hidden_effect = {
-					load_oob = "unlock_hovertank"
+				load_oob = "unlock_hovertank"
 			}
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+			if = {
+				limit = {
+					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+				}
+				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_engine_for_ht_rg_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3236 }
+			position = {
+				x = 0
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
@@ -2992,29 +2756,27 @@ technologies = {
 		}
 	}
 	tech_railgun_1 = {
-
 		enable_equipments = {
 			railgun_tank_equipment_1
 		}
 		enable_subunits = {
 			railgun_armor
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_engine_for_ht_rg_1
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3236
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3236 }
+			position = {
+				x = 4
+				y = @3236
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
@@ -3026,7 +2788,6 @@ technologies = {
 		}
 	}
 	tech_improved_engine_for_ht_rg_1 = {
-
 		railgun_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -3045,22 +2806,21 @@ technologies = {
 		start_year = 3238
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3238 }
+			position = {
+				x = 2
+				y = @3238
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_hovertank_dash_1
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_railgun_1
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -3072,7 +2832,6 @@ technologies = {
 		}
 	}
 	tech_hovertank_dash_1 = {
-
 		hovertank_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -3082,17 +2841,17 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3239 }
+			position = {
+				x = 0
+				y = @3239
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_hover_tank_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -3104,26 +2863,24 @@ technologies = {
 		}
 	}
 	tech_hover_tank_2 = {
-
 		enable_equipments = {
 			hovertank_equipment_2
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_engine_for_ht_rg_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3240 }
+			position = {
+				x = 0
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
@@ -3135,7 +2892,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_railgun_1 = {
-
 		railgun_armor = {
 			soft_attack = 0.08
 			hard_attack = 0.05
@@ -3144,17 +2900,17 @@ technologies = {
 		start_year = 3239
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3239 }
+			position = {
+				x = 4
+				y = @3239
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_railgun_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3238.1.1"
@@ -3166,26 +2922,24 @@ technologies = {
 		}
 	}
 	tech_railgun_2 = {
-
 		enable_equipments = {
 			railgun_tank_equipment_2
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_engine_for_ht_rg_2
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3240
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3240 }
+			position = {
+				x = 4
+				y = @3240
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				factor = 1.2
 				date > "3237.1.1"
@@ -3197,7 +2951,6 @@ technologies = {
 		}
 	}
 	tech_improved_engine_for_ht_rg_2 = {
-
 		railgun_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -3216,19 +2969,19 @@ technologies = {
 		start_year = 3242
 		folder = {
 			name = armour_folder
-			position = { x = 2 y = @3242 }
+			position = {
+				x = 2
+				y = @3242
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_hovertank_dash_2
 			research_cost_coeff = 1
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_railgun_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3238,7 +2991,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_railgun_2 = {
-
 		railgun_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -3247,14 +2999,15 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3243 }
+			position = {
+				x = 4
+				y = @3243
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_railgun_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3264,7 +3017,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_railgun_3 = {
-
 		railgun_armor = {
 			soft_attack = 0.05
 			hard_attack = 0.05
@@ -3273,14 +3025,15 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3244 }
+			position = {
+				x = 4
+				y = @3244
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_railgun_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3290,23 +3043,22 @@ technologies = {
 		}
 	}
 	tech_railgun_3 = {
-
 		enable_equipments = {
 			railgun_tank_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_railgun_4
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3248 }
+			position = {
+				x = 4
+				y = @3248
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3316,7 +3068,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_railgun_4 = {
-
 		railgun_armor = {
 			soft_attack = 0.1
 			hard_attack = 0.1
@@ -3325,9 +3076,11 @@ technologies = {
 		start_year = 3250
 		folder = {
 			name = armour_folder
-			position = { x = 4 y = @3250 }
+			position = {
+				x = 4
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3337,7 +3090,6 @@ technologies = {
 		}
 	}
 	tech_hovertank_dash_2 = {
-
 		hovertank_armor = {
 			breakthrough = 0.04
 			defense = 0.04
@@ -3347,14 +3099,15 @@ technologies = {
 		start_year = 3243
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3243 }
+			position = {
+				x = 0
+				y = @3243
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_hovertank_1
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3364,7 +3117,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_hovertank_1 = {
-
 		hovertank_armor = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -3373,14 +3125,15 @@ technologies = {
 		start_year = 3244
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3244 }
+			position = {
+				x = 0
+				y = @3244
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_hovertank_2
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3390,7 +3143,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_hovertank_2 = {
-
 		hovertank_armor = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -3399,14 +3151,15 @@ technologies = {
 		start_year = 3246
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3246 }
+			position = {
+				x = 0
+				y = @3246
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_hover_tank_3
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3416,23 +3169,22 @@ technologies = {
 		}
 	}
 	tech_hover_tank_3 = {
-
 		enable_equipments = {
 			hovertank_equipment_3
 		}
-	
 		path = {
 			leads_to_tech = tech_improved_weaponry_hovertank_3
 			research_cost_coeff = 1
 		}
-		
 		research_cost = 2
 		start_year = 3248
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3248 }
+			position = {
+				x = 0
+				y = @3248
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3442,7 +3194,6 @@ technologies = {
 		}
 	}
 	tech_improved_weaponry_hovertank_3 = {
-
 		hovertank_armor = {
 			soft_attack = 0.04
 			hard_attack = 0.04
@@ -3451,14 +3202,15 @@ technologies = {
 		start_year = 3249
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3249 }
+			position = {
+				x = 0
+				y = @3249
+			}
 		}
-	
 		path = {
 			leads_to_tech = tech_hover_tank_4
 			research_cost_coeff = 1
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
@@ -3468,18 +3220,18 @@ technologies = {
 		}
 	}
 	tech_hover_tank_4 = {
-
 		enable_equipments = {
 			hovertank_equipment_4
 		}
-		
 		research_cost = 2
 		start_year = 3252
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = @3250 }
+			position = {
+				x = 0
+				y = @3250
+			}
 		}
-		
 		ai_will_do = {
 			factor = 1
 		}
