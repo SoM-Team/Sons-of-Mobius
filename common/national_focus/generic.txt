@@ -140,6 +140,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+					add_stability = 0.10 
+					add_popularity = { ideology = autonomous_socialism popularity = 0.1 }
 		}
 	}
 	focus = {
@@ -194,6 +196,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+					add_stability = 0.10 
+					add_popularity = { ideology = katzerism popularity = 0.1 }
 		}
 	}
 	focus = {
@@ -213,21 +217,6 @@ focus_tree = {
  			 remove_idea = Generic_socialist_ideology 
  			 add_idea = Generic_socialist_ideology_2 
 			}
-		}
-	}
-	focus = {
-		id = generic_socialist_state_protection
-		#icon = GFX_HEA_Year_1982
-		x = 12
-		y = 7
-		cost = 5
-		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		prerequisite = { focus = generic_hardline_socialist }
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
 		}
 	}
 	focus = {
@@ -261,6 +250,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+					add_stability = 0.10 
+					add_popularity = { ideology = neosocialism popularity = 0.1 }
 		}
 	}
 	focus = {
@@ -383,6 +374,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_opinion_modifier = { target = EGG modifier = medium_increase }
+			add_political_power =50
 		}
 	}
 	focus = {
@@ -398,6 +391,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { generic_techno_bad_1 }
 		}
 	}
 	focus = {
@@ -413,6 +407,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			swap_ideas = { 
+ 			 remove_idea = generic_techno_bad_1 
+ 			 add_idea = generic_techno_bad_2
+			}
 		}
 	}
 	focus = {
@@ -461,6 +459,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_opinion_modifier = { target = EGG modifier = small_decrease }
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -476,6 +476,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { generic_techno_good_1 }
 		}
 	}
 	focus = {
@@ -491,6 +492,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			swap_ideas = { 
+ 			 remove_idea = generic_techno_good_1 
+ 			 add_idea = generic_techno_good_2 
+			}
 		}
 	}
 	focus = {
@@ -507,6 +512,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		 	add_stability = -0.1
+		 	add_war_support = 0.1
 		}
 	}
 	focus = {
@@ -523,6 +530,8 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		 add_war_support = -0.1
+		 add_stability = 0.1
 		}
 	}
 	focus = {
@@ -571,6 +580,11 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_popularity = { ideology = progressism popularity = 0.1 }
+		add_popularity = { ideology = progressive_liberalism popularity = 0.1 }
+		add_popularity = { ideology = orthodox_liberalism popularity = 0.1 }
+		add_popularity = { ideology = conservatism popularity = 0.1 }
+		add_political_power = 100
 		}
 	}
 	focus = {
@@ -586,6 +600,9 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+						country_event = {
+						id = generictree.3
+				}
 		}
 	}
 	focus = {
@@ -601,6 +618,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { Generic_free_press }
 		}
 	}
 	focus = {
@@ -617,6 +635,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		set_politics = {
+		ruling_party = legalism
+		}
+		add_popularity = { ideology = legalism popularity = 0.05 } 
 		}
 	}
 	focus = {
@@ -632,6 +654,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { Generic_volunteer_military }
 		}
 	}
 	focus = {
@@ -647,6 +670,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { generic_military_research }
 		}
 	}
 
@@ -714,6 +738,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		set_politics = {
+		ruling_party = autocracy
+		}
+		add_popularity = { ideology = autocracy popularity = 0.05 } 
 		}
 	}
 	focus = {
@@ -729,6 +757,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { generic_trad_idea }
 		}
 	}
 	focus = {
@@ -744,6 +773,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_ideas = { generic_anti_techno }
 		}
 	}
 	focus = {
@@ -754,12 +784,14 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
-		prerequisite = { focus = generic_stimulate_civilian_economy }
+		prerequisite = { focus = generic_increse_defense_budget  }
 		prerequisite = { focus = generic_denounce_technocratic_madness  focus = generic_steel_again_steel }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
+					add_stability = 0.15 
+					add_war_support = 0.1
 		}
 	}
 	focus = {
@@ -770,12 +802,14 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
-		prerequisite = { focus = generic_increse_defense_budget }
-		prerequisite = { focus = generic_free_the_press focus = generic_steel_again_steel }
+		prerequisite = { focus = generic_stimulate_civilian_economy  }
+		prerequisite = {  focus = generic_steel_again_steel focus = generic_free_the_press }
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
+					add_stability = 0.10 
+					add_war_support = 0.15
 		}
 	}
 	focus = {
