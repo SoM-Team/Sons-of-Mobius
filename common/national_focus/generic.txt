@@ -1,11 +1,739 @@
 focus_tree = {
 	id = generic_focus
-	
+	continuous_focus_position = { x = 300 y = 2500 } 
 	country = {
 		factor = 1
 	}
-	
+
 	default = yes
 	reset_on_civilwar = no
+	
+	focus = {
+		id = generic_internal_politics
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 1
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = generic_facilitate_govenrement_rotation
+		#icon = GFX_HEA_Year_1982
+		x = 6
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_internal_politics }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = generic_stabilize_scene
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_internal_politics }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = generic_growing_threat
+		#icon = GFX_HEA_Year_1982
+		x = 10
+		y = 2
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_internal_politics }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}	
+	focus = {
+		id = generic_choose_our_path
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 3
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_stabilize_scene }
+		prerequisite = { focus = generic_growing_threat }
+		prerequisite = { focus = generic_facilitate_govenrement_rotation }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_do_you_hear_people_sing
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 4
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_choose_our_path }
+		mutually_exclusive = { focus = generic_future_of_progress  focus = generic_freedom_aint_free }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_first_socialist_congress
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_do_you_hear_people_sing }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_libertarian_socialist
+		#icon = GFX_HEA_Year_1982
+		x = 4
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_first_socialist_congress }
+		mutually_exclusive = { focus = generic_mainline_socialist focus = generic_hardline_socialist   }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_broad_coalition
+		#icon = GFX_HEA_Year_1982
+		x = 4
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_libertarian_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_economy_choice
+		#icon = GFX_HEA_Year_1982
+		x = 6
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_libertarian_socialist focus = generic_mainline_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_mainline_socialist
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_first_socialist_congress }
+		mutually_exclusive = { focus = generic_libertarian_socialist focus = generic_hardline_socialist   }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_loyalty_to_rethenia
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_mainline_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_socialist_state_protection
+		#icon = GFX_HEA_Year_1982
+		x = 12
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_hardline_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_reinforce_party_loyalty
+		#icon = GFX_HEA_Year_1982
+		x = 10
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_hardline_socialist focus = generic_mainline_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_hardline_socialist
+		#icon = GFX_HEA_Year_1982
+		x = 12
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_first_socialist_congress }
+		mutually_exclusive = { focus = generic_libertarian_socialist  focus = generic_mainline_socialist   }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_socialist_state_protection
+		#icon = GFX_HEA_Year_1982
+		x = 12
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_hardline_socialist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_by_the_people
+		#icon = GFX_HEA_Year_1982
+		x = 5
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_broad_coalition }
+		prerequisite = { focus = generic_economy_choice }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_with_the_people
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_economy_choice }
+		prerequisite = { focus = generic_loyalty_to_rethenia }
+		prerequisite = { focus = generic_reinforce_party_loyalty }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
 
+	focus = {
+		id = generic_for_the_people
+		#icon = GFX_HEA_Year_1982
+		x = 11
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_reinforce_party_loyalty }
+		prerequisite = { focus = generic_socialist_state_protection }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = generic_join_rethenia
+		#icon = GFX_HEA_Year_1982
+		x = 8
+		y = 9
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_by_the_people focus = generic_for_the_people focus = generic_with_the_people }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_future_of_progress
+		#icon = GFX_HEA_Year_1982
+		x = 17
+		y = 4
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_choose_our_path }
+		mutually_exclusive = { focus = generic_do_you_hear_people_sing focus = generic_freedom_aint_free }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_stay_in_line_with_robotnik
+		#icon = GFX_HEA_Year_1982
+		x = 16
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_future_of_progress }
+		mutually_exclusive = { focus = generic_cold_mind_warm_hearts }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_beging_robotisation
+		#icon = GFX_HEA_Year_1982
+		x = 15
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_stay_in_line_with_robotnik }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_unfliching_army
+		#icon = GFX_HEA_Year_1982
+		x = 15
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_beging_robotisation }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_steel_legion
+		#icon = GFX_HEA_Year_1982
+		x = 17
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_cold_mind_warm_hearts  focus = generic_stay_in_line_with_robotnik }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_white_check_scientist
+		#icon = GFX_HEA_Year_1982
+		x = 17
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_steel_legion }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_cold_mind_warm_hearts
+		#icon = GFX_HEA_Year_1982
+		x = 18
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_future_of_progress }
+		mutually_exclusive = { focus = generic_stay_in_line_with_robotnik }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_technopopulism
+		#icon = GFX_HEA_Year_1982
+		x = 19
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_cold_mind_warm_hearts }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_build_our_own_theme_parks
+		#icon = GFX_HEA_Year_1982
+		x = 19
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_technopopulism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_learn_from_our_past_mistakes
+		#icon = GFX_HEA_Year_1982
+		x = 16
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_unfliching_army }
+		prerequisite = { focus = generic_white_check_scientist }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_fear_no_the_future
+		#icon = GFX_HEA_Year_1982
+		x = 18
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_white_check_scientist }
+		prerequisite = { focus = generic_build_our_own_theme_parks }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_a_message_to_the_robosphere
+		#icon = GFX_HEA_Year_1982
+		x = 17
+		y = 9
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_fear_no_the_future focus = generic_learn_from_our_past_mistakes }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_freedom_aint_free
+		#icon = GFX_HEA_Year_1982
+		x = -2
+		y = 4
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_choose_our_path }
+		mutually_exclusive = { focus = generic_do_you_hear_people_sing focus = generic_future_of_progress }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_uphold_democratic_values
+		#icon = GFX_HEA_Year_1982
+		x = -6
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		mutually_exclusive = { focus = generic_heavy_lies_the_crown focus = generic_freedom_armies }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_reinforce_civil_right
+		#icon = GFX_HEA_Year_1982
+		x = -6
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_free_the_press
+		#icon = GFX_HEA_Year_1982
+		x = -6
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_freedom_armies
+		#icon = GFX_HEA_Year_1982
+		x = -2
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		mutually_exclusive = { focus = generic_uphold_democratic_values focus = generic_heavy_lies_the_crown }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_lesser_evils
+		#icon = GFX_HEA_Year_1982
+		x = -2
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_steel_again_steel
+		#icon = GFX_HEA_Year_1982
+		x = -2
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_lesser_evils }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = generic_stimulate_civilian_economy
+		#icon = GFX_HEA_Year_1982
+		x = -4
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_armies  focus = generic_uphold_democratic_values }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_increse_defense_budget
+		#icon = GFX_HEA_Year_1982
+		x = 0
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_armies  focus = generic_heavy_lies_the_crown }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_heavy_lies_the_crown
+		#icon = GFX_HEA_Year_1982
+		x = 2
+		y = 5
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_freedom_aint_free }
+		mutually_exclusive = { focus = generic_uphold_democratic_values focus = generic_freedom_armies }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_power_of_traditions
+		#icon = GFX_HEA_Year_1982
+		x = 2
+		y = 6
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_heavy_lies_the_crown }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_denounce_technocratic_madness
+		#icon = GFX_HEA_Year_1982
+		x = 2
+		y = 7
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_power_of_traditions }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_ready_the_people
+		#icon = GFX_HEA_Year_1982
+		x = -1
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_stimulate_civilian_economy }
+		prerequisite = { focus = generic_denounce_technocratic_madness  focus = generic_steel_again_steel }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_prepare_the_state
+		#icon = GFX_HEA_Year_1982
+		x = -3
+		y = 8
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_increse_defense_budget }
+		prerequisite = { focus = generic_free_the_press focus = generic_steel_again_steel }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = generic_freedom_accord
+		#icon = GFX_HEA_Year_1982
+		x = -2
+		y = 9
+		cost = 1
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		prerequisite = { focus = generic_ready_the_people focus = generic_prepare_the_state }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		}
+	}
 }
