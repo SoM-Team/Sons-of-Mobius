@@ -13,13 +13,15 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 1
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
 			factor = 1
 		}
 		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05 
 		}
 	}	
 	focus = {
@@ -27,7 +29,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 6
 		y = 2
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_internal_politics }
@@ -35,6 +37,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_political_power = 100
 		}
 	}	
 	focus = {
@@ -42,7 +45,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 2
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_internal_politics }
@@ -50,6 +53,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_stability = 0.10 
 		}
 	}	
 	focus = {
@@ -57,7 +61,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 10
 		y = 2
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_internal_politics }
@@ -65,6 +69,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_war_support = 0.10
 		}
 	}	
 	focus = {
@@ -72,7 +77,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 3
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_stabilize_scene }
@@ -82,6 +87,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_timed_idea = { idea = Generic_Political_Stability  days = 120 }
 		}
 	}
 	focus = {
@@ -89,7 +95,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 4
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_choose_our_path }
@@ -98,6 +104,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_socialist_ideology }
 		}
 	}
 	focus = {
@@ -105,7 +112,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_do_you_hear_people_sing }
@@ -113,6 +120,9 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+						country_event = {
+						id = generictree.1
+				}
 		}
 	}
 	focus = {
@@ -120,9 +130,10 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 4
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
+		available = { has_government = autonomous_socialism } 
 		prerequisite = { focus = generic_first_socialist_congress }
 		mutually_exclusive = { focus = generic_mainline_socialist focus = generic_hardline_socialist   }
 		ai_will_do = {
@@ -136,7 +147,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 4
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_libertarian_socialist }
@@ -144,6 +155,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			swap_ideas = { 
+ 			 remove_idea = Generic_socialist_ideology 
+ 			 add_idea = Generic_socialist_ideology_1 
+			}
 		}
 	}
 	focus = {
@@ -151,7 +166,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 6
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_libertarian_socialist focus = generic_mainline_socialist }
@@ -159,6 +174,9 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+						country_event = {
+						id = generictree.2
+				}
 		}
 	}
 	focus = {
@@ -166,9 +184,10 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
+		available = { has_government = katzerism } 
 		prerequisite = { focus = generic_first_socialist_congress }
 		mutually_exclusive = { focus = generic_libertarian_socialist focus = generic_hardline_socialist   }
 		ai_will_do = {
@@ -182,7 +201,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_mainline_socialist }
@@ -190,6 +209,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			swap_ideas = { 
+ 			 remove_idea = Generic_socialist_ideology 
+ 			 add_idea = Generic_socialist_ideology_2 
+			}
 		}
 	}
 	focus = {
@@ -197,7 +220,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 12
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_hardline_socialist }
@@ -212,7 +235,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 10
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_hardline_socialist focus = generic_mainline_socialist }
@@ -220,6 +243,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		 add_ideas = Generic_party_loyalty
 		}
 	}
 	focus = {
@@ -227,7 +251,8 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 12
 		y = 6
-		cost = 1
+		cost = 5
+		available = { has_government = neosocialism } 
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_first_socialist_congress }
@@ -243,7 +268,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 12
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_hardline_socialist }
@@ -251,6 +276,10 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			swap_ideas = { 
+ 			 remove_idea = Generic_socialist_ideology 
+ 			 add_idea = Generic_socialist_ideology_3 
+			}
 		}
 	}
 	focus = {
@@ -258,7 +287,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 5
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_broad_coalition }
@@ -267,6 +296,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_by_the_people }
 		}
 	}
 	focus = {
@@ -274,7 +304,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_economy_choice }
@@ -284,6 +314,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_with_the_people }
 		}
 	}
 
@@ -292,7 +323,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 11
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_reinforce_party_loyalty }
@@ -301,6 +332,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_for_the_people }
 		}
 	}
 
@@ -309,7 +341,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 8
 		y = 9
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_by_the_people focus = generic_for_the_people focus = generic_with_the_people }
@@ -317,6 +349,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			RCR = { add_to_faction = [GER.GetName] }
 		}
 	}
 	focus = {
@@ -324,7 +357,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 17
 		y = 4
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_choose_our_path }
@@ -333,6 +366,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_technocratic_ideology }
 		}
 	}
 	focus = {
@@ -340,7 +374,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 16
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_future_of_progress }
@@ -356,7 +390,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 15
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_stay_in_line_with_robotnik }
@@ -371,7 +405,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 15
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_beging_robotisation }
@@ -386,7 +420,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 17
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_cold_mind_warm_hearts  focus = generic_stay_in_line_with_robotnik }
@@ -394,6 +428,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = Generic_steel_legion
 		}
 	}
 	focus = {
@@ -401,7 +436,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 17
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_steel_legion }
@@ -409,6 +444,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+		add_research_slot = 1
 		}
 	}
 	focus = {
@@ -416,7 +452,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 18
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_future_of_progress }
@@ -432,7 +468,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 19
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_cold_mind_warm_hearts }
@@ -447,7 +483,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 19
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_technopopulism }
@@ -462,7 +498,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 16
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_unfliching_army }
@@ -478,7 +514,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 18
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_white_check_scientist }
@@ -494,7 +530,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 17
 		y = 9
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_fear_no_the_future focus = generic_learn_from_our_past_mistakes }
@@ -509,7 +545,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -2
 		y = 4
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_choose_our_path }
@@ -518,6 +554,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+			add_ideas = { Generic_democratic_ideology }
 		}
 	}
 	focus = {
@@ -525,7 +562,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -6
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -541,7 +578,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -6
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -556,7 +593,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -6
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -571,7 +608,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -2
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -587,7 +624,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -2
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -602,7 +639,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -2
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_lesser_evils }
@@ -617,8 +654,8 @@ focus_tree = {
 		id = generic_stimulate_civilian_economy
 		#icon = GFX_HEA_Year_1982
 		x = -4
-		y = 6
-		cost = 1
+		y = 7
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_armies  focus = generic_uphold_democratic_values }
@@ -626,14 +663,24 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+				 random_owned_controlled_state = {
+				if = {
+				limit = {is_core_of = ROOT}
+					add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+					}
+				}
+			} 
 		}
 	}
 	focus = {
 		id = generic_increse_defense_budget
 		#icon = GFX_HEA_Year_1982
 		x = 0
-		y = 6
-		cost = 1
+		y = 7
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_armies  focus = generic_heavy_lies_the_crown }
@@ -641,6 +688,16 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
+				 random_owned_controlled_state = {
+				if = {
+				limit = {is_core_of = ROOT}
+					add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+					}
+				}
+			} 
 		}
 	}
 	focus = {
@@ -648,7 +705,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 2
 		y = 5
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_freedom_aint_free }
@@ -664,7 +721,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 2
 		y = 6
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_heavy_lies_the_crown }
@@ -679,7 +736,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = 2
 		y = 7
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_power_of_traditions }
@@ -694,7 +751,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -1
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_stimulate_civilian_economy }
@@ -710,7 +767,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -3
 		y = 8
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_increse_defense_budget }
@@ -726,7 +783,7 @@ focus_tree = {
 		#icon = GFX_HEA_Year_1982
 		x = -2
 		y = 9
-		cost = 1
+		cost = 5
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		prerequisite = { focus = generic_ready_the_people focus = generic_prepare_the_state }
