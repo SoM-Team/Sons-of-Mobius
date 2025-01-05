@@ -142,8 +142,14 @@ on_actions = {
 	on_monthly = {
 		effect = {
 			calculate_ring_gain = yes
+			set_temp_variable = {
+				r = rings_total_net_gain
+			}
+			divide_temp_variable = {
+				r = 1000
+			}
 			add_to_variable = {
-				rings = rings_total_net_gain
+				rings = r
 			}
 			every_country = {
 				set_variable = {
@@ -428,10 +434,61 @@ on_actions = {
 				#set_variable = {
 				#	gov_corruption_growth = 0.5
 				#}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				random_core_state = {
+					set_state_flag = Roboticized
+				}
+				set_variable = {
+					total_robians = 0
+				}
 			}
 			UFA = {
 				set_variable = {
-					UFA_GUN_target = UFA
+					UFA_GUN_target = RCR
 				}
 				set_variable = {
 					UFA_GUN_presence = 100
@@ -1074,7 +1131,80 @@ on_actions = {
 	}
 	on_monthly_EGG = {
 		effect = {
-			#EGG_monthly_effects = yes
+			set_variable = {
+				robo_states = 0
+			}
+			every_controlled_state = {
+				if = {
+					limit = {
+						has_state_flag = Roboticized
+					}
+					add_to_variable = {
+						prev.robo_states = 1
+					}
+				}
+			}
+			set_variable = {
+				robian_positive_impact = robo_states
+			}
+			set_variable = {
+				robian_workers = robian_positive_impact
+			}
+			multiply_variable = {
+				robian_workers = 0.01
+			}
+			set_variable = {
+				robian_negative_impact = robo_states
+			}
+			set_variable = {
+				robian_spies = robian_negative_impact
+			}
+			multiply_variable = {
+				robian_spies = -0.01
+			}
+			set_variable = {
+				total_robians = 0
+			}
+			every_controlled_state = {
+				if = {
+					limit = {
+						has_state_flag = Roboticized
+					}
+					set_temp_variable = {
+						total_robians_in_state = manpower
+					}
+					divide_temp_variable = {
+						total_robians_in_state = 10000  # yes, 10k
+					}
+					add_to_variable = {
+						PREV.total_robians = total_robians_in_state
+					}
+				}
+			}
+			divide_variable = {
+				total_robians = num_of_factories
+			}
+			set_variable = {
+				balance_of_robians = 5
+			}
+			subtract_from_variable = {
+				balance_of_robians = total_robians
+			}
+			divide_variable = {
+				balance_of_robians = 10
+			}
+			add_to_variable = {
+				balance_of_robians = 1
+			}
+			multiply_variable = {
+				robian_workers = balance_of_robians
+			}
+			multiply_variable = {
+				robian_spies = balance_of_robians
+			}
+			multiply_variable = {
+				robian_negative_impact = balance_of_robians
+			}
 		}
 	}
 	on_monthly_NOC = {

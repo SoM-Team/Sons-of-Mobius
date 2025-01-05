@@ -6,7 +6,7 @@ International_Decisions = {
 		custom_cost_trigger = {
 			is_in_faction_with = RCR
 			check_variable = {
-				rings > 49999
+				rings > 49.999
 			}
 		}
 		custom_cost_text = Internationale_Scientific_Reforms_loc
@@ -32,6 +32,17 @@ International_Decisions = {
 				country_event = shared.115
 			}
 		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 20
+				amount_research_slots < 3
+			}
+			modifier = {
+				add = 10
+				amount_research_slots < 5
+			}
+		}
 	}
 	International_Social_Reforms = {
 		allowed = {
@@ -40,7 +51,7 @@ International_Decisions = {
 		custom_cost_trigger = {
 			is_in_faction_with = RCR
 			check_variable = {
-				rings > 49999
+				rings > 49.999
 			}
 		}
 		custom_cost_text = Internationale_Social_Reforms_loc
@@ -66,6 +77,17 @@ International_Decisions = {
 				country_event = shared.115
 			}
 		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 20
+				has_stability < 0.3
+			}
+			modifier = {
+				add = 10
+				has_stability < 0.5
+			}
+		}
 	}
 	International_Military_Reforms = {
 		allowed = {
@@ -74,7 +96,7 @@ International_Decisions = {
 		custom_cost_trigger = {
 			is_in_faction_with = RCR
 			check_variable = {
-				rings > 49999
+				rings > 49.999
 			}
 		}
 		custom_cost_text = Internationale_Military_Reforms_loc
@@ -100,6 +122,21 @@ International_Decisions = {
 				country_event = shared.115
 			}
 		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 20
+				has_war_support < 0.3
+			}
+			modifier = {
+				add = 10
+				has_war_support < 0.5
+			}
+			modifier = {
+				add = 100
+				has_war = yes
+			}
+		}
 	}
 	International_Political_Reforms = {
 		allowed = {
@@ -108,7 +145,7 @@ International_Decisions = {
 		custom_cost_trigger = {
 			is_in_faction_with = RCR
 			check_variable = {
-				rings > 49999
+				rings > 49.999
 			}
 		}
 		custom_cost_text = Internationale_Political_Reforms_loc
@@ -134,6 +171,13 @@ International_Decisions = {
 				country_event = shared.115
 			}
 		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				has_political_power < 100
+			}
+		}
 	}
 	International_Secret_Service_Reforms = {
 		allowed = {
@@ -142,7 +186,7 @@ International_Decisions = {
 		custom_cost_trigger = {
 			is_in_faction_with = RCR
 			check_variable = {
-				rings > 49999
+				rings > 49.999
 			}
 		}
 		custom_cost_text = Internationale_Secret_Service_Reforms_loc
@@ -168,6 +212,17 @@ International_Decisions = {
 				country_event = shared.115
 			}
 		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				has_intelligence_agency = yes
+			}
+			modifier = {
+				add = 20
+				is_spymaster = yes
+			}
+		}
 	}
 	International_Ask_for_Boon = {
 		allowed = {
@@ -191,6 +246,41 @@ International_Decisions = {
 		remove_effect = {
 			hidden_effect = {
 				country_event = shared.115
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 20
+				is_major = no
+			}
+			modifier = {
+				add = 10
+				num_of_factories < 50
+			}
+			modifier = {
+				add = 5
+				has_war = yes
+			}
+			modifier = {
+				add = 15
+				surrender_progress > 0.01
+			}
+			modifier = {
+				add = 25
+				surrender_progress > 0.1
+			}
+			modifier = {
+				add = 75
+				surrender_progress > 0.25
+			}
+			modifier = {
+				add = 175
+				surrender_progress > 0.4
+			}
+			modifier = {
+				add = 500
+				surrender_progress > 0.7
 			}
 		}
 	}
@@ -714,9 +804,68 @@ Shilov_Union_Decisions = {
 }
 
 Test_decisions = {
-	Test_1 = {
+	KOA_Summon_Sonic = {
+		visible = {
+			tag = KOA
+		}
 		complete_effect = {
-			add_political_power = 1
+			load_oob = KOA_Sonic_back
+		}
+	}
+	KOA_Summon_Tails = {
+		visible = {
+			tag = KOA
+		}
+		complete_effect = {
+			load_oob = KOA_Tails_mech
+		}
+	}
+	UFA_Summon_Team_Dark = {
+		visible = {
+			tag = UFA
+		}
+		complete_effect = {
+			load_oob = UFA_Team_Dark
+		}
+	}
+	ANG_Summon_Knuckles = {
+		visible = {
+			tag = ANG
+		}
+		complete_effect = {
+			load_oob = ANG_Knuckles_hero
+		}
+	}
+	EGG_Summon_Eggman = {
+		visible = {
+			tag = EGG
+		}
+		complete_effect = {
+			load_oob = EGG_Eggman_Mech
+		}
+	}
+	EGG_Summon_Metal_Sonic = {
+		visible = {
+			tag = EGG
+		}
+		complete_effect = {
+			load_oob = EGG_METAL_SONIC
+		}
+	}
+	RCR_Summon_Pallasov = {
+		visible = {
+			tag = RCR
+		}
+		complete_effect = {
+			load_oob = RCR_Pallasov_hero
+		}
+	}
+	INF_Summon_Infinite = {
+		visible = {
+			tag = INF
+		}
+		complete_effect = {
+			load_oob = INF_Infinite_hero
 		}
 	}
 }
@@ -1004,6 +1153,238 @@ Mobilization_and_Draft_Evasion = {
 		}
 		remove_effect = {
 			add_stability = 0.02
+		}
+	}
+}
+
+Derobotization_Effort = {
+    Integrate_Robians_in_Army = {
+		available = {
+			command_power > 49
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			add_command_power = -50
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization
+				add_idea = Consequences_of_Roboticization_2
+			}
+		}
+	}
+
+	Integrate_Robians_in_Military_High_Staff = {
+		available = {
+			has_army_experience > 74
+			has_decision = Integrate_Robians_in_Army
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			army_experience = -75
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization_2
+				add_idea = Consequences_of_Roboticization_3
+			}
+		}
+	}
+
+	Expand_Robian_Employment = {
+		available = {
+			has_political_power > 99
+			has_decision = Integrate_Robians_in_Military_High_Staff
+		}
+		fire_only_once = yes
+		
+		days_remove = 90
+		complete_effect = {
+			add_political_power = -100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = Consequences_of_Roboticization_3
+				add_idea = Consequences_of_Roboticization_4
+			}
+		}
+	}
+
+	Mass_Deroboticization_Campaign = {
+		available = {
+			has_decision = Expand_Robian_Employment
+			check_variable = {
+				rings > 99.999
+			}
+		}
+		fire_only_once = yes
+		
+		days_remove = 120
+		complete_effect = {
+			add_to_variable = {
+				var = rings
+				value = -100000
+			}
+		}
+		remove_effect = {
+			remove_ideas = Consequences_of_Roboticization_4
+			every_owned_state = {
+				clr_state_flag = Roboticized
+			}
+		}
+	}
+}
+Targeted_Derobotization = {
+	Deroboticize_This_State = {
+		icon = GFX_decision_roboticize
+		allowed = {
+			NOT = {
+				tag = EGG
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				has_state_flag = Roboticized
+			}
+		}
+		on_map_mode = map_only
+		available = {
+			if = {
+				limit = {
+					is_debug = yes
+				}
+				always = yes
+			}
+			else = {
+				NOT = {
+					has_country_flag = Derobotization_in_progress
+				}
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cancel_trigger = {
+			NOT = {
+				has_full_control_of_state = FROM
+			}
+		}
+		fire_only_once = no
+		days_remove = 21
+		custom_cost_trigger = {
+			has_political_power > 4
+			command_power > 4
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			set_country_flag = Derobotization_in_progress
+			hidden_effect = {
+				add_political_power = -5
+				add_command_power = -5
+			}
+		}
+		remove_effect = {
+			clr_country_flag = Derobotization_in_progress
+			FROM = {
+				clr_state_flag = Roboticized
+				add_manpower = 50000
+			}
+			add_stability = 0.015
+		}
+	}
+	Deroboticize_Enemy_State = {
+		icon = GFX_decision_roboticize
+		allowed = {
+			NOT = {
+				tag = EGG
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_controlled_by = EGG
+					is_controlled_by = IRO
+					is_controlled_by = TRD
+					is_controlled_by = DOD
+					is_controlled_by = HOD
+					is_controlled_by = SAD
+					is_controlled_by = RED
+					is_controlled_by = CHD
+					is_controlled_by = MED
+					is_controlled_by = ALD
+					is_controlled_by = EUD
+					is_controlled_by = EFD
+					is_controlled_by = SWD
+					is_controlled_by = NRD
+					is_controlled_by = GDD
+					is_controlled_by = CAD
+					is_controlled_by = WOD
+					is_controlled_by = SOU
+				}
+				has_state_flag = Roboticized
+			}
+		}
+		on_map_mode = map_only
+		available = {
+			if = {
+				limit = {
+					is_debug = yes
+				}
+				always = yes
+			}
+			else = {
+				NOT = {
+					has_country_flag = Derobotization_in_enemy_lands
+				}
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cancel_trigger = {
+			NOT = {
+				has_full_control_of_state = FROM
+			}
+		}
+		fire_only_once = no
+		days_remove = 21
+		custom_cost_trigger = {
+			has_political_power > 14
+			command_power > 14
+			num_of_civilian_factories_available_for_projects > 2
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			set_country_flag = Derobotization_in_enemy_lands
+			hidden_effect = {
+				add_political_power = -15
+				add_command_power = -15
+			}
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {
+			clr_country_flag = Derobotization_in_enemy_lands
+			FROM = {
+				clr_state_flag = Roboticized
+				add_manpower = 50000
+				add_resistance = 0.15
+				add_resistance_target = 0.1
+			}
+			add_stability = 0.015
 		}
 	}
 }

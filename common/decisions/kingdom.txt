@@ -23,6 +23,7 @@ KOA_Test = {
 		cost = 0
 		complete_effect = {
 			set_country_flag = Queen_Sally
+			load_focus_tree = Kingdom_Akorn_Queen_Sally
 		}
 	}
 	Acorn_Civil_War_started = {
@@ -30,6 +31,7 @@ KOA_Test = {
 		cost = 0
 		complete_effect = {
 			set_country_flag = Acorn_Civil_War_started
+			load_focus_tree = Kingdom_Akorn_Civil_War
 		}
 	}
 	Elias_Reformer = {
@@ -37,6 +39,7 @@ KOA_Test = {
 		cost = 0
 		complete_effect = {
 			set_country_flag = Elias_Acorn_Reforms
+			load_focus_tree = Kingdom_Akorn_Elias_Reformer
 		}
 	}
 	Red_Sally = {
@@ -44,6 +47,7 @@ KOA_Test = {
 		cost = 0
 		complete_effect = {
 			set_country_flag = Sally_becomes_Red
+			load_focus_tree = Kingdom_Akorn_Red_Sally
 		}
 	}
 }
@@ -2212,7 +2216,7 @@ KOA_Armament_Shipments = {
 		}
 		available = {
 			check_variable = {
-				rings > 999
+				rings >0.999
 			}
 		}
 		days_remove = 30
@@ -2243,7 +2247,7 @@ KOA_Armament_Shipments = {
 		}
 		available = {
 			check_variable = {
-				rings > 999
+				rings >0.999
 			}
 		}
 		days_remove = 30
@@ -2274,7 +2278,7 @@ KOA_Armament_Shipments = {
 		}
 		available = {
 			check_variable = {
-				rings > 999
+				rings >0.999
 			}
 		}
 		days_remove = 30
@@ -2305,7 +2309,7 @@ KOA_Armament_Shipments = {
 		}
 		available = {
 			check_variable = {
-				rings > 999
+				rings >0.999
 			}
 		}
 		days_remove = 30
@@ -2476,7 +2480,7 @@ KOA_Handling_the_Budget = {
 		}
 		available = {
 			check_variable = {
-				rings > 53999
+				rings > 53.999
 			}
 		}
 		fire_only_once = yes
@@ -2499,7 +2503,7 @@ KOA_Handling_the_Budget = {
 		}
 		available = {
 			check_variable = {
-				rings > 32999
+				rings > 32.999
 			}
 		}
 		fire_only_once = yes
@@ -2522,7 +2526,7 @@ KOA_Handling_the_Budget = {
 		}
 		available = {
 			check_variable = {
-				rings > 24999
+				rings > 24.999
 			}
 		}
 		fire_only_once = yes
@@ -2541,7 +2545,7 @@ KOA_Handling_the_Budget = {
 		}
 		available = {
 			check_variable = {
-				rings > 31999
+				rings > 31.999
 			}
 		}
 		fire_only_once = yes
@@ -2560,7 +2564,7 @@ KOA_Handling_the_Budget = {
 		}
 		available = {
 			check_variable = {
-				rings > 14999
+				rings > 14.999
 			}
 		}
 		fire_only_once = yes
@@ -2585,94 +2589,6 @@ KOA_Handling_the_Budget = {
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 10
 			}
-		}
-	}
-}
-
-KOA_Derobotization_Effort = { #interior policies
-    Integrate_Robians_in_Army = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			command_power > 49
-		}
-		fire_only_once = yes
-		
-		days_remove = 90
-		complete_effect = {
-			add_command_power = -50
-		}
-		remove_effect = {
-			add_ideas = KOA_Consequences_of_Roboticization_2
-		}
-	}
-
-	Integrate_Robians_in_Military_High_Staff = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_army_experience > 74
-			has_decision = Integrate_Robians_in_Army
-		}
-		fire_only_once = yes
-		
-		days_remove = 90
-		complete_effect = {
-			army_experience = -75
-		}
-		remove_effect = {
-			swap_ideas = {
-				remove_idea = KOA_Consequences_of_Roboticization_2
-				add_idea = KOA_Consequences_of_Roboticization_3
-			}
-		}
-	}
-
-	Expand_Robian_Employment = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_political_power > 99
-			has_decision = Integrate_Robians_in_Military_High_Staff
-		}
-		fire_only_once = yes
-		
-		days_remove = 90
-		complete_effect = {
-			add_political_power = -100
-		}
-		remove_effect = {
-			swap_ideas = {
-				remove_idea = KOA_Consequences_of_Roboticization_3
-				add_idea = KOA_Consequences_of_Roboticization_4
-			}
-		}
-	}
-
-	Mass_Deroboticization_Campaign = {
-		allowed = {
-			tag = UFA
-		}
-		available = {
-			has_decision = Expand_Robian_Employment
-			check_variable = {
-				rings > 99999
-			}
-		}
-		fire_only_once = yes
-		
-		days_remove = 120
-		complete_effect = {
-			add_to_variable = {
-				var = rings
-				value = -100000
-			}
-		}
-		remove_effect = {
-			remove_ideas = KOA_Consequences_of_Roboticization_4
 		}
 	}
 }

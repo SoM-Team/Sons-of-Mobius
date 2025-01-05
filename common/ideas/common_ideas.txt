@@ -1041,8 +1041,6 @@ ideas = {
 				lend_lease_tension = -0.05
 				request_lease_tension = -0.05
 				opinion_gain_monthly_factor = 0.1
-				puppet_cost_factor = 99
-				annex_cost_factor = 99
 				autonomy_gain_global_factor = 0.2
 			}
 		}
@@ -1073,8 +1071,6 @@ ideas = {
 				lend_lease_tension = -0.15
 				request_lease_tension = -0.15
 				opinion_gain_monthly_factor = 0.3
-				puppet_cost_factor = 99
-				annex_cost_factor = 99
 				autonomy_gain_global_factor = 0.6
 			}
 		}
@@ -1105,8 +1101,6 @@ ideas = {
 				lend_lease_tension = -0.3
 				request_lease_tension = -0.3
 				opinion_gain_monthly_factor = 0.6
-				puppet_cost_factor = 99
-				annex_cost_factor = 99
 				autonomy_gain_global_factor = 1.2
 			}
 		}
@@ -1137,8 +1131,6 @@ ideas = {
 				lend_lease_tension = -0.5
 				request_lease_tension = -0.5
 				opinion_gain_monthly_factor = 0.1
-				puppet_cost_factor = 99
-				annex_cost_factor = 99
 				autonomy_gain_global_factor = 2
 			}
 		}
@@ -1169,8 +1161,6 @@ ideas = {
 				lend_lease_tension = -0.75
 				request_lease_tension = -0.75
 				opinion_gain_monthly_factor = 0.15
-				puppet_cost_factor = 99
-				annex_cost_factor = 99
 				autonomy_gain_global_factor = 3
 			}
 		}
@@ -1664,7 +1654,7 @@ ideas = {
 			}
 			on_add = {
 				add_to_variable = {
-					rings = -50000
+					rings = -50
 				}
 			}
 			on_remove = {
@@ -1725,7 +1715,7 @@ ideas = {
 			}
 			on_add = {
 				add_to_variable = {
-					rings = -50000
+					rings = -50
 				}
 			}
 			on_remove = {
@@ -1785,7 +1775,7 @@ ideas = {
 			}
 			on_add = {
 				add_to_variable = {
-					rings = -50000
+					rings = -50
 				}
 			}
 			on_remove = {
@@ -1850,7 +1840,7 @@ ideas = {
 			}
 			on_add = {
 				add_to_variable = {
-					rings = -50000
+					rings = -50
 				}
 			}
 			on_remove = {
@@ -1912,7 +1902,7 @@ ideas = {
 			}
 			on_add = {
 				add_to_variable = {
-					rings = -50000
+					rings = -50
 				}
 			}
 			on_remove = {
@@ -1962,6 +1952,44 @@ ideas = {
 				decryption_factor = -0.1
 				intelligence_agency_defense = -0.5
 				intel_network_gain_factor = -0.2
+			}
+		}
+
+		Influenced_INF_Pipeline = {
+			modifier = {
+				fuel_gain_factor = 100
+				political_power_gain = -0.15
+				consumer_goods_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = INF   
+				extra_trade_to_target_factor = 0.5
+			}
+		}
+
+		Influenced_RCR_Pipeline = {
+			modifier = {
+				fuel_gain_factor = 100
+				political_power_gain = -0.15
+				consumer_goods_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = RCR 
+				extra_trade_to_target_factor = 0.5
+			}
+		}
+		Influenced_RCR_Pipeline_2 = {
+			modifier = {
+				fuel_gain_factor = 100
+				political_power_gain = -0.15
+				consumer_goods_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = RCR 
+				extra_trade_to_target_factor = 0.5
+			}
+			on_remove = {
+				add_ideas = Influenced_RCR_Pipeline
 			}
 		}
 	}
