@@ -46,8 +46,12 @@ ideas = {
 		best_of_the_best_spirit = {
 			ledger = army
 			available = { has_military_academy = yes }
-			visible = { 
-				has_government = democratic
+			visible = {
+				OR = {
+					has_government = progressism
+					has_government = progressive_liberalism
+					has_government = orthodox_liberalism
+				}
 			}
 			modifier = {
 				army_leader_start_level = 2
@@ -64,7 +68,11 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_government = democratic
+					OR = {
+						has_government = progressism
+						has_government = progressive_liberalism
+						has_government = orthodox_liberalism
+					}
 				}
 			}
 
@@ -73,7 +81,11 @@ ideas = {
 			ledger = army
 			available = { has_military_academy = yes }
 			visible = { 
-				has_government = communism
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
 			}
 			modifier = {
 				army_leader_start_level = 1
@@ -91,7 +103,11 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_government = communism
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
 				}
 			}
 		}
@@ -100,8 +116,11 @@ ideas = {
 			available = { has_military_academy = yes }
 			visible = { 
 				OR = {
-					has_government = fascism
-					has_government = neutrality
+					has_government = conservatism
+					has_government = legalism
+					has_government = autocracy
+					has_government = purificationism
+					has_government = technocratic_despotism
 				}
 			}
 			modifier = {
@@ -120,9 +139,36 @@ ideas = {
 				modifier = {
 					factor = 2
 					OR = {
-						has_government = fascism
-						has_government = neutrality
+						has_government = conservatism
+						has_government = legalism
+						has_government = autocracy
+						has_government = purificationism
 					}
+				}
+			}
+		}
+		specialist_officers_spirit = {
+			ledger = army
+			available = { has_military_academy = yes }
+			visible = { 
+				has_government = technocratic_despotism
+			}
+			modifier = {
+				army_leader_start_level = 2
+				army_leader_cost_factor = 0.15 
+				unit_leader_as_advisor_cp_cost_factor = 0.15
+			}
+			ai_will_do = {
+				base = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Step Back" }
+				}
+
+				modifier = {
+					factor = 2
+					has_government = technocratic_despotism
 				}
 			}
 		}
@@ -146,7 +192,7 @@ ideas = {
 		mobile_warfare_academy_spirit = {
 			ledger = army
 			available = { has_military_academy = yes }
-			visible = { has_tech = mobile_warfare }
+			visible = { has_tech = maneuver_warfare_theory }
 			modifier = {
 				custom_modifier_tooltip = mobile_warfare_academy_spirit_tt
 				trait_panzer_leader_xp_gain_factor = 0.2
@@ -161,14 +207,36 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
+					has_tech = maneuver_warfare_theory
+				}
+			}
+		}
+		automated_warfare_academy_spirit = {
+			ledger = army
+			available = { has_military_academy = yes }
+			visible = { has_tech = automated_warfare_theory }
+			modifier = {
+				custom_modifier_tooltip = automated_warfare_academy_spirit_tt
+				trait_robot_leader_xp_gain_factor = 0.2
+			}
+			ai_will_do = {
+				base = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Step Back" }
+				}
+
+				modifier = {
+					factor = 2
+					has_tech = automated_warfare_theory
 				}
 			}
 		}
 		superior_firepower_academy_spirit = {
 			ledger = army
 			available = { has_military_academy = yes }
-			visible = { has_tech = superior_firepower }
+			visible = { has_tech = contactless_warfare_theory }
 			modifier = {
 				custom_modifier_tooltip = superior_firepower_academy_spirit_tt
 				trait_engineer_xp_gain_factor = 0.2
@@ -184,14 +252,21 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					has_tech = contactless_warfare_theory
 				}
 			}
 		}
 		theatre_training_spirit = {
 			ledger = army
 			available = { has_military_academy = yes }
-			visible = { has_tech = trench_warfare }
+			visible = { 
+				OR = { 
+					has_tech = maneuver_warfare_theory
+					has_tech = automated_warfare_theory
+					has_tech = contactless_warfare_theory 
+					has_tech = unrestricted_warfare_theory
+				}
+			}
 			modifier = {
 				custom_modifier_tooltip = theatre_training_academy_spirit_tt
 				terrain_trait_xp_gain_factor = 0.2
@@ -205,18 +280,30 @@ ideas = {
 				}
 
 				modifier = {
-					factor = 2
-					has_tech = trench_warfare
+					factor = 1
+					OR = { 
+						has_tech = maneuver_warfare_theory
+						has_tech = automated_warfare_theory
+						has_tech = contactless_warfare_theory 
+						has_tech = unrestricted_warfare_theory
+					}
 				}
 			}
 		}
-		mass_assault_academy_spirit = {
+		unrestricted_warfare_academy_spirit = {
 			ledger = army
 			available = { has_military_academy = yes }
-			visible = { has_tech = mass_assault }
+			visible = { has_tech = unrestricted_warfare_theory }
 			modifier = {
-				custom_modifier_tooltip = mass_assault_academy_spirit_tt
+				army_intel_to_others = -10.0
+				army_leader_start_level = 1
+				army_leader_cost_factor = -0.5 
+				unit_leader_as_advisor_cp_cost_factor = -0.5
+				trait_commando_xp_gain_factor = 0.6
 				trait_infantry_leader_xp_gain_factor = 0.2
+				trait_engineer_xp_gain_factor = 0.2
+				promote_cost_factor = -0.2
+				reassignment_duration_factor = -0.3 
 			}
 			ai_will_do = {
 				base = 1
@@ -228,34 +315,9 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+					has_tech = unrestricted_warfare_theory
 				}
 			}
-		}
-		NOR_flexible_officers_academy_spirit = {
-			ledger = army
-			available = { 
-				has_military_academy = yes 
-				has_completed_focus = NOR_officers_academy
-			}
-			visible = { 
-				NOR_AAT = yes 
-			}
-			modifier = {
-				army_leader_start_level = 2
-				promote_cost_factor = -0.3
-				reassignment_duration_factor = -0.3 
-				skill_bonus_factor = 0.1
-			}
-			ai_will_do = {
-				base = 1
-
-				modifier = {
-					factor = 0
-					NOT = { has_dlc = "No Step Back" }
-				}
-			}
-
 		}		
 	}
 
@@ -293,26 +355,26 @@ ideas = {
 			}
 		}
 
-		proper_heritage_spirit = {
-			ledger = army
-			modifier = {
-				unit_cavalry_design_cost_factor = -1
-				cavalry_attack_factor = 0.05
-				supply_combat_penalties_on_core_factor = -0.2
-			}
-			ai_will_do = {
-				factor = 1
-				modifier = {
-					factor = 0
-					NOT = { has_dlc = "No Step Back" }
-				}
-				modifier = {
-					factor = 2.0
-					is_historical_focus_on = yes
-					tag = SOU
-				}
-			}
-		}
+		#proper_heritage_spirit = {
+		#	ledger = army
+		#	modifier = {
+		#		unit_cavalry_design_cost_factor = -1
+		#		cavalry_attack_factor = 0.05
+		#		supply_combat_penalties_on_core_factor = -0.2
+		#	}
+		#	ai_will_do = {
+		#		factor = 1
+		#		modifier = {
+		#			factor = 0
+		#			NOT = { has_dlc = "No Step Back" }
+		#		}
+		#		modifier = {
+		#			factor = 2.0
+		#			is_historical_focus_on = yes
+		#			tag = SOU
+		#		}
+		#	}
+		#}
 
 		quick_improvisation_spirit = {
 			ledger = army
@@ -327,17 +389,18 @@ ideas = {
 					factor = 0
 					NOT = { has_dlc = "No Step Back" }
 				}
-				modifier = {
-					factor = 2.0
-					is_historical_focus_on = yes
-					original_tag = GER
-				}
 			}
 		}
 
 		relief_of_command_spirit = {
 			ledger = army
-			visible = { has_government = democratic }
+			visible = {
+				OR = {
+					has_government = progressism
+					has_government = progressive_liberalism
+					has_government = orthodox_liberalism
+				}
+			}
 			modifier = {
 				experience_gain_army_factor = 0.25
 				army_advisor_cost_factor = -0.5
@@ -352,14 +415,24 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_government = democratic
+					OR = {
+						has_government = progressism
+						has_government = progressive_liberalism
+						has_government = orthodox_liberalism
+					}
 				}
 			}
 		}
 
 		ideological_loyalty_spirit = {
 			ledger = army
-			visible = { has_government = communism }
+			visible = {
+				OR = {
+					has_government = neosocialism
+					has_government = katzerism
+					has_government = autonomous_socialism
+				}
+			}
 			modifier = {
 				pocket_penalty = -0.2
 				weekly_manpower = 500
@@ -374,14 +447,60 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_government = communism
+					
+					OR = {
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+			}
+		}
+
+		civil_military_technologies_spirit = {
+			ledger = army
+			visible = { 
+				has_government = technocratic_despotism
+			}
+			modifier = {
+				political_power_cost = 0.1
+				war_support_factor = 0.05
+				stability_factor = -0.05
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				research_speed_factor = 0.075
+				civilian_intel_to_others = -5.0
+				army_intel_to_others = -5.0
+				navy_intel_to_others = -5.0
+				airforce_intel_to_others = -5.0
+			}
+			ai_will_do = {
+				base = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Step Back" }
+				}
+
+				modifier = {
+					factor = 2
+					
+					has_government = technocratic_despotism
 				}
 			}
 		}
 
 		state_serves_the_military_spirit = {
 			ledger = army
-			visible = { has_government = fascism }
+			visible = { 
+				OR = {
+					has_government = conservatism
+					has_government = legalism
+					has_government = autocracy
+					has_government = purificationism
+					has_government = technocratic_despotism
+				}
+			}
 			modifier = {
 				political_power_factor = 0.1
 				mobilization_laws_cost_factor = -0.25
@@ -396,18 +515,24 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_government = fascism
+					
+					OR = {
+						has_government = purificationism
+					}
 				}
 			}
 		}
 
 		mobile_warfare_army_spirit = {
-			visible = { has_tech = mobile_warfare }
+			visible = { has_tech = maneuver_warfare_theory }
 			ledger = army
 			modifier = {
 
 				experience_gain_motorized_combat_factor = 0.1
 				experience_gain_mechanized_combat_factor = 0.1
+				experience_gain_ifv_mechanized_combat_factor = 0.1
+				experience_gain_apc_mechanized_combat_factor = 0.1
+				experience_gain_main_battle_armor_combat_factor = 0.05
 				unit_light_armor_design_cost_factor = -1
 				#light_tank_destroyer_brigade
 				unit_medium_armor_design_cost_factor = -1
@@ -416,8 +541,11 @@ ideas = {
 				unit_heavy_armor_design_cost_factor = -1
 				#heavy_tank_destroyer_brigade 
 				unit_super_heavy_armor_design_cost_factor = -1
+				unit_main_battle_armor_design_cost_factor = -1
 				unit_motorized_design_cost_factor = -1
 				unit_mechanized_design_cost_factor = -1
+				unit_ifv_mechanized_design_cost_factor = -1
+				unit_apc_mechanized_design_cost_factor = -1
 			}
 			ai_will_do = {
 				base = 1
@@ -429,13 +557,13 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
+					has_tech = maneuver_warfare_theory
 				}
 			}
 		}
 
 		superior_firepower_army_spirit = {
-			visible = { has_tech = superior_firepower  }
+			visible = { has_tech = contactless_warfare_theory  }
 			ledger = army
 			modifier = {
 				experience_gain_artillery_combat_factor = 0.1
@@ -458,18 +586,19 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					has_tech = contactless_warfare_theory
 				}
 			}
 		}
 
 		grand_battleplan_army_spirit = {
-			visible = { has_tech = trench_warfare }
+			visible = { has_tech = unrestricted_warfare_theory }
 			ledger = army
 			modifier = {
 				unit_marine_design_cost_factor = -0.5
 				unit_mountaineers_design_cost_factor = -0.5
 				unit_paratrooper_design_cost_factor = -0.5
+				unit_jagers_design_cost_factor = -0.5
 				special_forces_cap_flat = 24
 				extra_paratrooper_supply_grace = 24
 				extra_marine_supply_grace = 24
@@ -484,14 +613,44 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = trench_warfare
+					has_tech = unrestricted_warfare_theory
+				}
+			}
+		}
+
+		automated_army_spirit = {
+			ledger = army
+			visible = { has_tech = automated_warfare_theory }
+			modifier = {
+				experience_gain_army_factor = 0.15
+				land_doctrine_cost_factor = -0.1
+				command_power_gain = 0.10
+				unit_light_robots_design_cost_factor = -1
+				unit_medium_robots_design_cost_factor = -1
+				unit_heavy_robots_design_cost_factor = -1
+				unit_androids_design_cost_factor = -1
+				unit_robians_design_cost_factor = -1
+				unit_elite_robians_robots_design_cost_factor = -0.5
+				extra_elite_robians_supply_grace = 72
+			}
+			ai_will_do = {
+				base = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Step Back" }
+				}
+
+				modifier = {
+					factor = 2
+					has_tech = automated_warfare_theory
 				}
 			}
 		}
 
 		mass_assault_army_spirit = {
 			ledger = army
-			visible = { has_tech = mass_assault }
+			visible = { has_tech = unrestricted_warfare_theory }
 			modifier = {
 				experience_gain_infantry_combat_factor = 0.1
 				unit_infantry_design_cost_factor = -1
@@ -508,7 +667,50 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+					has_tech = unrestricted_warfare_theory
+				}
+			}
+		}
+		
+		universal_tactics_army_spirit = {
+			ledger = army
+			visible = { has_tech = unrestricted_warfare_theory }
+			modifier = {
+				experience_gain_army_factor = 0.1
+				experience_gain_infantry_combat_factor = 0.05
+				experience_gain_motorized_combat_factor = 0.05
+				experience_gain_mechanized_combat_factor = 0.05
+				experience_gain_ifv_mechanized_combat_factor = 0.05
+				experience_gain_apc_mechanized_combat_factor = 0.05
+				experience_gain_artillery_combat_factor = 0.05
+				unit_infantry_design_cost_factor = -0.5
+				unit_motorized_design_cost_factor = -0.5
+				unit_mechanized_design_cost_factor = -0.5
+				unit_ifv_mechanized_design_cost_factor = -0.5
+				unit_apc_mechanized_design_cost_factor = -0.5
+				unit_artillery_brigade_design_cost_factor = -0.5
+				unit_artillery_design_cost_factor = -0.5
+				unit_mot_artillery_brigade_design_cost_factor = -0.5
+				
+				unit_light_armor_design_cost_factor = -0.5
+				#light_tank_destroyer_brigade
+				unit_medium_armor_design_cost_factor = -0.5
+				#medium_tank_destroyer_brigade 
+				unit_modern_armor_design_cost_factor = -0.5
+				unit_main_battle_armor_design_cost_factor = -0.5
+				unit_heavy_armor_design_cost_factor = -0.5
+			}
+			ai_will_do = {
+				base = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_dlc = "No Step Back" }
+				}
+
+				modifier = {
+					factor = 2
+					has_tech = unrestricted_warfare_theory
 				}
 			}
 		}
@@ -538,19 +740,14 @@ ideas = {
 			modifier = {
 				tactic_elastic_defense_preferred_weight_factor = 1
 				tactic_overwhelming_fire_preferred_weight_factor = 1
-				max_dig_in_factor = 0.1
-				dig_in_speed_factor = 0.1
+				max_dig_in_factor = 0.25
+				dig_in_speed_factor = 0.25
 			}
 			ai_will_do = {
 				factor = 1
 				modifier = {
 					factor = 0
 					NOT = { has_dlc = "No Step Back" }
-				}
-				modifier = {
-					factor = 4
-					tag = SOU
-					GER = { is_ai = no }
 				}
 			}
 		}
@@ -568,10 +765,6 @@ ideas = {
 					factor = 0
 					NOT = { has_dlc = "No Step Back" }
 				}
-				modifier = {
-					factor = 4
-					original_tag = GER #Right now this is just better for AI Germany
-				}
 			}
 		}
 
@@ -579,8 +772,8 @@ ideas = {
 			ledger = army
 			modifier = {
 				tactic_infantry_charge_preferred_weight_factor = 1
-				intel_from_combat_factor = 0.15
-				recon_factor = 0.15
+				intel_from_combat_factor = 0.25
+				recon_factor = 0.2
 			}
 			ai_will_do = {
 				factor = 1
@@ -595,7 +788,7 @@ ideas = {
 			ledger = army
 			modifier = {
 				tactic_delay_preferred_weight_factor = 1
-				training_time_army_factor = -0.15
+				training_time_army_factor = -0.33
 			}
 			ai_will_do = {
 				factor = 1
@@ -610,7 +803,7 @@ ideas = {
 			ledger = army
 			modifier = {
 				tactic_human_wave_tactics_preferred_weight_factor = 1
-				org_loss_at_low_org_factor = -0.15
+				org_loss_at_low_org_factor = -0.25
 			}
 			ai_will_do = {
 				factor = 1
@@ -622,7 +815,7 @@ ideas = {
 		}
 
 		maneuver_warfare_spirit = {
-			visible = { has_tech = mobile_warfare }
+			visible = { has_tech = maneuver_warfare_theory }
 			modifier = {
 				tactic_unexpected_thrust_preferred_weight_factor = 1
 				army_speed_factor = 0.05
@@ -638,7 +831,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
+					has_tech = maneuver_warfare_theory
 				}
 
 			}
@@ -646,7 +839,7 @@ ideas = {
 
 		smoke_and_fire_spirit = {
 			ledger = army
-			visible = { has_tech = superior_firepower }
+			visible = { has_tech = contactless_warfare_theory }
 			modifier = {
 				tactic_barrage_preferred_weight_factor = 1
 				breakthrough_factor = 0.05
@@ -661,14 +854,14 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					has_tech = contactless_warfare_theory
 				}
 			}
 		}
 
 		logistical_focus_spirit = {
 			ledger = army
-			visible = { has_tech = trench_warfare }
+			visible = { has_tech = unrestricted_warfare_theory }
 			modifier = {
 				tactic_planned_attack_preferred_weight_factor = 1
 				supply_consumption_factor = -0.05
@@ -685,17 +878,19 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = trench_warfare
+					has_tech = unrestricted_warfare_theory
 				}
 			}
 		}
 
-		operational_reserve_spirit = {
+		guided_wave_of_steel_spirit = {
 			ledger = army
-			visible = { has_tech = mass_assault }
+			visible = { has_tech = automated_warfare_theory }
 			modifier = {
-				tactic_relentless_assault_preferred_weight_factor = 1
-				army_strength_factor = 0.1
+				max_planning = 15
+				tactic_human_wave_tactics_preferred_weight_factor = 1
+				org_loss_at_low_org_factor = -0.25
+				army_strength_factor = 0.15
 			}
 			ai_will_do = {
 				base = 1
@@ -707,7 +902,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+					has_tech = automated_warfare_theory
 				}
 			}
 		}

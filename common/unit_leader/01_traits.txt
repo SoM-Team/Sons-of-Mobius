@@ -1,4 +1,127 @@
 leader_traits = {
+
+	
+	robot_leader = { 
+		type = corps_commander
+		gain_xp = {
+			set_temp_variable = { temp = num_units }
+			multiply_temp_variable = { temp = 0.4 }
+			set_temp_variable = { cmm = num_units_with_type@light_robots }
+			add_to_temp_variable = { cmm = num_units_with_type@medium_robots }
+			add_to_temp_variable = { cmm = num_units_with_type@heavy_robots }
+			check_variable = { cmm > temp }
+		}
+		custom_gain_xp_trigger_tooltip = robot_ratio_over_40
+		
+		cost = 1000
+		modifier = {
+			modifier_army_sub_unit_light_robots_attack_factor = 0.12
+			modifier_army_sub_unit_medium_robots_attack_factor = 0.12
+			modifier_army_sub_unit_heavy_robots_attack_factor = 0.12
+		}
+		
+		slot = high_command
+		specialist_advisor_trait = army_robot_1
+		expert_advisor_trait = army_robot_2
+		genius_advisor_trait = army_robot_3
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		gui_row = 3
+	}
+	robot_officer = { 
+		type = land
+		trait_type = personality_trait
+		
+		unit_type = {
+			type = light_robots
+			type = medium_robots
+			type = heavy_robots
+		}
+		trait_xp_factor = {
+			robot_leader = 1     #+100%
+		}
+		
+		unit_trigger = {
+			OR = {
+				division_has_majority_template = light_robots
+				division_has_majority_template = medium_robots
+				division_has_majority_template = heavy_robots
+				
+				owner = {
+					has_idea = automated_warfare_academy_spirit
+				}
+				
+			}
+			owner = {
+				NOT = {
+					OR = {
+						has_idea = best_of_the_best_spirit
+						has_idea = academy_scholarships_spirit
+					}
+				}
+			}
+		}
+		
+		new_commander_weight = {
+			factor = 1
+			
+			modifier = {
+				FROM = { 
+					has_idea = automated_warfare_academy_spirit
+				}
+				factor = 2
+			}
+			
+			modifier = {
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = academy_scholarships_spirit }
+				factor = 0
+			}
+			
+			modifier = {
+				FROM = { 
+					has_dlc = "By Blood Alone"
+				}
+				factor = 0
+			}
+			
+		}
+		attack_skill_factor = 1
+		logistics_skill_factor = 1
+	}
+	
+	robot_expert = { 
+		type = corps_commander
+		gain_xp = {
+			always = no # not gainable
+		}
+		cost = 1000
+		modifier = {
+			modifier_army_sub_unit_light_robots_defence_factor = 0.15
+			modifier_army_sub_unit_medium_robots_defence_factor = 0.15
+			modifier_army_sub_unit_heavy_robots_defence_factor = 0.15
+		}
+		
+		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		trait_type = assignable_trait
+		any_parent = { robot_leader }
+		
+		mutually_exclusive = combined_arms_expert
+		mutually_exclusive = panzer_expert
+		
+		gui_row = 3
+	}
 	drunkard = {
 		type = land
 		trait_type = personality_trait
