@@ -845,8 +845,12 @@ technologies = {
 	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие 4
 	assault_energy_weapon4 = {
-		enable_equipments = {
-			energy_infantry_equipment_5
+		# enable_equipments = {
+		# 	energy_infantry_equipment_5
+		# }
+		advanced_infantry = {
+			hard_attack = 0.05
+			soft_attack = 0.05
 		}
 		research_cost = 4.2
 		start_year = 3250
@@ -3421,541 +3425,541 @@ technologies = {
 			factor = 0.7
 		}
 	}
-	tech_special_forces = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.05
-			acclimatization_cold_climate_gain_factor = 0.05
-		}
-		#dependencies = {
-		#	OR = {
-		#		marines = 1
-		#		paratrooper = 1
-		#		mountaineer = 1
-		#	}
-		#}
-		path = {
-			leads_to_tech = advanced_special_forces
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = improved_special_forces
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = special_forces_survival_training_1
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 1938
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 4
-				y = 2
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_forces_survival_training_1 = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.15
-			acclimatization_cold_climate_gain_factor = 0.15
-		}
-		special_forces_out_of_supply_factor = -0.06
-		path = {
-			leads_to_tech = special_forces_tactics_training_1
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3238
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 7
-				y = 4
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_forces_tactics_training_1 = {
-		category_special_forces = {
-			breakthrough = 0.05
-			defense = 0.05
-		}
-		path = {
-			leads_to_tech = special_forces_survival_training_2
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3240
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 7
-				y = 8
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_forces_survival_training_2 = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.15
-			acclimatization_cold_climate_gain_factor = 0.15
-		}
-		special_forces_out_of_supply_factor = -0.06
-		path = {
-			leads_to_tech = special_forces_tactics_training_2
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3243
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 7
-				y = 12
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_forces_tactics_training_2 = {
-		category_special_forces = {
-			breakthrough = 0.05
-			defense = 0.05
-		}
-		path = {
-			leads_to_tech = special_forces_nanocostume
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3246
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 7
-				y = 16
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_forces_nanocostume = {
-		category_special_forces = {
-			breakthrough = 0.5
-			defense = 0.15
-			soft_attack = 0.15
-			hard_attack = 0.15
-			ap_attack = 0.1
-			max_organisation = 8
-		}
-		special_forces_training_time_factor = 0.15
-		special_forces_out_of_supply_factor = 0.03
-		research_cost = 4
-		start_year = 3250
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 5
-				y = 20
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	advanced_special_forces = {
-		xor = {
-			improved_special_forces
-		}
-		category_special_forces = {
-			max_organisation = 5
-			defense = 0.05
-			breakthrough = 0.03
-		}
-		special_forces_training_time_factor = 0.1
-		path = {
-			leads_to_tech = extreme_environment_training
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3239
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 3
-				y = 6
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	improved_special_forces = {
-		xor = {
-			advanced_special_forces
-		}
-		special_forces_cap = 0.05
-		special_forces_training_time_factor = -0.1
-		path = {
-			leads_to_tech = survival_training
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3239
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 5
-				y = 6
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	extreme_environment_training = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.5
-			acclimatization_cold_climate_gain_factor = 0.5
-		}
-		special_forces_no_supply_grace = 48
-		special_forces_training_time_factor = 0.1
-		path = {
-			leads_to_tech = special_drugs_for_special_forces
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3242
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 3
-				y = 10
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_drugs_for_special_forces = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.25
-			acclimatization_cold_climate_gain_factor = 0.25
-			breakthrough = 0.05
-			defense = 0.05
-			default_morale = -0.02
-			max_organisation = -2
-		}
-		special_forces_no_supply_grace = 36
-		special_forces_training_time_factor = 0.05
-		path = {
-			leads_to_tech = elite_forces
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3245
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 3
-				y = 14
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	survival_training = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.2
-			acclimatization_cold_climate_gain_factor = 0.2
-		}
-		special_forces_out_of_supply_factor = -0.1
-		path = {
-			leads_to_tech = special_equipment_for_special_forces
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3242
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 5
-				y = 10
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	special_equipment_for_special_forces = {
-		marine = {
-			river = {
-				defence = 0.05
-				movement = 0.2
-			}
-			urban = {
-				attack = 0.15
-				defence = 0.05
-				movement = 0.1
-			}
-			forest = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			marsh = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			jungle = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			fort = {
-				defence = 0.1
-				attack = 0.1
-			}
-		}
-		mountaineers = {
-			river = {
-				defence = 0.05
-				movement = 0.1
-			}
-			urban = {
-				movement = 0.1
-			}
-			forest = {
-				attack = 0.1
-				defence = 0.05
-				movement = 0.1
-			}
-			marsh = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			jungle = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			mountain = {
-				attack = 0.05
-				movement = 0.1
-			}
-			fort = {
-				defence = 0.1
-				attack = 0.1
-			}
-		}
-		paratrooper = {
-			river = {
-				defence = 0.05
-				movement = 0.1
-			}
-			urban = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			forest = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			marsh = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			jungle = {
-				attack = 0.05
-				defence = 0.05
-				movement = 0.1
-			}
-			mountain = {
-				attack = 0.05
-				movement = 0.1
-			}
-			fort = {
-				defence = 0.1
-				attack = 0.1
-			}
-		}
-		special_forces_cap = 0.02
-		special_forces_out_of_supply_factor = -0.1
-		path = {
-			leads_to_tech = elite_forces
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3242
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 5
-				y = 14
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	elite_forces = {
-		category_special_forces = {
-			acclimatization_hot_climate_gain_factor = 0.2
-			acclimatization_cold_climate_gain_factor = 0.2
-			max_organisation = 5
-			soft_attack = 0.05
-		}
-		path = {
-			leads_to_tech = special_forces_nanocostume
-			research_cost_coeff = 1
-		}
-		special_forces_no_supply_grace = 48
-		research_cost = 2
-		start_year = 3247
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 4
-				y = 18
-			}
-		}
-		categories = {
-			mountaineers_tech
-			marine_tech
-			para_tech
-			special_troops
-			special_troops_upgrades
-		}
-		ai_will_do = {
-			factor = 0.7
-		}
-	}
-	jungle_warfare = {
-		research_cost = 1
-		# only from focus!!! #####
-		allow = {
-			always = no
-		}
-		#If you change these
-		#Change the custom tooltip too: RAJ_jungle_training_effect
-		marine = {
-			jungle = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-		mountaineers = {
-			jungle = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-		paratrooper = {
-			jungle = {
-				attack = 0.05
-				movement = 0.1
-			}
-		}
-	}
+	# tech_special_forces = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.05
+	# 		acclimatization_cold_climate_gain_factor = 0.05
+	# 	}
+	# 	#dependencies = {
+	# 	#	OR = {
+	# 	#		marines = 1
+	# 	#		paratrooper = 1
+	# 	#		mountaineer = 1
+	# 	#	}
+	# 	#}
+	# 	path = {
+	# 		leads_to_tech = advanced_special_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = improved_special_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = special_forces_survival_training_1
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 1938
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 4
+	# 			y = 2
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_forces_survival_training_1 = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.15
+	# 		acclimatization_cold_climate_gain_factor = 0.15
+	# 	}
+	# 	special_forces_out_of_supply_factor = -0.06
+	# 	path = {
+	# 		leads_to_tech = special_forces_tactics_training_1
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3238
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 7
+	# 			y = 4
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_forces_tactics_training_1 = {
+	# 	category_special_forces = {
+	# 		breakthrough = 0.05
+	# 		defense = 0.05
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = special_forces_survival_training_2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3240
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 7
+	# 			y = 8
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_forces_survival_training_2 = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.15
+	# 		acclimatization_cold_climate_gain_factor = 0.15
+	# 	}
+	# 	special_forces_out_of_supply_factor = -0.06
+	# 	path = {
+	# 		leads_to_tech = special_forces_tactics_training_2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3243
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 7
+	# 			y = 12
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_forces_tactics_training_2 = {
+	# 	category_special_forces = {
+	# 		breakthrough = 0.05
+	# 		defense = 0.05
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = special_forces_nanocostume
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3246
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 7
+	# 			y = 16
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_forces_nanocostume = {
+	# 	category_special_forces = {
+	# 		breakthrough = 0.5
+	# 		defense = 0.15
+	# 		soft_attack = 0.15
+	# 		hard_attack = 0.15
+	# 		ap_attack = 0.1
+	# 		max_organisation = 8
+	# 	}
+	# 	special_forces_training_time_factor = 0.15
+	# 	special_forces_out_of_supply_factor = 0.03
+	# 	research_cost = 4
+	# 	start_year = 3250
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 5
+	# 			y = 20
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# advanced_special_forces = {
+	# 	xor = {
+	# 		improved_special_forces
+	# 	}
+	# 	category_special_forces = {
+	# 		max_organisation = 5
+	# 		defense = 0.05
+	# 		breakthrough = 0.03
+	# 	}
+	# 	special_forces_training_time_factor = 0.1
+	# 	path = {
+	# 		leads_to_tech = extreme_environment_training
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3239
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 3
+	# 			y = 6
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# improved_special_forces = {
+	# 	xor = {
+	# 		advanced_special_forces
+	# 	}
+	# 	special_forces_cap = 0.05
+	# 	special_forces_training_time_factor = -0.1
+	# 	path = {
+	# 		leads_to_tech = survival_training
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3239
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 5
+	# 			y = 6
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# extreme_environment_training = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.5
+	# 		acclimatization_cold_climate_gain_factor = 0.5
+	# 	}
+	# 	special_forces_no_supply_grace = 48
+	# 	special_forces_training_time_factor = 0.1
+	# 	path = {
+	# 		leads_to_tech = special_drugs_for_special_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3242
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 3
+	# 			y = 10
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_drugs_for_special_forces = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.25
+	# 		acclimatization_cold_climate_gain_factor = 0.25
+	# 		breakthrough = 0.05
+	# 		defense = 0.05
+	# 		default_morale = -0.02
+	# 		max_organisation = -2
+	# 	}
+	# 	special_forces_no_supply_grace = 36
+	# 	special_forces_training_time_factor = 0.05
+	# 	path = {
+	# 		leads_to_tech = elite_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3245
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 3
+	# 			y = 14
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# survival_training = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.2
+	# 		acclimatization_cold_climate_gain_factor = 0.2
+	# 	}
+	# 	special_forces_out_of_supply_factor = -0.1
+	# 	path = {
+	# 		leads_to_tech = special_equipment_for_special_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3242
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 5
+	# 			y = 10
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# special_equipment_for_special_forces = {
+	# 	marine = {
+	# 		river = {
+	# 			defence = 0.05
+	# 			movement = 0.2
+	# 		}
+	# 		urban = {
+	# 			attack = 0.15
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		forest = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		marsh = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		fort = {
+	# 			defence = 0.1
+	# 			attack = 0.1
+	# 		}
+	# 	}
+	# 	mountaineers = {
+	# 		river = {
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		urban = {
+	# 			movement = 0.1
+	# 		}
+	# 		forest = {
+	# 			attack = 0.1
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		marsh = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		mountain = {
+	# 			attack = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		fort = {
+	# 			defence = 0.1
+	# 			attack = 0.1
+	# 		}
+	# 	}
+	# 	paratrooper = {
+	# 		river = {
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		urban = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		forest = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		marsh = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			defence = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		mountain = {
+	# 			attack = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 		fort = {
+	# 			defence = 0.1
+	# 			attack = 0.1
+	# 		}
+	# 	}
+	# 	special_forces_cap = 0.02
+	# 	special_forces_out_of_supply_factor = -0.1
+	# 	path = {
+	# 		leads_to_tech = elite_forces
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3242
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 5
+	# 			y = 14
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# elite_forces = {
+	# 	category_special_forces = {
+	# 		acclimatization_hot_climate_gain_factor = 0.2
+	# 		acclimatization_cold_climate_gain_factor = 0.2
+	# 		max_organisation = 5
+	# 		soft_attack = 0.05
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = special_forces_nanocostume
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	special_forces_no_supply_grace = 48
+	# 	research_cost = 2
+	# 	start_year = 3247
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 4
+	# 			y = 18
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		mountaineers_tech
+	# 		marine_tech
+	# 		para_tech
+	# 		special_troops
+	# 		special_troops_upgrades
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.7
+	# 	}
+	# }
+	# jungle_warfare = {
+	# 	research_cost = 1
+	# 	# only from focus!!! #####
+	# 	allow = {
+	# 		always = no
+	# 	}
+	# 	#If you change these
+	# 	#Change the custom tooltip too: RAJ_jungle_training_effect
+	# 	marine = {
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 	}
+	# 	mountaineers = {
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 	}
+	# 	paratrooper = {
+	# 		jungle = {
+	# 			attack = 0.05
+	# 			movement = 0.1
+	# 		}
+	# 	}
+	# }
 	penal_infantry = {
 		allow = {
 			always = no
