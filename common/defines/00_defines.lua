@@ -1191,11 +1191,11 @@ NMilitary = {
 
 NAir = {
 	AIR_WING_FLIGHT_SPEED_MULT = 0.02,					-- Global speed multiplier for airplanes (affects fe.transferring to another base)
-	AIR_WING_MAX_STATS_ATTACK = 100,					-- Max stats
-	AIR_WING_MAX_STATS_DEFENCE = 100,
-	AIR_WING_MAX_STATS_AGILITY = 100,
-	AIR_WING_MAX_STATS_SPEED = 800,
-	AIR_WING_MAX_STATS_BOMBING = 100,
+	AIR_WING_MAX_STATS_ATTACK = 1000,					-- Max stats
+	AIR_WING_MAX_STATS_DEFENCE = 1000,
+	AIR_WING_MAX_STATS_AGILITY = 1000,
+	AIR_WING_MAX_STATS_SPEED = 9800,
+	AIR_WING_MAX_STATS_BOMBING = 10000,
 	AIR_WING_MAX_SIZE = 1000, 							-- Max amount of airplanes in wing
 	AIR_WING_AVERAGE_SIZE = 100, 						-- Eyeballed average amount of airplanes in wing. Used when calculating air volunteer.
 	AIR_WING_BOMB_DAMAGE_FACTOR = 2,					-- Used to balance the damage done while bombing.
