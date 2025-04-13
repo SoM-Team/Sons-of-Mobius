@@ -796,19 +796,39 @@ country_event = { #### Sonic is BACK
 	option = {
 		name = koa.600.a
 		add_political_power = 100
-		create_corps_commander = {
-			name = "Sonic the Hedgehog"
-			portrait_path = "gfx/leaders/KOA/sonic.tga"
-			traits = { trait_reckless infantry_expert ranger }
-			skill = 1
-			attack_skill = 3
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-		}
+		# create_corps_commander = {
+		# 	name = "Sonic the Hedgehog"
+		# 	portrait_path = "gfx/leaders/KOA/sonic.tga"
+		# 	traits = { trait_reckless infantry_expert ranger }
+		# 	skill = 1
+		# 	attack_skill = 3
+		# 	defense_skill = 1
+		# 	planning_skill = 1
+		# 	logistics_skill = 1
+		# }
+		# KOA_Sonic_the_Hedgehog = {
+		# 	add_corps_commander_role = {
+		# 		traits = { trait_reckless infantry_expert ranger }
+		# 	skill = 2
+		# 	attack_skill = 3
+		# 	defense_skill = 1
+		# 	planning_skill = 2
+		# 	logistics_skill = 1
+		# 	legacy_id = 23061991
+		# 	}
+		# }
 		set_global_flag = Sonic_is_back ### SUPER EVENT
+		set_global_flag = Allow_to_recruit_Sonic
 		# remove_ideas = KOA_sonic_dead
 		load_oob = "KOA_Sonic_back"
+		KOA = {
+			7 = {
+				create_unit = {
+					division = "name = \"Sonic\" division_template = \"Sonic the Hedgehog\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = KOA
+				}
+			}
+		}
 	}
 }		
 
