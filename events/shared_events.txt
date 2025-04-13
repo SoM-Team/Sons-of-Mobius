@@ -1,5 +1,7 @@
 add_namespace = shared
 add_namespace = wars
+add_namespace = peace
+add_namespace = heroes
 country_event = {
 	# Exercise Zapad
 	# Fired from KOA "Rethenian Military Comission" focus
@@ -2545,6 +2547,27 @@ country_event = {
 				type = annex_everything
 			}
 			add_threat = 10
+		}
+	}
+}
+
+news_event = {
+	id = peace.1	# Eggman and KoA signing white peace 
+	title = peace.1.t
+	desc = peace.1.d
+	fire_only_once = yes
+	trigger = {
+		KOA = {
+			all_core_state = {
+				is_controlled_by = KOA
+			}
+		}
+	}
+	option = {
+		name = peace.1.a
+		EGG = {
+			white_peace = KOA
+			add_threat = -5
 		}
 	}
 }
@@ -7703,5 +7726,20 @@ country_event = {
 	option = {
 		name = wars.908.b  # prepare for war
 		
+	}
+}
+
+country_event = {
+	id = heroes.1	# you're adult now, Tails
+	title = heroes.1.t
+	desc = heroes.1.d
+	trigger = {
+		date = 3240.11.21
+		has_character = NOR_Miles_Prower
+	}
+	fire_only_once = yes
+	option = {
+		name = heroes.1.a  # you have a big future
+		set_global_flag = Tails_is_adult	
 	}
 }
