@@ -128,4 +128,424 @@ sub_units = {
 		#same_support_type = maintenance_company
 
 	}
+	robot_engineer = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+		}
+
+		combat_width = 0
+
+		#Size Definitions
+		max_strength = 2
+		max_organisation = 20
+		default_morale = 0.3
+		training_time = 100
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.03
+
+		entrenchment  = 3
+
+		battalion_mult = {
+			category = category_light_infantry
+			entrenchment = 0.20
+			add = yes
+		}
+		defense = 0.1
+		breakthrough = 0.5
+
+		# Support nerfs to combat abilities
+		soft_attack = -0.5
+
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			light_robots_equipment = 30
+			support_equipment = 30
+		}
+
+		can_be_parachuted = yes
+
+		forest = {
+			defence = 0.25
+			movement = 0.05
+		}
+
+		hills = {
+			defence = 0.1
+		}
+
+		jungle = {
+			defence = 0.25
+		}
+
+		marsh = {
+			defence = 0.25
+			movement = 0.2
+		}
+
+		fort = {
+			attack = 0.1
+			defence = 0.25
+		}
+
+		river = {
+			defence = 0.25
+			movement = 0.25
+		}
+
+		amphibious = {
+			attack = 0.25
+		}
+
+		same_support_type = engineer # blocks adding other engineer types to template
+	}
+	robot_logistics_company = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+		}
+
+
+		combat_width = 0
+
+		#Size Definitions
+		max_strength = 1
+		max_organisation = 10	
+		default_morale = 0.3
+		training_time = 100
+
+		#Misc Abilities
+		weight = 0.1
+		can_be_parachuted = yes
+
+		# Important Ability
+		supply_consumption_factor = -0.1
+		fuel_consumption_factor = -0.05
+
+		own_equipment_fuel_consumption_mult = 0.0 # no fuel use
+
+		essential = {
+			support_equipment
+			motorized_equipment
+		}
+
+		need = {
+			support_equipment = 16
+			motorized_equipment = 8
+			light_robots_equipment = 12
+		}
+
+	}
+	robot_military_police = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+		}
+
+
+		combat_width = 0
+
+		#Size Definitions
+		max_strength = 1
+		max_organisation = 0	
+		default_morale = 0.3
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		can_be_parachuted = yes
+
+		# Important Ability
+		suppression_factor = 0.25
+
+		essential = {
+			infantry_equipment
+			support_equipment
+		}
+
+		need = {
+			support_equipment = 10
+			light_robots_equipment = 30
+		}
+	}
+	robot_signal_company = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+		}
+
+		combat_width = 0
+
+		#Size Definitions
+		max_strength = 1
+		max_organisation = 20
+		default_morale = 0.3
+		training_time = 100
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		can_be_parachuted = yes
+
+		# Important Ability
+		initiative = 0.22
+
+		own_equipment_fuel_consumption_mult = 0.0 # no fuel use
+
+		essential = {
+			support_equipment
+			motorized_equipment
+		}
+
+		need = {
+			support_equipment = 20
+			light_robots_equipment = 8
+		}
+
+	}
+	robotic_anti_air = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+		}
+
+		combat_width = 0
+		training_time = 100
+
+		need = {
+			anti_air_equipment = 20
+			light_robots_equipment = 20
+		}
+
+		can_be_parachuted = yes
+
+		#Size Definitions
+		max_strength = 0.2
+		max_organisation = 0
+		default_morale = 0.1
+		weight = 0.1
+
+        supply_consumption = 0.1
+
+		# Support nerfs to combat abilities
+		defense = -0.35
+		breakthrough = -0.35
+		soft_attack = -0.35
+		hard_attack = -0.35
+		air_attack = -0.15
+
+		same_support_type = anti_air # blocks adding other anti_air types to template
+	}
+	robotic_anti_tank = {
+		sprite = anti_tank
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = yes
+		affects_speed = no
+
+		group = support
+
+		type = {
+			infantry
+			support
+		}
+
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+		}
+
+		combat_width = 0
+
+		need = {
+			anti_tank_equipment = 24
+			light_robots_equipment = 24
+		}
+		max_organisation = 0
+		default_morale = 0.1
+		max_strength = 0.2
+		training_time = 120
+		weight = 0.1
+
+		can_be_parachuted = yes
+
+		supply_consumption = 0.08
+
+		# Support nerfs to combat abilities
+		defense = -0.45
+		breakthrough = -0.45
+		soft_attack = -0.45
+		hard_attack = -0.45
+		ap_attack = -0.125
+		same_support_type = anti_tank # blocks adding other anti_tank types to template
+	}
+	heavy_robotic_railgun_anti_tank = {
+		sprite = anti_tank
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = yes
+		affects_speed = no
+
+		group = support
+
+		type = {
+			infantry
+			support
+		}
+
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+		}
+
+		combat_width = 0
+
+		need = {
+			railgun_anti_tank_equipment = 20
+			heavy_robot_equipment = 1
+		}
+		max_organisation = 0
+		default_morale = 0.1
+		max_strength = 0.2
+		training_time = 110
+		weight = 0.1
+
+		can_be_parachuted = yes
+
+		supply_consumption = 0.09
+
+		# Support nerfs to combat abilities
+		defense = -0.4
+		breakthrough = -0.4
+		soft_attack = -0.4
+		hard_attack = -0.4
+		ap_attack = -0.1
+		same_support_type = anti_tank # blocks adding other anti_tank types to template
+	}
+	robotic_artillery = {
+		sprite = artillery
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+
+		categories = {
+			category_support_battalions
+			category_army
+			category_artillery
+		}
+
+
+		combat_width = 0
+
+		need = {
+			artillery_equipment = 12
+			light_robots_equipment = 18
+		}
+		training_time = 100
+		max_organisation = 0
+		default_morale = 0.1
+		max_strength = 0.2
+		weight = 0.1
+
+		supply_consumption = 0.16
+
+		# Support nerfs to combat abilities
+		defense = -0.35
+		breakthrough = -0.35
+		soft_attack = -0.35
+		hard_attack = -0.35
+
+		can_be_parachuted = yes
+		same_support_type = artillery # blocks adding other artillery types to template
+	}
 }
