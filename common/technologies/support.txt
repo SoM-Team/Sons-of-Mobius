@@ -82,6 +82,10 @@ technologies = {
 			leads_to_tech = tech_engineers2
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = sp_armored_engineer_tech
+			research_cost_coeff = 1
+		}
 		research_cost = 2
 		start_year = 3236
 		folder = {
@@ -275,6 +279,59 @@ technologies = {
 			}
 		}
 	}
+	sp_armored_engineer_tech = {
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_land_military_engineering_vehicles
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		research_cost = 2.0
+		start_year = 3238
+		folder = {
+			name = support_folder
+			position = { x = 1 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			engineers_tech
+		}
+
+		enable_subunits = {
+			military_engineering_vehicle
+		}
+
+		# on_research_complete = {
+		# 	if = {
+		# 		limit = {
+		# 			has_dlc = "Gotterdammerung"
+		# 		}
+		# 		SP_create_variant_based_on_country_armored_engineer = yes
+		# 	}
+		# }
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "3240.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "3244.1.1"
+			}
+		}
+	}
 	tech_recon = {
 		enable_subunits = {
 			mot_recon
@@ -283,6 +340,10 @@ technologies = {
 		}
 		path = {
 			leads_to_tech = tech_recon2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_helicopter_artillery_observers_tech
 			research_cost_coeff = 1
 		}
 		research_cost = 2
@@ -462,12 +523,65 @@ technologies = {
 			}
 		}
 	}
+	sp_helicopter_artillery_observers_tech = {
+		# allow_branch = {
+		# 	 has_dlc = "Gotterdammerung"
+		# }
+
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_air_helicopter
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		enable_subunits = {
+			helicopter_recon
+		}
+
+		research_cost = 2.0
+		start_year = 3238
+		folder = {
+			name = support_folder
+			position = { x = 3 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			recon_tech
+			helicopter_tech
+		}
+
+		ai_will_do = {
+			base = 1
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 2
+				date > "3239.1.1"
+			}
+
+			modifier = {
+				factor = 4
+				date > "3240.1.1"
+			}
+		}
+	}
 	tech_military_police = {
 		enable_subunits = {
 			military_police
 		}
 		path = {
 			leads_to_tech = tech_military_police2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_armored_motorized_military_police_tech
 			research_cost_coeff = 1
 		}
 		research_cost = 2
@@ -603,12 +717,60 @@ technologies = {
 			}
 		}
 	}
+	sp_armored_motorized_military_police_tech = {
+		# allow_branch = {
+		# 	 has_dlc = "Gotterdammerung"
+		# }
+
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_land_military_engineering_vehicles
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		show_equipment_icon = yes
+
+		research_cost = 2.0
+		start_year = 1938
+		folder = {
+			name = support_folder
+			position = { x = 5 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			military_police_tech
+		}
+
+		enable_subunits = {
+			motorized_military_police
+		}
+
+		enable_equipments = {
+			motorbike_equipment_1
+		}
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+		}
+	}
 	tech_maintenance_company = {
 		enable_subunits = {
 			maintenance_company
 		}
 		path = {
 			leads_to_tech = tech_maintenance_company2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_armored_maintenance_tech
 			research_cost_coeff = 1
 		}
 		research_cost = 2
@@ -788,12 +950,69 @@ technologies = {
 			}
 		}
 	}
+	sp_armored_maintenance_tech = {
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_land_military_engineering_vehicles
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		research_cost = 2.0
+		start_year = 1938
+		folder = {
+			name = support_folder
+			position = { x = 7 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			maintenance_company_tech
+		}
+
+		enable_subunits = {
+			armoured_recovery_vehicle
+		}
+
+		on_research_complete = {
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Gotterdammerung"
+			# 	}
+			# 	SP_create_variant_based_on_country_armored_maintenance = yes
+			# }
+		}
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1940.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1944.1.1"
+			}
+		}
+	}
 	tech_field_hospital = {
 		enable_subunits = {
 			field_hospital
 		}
 		path = {
 			leads_to_tech = tech_field_hospital2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_helicopter_med_evac_tech
 			research_cost_coeff = 1
 		}
 		dependencies = {
@@ -981,12 +1200,70 @@ technologies = {
 			}
 		}
 	}
+	sp_helicopter_med_evac_tech = {
+		# allow_branch = {
+		# 	 has_dlc = "Gotterdammerung"
+		# }
+
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_air_helicopter
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		research_cost = 2.0
+		start_year = 1938
+		folder = {
+			name = support_folder
+			position = { x = 9 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			hospital_tech
+			helicopter_tech
+		}
+
+		enable_subunits = {
+			helicopter_field_hospital
+		}
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1938.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1940.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1944.1.1"
+			}
+		}
+	}
 	tech_logistics_company = {
 		enable_subunits = {
 			logistics_company
 		}
 		path = {
 			leads_to_tech = tech_logistics_company2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_helicopter_transport_pods_tech
 			research_cost_coeff = 1
 		}
 		dependencies = {
@@ -1174,12 +1451,60 @@ technologies = {
 			}
 		}
 	}
+	sp_helicopter_transport_pods_tech = {
+		allow_branch = {
+			#  has_dlc = "Gotterdammerung"
+		}
+
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_air_helicopter
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		research_cost = 2.0
+		start_year = 1938
+		folder = {
+			name = support_folder
+			position = { x = 11 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			logistics_tech
+			helicopter_tech
+		}
+
+		enable_subunits = {
+			helicopter_transport
+		}
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 3
+				date > "1944.1.1"
+			}
+		}
+	}
 	tech_signal_company = {
 		enable_subunits = {
 			signal_company
 		}
 		path = {
 			leads_to_tech = tech_signal_company2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = sp_armored_signal_tech
 			research_cost_coeff = 1
 		}
 		dependencies = {
@@ -1350,6 +1675,64 @@ technologies = {
 			modifier = {
 				factor = 1.2
 				date > "1950.1.1"
+			}
+		}
+	}
+	sp_armored_signal_tech = {
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_land_military_engineering_vehicles
+			}
+		}
+
+		is_special_project_tech = yes
+		force_use_small_tech_layout = yes
+		research_cost = 2.0
+		start_year = 1938
+		folder = {
+			name = support_folder
+			position = { x = 13 y = 4 }
+		}
+
+		categories = {
+			support_tech
+			signal_company_tech
+			electronics
+		}
+
+		enable_subunits = {
+			electronic_countermeasure_vehicle
+		}
+
+		# enable_equipment_modules = { #This shouldn't show up without NSB OR GOT
+		# 	lc_command_center #Module for Land Cruiser
+		# }
+
+		on_research_complete = {
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Gotterdammerung"
+			# 	}
+			# 	SP_create_variant_based_on_country_armored_signal = yes
+			# }
+		}
+
+		ai_will_do = {
+			base = 2
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1940.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1944.1.1"
 			}
 		}
 	}
