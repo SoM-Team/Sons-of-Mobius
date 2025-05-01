@@ -66,7 +66,46 @@ calculate_ring_gain = {
 		}
 	}
 
-	# TODO: science
+	set_variable = {
+		rings_spy_gain = agency_upgrade_number
+	}
+	if = {
+		limit = {
+			agency_upgrade_number < 14
+		}
+		multiply_variable = {
+			rings_spy_gain = -100
+		}
+	}
+	else_if = {
+		limit = {
+			agency_upgrade_number < 28
+		}
+		multiply_variable = {
+			rings_spy_gain = -200
+		}
+	}
+	else_if = {
+		limit = {
+			agency_upgrade_number < 42
+		}
+		multiply_variable = {
+			rings_spy_gain = -350
+		}
+	}
+	else_if = {
+		limit = {
+			agency_upgrade_number < 56
+		}
+		multiply_variable = {
+			rings_spy_gain = -600
+		}
+	}
+	else = {
+		multiply_variable = {
+			rings_spy_gain = -1000
+		}
+	}
 
 	set_variable = {
 		rings_military_gain = num_battalions
@@ -122,7 +161,7 @@ calculate_ring_gain = {
 		rings_total_net_gain = rings_military_gain
 	}
 	add_to_variable = {
-		rings_total_net_gain = rings_science_gain
+		rings_total_net_gain = rings_spy_gain
 	}
 	add_to_variable = {
 		rings_total_net_gain = rings_energy_gain
@@ -146,7 +185,7 @@ calculate_ring_gain = {
 			rings_military_gain = 2
 		}
 		divide_variable = {
-			rings_science_gain = 2
+			rings_spy_gain = 2
 		}
 		divide_variable = {
 			rings_energy_gain = 2
