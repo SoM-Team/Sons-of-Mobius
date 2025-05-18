@@ -3,11 +3,956 @@ focus_tree = {
 	country = { factor = 0 }
 
 	focus = {
-		id = KOA_the_civil_war_red
-		icon = GFX_default
-		cost = 0
-		x = 5
+		id = KOA_gather_loyalists
+		icon = GFX_idea_unknown
+		x = -4
 		y = 0
-		completion_reward = { }
+		cost = 0
+		completion_reward = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+			}
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = KOA_consolidate_economy
+		icon = GFX_idea_unknown
+		# prerequisite = {
+		# 	focus = KOA_gather_loyalists
+		# }
+		# mutually_exclusive = {
+		# 	focus = KOA_form_assault_groups
+		# }
+		relative_position_id = KOA_gather_loyalists
+		x = 8
+		y = 0
+		cost = 0
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_political_power = 200
+		}
+	}
+	focus = {
+		id = KOA_form_assault_groups
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_gather_loyalists
+		}
+		# mutually_exclusive = {
+		# 	focus = KOA_consolidate_economy
+		# }
+		relative_position_id = KOA_gather_loyalists
+		x = -1
+		y = 1
+		cost = 0
+		completion_reward = {
+			add_manpower = 5000
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"King's Bodyguards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.8 start_equipment_factor = 1"
+					owner = ROOT
+				}
+			}
+			add_stability = 0.05
+			# + 5% attack on entrenched positions
+		}
+	}
+	focus = {
+		id = KOA_provide_equipment_with_ammunition
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_gather_loyalists
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 1
+		y = 1
+		cost = 0
+		completion_reward = {
+			add_fuel = 50000
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 2000
+			}
+			# + 5% production speed
+		}
+	}
+	focus = {
+		id = KOA_control_mobium
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_consolidate_economy
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 7
+		y = 1
+		cost = 0
+		completion_reward = {
+			add_stability = 0.05
+			# add_political_power_growth = 0.10
+		}
+	}
+	focus = {
+		id = KOA_make_friends_with_patrons
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_consolidate_economy
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 9
+		y = 1
+		cost = 0
+		completion_reward = {
+			# production_speed_bunker_factor = 0.1
+			# add_production_efficiency_growth = 0.05
+		}
+	}
+	focus = {
+		id = KOA_raise_militia
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_provide_equipment_with_ammunition
+		}
+		prerequisite = {
+			focus = KOA_form_assault_groups
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 0
+		y = 2
+		cost = 0
+		completion_reward = {
+			# manpower factor +1%
+		}
+	}
+	focus = {
+		id = KOA_resources_for_crown
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_control_mobium
+		}
+		prerequisite = {
+			focus = KOA_make_friends_with_patrons
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 8
+		y = 2
+		cost = 0
+		completion_reward = {
+			capital_scope = {
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+				add_resource = {
+					type = tungsten
+					amount = 8
+				}
+				add_resource = {
+					type = rubber
+					amount = 8
+				}
+				add_resource = {
+					type = steel
+					amount = 8
+				}
+				add_resource = {
+					type = chromium
+					amount = 8
+				}
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_call_for_freedom_fighters
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_raise_militia
+		}
+	relative_position_id = KOA_gather_loyalists
+		x = -2
+		y = 3
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				name = Call_for_freedom_fighters
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KOA_appoint_young_officers
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_raise_militia
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 2
+		y = 3
+		cost = 0
+		completion_reward = {
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					trickster
+					brilliant_strategist
+				}
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					ranger
+					war_hero
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					winter_expert
+					winter_specialist
+				}
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+	}
+	focus = {
+		id = KOA_crown_holdings
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_resources_for_crown
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 6
+		y = 3
+		cost = 0
+		completion_reward = {
+			# 	production_speed_infrastructure_factor = 0.1
+			# 	production_speed_arms_factory_factor = 0.1
+			# 	production_speed_industrial_complex_factor = 0.1
+		}
+	}
+	focus = {
+		id = KOA_primacy_of_military_research
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_resources_for_crown
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 10
+		y = 3
+		cost = 0
+		completion_reward = {
+			# add_tech_bonus = {
+			# 	name = primacy_of_military_research
+			# 	bonus = 0.5
+			# 	uses = 2
+			# 	category = ?
+			# }
+		}
+	}
+	focus = {
+		id = KOA_organize_sabotage_units
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_call_for_freedom_fighters
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = -3
+		y = 4
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = special_troops
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_urgently_strengthen_capital
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_call_for_freedom_fighters
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = -1
+		y = 4
+		cost = 0
+		completion_reward = {
+			capital_scope = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_victory_point = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_new_aviation_doctrine
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_appoint_young_officers
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 1
+		y = 4
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				name = new_aviation_doctrine
+				bonus = 1
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = new_aviation_doctrine
+				bonus = 0.5
+				uses = 2
+				category = cas_bomber
+			}
+		}
+	}
+	focus = {
+		id = KOA_reform_motorized_groups
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_appoint_young_officers
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 3
+		y = 4
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				name = reform_motorized_groups
+				category = motorized_equipment
+			}
+		}
+	}
+	focus = {
+		id = KOA_imperialization_of_land
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_crown_holdings
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 5
+		y = 4
+		cost = 0
+		completion_reward = {
+			# add_political_power_growth = 0.3
+			add_stability = 0.05
+			# add_counterintelligence = 0.05
+		}
+	}
+	focus = {
+		id = KOA_three_shifts
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_crown_holdings
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 7
+		y = 4
+		cost = 0
+		completion_reward = {
+			# add_production_efficiency_growth = 0.05
+		}
+	}
+	focus = {
+		id = KOA_high_precision_energy_weapons
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_primacy_of_military_research
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 9
+		y = 4
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				name = high_precision_energy_weapons
+				bonus = 1
+				uses = 1
+				category = energy_weapons
+			}
+			add_tech_bonus = {
+				name = high_precision_energy_weapons
+				bonus = 1
+				uses = 1
+				category = cat_railgun
+			}
+		}
+	}
+	focus = {
+		id = KOA_smart_projectiles
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_primacy_of_military_research
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 11
+		y = 4
+		cost = 0
+		completion_reward = {
+			# add_air_attack = 0.05
+			# add_breakthrough = 0.05
+		}
+	}
+	focus = {
+		id = KOA_prepare_for_race
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_urgently_strengthen_capital
+		}
+		prerequisite = {
+			focus = KOA_organize_sabotage_units
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = -2
+		y = 5
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				name = prepare_for_race
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = prepare_for_race
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	focus = {
+		id = KOA_steel_tank_wedges
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_new_aviation_doctrine
+		}
+		prerequisite = {
+			focus = KOA_reform_motorized_groups
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 2
+		y = 5
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				name = steel_tank_wedges
+				bonus = 1
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = KOA_food_safety
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_imperialization_of_land
+		}
+		prerequisite = {
+			focus = KOA_three_shifts
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 6
+		y = 5
+		cost = 0
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = KOA_create_a_mtrc
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_smart_projectiles
+		}
+		prerequisite = {
+			focus = KOA_high_precision_energy_weapons
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 10
+		y = 5
+		cost = 0
+		completion_reward = {
+			# add_research_speed = 0.05
+		}
+	}
+	focus = {
+		id = KOA_begin_political_enlightenment
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_prepare_for_race
+		}
+		prerequisite = {
+			focus = KOA_steel_tank_wedges
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 0
+		y = 6
+		cost = 0
+		completion_reward = {
+			add_war_support = 0.05
+			# manpower factor + 2%
+		}
+	}
+	focus = {
+		id = KOA_reequip_air_wings
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_steel_tank_wedges
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 2
+		y = 6
+		cost = 0
+		completion_reward = {
+			# all planes production speed +7.5%
+		}
+	}
+	focus = {
+		id = KOA_seek_help_from_uf
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_reform_motorized_groups
+		}
+		prerequisite = {
+			focus = KOA_imperialization_of_land
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 4
+		y = 6
+		cost = 0
+		completion_reward = {
+			add_opinion_modifier = {
+				target = UFA				# Replace with UF country tag
+				modifier = our_partners
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 250
+			}
+		}
+	}
+	focus = {
+		id = KOA_trade_with_outside_world
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_food_safety
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 6
+		y = 6
+		cost = 0
+		completion_reward = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+	}
+	focus = {
+		id = KOA_use_everything
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_food_safety
+		}
+		prerequisite = {
+			focus = KOA_create_a_mtrc
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 8
+		y = 6
+		cost = 0
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	focus = {
+		id = KOA_cult_of_elias_personality
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_begin_political_enlightenment
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 0
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_stability = 0.15
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = KOA_kings_last_argument
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_reequip_air_wings
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 2
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_tech_bonus = {
+				name = kings_last_argument
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = KOA_everyone_who_is_loyal_to_acorns
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_seek_help_from_uf
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 4
+		y = 7
+		cost = 0
+		completion_reward = {
+			# weekly_manpower + 1000
+		}
+	}
+	focus = {
+		id = KOA_reintegration_of_returned_industry
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_trade_with_outside_world
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 6
+		y = 7
+		cost = 0
+		completion_reward = {
+			# production_speed_infrastructure_factor = 0.1
+			# repair_speed_factor = 0.1
+		}
+	}
+	focus = {
+		id = KOA_create_conducting_institutes
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_use_everything
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 8
+		y = 7
+		cost = 0
+		completion_reward = {
+			# add production efficiency growth + 5%
+		}
+	}
+	focus = {
+		id = KOA_victory_march
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_cult_of_elias_personality
+		}
+		prerequisite = {
+			focus = KOA_kings_last_argument
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 1
+		y = 8
+		cost = 0
+		completion_reward = {
+			# remove civil war military buffs
+			every_owned_state = {
+				if = {
+					limit = {
+						has_resistance = yes
+						is_on_continent = northamer
+					}
+					add_compliance = 0.45
+					add_resistance = -0.15
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_from_young_to_old
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_everyone_who_is_loyal_to_acorns
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 4
+		y = 8
+		cost = 0
+		completion_reward = {
+			add_stability = 0.15
+		}
+	}
+	focus = {
+		id = KOA_develop_a_reconstruction_plan
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_create_conducting_institutes
+		}
+		prerequisite = {
+			focus = KOA_reintegration_of_returned_industry
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 7
+		y = 8
+		cost = 0
+		completion_reward = {
+			# remove civil war economic buffs
+			# production_speed_buildings_factor = 0.15
+			# repair_speed_factor = 0.5
+		}
+	}
+	focus = {
+		id = KOA_create_a_crown_judicial_commission
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_victory_march
+		}
+		prerequisite = {
+			focus = KOA_from_young_to_old
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 2
+		y = 9
+		cost = 0
+		completion_reward = {
+			set_popularities = {
+				conservatism = 0.15
+				autocracy = 0.85
+				neosocialism = 0
+				katzerism = 0
+				autonomous_socialism = 0
+				progressism = 0
+				progressive_liberalism = 0
+				orthodox_liberalism = 0
+				legalism = 0
+				purificationism = 0
+			}
+		}
+	}
+	focus = {
+		id = KOA_start_economic_rehabilitation
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_develop_a_reconstruction_plan
+		}
+		prerequisite = {
+			focus = KOA_from_young_to_old
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 6
+		y = 9
+		cost = 0
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+					type = chromium
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+					type = aluminium
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+					type = tungsten
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = -1
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+					type = oil
+					amount = 5
+				}
+			}
+		}
+	}
+	focus = {
+		id = KOA_dawn_of_old_new_monarchy
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = KOA_start_economic_rehabilitation
+		}
+		prerequisite = {
+			focus = KOA_create_a_crown_judicial_commission
+		}
+		relative_position_id = KOA_gather_loyalists
+		x = 4
+		y = 10
+		cost = 0
+		completion_reward = {
+			# load_focus_tree = Elias something 
+		}
 	}
 }
