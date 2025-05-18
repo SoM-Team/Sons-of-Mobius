@@ -286,7 +286,7 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				has_idea = Two_War_Robotnik
+				has_idea = Second_Robotnik_War
 			}
 		}
 		completion_reward = {
@@ -708,565 +708,565 @@ focus_tree = {
 	shared_focus = KOA_New_Crown_Economic
 }
 
-# Civil war focuses
-focus_tree = {
-	id = Kingdom_Akorn_Civil_War
-	country = {
-		factor = 0
-		modifier = {
-			add = 10
-			has_country_flag = Acorn_Civil_War_started
-		}
-	}
-	default = no
-	#ARMY TREE
-	shared_focus = KOA_Grand_Military_Reforms
-	# Foreign Politics Focuses
-	shared_focus = KOA_Masters_of_Mobius
-	#Economic Tree
-	shared_focus = KOA_New_Crown_Economic
-	focus = {
-		id = KOA_The_Acorn_Civil_War
-		text = KOA_The_Acorn_Civil_War
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 18
-		y = 14
-		allow_branch = {
-			has_country_flag = Acorn_Civil_War_started
-		}
-		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.05
-			country_event = {
-				id = koa.121
-			}
-			set_country_flag = KOA_Elias_Despot_King
-			add_country_leader_role = {
-				character = KOA_Elias_Acorn
-				promote_leader = yes
-				country_leader = {
-					ideology = autocracy_absolute_monarchy_subtype
-					expire = "3265.1.1"
-				}
-			}
-			set_politics = {
-				ruling_party = autocracy
-				elections_allowed = no
-				last_election = "3235.1.1"
-				election_frequency = 48
-			}
-		}
-	}
-	focus = {
-		id = KOA_Our_Friends_at_Home
-		text = KOA_Our_Friends_at_Home
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 15
-		y = 15
-		prerequisite = {
-			focus = KOA_The_Acorn_Civil_War
-		}
-		completion_reward = {
-			add_manpower = 7500
-			add_stability = 0.05
-		}
-	}
-	focus = {
-		id = KOA_Rally_the_Royal_Guard
-		text = KOA_Rally_the_Royal_Guard
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 13
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Friends_at_Home
-		}
-		completion_reward = {
-			KOA = {
-				1 = {
-					create_unit = {
-						owner = KOA
-						division = "name = \"Royal Guard\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-						prioritize_location = 5366
-					}
-				}
-				country_event = {
-					id = koa.122
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Acorn_Militias
-		text = KOA_Acorn_Militias
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 13
-		y = 17
-		prerequisite = {
-			focus = KOA_Rally_the_Royal_Guard
-		}
-		completion_reward = {
-			add_ideas = KOA_Acorn_Militias_Idea
-			KOA = {
-				country_event = {
-					id = koa.123
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Returning_Expatriates
-		text = KOA_Returning_Expatriates
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 13
-		y = 18
-		prerequisite = {
-			focus = KOA_Acorn_Militias
-		}
-		completion_reward = {
-			add_manpower = 30000
-		}
-	}
-	focus = {
-		id = KOA_Nanite_Citadel
-		text = KOA_Nanite_Citadel
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 15
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Friends_at_Home
-		}
-		completion_reward = {
-			add_ideas = KOA_Nanite_Citadel_Idea
-			KOA = {
-				country_event = {
-					id = koa.124
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Kingdoms_Arsenal
-		text = KOA_Kingdoms_Arsenal
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 15
-		y = 17
-		prerequisite = {
-			focus = KOA_Nanite_Citadel
-		}
-		completion_reward = {
-			KOA = {
-				country_event = {
-					id = koa.125
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Exploit_Power_Rings
-		text = KOA_Exploit_Power_Rings
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 15
-		y = 18
-		prerequisite = {
-			focus = KOA_Kingdoms_Arsenal
-		}
-		completion_reward = {
-			#effect_TBA?
-			add_to_variable = {
-				var = rings
-				value = 10000
-			}
-			custom_effect_tooltip = Exploit_Power_Rings
-		}
-	}
-	focus = {
-		id = KOA_Substitute_Freedom_Fighters
-		text = KOA_Substitute_Freedom_Fighters
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 17
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Friends_at_Home
-		}
-		bypass = {
-			NOT = {
-				1 = {
-					is_capital = yes
-				}
-			}
-		}
-		completion_reward = {
-			1 = {
-				create_unit = {
-					owner = KOA
-					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-					prioritize_location = 5366
-				}
-			}
-			add_ideas = KOA_Alternate_Freedom_Fighters_1
-			country_event = {
-				id = koa.126
-			}
-		}
-	}
-	focus = {
-		id = KOA_Sallys_Operations_Manual
-		text = KOA_Sallys_Operations_Manual
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 17
-		y = 17
-		prerequisite = {
-			focus = KOA_Substitute_Freedom_Fighters
-		}
-		completion_reward = {
-			#effect_TBA?
-		}
-	}
-	focus = {
-		id = KOA_Secret_Freedom_Fighters_CW
-		text = KOA_Secret_Freedom_Fighters_CW
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 17
-		y = 18
-		prerequisite = {
-			focus = KOA_Sallys_Operations_Manual
-		}
-		bypass = {
-			NOT = {
-				1 = {
-					is_capital = yes
-				}
-			}
-		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = KOA_Alternate_Freedom_Fighters_1
-				add_idea = KOA_Alternate_Freedom_Fighters_3
-			}
-			country_event = {
-				id = koa.127
-			}
-			1 = {
-				create_unit = {
-					owner = KOA
-					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-					prioritize_location = 5366
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Sword_of_Acorn
-		text = KOA_Sword_of_Acorn
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 15
-		y = 19
-		prerequisite = {
-			focus = KOA_Returning_Expatriates
-		}
-		prerequisite = {
-			focus = KOA_Exploit_Power_Rings
-		}
-		prerequisite = {
-			focus = KOA_Secret_Freedom_Fighters_CW
-		}
-		completion_reward = {
-			country_event = {
-				id = koa.128
-			}
-			#don't forget to make an event to REMOVE the sword of Acorn once the civil war ends
-		}
-	}
-	focus = {
-		id = KOA_Our_Allies_Abroad
-		text = KOA_Our_Allies_Abroad
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 21
-		y = 15
-		prerequisite = {
-			focus = KOA_The_Acorn_Civil_War
-		}
-		completion_reward = {
-			add_opinion_modifier = {
-				target = MER
-				modifier = huge_increase
-			}
-			add_opinion_modifier = {
-				target = UFA
-				modifier = huge_increase
-			}
-		}
-	}
-	focus = {
-		id = KOA_UF_Military_Advisors
-		text = KOA_UF_Military_Advisors
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 19
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Allies_Abroad
-		}
-		completion_reward = {
-			add_ideas = KOA_UF_Military_Advisors_Idea
-		}
-	}
-	focus = {
-		id = KOA_Lend_Lease_Program
-		text = KOA_Lend_Lease_Program
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 19
-		y = 17
-		prerequisite = {
-			focus = KOA_UF_Military_Advisors
-		}
-		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-				producer = UFA
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 2000
-				producer = UFA
-			}
-			add_equipment_to_stockpile = {
-				type = anti_tank_equipment
-				amount = 2000
-				producer = UFA
-			}
-			add_equipment_to_stockpile = {
-				type = main_battle_tank_equipment
-				amount = 500
-				producer = UFA
-			}
-			country_event = {
-				id = koa.129
-			}
-		}
-	}
-	focus = {
-		id = KOA_Wartime_Economy
-		text = KOA_Wartime_Economy
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 19
-		y = 18
-		prerequisite = {
-			focus = KOA_Lend_Lease_Program
-		}
-		completion_reward = {
-			#effect_TBA?
-		}
-	}
-	focus = {
-		id = KOA_Colonial_Aid
-		text = KOA_Colonial_Aid
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 21
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Allies_Abroad
-		}
-		completion_reward = {
-			give_resource_rights = {
-				receiver = KOA
-				state = 510
-			}
-			DOW = {
-				add_resource = {
-					type = chromium
-					amount = 10
-					state = 510
-				}
-				add_resource = {
-					type = oil
-					amount = 10
-					state = 510
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Acorn_Commonwealth
-		text = KOA_Acorn_Commonwealth
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 21
-		y = 17
-		prerequisite = {
-			focus = KOA_Colonial_Aid
-		}
-		completion_reward = {
-			#effect_TBA?
-		}
-	}
-	focus = {
-		id = KOA_Downunda_Army_Corps
-		text = KOA_Downunda_Army_Corps
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 21
-		y = 18
-		prerequisite = {
-			focus = KOA_Acorn_Commonwealth
-		}
-		bypass = {
-			NOT = {
-				1 = {
-					is_capital = yes
-				}
-			}
-		}
-		completion_reward = {
-			1 = {
-				create_unit = {
-					owner = KOA
-					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-					prioritize_location = 5366
-				}
-				create_unit = {
-					owner = KOA
-					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-					prioritize_location = 5366
-				}
-				create_unit = {
-					owner = KOA
-					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
-					prioritize_location = 5366
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_Arms_from_Eurish
-		text = KOA_Arms_from_Eurish
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 23
-		y = 16
-		prerequisite = {
-			focus = KOA_Our_Allies_Abroad
-		}
-		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 3000
-				producer = MER
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 2000
-				producer = MER
-			}
-		}
-	}
-	focus = {
-		id = KOA_Questing_Knights
-		text = KOA_Questing_Knights
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 23
-		y = 17
-		prerequisite = {
-			focus = KOA_Arms_from_Eurish
-		}
-	}
-	focus = {
-		id = KOA_Mercian_Trailblazers
-		text = KOA_Mercian_Trailblazers
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 23
-		y = 18
-		prerequisite = {
-			focus = KOA_Questing_Knights
-		}
-		completion_reward = {
-			add_ideas = KOA_Irregular_Rangers
-		}
-	}
-	focus = {
-		id = KOA_Acorn_Foreign_Legion
-		text = KOA_Acorn_Foreign_Legion
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 21
-		y = 19
-		prerequisite = {
-			focus = KOA_Wartime_Economy
-		}
-		prerequisite = {
-			focus = KOA_Downunda_Army_Corps
-		}
-		prerequisite = {
-			focus = KOA_Mercian_Trailblazers
-		}
-		completion_reward = {
-			add_manpower = 45000
-		}
-	}
-	focus = {
-		id = KOA_This_is_Getting_Complicated
-		text = KOA_This_is_Getting_Complicated
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 18
-		y = 20
-		prerequisite = {
-			focus = KOA_Sword_of_Acorn
-		}
-		prerequisite = {
-			focus = KOA_Acorn_Foreign_Legion
-		}
-	}
-	focus = {
-		id = KOA_Stop_Holding_Back
-		text = KOA_Stop_Holding_Back
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 18
-		y = 21
-		prerequisite = {
-			focus = KOA_This_is_Getting_Complicated
-		}
-		completion_reward = {
-			add_ideas = KOA_Stop_Holding_Back_Idea
-			custom_effect_tooltip = KOA_consequences
-			set_country_flag = KOA_Consequences
-		}
-	}
-	focus = {
-		id = KOA_Running_on_Empty
-		text = KOA_Running_on_Empty
-		icon = GFX_goal_unknown
-		cost = 4
-		x = 18
-		y = 22
-		prerequisite = {
-			focus = KOA_Stop_Holding_Back
-		}
-		completion_reward = {
-			add_ideas = KOA_Running_on_Empty_Idea
-		}
-	}
-}
+# # Civil war focuses
+# focus_tree = {
+# 	id = Kingdom_Akorn_Civil_War
+# 	country = {
+# 		factor = 0
+# 		modifier = {
+# 			add = 10
+# 			has_country_flag = Acorn_Civil_War_started
+# 		}
+# 	}
+# 	default = no
+# 	#ARMY TREE
+# 	shared_focus = KOA_Grand_Military_Reforms
+# 	# Foreign Politics Focuses
+# 	shared_focus = KOA_Masters_of_Mobius
+# 	#Economic Tree
+# 	shared_focus = KOA_New_Crown_Economic
+# 	focus = {
+# 		id = KOA_The_Acorn_Civil_War
+# 		text = KOA_The_Acorn_Civil_War
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 18
+# 		y = 14
+# 		allow_branch = {
+# 			has_country_flag = Acorn_Civil_War_started
+# 		}
+# 		completion_reward = {
+# 			add_stability = 0.05
+# 			add_war_support = 0.05
+# 			country_event = {
+# 				id = koa.121
+# 			}
+# 			set_country_flag = KOA_Elias_Despot_King
+# 			add_country_leader_role = {
+# 				character = KOA_Elias_Acorn
+# 				promote_leader = yes
+# 				country_leader = {
+# 					ideology = autocracy_absolute_monarchy_subtype
+# 					expire = "3265.1.1"
+# 				}
+# 			}
+# 			set_politics = {
+# 				ruling_party = autocracy
+# 				elections_allowed = no
+# 				last_election = "3235.1.1"
+# 				election_frequency = 48
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Our_Friends_at_Home
+# 		text = KOA_Our_Friends_at_Home
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 15
+# 		y = 15
+# 		prerequisite = {
+# 			focus = KOA_The_Acorn_Civil_War
+# 		}
+# 		completion_reward = {
+# 			add_manpower = 7500
+# 			add_stability = 0.05
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Rally_the_Royal_Guard
+# 		text = KOA_Rally_the_Royal_Guard
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 13
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Friends_at_Home
+# 		}
+# 		completion_reward = {
+# 			KOA = {
+# 				1 = {
+# 					create_unit = {
+# 						owner = KOA
+# 						division = "name = \"Royal Guard\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 						prioritize_location = 5366
+# 					}
+# 				}
+# 				country_event = {
+# 					id = koa.122
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Acorn_Militias
+# 		text = KOA_Acorn_Militias
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 13
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_Rally_the_Royal_Guard
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_Acorn_Militias_Idea
+# 			KOA = {
+# 				country_event = {
+# 					id = koa.123
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Returning_Expatriates
+# 		text = KOA_Returning_Expatriates
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 13
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Acorn_Militias
+# 		}
+# 		completion_reward = {
+# 			add_manpower = 30000
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Nanite_Citadel
+# 		text = KOA_Nanite_Citadel
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 15
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Friends_at_Home
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_Nanite_Citadel_Idea
+# 			KOA = {
+# 				country_event = {
+# 					id = koa.124
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Kingdoms_Arsenal
+# 		text = KOA_Kingdoms_Arsenal
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 15
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_Nanite_Citadel
+# 		}
+# 		completion_reward = {
+# 			KOA = {
+# 				country_event = {
+# 					id = koa.125
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Exploit_Power_Rings
+# 		text = KOA_Exploit_Power_Rings
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 15
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Kingdoms_Arsenal
+# 		}
+# 		completion_reward = {
+# 			#effect_TBA?
+# 			add_to_variable = {
+# 				var = rings
+# 				value = 10000
+# 			}
+# 			custom_effect_tooltip = Exploit_Power_Rings
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Substitute_Freedom_Fighters
+# 		text = KOA_Substitute_Freedom_Fighters
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 17
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Friends_at_Home
+# 		}
+# 		bypass = {
+# 			NOT = {
+# 				1 = {
+# 					is_capital = yes
+# 				}
+# 			}
+# 		}
+# 		completion_reward = {
+# 			1 = {
+# 				create_unit = {
+# 					owner = KOA
+# 					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 					prioritize_location = 5366
+# 				}
+# 			}
+# 			add_ideas = KOA_Alternate_Freedom_Fighters_1
+# 			country_event = {
+# 				id = koa.126
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Sallys_Operations_Manual
+# 		text = KOA_Sallys_Operations_Manual
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 17
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_Substitute_Freedom_Fighters
+# 		}
+# 		completion_reward = {
+# 			#effect_TBA?
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Secret_Freedom_Fighters_CW
+# 		text = KOA_Secret_Freedom_Fighters_CW
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 17
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Sallys_Operations_Manual
+# 		}
+# 		bypass = {
+# 			NOT = {
+# 				1 = {
+# 					is_capital = yes
+# 				}
+# 			}
+# 		}
+# 		completion_reward = {
+# 			swap_ideas = {
+# 				remove_idea = KOA_Alternate_Freedom_Fighters_1
+# 				add_idea = KOA_Alternate_Freedom_Fighters_3
+# 			}
+# 			country_event = {
+# 				id = koa.127
+# 			}
+# 			1 = {
+# 				create_unit = {
+# 					owner = KOA
+# 					division = "name = \"Substitute Freedom Fighters\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 					prioritize_location = 5366
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Sword_of_Acorn
+# 		text = KOA_Sword_of_Acorn
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 15
+# 		y = 19
+# 		prerequisite = {
+# 			focus = KOA_Returning_Expatriates
+# 		}
+# 		prerequisite = {
+# 			focus = KOA_Exploit_Power_Rings
+# 		}
+# 		prerequisite = {
+# 			focus = KOA_Secret_Freedom_Fighters_CW
+# 		}
+# 		completion_reward = {
+# 			country_event = {
+# 				id = koa.128
+# 			}
+# 			#don't forget to make an event to REMOVE the sword of Acorn once the civil war ends
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Our_Allies_Abroad
+# 		text = KOA_Our_Allies_Abroad
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 21
+# 		y = 15
+# 		prerequisite = {
+# 			focus = KOA_The_Acorn_Civil_War
+# 		}
+# 		completion_reward = {
+# 			add_opinion_modifier = {
+# 				target = MER
+# 				modifier = huge_increase
+# 			}
+# 			add_opinion_modifier = {
+# 				target = UFA
+# 				modifier = huge_increase
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_UF_Military_Advisors
+# 		text = KOA_UF_Military_Advisors
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 19
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Allies_Abroad
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_UF_Military_Advisors_Idea
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Lend_Lease_Program
+# 		text = KOA_Lend_Lease_Program
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 19
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_UF_Military_Advisors
+# 		}
+# 		completion_reward = {
+# 			add_equipment_to_stockpile = {
+# 				type = infantry_equipment
+# 				amount = 2000
+# 				producer = UFA
+# 			}
+# 			add_equipment_to_stockpile = {
+# 				type = support_equipment
+# 				amount = 2000
+# 				producer = UFA
+# 			}
+# 			add_equipment_to_stockpile = {
+# 				type = anti_tank_equipment
+# 				amount = 2000
+# 				producer = UFA
+# 			}
+# 			add_equipment_to_stockpile = {
+# 				type = main_battle_tank_equipment
+# 				amount = 500
+# 				producer = UFA
+# 			}
+# 			country_event = {
+# 				id = koa.129
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Wartime_Economy
+# 		text = KOA_Wartime_Economy
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 19
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Lend_Lease_Program
+# 		}
+# 		completion_reward = {
+# 			#effect_TBA?
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Colonial_Aid
+# 		text = KOA_Colonial_Aid
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 21
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Allies_Abroad
+# 		}
+# 		completion_reward = {
+# 			give_resource_rights = {
+# 				receiver = KOA
+# 				state = 510
+# 			}
+# 			DOW = {
+# 				add_resource = {
+# 					type = chromium
+# 					amount = 10
+# 					state = 510
+# 				}
+# 				add_resource = {
+# 					type = oil
+# 					amount = 10
+# 					state = 510
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Acorn_Commonwealth
+# 		text = KOA_Acorn_Commonwealth
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 21
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_Colonial_Aid
+# 		}
+# 		completion_reward = {
+# 			#effect_TBA?
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Downunda_Army_Corps
+# 		text = KOA_Downunda_Army_Corps
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 21
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Acorn_Commonwealth
+# 		}
+# 		bypass = {
+# 			NOT = {
+# 				1 = {
+# 					is_capital = yes
+# 				}
+# 			}
+# 		}
+# 		completion_reward = {
+# 			1 = {
+# 				create_unit = {
+# 					owner = KOA
+# 					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 					prioritize_location = 5366
+# 				}
+# 				create_unit = {
+# 					owner = KOA
+# 					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 					prioritize_location = 5366
+# 				}
+# 				create_unit = {
+# 					owner = KOA
+# 					division = "name = \"Downunda Army Corps\" division_template = \"Royal Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+# 					prioritize_location = 5366
+# 				}
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Arms_from_Eurish
+# 		text = KOA_Arms_from_Eurish
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 23
+# 		y = 16
+# 		prerequisite = {
+# 			focus = KOA_Our_Allies_Abroad
+# 		}
+# 		completion_reward = {
+# 			add_equipment_to_stockpile = {
+# 				type = infantry_equipment
+# 				amount = 3000
+# 				producer = MER
+# 			}
+# 			add_equipment_to_stockpile = {
+# 				type = support_equipment
+# 				amount = 2000
+# 				producer = MER
+# 			}
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Questing_Knights
+# 		text = KOA_Questing_Knights
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 23
+# 		y = 17
+# 		prerequisite = {
+# 			focus = KOA_Arms_from_Eurish
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Mercian_Trailblazers
+# 		text = KOA_Mercian_Trailblazers
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 23
+# 		y = 18
+# 		prerequisite = {
+# 			focus = KOA_Questing_Knights
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_Irregular_Rangers
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Acorn_Foreign_Legion
+# 		text = KOA_Acorn_Foreign_Legion
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 21
+# 		y = 19
+# 		prerequisite = {
+# 			focus = KOA_Wartime_Economy
+# 		}
+# 		prerequisite = {
+# 			focus = KOA_Downunda_Army_Corps
+# 		}
+# 		prerequisite = {
+# 			focus = KOA_Mercian_Trailblazers
+# 		}
+# 		completion_reward = {
+# 			add_manpower = 45000
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_This_is_Getting_Complicated
+# 		text = KOA_This_is_Getting_Complicated
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 18
+# 		y = 20
+# 		prerequisite = {
+# 			focus = KOA_Sword_of_Acorn
+# 		}
+# 		prerequisite = {
+# 			focus = KOA_Acorn_Foreign_Legion
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Stop_Holding_Back
+# 		text = KOA_Stop_Holding_Back
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 18
+# 		y = 21
+# 		prerequisite = {
+# 			focus = KOA_This_is_Getting_Complicated
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_Stop_Holding_Back_Idea
+# 			custom_effect_tooltip = KOA_consequences
+# 			set_country_flag = KOA_Consequences
+# 		}
+# 	}
+# 	focus = {
+# 		id = KOA_Running_on_Empty
+# 		text = KOA_Running_on_Empty
+# 		icon = GFX_goal_unknown
+# 		cost = 4
+# 		x = 18
+# 		y = 22
+# 		prerequisite = {
+# 			focus = KOA_Stop_Holding_Back
+# 		}
+# 		completion_reward = {
+# 			add_ideas = KOA_Running_on_Empty_Idea
+# 		}
+# 	}
+# }
 
 #Elias Acorn Reforms
 focus_tree = {
