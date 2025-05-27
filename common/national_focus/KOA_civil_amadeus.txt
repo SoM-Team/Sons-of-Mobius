@@ -1,42 +1,39 @@
 focus_tree = {
-	id = KOA_civil_amadeus
-	country = { factor = 0 }
+	id = NOR_civil_amadeus
+	country = { 
+		factor = 0 
+		modifier = {
+			factor = 10000
+			tag = NOR
+		}
+	}
+	continuous_focus_position = {
+		x = 0
+		y = 1500
+	}
 
 	focus = {
-		id = KOA_gather_loyalists
+		id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		icon = GFX_idea_unknown
-		x = -4
+		x = 0
 		y = 0
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
-			add_political_power = 100
+			army_experience = 50
+			navy_experience = 50
+			air_experience = 50
 		}
 	}
 	focus = {
-		id = KOA_consolidate_economy
+		id = NOR_Amadeus_Economic_Mobilization
 		icon = GFX_idea_unknown
 		# prerequisite = {
-		# 	focus = KOA_gather_loyalists
+		# 	focus = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		# }
 		# mutually_exclusive = {
-		# 	focus = KOA_form_assault_groups
+		# 	focus = NOR_Amadeus_Transport_the_Reformists
 		# }
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 8
 		y = 0
 		cost = 0
@@ -73,256 +70,192 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_political_power = 200
+			add_political_power = 400
 		}
 	}
 	focus = {
-		id = KOA_form_assault_groups
+		id = NOR_Amadeus_GUN_Advisors
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_gather_loyalists
+			focus = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		}
 		# mutually_exclusive = {
-		# 	focus = KOA_consolidate_economy
+		# 	focus = NOR_Amadeus_Economic_Mobilization
 		# }
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = -1
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_manpower = 5000
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"King's Bodyguards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.8 start_equipment_factor = 1"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
+			add_ideas = Amadeus_GUN_Advisors
 			# + 5% attack on entrenched positions
 		}
 	}
 	focus = {
-		id = KOA_provide_equipment_with_ammunition
+		id = NOR_Amadeus_Transport_the_Reformists
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_gather_loyalists
+			focus = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 1
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_fuel = 50000
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 2000
-			}
+			add_manpower = 100000
 			# + 5% production speed
 		}
 	}
 	focus = {
-		id = KOA_control_mobium
+		id = NOR_Amadeus_Responsible_Business
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_consolidate_economy
+			focus = NOR_Amadeus_Economic_Mobilization
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 7
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			# add_political_power_growth = 0.10
+			add_ideas = Amadeus_Responsible_Business
 		}
 	}
 	focus = {
-		id = KOA_make_friends_with_patrons
+		id = NOR_Amadeus_Academics_and_Titles
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_consolidate_economy
+			focus = NOR_Amadeus_Economic_Mobilization
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 9
 		y = 1
 		cost = 0
 		completion_reward = {
-			# production_speed_bunker_factor = 0.1
-			# add_production_efficiency_growth = 0.05
+			add_ideas = Amadeus_Academics_and_Titles
 		}
 	}
 	focus = {
-		id = KOA_raise_militia
+		id = NOR_Amadeus_Create_NRA
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_provide_equipment_with_ammunition
+			focus = NOR_Amadeus_GUN_Advisors
 		}
 		prerequisite = {
-			focus = KOA_form_assault_groups
+			focus = NOR_Amadeus_Transport_the_Reformists
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 0
 		y = 2
 		cost = 0
 		completion_reward = {
-			# manpower factor +1%
+			add_ideas = Amadeus_NRA
 		}
 	}
 	focus = {
-		id = KOA_resources_for_crown
+		id = NOR_Amadeus_Authority_to_Directory
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_control_mobium
+			focus = NOR_Amadeus_Responsible_Business
 		}
 		prerequisite = {
-			focus = KOA_make_friends_with_patrons
+			focus = NOR_Amadeus_Academics_and_Titles
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 8
 		y = 2
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_resource = {
-					type = oil
-					amount = 8
-				}
-				add_resource = {
-					type = tungsten
-					amount = 8
-				}
-				add_resource = {
-					type = rubber
-					amount = 8
-				}
-				add_resource = {
-					type = steel
-					amount = 8
-				}
-				add_resource = {
-					type = chromium
-					amount = 8
-				}
-				add_resource = {
-					type = aluminium
-					amount = 8
-				}
+			add_ideas = Amadeus_Directory
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Configuration_Reform
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Create_NRA
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = -2
+		y = 3
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_Configuration_Reform
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Technical_Equipment
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Create_NRA
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 2
+		y = 3
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_Technical_Equipment
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Market_Motivation
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Authority_to_Directory
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 6
+		y = 3
+		cost = 0
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Amadeus_Responsible_Business
+				add_idea = Amadeus_Responsible_Business_2
 			}
 		}
 	}
 	focus = {
-		id = KOA_call_for_freedom_fighters
+		id = NOR_Amadeus_Fund_Research_Institutes
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_raise_militia
+			focus = NOR_Amadeus_Authority_to_Directory
 		}
-	relative_position_id = KOA_gather_loyalists
-		x = -2
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 10
 		y = 3
+		cost = 0
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Amadeus_Academics_and_Titles
+				add_idea = Amadeus_Academics_and_Titles_2
+			}
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Freedom_Fighters_Experience
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Configuration_Reform
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = -3
+		y = 4
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				name = Call_for_freedom_fighters
 				category = land_doctrine
 			}
 		}
 	}
 	focus = {
-		id = KOA_appoint_young_officers
+		id = NOR_Amadeus_Shock_Brigades
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_raise_militia
+			focus = NOR_Amadeus_Configuration_Reform
 		}
-		relative_position_id = KOA_gather_loyalists
-		x = 2
-		y = 3
-		cost = 0
-		completion_reward = {
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					trickster
-					brilliant_strategist
-				}
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					ranger
-					war_hero
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					winter_expert
-					winter_specialist
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-		}
-	}
-	focus = {
-		id = KOA_crown_holdings
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_resources_for_crown
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 6
-		y = 3
-		cost = 0
-		completion_reward = {
-			# 	production_speed_infrastructure_factor = 0.1
-			# 	production_speed_arms_factory_factor = 0.1
-			# 	production_speed_industrial_complex_factor = 0.1
-		}
-	}
-	focus = {
-		id = KOA_primacy_of_military_research
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_resources_for_crown
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 10
-		y = 3
-		cost = 0
-		completion_reward = {
-			# add_tech_bonus = {
-			# 	name = primacy_of_military_research
-			# 	bonus = 0.5
-			# 	uses = 2
-			# 	category = ?
-			# }
-		}
-	}
-	focus = {
-		id = KOA_organize_sabotage_units
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_call_for_freedom_fighters
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = -3
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = -1
 		y = 4
 		cost = 0
 		completion_reward = {
@@ -331,131 +264,146 @@ focus_tree = {
 				uses = 2
 				category = special_troops
 			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-			}
 		}
 	}
 	focus = {
-		id = KOA_urgently_strengthen_capital
+		id = NOR_Amadeus_Create_Mobile_SGRs
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_call_for_freedom_fighters
+			focus = NOR_Amadeus_Technical_Equipment
 		}
-		relative_position_id = KOA_gather_loyalists
-		x = -1
-		y = 4
-		cost = 0
-		completion_reward = {
-			capital_scope = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_victory_point = yes
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = KOA_new_aviation_doctrine
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_appoint_young_officers
-		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 1
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = new_aviation_doctrine
-				bonus = 1
-				uses = 1
-				category = air_doctrine
+			division_template = {
+				name = "Freedom Fighters Division"		
+
+
+				regiments = {
+					apc_mechanized = { x = 0 y = 0 }
+					apc_mechanized = { x = 0 y = 1 }
+					apc_mechanized = { x = 0 y = 2 }
+					apc_mechanized = { x = 0 y = 3 }
+					
+					ifv_mechanized = { x = 1 y = 0 }
+					ifv_mechanized = { x = 1 y = 1 }
+					ifv_mechanized = { x = 1 y = 2 }
+					ifv_mechanized = { x = 1 y = 3 }
+				}
+				support = {
+					field_hospital = { x = 0 y = 0 }
+					military_engineering_vehicle = { x = 0 y = 1 }	
+					anti_air = { x = 0 y = 2 }
+					anti_tank = { x = 0 y = 3 }
+					support_motorized_rocket = { x = 0 y = 4 }
+				}
+				priority = 2
 			}
-			add_tech_bonus = {
-				name = new_aviation_doctrine
-				bonus = 0.5
-				uses = 2
-				category = cas_bomber
+
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "Freedom Fighters Division"
+					owner = PREV
+				}
 			}
 		}
 	}
 	focus = {
-		id = KOA_reform_motorized_groups
+		id = NOR_Amadeus_Emphasis_on_Artillery_Batteries
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_appoint_young_officers
+			focus = NOR_Amadeus_Technical_Equipment
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 3
 		y = 4
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
 				bonus = 1
-				uses = 1
-				name = reform_motorized_groups
-				category = motorized_equipment
+				uses = 2
+				category = artillery
 			}
 		}
 	}
 	focus = {
-		id = KOA_imperialization_of_land
+		id = NOR_Amadeus_Refurbish_Factories
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_crown_holdings
+			focus = NOR_Amadeus_Market_Motivation
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 5
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_political_power_growth = 0.3
-			add_stability = 0.05
-			# add_counterintelligence = 0.05
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
-		id = KOA_three_shifts
+		id = NOR_Amadeus_Forage_Stocks
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_crown_holdings
+			focus = NOR_Amadeus_Market_Motivation
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 7
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_production_efficiency_growth = 0.05
+			add_ideas = Amadeus_Forage_Stocks
 		}
 	}
 	focus = {
-		id = KOA_high_precision_energy_weapons
+		id = NOR_Amadeus_Experimental_Developments
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_primacy_of_military_research
+			focus = NOR_Amadeus_Fund_Research_Institutes
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 9
 		y = 4
 		cost = 0
@@ -466,493 +414,390 @@ focus_tree = {
 				uses = 1
 				category = energy_weapons
 			}
-			add_tech_bonus = {
-				name = high_precision_energy_weapons
-				bonus = 1
-				uses = 1
-				category = cat_railgun
-			}
 		}
 	}
 	focus = {
-		id = KOA_smart_projectiles
+		id = NOR_Amadeus_Innovation_Divisions
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_primacy_of_military_research
+			focus = NOR_Amadeus_Fund_Research_Institutes
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 11
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_air_attack = 0.05
-			# add_breakthrough = 0.05
+			# TODO
 		}
 	}
 	focus = {
-		id = KOA_prepare_for_race
+		id = NOR_Amadeus_Strict_Discipline
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_urgently_strengthen_capital
+			focus = NOR_Amadeus_Shock_Brigades
 		}
 		prerequisite = {
-			focus = KOA_organize_sabotage_units
+			focus = NOR_Amadeus_Freedom_Fighters_Experience
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = -2
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = air_doctrine
-			}
+			add_ideas = Amadeus_Strict_Discipline
 		}
 	}
 	focus = {
-		id = KOA_steel_tank_wedges
+		id = NOR_Amadeus_Reorganization_of_the_General_Staff
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_new_aviation_doctrine
+			focus = NOR_Amadeus_Create_Mobile_SGRs
 		}
 		prerequisite = {
-			focus = KOA_reform_motorized_groups
+			focus = NOR_Amadeus_Emphasis_on_Artillery_Batteries
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 2
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = steel_tank_wedges
-				bonus = 1
-				uses = 2
-				category = armor
-			}
+			add_ideas = Amadeus_Reorganization_of_the_General_Staff
 		}
 	}
 	focus = {
-		id = KOA_food_safety
+		id = NOR_Amadeus_Temporary_Statism
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_imperialization_of_land
+			focus = NOR_Amadeus_Refurbish_Factories
 		}
 		prerequisite = {
-			focus = KOA_three_shifts
+			focus = NOR_Amadeus_Forage_Stocks
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 6
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.1
+			add_ideas = Amadeus_Temporary_Statism
 		}
 	}
 	focus = {
-		id = KOA_create_a_mtrc
+		id = NOR_Amadeus_Only_the_Best_for_the_Army
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_smart_projectiles
+			focus = NOR_Amadeus_Innovation_Divisions
 		}
 		prerequisite = {
-			focus = KOA_high_precision_energy_weapons
+			focus = NOR_Amadeus_Experimental_Developments
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 10
 		y = 5
 		cost = 0
 		completion_reward = {
-			# add_research_speed = 0.05
+			add_ideas = Amadeus_Only_the_Best_for_the_Army
 		}
 	}
 	focus = {
-		id = KOA_begin_political_enlightenment
+		id = NOR_Amadeus_Fire_to_Suppress
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_prepare_for_race
+			focus = NOR_Amadeus_Strict_Discipline
 		}
 		prerequisite = {
-			focus = KOA_steel_tank_wedges
+			focus = NOR_Amadeus_Reorganization_of_the_General_Staff
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 0
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_war_support = 0.05
-			# manpower factor + 2%
+			add_ideas = Amadeus_Fire_to_Suppress
 		}
 	}
 	focus = {
-		id = KOA_reequip_air_wings
+		id = NOR_Amadeus_Egalitarian_Officership
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_steel_tank_wedges
+			focus = NOR_Amadeus_Reorganization_of_the_General_Staff
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 2
 		y = 6
 		cost = 0
 		completion_reward = {
-			# all planes production speed +7.5%
+			# TODO
 		}
 	}
 	focus = {
-		id = KOA_seek_help_from_uf
+		id = NOR_Amadeus_Establish_Contact_with_the_Republics
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_reform_motorized_groups
+			focus = NOR_Amadeus_Emphasis_on_Artillery_Batteries
 		}
 		prerequisite = {
-			focus = KOA_imperialization_of_land
+			focus = NOR_Amadeus_Refurbish_Factories
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 4
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_opinion_modifier = {
-				target = UFA				# Replace with UF country tag
-				modifier = our_partners
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 100
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 250
+			every_country = {
+				limit = {
+					OR = {
+						has_government = conservatism
+						has_government = orthodox_liberalism
+						has_government = progressive_liberalism
+					}
+				}
+				add_opinion_modifier = {
+					target = NOR
+					modifier = NOR_Amadeus_Republics
+				}
+				NOR = {
+					add_opinion_modifier = {
+						target = THIS
+						modifier = NOR_Amadeus_Republics
+					}
+				}
 			}
 		}
 	}
 	focus = {
-		id = KOA_trade_with_outside_world
+		id = NOR_Amadeus_Reassure_the_Owners
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_food_safety
+			focus = NOR_Amadeus_Temporary_Statism
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 6
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_offsite_building = {
-				type = industrial_complex
-				level = 2
-			}
-			add_offsite_building = {
-				type = arms_factory
-				level = 2
-			}
+			set_country_flag = NOR_Amadeus_give_factory_pls
 		}
 	}
 	focus = {
-		id = KOA_use_everything
+		id = NOR_Amadeus_Scientific_Financial_Policy
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_food_safety
+			focus = NOR_Amadeus_Temporary_Statism
 		}
 		prerequisite = {
-			focus = KOA_create_a_mtrc
+			focus = NOR_Amadeus_Only_the_Best_for_the_Army
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 8
 		y = 6
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
+			add_ideas = Amadeus_Scientific_Financial_Policy
 		}
 	}
 	focus = {
-		id = KOA_cult_of_elias_personality
+		id = NOR_Amadeus_Organize_a_Public_Protection_Fund
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_begin_political_enlightenment
+			focus = NOR_Amadeus_Fire_to_Suppress
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 0
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.1
-		}
-	}
-	focus = {
-		id = KOA_kings_last_argument
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_reequip_air_wings
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 2
-		y = 7
-		cost = 0
-		completion_reward = {
-			add_tech_bonus = {
-				name = kings_last_argument
-				bonus = 0.5
-				uses = 1
-				category = artillery
-			}
-		}
-	}
-	focus = {
-		id = KOA_everyone_who_is_loyal_to_acorns
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_seek_help_from_uf
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 4
-		y = 7
-		cost = 0
-		completion_reward = {
-			# weekly_manpower + 1000
-		}
-	}
-	focus = {
-		id = KOA_reintegration_of_returned_industry
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_trade_with_outside_world
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 6
-		y = 7
-		cost = 0
-		completion_reward = {
-			# production_speed_infrastructure_factor = 0.1
-			# repair_speed_factor = 0.1
-		}
-	}
-	focus = {
-		id = KOA_create_conducting_institutes
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_use_everything
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 8
-		y = 7
-		cost = 0
-		completion_reward = {
-			# add production efficiency growth + 5%
-		}
-	}
-	focus = {
-		id = KOA_victory_march
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_cult_of_elias_personality
-		}
-		prerequisite = {
-			focus = KOA_kings_last_argument
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 1
-		y = 8
-		cost = 0
-		completion_reward = {
-			# remove civil war military buffs
 			every_owned_state = {
 				if = {
 					limit = {
 						has_resistance = yes
 						is_on_continent = northamer
 					}
-					add_compliance = 0.45
-					add_resistance = -0.15
+					add_compliance = 0.01
+					add_resistance = -0.25
+					add_resistance_target = -0.10
+				}
+			}
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Constant_Staff_Rotation
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Egalitarian_Officership
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 2
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_Constant_Staff_Rotation
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_The_First_Democratic_Reform
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Establish_Contact_with_the_Republics
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 4
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_The_First_Democratic_Reform
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Increase_Rations
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Reassure_the_Owners
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 6
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_Increase_Rations
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Institute_for_Strategic_Studies
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Scientific_Financial_Policy
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 8
+		y = 7
+		cost = 0
+		completion_reward = {
+			add_ideas = Amadeus_Institute_for_Strategic_Studies
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_Freedom_Against_All
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_Organize_a_Public_Protection_Fund
+		}
+		prerequisite = {
+			focus = NOR_Amadeus_Constant_Staff_Rotation
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 1
+		y = 8
+		cost = 0
+		completion_reward = {
+			# TODO
+			# remove civil war military buffs
+		}
+	}
+	focus = {
+		id = NOR_Amadeus_The_Hall_in_the_Light_of_the_Sun
+		icon = GFX_idea_unknown
+		prerequisite = {
+			focus = NOR_Amadeus_The_First_Democratic_Reform
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
+		x = 4
+		y = 8
+		cost = 0
+		completion_reward = {
+			retire_country_leader = yes
+			add_country_leader_role = {
+				character = NOR_Rosemary_Prower
+				country_leader = {
+					# TODO
+					ideology = autocracy_prowerism_subtype
+					desc = POLITICS_ROSEMARY_DESC
+					expire = "3265.1.1"
 				}
 			}
 		}
 	}
 	focus = {
-		id = KOA_from_young_to_old
+		id = NOR_Amadeus_Restructuring
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_everyone_who_is_loyal_to_acorns
-		}
-		relative_position_id = KOA_gather_loyalists
-		x = 4
-		y = 8
-		cost = 0
-		completion_reward = {
-			add_stability = 0.15
-		}
-	}
-	focus = {
-		id = KOA_develop_a_reconstruction_plan
-		icon = GFX_idea_unknown
-		prerequisite = {
-			focus = KOA_create_conducting_institutes
+			focus = NOR_Amadeus_Institute_for_Strategic_Studies
 		}
 		prerequisite = {
-			focus = KOA_reintegration_of_returned_industry
+			focus = NOR_Amadeus_Increase_Rations
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 7
 		y = 8
 		cost = 0
 		completion_reward = {
+			# TODO
 			# remove civil war economic buffs
-			# production_speed_buildings_factor = 0.15
-			# repair_speed_factor = 0.5
 		}
 	}
 	focus = {
-		id = KOA_create_a_crown_judicial_commission
+		id = NOR_Amadeus_Triumph_of_the_Generals_Ideas
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_victory_march
+			focus = NOR_Amadeus_Freedom_Against_All
 		}
 		prerequisite = {
-			focus = KOA_from_young_to_old
+			focus = NOR_Amadeus_The_Hall_in_the_Light_of_the_Sun
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 2
 		y = 9
 		cost = 0
 		completion_reward = {
-			set_popularities = {
-				conservatism = 0.15
-				autocracy = 0.85
-				neosocialism = 0
-				katzerism = 0
-				autonomous_socialism = 0
-				progressism = 0
-				progressive_liberalism = 0
-				orthodox_liberalism = 0
-				legalism = 0
-				purificationism = 0
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 1
 			}
 		}
 	}
 	focus = {
-		id = KOA_start_economic_rehabilitation
+		id = NOR_Amadeus_The_Economic_Debate
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_develop_a_reconstruction_plan
+			focus = NOR_Amadeus_Restructuring
 		}
 		prerequisite = {
-			focus = KOA_from_young_to_old
+			focus = NOR_Amadeus_The_Hall_in_the_Light_of_the_Sun
 		}
-		relative_position_id = KOA_gather_loyalists
+		available = {
+			controls_state = 1
+		}
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 6
 		y = 9
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
+			1 = {
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = chromium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = rubber
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = aluminium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = tungsten
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = oil
-					amount = 5
+					level = 3
+					instant_build = yes
 				}
 			}
 		}
 	}
 	focus = {
-		id = KOA_dawn_of_old_new_monarchy
+		id = NOR_Amadeus_A_New_Path
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_start_economic_rehabilitation
+			focus = NOR_Amadeus_The_Economic_Debate
 		}
 		prerequisite = {
-			focus = KOA_create_a_crown_judicial_commission
+			focus = NOR_Amadeus_Triumph_of_the_Generals_Ideas
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 4
 		y = 10
 		cost = 0
 		completion_reward = {
-			# load_focus_tree = Elias something 
+			# load_focus_tree = Rosemary
 		}
 	}
 }
