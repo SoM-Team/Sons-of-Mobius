@@ -3,7 +3,7 @@ focus_tree = {
 	country = { 
 		factor = 0 
 		modifier = {
-			factor = 10000
+			add = 10000
 			tag = NOR
 		}
 	}
@@ -165,7 +165,10 @@ focus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Directory
+			swap_ideas = {
+				remove_idea = Amadeus_Responsible_Business
+				add_idea = Amadeus_Directory
+			}
 		}
 	}
 	focus = {
@@ -179,7 +182,10 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Configuration_Reform
+			swap_ideas = {
+				remove_idea = Amadeus_GUN_Advisors
+				add_idea = Amadeus_Configuration_Reform
+			}
 		}
 	}
 	focus = {
@@ -193,7 +199,10 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Technical_Equipment
+			swap_ideas = {
+				remove_idea = Amadeus_NRA
+				add_idea = Amadeus_Technical_Equipment
+			}
 		}
 	}
 	focus = {
@@ -208,7 +217,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Amadeus_Responsible_Business
+				remove_idea = Amadeus_Directory
 				add_idea = Amadeus_Responsible_Business_2
 			}
 		}
@@ -394,7 +403,10 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Forage_Stocks
+			swap_ideas = {
+				remove_idea = Amadeus_Responsible_Business_2
+				add_idea = Amadeus_Forage_Stocks
+			}
 		}
 	}
 	focus = {
@@ -427,7 +439,61 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# TODO
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_jagers
+					}
+				}
+				set_technology = {
+					tech_jagers = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = tech_mountaineers
+					}
+				}
+				set_technology = {
+					tech_mountaineers = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = marines
+					}
+				}
+				set_technology = {
+					marines = 1
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						has_tech = paratroopers
+					}
+				}
+				set_technology = {
+					paratroopers = 1
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = innovation_division
+					bonus = 1
+					uses = 1
+					category = special_troops
+				}
+			}
+
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "jagers Division"
+					owner = NOR
+				}
+			}
 		}
 	}
 	focus = {
@@ -444,7 +510,10 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Strict_Discipline
+			swap_ideas = {
+				remove_idea = Amadeus_Technical_Equipment
+				add_idea = Amadeus_Strict_Discipline
+			}
 		}
 	}
 	focus = {
@@ -461,7 +530,10 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Reorganization_of_the_General_Staff
+			swap_ideas = {
+				remove_idea = Amadeus_Configuration_Reform
+				add_idea = Amadeus_Reorganization_of_the_General_Staff
+			}
 		}
 	}
 	focus = {
@@ -478,7 +550,10 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Temporary_Statism
+			swap_ideas = {
+				remove_idea = Amadeus_Forage_Stocks
+				add_idea = Amadeus_Temporary_Statism
+			}
 		}
 	}
 	focus = {
@@ -495,7 +570,10 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Only_the_Best_for_the_Army
+			swap_ideas = {
+				remove_idea = Amadeus_Academics_and_Titles_2
+				add_idea = Amadeus_Only_the_Best_for_the_Army
+			}
 		}
 	}
 	focus = {
@@ -512,7 +590,10 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Fire_to_Suppress
+			swap_ideas = {
+				remove_idea = Amadeus_Strict_Discipline
+				add_idea = Amadeus_Fire_to_Suppress
+			}
 		}
 	}
 	focus = {
@@ -592,7 +673,10 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Scientific_Financial_Policy
+			swap_ideas = {
+				remove_idea = Amadeus_Only_the_Best_for_the_Army
+				add_idea = Amadeus_Scientific_Financial_Policy
+			}
 		}
 	}
 	focus = {
@@ -631,7 +715,10 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Constant_Staff_Rotation
+			swap_ideas = {
+				remove_idea = Amadeus_Reorganization_of_the_General_Staff
+				add_idea = Amadeus_Constant_Staff_Rotation
+			}
 		}
 	}
 	focus = {
@@ -659,7 +746,10 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Increase_Rations
+			swap_ideas = {
+				remove_idea = Amadeus_Temporary_Statism
+				add_idea = Amadeus_Increase_Rations
+			}
 		}
 	}
 	focus = {
@@ -673,7 +763,10 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_ideas = Amadeus_Institute_for_Strategic_Studies
+			swap_ideas = {
+				remove_idea = Amadeus_Scientific_Financial_Policy
+				add_idea = Amadeus_Institute_for_Strategic_Studies
+			}
 		}
 	}
 	focus = {
@@ -690,8 +783,8 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# TODO
-			# remove civil war military buffs
+			remove_ideas = Amadeus_Fire_to_Suppress
+			remove_ideas = Amadeus_Constant_Staff_Rotation
 		}
 	}
 	focus = {
@@ -731,8 +824,8 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# TODO
-			# remove civil war economic buffs
+			remove_ideas = Amadeus_Increase_Rations
+			remove_ideas = Amadeus_Institute_for_Strategic_Studies
 		}
 	}
 	focus = {
