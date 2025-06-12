@@ -27,12 +27,6 @@ focus_tree = {
 	focus = {
 		id = NOR_Amadeus_Economic_Mobilization
 		icon = GFX_idea_unknown
-		# prerequisite = {
-		# 	focus = NOR_Amadeus_Summon_Loyal_to_Amadeus
-		# }
-		# mutually_exclusive = {
-		# 	focus = NOR_Amadeus_Transport_the_Reformists
-		# }
 		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 8
 		y = 0
@@ -79,16 +73,12 @@ focus_tree = {
 		prerequisite = {
 			focus = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		}
-		# mutually_exclusive = {
-		# 	focus = NOR_Amadeus_Economic_Mobilization
-		# }
 		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = -1
 		y = 1
 		cost = 0
 		completion_reward = {
 			add_ideas = Amadeus_GUN_Advisors
-			# + 5% attack on entrenched positions
 		}
 	}
 	focus = {
@@ -103,7 +93,6 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_manpower = 100000
-			# + 5% production speed
 		}
 	}
 	focus = {
@@ -607,7 +596,10 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			# TODO
+			swap_ideas = {
+				remove_idea = Amadeus_Reorganization_of_the_General_Staff
+				add_idea = Amadeus_Egalitarian_Officership
+			}
 		}
 	}
 	focus = {
@@ -716,7 +708,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Amadeus_Reorganization_of_the_General_Staff
+				remove_idea = Amadeus_Egalitarian_Officership
 				add_idea = Amadeus_Constant_Staff_Rotation
 			}
 		}
@@ -801,6 +793,7 @@ focus_tree = {
 			retire_country_leader = yes
 			add_country_leader_role = {
 				character = NOR_Rosemary_Prower
+				promote_leader = yes
 				country_leader = {
 					# TODO
 					ideology = autocracy_prowerism_subtype
@@ -885,11 +878,19 @@ focus_tree = {
 		prerequisite = {
 			focus = NOR_Amadeus_Triumph_of_the_Generals_Ideas
 		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+				has_war_with = UWM
+				has_war_with = SOT
+			}
+		}
 		relative_position_id = NOR_Amadeus_Summon_Loyal_to_Amadeus
 		x = 4
 		y = 10
 		cost = 0
 		completion_reward = {
+			# TODO
 			# load_focus_tree = Rosemary
 		}
 	}
