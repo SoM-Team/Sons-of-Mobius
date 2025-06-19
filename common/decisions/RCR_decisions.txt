@@ -592,7 +592,6 @@ RCR_seventh_congress_of_soviets = {
 # 		icon = GFX_decision_red_army
 # 	}
 # }
-
 RCR_war_and_peace_cat = {
 	wap_war_game = {
 		visible = {
@@ -811,7 +810,7 @@ RCR_war_and_peace_cat = {
 		fire_only_once = yes
 		remove_effect = {
 			delete_unit_template_and_units = {
-				division_template = "Narodnoe opolcheniye"
+				division_template = "Opolcheniye"
 			}
 			army_experience = 5
 		}
@@ -828,7 +827,7 @@ RCR_war_and_peace_cat = {
 		fire_only_once = yes
 		remove_effect = {
 			delete_unit_template_and_units = {
-				division_template = "Shtrafnaya Diviziya"
+				division_template = "Shtrafnaya Chast"
 			}
 			army_experience = 15
 		}
@@ -5561,7 +5560,7 @@ RCR_Shilov_Campaign = {
 RCR_Shilov_Coup_Aftermath = {
 	Regional_Committees_Contacts = {
 		cost = 1
-		days_re_enable = 40 
+		days_re_enable = 40
 		complete_effect = {
 			add_stability = 0.05
 		}
@@ -5958,7 +5957,6 @@ RCR_Shilov_Wars = {
 					}
 				}
 				Shilov_diplomacy_failure = {
-
 				}
 			}
 			add_to_variable = {
@@ -6095,7 +6093,6 @@ RCR_Shilov_Wars = {
 	}
 	Economic_Help = {
 		available = {
-
 		}
 		days_remove = 40
 		days_re_enable = 40
@@ -8607,8 +8604,12 @@ RCR_start = {
 			has_completed_focus = RCR_Race_Against_Time
 		}
 		highlight_states = {
-			highlight_state_targets = { state = 315 }
-			highlight_provinces = { 9229 }
+			highlight_state_targets = {
+				state = 315
+			}
+			highlight_provinces = {
+				9229
+			}
 		}
 		available = {
 			has_railway_connection = {
@@ -8626,7 +8627,7 @@ RCR_start = {
 			country_event = rcr_start.1
 		}
 		timeout_effect = {
-			6 ={
+			6 = {
 				add_manpower = -50000
 			}
 			add_stability = -0.15
@@ -8639,7 +8640,6 @@ RCR_start = {
 			country_event = rcr_start.2
 		}
 	}
-
 	RCR_Hunt_down_the_Restoration = {
 		days_mission_timeout = 10
 		selectable_mission = yes
@@ -8647,36 +8647,29 @@ RCR_start = {
 		activation = {
 			has_completed_focus = RCR_Legacy_of_the_Acorns
 		}
-
 		available = {
 			has_manpower > 499
 			command_power > 24
 		}
-
 		complete_effect = {
 			add_command_power = -25
 			add_manpower = -500
-
 			country_event = rcr_start.6
 		}
-
 		timeout_effect = {
 			country_event = rcr_start.7
 		}
 	}
-
 	RCR_inspection = {
 		days_remove = 1
 		cost = 50
 		fire_only_once = yes
-
 		visible = {
 			OR = {
 				has_country_flag = RCR_akvilov_inspection
 				has_country_flag = RCR_turbin_inspection
 			}
 		}
-
 		remove_effect = {
 			if = {
 				limit = {
@@ -8692,44 +8685,36 @@ RCR_start = {
 			}
 		}
 	}
-
 	RCR_inspection_2 = {
 		days_remove = 1
 		cost = 50
 		fire_only_once = yes
-
 		visible = {
 			has_country_flag = RCR_turbin_inspection_2
 		}
-
 		remove_effect = {
 			add_political_power = 300
 			add_command_power = 175
 			clr_country_flag = RCR_turbin_inspection_2
 		}
 	}
-
 	RCR_Sweep_Belokamensk = {
 		days_mission_timeout = 5
 		selectable_mission = yes
-
 		activation = {
 			has_completed_focus = RCR_Revolutionary_Beast
 		}
 		available = {
 			command_power > 24
-
 			divisions_in_state = {
 				size = 6
 				state = 257
 			}
 		}
-
 		complete_effect = {
 			add_command_power = -25
 			random_list = {
 				25 = {
-
 				}
 				25 = {
 					add_manpower = -50
@@ -8754,25 +8739,199 @@ RCR_start = {
 			}
 			set_country_flag = RCR_interrogate_krokhmal
 		}
-
 		timeout_effect = {
 			add_political_power = -100
 			add_stability = -0.1
 			add_manpower = -500
 		}
 	}
-
 	RCR_interrogate_krokhmal = {
 		cost = 50
 		fire_only_once = yes
-
 		visible = {
 			has_country_flag = RCR_interrogate_krokhmal
 		}
-
 		complete_effect = {
 			clr_country_flag = RCR_interrogate_krokhmal
 			country_event = rcr_start.11
 		}
 	}
+}
+
+RCR_pallasov_external_politics_Yurashia = {
+	Stabilize_peoples_movement = {
+		available = {
+		}
+		visible = {
+		}
+		cost = 100
+		fire_only_once = no
+		complete_effect = {
+			PSG = {
+				add_stability = 0.05
+				add_war_support = 0.05
+			}
+		}
+	}
+	Arm_the_liberation_army = {
+		available = {
+		}
+		visible = {
+		}
+		cost = 25
+		custom_cost_trigger = {
+			if = {
+				limit = {
+					has_country_flag = RCR_KORTS_involved_in_diplomacy
+				}
+				has_equipment = {
+					infantry_equipment > 999
+				}
+				has_manpower > 2499
+			}
+			else = {
+				has_equipment = {
+					infantry_equipment > 499
+				}
+			}
+		}
+		fire_only_once = no
+		complete_effect = {
+			if = {
+				limit = {
+					has_country_flag = RCR_KORTS_involved_in_diplomacy
+				}
+				RCR = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -1000
+					}
+					add_manpower = -2500
+				}
+				PSG = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+					}
+					add_manpower = 2500
+				}
+			}
+			else = {
+				RCR = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -500
+					}
+				}
+				PSG = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 500
+					}
+				}
+			}
+		}
+	}
+	Exchange_the_knowledge = {
+		available = {
+		}
+		visible = {
+		}
+		cost = 25
+		fire_only_once = yes
+		complete_effect = {
+			if = {
+				limit = {
+					RCR = {
+						NOT = {
+							is_in_tech_sharing_group = RCR_PSG_tech_sharing_group
+						}
+					}
+				}
+				RCR = {
+					add_to_tech_sharing_group = RCR_PSG_tech_sharing_group
+				}
+			}
+			if = {
+				limit = {
+					TRA = {
+						NOT = {
+							is_in_tech_sharing_group = RCR_PSG_tech_sharing_group
+						}
+					}
+				}
+				TRA = {
+					add_to_tech_sharing_group = RCR_PSG_tech_sharing_group
+				}
+			}
+			if = {
+				limit = {
+					AVI = {
+						NOT = {
+							is_in_tech_sharing_group = RCR_PSG_tech_sharing_group
+						}
+					}
+				}
+				AVI = {
+					add_to_tech_sharing_group = RCR_PSG_tech_sharing_group
+				}
+			}
+			if = {
+				limit = {
+					HIB = {
+						NOT = {
+							is_in_tech_sharing_group = RCR_PSG_tech_sharing_group
+						}
+					}
+				}
+				HIB = {
+					add_to_tech_sharing_group = RCR_PSG_tech_sharing_group
+				}
+			}
+			if = {
+				limit = {
+					PSG = {
+						NOT = {
+							is_in_tech_sharing_group = RCR_PSG_tech_sharing_group
+						}
+					}
+				}
+				PSG = {
+					add_to_tech_sharing_group = RCR_PSG_tech_sharing_group
+				}
+			}
+		}
+	}
+	Exchange_the_military_knowledge = {
+		available = {
+		}
+		visible = {
+		}
+		custom_cost_trigger = {
+			has_army_experience > 49
+		}
+		fire_only_once = yes
+		complete_effect = {
+			RCR = {
+				army_experience = -50
+			}
+			PSG = {
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					name = Exchange_the_military_knowledge
+					category = land_doctrine
+					uses = 1
+				}
+			}
+		}
+	}
+}
+
+RCR_pallasov_external_politics_Efrika = {
+}
+
+RCR_pallasov_external_politics_Soumerca = {
+}
+
+RCR_pallasov_external_politics_Northamer = {
 }
