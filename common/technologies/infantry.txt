@@ -276,16 +276,21 @@ technologies = {
 	#Осколочная граната
 	fragmentation_grenade = {
 		category_light_infantry = {
-			soft_attack = 0.05
-			breakthrough = 0.03
+			soft_attack = 0.02
+			breakthrough = 0.02
 			defense = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.04
-			breakthrough = 0.03
-			defense = 0.03
+			soft_attack = 0.02
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		ifv_mechanized = {
+			soft_attack = 0.02
+			breakthrough = 0.02
+			defense = 0.02
+		}
+		advanced_infantry = {
 			soft_attack = 0.02
 			breakthrough = 0.02
 			defense = 0.02
@@ -316,13 +321,18 @@ technologies = {
 	thermal_grenade = {
 		category_light_infantry = {
 			soft_attack = 0.03
-			hard_attack = 0.15
-			ap_attack = 0.25
+			hard_attack = 0.05
+			ap_attack = 0.1
 		}
 		apc_mechanized = {
 			soft_attack = 0.03
-			hard_attack = 0.15
-			ap_attack = 0.25
+			hard_attack = 0.05
+			ap_attack = 0.1
+		}
+		advanced_infantry = {
+			soft_attack = 0.03
+			hard_attack = 0.05
+			ap_attack = 0.1
 		}
 		path = {
 			leads_to_tech = emp_grenade
@@ -349,7 +359,12 @@ technologies = {
 	#ЭМИ-граната
 	emp_grenade = {
 		category_light_infantry = {
-			hard_attack = 0.2
+			ap_attack = 0.15
+			defense = 0.1
+		}
+		advanced_infantry = {
+			ap_attack = 0.15
+			defense = 0.1
 		}
 		research_cost = 3.5
 		start_year = 3244
@@ -373,12 +388,15 @@ technologies = {
 	#Коллиматорные прицел
 	reflex_sight = {
 		category_light_infantry = {
-			soft_attack = 0.04
+			soft_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.02
 		}
 		ifv_mechanized = {
+			soft_attack = 0.02
+		}
+		advanced_infantry = {
 			soft_attack = 0.02
 		}
 		path = {
@@ -406,12 +424,15 @@ technologies = {
 	#Голографические прицел
 	holographic_sight = {
 		category_light_infantry = {
-			soft_attack = 0.04
+			soft_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.02
 		}
 		ifv_mechanized = {
+			soft_attack = 0.02
+		}
+		advanced_infantry = {
 			soft_attack = 0.02
 		}
 		path = {
@@ -439,12 +460,15 @@ technologies = {
 	#Тепловизионный прицел
 	thermal_sight = {
 		category_light_infantry = {
-			soft_attack = 0.04
+			soft_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.02
 		}
 		ifv_mechanized = {
+			soft_attack = 0.02
+		}
+		advanced_infantry = {
 			soft_attack = 0.02
 		}
 		path = {
@@ -472,12 +496,15 @@ technologies = {
 	#ИИ-прицел
 	ai_sight = {
 		category_light_infantry = {
-			soft_attack = 0.04
+			soft_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.02
 		}
 		ifv_mechanized = {
+			soft_attack = 0.02
+		}
+		advanced_infantry = {
 			soft_attack = 0.02
 		}
 		research_cost = 3.9
@@ -502,7 +529,12 @@ technologies = {
 	#Бронебойные патроны
 	armor_piercing_cartridges = {
 		category_light_infantry = {
-			hard_attack = 0.05
+			hard_attack = 0.03
+			ap_attack = 0.2
+		}
+		apc_mechanized = {
+			hard_attack = 0.03
+			ap_attack = 0.2
 		}
 		path = {
 			leads_to_tech = incendiary_cartridges
@@ -529,10 +561,10 @@ technologies = {
 	#Зажигательные патроны
 	incendiary_cartridges = {
 		category_light_infantry = {
-			soft_attack = 0.04
+			soft_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.02
 		}
 		ifv_mechanized = {
 			soft_attack = 0.02
@@ -563,12 +595,15 @@ technologies = {
 	smart_cartridges = {
 		category_light_infantry = {
 			soft_attack = 0.04
+			hard_attack = 0.02
 		}
 		apc_mechanized = {
-			soft_attack = 0.03
+			soft_attack = 0.04
+			hard_attack = 0.02
 		}
 		ifv_mechanized = {
-			soft_attack = 0.02
+			soft_attack = 0.04
+			hard_attack = 0.02
 		}
 		research_cost = 3.5
 		start_year = 3244
@@ -641,7 +676,8 @@ technologies = {
 		research_cost = 4.1
 		start_year = 3227
 		advanced_infantry = {
-			defense = 0.1
+			soft_attack = 0.025
+			hard_attack = 0.025
 		}
 		folder = {
 			name = infantry_folder
@@ -693,8 +729,8 @@ technologies = {
 		research_cost = 4.1
 		start_year = 3239
 		advanced_infantry = {
-			soft_attack = 0.05
-			breakthrough = 0.05
+			soft_attack = 0.025
+			ap_attack = 0.025
 		}
 		folder = {
 			name = infantry_folder
@@ -717,11 +753,11 @@ technologies = {
 			energy_infantry_equipment_3
 		}
 		path = {
-			leads_to_tech = projectile_acceleration
+			leads_to_tech = integrated_superconductors
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = railgun
+			leads_to_tech = railgun_and_burst_laser
 			research_cost_coeff = 1
 		}
 		research_cost = 4.2
@@ -742,7 +778,7 @@ technologies = {
 	}
 	#------------------------------------------------------------------------#
 	#Ускорение снаряда
-	projectile_acceleration = {
+	integrated_superconductors = {
 		path = {
 			leads_to_tech = assault_energy_weapon3
 			research_cost_coeff = 1
@@ -769,12 +805,12 @@ technologies = {
 	}
 	#------------------------------------------------------------------------#
 	#Рельса
-	railgun = {
+	railgun_and_burst_laser = {
 		research_cost = 4.1
 		start_year = 3242
 		advanced_infantry = {
-			hard_attack = 0.05
-			breakthrough = 0.05
+			hard_attack = 0.03
+			ap_attack = 0.03
 		}
 		folder = {
 			name = infantry_folder
@@ -796,10 +832,10 @@ technologies = {
 		enable_equipments = {
 			energy_infantry_equipment_4
 		}
-		path = {
-			leads_to_tech = assault_energy_weapon4
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = assault_energy_weapon4
+		# 	research_cost_coeff = 1
+		# }
 		path = {
 			leads_to_tech = autonomous_recharging
 			research_cost_coeff = 1
@@ -826,7 +862,7 @@ technologies = {
 		research_cost = 4.1
 		start_year = 3248
 		advanced_infantry = {
-			defense = 0.1
+			defense = 0.05
 		}
 		folder = {
 			name = infantry_folder
@@ -844,30 +880,30 @@ technologies = {
 	}
 	#------------------------------------------------------------------------#
 	#Штурмовое энергооружие 4
-	assault_energy_weapon4 = {
-		# enable_equipments = {
-		# 	energy_infantry_equipment_5
-		# }
-		advanced_infantry = {
-			hard_attack = 0.05
-			soft_attack = 0.05
-		}
-		research_cost = 4.2
-		start_year = 3250
-		folder = {
-			name = infantry_folder
-			position = {
-				x = 10
-				y = 30
-			}
-		}
-		categories = {
-			energy_weapons
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# assault_energy_weapon4 = {
+	# 	# enable_equipments = {
+	# 	# 	energy_infantry_equipment_5
+	# 	# }
+	# 	advanced_infantry = {
+	# 		hard_attack = 0.05
+	# 		soft_attack = 0.05
+	# 	}
+	# 	research_cost = 4.2
+	# 	start_year = 3250
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = 10
+	# 			y = 30
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		energy_weapons
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	personal_equipment = {
 		research_cost = 1
 		category_all_infantry = {
@@ -934,7 +970,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 4
 			}
 		}
@@ -952,7 +988,7 @@ technologies = {
 		category_all_infantry = {
 			breakthrough = 0.01
 			defense = 0.02
-			max_organisation = 1
+			# max_organisation = 1
 		}
 		path = {
 			leads_to_tech = inf_composite_armor
@@ -965,7 +1001,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 6
 			}
 		}
@@ -988,7 +1024,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 9
+				x = 8
 				y = 6
 			}
 		}
@@ -1011,7 +1047,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 9
+				x = 8
 				y = 10
 			}
 		}
@@ -1034,7 +1070,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 9
+				x = 8
 				y = 16
 			}
 		}
@@ -1057,7 +1093,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 9
+				x = 8
 				y = 22
 			}
 		}
@@ -1076,7 +1112,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 9
+				x = 8
 				y = 30
 			}
 		}
@@ -1092,10 +1128,10 @@ technologies = {
 		research_cost = 2
 		start_year = 3239
 		category_all_infantry = {
-			breakthrough = 0.02
-			defense = 0.02
-			hardness = 1
-			max_organisation = 1
+			breakthrough = 0.025
+			defense = 0.025
+			# hardness = 1
+			# max_organisation = 1
 		}
 		path = {
 			leads_to_tech = infantry_armor_1
@@ -1108,7 +1144,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 10
 			}
 		}
@@ -1127,10 +1163,10 @@ technologies = {
 		research_cost = 2
 		start_year = 3242
 		category_all_infantry = {
-			breakthrough = 0.02
-			defense = 0.02
-			hardness = 1
-			max_organisation = 1
+			breakthrough = 0.025
+			defense = 0.025
+			hardness = 1.5
+			# max_organisation = 1
 		}
 		categories = {
 			body_armor
@@ -1142,7 +1178,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 16
 			}
 		}
@@ -1158,9 +1194,9 @@ technologies = {
 		research_cost = 2
 		start_year = 3245
 		category_all_infantry = {
-			breakthrough = 0.02
-			defense = 0.02
-			hardness = 1
+			breakthrough = 0.025
+			defense = 0.025
+			hardness = 2.5
 		}
 		path = {
 			leads_to_tech = infantry_armor_3
@@ -1169,7 +1205,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 22
 			}
 		}
@@ -1188,9 +1224,9 @@ technologies = {
 		research_cost = 2.5
 		start_year = 3248
 		category_all_infantry = {
-			breakthrough = 0.02
-			defense = 0.02
-			hardness = 1
+			breakthrough = 0.03
+			defense = 0.03
+			hardness = 4
 		}
 		path = {
 			leads_to_tech = infantry_armor_4
@@ -1199,7 +1235,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 28
 			}
 		}
@@ -1218,15 +1254,15 @@ technologies = {
 		research_cost = 6
 		start_year = 3250
 		category_all_infantry = {
-			breakthrough = 0.05
-			defense = 0.05
-			hardness = 2
-			max_organisation = -2
+			breakthrough = 0.04
+			defense = 0.04
+			hardness = 6
+			# max_organisation = -2
 		}
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 5
+				x = 4
 				y = 32
 			}
 		}
@@ -1253,6 +1289,8 @@ technologies = {
 		category_all_infantry = {
 			default_morale = 0.03
 		}
+		acclimatization_cold_climate_gain_factor = 0.05
+		acclimatization_hot_climate_gain_factor = 0.05
 		path = {
 			leads_to_tech = additional_equipment_2
 			research_cost_coeff = 1
@@ -1260,7 +1298,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 7
+				x = 6
 				y = 10
 			}
 		}
@@ -1275,11 +1313,13 @@ technologies = {
 	additional_equipment_2 = {
 		research_cost = 2
 		start_year = 3241
-		no_supply_grace = 6
+		no_supply_grace = 5
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.03
 		}
+		acclimatization_cold_climate_gain_factor = 0.05
+		acclimatization_hot_climate_gain_factor = 0.05
 		path = {
 			leads_to_tech = additional_equipment_3
 			research_cost_coeff = 1
@@ -1287,7 +1327,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 7
+				x = 6
 				y = 14
 			}
 		}
@@ -1302,11 +1342,13 @@ technologies = {
 	additional_equipment_3 = {
 		research_cost = 2
 		start_year = 3243
-		no_supply_grace = 6
+		no_supply_grace = 5
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.03
 		}
+		acclimatization_cold_climate_gain_factor = 0.05
+		acclimatization_hot_climate_gain_factor = 0.05
 		path = {
 			leads_to_tech = additional_equipment_4
 			research_cost_coeff = 1
@@ -1314,7 +1356,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 7
+				x = 6
 				y = 18
 			}
 		}
@@ -1329,11 +1371,13 @@ technologies = {
 	additional_equipment_4 = {
 		research_cost = 2
 		start_year = 3246
-		no_supply_grace = 6
+		no_supply_grace = 4
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.02
 		}
+		acclimatization_cold_climate_gain_factor = 0.05
+		acclimatization_hot_climate_gain_factor = 0.05
 		path = {
 			leads_to_tech = additional_equipment_5
 			research_cost_coeff = 1
@@ -1341,7 +1385,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 7
+				x = 6
 				y = 24
 			}
 		}
@@ -1356,15 +1400,17 @@ technologies = {
 	additional_equipment_5 = {
 		research_cost = 2
 		start_year = 3250
-		no_supply_grace = 6
+		no_supply_grace = 4
 		out_of_supply_factor = -0.03
 		category_all_infantry = {
 			default_morale = 0.02
 		}
+		acclimatization_cold_climate_gain_factor = 0.05
+		acclimatization_hot_climate_gain_factor = 0.05
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 7
+				x = 6
 				y = 32
 			}
 		}
@@ -1379,17 +1425,17 @@ technologies = {
 	infantry_support_equipment_1 = {
 		research_cost = 1.5
 		category_all_infantry = {
-			breakthrough = 0.04
-			defense = 0.04
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		path = {
-			leads_to_tech = mortar_focus
+			leads_to_tech = mortars_and_machine_guns
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = machinegun_focus
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = machinegun_focus
+		# 	research_cost_coeff = 1
+		# }
 		path = {
 			leads_to_tech = antitank_equipment_1
 			research_cost_coeff = 1
@@ -1409,11 +1455,12 @@ technologies = {
 			}
 		}
 	}
-	mortar_focus = {
+	mortars_and_machine_guns = {
 		research_cost = 2.5
 		start_year = 3238
 		category_all_infantry = {
-			breakthrough = 0.06
+			breakthrough = 0.03
+			defense = 0.02
 		}
 		path = {
 			leads_to_tech = infantry_support_equipment_2
@@ -1422,13 +1469,13 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 1
+				x = 0
 				y = 8
 			}
 		}
-		XOR = {
-			machinegun_focus
-		}
+		# XOR = {
+		# 	machinegun_focus
+		# }
 		ai_will_do = {
 			factor = 4
 			modifier = {
@@ -1441,44 +1488,44 @@ technologies = {
 			}
 		}
 	}
-	machinegun_focus = {
-		research_cost = 1.5
-		start_year = 3238
-		category_all_infantry = {
-			defense = 0.04
-		}
-		path = {
-			leads_to_tech = infantry_support_equipment_2
-			research_cost_coeff = 1
-		}
-		folder = {
-			name = infantry_folder
-			position = {
-				x = -1
-				y = 8
-			}
-		}
-		XOR = {
-			mortar_focus
-		}
-		ai_will_do = {
-			factor = 4
-			modifier = {
-				factor = 0
-				is_major = yes
-			}
-			modifier = {
-				factor = 5
-				date > "3239.1.1"
-			}
-		}
-	}
+	# machinegun_focus = {
+	# 	research_cost = 1.5
+	# 	start_year = 3238
+	# 	category_all_infantry = {
+	# 		defense = 0.04
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = infantry_support_equipment_2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	folder = {
+	# 		name = infantry_folder
+	# 		position = {
+	# 			x = -1
+	# 			y = 8
+	# 		}
+	# 	}
+	# 	XOR = {
+	# 		mortars_and_machine_guns
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_major = yes
+	# 		}
+	# 		modifier = {
+	# 			factor = 5
+	# 			date > "3239.1.1"
+	# 		}
+	# 	}
+	# }
 	infantry_support_equipment_2 = {
 		research_cost = 1.5
 		start_year = 3240
 		category_all_infantry = {
-			breakthrough = 0.04
-			defense = 0.04
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		path = {
 			leads_to_tech = infantry_support_equipment_3
@@ -1507,8 +1554,8 @@ technologies = {
 		research_cost = 1.5
 		start_year = 3243
 		category_all_infantry = {
-			breakthrough = 0.04
-			defense = 0.04
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		path = {
 			leads_to_tech = infantry_support_equipment_4
@@ -1537,8 +1584,8 @@ technologies = {
 		research_cost = 1.5
 		start_year = 3246
 		category_all_infantry = {
-			breakthrough = 0.04
-			defense = 0.04
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		path = {
 			leads_to_tech = infantry_support_equipment_5
@@ -1567,7 +1614,7 @@ technologies = {
 		research_cost = 2.5
 		start_year = 3249
 		category_all_infantry = {
-			breakthrough = 0.07
+			breakthrough = 0.03
 			defense = 0.03
 		}
 		folder = {
@@ -1593,12 +1640,12 @@ technologies = {
 		research_cost = 2.5
 		start_year = 3236
 		category_light_infantry = {
-			hard_attack = 1
-			ap_attack = 1
+			hard_attack = 0.5
+			ap_attack = 0.5
 		}
 		apc_mechanized = {
-			hard_attack = 1
-			ap_attack = 1
+			hard_attack = 0.5
+			ap_attack = 0.5
 		}
 		path = {
 			leads_to_tech = antitank_equipment_2
@@ -1607,7 +1654,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 3
+				x = 2
 				y = 4
 			}
 		}
@@ -1623,12 +1670,12 @@ technologies = {
 		research_cost = 2.5
 		start_year = 3238
 		category_light_infantry = {
-			hard_attack = 1
-			ap_attack = 1
+			hard_attack = 0.5
+			ap_attack = 0.5
 		}
 		apc_mechanized = {
-			hard_attack = 1
-			ap_attack = 1
+			hard_attack = 0.5
+			ap_attack = 0.5
 		}
 		path = {
 			leads_to_tech = antitank_equipment_3
@@ -1637,7 +1684,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 3
+				x = 2
 				y = 8
 			}
 		}
@@ -1657,12 +1704,12 @@ technologies = {
 		research_cost = 2.5
 		start_year = 3241
 		category_light_infantry = {
-			hard_attack = 1
-			ap_attack = 0.9
+			hard_attack = 0.4
+			ap_attack = 0.4
 		}
 		apc_mechanized = {
-			hard_attack = 1
-			ap_attack = 0.9
+			hard_attack = 0.4
+			ap_attack = 0.4
 		}
 		path = {
 			leads_to_tech = antitank_equipment_4
@@ -1671,7 +1718,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 3
+				x = 2
 				y = 14
 			}
 		}
@@ -1691,12 +1738,12 @@ technologies = {
 		research_cost = 3
 		start_year = 3245
 		category_light_infantry = {
-			hard_attack = 1.5
-			ap_attack = 0.8
+			hard_attack = 0.3
+			ap_attack = 0.3
 		}
 		apc_mechanized = {
-			hard_attack = 1.5
-			ap_attack = 0.8
+			hard_attack = 0.3
+			ap_attack = 0.3
 		}
 		path = {
 			leads_to_tech = antitank_equipment_5
@@ -1705,7 +1752,7 @@ technologies = {
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 3
+				x = 2
 				y = 22
 			}
 		}
@@ -1725,17 +1772,17 @@ technologies = {
 		research_cost = 3
 		start_year = 3249
 		category_light_infantry = {
-			hard_attack = 2
-			ap_attack = 0.7
+			hard_attack = 0.2
+			ap_attack = 0.2
 		}
 		apc_mechanized = {
-			hard_attack = 2
-			ap_attack = 0.7
+			hard_attack = 0.2
+			ap_attack = 0.2
 		}
 		folder = {
 			name = infantry_folder
 			position = {
-				x = 3
+				x = 2
 				y = 30
 			}
 		}
@@ -2066,7 +2113,7 @@ technologies = {
 			breakthrough = 0.04
 		}
 		path = {
-			leads_to_tech = tech_100mm_ifv
+			leads_to_tech = tech_45mm_ifv
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
@@ -2095,10 +2142,11 @@ technologies = {
 			}
 		}
 	}
-	tech_100mm_ifv = {
+	tech_45mm_ifv = {
 		ifv_mechanized = {
 			soft_attack = 0.03
 			hard_attack = 0.03
+			ap_attack = 0.04
 		}
 		path = {
 			leads_to_tech = rockets_ifv_1
@@ -2136,9 +2184,9 @@ technologies = {
 	}
 	rockets_ifv_1 = {
 		ifv_mechanized = {
-			hard_attack = 0.15
-			ap_attack = 0.1
-			air_attack = 0.15
+			hard_attack = 0.05
+			ap_attack = 0.05
+			air_attack = 0.025
 		}
 		path = {
 			leads_to_tech = rockets_ifv_2
@@ -2172,9 +2220,9 @@ technologies = {
 	}
 	rockets_ifv_2 = {
 		ifv_mechanized = {
-			hard_attack = 0.15
-			ap_attack = 0.1
-			air_attack = 0.15
+			hard_attack = 0.05
+			ap_attack = 0.05
+			air_attack = 0.025
 		}
 		path = {
 			leads_to_tech = rockets_ifv_3
@@ -2208,9 +2256,9 @@ technologies = {
 	}
 	rockets_ifv_3 = {
 		ifv_mechanized = {
-			hard_attack = 0.15
-			ap_attack = 0.1
-			air_attack = 0.15
+			hard_attack = 0.05
+			ap_attack = 0.05
+			air_attack = 0.025
 		}
 		path = {
 			leads_to_tech = rockets_ifv_4
@@ -2244,9 +2292,9 @@ technologies = {
 	}
 	rockets_ifv_4 = {
 		ifv_mechanized = {
-			hard_attack = 0.15
-			ap_attack = 0.1
-			air_attack = 0.15
+			hard_attack = 0.05
+			ap_attack = 0.05
+			air_attack = 0.025
 		}
 		research_cost = 2
 		start_year = 3248
@@ -2323,6 +2371,8 @@ technologies = {
 	shield_generator_ifv = {
 		ifv_mechanized = {
 			defense = 0.06
+			breakthrough = 0.04
+			armor_value = 0.05
 		}
 		path = {
 			leads_to_tech = mechanised_infantry_on_ifv_3
@@ -2445,6 +2495,7 @@ technologies = {
 		ifv_mechanized = {
 			breakthrough = 0.04
 			defense = 0.04
+			armor_value = 0.05
 		}
 		path = {
 			leads_to_tech = mechanised_infantry_on_ifv_4
@@ -2638,6 +2689,9 @@ technologies = {
 			soft_attack = 0.03
 			breakthrough = 0.02
 			defense = 0.02
+			ap_attack = 0.05
+			hard_attack = 0.02
+			air_attack = 0.03
 		}
 		path = {
 			leads_to_tech = mechanised_infantry_on_apc_2
@@ -2705,9 +2759,10 @@ technologies = {
 	}
 	self_defense_system_apc = {
 		apc_mechanized = {
-			soft_attack = 0.03
-			breakthrough = 0.02
-			defense = 0.02
+			soft_attack = 0.02
+			breakthrough = 0.03
+			defense = 0.03
+			air_attack = 0.01
 		}
 		path = {
 			leads_to_tech = mechanised_infantry_on_apc_3
@@ -2776,8 +2831,10 @@ technologies = {
 	tech_45mm_apc = {
 		apc_mechanized = {
 			soft_attack = 0.02
-			breakthrough = 0.01
+			breakthrough = 0.02
 			defense = 0.02
+			ap_attack = 0.04
+			hard_attack = 0.04
 		}
 		path = {
 			leads_to_tech = mechanised_infantry_on_apc_4
@@ -2823,7 +2880,7 @@ technologies = {
 			}
 		}
 		path = {
-			leads_to_tech = 90mm_apc
+			leads_to_tech = 90mm_apc_grenade_launcher
 			research_cost_coeff = 1
 		}
 		categories = {
@@ -2843,15 +2900,14 @@ technologies = {
 			}
 		}
 	}
-	90mm_apc = {
+	90mm_apc_grenade_launcher = {
 		apc_mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-			breakthrough = 0.03
-			defense = 0.03
+			soft_attack = 0.05
+			breakthrough = 0.02
+			defense = 0.02
 		}
 		path = {
-			leads_to_tech = rockets_apc
+			leads_to_tech = smokes_apc
 			research_cost_coeff = 1
 		}
 		research_cost = 2
@@ -2880,12 +2936,10 @@ technologies = {
 			}
 		}
 	}
-	rockets_apc = {
+	smokes_apc = {
 		apc_mechanized = {
-			soft_attack = 0.04
-			hard_attack = 0.04
-			breakthrough = 0.03
-			defense = 0.03
+			breakthrough = 0.02
+			defense = 0.05
 		}
 		path = {
 			leads_to_tech = nanite_armour_apc
@@ -2919,8 +2973,9 @@ technologies = {
 	}
 	nanite_armour_apc = {
 		apc_mechanized = {
-			breakthrough = 0.03
-			defense = 0.03
+			breakthrough = 0.04
+			defense = 0.04
+			armor_value = 0.05
 		}
 		research_cost = 2
 		start_year = 3250
