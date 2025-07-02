@@ -77,6 +77,7 @@ technologies = {
 	tech_engineers = {
 		enable_subunits = {
 			engineer
+			robot_engineer
 		}
 		path = {
 			leads_to_tech = tech_engineers2
@@ -125,11 +126,38 @@ technologies = {
 	}
 	tech_engineers2 = {
 		engineer = {
-			entrenchment = 2
+			entrenchment = 0.5
 			fort = {
 				defence = 0.1
 				attack = 0.1
 			}
+		}
+		assault_engineer = {
+			breakthrough = 0.1
+			fort = {
+				attack = 0.15
+			}
+		}
+		armored_engineer = {
+			entrenchment = 1
+			fort = {
+				defence = 0.15
+			}
+		}
+		robot_engineer = {
+			entrenchment = 0.5
+			fort = {
+				defence = 0.1
+				attack = 0.1
+			}
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.05
+			}
+		}
+		enable_equipment_modules = {
+			dozer_blade
+			#flamethrower #MM: Moved to Special Project sp_land_flamethrower_tank
 		}
 		path = {
 			leads_to_tech = tech_engineers3
@@ -165,11 +193,63 @@ technologies = {
 		}
 	}
 	tech_engineers3 = {
+		enable_equipment_modules = {
+			lc_obstacle_clearance_gear			#Module for Land Cruiser
+		}
 		engineer = {
-			entrenchment = 2
+			entrenchment = 0.5
 			river = {
 				attack = 0.1
 				defence = 0.1
+			}
+		}
+		assault_engineer = {
+			breakthrough = 0.1
+			river = {
+				attack = 0.1
+			}
+		}
+		armored_engineer = {
+			entrenchment = 1
+			river = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.15
+			}
+		}
+		robot_engineer = {
+			entrenchment = 0.5
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.05
+			}
+			river = {
+				attack = 0.1
+				defence = 0.1
+			}
+		}
+		light_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		medium_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		heavy_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
 			}
 		}
 		path = {
@@ -207,10 +287,58 @@ technologies = {
 	}
 	tech_engineers4 = {
 		engineer = {
-			entrenchment = 2
+			entrenchment = 0.5
 			urban = {
 				attack = 0.1
 				defence = 0.1
+			}
+		}
+		assault_engineer = {
+			breakthrough = 0.1
+			urban = {
+				attack = 0.15
+			}
+		}
+		armored_engineer = {
+			entrenchment = 1
+			urban = {
+				defence = 0.15
+				movement = 0.15
+			}
+		}
+		robot_engineer = {
+			entrenchment = 0.5
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.05
+			}
+			urban = {
+				attack = 0.1
+				defence = 0.1
+			}
+		}
+		light_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		medium_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		heavy_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
 			}
 		}
 		path = {
@@ -248,10 +376,58 @@ technologies = {
 	}
 	tech_engineers5 = {
 		engineer = {
-			entrenchment = 2
+			entrenchment = 0.5
 			marsh = {
 				attack = 0.1
 				defence = 0.1
+			}
+		}
+		assault_engineer = {
+			breakthrough = 0.1
+			marsh = {
+				attack = 0.15
+			}
+		}
+		armored_engineer = {
+			entrenchment = 1
+			marsh = {
+				defence = 0.15
+				movement = 0.15
+			}
+		}
+		robot_engineer = {
+			entrenchment = 0.5
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.05
+			}
+			marsh = {
+				attack = 0.1
+				defence = 0.1
+			}
+		}
+		light_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		medium_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
+			}
+		}
+		heavy_flame_tank = {
+			urban = {
+				attack = 0.1
+			}
+			fort = {
+				attack = 0.1
 			}
 		}
 		research_cost = 2
@@ -281,29 +457,28 @@ technologies = {
 	}
 	sp_armored_engineer_tech = {
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_land_military_engineering_vehicles
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3238
 		folder = {
 			name = support_folder
-			position = { x = 1 y = 4 }
+			position = {
+				x = 1
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			engineers_tech
 		}
-
 		enable_subunits = {
 			military_engineering_vehicle
 		}
-
 		# on_research_complete = {
 		# 	if = {
 		# 		limit = {
@@ -312,20 +487,16 @@ technologies = {
 		# 		SP_create_variant_based_on_country_armored_engineer = yes
 		# 	}
 		# }
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "3240.1.1"
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "3244.1.1"
@@ -337,6 +508,7 @@ technologies = {
 			mot_recon
 			armored_car_recon
 			light_tank_recon
+			robot_recon
 		}
 		path = {
 			leads_to_tech = tech_recon2
@@ -387,6 +559,19 @@ technologies = {
 		category_recon = {
 			recon = 2
 		}
+		helicopter_recon = {
+			recon = 1
+		}
+		recon_drone = {
+			recon = 2
+		}
+		robot_recon = {
+			recon = 1
+			battalion_mult = {
+				category = category_robots
+				movement = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_recon3
 			research_cost_coeff = 1
@@ -423,6 +608,22 @@ technologies = {
 	tech_recon3 = {
 		category_recon = {
 			recon = 2
+		}
+		helicopter_recon = {
+			recon = 1
+		}
+		recon_drone = {
+			recon = 2
+		}
+		helicopter_brigade = {
+			recon = 1
+		}
+		robot_recon = {
+			recon = 1
+			battalion_mult = {
+				category = category_robots
+				movement = 0.05
+			}
 		}
 		path = {
 			leads_to_tech = tech_recon4
@@ -461,6 +662,19 @@ technologies = {
 		category_recon = {
 			recon = 2
 		}
+		helicopter_recon = {
+			recon = 1
+		}
+		recon_drone = {
+			recon = 2
+		}
+		robot_recon = {
+			recon = 1
+			battalion_mult = {
+				category = category_robots
+				movement = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_recon5
 			research_cost_coeff = 1
@@ -498,6 +712,22 @@ technologies = {
 		category_recon = {
 			recon = 2
 		}
+		helicopter_recon = {
+			recon = 1
+		}
+		recon_drone = {
+			recon = 2
+		}
+		robot_recon = {
+			recon = 1
+			battalion_mult = {
+				category = category_robots
+				movement = 0.05
+			}
+		}
+		helicopter_brigade = {
+			recon = 1
+		}
 		research_cost = 2
 		start_year = 3248
 		folder = {
@@ -527,45 +757,40 @@ technologies = {
 		# allow_branch = {
 		# 	 has_dlc = "Gotterdammerung"
 		# }
-
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_air_helicopter
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
 		enable_subunits = {
 			helicopter_recon
 		}
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 3238
 		folder = {
 			name = support_folder
-			position = { x = 3 y = 4 }
+			position = {
+				x = 3
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			recon_tech
 			helicopter_tech
 		}
-
 		ai_will_do = {
 			base = 1
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 2
 				date > "3239.1.1"
 			}
-
 			modifier = {
 				factor = 4
 				date > "3240.1.1"
@@ -575,6 +800,7 @@ technologies = {
 	tech_military_police = {
 		enable_subunits = {
 			military_police
+			robot_military_police
 		}
 		path = {
 			leads_to_tech = tech_military_police2
@@ -609,6 +835,20 @@ technologies = {
 		military_police = {
 			suppression_factor = 0.1
 		}
+		motorized_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		robot_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_robots
+				default_morale = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_military_police3
 			research_cost_coeff = 1
@@ -637,6 +877,20 @@ technologies = {
 	tech_military_police3 = {
 		military_police = {
 			suppression_factor = 0.1
+		}
+		motorized_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		robot_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_robots
+				default_morale = 0.05
+			}
 		}
 		path = {
 			leads_to_tech = tech_military_police4
@@ -667,6 +921,20 @@ technologies = {
 		military_police = {
 			suppression_factor = 0.1
 		}
+		motorized_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		robot_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_robots
+				default_morale = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_military_police5
 			research_cost_coeff = 1
@@ -696,6 +964,20 @@ technologies = {
 		military_police = {
 			suppression_factor = 0.1
 		}
+		motorized_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		robot_military_police = {
+			suppression_factor = 0.1
+			battalion_mult = {
+				category = category_robots
+				default_morale = 0.05
+			}
+		}
 		research_cost = 1.5
 		start_year = 3248
 		folder = {
@@ -721,40 +1003,35 @@ technologies = {
 		# allow_branch = {
 		# 	 has_dlc = "Gotterdammerung"
 		# }
-
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_land_military_engineering_vehicles
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
 		show_equipment_icon = yes
-
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = support_folder
-			position = { x = 5 y = 4 }
+			position = {
+				x = 5
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			military_police_tech
 		}
-
 		enable_subunits = {
 			motorized_military_police
 		}
-
 		enable_equipments = {
 			motorbike_equipment_1
 		}
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
@@ -764,6 +1041,7 @@ technologies = {
 	tech_maintenance_company = {
 		enable_subunits = {
 			maintenance_company
+			robot_maintenance_company
 		}
 		path = {
 			leads_to_tech = tech_maintenance_company2
@@ -807,6 +1085,22 @@ technologies = {
 			reliability_factor = 0.05
 			equipment_capture_factor = 0.05
 		}
+		armoured_recovery_vehicle = {
+			reliability_factor = 0.02
+			recovery = 0.03
+			equipment_capture_factor = 0.1
+		}
+		robot_maintenance_company = {
+			reliability_factor = 0.02
+			battalion_mult = {
+				category = category_robots
+				reliability_factor = 0.03
+				equipment_capture_factor = 0.025
+			}
+		}
+		enable_equipment_modules = {
+			easy_maintenance
+		}
 		path = {
 			leads_to_tech = tech_maintenance_company3
 			research_cost_coeff = 1
@@ -844,6 +1138,19 @@ technologies = {
 		maintenance_company = {
 			reliability_factor = 0.05
 			equipment_capture_factor = 0.05
+		}
+		armoured_recovery_vehicle = {
+			reliability_factor = 0.02
+			recovery = 0.03
+			equipment_capture_factor = 0.1
+		}
+		robot_maintenance_company = {
+			reliability_factor = 0.02
+			battalion_mult = {
+				category = category_robots
+				reliability_factor = 0.03
+				equipment_capture_factor = 0.025
+			}
 		}
 		path = {
 			leads_to_tech = tech_maintenance_company4
@@ -883,6 +1190,19 @@ technologies = {
 			reliability_factor = 0.05
 			equipment_capture_factor = 0.05
 		}
+		armoured_recovery_vehicle = {
+			reliability_factor = 0.02
+			recovery = 0.03
+			equipment_capture_factor = 0.1
+		}
+		robot_maintenance_company = {
+			reliability_factor = 0.02
+			battalion_mult = {
+				category = category_robots
+				reliability_factor = 0.03
+				equipment_capture_factor = 0.025
+			}
+		}
 		path = {
 			leads_to_tech = tech_maintenance_company5
 			research_cost_coeff = 1
@@ -921,6 +1241,19 @@ technologies = {
 			reliability_factor = 0.05
 			equipment_capture_factor = 0.05
 		}
+		armoured_recovery_vehicle = {
+			reliability_factor = 0.02
+			recovery = 0.03
+			equipment_capture_factor = 0.1
+		}
+		robot_maintenance_company = {
+			reliability_factor = 0.02
+			battalion_mult = {
+				category = category_robots
+				reliability_factor = 0.03
+				equipment_capture_factor = 0.025
+			}
+		}
 		research_cost = 1.5
 		start_year = 3248
 		folder = {
@@ -952,29 +1285,28 @@ technologies = {
 	}
 	sp_armored_maintenance_tech = {
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_land_military_engineering_vehicles
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = support_folder
-			position = { x = 7 y = 4 }
+			position = {
+				x = 7
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			maintenance_company_tech
 		}
-
 		enable_subunits = {
 			armoured_recovery_vehicle
 		}
-
 		on_research_complete = {
 			# if = {
 			# 	limit = {
@@ -983,20 +1315,16 @@ technologies = {
 			# 	SP_create_variant_based_on_country_armored_maintenance = yes
 			# }
 		}
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1940.1.1"
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1944.1.1"
@@ -1053,6 +1381,22 @@ technologies = {
 			casualty_trickleback = 0.1
 			experience_loss_factor = -0.1
 		}
+		helicopter_field_hospital = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		field_hospital_with_medical_drones = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_field_hospital3
 			research_cost_coeff = 1
@@ -1091,6 +1435,22 @@ technologies = {
 		field_hospital = {
 			casualty_trickleback = 0.1
 			experience_loss_factor = -0.1
+		}
+		helicopter_field_hospital = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		field_hospital_with_medical_drones = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
 		}
 		path = {
 			leads_to_tech = tech_field_hospital4
@@ -1131,6 +1491,22 @@ technologies = {
 			casualty_trickleback = 0.1
 			experience_loss_factor = -0.1
 		}
+		helicopter_field_hospital = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		field_hospital_with_medical_drones = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_field_hospital5
 			research_cost_coeff = 1
@@ -1170,6 +1546,22 @@ technologies = {
 			casualty_trickleback = 0.1
 			experience_loss_factor = -0.1
 		}
+		helicopter_field_hospital = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
+		field_hospital_with_medical_drones = {
+			casualty_trickleback = 0.12
+			experience_loss_factor = -0.08
+			battalion_mult = {
+				category = category_all_infantry
+				default_morale = 0.05
+			}
+		}
 		research_cost = 1.5
 		start_year = 3248
 		folder = {
@@ -1204,50 +1596,44 @@ technologies = {
 		# allow_branch = {
 		# 	 has_dlc = "Gotterdammerung"
 		# }
-
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_air_helicopter
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = support_folder
-			position = { x = 9 y = 4 }
+			position = {
+				x = 9
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			hospital_tech
 			helicopter_tech
 		}
-
 		enable_subunits = {
 			helicopter_field_hospital
 		}
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1938.1.1"
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1940.1.1"
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1944.1.1"
@@ -1257,6 +1643,7 @@ technologies = {
 	tech_logistics_company = {
 		enable_subunits = {
 			logistics_company
+			robot_logistics_company
 		}
 		path = {
 			leads_to_tech = tech_logistics_company2
@@ -1308,6 +1695,16 @@ technologies = {
 			supply_consumption_factor = -0.1
 			fuel_consumption_factor = -0.05
 		}
+		helicopter_transport = {
+			supply_consumption_factor = -0.12
+		}
+		robot_logistics_company = {
+			supply_consumption_factor = -0.05
+			battalion_mult = {
+				category = category_robots
+				fuel_consumption_factor = -0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_logistics_company3
 			research_cost_coeff = 1
@@ -1346,6 +1743,16 @@ technologies = {
 		logistics_company = {
 			supply_consumption_factor = -0.1
 			fuel_consumption_factor = -0.05
+		}
+		helicopter_transport = {
+			supply_consumption_factor = -0.12
+		}
+		robot_logistics_company = {
+			supply_consumption_factor = -0.05
+			battalion_mult = {
+				category = category_robots
+				fuel_consumption_factor = -0.05
+			}
 		}
 		path = {
 			leads_to_tech = tech_logistics_company4
@@ -1386,6 +1793,16 @@ technologies = {
 			supply_consumption_factor = -0.1
 			fuel_consumption_factor = -0.05
 		}
+		helicopter_transport = {
+			supply_consumption_factor = -0.12
+		}
+		robot_logistics_company = {
+			supply_consumption_factor = -0.05
+			battalion_mult = {
+				category = category_robots
+				fuel_consumption_factor = -0.05
+			}
+		}
 		path = {
 			leads_to_tech = tech_logistics_company5
 			research_cost_coeff = 1
@@ -1425,6 +1842,16 @@ technologies = {
 			supply_consumption_factor = -0.1
 			fuel_consumption_factor = -0.05
 		}
+		helicopter_transport = {
+			supply_consumption_factor = -0.12
+		}
+		robot_logistics_company = {
+			supply_consumption_factor = -0.05
+			battalion_mult = {
+				category = category_robots
+				fuel_consumption_factor = -0.05
+			}
+		}
 		research_cost = 2
 		start_year = 3248
 		folder = {
@@ -1455,40 +1882,36 @@ technologies = {
 		allow_branch = {
 			#  has_dlc = "Gotterdammerung"
 		}
-
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_air_helicopter
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = support_folder
-			position = { x = 11 y = 4 }
+			position = {
+				x = 11
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			logistics_tech
 			helicopter_tech
 		}
-
 		enable_subunits = {
 			helicopter_transport
 		}
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 3
 				date > "1944.1.1"
@@ -1498,6 +1921,7 @@ technologies = {
 	tech_signal_company = {
 		enable_subunits = {
 			signal_company
+			robot_signal_company
 		}
 		path = {
 			leads_to_tech = tech_signal_company2
@@ -1538,6 +1962,20 @@ technologies = {
 		signal_company = {
 			initiative = 0.12
 		}
+		electronic_countermeasure_vehicle = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_all_armor
+				breakthrough = 0.025
+			}
+		}
+		robot_signal_company = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.025
+			}
+		}
 		path = {
 			leads_to_tech = tech_signal_company3
 			research_cost_coeff = 1
@@ -1575,6 +2013,20 @@ technologies = {
 	tech_signal_company3 = {
 		signal_company = {
 			initiative = 0.12
+		}
+		electronic_countermeasure_vehicle = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_all_armor
+				breakthrough = 0.025
+			}
+		}
+		robot_signal_company = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.025
+			}
 		}
 		path = {
 			leads_to_tech = tech_signal_company4
@@ -1614,6 +2066,20 @@ technologies = {
 		signal_company = {
 			initiative = 0.12
 		}
+		electronic_countermeasure_vehicle = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_all_armor
+				breakthrough = 0.025
+			}
+		}
+		robot_signal_company = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.025
+			}
+		}
 		path = {
 			leads_to_tech = tech_signal_company5
 			research_cost_coeff = 1
@@ -1652,6 +2118,20 @@ technologies = {
 		signal_company = {
 			initiative = 0.12
 		}
+		electronic_countermeasure_vehicle = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_all_armor
+				breakthrough = 0.025
+			}
+		}
+		robot_signal_company = {
+			initiative = 0.08
+			battalion_mult = {
+				category = category_robots
+				breakthrough = 0.025
+			}
+		}
 		research_cost = 2
 		start_year = 3248
 		folder = {
@@ -1680,34 +2160,32 @@ technologies = {
 	}
 	sp_armored_signal_tech = {
 		allow = {
-	 		ROOT = {
+			ROOT = {
 				is_special_project_completed = sp:sp_land_military_engineering_vehicles
 			}
 		}
-
 		is_special_project_tech = yes
 		force_use_small_tech_layout = yes
-		research_cost = 2.0
+		research_cost = 2
 		start_year = 1938
 		folder = {
 			name = support_folder
-			position = { x = 13 y = 4 }
+			position = {
+				x = 13
+				y = 4
+			}
 		}
-
 		categories = {
 			support_tech
 			signal_company_tech
 			electronics
 		}
-
 		enable_subunits = {
 			electronic_countermeasure_vehicle
 		}
-
 		# enable_equipment_modules = { #This shouldn't show up without NSB OR GOT
 		# 	lc_command_center #Module for Land Cruiser
 		# }
-
 		on_research_complete = {
 			# if = {
 			# 	limit = {
@@ -1716,20 +2194,16 @@ technologies = {
 			# 	SP_create_variant_based_on_country_armored_signal = yes
 			# }
 		}
-
 		ai_will_do = {
 			base = 2
-
 			modifier = {
 				factor = 2
 				is_major = yes
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1940.1.1"
 			}
-
 			modifier = {
 				factor = 1.5
 				date > "1944.1.1"
@@ -2220,12 +2694,10 @@ technologies = {
 				y = @3236
 			}
 		}
-
 		path = {
 			leads_to_tech = cheap_train
 			research_cost_coeff = 1
 		}
-
 		path = {
 			leads_to_tech = armored_train
 			research_cost_coeff = 1
@@ -2253,132 +2725,116 @@ technologies = {
 			}
 		}
 	}
-
 	cheap_train = {
 		enable_equipments = {
 			train_equipment_2
 		}
-
 		research_cost = 1.5
 		start_year = 3236
 		folder = {
 			name = support_folder
-			position = { x = 0 y = 3 }
+			position = {
+				x = 0
+				y = 3
+			}
 		}
-		
-		path = {
-			leads_to_tech = cheap_train2
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = cheap_train2
+		# 	research_cost_coeff = 1
+		# }
 		categories = {
 			train_tech
 		}
-		
 		ai_will_do = {
 			factor = 2
-			
 			modifier = {
 				has_war = yes
 				factor = 20
 			}
 		}
 	}
-
-	cheap_train2 = {
-		enable_equipments = {
-			train_equipment_3
-		}
-
-		research_cost = 1.5
-		start_year = 3239
-		folder = {
-			name = support_folder
-			position = { x = 0 y = 6 }
-		}
-		
-		path = {
-			leads_to_tech = cheap_train3
-			research_cost_coeff = 1
-		}
-		categories = {
-			train_tech
-		}
-		
-		ai_will_do = {
-			factor = 2
-			
-			modifier = {
-				has_war = yes
-				factor = 20
-			}
-		}
-	}
-
-	cheap_train3 = {
-		enable_equipments = {
-			train_equipment_4
-		}
-
-		research_cost = 1.5
-		start_year = 3245
-		folder = {
-			name = support_folder
-			position = { x = 0 y = 18 }
-		}
-		
-		path = {
-			leads_to_tech = cheap_train3
-			research_cost_coeff = 1
-		}
-		categories = {
-			train_tech
-		}
-		
-		ai_will_do = {
-			factor = 2
-			
-			modifier = {
-				has_war = yes
-				factor = 20
-			}
-		}
-	}
+	# cheap_train2 = {
+	# 	enable_equipments = {
+	# 		train_equipment_3
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3239
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = { x = 0 y = 6 }
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = cheap_train3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	categories = {
+	# 		train_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 2
+	# 		modifier = {
+	# 			has_war = yes
+	# 			factor = 20
+	# 		}
+	# 	}
+	# }
+	# cheap_train3 = {
+	# 	enable_equipments = {
+	# 		train_equipment_4
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3245
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = { x = 0 y = 18 }
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = cheap_train3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	categories = {
+	# 		train_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 2
+	# 		modifier = {
+	# 			has_war = yes
+	# 			factor = 20
+	# 		}
+	# 	}
+	# }
 	armored_train = {
 		enable_equipments = {
 			armored_train_equipment_1
 		}
-
 		allow_branch = {
 			has_dlc = "No Step Back"
 		}
-
 		path = {
 			leads_to_tech = railway_gun
 			research_cost_coeff = 1
 		}
-		
 		path = {
 			leads_to_tech = armored_train2
 			research_cost_coeff = 1
 		}
-		allow_branch = {
-			has_dlc = "No Step Back"
-		}
-		
+		# allow_branch = {
+		# 	has_dlc = "No Step Back"
+		# }
 		research_cost = 1.5
 		start_year = 3236
 		folder = {
 			name = support_folder
-			position = { x = 2 y = 2 }
+			position = {
+				x = 2
+				y = 2
+			}
 		}
-		
 		categories = {
 			train_tech
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				has_war = yes
 				factor = 20
@@ -2389,29 +2845,27 @@ technologies = {
 		enable_equipments = {
 			armored_train_equipment_2
 		}
-		
-		path = {
-			leads_to_tech = armored_train3
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = armored_train3
+		# 	research_cost_coeff = 1
+		# }
 		allow_branch = {
 			has_dlc = "No Step Back"
 		}
-		
 		research_cost = 1.5
 		start_year = 3239
 		folder = {
 			name = support_folder
-			position = { x = 2 y = 6 }
+			position = {
+				x = 2
+				y = 6
+			}
 		}
-		
 		categories = {
 			train_tech
 		}
-		
 		ai_will_do = {
 			factor = 1
-			
 			modifier = {
 				has_war = yes
 				factor = 20
@@ -2424,58 +2878,53 @@ technologies = {
 				factor = 1.2
 				date > "1938.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "1939.1.1"
 			}
-			
 			modifier = {
 				factor = 1.2
 				date > "1940.1.1"
 			}
 		}
 	}
-	armored_train3 = {
-		enable_equipments = {
-			armored_train_equipment_3
-		}
-		allow_branch = {
-			has_dlc = "No Step Back"
-		}
-		
-		research_cost = 1.5
-		start_year = 3245
-		folder = {
-			name = support_folder
-			position = { x = 2 y = 18 }
-		}
-		
-		categories = {
-			train_tech
-		}
-		
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				has_war = yes
-				factor = 20
-			}
-		}
-	}
+	# armored_train3 = {
+	# 	enable_equipments = {
+	# 		armored_train_equipment_3
+	# 	}
+	# 	allow_branch = {
+	# 		has_dlc = "No Step Back"
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3245
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = { x = 2 y = 18 }
+	# 	}
+	# 	categories = {
+	# 		train_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 		modifier = {
+	# 			has_war = yes
+	# 			factor = 20
+	# 		}
+	# 	}
+	# }
 	railway_gun = {
 		enable_equipments = {
 			railway_gun_equipment_1
 		}
-
 		research_cost = 1.5
 		start_year = 3236
 		folder = {
 			name = support_folder
-			position = { x = 4 y = 2 }
+			position = {
+				x = 4
+				y = 2
+			}
 		}
-		
 		path = {
 			leads_to_tech = railway_gun2
 			research_cost_coeff = 1
@@ -2484,102 +2933,91 @@ technologies = {
 			train_tech
 			artillery
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				is_major = yes
 				factor = 1
 			}
 		}
 	}
-
 	railway_gun2 = {
 		enable_equipments = {
 			railway_gun_equipment_2
 		}
-
 		research_cost = 2.1
 		start_year = 3239
 		folder = {
 			name = support_folder
-			position = { x = 4 y = 6 }
+			position = {
+				x = 4
+				y = 6
+			}
 		}
-		
-		path = {
-			leads_to_tech = railway_gun3
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = railway_gun3
+		# 	research_cost_coeff = 1
+		# }
 		categories = {
 			train_tech
 			artillery
 		}
-		
 		ai_will_do = {
 			factor = 0.5
-			
 			modifier = {
 				is_major = yes
 				factor = 1
 			}
 		}
 	}
-
-	railway_gun3 = {
-		enable_equipments = {
-			railway_gun_equipment_3
-		}
-
-		research_cost = 2.1
-		start_year = 3243
-		folder = {
-			name = support_folder
-			position = { x = 4 y = 14 }
-		}
-		path = {
-			leads_to_tech = railway_gun4
-			research_cost_coeff = 1
-		}
-		categories = {
-			train_tech
-			artillery
-		}
-		
-		ai_will_do = {
-			factor = 0.5
-			
-			modifier = {
-				is_major = yes
-				factor = 1
-			}
-		}
-	}
-	railway_gun4 = {
-		enable_equipments = {
-			railway_gun_equipment_4
-		}
-
-		research_cost = 2.1
-		start_year = 3245
-		folder = {
-			name = support_folder
-			position = { x = 4 y = 22 }
-		}
-		categories = {
-			train_tech
-			artillery
-		}
-		
-		ai_will_do = {
-			factor = 0.5
-			
-			modifier = {
-				is_major = yes
-				factor = 1
-			}
-		}
-	}
+	# railway_gun3 = {
+	# 	enable_equipments = {
+	# 		railway_gun_equipment_3
+	# 	}
+	# 	research_cost = 2.1
+	# 	start_year = 3243
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = { x = 4 y = 14 }
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = railway_gun4
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	categories = {
+	# 		train_tech
+	# 		artillery
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.5
+	# 		modifier = {
+	# 			is_major = yes
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
+	# railway_gun4 = {
+	# 	enable_equipments = {
+	# 		railway_gun_equipment_4
+	# 	}
+	# 	research_cost = 2.1
+	# 	start_year = 3245
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = { x = 4 y = 22 }
+	# 	}
+	# 	categories = {
+	# 		train_tech
+	# 		artillery
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0.5
+	# 		modifier = {
+	# 			is_major = yes
+	# 			factor = 1
+	# 		}
+	# 	}
+	# }
 	kamikaze_drone1 = {
 		on_research_complete = {
 			if = {
@@ -2592,29 +3030,37 @@ technologies = {
 		enable_equipments = {
 			kamikaze_drone_equipment_1
 		}
-		
 		enable_subunits = {
 			kamikaze_drone
+		}
+		enable_equipments = {
+			recon_drone_equipment_1
+		}
+		enable_subunits = {
+			recon_drone
+		}
+		enable_subunits = {
+			field_hospital_with_medical_drones
+		}
+		enable_equipments = {
+			medical_drone_equipment_1
 		}
 		path = {
 			leads_to_tech = kamikaze_drone_buff1
 			research_cost_coeff = 1
 		}
-		
-		path = {
-			leads_to_tech = battle_drone1
-			research_cost_coeff = 1
-		}
-		
-		path = {
-			leads_to_tech = recon_drone1
-			research_cost_coeff = 1
-		}
-		
-		path = {
-			leads_to_tech = medical_drone1
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = battle_drone1
+		# 	research_cost_coeff = 1
+		# }
+		# path = {
+		# 	leads_to_tech = recon_drone1
+		# 	research_cost_coeff = 1
+		# }
+		# path = {
+		# 	leads_to_tech = medical_drone1
+		# 	research_cost_coeff = 1
+		# }
 		research_cost = 1.5
 		start_year = 3230
 		folder = {
@@ -2641,7 +3087,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		path = {
 			leads_to_tech = kamikaze_drone2
 			research_cost_coeff = 1
@@ -2672,7 +3117,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		enable_equipments = {
 			kamikaze_drone_equipment_2
 		}
@@ -2681,12 +3125,12 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		research_cost = 1.5
-		start_year = 3238
+		start_year = 3240
 		folder = {
 			name = support_folder
 			position = {
 				x = 0
-				y = 4
+				y = 8
 			}
 		}
 		categories = {
@@ -2706,7 +3150,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		path = {
 			leads_to_tech = kamikaze_drone3
 			research_cost_coeff = 1
@@ -2737,7 +3180,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		enable_equipments = {
 			kamikaze_drone_equipment_3
 		}
@@ -2771,7 +3213,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		path = {
 			leads_to_tech = kamikaze_drone_buff4
 			research_cost_coeff = 1
@@ -2802,7 +3243,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		path = {
 			leads_to_tech = kamikaze_drone4
 			research_cost_coeff = 1
@@ -2833,14 +3273,13 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		enable_equipments = {
 			kamikaze_drone_equipment_4
 		}
-		path = {
-			leads_to_tech = kamikaze_drone_buff6
-			research_cost_coeff = 1
-		}
+		# path = {
+		# 	leads_to_tech = kamikaze_drone_buff6
+		# 	research_cost_coeff = 1
+		# }
 		research_cost = 1.5
 		start_year = 3248
 		folder = {
@@ -2858,230 +3297,224 @@ technologies = {
 			factor = 1
 		}
 	}
-	kamikaze_drone_buff6 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		research_cost = 1.5
-		start_year = 3250
-		folder = {
-			name = support_folder
-			position = {
-				x = 0
-				y = 28
-			}
-		}
-		categories = {
-			kamikaze_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone1 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		enable_subunits = {
-			battle_drone
-		}
-		enable_equipments = {
-			battle_drone_equipment_1
-		}
-		path = {
-			leads_to_tech = battle_drone_buff2
-			research_cost_coeff = 1
-		}
-		research_cost = 2
-		start_year = 3236
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 2
-			}
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone_buff2 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		path = {
-			leads_to_tech = battle_drone2
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3238
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 4
-			}
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone2 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		enable_equipments = {
-			battle_drone_equipment_2
-		}
-		path = {
-			leads_to_tech = battle_drone_buff3
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3240
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 8
-			}
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone_buff3 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		path = {
-			leads_to_tech = battle_drone3
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3242
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 12
-			}
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone3 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		enable_equipments = {
-			battle_drone_equipment_3
-		}
-		path = {
-			leads_to_tech = battle_drone_buff6
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3244
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 16
-			}
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	battle_drone_buff6 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		research_cost = 1.5
-		start_year = 3246
-		folder = {
-			name = support_folder
-			position = {
-				x = 2
-				y = 20
-			}
-		}
-		path = {
-			leads_to_tech = battle_drone4
-			research_cost_coeff = 1
-		}
-		categories = {
-			battle_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
+	# kamikaze_drone_buff6 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3250
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 0
+	# 			y = 28
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		kamikaze_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone1 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_subunits = {
+	# 		battle_drone
+	# 	}
+	# 	enable_equipments = {
+	# 		battle_drone_equipment_1
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone_buff2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 2
+	# 	start_year = 3236
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 2
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone_buff2 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3238
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 4
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone2 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		battle_drone_equipment_2
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone_buff3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3240
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 8
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone_buff3 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3242
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 12
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone3 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		battle_drone_equipment_3
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone_buff6
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3244
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 16
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# battle_drone_buff6 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3246
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 20
+	# 		}
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = battle_drone4
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	categories = {
+	# 		battle_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	battle_drone4 = {
 		on_research_complete = {
 			if = {
@@ -3091,7 +3524,6 @@ technologies = {
 				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
 			}
 		}
-		
 		enable_equipments = {
 			battle_drone_equipment_4
 		}
@@ -3112,203 +3544,200 @@ technologies = {
 			factor = 1
 		}
 	}
-	
-	recon_drone1 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		enable_equipments = {
-			recon_drone_equipment_1
-		}
-		enable_subunits = {
-			recon_drone
-		}
-		path = {
-			leads_to_tech = recon_drone2
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3230
-		folder = {
-			name = support_folder
-			position = {
-				x = 4
-				y = 2
-			}
-		}
-		categories = {
-			recon_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	recon_drone2 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		enable_equipments = {
-			recon_drone_equipment_2
-		}
-		path = {
-			leads_to_tech = recon_drone3
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3240
-		folder = {
-			name = support_folder
-			position = {
-				x = 4
-				y = 12
-			}
-		}
-		categories = {
-			recon_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	recon_drone3 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		enable_equipments = {
-			recon_drone_equipment_3
-		}
-		research_cost = 1.5
-		start_year = 3246
-		folder = {
-			name = support_folder
-			position = {
-				x = 4
-				y = 24
-			}
-		}
-		categories = {
-			recon_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	
-	medical_drone1 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		
-		enable_subunits = {
-			field_hospital_with_medical_drones
-		}
-		enable_equipments = {
-			medical_drone_equipment_1
-		}
-		path = {
-			leads_to_tech = medical_drone2
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3230
-		folder = {
-			name = support_folder
-			position = {
-				x = 6
-				y = 2
-			}
-		}
-		categories = {
-			medical_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	medical_drone2 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		enable_equipments = {
-			medical_drone_equipment_2
-		}
-		path = {
-			leads_to_tech = medical_drone3
-			research_cost_coeff = 1
-		}
-		research_cost = 1.5
-		start_year = 3240
-		folder = {
-			name = support_folder
-			position = {
-				x = 6
-				y = 12
-			}
-		}
-		categories = {
-			medical_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	medical_drone3 = {
-		on_research_complete = {
-			if = {
-				limit = {
-					has_idea = Friendship_of_Peoples_Receive_Scientific_Help
-				}
-				remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
-			}
-		}
-		enable_equipments = {
-			medical_drone_equipment_3
-		}
-		research_cost = 1.5
-		start_year = 3246
-		folder = {
-			name = support_folder
-			position = {
-				x = 6
-				y = 24
-			}
-		}
-		categories = {
-			medical_drone_tech
-			drones_cat_tech
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# recon_drone1 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		recon_drone_equipment_1
+	# 	}
+	# 	enable_subunits = {
+	# 		recon_drone
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = recon_drone2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3230
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 4
+	# 			y = 2
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		recon_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# recon_drone2 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		recon_drone_equipment_2
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = recon_drone3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3240
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 4
+	# 			y = 12
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		recon_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# recon_drone3 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		recon_drone_equipment_3
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3246
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 4
+	# 			y = 24
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		recon_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# medical_drone1 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_subunits = {
+	# 		field_hospital_with_medical_drones
+	# 	}
+	# 	enable_equipments = {
+	# 		medical_drone_equipment_1
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = medical_drone2
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3230
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 2
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		medical_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# medical_drone2 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		medical_drone_equipment_2
+	# 	}
+	# 	path = {
+	# 		leads_to_tech = medical_drone3
+	# 		research_cost_coeff = 1
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3240
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 12
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		medical_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# medical_drone3 = {
+	# 	on_research_complete = {
+	# 		if = {
+	# 			limit = {
+	# 				has_idea = Friendship_of_Peoples_Receive_Scientific_Help
+	# 			}
+	# 			remove_ideas = Friendship_of_Peoples_Receive_Scientific_Help
+	# 		}
+	# 	}
+	# 	enable_equipments = {
+	# 		medical_drone_equipment_3
+	# 	}
+	# 	research_cost = 1.5
+	# 	start_year = 3246
+	# 	folder = {
+	# 		name = support_folder
+	# 		position = {
+	# 			x = 2
+	# 			y = 24
+	# 		}
+	# 	}
+	# 	categories = {
+	# 		medical_drone_tech
+	# 		drones_cat_tech
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 }
