@@ -12,76 +12,261 @@
 # contain
 # area_priority
 # building_target
-
+Second_Robotnik_War_do_not_interfere_Acorn_allies = {
+	allowed = {
+		original_tag = GDK
+		original_tag = NEA
+		original_tag = BHA
+		original_tag = DOW
+		original_tag = SWA
+		original_tag = RSE
+		original_tag = MID
+		original_tag = CNS
+	}
+	enable = {
+		date < "3237.1.1"
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = garrison 
+		value = 99
+	}
+}
+Second_Robotnik_War_do_not_interfere = {
+    allowed = {
+        OR = {
+            original_tag = GDK
+            original_tag = NEA
+            original_tag = CNS
+            original_tag = BHA
+            original_tag = MID
+            original_tag = DOW
+            original_tag = SWA
+            original_tag = RSE
+        }
+    }
+    enable = {
+        date < 3237.1.1
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = dont_join_wars_with
+        id = KOA
+        value = 999999
+        target_country = EGG
+    }
+}
+# Second_Robotnik_War_do_not_interfere_Acorns = {
+# 	allowed = {
+# 		original_tag = KOA
+# 	}
+# 	enable = {
+# 		date < "3237.1.1"
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = NRD
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = GDD
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = SOU
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = SWA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = RSE
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = GDK
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = NEA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = DOW
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = MID
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = BHA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = CNS
+# 		value = 999999
+# 	}
+# }
+Second_Robotnik_War_do_not_interfere_Eggman_allies = {
+	allowed = {
+		original_tag = SOU
+		original_tag = GDD
+		original_tag = NRD
+	}
+	enable = {
+		date < "3237.1.1"
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = garrison 
+		value = 99
+	}
+}
+Second_Robotnik_War_do_not_interfere = {
+    allowed = {
+        OR = {
+            original_tag = GDD
+            original_tag = SOU
+            original_tag = NRD
+        }
+    }
+    enable = {
+        date < 3237.1.1
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = dont_join_wars_with
+        id = EGG
+        value = 999999
+        target_country = KOA
+    }
+}
+# Second_Robotnik_War_do_not_interfere_Eggman = {
+# 	allowed = {
+# 		original_tag = EGG
+# 	}
+# 	enable = {
+# 		date < "3237.1.1"
+# 	}
+# 	abort_when_not_enabled = yes
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = SWA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = RSE
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = GDK
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = NEA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = DOW
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = MID
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = BHA
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = CNS
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = NRD
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = GDD
+# 		value = 999999
+# 	}
+# 	ai_strategy = {
+# 		type = ignore
+# 		id = SOU
+# 		value = 999999
+# 	}
+# }
 
 EGG_Push_Acorns = {
 	allowed = {
 		original_tag = EGG
 	}
-
 	enable = {
 		has_war_with = KOA
 	}
-
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = front_control
-
 		tag = KOA
-
 		ratio = 0.75
-
 		priority = 100
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
 		manual_attack = yes
 	}
-
 	ai_strategy = {
 		type = front_unit_request
-
 		tag = KOA
-
 		value = 66
 	}
-
 }
 
 EGG_Push_HIB = {
 	allowed = {
 		original_tag = EGG
 	}
-
 	enable = {
 		has_war_with = HIB
 	}
-
 	abort_when_not_enabled = yes
-
 	ai_strategy = {
 		type = front_control
-
 		tag = HIB
-
 		ratio = 0.75
-
 		priority = 100
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
 		manual_attack = yes
 	}
-
 	ai_strategy = {
 		type = front_unit_request
-
 		tag = HIB
-
 		value = 42
 	}
-
 }
 
 # EGG_produce_robians = {

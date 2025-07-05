@@ -893,9 +893,7 @@ country_event = { ####DOWN WITH THE KING
 	title = koa.89.t
 	desc = koa.89.d
 	picture = GFX_report_general_strike
-	
-	
-	immediate = {
+immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.89"
 		KOA_release_NOR = yes
 		if = {
@@ -3103,5 +3101,115 @@ country_event = {
 
 	option = {
 		name = koa.1000.a
+	}
+}
+country_event = {  # add bunkers in GDK
+	id = koa.1100
+	title = koa.1100.t
+	desc = koa.1100.d
+	picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.1100.a
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = 7
+				instant_build = yes
+				province = 5122
+			}
+		}
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = 7
+				instant_build = yes
+				province = 4977
+			}
+		}
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = 7
+				instant_build = yes
+				province = 4916
+			}
+		}
+		59 = {
+			add_building_construction = {
+				type = bunker
+				level = 7
+				instant_build = yes
+				province = 5242
+			}
+		}
+		47 = {
+			add_building_construction = {
+				type = bunker
+				level = 7
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
+	}
+}
+country_event = {  # remove bunkers in GDK
+	id = koa.1101
+	title = koa.1101.t
+	desc = koa.1101.d
+	picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.1101.a
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = -10
+				instant_build = yes
+				province = 5122
+			}
+		}
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = -10
+				instant_build = yes
+				province = 4977
+			}
+		}
+		58 = {
+			add_building_construction = {
+				type = bunker
+				level = -10
+				instant_build = yes
+				province = 4916
+			}
+		}
+		59 = {
+			add_building_construction = {
+				type = bunker
+				level = -10
+				instant_build = yes
+				province = 5242
+			}
+		}
+		47 = {
+			add_building_construction = {
+				type = bunker
+				level = -10
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
 	}
 }
