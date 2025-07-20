@@ -336,7 +336,7 @@ country_event = {
 				value > 0.49
 			}
 			check_variable = {
-				id = Shilov_power_balance 
+				id = Shilov_power_balance
 				value < -0.49
 			}
 		}
@@ -6509,6 +6509,9 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = rcr.301.a
+		country_event = {
+			id = rcr.305
+		}
 	}
 }
 
@@ -6520,12 +6523,18 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
-		name = rcr.302.a
+		name = rcr.302.a		# KORTS fully involved
 		set_country_flag = RCR_KORTS_involved_in_diplomacy
+		country_event = {
+			id = rcr.303
+		}
 	}
 	option = {
-		name = rcr.302.b
+		name = rcr.302.b		# KORTS participation is limited
 		clr_country_flag = RCR_KORTS_involved_in_diplomacy
+		country_event = {
+			id = rcr.303
+		}
 	}
 }
 
@@ -6537,10 +6546,16 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
-		name = rcr.303.a
+		name = rcr.303.a		# support Popular Fronts
+		country_event = {
+			id = rcr.304
+		}
 	}
 	option = {
-		name = rcr.303.b
+		name = rcr.303.b		# discourage Popular Fronts (orthodox katzerizm?)
+		country_event = {
+			id = rcr.304
+		}
 	}
 }
 
@@ -6552,13 +6567,22 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
-		name = rcr.304.a
+		name = rcr.304.a		# military interventions allowed without limits
+		country_event = {
+			id = rcr.306
+		}
 	}
 	option = {
-		name = rcr.304.b
+		name = rcr.304.b		# focus on volunteer forces
+		country_event = {
+			id = rcr.306
+		}
 	}
 	option = {
-		name = rcr.304.c
+		name = rcr.304.c		# pacifism
+		country_event = {
+			id = rcr.306
+		}
 	}
 }
 
@@ -6570,13 +6594,22 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
-		name = rcr.305.a  # Chaptskaya
+		name = rcr.305.a		# Chaptskaya
+		country_event = {
+			id = rcr.302
+		}
 	}
 	option = {
-		name = rcr.305.b  # Bumagin
+		name = rcr.305.b		# Bumagin
+		country_event = {
+			id = rcr.302
+		}
 	}
 	option = {
-		name = rcr.305.c  # Saltykov
+		name = rcr.305.c		# Saltykov
+		country_event = {
+			id = rcr.302
+		}
 	}
 }
 
@@ -6584,7 +6617,7 @@ country_event = {
 	# Foreign Affairs - general doctrine
 	id = rcr.306
 	title = rcr.306.t
-	desc = rcr.306.d  # dynamic description?
+	desc = rcr.306.d	# dynamic description?
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
@@ -6608,7 +6641,6 @@ country_event = {
 }
 
 add_namespace = rcr_start
-
 # Labour Warms
 country_event = {
 	id = rcr_start.1
@@ -6678,7 +6710,6 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr_start.6.a
-
 		random_list = {
 			25 = {
 				add_manpower = 450
@@ -6690,7 +6721,6 @@ country_event = {
 				add_manpower = 500
 			}
 		}
-
 		add_to_variable = {
 			Fifth_Department_Plot_disclosure = 10
 		}
@@ -6706,7 +6736,6 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr_start.7.a
-
 		add_political_power = -150
 	}
 }
@@ -6718,7 +6747,6 @@ country_event = {
 	desc = rcr_start.8.d
 	is_triggered_only = yes
 	fire_only_once = yes
-
 	# Turbin
 	option = {
 		name = rcr_start.8.a
@@ -6740,7 +6768,6 @@ country_event = {
 	fire_only_once = yes
 	option = {
 		name = rcr_start.9.a
-
 		add_to_variable = {
 			Fifth_Department_Plot_disclosure = 5
 		}
