@@ -1,46 +1,39 @@
 ###########################
 # Akorn Events
 ###########################
-
 add_namespace = koa
 add_namespace = koa.military
-
+add_namespace = koa.leaders
 country_event = {
 	id = koa.1
 	title = koa.1.t
 	desc = koa.1.d
 	picture = GFX_report_event_hail_the_kingdom
-	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.1"
 		hidden_effect = {
-		# country_event = {
-		# 	id = koa.2
-		# 	days = 7
-		# }
-		news_event = {
-			id = mobiannews.1
-			days = 3
-		}
+			# country_event = {
+			# 	id = koa.2
+			# 	days = 7
+			# }
+			news_event = {
+				id = mobiannews.1
+				days = 3
+			}
 		}
 	}
-	
 	fire_only_once = yes
-	
 	trigger = {
-	tag = KOA
+		tag = KOA
 	}
-	
 	mean_time_to_happen = {
-	days = 1
+		days = 1
 	}
-	
 	option = {
-		name = koa.1.a 
+		name = koa.1.a
 	}
-	
 	option = {
-		name = koa.1.b 
+		name = koa.1.b
 		hidden_effect = {
 			country_event = {
 				id = koa.15
@@ -55,15 +48,14 @@ country_event = {
 	title = koa.2.t
 	desc = koa.2.d
 	picture = GFX_report_event_death_of_naugus
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.2.a 
+		name = koa.2.a
 		add_stability = 0.02
-		trigger = {tag = KOA}
+		trigger = {
+			tag = KOA
+		}
 	}
 }
 
@@ -72,19 +64,16 @@ country_event = {
 	title = koa.3.t
 	desc = koa.3.d
 	picture = GFX_report_event_ff_on_march
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.3.a 
+		name = koa.3.a
 		remove_ideas = Two_War_Robotnik
 		KOA_Armistice_EGG = yes
-		country_event = {
-			id = koa.4
-			days = 10
-		}
+		# country_event = {
+		# 	id = koa.4
+		# 	days = 10
+		# }
 		news_event = {
 			id = mobiannews.2
 		}
@@ -93,46 +82,42 @@ country_event = {
 	}
 }
 
-country_event = { #### Проблемы в политике
-	id = koa.4
-	title = koa.4.t
-	desc = koa.4.d
-	picture = GFX_report_event_Acorn_problem
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.4.a 
-		hidden_effect = {
-			country_event = {
-				id = koa.13
-				days = 7
-			}
-		}
-	}
-}
+# country_event = {
+# 	#### Проблемы в политике
+# 	id = koa.4
+# 	title = koa.4.t
+# 	desc = koa.4.d
+# 	picture = GFX_report_event_Acorn_problem
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = koa.4.a
+# 		hidden_effect = {
+# 			country_event = {
+# 				id = koa.13
+# 				days = 7
+# 			}
+# 		}
+# 	}
+# }
 
-country_event = { #### Речь Хонга
+country_event = {
+	#### Речь Хонга
 	id = koa.5
 	title = koa.5.t
 	desc = koa.5.d
 	picture = GFX_report_event_hail_Hong
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.5.a 
+		name = koa.5.a
 		add_popularity = {
 			ideology = conservatism
 			popularity = 0.05
-			}
-		add_to_variable = {	
+		}
+		add_to_variable = {
 			baron_power = 5
-			}
+		}
 		add_stability = -0.05
 		hidden_effect = {
 			country_event = {
@@ -145,110 +130,101 @@ country_event = { #### Речь Хонга
 	}
 }
 
-country_event = { #### Шествие республикснких масс
+country_event = {
+	#### Шествие республикснких масс
 	id = koa.6
 	title = koa.6.t
 	desc = koa.6.d
 	picture = GFX_report_general_strike
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.6.a ###Выйти на переговоры
+		name = koa.6.a		###Выйти на переговоры
 		country_event = {
 			id = koa.7
 			days = 3
 		}
-		add_to_variable = {	
+		add_to_variable = {
 			prower_power = 5
 		}
-		add_to_variable = {	
+		add_to_variable = {
 			loyalty_elias = 5
 		}
 		custom_effect_tooltip = koa.6.a.tt
 	}
 	option = {
-		name = koa.6.b ###Арест Прауэра
+		name = koa.6.b		###Арест Прауэра
 		country_event = {
-				id = koa.8
-				days = 3
+			id = koa.8
+			days = 3
 		}
 		custom_effect_tooltip = koa.6.b.tt
 	}
 	option = {
-		name = koa.6.c ###Кровавое воскресенье
+		name = koa.6.c		###Кровавое воскресенье
 		country_event = {
 			id = koa.9
 			days = 1
-				
 		}
 		custom_effect_tooltip = koa.6.c.tt
-	}	
-}	
+	}
+}
 
-country_event = { #### Выйти на переговоры
+country_event = {
+	#### Выйти на переговоры
 	id = koa.7
 	title = koa.7.t
 	desc = koa.7.d
 	picture = GFX_report_event_new_knothole
-	
 	fire_only_once = yes
-	
 	option = {
 		name = koa.7.a
 	}
 }
 
-country_event = { #### Арест Прауэра
+country_event = {
+	#### Арест Прауэра
 	id = koa.8
 	title = koa.8.t
 	desc = koa.8.d
 	picture = GFX_report_event_new_knothole
-	
 	fire_only_once = yes
-	
 	option = {
 		name = koa.8.a
 	}
 }
 
-country_event = { #### Обеденная Резня
+country_event = {
+	#### Обеденная Резня
 	id = koa.9
 	title = koa.9.t
 	desc = koa.9.d
 	picture = GFX_report_event_bloody_evening
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.9.a
 		add_manpower = -300
-		add_stability = -0.20
+		add_stability = -0.2
 		remove_unit_leader = 107
-		subtract_from_variable = {	
+		subtract_from_variable = {
 			loyalty_elias = 20
 		}
 		custom_effect_tooltip = koa.9.a.tt
 	}
-}	
+}
 
-country_event = { #### Речь Прауэра
+country_event = {
+	#### Речь Прауэра
 	id = koa.10
 	title = koa.10.t
 	desc = koa.10.d
 	picture = GFX_report_event_prower
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.10.a
-		add_to_variable = {	
+		add_to_variable = {
 			prower_power = 10
 		}
 		custom_effect_tooltip = koa.10.a.tt
@@ -262,24 +238,24 @@ country_event = { #### Речь Прауэра
 		}
 		set_country_flag = republican_rise
 	}
-}	
+}
 
-country_event = { #### Убийство Хонга удалось!
+country_event = {
+	#### Убийство Хонга удалось!
 	id = koa.11
 	title = koa.11.t
 	desc = koa.11.d
 	picture = GFX_report_event_prower
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.11.a
 		add_stability = -0.25
 		custom_effect_tooltip = minus_25_barons
 		set_global_flag = Hong_is_Dead
-		subtract_from_variable = { baron_power = 25 }
+		subtract_from_variable = {
+			baron_power = 25
+		}
 		if = {
 			limit = {
 				has_idea = KOA_South_Resistance_1
@@ -300,496 +276,450 @@ country_event = { #### Убийство Хонга удалось!
 		}
 		retire_character = SOT_Lewis_Hong
 	}
-}	
+}
 
-country_event = { #### Убийство Хонга провалилось!
+country_event = {
+	#### Убийство Хонга провалилось!
 	id = koa.12
 	title = koa.12.t
 	desc = koa.12.d
 	picture = GFX_report_event_prower
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.12.a
-		add_stability = -0.40
+		add_stability = -0.4
 		custom_effect_tooltip = minus_15_elias
-		subtract_from_variable = { loyalty_elias = 15 }
-	}
-}
-
-
-
-country_event = { #### Падение короля
-	id = koa.13
-	title = koa.13.t
-	desc = koa.13.d
-	picture = GFX_report_event_fall_king
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.13.a
-		set_country_flag = max_abdicated
-		add_stability = -0.1
-		country_event = {
-			id = koa.14
-			days = 3
+		subtract_from_variable = {
+			loyalty_elias = 15
 		}
 	}
 }
 
-country_event = { #### Коронация Элиаса
-	id = koa.14
-	title = koa.14.t
-	desc = koa.14.d
-	picture = GFX_report_event_elias_crowning
-	
-	fire_only_once = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = koa.14.a
-		create_country_leader = {
-			name = "HM King Elias Acorn"
-			desc = "ELIAS_DESC"
-			picture = "gfx/leaders/KOA/portrait_King_Elias.dds"
-			expire = "1965.1.1"
-			ideology = autocracy_absolute_monarchy_subtype
-			traits = {
-				Spy_King
-				Unpopular_heir
-			}
-		}
-		add_stability = 0.1
-		add_political_power = 100
-		country_event = {
-			id = koa.5
-			days = 10
-		}
-		hidden_effect = {
-			country_event = {
-				id = koa.5
-				days = 14
-			}
-			country_event = {
-				id = koa.6
-				days = 15
-			}
-			set_variable = {
-				var = baron_power
-				value = 15
-			}
-			set_variable = {
-				var = prower_power
-				value = 25
-			}
-			set_variable = {
-				var = union_power
-				value = 15
-			}
-			set_variable = {
-				var = loyalty_elias
-				value = 30
-			}
-			set_country_flag = amadeus_revolt
-			set_country_flag = elias_crowned
-		}	
-	}
-}
+# country_event = {
+# 	#### Падение короля
+# 	id = koa.13
+# 	title = koa.13.t
+# 	desc = koa.13.d
+# 	picture = GFX_report_event_fall_king
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = koa.13.a
+# 		set_country_flag = max_abdicated
+# 		add_stability = -0.1
+# 		country_event = {
+# 			id = koa.14
+# 			days = 3
+# 		}
+# 	}
+# }
 
-country_event = { #The Kingdom of Acorn intro?
+# country_event = {  
+# 	#### Коронация Элиаса
+# 	id = koa.14
+# 	title = koa.14.t
+# 	desc = koa.14.d
+# 	picture = GFX_report_event_elias_crowning
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = koa.14.a
+# 		country_event = koa.leaders.1
+# 		add_stability = 0.1
+# 		add_political_power = 100
+# 		country_event = {
+# 			id = koa.5
+# 			days = 10
+# 		}
+# 		hidden_effect = {
+# 			country_event = {
+# 				id = koa.5
+# 				days = 14
+# 			}
+# 			country_event = {
+# 				id = koa.6
+# 				days = 15
+# 			}
+# 			set_variable = {
+# 				var = baron_power
+# 				value = 15
+# 			}
+# 			set_variable = {
+# 				var = prower_power
+# 				value = 25
+# 			}
+# 			set_variable = {
+# 				var = union_power
+# 				value = 15
+# 			}
+# 			set_variable = {
+# 				var = loyalty_elias
+# 				value = 30
+# 			}
+# 			set_country_flag = amadeus_revolt
+# 			set_country_flag = elias_crowned
+# 		}
+# 	}
+# }
+
+country_event = {
+	#The Kingdom of Acorn intro?
 	id = koa.15
 	title = koa.15.t
 	desc = koa.15.d
 	picture = GFX_report_event_hail_the_kingdom
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.15.a 
+		name = koa.15.a
 	}
 }
 
-country_event = { #Propaganda - Robotnik event
+country_event = {
+	#Propaganda - Robotnik event
 	id = koa.16
 	title = koa.16.t
 	desc = koa.16.d
 	picture = GFX_report_event_hail_the_kingdom
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.16.a 
+		name = koa.16.a
 	}
 }
 
-country_event = { #House of Cards, Part 1
+country_event = {
+	#House of Cards, Part 1
 	id = koa.20
 	title = koa.20.t
 	desc = koa.20.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.20.a 
+		name = koa.20.a
 		country_event = koa.21
 	}
 }
 
-country_event = { #House of Cards, Part 2
+country_event = {
+	#House of Cards, Part 2
 	id = koa.21
 	title = koa.21.t
 	desc = koa.21.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.21.a 
+		name = koa.21.a
 		country_event = koa.22
 	}
 }
 
-country_event = { #House of Cards, Part 3
+country_event = {
+	#House of Cards, Part 3
 	id = koa.22
 	title = koa.22.t
 	desc = koa.22.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.22.a 
+		name = koa.22.a
 	}
 }
 
-country_event = { #Republic with a King
-    id = koa.23
-    title = koa.23.t
-    desc = koa.23.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.23.a 
-    }
+country_event = {
+	#Republic with a King
+	id = koa.23
+	title = koa.23.t
+	desc = koa.23.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.23.a
+	}
 }
 
-country_event = { #The Wizard's Plot
-    id = koa.24
-    title = koa.24.t
-    desc = koa.24.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.24.a 
-    }
+country_event = {
+	#The Wizard's Plot
+	id = koa.24
+	title = koa.24.t
+	desc = koa.24.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.24.a
+	}
 }
 
-country_event = { #The Sword of the People
-    id = koa.25
-    title = koa.25.t
-    desc = koa.25.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.25.a 
+country_event = {
+	#The Sword of the People
+	id = koa.25
+	title = koa.25.t
+	desc = koa.25.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.25.a
 		add_trait = {
 			character = NOR_Amadeus_Prower
 			trait = sword_of_people
-	   }
-    }
+		}
+	}
 }
 
-country_event = { #Your Destiny
-    id = koa.26
-    title = koa.26.t
-    desc = koa.26.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.26.a 
-    }
+country_event = {
+	#Your Destiny
+	id = koa.26
+	title = koa.26.t
+	desc = koa.26.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.26.a
+	}
 }
 
-country_event = { #The Poppy Wars
-    id = koa.27
-    title = koa.27.t
-    desc = koa.27.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.27.a 
-    }
+country_event = {
+	#The Poppy Wars
+	id = koa.27
+	title = koa.27.t
+	desc = koa.27.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.27.a
+	}
 }
 
-country_event = { #I Am Legend
-    id = koa.28
-    title = koa.28.t
-    desc = koa.28.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.28.a 
-    }
+country_event = {
+	#I Am Legend
+	id = koa.28
+	title = koa.28.t
+	desc = koa.28.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.28.a
+	}
 }
 
-country_event = { #The Petition
-    id = koa.29
-    title = koa.29.t
-    desc = koa.29.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.29.a 
-    }
+country_event = {
+	#The Petition
+	id = koa.29
+	title = koa.29.t
+	desc = koa.29.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.29.a
+	}
 }
 
-country_event = { #The Veteran's Day
-    id = koa.30
-    title = koa.30.t
-    desc = koa.30.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.30.a 
-    }
+country_event = {
+	#The Veteran's Day
+	id = koa.30
+	title = koa.30.t
+	desc = koa.30.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.30.a
+	}
 }
 
-country_event = { #Who Cares? 
-    id = koa.31
-    title = koa.31.t
-    desc = koa.31.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.31.a 
-    }
+country_event = {
+	#Who Cares? 
+	id = koa.31
+	title = koa.31.t
+	desc = koa.31.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.31.a
+	}
 }
 
-country_event = { #The First March
-    id = koa.32
-    title = koa.32.t
-    desc = koa.32.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.32.a 
-    }
+country_event = {
+	#The First March
+	id = koa.32
+	title = koa.32.t
+	desc = koa.32.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.32.a
+	}
 }
 
-country_event = { #The Fall of Naugus
-    id = koa.33
-    title = koa.33.t
-    desc = koa.33.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.33.a 
-    }
+country_event = {
+	#The Fall of Naugus
+	id = koa.33
+	title = koa.33.t
+	desc = koa.33.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.33.a
+	}
 }
 
-country_event = { #Guerilla Radio
-    id = koa.34
-    title = koa.34.t
-    desc = koa.34.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.34.a 
-    }
+country_event = {
+	#Guerilla Radio
+	id = koa.34
+	title = koa.34.t
+	desc = koa.34.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.34.a
+	}
 }
 
-country_event = { #Patriotic Front
-    id = koa.35
-    title = koa.35.t
-    desc = koa.35.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.35.a 
-    }
+country_event = {
+	#Patriotic Front
+	id = koa.35
+	title = koa.35.t
+	desc = koa.35.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.35.a
+	}
 }
 
-country_event = { #Placing Bets?
-    id = koa.36
-    title = koa.36.t
-    desc = koa.36.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.36.a 
-    }
+country_event = {
+	#Placing Bets?
+	id = koa.36
+	title = koa.36.t
+	desc = koa.36.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.36.a
+	}
 }
 
-country_event = { #Bullets From Coins
-    id = koa.37
-    title = koa.37.t
-    desc = koa.37.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.37.a 
-    }
+country_event = {
+	#Bullets From Coins
+	id = koa.37
+	title = koa.37.t
+	desc = koa.37.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.37.a
+	}
 }
 
-country_event = { #Rails of Memory
-    id = koa.38
-    title = koa.38.t
-    desc = koa.38.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.38.a 
-    }
+country_event = {
+	#Rails of Memory
+	id = koa.38
+	title = koa.38.t
+	desc = koa.38.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.38.a
+	}
 }
 
-country_event = { #Iron Soul
-    id = koa.39
-    title = koa.39.t
-    desc = koa.39.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.39.a 
-    }
+country_event = {
+	#Iron Soul
+	id = koa.39
+	title = koa.39.t
+	desc = koa.39.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.39.a
+	}
 }
 
-country_event = { #Beams of Memory
-    id = koa.40
-    title = koa.40.t
-    desc = koa.40.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.40.a 
-    }
+country_event = {
+	#Beams of Memory
+	id = koa.40
+	title = koa.40.t
+	desc = koa.40.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.40.a
+	}
 }
 
-country_event = { #Love, No Flesh
-    id = koa.41
-    title = koa.41.t
-    desc = koa.41.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.41.a 
-    }
+country_event = {
+	#Love, No Flesh
+	id = koa.41
+	title = koa.41.t
+	desc = koa.41.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.41.a
+	}
 }
 
-country_event = { #Hands Off!
-    id = koa.42
-    title = koa.42.t
-    desc = koa.42.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.42.a 
-    }
+country_event = {
+	#Hands Off!
+	id = koa.42
+	title = koa.42.t
+	desc = koa.42.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.42.a
+	}
 }
 
-country_event = { #Veto!
-    id = koa.43
-    title = koa.43.t
-    desc = koa.43.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.43.a 
-    }
+country_event = {
+	#Veto!
+	id = koa.43
+	title = koa.43.t
+	desc = koa.43.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.43.a
+	}
 }
 
-country_event = { #Look at Me, Son
-    id = koa.44
-    title = koa.44.t
-    desc = koa.44.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.44.a 
-    }
+country_event = {
+	#Look at Me, Son
+	id = koa.44
+	title = koa.44.t
+	desc = koa.44.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.44.a
+	}
 }
 
-country_event = { #Exit-Poll
-    id = koa.45
-    title = koa.45.t
-    desc = koa.45.d
-    fire_only_once = yes
-    
-    is_triggered_only = yes
-    
-    option = {
-        name = koa.45.a 
-    }
+country_event = {
+	#Exit-Poll
+	id = koa.45
+	title = koa.45.t
+	desc = koa.45.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.45.a
+	}
 }
 
-country_event = { #### Sonic is BACK
+country_event = {
+	#### Sonic is BACK
 	id = koa.600
 	title = koa.600.t
 	desc = koa.600.d
 	picture = GFX_report_event_new_knothole
-	
 	fire_only_once = yes
-	
 	trigger = {
 		AND = {
 			date > 3236.05.01
 			tag = KOA
 		}
 	}
-	
 	option = {
 		name = koa.600.a
 		add_political_power = 100
@@ -814,7 +744,7 @@ country_event = { #### Sonic is BACK
 		# 	legacy_id = 23061991
 		# 	}
 		# }
-		set_global_flag = Sonic_is_back ### SUPER EVENT
+		set_global_flag = Sonic_is_back		### SUPER EVENT
 		set_global_flag = Allow_to_recruit_Sonic
 		# remove_ideas = KOA_sonic_dead
 		load_oob = "KOA_Sonic_back"
@@ -827,25 +757,22 @@ country_event = { #### Sonic is BACK
 			}
 		}
 	}
-}		
+}
 
-country_event = { ####THE SOUTH SHALL RISE AGAIN
+country_event = {
+	####THE SOUTH SHALL RISE AGAIN
 	id = koa.88
 	title = koa.88.t
 	desc = koa.88.d
 	picture = GFX_report_event_southern_rebellion
-	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.88"
 		KOA_release_SOT = yes
 	}
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.88.a ### For the KING!
+		name = koa.88.a		### For the KING!
 		ai_chance = {
 			factor = 100
 		}
@@ -854,18 +781,18 @@ country_event = { ####THE SOUTH SHALL RISE AGAIN
 		add_popularity = {
 			ideology = conservatism
 			popularity = -0.05
-			}
+		}
 		add_popularity = {
 			ideology = purificationism
 			popularity = -0.1
-			}
+		}
 		add_popularity = {
 			ideology = legalism
 			popularity = -0.1
 		}
 	}
 	option = {
-		name = koa.88.b ### For the BUNS!
+		name = koa.88.b		### For the BUNS!
 		ai_chance = {
 			factor = 0
 		}
@@ -874,11 +801,11 @@ country_event = { ####THE SOUTH SHALL RISE AGAIN
 		add_popularity = {
 			ideology = conservatism
 			popularity = -0.05
-			}
+		}
 		add_popularity = {
 			ideology = purificationism
 			popularity = -0.1
-			}
+		}
 		add_popularity = {
 			ideology = legalism
 			popularity = -0.1
@@ -889,13 +816,13 @@ country_event = { ####THE SOUTH SHALL RISE AGAIN
 	}
 }
 
-
-country_event = { ####DOWN WITH THE KING
+country_event = {
+	####DOWN WITH THE KING
 	id = koa.89
 	title = koa.89.t
 	desc = koa.89.d
 	picture = GFX_report_general_strike
-immediate = {
+	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.89"
 		KOA_release_NOR = yes
 		if = {
@@ -903,12 +830,22 @@ immediate = {
 				has_global_flag = united_front
 			}
 			clr_global_flag = united_front
-			13 = { add_core_of = NOR }
-			14 = { add_core_of = NOR }
-			15 = { add_core_of = NOR }
-			16 = { add_core_of = NOR }
-			5 = { add_core_of = NOR }
-			NOR = { 
+			13 = {
+				add_core_of = NOR
+			}
+			14 = {
+				add_core_of = NOR
+			}
+			15 = {
+				add_core_of = NOR
+			}
+			16 = {
+				add_core_of = NOR
+			}
+			5 = {
+				add_core_of = NOR
+			}
+			NOR = {
 				transfer_state = 14
 				transfer_state = 13
 				transfer_state = 15
@@ -930,19 +867,15 @@ immediate = {
 			}
 		}
 	}
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.89.a ### For the KING!
+		name = koa.89.a		### For the KING!
 		ai_chance = {
 			factor = 100
 		}
 		add_stability = 0.2
 		add_war_support = 0.2
-
 		add_popularity = {
 			ideology = progressive_liberalism
 			popularity = -0.1
@@ -957,13 +890,12 @@ immediate = {
 		}
 	}
 	option = {
-		name = koa.89.b ### Stand by the republic
+		name = koa.89.b		### Stand by the republic
 		ai_chance = {
 			factor = 0
 		}
 		add_stability = 0.2
 		add_war_support = 0.2
-
 		add_popularity = {
 			ideology = progressive_liberalism
 			popularity = -0.1
@@ -976,30 +908,26 @@ immediate = {
 			ideology = conservatism
 			popularity = -0.05
 		}
-		
 		NOR = {
 			change_tag_from = KOA
 		}
 	}
 }
 
-country_event = { ####SOLIDARITY FOREVER
+country_event = {
+	####SOLIDARITY FOREVER
 	id = koa.90
 	title = koa.90.t
 	desc = koa.90.d
 	picture = GFX_report_event_revolution_Avisla
-	
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.90"
 		KOA_release_UWM = yes
 	}
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.90.a ### For the KING!
+		name = koa.90.a		### For the KING!
 		ai_chance = {
 			factor = 100
 		}
@@ -1008,18 +936,18 @@ country_event = { ####SOLIDARITY FOREVER
 		add_popularity = {
 			ideology = neosocialism
 			popularity = -0.05
-			}
+		}
 		add_popularity = {
 			ideology = katzerism
 			popularity = -0.1
-			}
+		}
 		add_popularity = {
 			ideology = autonomous_socialism
 			popularity = -0.1
 		}
 	}
 	option = {
-		name = koa.90.b ### BREAK THE CHAINS
+		name = koa.90.b		### BREAK THE CHAINS
 		ai_chance = {
 			factor = 0
 		}
@@ -1028,11 +956,11 @@ country_event = { ####SOLIDARITY FOREVER
 		add_popularity = {
 			ideology = neosocialism
 			popularity = -0.05
-			}
+		}
 		add_popularity = {
 			ideology = katzerism
 			popularity = -0.1
-			}
+		}
 		add_popularity = {
 			ideology = autonomous_socialism
 			popularity = -0.1
@@ -1043,18 +971,16 @@ country_event = { ####SOLIDARITY FOREVER
 	}
 }
 
-country_event = { ####United Front
+country_event = {
+	####United Front
 	id = koa.91
 	title = koa.91.t
 	desc = koa.91.d
 	picture = GFX_report_event_united_front
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
-		name = koa.91.a ### Rot Front!
+		name = koa.91.a		### Rot Front!
 		ai_chance = {
 			factor = 100
 		}
@@ -1062,16 +988,14 @@ country_event = { ####United Front
 	}
 }
 
-country_event = { #### Неждан
+country_event = {
+	#### Неждан
 	id = koa.601
 	title = koa.601.t
 	desc = koa.601.d
 	picture = GFX_report_event_Sally_crowning
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.601.a
 		set_politics = {
@@ -1097,305 +1021,269 @@ country_event = { #### Неждан
 }
 
 country_event = {
-    id = koa.100
-    title = koa.100.t
-    desc = koa.100.d
+	id = koa.100
+	title = koa.100.t
+	desc = koa.100.d
 	picture = GFX_report_event_cursed_king
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.100.a
-    }
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.100.a
+	}
 }
 
 country_event = {
-    id = koa.101
-    title = koa.101.t
-    desc = koa.101.d
-    fire_only_once = yes
+	id = koa.101
+	title = koa.101.t
+	desc = koa.101.d
+	fire_only_once = yes
 	picture = GFX_report_event_socialist_rebels
-    is_triggered_only = yes
-
-    option = {
-        name = koa.101.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.101.a
+	}
 }
 
 country_event = {
-    id = koa.102
-    title = koa.102.t
-    desc = koa.102.d
-    fire_only_once = yes
+	id = koa.102
+	title = koa.102.t
+	desc = koa.102.d
+	fire_only_once = yes
 	picture = GFX_report_event_unloyal_generals
-    is_triggered_only = yes
-
-    option = {
-        name = koa.102.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.102.a
+	}
 }
 
 country_event = {
-    id = koa.103
-    title = koa.103.t
-    desc = koa.103.d
-    fire_only_once = yes
+	id = koa.103
+	title = koa.103.t
+	desc = koa.103.d
+	fire_only_once = yes
 	picture = GFX_report_event_legacy_of_source
-    is_triggered_only = yes
-
-    option = {
-        name = koa.103.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.103.a
+	}
 }
 
 country_event = {
-    id = koa.104
-    title = koa.104.t
-    desc = koa.104.d
-    fire_only_once = yes
+	id = koa.104
+	title = koa.104.t
+	desc = koa.104.d
+	fire_only_once = yes
 	picture = GFX_report_event_new_mobotropolis
-    is_triggered_only = yes
-
-    option = {
-        name = koa.104.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.104.a
+	}
 }
 
 country_event = {
-    id = koa.105
-    title = koa.105.t
-    desc = koa.105.d
-    fire_only_once = yes
+	id = koa.105
+	title = koa.105.t
+	desc = koa.105.d
+	fire_only_once = yes
 	picture = GFX_report_event_rabbit_rednecks
-    is_triggered_only = yes
-
-    option = {
-        name = koa.105.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.105.a
+	}
 }
 
 country_event = {
-    id = koa.106
-    title = koa.106.t
-    desc = koa.106.d
-    fire_only_once = yes
+	id = koa.106
+	title = koa.106.t
+	desc = koa.106.d
+	fire_only_once = yes
 	picture = GFX_report_event_downunda_del
-    is_triggered_only = yes
-
-    option = {
-        name = koa.106.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.106.a
+	}
 }
 
 country_event = {
-    id = koa.107
-    title = koa.107.t
-    desc = koa.107.d
-    fire_only_once = yes
+	id = koa.107
+	title = koa.107.t
+	desc = koa.107.d
+	fire_only_once = yes
 	picture = GFX_report_event_unloyal_generals
-    is_triggered_only = yes
-
-    option = {
-        name = koa.107.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.107.a
+	}
 }
 
 country_event = {
-    id = koa.108
-    title = koa.108.t
-    desc = koa.108.d
-    fire_only_once = yes
+	id = koa.108
+	title = koa.108.t
+	desc = koa.108.d
+	fire_only_once = yes
 	picture = GFX_report_event_mercian_folks
-    is_triggered_only = yes
-
-    option = {
-        name = koa.108.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.108.a
+	}
 }
 
 country_event = {
-    id = koa.109
-    title = koa.109.t
-    desc = koa.109.d
-    fire_only_once = yes
+	id = koa.109
+	title = koa.109.t
+	desc = koa.109.d
+	fire_only_once = yes
 	picture = GFX_report_event_president_wilson
-    is_triggered_only = yes
-
-    option = {
-        name = koa.109.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.109.a
+	}
 }
 
-country_event = {
-    id = koa.110
-    title = koa.110.t
-    desc = koa.110.d
-    fire_only_once = yes
+country_event = {  # King Max abdication
+	id = koa.110
+	title = koa.110.t
+	desc = koa.110.d
+	fire_only_once = yes
 	picture = GFX_report_event_cursed_king
-    is_triggered_only = yes
-
-    option = {
-        name = koa.110.a
-    }
+	is_triggered_only = yes
+	option = {
+		name = koa.110.a
+	}
 }
 
 news_event = {
-    id = koa.111
-    title = koa.111.t
-    desc = koa.111.d
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.111.a
-    }
-    option = {
-        name = koa.111.b
-    }
+	id = koa.111
+	title = koa.111.t
+	desc = koa.111.d
+	is_triggered_only = yes
+	option = {
+		name = koa.111.a
+	}
+	option = {
+		name = koa.111.b
+	}
 }
 
 country_event = {
-    id = koa.112
-    title = koa.112.t
-    desc = koa.112.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.112.a
-    }
+	id = koa.112
+	title = koa.112.t
+	desc = koa.112.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.112.a
+	}
 }
 
 country_event = {
-    id = koa.113
-    title = koa.113.t
-    desc = koa.113.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.113.a
-    }
+	id = koa.113
+	title = koa.113.t
+	desc = koa.113.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.113.a
+	}
 }
 
 country_event = {
-    id = koa.114
-    title = koa.114.t
-    desc = koa.114.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.114.a
-    }
+	id = koa.114
+	title = koa.114.t
+	desc = koa.114.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.114.a
+	}
 }
 
 country_event = {
-    id = koa.115
-    title = koa.115.t
-    desc = koa.115.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.115.a
-    }
+	id = koa.115
+	title = koa.115.t
+	desc = koa.115.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.115.a
+	}
 }
 
 country_event = {
-    id = koa.116
-    title = koa.116.t
-    desc = koa.116.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.116.a
-    }
+	id = koa.116
+	title = koa.116.t
+	desc = koa.116.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.116.a
+	}
 }
 
 country_event = {
-    id = koa.117
-    title = koa.117.t
-    desc = koa.117.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.117.a
-    }
+	id = koa.117
+	title = koa.117.t
+	desc = koa.117.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.117.a
+	}
 }
 
 country_event = {
-    id = koa.118
-    title = koa.118.t
-    desc = koa.118.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.118.a
-    }
+	id = koa.118
+	title = koa.118.t
+	desc = koa.118.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.118.a
+	}
 }
 
 country_event = {
-    id = koa.119
-    title = koa.119.t
-    desc = koa.119.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.119.a
-    }
+	id = koa.119
+	title = koa.119.t
+	desc = koa.119.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.119.a
+	}
 }
 
 country_event = {
-    id = koa.120
-    title = koa.120.t
-    desc = koa.120.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.120.a
-    }
+	id = koa.120
+	title = koa.120.t
+	desc = koa.120.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.120.a
+	}
 }
 
 country_event = {
-    id = koa.121
-    title = koa.121.t
-    desc = koa.121.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.121.a
-    }
+	id = koa.121
+	title = koa.121.t
+	desc = koa.121.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.121.a
+	}
 }
 
 country_event = {
-    id = koa.122
-    title = koa.122.t
-    desc = koa.122.d
-    fire_only_once = yes
-
-    is_triggered_only = yes
-
-    option = {
-        name = koa.122.a
-    }
+	id = koa.122
+	title = koa.122.t
+	desc = koa.122.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.122.a
+	}
 }
 
 country_event = {
@@ -1403,9 +1291,7 @@ country_event = {
 	title = koa.123.t
 	desc = koa.123.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.123.a
 	}
@@ -1416,9 +1302,7 @@ country_event = {
 	title = koa.124.t
 	desc = koa.124.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.124.a
 	}
@@ -1429,9 +1313,7 @@ country_event = {
 	title = koa.125.t
 	desc = koa.125.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.125.a
 		add_tech_bonus = {
@@ -1466,9 +1348,7 @@ country_event = {
 	title = koa.126.t
 	desc = koa.126.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = koa.126.a
 	}
@@ -1479,10 +1359,8 @@ country_event = {
 	title = koa.127.t
 	desc = koa.127.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
-	option= {
+	option = {
 		name = koa.127.a
 	}
 }
@@ -1492,10 +1370,8 @@ country_event = {
 	title = koa.128.t
 	desc = koa.128.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
-	option= {
+	option = {
 		name = koa.128.a
 		KOA_Sonic_the_Hedgehog = {
 			add_trait = {
@@ -1503,7 +1379,7 @@ country_event = {
 			}
 		}
 	}
-	option= {
+	option = {
 		name = koa.128.b
 		KOA_Antoine_d_Colette = {
 			add_trait = {
@@ -1518,10 +1394,8 @@ country_event = {
 	title = koa.129.t
 	desc = koa.129.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
-	option= {
+	option = {
 		name = koa.129.a
 	}
 }
@@ -1531,10 +1405,8 @@ country_event = {
 	title = koa.130.t
 	desc = koa.130.d
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
-	option= {
+	option = {
 		name = koa.130.a
 	}
 }
@@ -1544,9 +1416,7 @@ country_event = {
 	title = koa.131.t
 	desc = koa.131.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.131.a
 	}
@@ -1557,9 +1427,7 @@ country_event = {
 	title = koa.132.t
 	desc = koa.132.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.132.a
 	}
@@ -1570,9 +1438,7 @@ country_event = {
 	title = koa.133.t
 	desc = koa.133.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.133.a
 		KOA_increase_populist_influence = yes
@@ -1588,9 +1454,7 @@ country_event = {
 	title = koa.134.t
 	desc = koa.134.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.134.a
 	}
@@ -1601,9 +1465,7 @@ country_event = {
 	title = koa.135.t
 	desc = koa.135.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.135.a
 	}
@@ -1614,9 +1476,7 @@ country_event = {
 	title = koa.136.t
 	desc = koa.135.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.136.a
 		set_global_flag = KOA_nobles_levity_penalty
@@ -1634,9 +1494,7 @@ country_event = {
 	title = koa.137.t
 	desc = koa.137.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.137.a
 	}
@@ -1647,9 +1505,7 @@ country_event = {
 	title = koa.138.t
 	desc = koa.138.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.138.a
 	}
@@ -1660,9 +1516,7 @@ country_event = {
 	title = koa.139.t
 	desc = koa.139.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.139.a
 	}
@@ -1673,9 +1527,7 @@ country_event = {
 	title = koa.140.t
 	desc = koa.140.d
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.140.a
 	}
@@ -1685,11 +1537,8 @@ country_event = {
 	id = koa.141
 	title = koa.141.t
 	desc = koa.141.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.141.a
 	}
@@ -1699,11 +1548,8 @@ country_event = {
 	id = koa.142
 	title = koa.142.t
 	desc = koa.142.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.142.a
 	}
@@ -1713,11 +1559,8 @@ country_event = {
 	id = koa.143
 	title = koa.143.t
 	desc = koa.143.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.143.a
 	}
@@ -1727,11 +1570,8 @@ country_event = {
 	id = koa.144
 	title = koa.144.t
 	desc = koa.144.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.144.a
 	}
@@ -1741,11 +1581,8 @@ country_event = {
 	id = koa.145
 	title = koa.145.t
 	desc = koa.145.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.145.a
 	}
@@ -1755,11 +1592,8 @@ country_event = {
 	id = koa.146
 	title = koa.146.t
 	desc = koa.146.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.146.a
 	}
@@ -1769,11 +1603,8 @@ country_event = {
 	id = koa.147
 	title = koa.147.t
 	desc = koa.147.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.147.a
 	}
@@ -1783,11 +1614,8 @@ country_event = {
 	id = koa.148
 	title = koa.148.t
 	desc = koa.148.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.148.a
 	}
@@ -1797,11 +1625,8 @@ country_event = {
 	id = koa.149
 	title = koa.149.t
 	desc = koa.149.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.149.a
 	}
@@ -1812,11 +1637,8 @@ country_event = {
 	id = koa.150
 	title = koa.150.t
 	desc = koa.150.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.150.a
 		KOA_increase_populist_influence = yes
@@ -1832,11 +1654,8 @@ country_event = {
 	id = koa.151
 	title = koa.151.t
 	desc = koa.151.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.151.a
 		KOA_increase_populist_influence = yes
@@ -1852,11 +1671,8 @@ country_event = {
 	id = koa.152
 	title = koa.152.t
 	desc = koa.152.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.152.a
 		KOA_increase_populist_influence = yes
@@ -1874,11 +1690,8 @@ country_event = {
 	id = koa.153
 	title = koa.153.t
 	desc = koa.153.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.153.a
 	}
@@ -1889,11 +1702,8 @@ country_event = {
 	id = koa.154
 	title = koa.154.t
 	desc = koa.154.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.154.a
 	}
@@ -1904,11 +1714,8 @@ country_event = {
 	id = koa.155
 	title = koa.155.t
 	desc = koa.155.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.155.a
 	}
@@ -1919,11 +1726,8 @@ country_event = {
 	id = koa.156
 	title = koa.156.t
 	desc = koa.156.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.156.a
 	}
@@ -1934,28 +1738,21 @@ country_event = {
 	id = koa.157
 	title = koa.157.t
 	desc = koa.157.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.157.a
 	}
 }
 
 # KOA Foreign Politics events
-
 country_event = {
 	# Acorn Is Back! v1 (Sally)
 	id = koa.300
 	title = koa.300.t
 	desc = koa.300.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.300.a
 		set_global_flag = KOA_Foreign_Liberation
@@ -1967,11 +1764,8 @@ country_event = {
 	id = koa.301
 	title = koa.301.t
 	desc = koa.301.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Liberate the world
 		name = koa.301.a
@@ -1989,11 +1783,8 @@ country_event = {
 	id = koa.302
 	title = koa.302.t
 	desc = koa.302.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.302.a
 		set_global_flag = KOA_Foreign_Aggression
@@ -2005,9 +1796,7 @@ news_event = {
 	id = koa.303
 	title = koa.303.t
 	desc = koa.303.d
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.303.a
 	}
@@ -2018,9 +1807,7 @@ news_event = {
 	id = koa.304
 	title = koa.304.t
 	desc = koa.304.d
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.304.a
 	}
@@ -2031,17 +1818,13 @@ country_event = {
 	id = koa.305
 	title = koa.305.t
 	desc = koa.305.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Invite him in New Mobotropolis
 		name = koa.305.a
 		add_war_support = 0.05
 	}
-
 	option = {
 		# Agree to meet in Stalegor
 		name = koa.305.b
@@ -2057,11 +1840,8 @@ country_event = {
 	id = koa.306
 	title = koa.306.t
 	desc = koa.306.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.306.a
 	}
@@ -2072,11 +1852,8 @@ country_event = {
 	id = koa.307
 	title = koa.307
 	desc = koa.307.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.307.a
 		set_variable = {
@@ -2097,11 +1874,8 @@ country_event = {
 	id = koa.308
 	title = koa.308.t
 	desc = koa.308.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.308.a
 	}
@@ -2112,11 +1886,8 @@ country_event = {
 	id = koa.309
 	title = koa.309.t
 	desc = koa.309.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.309.a
 	}
@@ -2127,11 +1898,8 @@ news_event = {
 	id = koa.310
 	title = koa.310.t
 	desc = koa.310.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.310.a
 		EGG = {
@@ -2145,11 +1913,8 @@ country_event = {
 	id = koa.311
 	title = koa.311.t
 	desc = koa.311.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.311.a
 	}
@@ -2160,11 +1925,8 @@ country_event = {
 	id = koa.312
 	title = koa.312.t
 	desc = koa.312.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.312.a
 	}
@@ -2175,11 +1937,8 @@ country_event = {
 	id = koa.313
 	title = koa.313.t
 	desc = koa.313.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.313.a
 	}
@@ -2190,11 +1949,8 @@ country_event = {
 	id = koa.314
 	title = koa.314.t
 	desc = koa.314.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.314.a
 	}
@@ -2205,11 +1961,8 @@ news_event = {
 	id = koa.315
 	title = koa.315.t
 	desc = koa.315.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.315.a
 	}
@@ -2220,11 +1973,8 @@ country_event = {
 	id = koa.316
 	title = koa.316.t
 	desc = koa.316.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.316.a
 	}
@@ -2235,11 +1985,8 @@ country_event = {
 	id = koa.317
 	title = koa.317.t
 	desc = koa.317.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Add conditions
 		name = koa.317.a
@@ -2251,11 +1998,8 @@ country_event = {
 	id = koa.318
 	title = koa.318.t
 	desc = koa.318.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.318.a
 	}
@@ -2266,11 +2010,8 @@ country_event = {
 	id = koa.319
 	title = koa.319.t
 	desc = koa.319.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.319.a
 		GDK = {
@@ -2298,11 +2039,8 @@ country_event = {
 	id = koa.320
 	title = koa.320.t
 	desc = koa.320.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Amadeus Doctrine
 		name = koa.320.a
@@ -2330,11 +2068,8 @@ country_event = {
 	id = koa.321
 	title = koa.321.t
 	desc = koa.321.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.321.a
 		declare_war_on = {
@@ -2353,11 +2088,8 @@ country_event = {
 	id = koa.322
 	title = koa.322.t
 	desc = koa.322.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.322.a
 	}
@@ -2368,11 +2100,8 @@ country_event = {
 	id = koa.323
 	title = koa.323.t
 	desc = koa.323.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.323.a
 	}
@@ -2383,11 +2112,8 @@ country_event = {
 	id = koa.324
 	title = koa.324.t
 	desc = koa.324.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.324.a
 	}
@@ -2398,18 +2124,19 @@ country_event = {
 	id = koa.325
 	title = koa.325.t
 	desc = koa.325.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		# Financial overcome
 		name = koa.325.a
-		set_temp_variable = { studiopolis_success = random }
+		set_temp_variable = {
+			studiopolis_success = random
+		}
 		if = {
 			limit = {
-				check_variable = { studiopolis_success > 0.5 }
+				check_variable = {
+					studiopolis_success > 0.5
+				}
 			}
 			set_country_flag = studiopolis_success
 			clr_country_flag = studiopolis_failed
@@ -2420,7 +2147,8 @@ country_event = {
 					promote_leader = yes
 					country_leader = {
 						ideology = autocracy_subtype
-						traits = {  }
+						traits = {
+						}
 						desc = POLITICS_MOGUL_DESC
 						expire = "3265.1.1"
 					}
@@ -2436,10 +2164,14 @@ country_event = {
 	option = {
 		# Sabotage
 		name = koa.325.b
-		set_temp_variable = { studiopolis_success = random }
+		set_temp_variable = {
+			studiopolis_success = random
+		}
 		if = {
 			limit = {
-				check_variable = { studiopolis_success > 0.5 }
+				check_variable = {
+					studiopolis_success > 0.5
+				}
 			}
 			set_country_flag = studiopolis_success
 			clr_country_flag = studiopolis_failed
@@ -2450,7 +2182,8 @@ country_event = {
 					promote_leader = yes
 					country_leader = {
 						ideology = autocracy_subtype
-						traits = {  }
+						traits = {
+						}
 						desc = POLITICS_MOGUL_DESC
 						expire = "3265.1.1"
 					}
@@ -2470,11 +2203,8 @@ country_event = {
 	id = koa.326
 	title = koa.326.t
 	desc = koa.326.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.326.a
 	}
@@ -2485,11 +2215,8 @@ country_event = {
 	id = koa.327
 	title = koa.327.t
 	desc = koa.327.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.327.a
 	}
@@ -2500,11 +2227,8 @@ country_event = {
 	id = koa.328
 	title = koa.328.d
 	desc = koa.328.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.328.a
 	}
@@ -2515,11 +2239,8 @@ country_event = {
 	id = koa.329
 	title = koa.329.t
 	desc = koa.329.d
-
 	fire_only_once = no
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.329.a
 	}
@@ -2530,11 +2251,8 @@ country_event = {
 	id = koa.330
 	title = koa.330.t
 	desc = koa.330
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.330.a
 	}
@@ -2545,11 +2263,8 @@ country_event = {
 	id = koa.331
 	title = koa.331.t
 	desc = koa.331
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.331.a
 	}
@@ -2560,11 +2275,8 @@ country_event = {
 	id = koa.332
 	title = koa.332.t
 	desc = koa.332
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.332.a
 	}
@@ -2575,11 +2287,8 @@ country_event = {
 	id = koa.333
 	title = koa.333.t
 	desc = koa.333
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.333.a
 	}
@@ -2590,11 +2299,8 @@ country_event = {
 	id = koa.334
 	title = koa.334.t
 	desc = koa.334
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.334.a
 	}
@@ -2605,11 +2311,8 @@ country_event = {
 	id = koa.335
 	title = koa.335.t
 	desc = koa.335
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.335.a
 	}
@@ -2620,12 +2323,9 @@ country_event = {
 	id = koa.336
 	title = koa.336.t
 	desc = koa.336.d
-
 	# That's questionable
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.336.a
 	}
@@ -2636,12 +2336,9 @@ country_event = {
 	id = koa.337
 	title = koa.337.t
 	desc = koa.337.d
-
 	# That's questionable
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.337.a
 	}
@@ -2652,11 +2349,8 @@ country_event = {
 	id = koa.338
 	title = koa.338.t
 	desc = koa.338.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.338.a
 	}
@@ -2667,11 +2361,8 @@ country_event = {
 	id = koa.339
 	title = koa.339.t
 	desc = koa.339.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.339.a
 	}
@@ -2682,11 +2373,8 @@ country_event = {
 	id = koa.340
 	title = koa.340.t
 	desc = koa.340.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.340.a
 	}
@@ -2697,11 +2385,8 @@ country_event = {
 	id = koa.341
 	title = koa.341.t
 	desc = koa.341.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.341.a
 	}
@@ -2712,18 +2397,19 @@ country_event = {
 	id = koa.342
 	title = koa.342.t
 	desc = koa.342.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Agree
 		name = koa.342.a
-		set_temp_variable = { bombing_chance = random }
+		set_temp_variable = {
+			bombing_chance = random
+		}
 		if = {
 			limit = {
-				check_variable = { bombing_chance > 0.4 }
+				check_variable = {
+					bombing_chance > 0.4
+				}
 			}
 			country_event = koa.343
 		}
@@ -2742,11 +2428,8 @@ country_event = {
 	id = koa.343
 	title = koa.343.t
 	desc = koa.343.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.343.a
 	}
@@ -2757,11 +2440,8 @@ country_event = {
 	id = koa.344
 	title = koa.344.t
 	desc = koa.344.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.344.a
 	}
@@ -2772,13 +2452,9 @@ country_event = {
 	id = koa.345
 	title = koa.345.t
 	desc = koa.345.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	# TODO: Add detailed options
-
 	option = {
 		# Remain Status Quo
 		name = koa.345.a
@@ -2793,7 +2469,9 @@ country_event = {
 					is_core_of = BHA
 				}
 			}
-			BHA = { transfer_state = PREV }
+			BHA = {
+				transfer_state = PREV
+			}
 		}
 	}
 	option = {
@@ -2807,7 +2485,9 @@ country_event = {
 					is_core_of = BHA
 				}
 			}
-			KOA = { transfer_state = PREV }
+			KOA = {
+				transfer_state = PREV
+			}
 		}
 	}
 }
@@ -2817,11 +2497,8 @@ country_event = {
 	id = koa.346
 	title = koa.346.t
 	desc = koa.346.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.346.a
 	}
@@ -2832,11 +2509,8 @@ country_event = {
 	id = koa.347
 	title = koa.347.t
 	desc = koa.347.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.347.a
 	}
@@ -2847,11 +2521,8 @@ country_event = {
 	id = koa.348
 	title = koa.348.t
 	desc = koa.348.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.348.a
 	}
@@ -2862,11 +2533,8 @@ country_event = {
 	id = koa.349
 	title = koa.349.t
 	desc = koa.349.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.349.a
 	}
@@ -2877,11 +2545,8 @@ country_event = {
 	id = koa.350
 	title = koa.350.t
 	desc = koa.350.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.350.a
 	}
@@ -2892,11 +2557,8 @@ country_event = {
 	id = koa.351
 	title = koa.351.t
 	desc = koa.351.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.351.a
 	}
@@ -2907,11 +2569,8 @@ country_event = {
 	id = koa.352
 	title = koa.352.t
 	desc = koa.352.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.352.a
 	}
@@ -2922,11 +2581,8 @@ country_event = {
 	id = koa.353
 	title = koa.353.t
 	desc = koa.353.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.353.a
 	}
@@ -2937,11 +2593,8 @@ country_event = {
 	id = koa.354
 	title = koa.354.t
 	desc = koa.354.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.354.a
 	}
@@ -2952,11 +2605,8 @@ country_event = {
 	id = koa.355
 	title = koa.355.t
 	desc = koa.355.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.355.a
 	}
@@ -2967,11 +2617,8 @@ country_event = {
 	id = koa.356
 	title = koa.356.t
 	desc = koa.356.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.356.a
 	}
@@ -2982,11 +2629,8 @@ country_event = {
 	id = koa.357
 	title = koa.357.t
 	desc = koa.357.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.357.a
 		add_opinion_modifier = {
@@ -3007,11 +2651,8 @@ country_event = {
 	id = koa.358
 	title = koa.358.t
 	desc = koa.358.d
-
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-
 	option = {
 		# Provoke UFA to declare a war
 		name = koa.358.a
@@ -3019,7 +2660,6 @@ country_event = {
 			country_event = ufa.1351
 		}
 	}
-
 	option = {
 		# Decare a war
 		name = koa.358.b
@@ -3037,11 +2677,8 @@ country_event = {
 	id = koa.359
 	title = koa.359.t
 	desc = koa.359.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		# Attack
 		name = koa.359.a
@@ -3067,11 +2704,8 @@ country_event = {
 	id = koa.360
 	title = koa.360.t
 	desc = koa.360.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.360.a
 	}
@@ -3082,30 +2716,27 @@ country_event = {
 	id = koa.361
 	title = koa.361.t
 	desc = koa.361.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.361.a
 	}
 }
+
 country_event = {
 	# Test
 	id = koa.1000
 	title = koa.1000.t
 	desc = koa.1000.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.1000.a
 	}
 }
-country_event = {  # add bunkers in GDK
+
+country_event = {
+	# add bunkers in GDK
 	id = koa.1100
 	title = koa.1100.t
 	desc = koa.1100.d
@@ -3160,7 +2791,9 @@ country_event = {  # add bunkers in GDK
 		}
 	}
 }
-country_event = {  # remove bunkers in GDK
+
+country_event = {
+	# remove bunkers in GDK
 	id = koa.1101
 	title = koa.1101.t
 	desc = koa.1101.d
@@ -3221,11 +2854,8 @@ country_event = {
 	id = koa.military.1
 	title = koa.military.1.t
 	desc = koa.military.1.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.military.1.a
 	}
@@ -3236,11 +2866,8 @@ country_event = {
 	id = koa.military.2
 	title = koa.military.2.t
 	desc = koa.military.2.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.military.2.a
 	}
@@ -3251,11 +2878,8 @@ country_event = {
 	id = koa.military.3
 	title = koa.military.3.t
 	desc = koa.military.3.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.military.3.a
 	}
@@ -3266,12 +2890,227 @@ country_event = {
 	id = koa.military.4
 	title = koa.military.4.t
 	desc = koa.military.4.d
-
 	fire_only_once = yes
-
 	is_triggered_only = yes
-
 	option = {
 		name = koa.military.4.a
 	}
 }
+
+country_event = {
+	# Elias - Autocracy
+	id = koa.leaders.1
+	title = koa.leaders.1.t
+	desc = koa.leaders.1.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.1.a
+		add_country_leader_role = {
+			character = KOA_Elias_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = autocracy_absolute_monarchy_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Elias - legalism
+	id = koa.leaders.2
+	title = koa.leaders.2.t
+	desc = koa.leaders.2.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.2.a
+		add_country_leader_role = {
+			character = KOA_Elias_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = legalism_aristocratic_democracy_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Elias - purificationism
+	id = koa.leaders.3
+	title = koa.leaders.3.t
+	desc = koa.leaders.3.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.3.a
+		add_country_leader_role = {
+			character = KOA_Elias_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = purificationism_chauvinistic_imperialism_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Elias - conservatism
+	id = koa.leaders.4
+	title = koa.leaders.4.t
+	desc = koa.leaders.4.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.4.a
+		add_country_leader_role = {
+			character = KOA_Elias_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = conservatism_social_conservatism_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Elias - securitocracy
+	id = koa.leaders.5
+	title = koa.leaders.5.t
+	desc = koa.leaders.5.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.5.a
+		add_country_leader_role = {
+			character = KOA_Elias_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = legalism_securitocracy_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Sally - progressism
+	id = koa.leaders.6
+	title = koa.leaders.6.t
+	desc = koa.leaders.6.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.6.a
+		add_country_leader_role = {
+			character = KOA_Sally_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = progressism_transitionism_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Sally - The People's Monarchy
+	id = koa.leaders.7
+	title = koa.leaders.7.t
+	desc = koa.leaders.7.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.7.a
+		add_country_leader_role = {
+			character = KOA_Sally_Acorn
+			promote_leader = yes
+			country_leader = {
+				ideology = autonomous_socialism_people_monarchy_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Sonic - Progressism
+	id = koa.leaders.8
+	title = koa.leaders.8.t
+	desc = koa.leaders.8.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.8.a
+		add_country_leader_role = {
+			character = KOA_Sonic_the_Hedgehog
+			promote_leader = yes
+			country_leader = {
+				ideology = progressism_transitionism_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	# Nagus - Magocracy
+	id = koa.leaders.9
+	title = koa.leaders.9.t
+	desc = koa.leaders.9.d
+	fire_only_once = yes
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = koa.leaders.9.a
+		add_country_leader_role = {
+			character = KOA_Ixis_Naugus
+			promote_leader = yes
+			country_leader = {
+				ideology = autocracy_cult_dictatorship_subtype
+				expire = "3265.1.1.1"
+				traits = {
+					
+				}
+			}
+		}
+	}
+}
+
+# Should we make similar events for Southern Baronies, United Workers Movement and Prower's initiative?
