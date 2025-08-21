@@ -294,11 +294,38 @@ focus_tree = {
 				country_event = {
 					id = koa.110
 				}
+				add_stability = 0.1
+				add_political_power = 100
 				mark_focus_tree_layout_dirty = yes
-				promote_character = {
-					character = KOA_Elias_Acorn
-					ideology = legalism_aristocratic_democracy_subtype
+				country_event = koa.leaders.1
+			}
+			hidden_effect = {
+				country_event = {
+					id = koa.5
+					days = 14
 				}
+				country_event = {
+					id = koa.6
+					days = 15
+				}
+				set_variable = {
+					var = baron_power
+					value = 15
+				}
+				set_variable = {
+					var = prower_power
+					value = 25
+				}
+				set_variable = {
+					var = union_power
+					value = 15
+				}
+				set_variable = {
+					var = loyalty_elias
+					value = 30
+				}
+				set_country_flag = amadeus_revolt
+				set_country_flag = elias_crowned
 			}
 		}
 	}
@@ -1267,7 +1294,6 @@ focus_tree = {
 # 		}
 # 	}
 # }
-
 #Elias Acorn Reforms
 focus_tree = {
 	id = Kingdom_Akorn_Elias_Reformer
@@ -1303,16 +1329,7 @@ focus_tree = {
 				long_name = The_Council_of_Acorn
 				name = TCA
 			}
-			add_country_leader_role = {
-				character = KOA_Elias_Acorn
-				promote_leader = yes
-				country_leader = {
-					ideology = legalism_subtype
-					expire = "3265.1.1"
-					traits = {
-					}
-				}
-			}
+			country_event = koa.leaders.2
 			#Change the country name to “Republic of Acorn”
 			country_event = koa.23
 			country_event = koa.24
@@ -1941,9 +1958,9 @@ focus_tree = {
 				uses = 1
 				bonus = 1
 			}
-			KOA_Nicole_the_Holo_Lynx = {
-				promote_leader = yes
-			}
+			# KOA_Nicole_the_Holo_Lynx = {
+			# 	promote_leader = yes
+			# }
 			#Nicole becomes a field marshal and security minister (trait “Kind Machine”: consumer good factories +1.5%, non-core manpower +25%, encryption +15%
 		}
 	}
