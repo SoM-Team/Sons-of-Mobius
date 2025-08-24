@@ -1260,6 +1260,10 @@ shared_focus = {
 	}
 	x = 53
 	y = 1
+
+	completion_reward = {
+		air_experience = 50
+	}
 }
 
 shared_focus = {
@@ -1272,6 +1276,42 @@ shared_focus = {
 	}
 	x = 51
 	y = 2
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = radar_tech
+			uses = 2
+			bonus = 1
+		}
+		1 = {
+			add_building_construction = {
+				instant_build = yes
+				type = radar_station
+				level = 2
+			}
+		}
+		9 = {
+			add_building_construction = {
+				instant_build = yes
+				type = radar_station
+				level = 1
+			}
+		}
+		17 = {
+			add_building_construction = {
+				instant_build = yes
+				type = radar_station
+				level = 1
+			}
+		}
+		37 = {
+			add_building_construction = {
+				instant_build = yes
+				type = radar_station
+				level = 1
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -1284,6 +1324,17 @@ shared_focus = {
 	}
 	x = 50
 	y = 3
+
+	completion_reward = {
+		add_to_variable = { smd_power = 1 }
+		add_to_variable = { smd = 10 }
+		
+		add_tech_bonus = {
+			uses = 1
+			category = radar_tech
+			ahead_reduction = 3
+		}
+	}
 }
 
 shared_focus = {
@@ -1296,6 +1347,14 @@ shared_focus = {
 	}
 	x = 53
 	y = 2
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = air_equipment
+			uses = 3
+			bonus = 0.75
+		}
+	}
 }
 
 shared_focus = {
@@ -1412,6 +1471,63 @@ shared_focus = {
 	}
 	x = 55
 	y = 2
+
+	completion_reward = {
+		3 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = aluminium
+				amount = 4
+			}
+		}
+		7 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = aluminium
+				amount = 4
+			}
+		}
+		12 = {
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = aluminium
+				amount = 4
+			}
+		}
+		18 = {
+			add_resource = {
+				type = aluminium
+				amount = 20
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -1437,6 +1553,10 @@ shared_focus = {
 	}
 	x = 56
 	y = 3
+
+	completion_reward = {
+		# TODO
+	}
 }
 
 shared_focus = {
@@ -1488,6 +1608,10 @@ shared_focus = {
 	}
 	x = 85
 	y = 1
+
+	completion_reward = {
+		navy_experience = 50
+	}
 }
 
 shared_focus = {
@@ -1500,6 +1624,14 @@ shared_focus = {
 	}
 	x = 80
 	y = 2
+
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = marine_tech
+		}
+	}
 }
 
 shared_focus = {
@@ -1512,6 +1644,10 @@ shared_focus = {
 	}
 	x = 79
 	y = 3
+
+	completion_reward = {
+		add_ideas = Protector_of_the_Strait
+	}
 }
 
 shared_focus = {
@@ -1524,6 +1660,8 @@ shared_focus = {
 	}
 	x = 81
 	y = 3
+
+	# TODO
 }
 
 shared_focus = {
@@ -1539,6 +1677,17 @@ shared_focus = {
 	}
 	x = 80
 	y = 4
+
+	completion_reward = {
+		add_equipment_to_stockpile = {
+			type = convoy
+			amount = 200
+		}
+		add_equipment_to_stockpile = {
+			type = destroyer_1
+			amount = 5
+		}
+	}
 }
 
 shared_focus = {
@@ -1553,6 +1702,14 @@ shared_focus = {
 	}
 	x = 84
 	y = 2
+
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 1
+			uses = 2
+			category = cat_blue_sea_fleet
+		}
+	}
 }
 
 shared_focus = {
@@ -1565,6 +1722,21 @@ shared_focus = {
 	}
 	x = 83
 	y = 3
+
+	completion_reward = {
+		add_ideas = Dockyard_Instructors
+		add_tech_bonus = {
+			category = cl_tech
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			category = ca_tech
+			uses = 1
+			bonus = 1
+		}
+		navy_experience = 100
+	}
 }
 
 shared_focus = {
@@ -1577,6 +1749,29 @@ shared_focus = {
 	}
 	x = 82
 	y = 4
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = Dockyard_Instructors
+			}
+			swap_ideas = {
+				remove_idea = Dockyard_Instructors
+				add_idea = Dockyard_Instructors_2
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Dockyard_Instructors_3
+				add_idea = Dockyard_Instructors_4
+			}
+		}
+		add_tech_bonus = {
+			category = cv_tech
+			bonus = 1
+			uses = 1
+		}
+	}
 }
 
 shared_focus = {
@@ -1592,6 +1787,14 @@ shared_focus = {
 	}
 	x = 86
 	y = 2
+
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 1
+			uses = 2
+			category = cat_general_military_options_fleet
+		}
+	}
 }
 
 shared_focus = {
@@ -1605,6 +1808,13 @@ shared_focus = {
 	}
 	x = 85
 	y = 3
+
+	completion_reward = {
+		every_navy_leader = {
+			add_coordination = 1
+		}
+		add_ideas = Navigation_Research
+	}
 }
 
 shared_focus = {
@@ -1620,6 +1830,29 @@ shared_focus = {
 	}
 	x = 84
 	y = 4
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = Dockyard_Instructors
+			}
+			swap_ideas = {
+				remove_idea = Dockyard_Instructors
+				add_idea = Dockyard_Instructors_3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Dockyard_Instructors_2
+				add_idea = Dockyard_Instructors_4
+			}
+		}
+		add_tech_bonus = {
+			category = ss_tech
+			bonus = 1
+			uses = 1
+		}
+	}
 }
 
 shared_focus = {
@@ -1632,6 +1865,20 @@ shared_focus = {
 	}
 	x = 87
 	y = 3
+	
+	completion_reward = {
+		add_ideas = Dockyard_Veterans
+		add_tech_bonus = {
+			category = cl_tech
+			uses = 1
+			bonus = 1
+		}
+		add_tech_bonus = {
+			category = ca_tech
+			uses = 1
+			bonus = 1
+		}
+	}
 }
 
 shared_focus = {
@@ -1647,6 +1894,29 @@ shared_focus = {
 	}
 	x = 86
 	y = 4
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = Dockyard_Veterans
+			}
+			swap_ideas = {
+				remove_idea = Dockyard_Veterans
+				add_idea = Dockyard_Veterans_3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Dockyard_Veterans_2
+				add_idea = Dockyard_Veterans_4
+			}
+		}
+		add_tech_bonus = {
+			category = dd_tech
+			bonus = 1
+			uses = 1
+		}
+	}
 }
 
 shared_focus = {
@@ -1659,6 +1929,29 @@ shared_focus = {
 	}
 	x = 88
 	y = 4
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = Dockyard_Veterans
+			}
+			swap_ideas = {
+				remove_idea = Dockyard_Veterans
+				add_idea = Dockyard_Veterans_2
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Dockyard_Veterans_3
+				add_idea = Dockyard_Veterans_4
+			}
+		}
+		add_tech_bonus = {
+			category = bb_tech
+			bonus = 1
+			uses = 1
+		}
+	}
 }
 
 shared_focus = {
@@ -1671,6 +1964,16 @@ shared_focus = {
 	}
 	x = 90
 	y = 2
+
+	completion_reward = {
+		navy_experience = 20
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.75
+			uses = 1
+			category = naval_doctrine
+		}
+		add_ideas = Royal_Navy_Academy
+	}
 }
 
 shared_focus = {
@@ -1683,6 +1986,29 @@ shared_focus = {
 	}
 	x = 89
 	y = 3
+
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.75
+			uses = 1
+			category = naval_doctrine
+		}
+		if = {
+			limit = {
+				has_idea = Royal_Navy_Academy
+			}
+			swap_ideas = {
+				remove_idea = Royal_Navy_Academy
+				add_idea = Royal_Navy_Academy_2
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Royal_Navy_Academy_3
+				add_idea = Royal_Navy_Academy_4
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -1695,6 +2021,24 @@ shared_focus = {
 	}
 	x = 91
 	y = 3
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = Royal_Navy_Academy
+			}
+			swap_ideas = {
+				remove_idea = Royal_Navy_Academy
+				add_idea = Royal_Navy_Academy_3
+			}
+		}
+		else = {
+			swap_ideas = {
+				remove_idea = Royal_Navy_Academy_2
+				add_idea = Royal_Navy_Academy_4
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -1710,6 +2054,10 @@ shared_focus = {
 	}
 	x = 90
 	y = 4
+
+	completion_reward = {
+		add_ideas = Grand_Ports
+	}
 }
 
 shared_focus = {
@@ -1728,6 +2076,61 @@ shared_focus = {
 	}
 	x = 88
 	y = 5
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_tech = advanced_battleship
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = battleship_4
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = improved_battleship
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = battleship_3
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = basic_battleship
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = battleship_2
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = early_battleship
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = battleship_1
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+	}
 }
 
 shared_focus = {
@@ -1801,6 +2204,61 @@ shared_focus = {
 	}
 	x = 82
 	y = 5
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_tech = advanced_carrier
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = carrier_4
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = improved_carrier
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = carrier_3
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = basic_carrier
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = carrier_2
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+		else_if = {
+			limit = {
+				has_tech = early_carrier
+			}
+
+			add_equipment_production = {
+				equipment = {
+					type = carrier_1
+				}
+				progress = 0.5
+				amount = 2
+			}
+		}
+	}
 }
 
 # TODO: Check focuses "Stop Holding Back!" and "Mercian Trailblazers"
