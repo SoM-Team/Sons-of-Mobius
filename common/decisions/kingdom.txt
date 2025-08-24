@@ -1245,6 +1245,7 @@ KOA_Stop_The_Rev = {
 		}
 	
 	    complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			remove_ideas = {
 				KOA_Support_Workers_Rights_Idea
 				KOA_Union_Appeasement
@@ -1263,6 +1264,10 @@ KOA_Stop_The_Rev = {
 				KOA_True_Meritocracy_Idea
 			}
 	    }
+
+		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
+		}
 		
 		timeout_effect = {
 			if = {
@@ -1346,14 +1351,18 @@ KOA_Stop_The_Rev = {
 		cost = 25
 
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			add_political_power = 40
-			add_to_variable = { loyalty_elias = 2 }
-			subtract_from_variable = { union_power = 5 }
+			add_to_variable = { loyalty_elias = 1 }
+			subtract_from_variable = { union_power = 2 }
 			custom_effect_tooltip = Gain_2_percent_Elias_minus_5_union
 			add_days_mission_timeout = {
 				mission = revolution_looms
 				days = 49
 			}
+		}
+		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 		}
 		timeout_effect = {
 			if = {
@@ -1364,8 +1373,8 @@ KOA_Stop_The_Rev = {
 						NOT = { has_idea = KOA_General_Strike_3 }
 					}
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { union_power = 5 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { union_power = 2 }
 				custom_effect_tooltip = General_strike_koa
 				add_stability = -0.05
 				add_ideas = KOA_General_Strike_1
@@ -1374,8 +1383,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_General_Strike_1
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { union_power = 10 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { union_power = 4 }
 				custom_effect_tooltip = General_strike_koa_exp
 				add_stability = -0.05
 				swap_ideas = {
@@ -1387,8 +1396,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_General_Strike_2
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { union_power = 15 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { union_power = 6 }
 				custom_effect_tooltip = General_strike_koa_max
 				add_stability = -0.05
 				swap_ideas = {
@@ -1435,12 +1444,13 @@ KOA_Stop_The_Rev = {
 		cost = 75
 		
 		complete_effect = {
-			
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { union_power = 5 }
-			add_to_variable = { loyalty_elias = 5 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { union_power = 2 }
+			add_to_variable = { loyalty_elias = 2 }
 			add_stability = 0.025
 			remove_ideas = KOA_General_Strike_1
 			add_days_mission_timeout = {
@@ -1488,12 +1498,13 @@ KOA_Stop_The_Rev = {
 		cost = 100
 		
 		complete_effect = {
-			
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { union_power = 5 }
-			add_to_variable = { loyalty_elias = 5 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { union_power = 2 }
+			add_to_variable = { loyalty_elias = 2 }
 			add_stability = +0.025
 			remove_ideas = KOA_General_Strike_2
 			add_days_mission_timeout = {
@@ -1540,12 +1551,13 @@ KOA_Stop_The_Rev = {
 		cost = 100
 		
 		complete_effect = {
-			
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { union_power = 5 }
-			add_to_variable = { loyalty_elias = 5 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { union_power = 2 }
+			add_to_variable = { loyalty_elias = 2 }
 			add_stability = 0.025
 			remove_ideas = KOA_General_Strike_3
 			add_days_mission_timeout = {
@@ -1601,14 +1613,18 @@ KOA_Stop_The_Rev = {
 		custom_cost_text = cost_cc_40_pp_60
 
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			hidden_effect = {
 				add_command_power = -40
 				add_political_power = -60
 			}
-			add_to_variable = { loyalty_elias = 5 }
-			subtract_from_variable = { prower_power = 5 }
+			add_to_variable = { loyalty_elias = 2 }
+			subtract_from_variable = { prower_power = 2 }
 			custom_effect_tooltip = Gain_5_percent_Elias_minus_5_prower
 			
+		}
+		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 		}
 		timeout_effect = {
 			if = {
@@ -1619,8 +1635,8 @@ KOA_Stop_The_Rev = {
 						NOT = { has_idea = KOA_Prower_army_support_3 }
 					}
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { prower_power = 5 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { prower_power = 2 }
 				custom_effect_tooltip = desertion_koa
 				add_stability = -0.05
 				add_ideas = KOA_Prower_army_support_1
@@ -1630,8 +1646,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_Prower_army_support_1
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { prower_power = 10 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { prower_power = 4 }
 				custom_effect_tooltip = desertion_koa_exp
 				add_stability = -0.05
 				swap_ideas = {
@@ -1644,8 +1660,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_Prower_army_support_2
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { prower_power = 15 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { prower_power = 6 }
 				custom_effect_tooltip = desertion_koa_exp_max
 				add_stability = -0.05
 				swap_ideas = {
@@ -1705,10 +1721,14 @@ KOA_Stop_The_Rev = {
 		cost = 50
 
 		complete_effect = {
-			add_to_variable = { loyalty_elias = 5 }
-			subtract_from_variable = { baron_power = 5 }
+			set_country_flag = KOA_Stop_Rev_flag
+			add_to_variable = { loyalty_elias = 2 }
+			subtract_from_variable = { baron_power = 2 }
 			custom_effect_tooltip = Gain_5_percent_Elias_minus_5_baron
 			
+		}
+		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 		}
 		timeout_effect = {
 			if = {
@@ -1719,8 +1739,8 @@ KOA_Stop_The_Rev = {
 						NOT = { has_idea = KOA_South_Resistance_3 }
 					}
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { baron_power = 5 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { baron_power = 2 }
 				custom_effect_tooltip = baron_rally
 				add_stability = -0.05
 				add_ideas = KOA_South_Resistance_1
@@ -1729,8 +1749,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_South_Resistance_1
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { baron_power = 10 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { baron_power = 4 }
 				custom_effect_tooltip = baron_rally_exp
 				add_stability = -0.05
 				swap_ideas = {
@@ -1742,8 +1762,8 @@ KOA_Stop_The_Rev = {
 				limit = {
 					has_idea = KOA_South_Resistance_2
 				}
-				subtract_from_variable = { loyalty_elias = 5 }
-				add_to_variable = { baron_power = 15 }
+				subtract_from_variable = { loyalty_elias = 2 }
+				add_to_variable = { baron_power = 6 }
 				custom_effect_tooltip = baron_rally_max
 				add_stability = -0.05
 				swap_ideas = {
@@ -1798,6 +1818,7 @@ KOA_Stop_The_Rev = {
 		custom_cost_text = decision_cost_pp_45_manpower_300
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = beat_each_other
 			hidden_effect = {
 				add_political_power = -45
@@ -1806,8 +1827,9 @@ KOA_Stop_The_Rev = {
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { union_power = 5 }
-			subtract_from_variable = { prower_power = 5 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { union_power = 2 }
+			subtract_from_variable = { prower_power = 2 }
 			add_stability = -0.025
 			custom_effect_tooltip = minus_5_minus_5
 			add_days_mission_timeout = {
@@ -1843,6 +1865,7 @@ KOA_Stop_The_Rev = {
 		}
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = Sally_speech
 			custom_effect_tooltip = plus_10_Elias
 			add_to_variable = { loyalty_elias = 10 }
@@ -1851,6 +1874,9 @@ KOA_Stop_The_Rev = {
 				days = 14
 			}
 			add_stability = 0.1
+		}
+		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 		}
 		
 	}
@@ -1880,9 +1906,11 @@ KOA_Stop_The_Rev = {
 		}
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			set_country_flag = Sonic_in_North
 			custom_effect_tooltip = Sonic_go_N
 			add_to_variable = { loyalty_elias = 10 }
@@ -1914,10 +1942,12 @@ KOA_Stop_The_Rev = {
 		cost = 50
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { prower_power = -5 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { prower_power = 2 }
 			custom_effect_tooltip = prower_minus_5
 			add_days_mission_timeout = {
 				mission = revolution_looms
@@ -1954,6 +1984,7 @@ KOA_Stop_The_Rev = {
 		custom_cost_text = decision_cost_pp_65_manpower_1000
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = disarm_guard
 			hidden_effect = {
 				add_political_power = -65
@@ -1962,7 +1993,8 @@ KOA_Stop_The_Rev = {
 		}
 		
 		remove_effect = {
-			subtract_from_variable = { prower_power = -10 }
+			clr_country_flag = KOA_Stop_Rev_flag
+			subtract_from_variable = { prower_power = 4 }
 			custom_effect_tooltip = prower_minus_10
 			random_list = {
 				30 = { 
@@ -2022,9 +2054,11 @@ KOA_Stop_The_Rev = {
 		cost = 60
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			set_country_flag = Bunnie_in_South
 			custom_effect_tooltip = Bunnie_go_S
 			add_to_variable = { loyalty_elias = 10 }
@@ -2061,15 +2095,16 @@ KOA_Stop_The_Rev = {
 			num_of_civilian_factories_available_for_projects > 0
 		}
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			hidden_effect = { add_political_power = -25 }
-			
 		}
 		custom_cost_text = decision_cost_pp_25_factory_1
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = baron_minus_5_elias_plus_5
-			add_to_variable = { loyalty_elias = 5}
-			subtract_from_variable = { baron_power = 5}
+			add_to_variable = { loyalty_elias = 2}
+			subtract_from_variable = { baron_power = 2}
 			add_days_mission_timeout = {
 				mission = revolution_looms
 				days = 21
@@ -2101,13 +2136,15 @@ KOA_Stop_The_Rev = {
 			has_manpower > 2000
 		}
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 			hidden_effect = { add_political_power = -55 add_manpower = -2000 }
 		}
 		custom_cost_text = decision_cost_pp_55_manpower_2000
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = baron_minus_10
-			subtract_from_variable = { baron_power = 10}
+			subtract_from_variable = { baron_power = 4}
 			add_days_mission_timeout = {
 				mission = revolution_looms
 				days = 28
@@ -2168,9 +2205,11 @@ KOA_Stop_The_Rev = {
 		cost = 120
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = Kill_Hong
 			random_list = {
 				70 = {
@@ -2214,9 +2253,11 @@ KOA_Stop_The_Rev = {
 		days_remove = 3
 		
 		complete_effect = {
+			set_country_flag = KOA_Stop_Rev_flag
 		}
 		
 		remove_effect = {
+			clr_country_flag = KOA_Stop_Rev_flag
 			custom_effect_tooltip = Abdication_Elias
 			add_stability = -0.1
 			hidden_effect = {
