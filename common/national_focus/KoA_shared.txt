@@ -793,10 +793,10 @@ shared_focus = {
 
 #Economic Treee
 shared_focus = {
-	id = KOA_New_Crown_Economic
-	icon = GFX_focus_new_royal_economy
+	id = KOA_Economy_Raised_from_the_Ashes
+	icon = GFX_obsolete_template_overlay
 	cost = 7
-	x = 39
+	x = 24
 	y = 0
 }
 
@@ -815,438 +815,774 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = KOA_The_Triumph_Of_Productivism
-	icon = GFX_focus_KOA_productivism
+	id = KOA_Atom_of_Freedom
+	icon = GFX_obsolete_template_overlay
 	cost = 7
-	prerequisite = {
-		focus = KOA_New_Crown_Economic
-	}
-	mutually_exclusive = {
-		focus = KOA_Ecologic_Tradition_Akorn
-	}
-	x = 38
+	relative_position_id = KOA_Economy_Raised_from_the_Ashes
+	x = 0
 	y = 1
-	completion_reward = {
-		add_timed_idea = {
-			idea = The_Triumph_Of_Productivism
-			days = 730
-		}
+
+	prerequisite = {
+		focus = KOA_Economy_Raised_from_the_Ashes
 	}
 }
 
 shared_focus = {
-	id = KOA_Akorn_socialism
-	icon = GFX_focus_KOA_Akorn_socialism
+	id = KOA_Miracles_of_Nanite_Assembly
+	icon = GFX_obsolete_template_overlay
 	cost = 7
-	prerequisite = {
-		focus = KOA_The_Triumph_Of_Productivism
-	}
-	mutually_exclusive = {
-		focus = KOA_unlock_magazine
-	}
-	x = 35
+	relative_position_id = KOA_Atom_of_Freedom
+	x = 0
 	y = 2
-	completion_reward = {
-		add_timed_idea = {
-			idea = Advisors_from_Shvarcland
-			days = 730
-		}
+
+	prerequisite = {
+		focus = KOA_Heat_Water_Nothing_Extra
+		focus = KOA_Energy_Trapped_in_a_Ring
 	}
 }
 
 shared_focus = {
-	id = KOA_unlock_magazine
-	icon = GFX_focus_KOA_unlock_magazine
+	id = KOA_Heat_Water_Nothing_Extra
+	icon = GFX_obsolete_template_overlay
 	cost = 7
-	prerequisite = {
-		focus = KOA_The_Triumph_Of_Productivism
-	}
-	mutually_exclusive = {
-		focus = KOA_Akorn_socialism
-	}
-	x = 38
-	y = 2
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Prom_nanit
-	icon = GFX_focus_KOA_Prom_nanit
-	cost = 7
-	prerequisite = {
-		focus = KOA_unlock_magazine
-		focus = KOA_Akorn_socialism
-		focus = KOA_unlock_magazine
-		focus = KOA_Akorn_socialism
-	}
-	x = 36
-	y = 3
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Soviet_Shvarlander
-	icon = GFX_focus_soviet_shvarlander
-	cost = 7
-	prerequisite = {
-		focus = KOA_Akorn_socialism
-		focus = KOA_unlock_magazine
-	}
-	x = 32
-	y = 3
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Auto_coorparation
-	icon = GFX_focus_KOA_Auto_coorparation
-	cost = 7
-	prerequisite = {
-		focus = KOA_Akorn_socialism
-		focus = KOA_unlock_magazine
-	}
-	x = 34
-	y = 3
-	completion_reward = {
-		if = {
-			limit = {
-				controls_state > 2
-				has_stability > 0.45
-			}
-			random_owned_controlled_state = {
-				if = {
-					limit = {
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
-				}
-				if = {
-					limit = {
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-		if = {
-			limit = {
-				controls_state < 3
-				has_stability > 0.45
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-}
-
-shared_focus = {
-	id = KOA_Defense_Soviet_prom
-	icon = GFX_focus_KOA_Defense_Soviet_prom
-	cost = 7
-	prerequisite = {
-		focus = KOA_unlock_magazine
-		focus = KOA_Akorn_socialism
-	}
-	x = 38
-	y = 3
-	completion_reward = {
-		add_timed_idea = {
-			idea = Protection_of_domestic_producers
-			days = 730
-		}
-	}
-}
-
-shared_focus = {
-	id = KOA_AES_Mobotropolis
-	icon = GFX_focus_KOA_AES_Mobotropolis
-	cost = 7
-	prerequisite = {
-		focus = KOA_Prom_nanit
-	}
-	prerequisite = {
-		focus = KOA_Defense_Soviet_prom
-	}
-	x = 36
-	y = 4
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Tech_Overlander
-	icon = GFX_focus_KOA_Tech_Overlander
-	cost = 7
-	prerequisite = {
-		focus = KOA_Soviet_Shvarlander
-	}
-	prerequisite = {
-		focus = KOA_Auto_coorparation
-	}
-	x = 34
-	y = 4
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Robot_Farm
-	icon = GFX_focus_KOA_Robot_Farm
-	cost = 7
-	prerequisite = {
-		focus = KOA_Defense_Soviet_prom
-	}
-	prerequisite = {
-		focus = KOA_Prom_nanit
-	}
-	x = 38
-	y = 4
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_New_Sever
-	icon = GFX_focus_KOA_New_Sever
-	cost = 7
-	prerequisite = {
-		focus = KOA_Tech_Overlander
-	}
-	prerequisite = {
-		focus = KOA_AES_Mobotropolis
-	}
-	prerequisite = {
-		focus = KOA_Robot_Farm
-	}
-	x = 36
-	y = 5
-	completion_reward = {
-	}
-}
-
-shared_focus = {
-	id = KOA_Ecologic_Tradition_Akorn
-	icon = GFX_focus_KOA_Ecologic_Tradition_Akorn
-	cost = 7
-	prerequisite = {
-		focus = KOA_New_Crown_Economic
-	}
-	mutually_exclusive = {
-		focus = KOA_The_Triumph_Of_Productivism
-	}
-	x = 40
+	relative_position_id = KOA_Atom_of_Freedom
+	x = -5
 	y = 1
-	completion_reward = {
-	}
-}
 
-shared_focus = {
-	id = KOA_Codding_Economic
-	icon = GFX_focus_KOA_Codding_Economic
-	cost = 7
 	prerequisite = {
-		focus = KOA_Ecologic_Tradition_Akorn
+		focus = KOA_Atom_of_Freedom
 	}
 	mutually_exclusive = {
-		focus = KOA_Eco_Management
-	}
-	x = 40
-	y = 2
-	completion_reward = {
+		focus = KOA_Energy_Trapped_in_a_Ring
 	}
 }
 
 shared_focus = {
-	id = KOA_Eco_Management
-	icon = GFX_focus_KOA_Eco_Management
+	id = KOA_Energy_Trapped_in_a_Ring
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Atom_of_Freedom
+	x = 5
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Ecologic_Tradition_Akorn
+		focus = KOA_Atom_of_Freedom
 	}
 	mutually_exclusive = {
-		focus = KOA_Codding_Economic
+		focus = KOA_Energy_Trapped_in_a_Ring
 	}
-	x = 43
+}
+
+shared_focus = {
+	id = KOA_Robots_Making_Robots
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Heat_Water_Nothing_Extra
+	x = -2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Heat_Water_Nothing_Extra
+	}
+}
+
+shared_focus = {
+	id = KOA_Tractor_without_a_Driver
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Heat_Water_Nothing_Extra
+	x = 2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Heat_Water_Nothing_Extra
+	}
+}
+
+shared_focus = {
+	id = KOA_Cracking_the_Depths_of_Mines
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Robots_Making_Robots
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Robots_Making_Robots
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Tractor_without_a_Driver
+	}
+}
+
+shared_focus = {
+	id = KOA_On_the_Dawn_of_Metallurgy
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Robots_Making_Robots
+	x = 2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Robots_Making_Robots
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Tractor_without_a_Driver
+	}
+}
+
+shared_focus = {
+	id = KOA_Dont_Forget_the_Oil_While_Making_Guns
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Tractor_without_a_Driver
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Robots_Making_Robots
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Tractor_without_a_Driver
+	}
+}
+
+shared_focus = {
+	id = KOA_Respect_the_Petrochem
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Cracking_the_Depths_of_Mines
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Cracking_the_Depths_of_Mines
+	}
+	prerequisite = {
+		focus = KOA_On_the_Dawn_of_Metallurgy
+	}
+}
+
+shared_focus = {
+	id = KOA_Heavy_And_Thunderous_Metal
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Dont_Forget_the_Oil_While_Making_Guns
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Dont_Forget_the_Oil_While_Making_Guns
+	}
+	prerequisite = {
+		focus = KOA_On_the_Dawn_of_Metallurgy
+	}
+}
+
+shared_focus = {
+	id = KOA_Integration_From_Ordering_to_Delivery
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Respect_the_Petrochem
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Respect_the_Petrochem
+	}
+	prerequisite = {
+		focus = KOA_Heavy_And_Thunderous_Metal
+	}
+}
+
+shared_focus = {
+	id = KOA_Factory_as_an_Ecosystem
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Energy_Trapped_in_a_Ring
+	x = -2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Energy_Trapped_in_a_Ring
+	}
+}
+
+shared_focus = {
+	id = KOA_Future_of_Wasteless_Production
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Energy_Trapped_in_a_Ring
+	x = 2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Energy_Trapped_in_a_Ring
+	}
+}
+
+shared_focus = {
+	id = KOA_Precise_Like_a_Laser
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Factory_as_an_Ecosystem
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Factory_as_an_Ecosystem
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Future_of_Wasteless_Production
+	}
+}
+
+shared_focus = {
+	id = KOA_Green_Construction_Set
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Factory_as_an_Ecosystem
+	x = 2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Factory_as_an_Ecosystem
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Future_of_Wasteless_Production
+	}
+}
+
+shared_focus = {
+	id = KOA_Millions_of_Years_in_One_Cycle
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Factory_as_an_Ecosystem
+	x = 4
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Factory_as_an_Ecosystem
+	}
+	prerequisite = {
+		focus = KOA_Miracles_of_Nanite_Assembly
+	}
+	prerequisite = {
+		focus = KOA_Future_of_Wasteless_Production
+	}
+}
+
+shared_focus = {
+	id = KOA_Nanites_are_Grains_of_Progress
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Precise_Like_a_Laser
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Precise_Like_a_Laser
+	}
+	prerequisite = {
+		focus = KOA_Green_Construction_Set
+	}
+}
+
+shared_focus = {
+	id = KOA_Big_Pharma
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Millions_of_Years_in_One_Cycle
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Green_Construction_Set
+	}
+	prerequisite = {
+		focus = KOA_Millions_of_Years_in_One_Cycle
+	}
+}
+
+shared_focus = {
+	id = KOA_Harmony_of_Nature_and_Technology
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Nanites_are_Grains_of_Progress
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Nanites_are_Grains_of_Progress
+	}
+	prerequisite = {
+		focus = KOA_Big_Pharma
+	}
+}
+
+shared_focus = {
+	id = KOA_Great_Nanite_Construction
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Economy_Raised_from_the_Ashes
+	x = -13
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Economy_Raised_from_the_Ashes
+	}
+}
+
+shared_focus = {
+	id = KOA_Two_Oceans_Port
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Great_Nanite_Construction
+	x = -3
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Great_Nanite_Construction
+	}
+}
+
+shared_focus = {
+	id = KOA_South_Trade_Path
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Two_Oceans_Port
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Two_Oceans_Port
+	}
+}
+
+shared_focus = {
+	id = KOA_From_Plantations_to_Robofarms
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_South_Trade_Path
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_South_Trade_Path
+	}
+}
+
+shared_focus = {
+	id = KOA_Chrome_Lithium_Rush
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Great_Nanite_Construction
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Great_Nanite_Construction
+	}
+}
+
+shared_focus = {
+	id = KOA_Haywood_Automotive
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Chrome_Lithium_Rush
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Chrome_Lithium_Rush
+	}
+}
+
+shared_focus = {
+	id = KOA_Excavator_Revolution
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Haywood_Automotive
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Haywood_Automotive
+	}
+}
+
+shared_focus = {
+	id = KOA_North_East_Highway
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Great_Nanite_Construction
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Great_Nanite_Construction
+	}
+}
+
+shared_focus = {
+	id = KOA_Uabtec_Industries
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_North_East_Highway
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_North_East_Highway
+	}
+}
+
+shared_focus = {
+	id = KOA_Oil_Islands
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Uabtec_Industries
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Uabtec_Industries
+	}
+}
+
+shared_focus = {
+	id = KOA_Lights_of_New_Mobotropolis
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Great_Nanite_Construction
+	x = 3
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Great_Nanite_Construction
+	}
+}
+
+shared_focus = {
+	id = KOA_Big_Royal_Datacenter
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Lights_of_New_Mobotropolis
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Lights_of_New_Mobotropolis
+	}
+}
+
+shared_focus = {
+	id = KOA_On_the_Path_to_the_Quantum_Era
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Big_Royal_Datacenter
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Big_Royal_Datacenter
+	}
+}
+
+shared_focus = {
+	id = KOA_From_the_Center_to_the_Outskirts
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Excavator_Revolution
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_From_Plantations_to_Robofarms
+		focus = KOA_Excavator_Revolution
+		focus = KOA_Oil_Islands
+		focus = KOA_On_the_Path_to_the_Quantum_Era
+	}
+}
+
+shared_focus = {
+	id = KOA_New_Royal_Academy
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_From_the_Center_to_the_Outskirts
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_From_the_Center_to_the_Outskirts
+	}
+}
+
+shared_focus = {
+	id = KOA_Reconstruction_of_the_Acorn_Palace
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_From_the_Center_to_the_Outskirts
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_From_the_Center_to_the_Outskirts
+	}
+}
+
+shared_focus = {
+	id = KOA_Museum_of_Heroes
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_From_the_Center_to_the_Outskirts
+	x = 0
 	y = 2
-	completion_reward = {
+
+	prerequisite = {
+		focus = KOA_From_the_Center_to_the_Outskirts
 	}
 }
 
 shared_focus = {
-	id = KOA_Import_Federation
-	icon = GFX_focus_KOA_Import_Federation
+	id = KOA_Royal_Infrastructure_Act
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Economy_Raised_from_the_Ashes
+	x = 13
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Eco_Management
-		focus = KOA_Codding_Economic
-	}
-	x = 40
-	y = 3
-	completion_reward = {
+		focus = KOA_Economy_Raised_from_the_Ashes
 	}
 }
 
 shared_focus = {
-	id = KOA_Build_init
-	icon = GFX_focus_KOA_Build_init
+	id = KOA_Mobilising_Workforce
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Royal_Infrastructure_Act
+	x = -2
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Eco_Management
-		focus = KOA_Codding_Economic
-	}
-	x = 42
-	y = 3
-	completion_reward = {
+		focus = KOA_Royal_Infrastructure_Act
 	}
 }
 
 shared_focus = {
-	id = KOA_Concern_Chak_Morgan
-	icon = GFX_focus_KOA_Concern_Chak_Morgan
+	id = KOA_Highway_75_Program
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Mobilising_Workforce
+	x = -1
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Import_Federation
-	}
-	prerequisite = {
-		focus = KOA_Build_init
-	}
-	x = 40
-	y = 4
-	completion_reward = {
+		focus = KOA_Mobilising_Workforce
 	}
 }
 
 shared_focus = {
-	id = KOA_Statistic_Heavy_Artillery
-	icon = GFX_focus_KOA_Statistic_Heavy_Artillery
+	id = KOA_Royal_Express
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Highway_75_Program
+	x = 0
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Concern_Chak_Morgan
-		focus = KOA_Robot_Farm
-	}
-	x = 39
-	y = 5
-	completion_reward = {
+		focus = KOA_Highway_75_Program
 	}
 }
 
 shared_focus = {
-	id = KOA_New_New_city
-	icon = GFX_focus_KOA_New_New_city
+	id = KOA_Down_to_a_Minute
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Royal_Express
+	x = 0
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Build_init
-	}
-	prerequisite = {
-		focus = KOA_Import_Federation
-	}
-	x = 42
-	y = 4
-	completion_reward = {
+		focus = KOA_Royal_Express
 	}
 }
 
 shared_focus = {
-	id = KOA_Forest_resourse
-	icon = GFX_focus_kings_university
+	id = KOA_Echo_of_RSM
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Mobilising_Workforce
+	x = 1
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Eco_Management
-		focus = KOA_Codding_Economic
-	}
-	x = 44
-	y = 3
-	completion_reward = {
+		focus = KOA_Mobilising_Workforce
 	}
 }
 
 shared_focus = {
-	id = KOA_Zombie_A
-	icon = GFX_focus_KOA_Zombie_A
+	id = KOA_Cities_Gone_Online
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Echo_of_RSM
+	x = 0
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Eco_Management
-		focus = KOA_Codding_Economic
-	}
-	x = 46
-	y = 3
-	completion_reward = {
+		focus = KOA_Echo_of_RSM
 	}
 }
 
 shared_focus = {
-	id = KOA_New_Road
-	icon = GFX_focus_KOA_New_Road
+	id = KOA_National_Datacenter_Network
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_Cities_Gone_Online
+	x = 0
+	y = 1
+
 	prerequisite = {
-		focus = KOA_Forest_resourse
-	}
-	prerequisite = {
-		focus = KOA_Zombie_A
-	}
-	x = 44
-	y = 4
-	completion_reward = {
+		focus = KOA_Cities_Gone_Online
 	}
 }
 
 shared_focus = {
-	id = KOA_Region
-	icon = GFX_focus_KOA_Region
+	id = KOA_Nicole_Integration
+	icon = GFX_obsolete_template_overlay
 	cost = 7
+	relative_position_id = KOA_National_Datacenter_Network
+	x = -1
+	y = 1
+
 	prerequisite = {
-		focus = KOA_New_New_city
+		focus = KOA_Down_to_a_Minute
 	}
 	prerequisite = {
-		focus = KOA_New_Road
+		focus = KOA_National_Datacenter_Network
+	}
+}
+
+shared_focus = {
+	id = KOA_Paying_Veterans_Respect
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Royal_Infrastructure_Act
+	x = 2
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Royal_Infrastructure_Act
+	}
+}
+
+shared_focus = {
+	id = KOA_Nobody_Without_a_House
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Paying_Veterans_Respect
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Paying_Veterans_Respect
+	}
+}
+
+shared_focus = {
+	id = KOA_Healthcare_for_the_People
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Nobody_Without_a_House
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Nobody_Without_a_House
+	}
+}
+
+shared_focus = {
+	id = KOA_Rescue_Patrols
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Healthcare_for_the_People
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Healthcare_for_the_People
+	}
+}
+
+shared_focus = {
+	id = KOA_School_Renovation_Act
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Paying_Veterans_Respect
+	x = 1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Paying_Veterans_Respect
+	}
+}
+
+shared_focus = {
+	id = KOA_Public_University_Program
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_School_Renovation_Act
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_School_Renovation_Act
+	}
+}
+
+shared_focus = {
+	id = KOA_From_the_Bench_into_the_Industry
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_Public_University_Program
+	x = 0
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Public_University_Program
+	}
+}
+
+shared_focus = {
+	id = KOA_Poverty_Fighters
+	icon = GFX_obsolete_template_overlay
+	cost = 7
+	relative_position_id = KOA_From_the_Bench_into_the_Industry
+	x = -1
+	y = 1
+
+	prerequisite = {
+		focus = KOA_Rescue_Patrols
 	}
 	prerequisite = {
-		focus = KOA_Concern_Chak_Morgan
-	}
-	x = 42
-	y = 5
-	completion_reward = {
+		focus = KOA_From_the_Bench_into_the_Industry
 	}
 }
 
