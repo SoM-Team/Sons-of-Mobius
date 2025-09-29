@@ -51,10 +51,13 @@ technologies = {
 		}
 	}
 	motostrelkovoe_nastuplenie = {
+		xor = {
+			SPA_support
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_all_infantry = {
-			max_organisation = 15
+			max_organisation = 5
 		}
 		path = {
 			leads_to_tech = defensive_maneuvers
@@ -85,25 +88,25 @@ technologies = {
 			hard_attack = 0.1
 			soft_attack = 0.1
 		}
-		mot_artillery_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			soft_attack = 0.1
-		}
-		mot_anti_tank_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			soft_attack = 0.1
-		}
-		mot_anti_air_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			soft_attack = 0.1
-		}
+		# mot_artillery_brigade = {
+		# 	maximum_speed = 0.1
+		# 	hard_attack = 0.1
+		# 	soft_attack = 0.1
+		# }
+		# mot_anti_tank_brigade = {
+		# 	maximum_speed = 0.1
+		# 	hard_attack = 0.1
+		# 	soft_attack = 0.1
+		# }
+		# mot_anti_air_brigade = {
+		# 	maximum_speed = 0.1
+		# 	hard_attack = 0.1
+		# 	soft_attack = 0.1
+		# }
 		amphibious_mechanized = {
 			maximum_speed = 0.1
-			hard_attack = 0.2
-			soft_attack = 0.2
+			hard_attack = 0.1
+			soft_attack = 0.1
 		}
 		doctrine = yes
 		research_cost = 4.5
@@ -134,9 +137,6 @@ technologies = {
 	defensive_maneuvers = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		category_all_infantry = {
-			max_organisation = 15
-		}
 		enable_tactic = tactic_elastic_defense
 		path = {
 			leads_to_tech = coverage_tactics
@@ -180,11 +180,32 @@ technologies = {
 		}
 	}
 	SPA_support = {
+		xor = {
+			motostrelkovoe_nastuplenie
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		# medium_tank_artillery = {
 		# 	hard_attack = 0.1
 		# 	soft_attack = 0.1
+		# }
+		support_armored_anti_tank = {
+			ap_attack = 0.1
+			hard_attack = 0.1
+			max_organisation = 3
+		}
+		support_armored_railgun = {
+			ap_attack = 0.05
+			hard_attack = 0.05
+			max_organisation = 3
+		}
+		support_armored_anti_air = {
+			air_agility = 0.1
+			max_organisation = 3
+		}
+		# support_armored_artillery = {
+		# 	soft_attack = 0.15
+		# 	max_organisation = 3
 		# }
 		enable_tactic = tactic_overwhelming_fire
 		path = {
@@ -222,10 +243,19 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_tanks = {
-			default_morale = 0.1
+			default_morale = 0.05
+			max_organisation = 2
+			reliability = 0.05
 		}
 		ifv_mechanized = {
-			default_morale = 0.2
+			default_morale = 0.1
+			max_organisation = 5
+			reliability = 0.05
+		}
+		apc_mechanized = {
+			default_morale = 0.1
+			max_organisation = 5
+			reliability = 0.05
 		}
 		# medium_tank_artillery = {
 		# 	default_morale = 0.1
@@ -263,18 +293,10 @@ technologies = {
 	coverage_tactics = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		motorized = {
-			soft_attack = 0.1
-		}
-		# mechanized = {
-		# 	soft_attack = 0.1
-		# }
-		apc_mechanized = {
-			soft_attack = 0.1
-		}
-		ifv_mechanized = {
-			soft_attack = 0.1
-		}
+		initiative_factor = 0.05
+		org_loss_when_moving = -0.05
+		org_loss_at_low_org_factor = -0.1
+		recon_factor = 0.1
 		#enable_tactic = 
 		path = {
 			leads_to_tech = mobile_supply
@@ -311,10 +333,16 @@ technologies = {
 		}
 	}
 	mobile_supply = {
+		xor = {
+			lightning_onslaught
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		supply_consumption_factor = -0.1
-		enable_tactic = tactic_relentless_assault
+		supply_node_range = 0.05
+		truck_attrition_factor = -0.05
+		attrition = -0.05
+		# enable_tactic = tactic_relentless_assault
 		path = {
 			leads_to_tech = vulnerability_analysis
 			research_cost_coeff = 1
@@ -346,26 +374,16 @@ technologies = {
 		}
 	}
 	lightning_onslaught = {
+		xor = {
+			mobile_supply
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_tanks = {
-			max_organisation = 5
+			breakthrough = 0.2
 		}
-		motorized = {
-			max_organisation = 5
-		}
-		# mechanized = {
-		# 	max_organisation = 5
-		# }
-		apc_mechanized = {
-			max_organisation = 5
-		}
-		ifv_mechanized = {
-			max_organisation = 5
-		}
-		amphibious_mechanized = {
-			max_organisation = 5
-		}
+		org_loss_when_moving = -0.05
+		army_speed_factor = 0.05
 		enable_tactic = tactic_breakthrough
 		path = {
 			leads_to_tech = vulnerability_analysis
@@ -400,49 +418,15 @@ technologies = {
 	vulnerability_analysis = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		enable_tactic = tactic_breakthrough
+		# enable_tactic = tactic_breakthrough
 		path = {
 			leads_to_tech = cutting_an_artery
 			research_cost_coeff = 1
 		}
-		max_planning = 0.1
-		category_tanks = {
-			maximum_speed = 0.1
-		}
-		armored_anti_tank_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.2
-		}
-		anti_tank = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.2
-		}
-		anti_tank_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.2
-		}
-		mot_anti_tank_brigade = {
-			maximum_speed = 0.1
-			hard_attack = 0.1
-			ap_attack = 0.2
-		}
-		motorized = {
-			maximum_speed = 0.1
-		}
-		# mechanized = {
-		# 	maximum_speed = 0.1
-		# }
-		apc_mechanized = {
-			maximum_speed = 0.1
-		}
-		ifv_mechanized = {
-			maximum_speed = 0.1
-		}
-		armored_car = {
-			maximum_speed = 0.1
+		planning_speed = 0.1
+		breakthrough_factor = 0.1
+		category_army = {
+			ap_attack = 0.05
 		}
 		doctrine = yes
 		research_cost = 4.5
@@ -473,31 +457,24 @@ technologies = {
 	cutting_an_artery = {
 		xp_research_type = army
 		xp_unlock_cost = 100
+		additional_brigade_column_size = 1
+		category_tanks = {
+			breakthrough = 0.2
+			max_organisation = 3
+		}
 		motorized = {
-			maximum_speed = 0.1
 			max_organisation = 10
 			default_morale = 0.1
 		}
-		# mechanized = {
-		# 	maximum_speed = 0.1
-		# 	max_organisation = 10
-		# 	default_morale = 0.1
-		# }
 		apc_mechanized = {
-			maximum_speed = 0.1
 			max_organisation = 10
 			default_morale = 0.1
 		}
 		ifv_mechanized = {
-			maximum_speed = 0.1
 			max_organisation = 10
 			default_morale = 0.1
 		}
-		armored_car = {
-			maximum_speed = 0.1
-			max_organisation = 10
-			default_morale = 0.1
-		}
+		org_loss_when_moving = -0.05
 		#enable_tactic = tactic_delay
 		path = {
 			leads_to_tech = air_spetsnaz
@@ -534,12 +511,24 @@ technologies = {
 		}
 	}
 	naval_commandos = {
+		# something about modern backhand blow
 		xp_research_type = army
 		xp_unlock_cost = 100
-		special_forces_cap = 0.05
-		marine = {
-			max_organisation = 15
-			supply_consumption_factor = -0.3
+		category_tanks = {
+			armor_value = 0.2
+			defence = 0.25
+			max_organisation = 3
+		}
+		ifv_mechanized = {
+			armor_value = 0.2
+			defence = 0.1
+			entrenchment = 0.1
+			air_attack = 0.2
+		}
+		apc_mechanized = {
+			armor_value = 0.2
+			defence = 0.1
+			entrenchment = 0.1
 		}
 		xor = {
 			air_spetsnaz
@@ -575,12 +564,13 @@ technologies = {
 		}
 	}
 	coastal_assault = {
+		# modern backhand blow
 		xp_research_type = army
 		xp_unlock_cost = 100
-		marine = {
-			soft_attack = 0.36
-			hard_attack = 0.67
-		}
+		enable_tactic = modern_backhand_blow
+		army_morale_factor = 0.1
+		max_organisation = 5
+		org_loss_at_low_org_factor = -0.15
 		doctrine = yes
 		research_cost = 4.5
 		categories = {
@@ -608,13 +598,26 @@ technologies = {
 		}
 	}
 	air_spetsnaz = {
+		# something about modern blitzkrieg
 		xp_research_type = army
 		xp_unlock_cost = 100
-		special_forces_cap = 0.05
-		paratrooper = {
-			max_organisation = 15
-			supply_consumption_factor = -0.3
-			default_morale = 10
+		coordination_bonus = 0.05
+		planning_speed = 0.1
+		army_attack_speed_factor = 0.15
+		category_tanks = {
+			hard_attack = 0.1
+			soft_attack = 0.1
+			ap_attack = 0.1
+		}
+		ifv_mechanized = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+			ap_attack = 0.15
+		}
+		apc_mechanized = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+			ap_attack = 0.15
 		}
 		xor = {
 			naval_commandos
@@ -650,13 +653,27 @@ technologies = {
 		}
 	}
 	air_assault_attack = {
+		# modern blitzkrieg
 		xp_research_type = army
 		xp_unlock_cost = 100
-		paratrooper = {
-			soft_attack = 0.36
-			hard_attack = 0.67
+		enable_tactic = modern_blitz
+		org_loss_when_moving = -0.1
+		army_speed_factor = 0.1
+		category_army = {
+			breakthrough = 0.1
 		}
-		army_bonus_air_superiority_factor = 0.2
+		category_tanks = {
+			fuel_consumption_factor = -0.1
+			max_organisation = 2
+		}
+		ifv_mechanized = {
+			fuel_consumption_factor = -0.1
+			max_organisation = 5
+		}
+		apc_mechanized = {
+			fuel_consumption_factor = -0.1
+			max_organisation = 5
+		}
 		doctrine = yes
 		research_cost = 4.5
 		categories = {
@@ -700,9 +717,10 @@ technologies = {
 			leads_to_tech = flesh_is_weak
 			research_cost_coeff = 1
 		}
-		planning_speed = 0.2
+		org_loss_when_moving = -0.05
 		category_robots = {
-			breakthrough = 0.1
+			max_organisation = 10
+			default_morale = 0.1
 		}
 		enable_tactic = mechanical_onslaught
 		doctrine = yes
@@ -740,25 +758,34 @@ technologies = {
 		androids = {
 			max_organisation = 10
 			maximum_speed = 0.05
+			defense = 0.1
 		}
 		light_robots = {
 			max_organisation = 10
 			maximum_speed = 0.05
+			defense = 0.1
 		}
 		medium_robots = {
 			max_organisation = 7
 			maximum_speed = 0.05
+			defense = 0.1
 		}
 		heavy_robots = {
 			max_organisation = 3
 			maximum_speed = 0.05
+			defense = 0.1
 		}
 		mega_robot = {
-			max_organisation = 15
+			max_organisation = 1
 			maximum_speed = 0.05
+			defense = 0.1
 		}
 		category_all_infantry = {
 			max_organisation = 10
+			defense = 0.1
+		}
+		category_light_infantry = {
+			maximum_speed = 0.2
 		}
 		path = {
 			leads_to_tech = AI_in_tactical_planning
@@ -793,8 +820,9 @@ technologies = {
 	AI_in_tactical_planning = {
 		xp_research_type = army
 		xp_unlock_cost = 100
+		max_planning = 0.1
 		planning_speed = 0.2
-		max_planning = 0.2
+		max_command_power = 30
 		#		path = {
 		#			leads_to_tech = peering_structure_of_the_division    
 		#			research_cost_coeff = 1
@@ -858,11 +886,11 @@ technologies = {
 			max_organisation = 1
 		}
 		mega_robot = {
-			max_organisation = 8
+			max_organisation = 1
 		}
 		robians = {
-			max_organisation = 32
-			default_morale = 0.15
+			max_organisation = 6
+			default_morale = 0.05
 		}
 		folder = {
 			name = land_doctrine_folder
@@ -890,30 +918,25 @@ technologies = {
 		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		androids = {
-			max_organisation = 20
-			maximum_speed = 0.15
-		}
 		light_robots = {
-			max_organisation = 20
-			maximum_speed = 0.15
+			max_organisation = 10
+			maximum_speed = 0.05
+			breakthrough = 0.1
 		}
 		medium_robots = {
-			max_organisation = 15
-			maximum_speed = 0.15
+			max_organisation = 7
+			maximum_speed = 0.05
+			breakthrough = 0.1
 		}
 		heavy_robots = {
-			max_organisation = 12
-			maximum_speed = 0.15
+			max_organisation = 3
+			maximum_speed = 0.05
+			breakthrough = 0.1
 		}
 		mega_robot = {
-			max_organisation = 30
-			maximum_speed = 0.2
-		}
-		robians = {
-			max_organisation = 32
-			maximum_speed = 0.15
-			default_morale = 0.15
+			max_organisation = 1
+			maximum_speed = 0.05
+			breakthrough = 0.1
 		}
 		path = {
 			leads_to_tech = peering_structure_of_the_division
@@ -948,14 +971,27 @@ technologies = {
 	peering_structure_of_the_division = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		category_robots = {
-			soft_attack = 0.12
+		light_robots = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			air_attack = 0.1
+		}
+		medium_robots = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			air_attack = 0.1
+		}
+		heavy_robots = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			air_attack = 0.1
+		}
+		mega_robot = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			air_attack = 0.1
 		}
 		enable_tactic = tactic_tactical_withdrawal
-		path = {
-			leads_to_tech = AI_in_tactical_planning
-			research_cost_coeff = 1
-		}
 		path = {
 			leads_to_tech = cleanup_protocols
 			research_cost_coeff = 1
@@ -990,9 +1026,11 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_robots = {
-			hard_attack = 0.12
+			# hard_attack = 0.12
+			suppression_factor = 0.25
 		}
-		enable_tactic = tactic_tactical_withdrawal
+		resistance_damage_to_garrison = -0.2
+		# enable_tactic = tactic_tactical_withdrawal
 		path = {
 			leads_to_tech = adaptive_formations
 			research_cost_coeff = 1
@@ -1027,9 +1065,10 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_robots = {
-			supply_consumption_factor = -0.1
+			# supply_consumption_factor = -0.1
+			fuel_consumption_factor = -0.1
 		}
-		supply_consumption_factor = -0.1
+		org_loss_when_moving = -0.05
 		enable_tactic = tactic_elastic_defense
 		path = {
 			leads_to_tech = unmanned_reconnaissance
@@ -1074,10 +1113,47 @@ technologies = {
 		}
 	}
 	unmanned_reconnaissance = {
+		xor = {
+			self_recovery_organization
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_recon = {
-			recon = 1
+			recon = 2
+		}
+		robot_recon = {
+			forest = {
+				attack = 0.05
+				defence = 0.05
+			}
+			hills = {
+				attack = 0.05
+				defence = 0.05
+			}
+			mountain = {
+				attack = 0.05
+				defence = 0.05
+			}
+			jungle = {
+				attack = 0.05
+				defence = 0.05
+			}
+			marsh = {
+				attack = 0.05
+				defence = 0.05
+			}
+			plains = {
+				attack = 0.05
+				defence = 0.05
+			}
+			desert = {
+				attack = 0.05
+				defence = 0.05
+			}
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
 		}
 		path = {
 			leads_to_tech = intellectual_tactics
@@ -1112,22 +1188,27 @@ technologies = {
 	intellectual_tactics = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		xor = {
-			horde_of_machines
-		}
 		androids = {
 			max_organisation = 15
 		}
-		medium_robots = {
-			max_organisation = 9
-		}
-		heavy_robots = {
+		robians = {
 			max_organisation = 5
 		}
-		mega_robot = {
-			max_organisation = 10
+		elite_robians = {
+			max_organisation = 5
 		}
-		max_planning = 0.2
+		# medium_robots = {
+		# 	max_organisation = 9
+		# }
+		# heavy_robots = {
+		# 	max_organisation = 5
+		# }
+		# mega_robot = {
+		# 	max_organisation = 10
+		# }
+		max_planning = 0.05
+		special_forces_cap = 0.05
+		additional_brigade_column_size = 1
 		path = {
 			leads_to_tech = scenario_combat_program
 			research_cost_coeff = 1
@@ -1165,18 +1246,21 @@ technologies = {
 			soft_attack = 0.1
 			hard_attack = 0.1
 		}
-		medium_robots = {
+		light_robots = {
 			soft_attack = 0.15
+			hard_attack = 0.05
+		}
+		medium_robots = {
+			soft_attack = 0.1
 			hard_attack = 0.1
 		}
 		heavy_robots = {
-			soft_attack = 0.1
+			soft_attack = 0.05
 			hard_attack = 0.15
 		}
 		mega_robot = {
-			max_organisation = 25
-			soft_attack = 0.06
-			hard_attack = 0.06
+			soft_attack = 0.05
+			hard_attack = 0.05
 		}
 		path = {
 			leads_to_tech = advantages_of_mechanisms
@@ -1213,6 +1297,10 @@ technologies = {
 		xp_unlock_cost = 100
 		androids = {
 			breakthrough = 0.1
+			hardness = 1
+		}
+		light_robots = {
+			breakthrough = 0.1
 		}
 		medium_robots = {
 			breakthrough = 0.1
@@ -1221,7 +1309,9 @@ technologies = {
 			breakthrough = 0.1
 		}
 		mega_robot = {
-			max_organisation = 25
+			breakthrough = 0.1
+		}
+		elite_robians = {
 			breakthrough = 0.1
 		}
 		doctrine = yes
@@ -1251,10 +1341,29 @@ technologies = {
 		}
 	}
 	self_recovery_organization = {
+		xor = {
+			unmanned_reconnaissance
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		enable_tactic = tactic_backhand_blow
-		land_reinforce_rate = 0.02
+		light_robots = {
+			max_organisation = 5
+			defense = 0.1
+		}
+		medium_robots = {
+			max_organisation = 5
+			defense = 0.1
+		}
+		heavy_robots = {
+			max_organisation = 5
+			defense = 0.1
+		}
+		mega_robot = {
+			max_organisation = 1
+			defense = 0.1
+		}
+		land_reinforce_rate = 0.1
 		path = {
 			leads_to_tech = horde_of_machines
 			research_cost_coeff = 1
@@ -1288,12 +1397,9 @@ technologies = {
 	horde_of_machines = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		xor = {
-			intellectual_tactics
-		}
-		category_robots = {
-			default_morale = 0.15
-		}
+		org_loss_when_moving = -0.1
+		additional_brigade_column_size = 1
+		coordination_bonus = 0.05
 		path = {
 			leads_to_tech = deadly_swarm
 			research_cost_coeff = 1
@@ -1327,14 +1433,20 @@ technologies = {
 	deadly_swarm = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		army_bonus_air_superiority_factor = 0.2
+		army_bonus_air_superiority_factor = 0.15
 		light_robots = {
-			soft_attack = 0.12
-			hard_attack = 0.12
+			soft_attack = 0.05
+			hard_attack = 0.05
 		}
-		robians = {
-			max_organisation = 12
-			default_morale = 0.06
+		drone = {
+			air_ground_attack = 0.1
+		}
+		kamikaze_drone = {
+			battalion_mult = {
+				category = category_robots
+				soft_attack = 0.05
+				hard_attack = 0.05
+			}
 		}
 		path = {
 			leads_to_tech = endless_wave
@@ -1369,12 +1481,18 @@ technologies = {
 	endless_wave = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		land_reinforce_rate = 0.2
+		land_reinforce_rate = 0.05
 		light_robots = {
-			combat_width = -0.5
+			combat_width = -0.4
 		}
 		robians = {
 			combat_width = -0.4
+		}
+		elite_robians = {
+			combat_width = -0.4
+		}
+		category_robots = {
+			maximum_speed = 0.1
 		}
 		doctrine = yes
 		research_cost = 2.25
@@ -1412,6 +1530,10 @@ technologies = {
 			unrestricted_warfare_theory
 		}
 		max_planning = 0.1
+		category_all_infantry = {
+			# defence = 0.1
+			defense = 0.1
+		}
 		enable_tactic = tactic_delay
 		path = {
 			leads_to_tech = safe_distance
@@ -1449,12 +1571,30 @@ technologies = {
 		}
 	}
 	safe_distance = {
+		xor = {
+			stripping_methods
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_recon = {
 			recon = 1
 		}
 		enable_tactic = tactic_overwhelming_fire
+		category_artillery = {
+			soft_attack = 0.1
+			defense = 0.1
+		}
+		category_anti_tank = {
+			hard_attack = 0.1
+			defense = 0.1
+		}
+		category_anti_air = {
+			air_attack = 0.1
+			defense = 0.1
+		}
+		category_all_infantry = {
+			defense = 0.1
+		}
 		path = {
 			leads_to_tech = air_safety
 			research_cost_coeff = 1
@@ -1488,18 +1628,18 @@ technologies = {
 	air_safety = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		army_bonus_air_superiority_factor = 0.2
-		anti_air = {
-			max_organisation = 3
+		static_anti_air_hit_chance_factor = 0.05
+		static_anti_air_damage_factor = 0.1
+		enemy_army_bonus_air_superiority_factor = -0.2
+		category_anti_air = {
+			max_organisation = 5
+			air_attack = 0.05
 		}
-		anti_air_brigade = {
-			max_organisation = 3
+		sam_missile = {
+			air_attack = 0.1
 		}
-		mot_anti_air_brigade = {
-			max_organisation = 3
-		}
-		armored_anti_air_brigade = {
-			max_organisation = 3
+		category_army = {
+			air_attack = 0.05
 		}
 		path = {
 			leads_to_tech = equipment_of_positions
@@ -1533,28 +1673,17 @@ technologies = {
 		}
 	}
 	stripping_methods = {
+		xor = {
+			safe_distance
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		army_bonus_air_superiority_factor = 0.2
-		artillery = {
+		army_bonus_air_superiority_factor = 0.1
+		category_artillery = {
 			soft_attack = 0.1
-			hard_attack = 0.15
-		}
-		artillery_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.15
-		}
-		mot_artillery_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.15
-		}
-		# medium_tank_artillery = {
-		# 	soft_attack = 0.1
-		# 	hard_attack = 0.15
-		# }
-		motorized_rocket_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.15
+			hard_attack = 0.1
+			ap_attack = 0.15
+			max_organisation = 5
 		}
 		enable_tactic = tactic_barrage
 		path = {
@@ -1593,6 +1722,33 @@ technologies = {
 		motorized_rocket_brigade = {
 			soft_attack = 0.1
 			hard_attack = 0.15
+			ap_attack = 1
+		}
+		anti_tank = {
+			soft_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.05
+		}
+		mot_anti_tank_brigade = {
+			soft_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.05
+		}
+		anti_tank_brigade = {
+			soft_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.05
+		}
+		armored_anti_tank_brigade = {
+			soft_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.05
+		}
+		sam_missile = {
+			air_attack = 0.1
+		}
+		guided_missile = {
+			air_bombing = 0.1
 		}
 		path = {
 			leads_to_tech = equipment_of_positions
@@ -1627,11 +1783,11 @@ technologies = {
 	equipment_of_positions = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		max_dig_in = 10
-		dig_in_speed_factor = 0.25		#25% bonus
-		category_line_artillery = {
-			default_morale = 0.2
-			max_organisation = 5
+		additional_brigade_column_size = 1
+		max_dig_in = 5
+		dig_in_speed_factor = 0.5		#25% bonus
+		category_all_infantry = {
+			max_organisation = 10
 		}
 		path = {
 			leads_to_tech = satellite_war
@@ -1666,8 +1822,14 @@ technologies = {
 	satellite_war = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		land_reinforce_rate = 0.02
+		land_reinforce_rate = 0.05
 		army_speed_factor = 0.1
+		category_army = {
+			recon = 1
+		}
+		air_close_air_support_org_damage_factor = 0.1
+		air_bombing_targetting = 0.2
+		recon_factor = 0.1
 		enable_tactic = tactic_unexpected_thrust
 		path = {
 			leads_to_tech = diversification_of_exposure
@@ -1704,32 +1866,52 @@ technologies = {
 		}
 	}
 	diversification_of_exposure = {
+		xor = {
+			air_escort
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		artillery = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			breakthrough = 0.1
+		kamikaze_drone = {
+			soft_attack = 0.15
+			hard_attack = 0.15
+			breakthrough = 0.15
 		}
-		artillery_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			breakthrough = 0.1
+		recon_drone = {
+			recon = 2
+			river = {
+				defence = 0.05
+			}
+			forest = {
+				defence = 0.05
+			}
+			hills = {
+				defence = 0.05
+			}
+			mountain = {
+				defence = 0.05
+			}
+			marsh = {
+				defence = 0.05
+			}
+			plains = {
+				defence = 0.1
+			}
+			jungle = {
+				defence = 0.05
+			}
+			urban = {
+				defence = 0.05
+			}
+			amphibious = {
+				defence = 0.05
+			}
+			desert = {
+				defence = 0.1
+			}
 		}
-		mot_artillery_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			breakthrough = 0.1
-		}
-		# medium_tank_artillery = {
-		# 	soft_attack = 0.1
-		# 	hard_attack = 0.1
-		# 	breakthrough = 0.1
-		# }
-		motorized_rocket_brigade = {
-			soft_attack = 0.1
-			hard_attack = 0.1
-			breakthrough = 0.1
+		field_hospital_with_medical_drones = {
+			experience_loss_factor = -0.04
+			max_strength = 0.05
 		}
 		path = {
 			leads_to_tech = satellite_correction
@@ -1762,9 +1944,67 @@ technologies = {
 		}
 	}
 	air_escort = {
+		xor = {
+			diversification_of_exposure
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		air_cas_present_factor = 0.2
+		air_cas_present_factor = 0.1
+		army_bonus_air_superiority_factor = 0.05
+		helicopter_recon = {
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.01
+				default_morale = 0.03
+				breakthrough = 0.1
+			}
+			recon = 2
+			forest = {
+				movement = 0.05
+			}
+			hills = {
+				movement = 0.05
+			}
+			mountain = {
+				movement = 0.05
+			}
+			plains = {
+				movement = 0.05
+			}
+			jungle = {
+				movement = 0.05
+			}
+			marsh = {
+				movement = 0.05
+			}
+			desert = {
+				movement = 0.05
+			}
+			river = {
+				movement = 0.05
+			}
+			amphibious = {
+				movement = 0.05
+			}
+			urban = {
+				movement = 0.05
+			}
+		}
+		helicopter_transport = {
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.01
+				default_morale = 0.01
+			}
+		}
+		helicopter_field_hospital = {
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				default_morale = 0.06
+				max_strength = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = satellite_correction
 			research_cost_coeff = 1
@@ -1798,27 +2038,64 @@ technologies = {
 	satellite_correction = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		supply_consumption_factor = -0.1
-		artillery = {
+		# supply_consumption_factor = -0.1
+		category_artillery = {
 			soft_attack = 0.1
+			ap_attack = 0.1
+			hard_attack = 0.05
 			supply_consumption_factor = -0.1
 		}
-		artillery_brigade = {
-			soft_attack = 0.1
+		armored_anti_air_brigade = {
+			air_attack = 0.05
 			supply_consumption_factor = -0.1
 		}
-		mot_artillery_brigade = {
-			soft_attack = 0.1
+		support_armored_anti_air = {
+			air_attack = 0.05
 			supply_consumption_factor = -0.1
 		}
-		# medium_tank_artillery = {
+		armored_anti_tank_brigade = {
+			supply_consumption_factor = -0.1
+		}
+		support_armored_anti_tank = {
+			supply_consumption_factor = -0.1
+		}
+		railgun_anti_tank = {
+			supply_consumption_factor = -0.1
+		}
+		railgun_anti_tank_brigade = {
+			supply_consumption_factor = -0.1
+		}
+		support_armored_railgun = {
+			supply_consumption_factor = -0.1
+		}
+		railgun_armor = {
+			supply_consumption_factor = -0.1
+		}
+		coordination_bonus = 0.05
+		static_anti_air_hit_chance_factor = 0.05
+		category_anti_air = {
+			air_attack = 0.05
+		}
+		# artillery = {
 		# 	soft_attack = 0.1
 		# 	supply_consumption_factor = -0.1
 		# }
-		motorized_rocket_brigade = {
-			soft_attack = 0.1
-			supply_consumption_factor = -0.1
-		}
+		# artillery_brigade = {
+		# 	soft_attack = 0.1
+		# 	supply_consumption_factor = -0.1
+		# }
+		# mot_artillery_brigade = {
+		# 	soft_attack = 0.1
+		# 	supply_consumption_factor = -0.1
+		# }
+		# # medium_tank_artillery = {
+		# # 	soft_attack = 0.1
+		# # 	supply_consumption_factor = -0.1
+		# # }
+		# motorized_rocket_brigade = {
+		# 	soft_attack = 0.1
+		# 	supply_consumption_factor = -0.1
+		# }
 		path = {
 			leads_to_tech = multiple_shelling
 			research_cost_coeff = 1
@@ -1922,6 +2199,32 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		#enable_tactic = 
+		artillery = {
+			max_organisation = 3
+			soft_attack = 0.1
+			hard_attack = 0.1
+			battalion_mult = {
+				category = category_army
+				breakthrough = 0.025
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				soft_attack = 0.05
+			}
+		}
+		support_motorized_rocket = {
+			max_organisation = 3
+			soft_attack = 0.1
+			hard_attack = 0.1
+			battalion_mult = {
+				category = category_army
+				breakthrough = 0.025
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				soft_attack = 0.05
+			}
+		}
 		path = {
 			leads_to_tech = advancing_on_ashes
 			research_cost_coeff = 1
@@ -1960,7 +2263,18 @@ technologies = {
 		xp_unlock_cost = 100
 		doctrine = yes
 		research_cost = 2.25
-		supply_consumption_factor = -0.1
+		org_loss_when_moving = -0.15
+		army_attack_speed_factor = 0.15
+		attrition = -0.1
+		category_all_infantry = {
+			max_organisation = 5
+			fort = {
+				attack = 0.1
+			}
+			urban = {
+				attack = 0.1
+			}
+		}
 		categories = {
 			land_doctrine
 			cat_contactless_battle_theory
@@ -1989,6 +2303,24 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		#enable_tactic = 
+		air_cas_present_factor = 0.05
+		cas = {
+			ground_attack_factor = 0.05
+		}
+		tac_bomber = {
+			ground_attack_factor = 0.05
+		}
+		attack_helicopter = {
+			ground_attack_factor = 0.1
+		}
+		kamikaze_drone = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			battalion_mult = {
+				category = category_all_infantry
+				defense = 0.1
+			}
+		}
 		path = {
 			leads_to_tech = night_shelling
 			research_cost_coeff = 1
@@ -2025,9 +2357,19 @@ technologies = {
 	night_shelling = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		land_night_attack = 0.25		# negates half of base penalty
+		land_night_attack = 0.05
 		category_special_forces = {
-			breakthrough = 0.1
+			night = {
+				movement = 0.1
+				attack = 0.05
+				defense = 0.05
+			}
+		}
+		air_strategic_bomber_night_penalty = -0.1
+		cas = {
+			night = {
+				attack = 0.1
+			}
 		}
 		doctrine = yes
 		research_cost = 2.25
@@ -2073,9 +2415,17 @@ technologies = {
 			leads_to_tech = collecting_enemy_weapons
 			research_cost_coeff = 1
 		}
-		enable_tactic = tactic_guerrilla_tactics
+		enable_tactic = tactic_human_wave_tactics
+		weekly_casualties_war_support = 0.001
 		land_reinforce_rate = 0.02
-		minimum_training_level = -0.1
+		# minimum_training_level = -0.1
+		training_time_army_factor = -0.15
+		category_light_infantry = {
+			max_organisation = 10
+		}
+		category_all_infantry = {
+			max_organisation = 5
+		}
 		doctrine = yes
 		research_cost = 2.25
 		categories = {
@@ -2103,10 +2453,16 @@ technologies = {
 		}
 	}
 	t_popular_mobilization = {
+		# military draft
+		xor = {
+			collecting_enemy_weapons
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		conscription = 0.06
-		production_speed_arms_factory_factor = 0.1
+		conscription = 0.015
+		recruitable_population_factor = 0.05
+		mobilization_speed = 0.15
+		# production_speed_arms_factory_factor = 0.1
 		path = {
 			leads_to_tech = t_coverage_tactics
 			research_cost_coeff = 1
@@ -2138,10 +2494,16 @@ technologies = {
 		}
 	}
 	collecting_enemy_weapons = {
+		# volunteer corps
+		xor = {
+			t_popular_mobilization
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		equipment_capture = 0.03
-		equipment_capture_factor = 0.5
+		recruitable_population_factor = 0.1
+		mobilization_speed = 0.15
+		minimum_training_level = -0.05
+		training_time_army_factor = -0.05
 		path = {
 			leads_to_tech = t_coverage_tactics
 			research_cost_coeff = 1
@@ -2173,11 +2535,16 @@ technologies = {
 		}
 	}
 	t_coverage_tactics = {
+		# envelopment
 		xp_research_type = army
 		xp_unlock_cost = 100
-		category_light_infantry = {
-			soft_attack = 0.05
+		category_all_infantry = {
+			max_organisation = 10
+			default_morale = 0.05
 		}
+		supply_consumption_factor = -0.1
+		# army_attack_speed_factor = 0.15
+		# org_loss_when_moving = -0.1
 		enable_tactic = tactic_encirclement
 		path = {
 			leads_to_tech = t_ideological_war
@@ -2185,14 +2552,6 @@ technologies = {
 		}
 		path = {
 			leads_to_tech = t_economic_war
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = t_peoples_war
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = t_engineering_war
 			research_cost_coeff = 1
 		}
 		doctrine = yes
@@ -2222,12 +2581,20 @@ technologies = {
 		}
 	}
 	t_economic_war = {
+		# rename to psychologic warfare
+		xor = {
+			t_ideological_war
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
-		consumer_goods_factor = -0.05
-		resistance_damage_to_garrison_on_our_occupied_states = 0.5
+		mobilization_speed = 0.15
+		weekly_casualties_war_support = 0.001
+		category_army = {
+			max_organisation = 5
+			default_morale = 0.1
+		}
 		path = {
-			leads_to_tech = t_mobile_units
+			leads_to_tech = t_terrain_transformation
 			research_cost_coeff = 1
 		}
 		doctrine = yes
@@ -2260,105 +2627,83 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		path = {
-			leads_to_tech = t_engineering_war
+			leads_to_tech = t_mining_of_the_territory
 			research_cost_coeff = 1
 		}
-		category_light_infantry = {
+		additional_brigade_column_size = 1
+		org_loss_when_moving = -0.1
+		supply_node_range = 0.1
+		main_battle_armor = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 2
+			breakthrough = 0.15
+			initiative_factor = 0.01
 		}
 		motorized = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
-		# mechanized = {
-		# 	maximum_speed = 0.1
-		# 	default_morale = 0.1
-		# }
+		motorcycle_battalion = {
+			maximum_speed = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
+		}
 		apc_mechanized = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
 		ifv_mechanized = {
 			maximum_speed = 0.1
-			default_morale = 0.1
-		}
-		armored_car = {
-			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
 		mot_artillery_brigade = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
 		mot_anti_tank_brigade = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
 		mot_anti_air_brigade = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
-		amphibious_mechanized = {
+		armored_anti_air_brigade = {
 			maximum_speed = 0.1
-			default_morale = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
-		doctrine = yes
-		research_cost = 2.25
-		categories = {
-			land_doctrine
-			cat_unrestricted_warfare_theory
+		armored_anti_tank_brigade = {
+			maximum_speed = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
-		folder = {
-			name = land_doctrine_folder
-			position = {
-				x = 2
-				y = 8
-			}
+		railgun_armor = {
+			maximum_speed = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
-		ai_will_do = {
-			modifier = {
-				not = {
-					has_army_experience > 120
-				}
-				factor = 0.8
-			}
-			factor = 20
-		}
-		ai_research_weights = {
-			infantry_weapons = 4
-		}
-	}
-	t_engineering_war = {
-		xp_research_type = army
-		xp_unlock_cost = 100
-		xor = {
-			t_peoples_war
-		}
-		max_dig_in = 20
-		dig_in_speed = 2
-		category_support_battalions = {
-			max_organisation = 10
-			default_morale = 0.1
-		}
-		engineer = {
-			entrenchment = 2
-			fort = {
-				defence = 0.05
-				attack = 0.05
-			}
-			river = {
-				attack = 0.05
-				defence = 0.05
-			}
-			urban = {
-				attack = 0.05
-				defence = 0.05
-			}
-		}
-		path = {
-			leads_to_tech = t_terrain_transformation
-			research_cost_coeff = 1
+		motorized_rocket_brigade = {
+			maximum_speed = 0.1
+			max_organisation = 5
+			breakthrough = 0.25
+			initiative_factor = 0.01
 		}
 		doctrine = yes
 		research_cost = 2.25
@@ -2386,48 +2731,132 @@ technologies = {
 			infantry_weapons = 4
 		}
 	}
-	t_terrain_transformation = {
+	t_engineering_war = {
+		# environmental war
 		xp_research_type = army
 		xp_unlock_cost = 100
-		defence = 0.15
-		dig_in_speed = 2
-		# enable_tactic =
-		path = {
-			leads_to_tech = t_mining_of_the_territory
-			research_cost_coeff = 1
-		}
-		doctrine = yes
-		research_cost = 2.25
-		categories = {
-			land_doctrine
-			cat_unrestricted_warfare_theory
-		}
-		folder = {
-			name = land_doctrine_folder
-			position = {
-				x = 2
-				y = 12
+		max_dig_in = 5
+		dig_in_speed_factor = 0.25
+		engineer = {
+			fort = {
+				defence = 0.05
+				attack = 0.05
+			}
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
+			urban = {
+				attack = 0.05
+				defence = 0.05
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				breakthrough = 0.1
+			}
+			battalion_mult = {
+				category = category_all_armor
+				max_organisation = 0.01
+				breakthrough = 0.01
 			}
 		}
-		ai_will_do = {
-			modifier = {
-				not = {
-					has_army_experience > 120
-				}
-				factor = 0.8
+		military_engineering_vehicle = {
+			fort = {
+				defence = 0.05
+				attack = 0.05
 			}
-			factor = 20
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
+			urban = {
+				attack = 0.05
+				defence = 0.05
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				breakthrough = 0.1
+			}
+			battalion_mult = {
+				category = category_all_armor
+				max_organisation = 0.01
+				breakthrough = 0.01
+			}
 		}
-		ai_research_weights = {
-			infantry_weapons = 4
+		robot_engineer = {
+			fort = {
+				defence = 0.05
+				attack = 0.05
+			}
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
+			urban = {
+				attack = 0.05
+				defence = 0.05
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				breakthrough = 0.1
+			}
+			battalion_mult = {
+				category = category_all_armor
+				max_organisation = 0.01
+				breakthrough = 0.01
+			}
 		}
-	}
-	t_mining_of_the_territory = {
-		xp_research_type = army
-		xp_unlock_cost = 100
-		max_dig_in = 10
-		defence = 0.15
-		# enable_tactic =
+		armored_engineer = {
+			fort = {
+				defence = 0.05
+				attack = 0.05
+			}
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
+			urban = {
+				attack = 0.05
+				defence = 0.05
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				breakthrough = 0.1
+			}
+			battalion_mult = {
+				category = category_all_armor
+				max_organisation = 0.01
+				breakthrough = 0.01
+			}
+		}
+		assault_engineer = {
+			fort = {
+				defence = 0.05
+				attack = 0.05
+			}
+			river = {
+				attack = 0.05
+				defence = 0.05
+			}
+			urban = {
+				attack = 0.05
+				defence = 0.05
+			}
+			battalion_mult = {
+				category = category_all_infantry
+				max_organisation = 0.03
+				breakthrough = 0.1
+			}
+			battalion_mult = {
+				category = category_all_armor
+				max_organisation = 0.01
+				breakthrough = 0.01
+			}
+		}
 		path = {
 			leads_to_tech = t_night_war
 			research_cost_coeff = 1
@@ -2458,12 +2887,169 @@ technologies = {
 			infantry_weapons = 4
 		}
 	}
+	t_terrain_transformation = {
+		# resource war
+		xp_research_type = army
+		xp_unlock_cost = 100
+		supply_consumption_factor = -0.1
+		supply_node_range = 0.1
+		no_supply_grace = 48
+		out_of_supply_factor = -0.2
+		pocket_penalty = -0.2
+		attrition = -0.1
+		path = {
+			leads_to_tech = t_mobile_units
+			research_cost_coeff = 1
+		}
+		doctrine = yes
+		research_cost = 2.25
+		categories = {
+			land_doctrine
+			cat_unrestricted_warfare_theory
+		}
+		folder = {
+			name = land_doctrine_folder
+			position = {
+				x = 2
+				y = 8
+			}
+		}
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		ai_research_weights = {
+			infantry_weapons = 4
+		}
+	}
+	t_mining_of_the_territory = {
+		# full scale offensive
+		xp_research_type = army
+		xp_unlock_cost = 100
+		infantry = {
+			combat_width = -0.4
+		}
+		marine = {
+			combat_width = -0.4
+		}
+		paratrooper = {
+			combat_width = -0.4
+		}
+		jagers = {
+			combat_width = -0.4
+		}
+		mountaineers = {
+			combat_width = -0.4
+		}
+		bicycle_battalion = {
+			combat_width = -0.4
+		}
+		marine_commando = {
+			combat_width = -0.4
+		}
+		advanced_infantry = {
+			combat_width = -0.4
+		}
+		penal_battalion = {
+			combat_width = -0.4
+		}
+		militia = {
+			combat_width = -0.4
+		}
+		irregular_infantry = {
+			combat_width = -0.4
+		}
+		main_battle_armor = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+		}
+		motorized = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+		}
+		motorcycle_battalion = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+		}
+		apc_mechanized = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+		}
+		ifv_mechanized = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+			air_attack = 0.25
+		}
+		bmd_mechanized = {
+			combat_width = -0.4
+			fuel_consumption_factor = -0.1
+			breakthrough = 0.05
+		}
+		armored_anti_air_brigade = {
+			combat_width = -0.4
+		}
+		armored_anti_tank_brigade = {
+			combat_width = -0.4
+		}
+		railgun_armor = {
+			combat_width = -0.4
+		}
+		motorized_rocket_brigade = {
+			combat_width = -0.4
+		}
+		path = {
+			leads_to_tech = t_engineering_war
+			research_cost_coeff = 1
+		}
+		doctrine = yes
+		research_cost = 2.25
+		categories = {
+			land_doctrine
+			cat_unrestricted_warfare_theory
+		}
+		folder = {
+			name = land_doctrine_folder
+			position = {
+				x = 2
+				y = 12
+			}
+		}
+		ai_will_do = {
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+			factor = 20
+		}
+		ai_research_weights = {
+			infantry_weapons = 4
+		}
+	}
 	t_ideological_war = {
+		xor = {
+			t_economic_war
+		}
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_army = {
-			default_morale = 0.2
+			default_morale = 0.05
 		}
+		resistance_damage_to_garrison_on_our_occupied_states = 0.1
+		resistance_growth_on_our_occupied_states = 0.15
+		compliance_growth_on_our_occupied_states = -0.05
+		resistance_target_on_our_occupied_states = 0.05
 		# enable_tactic =
 		path = {
 			leads_to_tech = t_terrorist_attack
@@ -2496,9 +3082,15 @@ technologies = {
 		}
 	}
 	t_terrorist_attack = {
+		# переименовать в локализации в "акцию устрашения"
 		xp_research_type = army
 		xp_unlock_cost = 100
-		# enable_tactic =
+		enable_tactic = tactic_guerrilla_tactics
+		resistance_decay_on_our_occupied_states = -0.1
+		resistance_damage_to_garrison_on_our_occupied_states = 0.05
+		operation_targeted_sabotage_industry_outcome = 0.5
+		operation_targeted_sabotage_infrastructure_outcome = 0.5
+		operation_targeted_sabotage_resources_outcome = 0.5
 		path = {
 			leads_to_tech = t_peoples_war
 			research_cost_coeff = 1
@@ -2532,14 +3124,21 @@ technologies = {
 	t_peoples_war = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		xor = {
-			t_engineering_war
+		additional_brigade_column_size = 1
+		category_light_infantry = {
+			default_morale = 0.3
+			defence = 0.1
 		}
-		category_all_infantry = {
-			default_morale = 0.15
+		category_army = {
+			default_morale = 0.05
 		}
-		resistance_growth_on_our_occupied_states = 0.25
+		army_core_attack_factor = 0.1
+		army_core_defence_factor = 0.1
+		resistance_growth_on_our_occupied_states = 0.05
+		land_reinforce_rate = 0.1
 		attrition = -0.1		#take 10% less attrition losses
+		conscription = 0.035
+		pocket_penalty = -0.2
 		path = {
 			leads_to_tech = t_full_scale_breakthrough
 			research_cost_coeff = 1
@@ -2577,10 +3176,68 @@ technologies = {
 		category_tanks = {
 			maximum_speed = 0.1
 			breakthrough = 0.1
+			max_organisation = 2
 		}
-		category_all_infantry = {
+		infantry = {
+			combat_width = -0.4
 			maximum_speed = 0.1
 			breakthrough = 0.15
+		}
+		marine = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		paratrooper = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		jagers = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		mountaineers = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		bicycle_battalion = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		marine_commando = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		advanced_infantry = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		penal_battalion = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		militia = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		irregular_infantry = {
+			combat_width = -0.4
+			maximum_speed = 0.1
+			breakthrough = 0.15
+		}
+		category_artillery = {
+			breakthrough = 0.1
+		}
+		category_all_infantry = {
+			max_organisation = 10
 		}
 		path = {
 			leads_to_tech = t_autonomous_movement
@@ -2613,11 +3270,18 @@ technologies = {
 		}
 	}
 	t_autonomous_movement = {
+		# в централизованное наступление
 		xp_research_type = army
 		xp_unlock_cost = 100
 		no_supply_grace = 48		# more hours before supply penalty changes
-		out_of_supply_factor = -0.1
+		out_of_supply_factor = -0.3
 		planning_speed = 0.2
+		org_loss_when_moving = -0.1
+		supply_consumption_factor = -0.05
+		fuel_consumption_factor = -0.1
+		category_light_infantry = {
+			max_organisation = 5
+		}
 		path = {
 			leads_to_tech = t_night_war
 			research_cost_coeff = 1
@@ -2651,10 +3315,257 @@ technologies = {
 	t_night_war = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		land_night_attack = 0.2
-		path = {
-			leads_to_tech = t_night_war
-			research_cost_coeff = 1
+		# infantry = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# marine = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# paratrooper = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# jagers = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# mountaineers = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# bicycle_battalion = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# marine_commando = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# advanced_infantry = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# penal_battalion = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# militia = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# irregular_infantry = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# main_battle_armor = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# motorized = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# motorcycle_battalion = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# apc_mechanized = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# ifv_mechanized = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# bmd_mechanized = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# armored_anti_air_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# armored_anti_tank_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# railgun_armor = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# motorized_rocket_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# artillery_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# mot_artillery_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# railgun_anti_tank_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# anti_tank_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# mot_anti_tank_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# anti_air_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# mot_anti_air_brigade = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# hovertank_armor = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		# advanced_infantry = {
+		# 	night = {
+		# 		movement = 0.2
+		# 		attack = 0.1
+		# 		defence = 0.15
+		# 	}
+		# }
+		mot_recon = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
+		}
+		recon_drone = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
+		}
+		helicopter_recon = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
+		}
+		armored_reconnaissance_vehicle = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
+		}
+		light_tank_recon = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
+		}
+		robot_recon = {
+			night = {
+				movement = 0.2
+				attack = 0.1
+				defence = 0.15
+			}
 		}
 		doctrine = yes
 		research_cost = 2.25
