@@ -794,10 +794,17 @@ shared_focus = {
 #Economic Treee
 shared_focus = {
 	id = KOA_Economy_Raised_from_the_Ashes
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	x = 110
 	y = 0
+
+	completion_reward = {
+		add_timed_idea = {
+			idea = Country_Recovery
+			days = 180
+		}
+	}
 }
 
 shared_focus = {
@@ -816,7 +823,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Atom_of_Freedom
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Economy_Raised_from_the_Ashes
 	x = 0
@@ -825,11 +832,17 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Economy_Raised_from_the_Ashes
 	}
+
+	completion_reward = {
+		capital_scope = {
+			add_extra_state_shared_building_slots = 4
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Miracles_of_Nanite_Assembly
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Atom_of_Freedom
 	x = 0
@@ -839,11 +852,15 @@ shared_focus = {
 		focus = KOA_Heat_Water_Nothing_Extra
 		focus = KOA_Energy_Trapped_in_a_Ring
 	}
+
+	completion_reward = {
+		add_ideas = Liquid_Production_Line
+	}
 }
 
 shared_focus = {
 	id = KOA_Heat_Water_Nothing_Extra
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Atom_of_Freedom
 	x = -5
@@ -855,11 +872,68 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = KOA_Energy_Trapped_in_a_Ring
 	}
+
+	completion_reward = {
+		2 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = dam
+				level = 1
+				instant_build = yes
+			}
+		}
+		3 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = dam
+				level = 1
+				instant_build = yes
+			}
+			
+		}
+		4 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = dam
+				level = 1
+				instant_build = yes
+			}
+			
+		}
+		12 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = dam
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Energy_Trapped_in_a_Ring
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Atom_of_Freedom
 	x = 5
@@ -875,7 +949,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Robots_Making_Robots
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Heat_Water_Nothing_Extra
 	x = -2
@@ -884,11 +958,34 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Heat_Water_Nothing_Extra
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = industry_line_category
+			uses = 1
+			bonus = 1
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = canal_panama
+				level = x
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = canal_panama
+				level = x
+			}
+		}
+		add_ideas = Automation_Squared
+	}
 }
 
 shared_focus = {
 	id = KOA_Tractor_without_a_Driver
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Heat_Water_Nothing_Extra
 	x = 2
@@ -897,11 +994,19 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Heat_Water_Nothing_Extra
 	}
+	
+	completion_reward = {
+		add_tech_bonus = {
+			category = industrial_automation
+			uses = 1
+			bonus = 1
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Cracking_the_Depths_of_Mines
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Robots_Making_Robots
 	x = 0
@@ -916,11 +1021,19 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Tractor_without_a_Driver
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = excavation_tech
+			uses = 2
+			bonus = 1
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_On_the_Dawn_of_Metallurgy
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Robots_Making_Robots
 	x = 2
@@ -935,11 +1048,35 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Tractor_without_a_Driver
 	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = steel_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = steel_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = steel_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Dont_Forget_the_Oil_While_Making_Guns
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Tractor_without_a_Driver
 	x = 0
@@ -954,11 +1091,47 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Tractor_without_a_Driver
 	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Respect_the_Petrochem
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Cracking_the_Depths_of_Mines
 	x = 1
@@ -970,11 +1143,27 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_On_the_Dawn_of_Metallurgy
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = synth_resources
+			uses = 2
+			bonus = 3
+		}
+		20 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Heavy_And_Thunderous_Metal
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Dont_Forget_the_Oil_While_Making_Guns
 	x = -1
@@ -986,11 +1175,50 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_On_the_Dawn_of_Metallurgy
 	}
+
+	completion_reward = {
+		7 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = chromium
+				amount = 8
+			}
+		}
+		28 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = tungsten
+				amount = 8
+			}
+		}
+		16 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_resource = {
+				type = aluminium
+				amount = 8
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Integration_From_Ordering_to_Delivery
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Respect_the_Petrochem
 	x = 1
@@ -1002,11 +1230,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Heavy_And_Thunderous_Metal
 	}
+
+	completion_reward = {
+		add_ideas = Closed_Production_Cycle
+	}
 }
 
 shared_focus = {
 	id = KOA_Factory_as_an_Ecosystem
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Energy_Trapped_in_a_Ring
 	x = -2
@@ -1015,11 +1247,19 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Energy_Trapped_in_a_Ring
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = industry
+			uses = 2
+			bonus = 1
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Future_of_Wasteless_Production
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Energy_Trapped_in_a_Ring
 	x = 2
@@ -1028,11 +1268,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Energy_Trapped_in_a_Ring
 	}
+
+	completion_reward = {
+		add_ideas = Use_Everything
+	}
 }
 
 shared_focus = {
 	id = KOA_Precise_Like_a_Laser
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Factory_as_an_Ecosystem
 	x = 0
@@ -1047,11 +1291,19 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Future_of_Wasteless_Production
 	}
+	
+	completion_reward = {
+		add_tech_bonus = {
+			category = industry
+			uses = 1
+			bonus = 1
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Green_Construction_Set
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Factory_as_an_Ecosystem
 	x = 2
@@ -1066,11 +1318,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Future_of_Wasteless_Production
 	}
+
+	completion_reward = {
+		add_ideas = Green_Engineering
+	}
 }
 
 shared_focus = {
 	id = KOA_Millions_of_Years_in_One_Cycle
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Factory_as_an_Ecosystem
 	x = 4
@@ -1089,7 +1345,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Nanites_are_Grains_of_Progress
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Precise_Like_a_Laser
 	x = 1
@@ -1105,7 +1361,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Big_Pharma
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Millions_of_Years_in_One_Cycle
 	x = -1
@@ -1117,11 +1373,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Millions_of_Years_in_One_Cycle
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = Green_Engineering
+			add_idea = Science_of_Living
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Harmony_of_Nature_and_Technology
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Nanites_are_Grains_of_Progress
 	x = 1
@@ -1133,11 +1396,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Big_Pharma
 	}
+
+	completion_reward = {
+		add_ideas = Harmony_of_Nature_and_Technology
+	}
 }
 
 shared_focus = {
 	id = KOA_Great_Nanite_Construction
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Economy_Raised_from_the_Ashes
 	x = -13
@@ -1150,7 +1417,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Two_Oceans_Port
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Great_Nanite_Construction
 	x = -3
@@ -1159,11 +1426,58 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Great_Nanite_Construction
 	}
+
+	completion_reward = {
+		22 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = naval_base
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_facility
+				level = 2
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_coastal = yes
+				}
+			}
+			add_building_construction = {
+				type = coastal_bunker
+				level = 1
+				instant_build = yes
+				province = 4378
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				instant_build = yes
+				province = 4378
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_South_Trade_Path
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Two_Oceans_Port
 	x = 0
@@ -1172,11 +1486,39 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Two_Oceans_Port
 	}
+
+	completion_reward = {
+		build_railway = {
+			level = 2
+			path = { 4772 4658 4573 4499 4378 }
+		}
+		23 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		27 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		7 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_From_Plantations_to_Robofarms
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_South_Trade_Path
 	x = 0
@@ -1185,11 +1527,68 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_South_Trade_Path
 	}
+
+	completion_reward = {
+		
+		23 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		28 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		21 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		25 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		26 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		
+		24 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Chrome_Lithium_Rush
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Great_Nanite_Construction
 	x = -1
@@ -1202,7 +1601,7 @@ shared_focus = {
 
 shared_focus = {
 	id = KOA_Haywood_Automotive
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Chrome_Lithium_Rush
 	x = 0
@@ -1211,11 +1610,30 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Chrome_Lithium_Rush
 	}
+
+	completion_reward = {
+		16 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		}
+		5 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Excavator_Revolution
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Haywood_Automotive
 	x = 0
@@ -1224,11 +1642,20 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Haywood_Automotive
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = excavation_tech
+			uses = 2
+			bonus = 1
+		}
+		add_ideas = Excavator_Revolution
+	}
 }
 
 shared_focus = {
 	id = KOA_North_East_Highway
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Great_Nanite_Construction
 	x = 1
@@ -1237,11 +1664,38 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Great_Nanite_Construction
 	}
+
+	completion_reward = {
+		build_railway = {
+			path = { 6257 6304 6329 6337 6383 6526 6594 6663 6724 6839 6907 }
+		}
+		11 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		8 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		10 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Uabtec_Industries
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_North_East_Highway
 	x = 0
@@ -1250,11 +1704,38 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_North_East_Highway
 	}
+
+	completion_reward = {
+		11 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		8 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		10 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Oil_Islands
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Uabtec_Industries
 	x = 0
@@ -1263,11 +1744,48 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Uabtec_Industries
 	}
+
+	completion_reward = {
+		31 = {
+			add_resource = {
+				type = oil
+				amount = 15
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+		30 = {
+			add_resource = {
+				type = oil
+				amount = 10
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = power_plant
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Lights_of_New_Mobotropolis
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Great_Nanite_Construction
 	x = 3
@@ -1276,11 +1794,26 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Great_Nanite_Construction
 	}
+
+	completion_reward = {
+		add_timed_idea = {
+			idea = On_the_Path_to_a_Prosperous_Capital
+			days = 365
+		}
+		capital = {
+			add_manpower = 400000
+			add_building_construction = {
+				type = infrastructure
+				level = 5
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Big_Royal_Datacenter
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Lights_of_New_Mobotropolis
 	x = 0
@@ -1289,11 +1822,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Lights_of_New_Mobotropolis
 	}
+
+	completion_reward = {
+		add_ideas = Royal_Data
+	}
 }
 
 shared_focus = {
 	id = KOA_On_the_Path_to_the_Quantum_Era
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Big_Royal_Datacenter
 	x = 0
@@ -1302,11 +1839,28 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Big_Royal_Datacenter
 	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			category = electronics
+			uses = 2
+			bonus = 1
+		}
+		swap_ideas = {
+			remove_idea = Royal_Data
+			add_idea = Royal_Data_2
+		}
+		capital = {
+			add_dynamic_modifier = {
+				modifier = Royal_Data_Capital
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_From_the_Center_to_the_Outskirts
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Excavator_Revolution
 	x = 1
@@ -1318,11 +1872,64 @@ shared_focus = {
 		focus = KOA_Oil_Islands
 		focus = KOA_On_the_Path_to_the_Quantum_Era
 	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				infrastructure < 5
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				infrastructure < 5
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				infrastructure < 5
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				infrastructure < 5
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				infrastructure < 5
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_New_Royal_Academy
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_From_the_Center_to_the_Outskirts
 	x = -1
@@ -1331,11 +1938,16 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_From_the_Center_to_the_Outskirts
 	}
+
+	completion_reward = {
+		add_research_slot = 1
+		add_political_power = 25
+	}
 }
 
 shared_focus = {
 	id = KOA_Reconstruction_of_the_Acorn_Palace
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_From_the_Center_to_the_Outskirts
 	x = 1
@@ -1344,11 +1956,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_From_the_Center_to_the_Outskirts
 	}
+
+	completion_reward = {
+		country_event = koa.361
+	}
 }
 
 shared_focus = {
 	id = KOA_Museum_of_Heroes
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_From_the_Center_to_the_Outskirts
 	x = 0
@@ -1357,11 +1973,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_From_the_Center_to_the_Outskirts
 	}
+
+	completion_reward = {
+		add_ideas = Museum_of_Heroes
+	}
 }
 
 shared_focus = {
 	id = KOA_Royal_Infrastructure_Act
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Economy_Raised_from_the_Ashes
 	x = 13
@@ -1370,11 +1990,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Economy_Raised_from_the_Ashes
 	}
+
+	completion_reward = {
+		add_timed_idea = {
+			idea = Infrastructure_Development
+			days = 180
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Mobilising_Workforce
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Royal_Infrastructure_Act
 	x = -2
@@ -1383,11 +2010,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Royal_Infrastructure_Act
 	}
+
+	completion_reward = {
+		add_ideas = Workforce_Mobilization
+	}
 }
 
 shared_focus = {
 	id = KOA_Highway_75_Program
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Mobilising_Workforce
 	x = -1
@@ -1396,11 +2027,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Mobilising_Workforce
 	}
+
+	completion_reward = {
+		add_ideas = New_Ways
+	}
 }
 
 shared_focus = {
 	id = KOA_Royal_Express
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Highway_75_Program
 	x = 0
@@ -1409,11 +2044,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Highway_75_Program
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Ways
+			add_idea = New_Ways_2
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Down_to_a_Minute
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Royal_Express
 	x = 0
@@ -1422,11 +2064,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Royal_Express
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Ways_2
+			add_idea = New_Ways_3
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Echo_of_RSM
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Mobilising_Workforce
 	x = 1
@@ -1435,11 +2084,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Mobilising_Workforce
 	}
+
+	completion_reward = {
+		add_ideas = New_Comm_Standards
+	}
 }
 
 shared_focus = {
 	id = KOA_Cities_Gone_Online
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Echo_of_RSM
 	x = 0
@@ -1448,11 +2101,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Echo_of_RSM
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Comm_Standards
+			add_idea = New_Comm_Standards_2
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_National_Datacenter_Network
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Cities_Gone_Online
 	x = 0
@@ -1461,11 +2121,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Cities_Gone_Online
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Comm_Standards_2
+			add_idea = New_Comm_Standards_3
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Nicole_Integration
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_National_Datacenter_Network
 	x = -1
@@ -1477,11 +2144,25 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_National_Datacenter_Network
 	}
+
+	completion_reward = {
+		add_advisor_role = {
+			character = KOA_Nicole_the_Holo_Lynx
+			activate = yes
+			advisor = {
+				slot = economic_minister
+				traits = {
+					economic_minister
+					nicole
+				}
+			}
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Paying_Veterans_Respect
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Royal_Infrastructure_Act
 	x = 2
@@ -1490,11 +2171,21 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Royal_Infrastructure_Act
 	}
+
+	completion_reward = {
+		add_war_support = 0.05  
+		army_experience = 25 
+		navy_experience = 10
+		air_experience = 10 
+		add_political_power = 50 
+
+		add_ideas = Veterans_of_Freedom
+	}
 }
 
 shared_focus = {
 	id = KOA_Nobody_Without_a_House
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Paying_Veterans_Respect
 	x = -1
@@ -1503,11 +2194,20 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Paying_Veterans_Respect
 	}
+
+	completion_reward = {
+		every_owned_state = {
+			add_extra_state_shared_building_slots = 1
+		}
+		add_stability = 0.1
+
+		add_ideas = New_Life_Movement
+	}
 }
 
 shared_focus = {
 	id = KOA_Healthcare_for_the_People
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Nobody_Without_a_House
 	x = 0
@@ -1516,11 +2216,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Nobody_Without_a_House
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Life_Movement
+			add_idea = New_Life_Movement_2
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Rescue_Patrols
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Healthcare_for_the_People
 	x = 0
@@ -1529,11 +2236,18 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Healthcare_for_the_People
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = New_Life_Movement_2
+			add_idea = New_Life_Movement_3
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_School_Renovation_Act
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Paying_Veterans_Respect
 	x = 1
@@ -1542,11 +2256,15 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Paying_Veterans_Respect
 	}
+
+	completion_reward = {
+		add_ideas = Light_of_Knowledge_Campaign
+	}
 }
 
 shared_focus = {
 	id = KOA_Public_University_Program
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_School_Renovation_Act
 	x = 0
@@ -1555,11 +2273,19 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_School_Renovation_Act
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = Light_of_Knowledge_Campaign
+			add_idea = Light_of_Knowledge_Campaign_2
+		}
+		add_research_slot = 1
+	}
 }
 
 shared_focus = {
 	id = KOA_From_the_Bench_into_the_Industry
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_Public_University_Program
 	x = 0
@@ -1568,11 +2294,23 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Public_University_Program
 	}
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = Light_of_Knowledge_Campaign_2
+			add_idea = Light_of_Knowledge_Campaign_3
+		}
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 3
+			category = industry
+		}
+	}
 }
 
 shared_focus = {
 	id = KOA_Poverty_Fighters
-	icon = GFX_obsolete_template_overlay
+	icon = GFX_goal_unknown
 	cost = 7
 	relative_position_id = KOA_From_the_Bench_into_the_Industry
 	x = -1
@@ -1583,6 +2321,12 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = KOA_From_the_Bench_into_the_Industry
+	}
+
+	completion_reward = {
+		remove_ideas = Light_of_Knowledge_Campaign_3
+		remove_ideas = New_Life_Movement_3
+		add_ideas = Light_of_Hope
 	}
 }
 
