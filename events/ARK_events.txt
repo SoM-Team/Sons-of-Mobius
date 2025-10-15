@@ -1,18 +1,48 @@
 add_namespace = ark
-
+add_namespace = ark_doomsday
 country_event = {
 	id = ark.666
 	title = ark.666.t
 	desc = ark.666.d
 	picture = GFX_report_event_revolution_Avisla
-	
 	fire_only_once = yes
-	
 	is_triggered_only = yes
-	
-	
 	option = {
 		name = ark.666.a
-		
+	}
+}
+
+country_event = {
+	id = ark_doomsday.1
+	title = ark_doomsday.1.t
+	desc = ark_doomsday.1.d
+	picture = GFX_report_event_revolution_Avisla
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ark_doomsday.1.a
+		country_event = {
+			id = ark_doomsday.2
+			days = 2
+		}
+	}
+}
+
+country_event = {
+	id = ark_doomsday.2
+	title = ark_doomsday.2.t
+	desc = ark_doomsday.2.d
+	hidden = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ark_doomsday.2.a
+		every_country = {
+            XYZ = {
+                annex_country = {
+                    target = PREV
+                }
+            }
+        }
 	}
 }
