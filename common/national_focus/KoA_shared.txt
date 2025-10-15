@@ -833,11 +833,7 @@ shared_focus = {
 		focus = KOA_Economy_Raised_from_the_Ashes
 	}
 
-	completion_reward = {
-		capital_scope = {
-			add_extra_state_shared_building_slots = 4
-		}
-	}
+	completion_reward = {}
 }
 
 shared_focus = {
@@ -855,6 +851,11 @@ shared_focus = {
 
 	completion_reward = {
 		add_ideas = Liquid_Production_Line
+		add_tech_bonus = {
+			category = nanites
+			uses = 2
+			bonus = 1
+		}
 	}
 }
 
@@ -871,6 +872,21 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = KOA_Energy_Trapped_in_a_Ring
+	}
+
+	available = {
+		2 = {
+			is_owned_and_controlled_by = prev
+		}
+		3 = {
+			is_owned_and_controlled_by = prev
+		}
+		4 = {
+			is_owned_and_controlled_by = prev
+		}
+		12 = {
+			is_owned_and_controlled_by = prev
+		}
 	}
 
 	completion_reward = {
@@ -943,7 +959,7 @@ shared_focus = {
 		focus = KOA_Atom_of_Freedom
 	}
 	mutually_exclusive = {
-		focus = KOA_Energy_Trapped_in_a_Ring
+		focus = KOA_Heat_Water_Nothing_Extra
 	}
 }
 
@@ -968,15 +984,15 @@ shared_focus = {
 		random_owned_controlled_state = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
-				type = canal_panama
-				level = x
+				type = industrial_complex
+				level = 1
 			}
 		}
 		random_owned_controlled_state = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
-				type = canal_panama
-				level = x
+				type = industrial_complex
+				level = 1
 			}
 		}
 		add_ideas = Automation_Squared
@@ -1143,6 +1159,11 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_On_the_Dawn_of_Metallurgy
 	}
+	available = {
+		20 = {
+			is_owned_and_controlled_by = prev
+		}
+	}
 
 	completion_reward = {
 		add_tech_bonus = {
@@ -1175,42 +1196,68 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_On_the_Dawn_of_Metallurgy
 	}
+	available = {
+		7 = {
+			is_owned_and_controlled_by = prev
+		}
+		16 = {
+			is_owned_and_controlled_by = prev
+		}
+		28 = {
+			is_owned_and_controlled_by = prev
+		}
+	}
 
 	completion_reward = {
 		7 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-			add_resource = {
-				type = chromium
-				amount = 8
+			if = {
+				limit = {
+					is_owned_and_controlled_by = PREV
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = chromium
+					amount = 8
+				}
 			}
 		}
 		28 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-			add_resource = {
-				type = tungsten
-				amount = 8
+			if = {
+				limit = {
+					is_owned_and_controlled_by = PREV
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = tungsten
+					amount = 8
+				}
 			}
 		}
 		16 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
-			add_resource = {
-				type = aluminium
-				amount = 8
+			if = {
+				limit = {
+					is_owned_and_controlled_by = PREV
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
 			}
 		}
 	}
@@ -1427,6 +1474,17 @@ shared_focus = {
 		focus = KOA_Great_Nanite_Construction
 	}
 
+	mutually_exclusive = {
+		focus = KOA_Chrome_Lithium_Rush
+		focus = KOA_North_East_Highway
+		focus = KOA_Lights_of_New_Mobotropolis
+	}
+	available = {
+		22 = {
+			is_owned_and_controlled_by = prev
+		}
+	}
+
 	completion_reward = {
 		22 = {
 			add_building_construction = {
@@ -1441,7 +1499,7 @@ shared_focus = {
 				instant_build = yes
 			}
 			add_building_construction = {
-				type = naval_facility
+				type = dockyard
 				level = 2
 				instant_build = yes
 			}
@@ -1486,6 +1544,17 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Two_Oceans_Port
 	}
+	available = {
+		7 = {
+			is_owned_and_controlled_by = prev
+		}
+		23 = {
+			is_owned_and_controlled_by = prev
+		}
+		27 = {
+			is_owned_and_controlled_by = prev
+		}
+	}
 
 	completion_reward = {
 		build_railway = {
@@ -1526,6 +1595,26 @@ shared_focus = {
 
 	prerequisite = {
 		focus = KOA_South_Trade_Path
+	}
+	available = {
+		21 = {
+			is_owned_and_controlled_by = prev
+		}
+		23 = {
+			is_owned_and_controlled_by = prev
+		}
+		24 = {
+			is_owned_and_controlled_by = prev
+		}
+		25 = {
+			is_owned_and_controlled_by = prev
+		}
+		26 = {
+			is_owned_and_controlled_by = prev
+		}
+		28 = {
+			is_owned_and_controlled_by = prev
+		}
 	}
 
 	completion_reward = {
@@ -1597,6 +1686,12 @@ shared_focus = {
 	prerequisite = {
 		focus = KOA_Great_Nanite_Construction
 	}
+
+	mutually_exclusive = {
+		focus = KOA_Two_Oceans_Port
+		focus = KOA_North_East_Highway
+		focus = KOA_Lights_of_New_Mobotropolis
+	}
 }
 
 shared_focus = {
@@ -1609,6 +1704,14 @@ shared_focus = {
 
 	prerequisite = {
 		focus = KOA_Chrome_Lithium_Rush
+	}
+	available = {
+		5 = {
+			is_owned_and_controlled_by = prev
+		}
+		16 = {
+			is_owned_and_controlled_by = prev
+		}
 	}
 
 	completion_reward = {
@@ -1665,6 +1768,23 @@ shared_focus = {
 		focus = KOA_Great_Nanite_Construction
 	}
 
+	mutually_exclusive = {
+		focus = KOA_Two_Oceans_Port
+		focus = KOA_Chrome_Lithium_Rush
+		focus = KOA_Lights_of_New_Mobotropolis
+	}
+	available = {
+		8 = {
+			is_owned_and_controlled_by = prev
+		}
+		10 = {
+			is_owned_and_controlled_by = prev
+		}
+		11 = {
+			is_owned_and_controlled_by = prev
+		}
+	}
+
 	completion_reward = {
 		build_railway = {
 			path = { 6257 6304 6329 6337 6383 6526 6594 6663 6724 6839 6907 }
@@ -1703,6 +1823,17 @@ shared_focus = {
 
 	prerequisite = {
 		focus = KOA_North_East_Highway
+	}
+	available = {
+		8 = {
+			is_owned_and_controlled_by = prev
+		}
+		10 = {
+			is_owned_and_controlled_by = prev
+		}
+		11 = {
+			is_owned_and_controlled_by = prev
+		}
 	}
 
 	completion_reward = {
@@ -1743,6 +1874,14 @@ shared_focus = {
 
 	prerequisite = {
 		focus = KOA_Uabtec_Industries
+	}
+	available = {
+		30 = {
+			is_owned_and_controlled_by = prev
+		}
+		31 = {
+			is_owned_and_controlled_by = prev
+		}
 	}
 
 	completion_reward = {
@@ -1795,12 +1934,18 @@ shared_focus = {
 		focus = KOA_Great_Nanite_Construction
 	}
 
+	mutually_exclusive = {
+		focus = KOA_Two_Oceans_Port
+		focus = KOA_Chrome_Lithium_Rush
+		focus = KOA_North_East_Highway
+	}
+
 	completion_reward = {
-		add_timed_idea = {
-			idea = On_the_Path_to_a_Prosperous_Capital
-			days = 365
-		}
 		capital = {
+			add_dynamic_modifier = {
+				modifier = On_the_Path_to_a_Prosperous_Capital
+				days = 365
+			}
 			add_manpower = 400000
 			add_building_construction = {
 				type = infrastructure
@@ -2151,6 +2296,7 @@ shared_focus = {
 			activate = yes
 			advisor = {
 				slot = economic_minister
+				idea_token = KOA_nicole_eco
 				traits = {
 					economic_minister
 					nicole
