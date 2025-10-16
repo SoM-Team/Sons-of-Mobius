@@ -210,6 +210,21 @@ ARK_space_colony = {
 			}
 		}
 	}
+	ARK_Test = {
+		available = {
+			always = yes
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			capital_scope = {
+				add_dynamic_modifier = {
+					modifier = Blasted_by_ARK
+				}
+			}
+		}
+	}
 	ARK_destroy_Eclipse_cannon = {
 		icon = GFX_decision_sabotage
 		available = {
@@ -305,8 +320,10 @@ ARK_space_colony = {
 		remove_effect = {
 			if = {
 				limit = {
-					check_variable = {
-						active_emeralds > 6
+					ROOT = {
+						check_variable = {
+							active_emeralds > 6
+						}
 					}
 				}
 				# utter chaos
@@ -314,11 +331,13 @@ ARK_space_colony = {
 			}
 			else_if = {
 				limit = {
-					check_variable = {
-						active_emeralds < 7
-					}
-					check_variable = {
-						active_emeralds > 4
+					ROOT = {
+						check_variable = {
+							active_emeralds < 7
+						}
+						check_variable = {
+							active_emeralds > 4
+						}
 					}
 				}
 				FROM = {
@@ -330,17 +349,22 @@ ARK_space_colony = {
 									use_nuke = no
 								}
 							}
+							add_dynamic_modifier = {
+								modifier = Blasted_by_ARK
+							}
 						}
 					}
 				}
 			}
 			else_if = {
 				limit = {
-					check_variable = {
-						active_emeralds < 5
-					}
-					check_variable = {
-						active_emeralds > 2
+					ROOT = {
+						check_variable = {
+							active_emeralds < 5
+						}
+						check_variable = {
+							active_emeralds > 2
+						}
 					}
 				}
 				FROM = {
@@ -352,15 +376,23 @@ ARK_space_colony = {
 									use_nuke = no
 								}
 							}
+							add_dynamic_modifier = {
+								modifier = Blasted_by_ARK
+							}
 						}
 					}
 				}
 			}
 			else_if = {
 				limit = {
-					check_variable = {
-						active_emeralds < 3
+					ROOT = {
+						check_variable = {
+							active_emeralds < 3
+						}
 					}
+				}
+				add_dynamic_modifier = {
+					modifier = Blasted_by_ARK
 				}
 				ROOT = {
 					launch_nuke = {

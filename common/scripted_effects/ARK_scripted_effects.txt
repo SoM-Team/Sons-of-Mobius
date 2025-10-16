@@ -1,15 +1,18 @@
 ARK_battle_Dock_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_1 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_1 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_1 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_1 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -36,7 +39,11 @@ ARK_battle_Dock_RCR = {
 			}
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
 				}
 				set_temp_variable = {
 					n = ARK_unit_number
@@ -53,7 +60,6 @@ ARK_battle_Dock_RCR = {
 					m = ARK_unit_number_area_1
 				}
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -70,14 +76,16 @@ ARK_battle_Dock_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
 				}
 				set_variable = {
 					ARK_unit_number = m
@@ -97,7 +105,11 @@ ARK_battle_Dock_RCR = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -175,7 +187,11 @@ ARK_battle_Dock_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -251,16 +267,28 @@ ARK_battle_Dock_RCR = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 2 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 2
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 2 }
+		set_variable = {
+			global.ARK_Dock_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -287,7 +315,11 @@ ARK_battle_Dock_RCR = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -304,7 +336,6 @@ ARK_battle_Dock_RCR = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -316,21 +347,22 @@ ARK_battle_Dock_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -345,12 +377,16 @@ ARK_battle_Dock_RCR = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 1
-					}
+				}
 			}
 			UFA = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -428,7 +464,11 @@ ARK_battle_Dock_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -503,16 +543,28 @@ ARK_battle_Dock_RCR = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 2 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 2
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 2 }
+		set_variable = {
+			global.ARK_Dock_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -539,7 +591,11 @@ ARK_battle_Dock_RCR = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -556,7 +612,6 @@ ARK_battle_Dock_RCR = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -567,21 +622,22 @@ ARK_battle_Dock_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -596,12 +652,16 @@ ARK_battle_Dock_RCR = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 1
-					}
+				}
 			}
 			UFA = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -679,7 +739,11 @@ ARK_battle_Dock_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -754,11 +818,23 @@ ARK_battle_Dock_RCR = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 2 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 2
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 2 }
+		set_variable = {
+			global.ARK_Dock_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -782,7 +858,11 @@ ARK_battle_Dock_RCR = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -799,7 +879,6 @@ ARK_battle_Dock_RCR = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -810,21 +889,22 @@ ARK_battle_Dock_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -839,7 +919,7 @@ ARK_battle_Dock_RCR = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 1
-					}
+				}
 			}
 			UFA = {
 				subtract_from_variable = {
@@ -947,18 +1027,22 @@ ARK_battle_Dock_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Liv_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_2 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_2 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_2 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_2 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -989,7 +1073,6 @@ ARK_battle_Liv_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_2
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -1006,15 +1089,12 @@ ARK_battle_Liv_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_2 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -1025,8 +1105,12 @@ ARK_battle_Liv_RCR = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Dock_Control = 1 } 
-								check_variable = { global.ARK_Cnt_Control = 1 }
+								check_variable = {
+									global.ARK_Dock_Control = 1
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -1094,7 +1178,9 @@ ARK_battle_Liv_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 1 }
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -1118,9 +1204,13 @@ ARK_battle_Liv_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Cnt_Control = 3 } 
-								check_variable = { global.ARK_Dock_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -1188,7 +1278,9 @@ ARK_battle_Liv_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 3 }
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -1209,12 +1301,14 @@ ARK_battle_Liv_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 2 }
+		set_variable = {
+			global.ARK_Liv_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -1245,7 +1339,6 @@ ARK_battle_Liv_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -1256,22 +1349,18 @@ ARK_battle_Liv_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -1281,10 +1370,14 @@ ARK_battle_Liv_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 1 } 
-							check_variable = { global.ARK_Dock_Control = 1 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_2
@@ -1351,7 +1444,9 @@ ARK_battle_Liv_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -1375,9 +1470,13 @@ ARK_battle_Liv_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 3 } 
-							check_variable = { global.ARK_Dock_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -1445,7 +1544,9 @@ ARK_battle_Liv_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -1465,12 +1566,14 @@ ARK_battle_Liv_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 2 }
+		set_variable = {
+			global.ARK_Liv_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -1501,7 +1604,6 @@ ARK_battle_Liv_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -1512,18 +1614,15 @@ ARK_battle_Liv_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -1531,14 +1630,18 @@ ARK_battle_Liv_RCR = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 1
-					}
+				}
 			}
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 1 } 
-							check_variable = { global.ARK_Dock_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -1606,7 +1709,9 @@ ARK_battle_Liv_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -1630,9 +1735,13 @@ ARK_battle_Liv_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 3 } 
-							check_variable = { global.ARK_Dock_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -1700,7 +1809,9 @@ ARK_battle_Liv_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -1720,7 +1831,9 @@ ARK_battle_Liv_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 2 }
+		set_variable = {
+			global.ARK_Liv_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -1742,14 +1855,12 @@ ARK_battle_Liv_RCR = {
 		set_temp_variable = {
 			a = ARK_strength
 		}
-
 		set_temp_variable = {
 			n = ARK_unit_number_area_2
 		}
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -1760,18 +1871,15 @@ ARK_battle_Liv_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -1883,18 +1991,22 @@ ARK_battle_Liv_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Cnt_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_3 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_3 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_3 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_3 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -1925,7 +2037,6 @@ ARK_battle_Cnt_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_3
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -1945,11 +2056,9 @@ ARK_battle_Cnt_RCR = {
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_3 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -1960,8 +2069,12 @@ ARK_battle_Cnt_RCR = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Inf_Control = 1 } 
-								check_variable = { global.ARK_Liv_Control = 1 }
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -2029,7 +2142,9 @@ ARK_battle_Cnt_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 1 }
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -2053,9 +2168,13 @@ ARK_battle_Cnt_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Liv_Control = 3 } 
-								check_variable = { global.ARK_Inf_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -2123,7 +2242,9 @@ ARK_battle_Cnt_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 3 }
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -2144,12 +2265,14 @@ ARK_battle_Cnt_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 2 }
+		set_variable = {
+			global.ARK_Cnt_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -2180,7 +2303,6 @@ ARK_battle_Cnt_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -2191,21 +2313,18 @@ ARK_battle_Cnt_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -2215,10 +2334,14 @@ ARK_battle_Cnt_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 1 } 
-							check_variable = { global.ARK_Inf_Control = 1 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_3
@@ -2285,7 +2408,9 @@ ARK_battle_Cnt_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -2309,9 +2434,13 @@ ARK_battle_Cnt_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 3 } 
-							check_variable = { global.ARK_Inf_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -2379,7 +2508,9 @@ ARK_battle_Cnt_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -2399,12 +2530,14 @@ ARK_battle_Cnt_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 2 }
+		set_variable = {
+			global.ARK_Cnt_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -2435,7 +2568,6 @@ ARK_battle_Cnt_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -2446,7 +2578,6 @@ ARK_battle_Cnt_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
@@ -2456,7 +2587,6 @@ ARK_battle_Cnt_RCR = {
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -2469,9 +2599,13 @@ ARK_battle_Cnt_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 1 } 
-							check_variable = { global.ARK_Inf_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -2539,7 +2673,9 @@ ARK_battle_Cnt_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -2563,9 +2699,13 @@ ARK_battle_Cnt_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 3 } 
-							check_variable = { global.ARK_Inf_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -2633,7 +2773,9 @@ ARK_battle_Cnt_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -2653,8 +2795,9 @@ ARK_battle_Cnt_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 2 }
-
+		set_variable = {
+			global.ARK_Cnt_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -2682,7 +2825,6 @@ ARK_battle_Cnt_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -2699,11 +2841,9 @@ ARK_battle_Cnt_RCR = {
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -2815,18 +2955,22 @@ ARK_battle_Cnt_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Inf_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_4 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_4 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_4 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_4 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -2857,7 +3001,6 @@ ARK_battle_Inf_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_4
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -2874,15 +3017,12 @@ ARK_battle_Inf_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_4 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -2893,8 +3033,12 @@ ARK_battle_Inf_RCR = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Cnt_Control = 1 } 
-								check_variable = { global.ARK_Med_Control = 1 }
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -2962,7 +3106,9 @@ ARK_battle_Inf_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 1 }
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -2986,9 +3132,13 @@ ARK_battle_Inf_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Med_Control = 3 } 
-								check_variable = { global.ARK_Cnt_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -3056,7 +3206,9 @@ ARK_battle_Inf_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 3 }
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -3077,12 +3229,14 @@ ARK_battle_Inf_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 2 }
+		set_variable = {
+			global.ARK_Inf_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -3113,7 +3267,6 @@ ARK_battle_Inf_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -3124,21 +3277,18 @@ ARK_battle_Inf_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -3148,10 +3298,14 @@ ARK_battle_Inf_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 1 } 
-							check_variable = { global.ARK_Cnt_Control = 1 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_4
@@ -3218,7 +3372,9 @@ ARK_battle_Inf_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -3242,9 +3398,13 @@ ARK_battle_Inf_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 3 } 
-							check_variable = { global.ARK_Cnt_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -3312,7 +3472,9 @@ ARK_battle_Inf_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -3332,12 +3494,14 @@ ARK_battle_Inf_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 2 }
+		set_variable = {
+			global.ARK_Inf_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -3368,7 +3532,6 @@ ARK_battle_Inf_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -3379,18 +3542,15 @@ ARK_battle_Inf_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -3403,9 +3563,13 @@ ARK_battle_Inf_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 1 } 
-							check_variable = { global.ARK_Cnt_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -3473,7 +3637,9 @@ ARK_battle_Inf_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -3497,9 +3663,13 @@ ARK_battle_Inf_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 3 } 
-							check_variable = { global.ARK_Cnt_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -3567,7 +3737,9 @@ ARK_battle_Inf_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -3587,8 +3759,9 @@ ARK_battle_Inf_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 2 }
-
+		set_variable = {
+			global.ARK_Inf_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -3616,7 +3789,6 @@ ARK_battle_Inf_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -3627,18 +3799,15 @@ ARK_battle_Inf_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -3750,18 +3919,22 @@ ARK_battle_Inf_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Med_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_5 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_5 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_5 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_5 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -3792,7 +3965,6 @@ ARK_battle_Med_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_5
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -3809,15 +3981,12 @@ ARK_battle_Med_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_5 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -3828,8 +3997,12 @@ ARK_battle_Med_RCR = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Gen_Control = 1 } 
-								check_variable = { global.ARK_Inf_Control = 1 }
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -3897,7 +4070,9 @@ ARK_battle_Med_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 1 }
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -3921,9 +4096,13 @@ ARK_battle_Med_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Inf_Control = 3 } 
-								check_variable = { global.ARK_Gen_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -3991,7 +4170,9 @@ ARK_battle_Med_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 3 }
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -4012,12 +4193,14 @@ ARK_battle_Med_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 2 }
+		set_variable = {
+			global.ARK_Med_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -4048,7 +4231,6 @@ ARK_battle_Med_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -4059,21 +4241,18 @@ ARK_battle_Med_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -4083,10 +4262,14 @@ ARK_battle_Med_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 1 } 
-							check_variable = { global.ARK_Gen_Control = 1 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_5
@@ -4153,7 +4336,9 @@ ARK_battle_Med_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 1 }
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -4177,9 +4362,13 @@ ARK_battle_Med_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 3 } 
-							check_variable = { global.ARK_Gen_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -4247,7 +4436,9 @@ ARK_battle_Med_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 3 }
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -4267,12 +4458,14 @@ ARK_battle_Med_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 2 }
+		set_variable = {
+			global.ARK_Med_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -4303,7 +4496,6 @@ ARK_battle_Med_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -4314,18 +4506,15 @@ ARK_battle_Med_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -4338,9 +4527,13 @@ ARK_battle_Med_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 1 } 
-							check_variable = { global.ARK_Gen_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -4408,7 +4601,9 @@ ARK_battle_Med_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 1 }
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -4432,9 +4627,13 @@ ARK_battle_Med_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 3 } 
-							check_variable = { global.ARK_Gen_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -4502,7 +4701,9 @@ ARK_battle_Med_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 3 }
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -4522,8 +4723,9 @@ ARK_battle_Med_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 2 }
-
+		set_variable = {
+			global.ARK_Med_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -4551,7 +4753,6 @@ ARK_battle_Med_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -4562,18 +4763,15 @@ ARK_battle_Med_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -4685,18 +4883,22 @@ ARK_battle_Med_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Gen_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_6 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_6 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_6 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_6 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -4727,7 +4929,6 @@ ARK_battle_Gen_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_6
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -4744,15 +4945,12 @@ ARK_battle_Gen_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_6 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -4763,8 +4961,12 @@ ARK_battle_Gen_RCR = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Med_Control = 1 } 
-								check_variable = { global.ARK_Eclipse_Control = 1 }
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -4832,7 +5034,9 @@ ARK_battle_Gen_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 1 }
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -4856,9 +5060,13 @@ ARK_battle_Gen_RCR = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Eclipse_Control = 3 } 
-								check_variable = { global.ARK_Med_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 3
+								}
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -4926,7 +5134,9 @@ ARK_battle_Gen_RCR = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 3 }
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -4947,12 +5157,14 @@ ARK_battle_Gen_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 2 }
+		set_variable = {
+			global.ARK_Gen_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -4983,7 +5195,6 @@ ARK_battle_Gen_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -4994,21 +5205,18 @@ ARK_battle_Gen_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -5018,10 +5226,14 @@ ARK_battle_Gen_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 1 } 
-							check_variable = { global.ARK_Med_Control = 1 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 1
+							}
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_6
@@ -5088,7 +5300,9 @@ ARK_battle_Gen_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 1 }
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -5112,9 +5326,13 @@ ARK_battle_Gen_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 3 } 
-							check_variable = { global.ARK_Med_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 3
+							}
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -5182,7 +5400,9 @@ ARK_battle_Gen_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 3 }
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -5202,12 +5422,14 @@ ARK_battle_Gen_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 2 }
+		set_variable = {
+			global.ARK_Gen_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -5238,7 +5460,6 @@ ARK_battle_Gen_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -5249,18 +5470,15 @@ ARK_battle_Gen_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -5273,9 +5491,13 @@ ARK_battle_Gen_RCR = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 1 } 
-							check_variable = { global.ARK_Med_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 1
+							}
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -5343,7 +5565,9 @@ ARK_battle_Gen_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 1 }
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -5367,9 +5591,13 @@ ARK_battle_Gen_RCR = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 3 } 
-							check_variable = { global.ARK_Med_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 3
+							}
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -5437,7 +5665,9 @@ ARK_battle_Gen_RCR = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 3 }
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -5457,8 +5687,9 @@ ARK_battle_Gen_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 2 }
-
+		set_variable = {
+			global.ARK_Gen_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -5486,7 +5717,6 @@ ARK_battle_Gen_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -5497,18 +5727,15 @@ ARK_battle_Gen_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -5620,18 +5847,22 @@ ARK_battle_Gen_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Eclipse_RCR = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { UFA.ARK_unit_number_area_7 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_7 = 0 } 
+				check_variable = {
+					UFA.ARK_unit_number_area_7 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_7 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -5662,7 +5893,6 @@ ARK_battle_Eclipse_RCR = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_7
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -5679,15 +5909,12 @@ ARK_battle_Eclipse_RCR = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_7 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -5726,12 +5953,14 @@ ARK_battle_Eclipse_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 2 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -5762,7 +5991,6 @@ ARK_battle_Eclipse_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -5773,21 +6001,18 @@ ARK_battle_Eclipse_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -5825,12 +6050,14 @@ ARK_battle_Eclipse_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 2 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -5861,7 +6088,6 @@ ARK_battle_Eclipse_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -5872,18 +6098,15 @@ ARK_battle_Eclipse_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -5924,8 +6147,9 @@ ARK_battle_Eclipse_RCR = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 2 }
-
+		set_variable = {
+			global.ARK_Eclipse_Control = 2
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -5953,7 +6177,6 @@ ARK_battle_Eclipse_RCR = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -5964,18 +6187,15 @@ ARK_battle_Eclipse_RCR = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -6087,18 +6307,22 @@ ARK_battle_Eclipse_RCR = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Dock_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_1 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_1 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_1 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_1 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -6125,7 +6349,11 @@ ARK_battle_Dock_UFA = {
 			}
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
 				}
 				set_temp_variable = {
 					n = ARK_unit_number
@@ -6142,7 +6370,6 @@ ARK_battle_Dock_UFA = {
 					m = ARK_unit_number_area_1
 				}
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -6159,14 +6386,16 @@ ARK_battle_Dock_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
 				}
 				set_variable = {
 					ARK_unit_number = m
@@ -6186,7 +6415,11 @@ ARK_battle_Dock_UFA = {
 				RCR = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -6264,7 +6497,11 @@ ARK_battle_Dock_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -6340,16 +6577,28 @@ ARK_battle_Dock_UFA = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 1 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 1
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 1 }
+		set_variable = {
+			global.ARK_Dock_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -6376,7 +6625,11 @@ ARK_battle_Dock_UFA = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -6393,7 +6646,6 @@ ARK_battle_Dock_UFA = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -6404,21 +6656,22 @@ ARK_battle_Dock_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -6433,12 +6686,16 @@ ARK_battle_Dock_UFA = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -6516,7 +6773,11 @@ ARK_battle_Dock_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -6591,16 +6852,28 @@ ARK_battle_Dock_UFA = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 1 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 1
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 1 }
+		set_variable = {
+			global.ARK_Dock_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -6627,7 +6900,11 @@ ARK_battle_Dock_UFA = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -6644,7 +6921,6 @@ ARK_battle_Dock_UFA = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -6655,21 +6931,22 @@ ARK_battle_Dock_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -6684,12 +6961,16 @@ ARK_battle_Dock_UFA = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -6767,7 +7048,11 @@ ARK_battle_Dock_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -6842,11 +7127,23 @@ ARK_battle_Dock_UFA = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 1 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 1
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 1 }
+		set_variable = {
+			global.ARK_Dock_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -6870,7 +7167,11 @@ ARK_battle_Dock_UFA = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -6887,7 +7188,6 @@ ARK_battle_Dock_UFA = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -6898,21 +7198,22 @@ ARK_battle_Dock_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -6927,7 +7228,7 @@ ARK_battle_Dock_UFA = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				subtract_from_variable = {
@@ -7034,18 +7335,22 @@ ARK_battle_Dock_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Liv_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_2 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_2 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_2 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_2 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -7076,7 +7381,6 @@ ARK_battle_Liv_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_2
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -7093,15 +7397,12 @@ ARK_battle_Liv_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_2 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -7112,8 +7413,12 @@ ARK_battle_Liv_UFA = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Dock_Control = 2 } 
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Dock_Control = 2
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -7181,7 +7486,9 @@ ARK_battle_Liv_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -7205,9 +7512,13 @@ ARK_battle_Liv_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Cnt_Control = 3 } 
-								check_variable = { global.ARK_Dock_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -7275,7 +7586,9 @@ ARK_battle_Liv_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 3 }
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -7296,12 +7609,14 @@ ARK_battle_Liv_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 1 }
+		set_variable = {
+			global.ARK_Liv_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -7332,7 +7647,6 @@ ARK_battle_Liv_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -7343,21 +7657,18 @@ ARK_battle_Liv_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -7367,10 +7678,14 @@ ARK_battle_Liv_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 2 } 
-							check_variable = { global.ARK_Dock_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_2
@@ -7437,7 +7752,9 @@ ARK_battle_Liv_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -7461,9 +7778,13 @@ ARK_battle_Liv_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 3 } 
-							check_variable = { global.ARK_Dock_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -7531,7 +7852,9 @@ ARK_battle_Liv_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -7551,12 +7874,14 @@ ARK_battle_Liv_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 1 }
+		set_variable = {
+			global.ARK_Liv_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -7587,7 +7912,6 @@ ARK_battle_Liv_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -7598,18 +7922,15 @@ ARK_battle_Liv_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -7617,14 +7938,18 @@ ARK_battle_Liv_UFA = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 2 } 
-							check_variable = { global.ARK_Dock_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -7692,7 +8017,9 @@ ARK_battle_Liv_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -7716,9 +8043,13 @@ ARK_battle_Liv_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 3 } 
-							check_variable = { global.ARK_Dock_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -7786,7 +8117,9 @@ ARK_battle_Liv_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -7806,7 +8139,9 @@ ARK_battle_Liv_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 1 }
+		set_variable = {
+			global.ARK_Liv_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -7828,14 +8163,12 @@ ARK_battle_Liv_UFA = {
 		set_temp_variable = {
 			a = ARK_strength
 		}
-
 		set_temp_variable = {
 			n = ARK_unit_number_area_2
 		}
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -7846,18 +8179,15 @@ ARK_battle_Liv_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -7969,18 +8299,22 @@ ARK_battle_Liv_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Cnt_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_3 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_3 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_3 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_3 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -8011,7 +8345,6 @@ ARK_battle_Cnt_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_3
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -8028,15 +8361,12 @@ ARK_battle_Cnt_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_3 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -8047,8 +8377,12 @@ ARK_battle_Cnt_UFA = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Inf_Control = 2 } 
-								check_variable = { global.ARK_Liv_Control = 2 }
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -8116,7 +8450,9 @@ ARK_battle_Cnt_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 2 }
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -8140,9 +8476,13 @@ ARK_battle_Cnt_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Liv_Control = 3 } 
-								check_variable = { global.ARK_Inf_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 3
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -8210,7 +8550,9 @@ ARK_battle_Cnt_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 3 }
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -8231,12 +8573,14 @@ ARK_battle_Cnt_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 1 }
+		set_variable = {
+			global.ARK_Cnt_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -8267,7 +8611,6 @@ ARK_battle_Cnt_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -8278,21 +8621,18 @@ ARK_battle_Cnt_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -8302,10 +8642,14 @@ ARK_battle_Cnt_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 2 } 
-							check_variable = { global.ARK_Inf_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_3
@@ -8372,7 +8716,9 @@ ARK_battle_Cnt_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -8396,9 +8742,13 @@ ARK_battle_Cnt_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 3 } 
-							check_variable = { global.ARK_Inf_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -8466,7 +8816,9 @@ ARK_battle_Cnt_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -8486,12 +8838,14 @@ ARK_battle_Cnt_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 1 }
+		set_variable = {
+			global.ARK_Cnt_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -8522,7 +8876,6 @@ ARK_battle_Cnt_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -8533,18 +8886,15 @@ ARK_battle_Cnt_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -8557,9 +8907,13 @@ ARK_battle_Cnt_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 2 } 
-							check_variable = { global.ARK_Inf_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -8627,7 +8981,9 @@ ARK_battle_Cnt_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -8651,9 +9007,13 @@ ARK_battle_Cnt_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 3 } 
-							check_variable = { global.ARK_Inf_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 3
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -8721,7 +9081,9 @@ ARK_battle_Cnt_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 3 }
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -8741,8 +9103,9 @@ ARK_battle_Cnt_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 1 }
-
+		set_variable = {
+			global.ARK_Cnt_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -8770,7 +9133,6 @@ ARK_battle_Cnt_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -8781,18 +9143,15 @@ ARK_battle_Cnt_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -8904,18 +9263,22 @@ ARK_battle_Cnt_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Inf_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_4 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_4 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_4 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_4 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -8946,7 +9309,6 @@ ARK_battle_Inf_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_4
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -8963,15 +9325,12 @@ ARK_battle_Inf_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_4 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -8982,8 +9341,12 @@ ARK_battle_Inf_UFA = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Cnt_Control = 2 } 
-								check_variable = { global.ARK_Med_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -9051,7 +9414,9 @@ ARK_battle_Inf_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -9075,9 +9440,13 @@ ARK_battle_Inf_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Med_Control = 3 } 
-								check_variable = { global.ARK_Cnt_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -9145,7 +9514,9 @@ ARK_battle_Inf_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 3 }
+								check_variable = {
+									global.ARK_Cnt_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -9166,12 +9537,14 @@ ARK_battle_Inf_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 1 }
+		set_variable = {
+			global.ARK_Inf_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -9202,7 +9575,6 @@ ARK_battle_Inf_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -9213,21 +9585,18 @@ ARK_battle_Inf_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -9237,10 +9606,14 @@ ARK_battle_Inf_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 2 } 
-							check_variable = { global.ARK_Cnt_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_4
@@ -9307,7 +9680,9 @@ ARK_battle_Inf_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -9331,9 +9706,13 @@ ARK_battle_Inf_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 3 } 
-							check_variable = { global.ARK_Cnt_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -9401,7 +9780,9 @@ ARK_battle_Inf_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -9421,12 +9802,14 @@ ARK_battle_Inf_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 1 }
+		set_variable = {
+			global.ARK_Inf_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -9457,7 +9840,6 @@ ARK_battle_Inf_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -9468,18 +9850,15 @@ ARK_battle_Inf_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -9492,9 +9871,13 @@ ARK_battle_Inf_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 2 } 
-							check_variable = { global.ARK_Cnt_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -9562,7 +9945,9 @@ ARK_battle_Inf_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -9586,9 +9971,13 @@ ARK_battle_Inf_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 3 } 
-							check_variable = { global.ARK_Cnt_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -9656,7 +10045,9 @@ ARK_battle_Inf_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
+							check_variable = {
+								global.ARK_Cnt_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -9676,8 +10067,9 @@ ARK_battle_Inf_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 1 }
-
+		set_variable = {
+			global.ARK_Inf_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -9705,7 +10097,6 @@ ARK_battle_Inf_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -9716,18 +10107,15 @@ ARK_battle_Inf_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -9839,18 +10227,22 @@ ARK_battle_Inf_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Med_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_5 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_5 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_5 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_5 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -9881,7 +10273,6 @@ ARK_battle_Med_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_5
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -9898,15 +10289,12 @@ ARK_battle_Med_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_5 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -9917,8 +10305,12 @@ ARK_battle_Med_UFA = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Gen_Control = 2 } 
-								check_variable = { global.ARK_Inf_Control = 2 }
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -9986,7 +10378,9 @@ ARK_battle_Med_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 2 }
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -10010,9 +10404,13 @@ ARK_battle_Med_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Inf_Control = 3 } 
-								check_variable = { global.ARK_Gen_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Inf_Control = 3
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -10080,7 +10478,9 @@ ARK_battle_Med_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 3 }
+								check_variable = {
+									global.ARK_Gen_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -10101,12 +10501,14 @@ ARK_battle_Med_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 1 }
+		set_variable = {
+			global.ARK_Med_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -10137,7 +10539,6 @@ ARK_battle_Med_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -10148,21 +10549,18 @@ ARK_battle_Med_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -10172,10 +10570,14 @@ ARK_battle_Med_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 2 } 
-							check_variable = { global.ARK_Gen_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_5
@@ -10242,7 +10644,9 @@ ARK_battle_Med_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 2 }
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -10266,9 +10670,13 @@ ARK_battle_Med_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 3 } 
-							check_variable = { global.ARK_Gen_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -10336,7 +10744,9 @@ ARK_battle_Med_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 3 }
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -10356,12 +10766,14 @@ ARK_battle_Med_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 1 }
+		set_variable = {
+			global.ARK_Med_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -10392,7 +10804,6 @@ ARK_battle_Med_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -10403,18 +10814,15 @@ ARK_battle_Med_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -10427,9 +10835,13 @@ ARK_battle_Med_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 2 } 
-							check_variable = { global.ARK_Gen_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -10497,7 +10909,9 @@ ARK_battle_Med_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 2 }
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -10521,9 +10935,13 @@ ARK_battle_Med_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 3 } 
-							check_variable = { global.ARK_Gen_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 3
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -10591,7 +11009,9 @@ ARK_battle_Med_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 3 }
+							check_variable = {
+								global.ARK_Gen_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -10611,8 +11031,9 @@ ARK_battle_Med_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 1 }
-
+		set_variable = {
+			global.ARK_Med_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -10640,7 +11061,6 @@ ARK_battle_Med_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -10651,18 +11071,15 @@ ARK_battle_Med_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -10774,18 +11191,22 @@ ARK_battle_Med_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Gen_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_6 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_6 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_6 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_6 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -10816,7 +11237,6 @@ ARK_battle_Gen_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_6
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -10833,15 +11253,12 @@ ARK_battle_Gen_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_6 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -10852,8 +11269,12 @@ ARK_battle_Gen_UFA = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Med_Control = 2 } 
-								check_variable = { global.ARK_Eclipse_Control = 2 }
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -10921,7 +11342,9 @@ ARK_battle_Gen_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 2 }
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -10945,9 +11368,13 @@ ARK_battle_Gen_UFA = {
 				EGG = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Eclipse_Control = 3 } 
-								check_variable = { global.ARK_Med_Control = 3 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 3
+								}
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
 							}
 						}
 						set_temp_variable = {
@@ -11015,7 +11442,9 @@ ARK_battle_Gen_UFA = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 3 }
+								check_variable = {
+									global.ARK_Med_Control = 3
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -11036,12 +11465,14 @@ ARK_battle_Gen_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 1 }
+		set_variable = {
+			global.ARK_Gen_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -11072,7 +11503,6 @@ ARK_battle_Gen_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -11083,21 +11513,18 @@ ARK_battle_Gen_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -11107,10 +11534,14 @@ ARK_battle_Gen_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 2 } 
-							check_variable = { global.ARK_Med_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 2
+							}
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_6
@@ -11177,7 +11608,9 @@ ARK_battle_Gen_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 2 }
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -11201,9 +11634,13 @@ ARK_battle_Gen_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 3 } 
-							check_variable = { global.ARK_Med_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 3
+							}
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -11271,7 +11708,9 @@ ARK_battle_Gen_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 3 }
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -11291,12 +11730,14 @@ ARK_battle_Gen_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 1 }
+		set_variable = {
+			global.ARK_Gen_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -11327,7 +11768,6 @@ ARK_battle_Gen_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -11338,18 +11778,15 @@ ARK_battle_Gen_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -11362,9 +11799,13 @@ ARK_battle_Gen_UFA = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 2 } 
-							check_variable = { global.ARK_Med_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 2
+							}
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -11432,7 +11873,9 @@ ARK_battle_Gen_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 2 }
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -11456,9 +11899,13 @@ ARK_battle_Gen_UFA = {
 			EGG = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 3 } 
-							check_variable = { global.ARK_Med_Control = 3 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 3
+							}
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 					}
 					set_temp_variable = {
@@ -11526,7 +11973,9 @@ ARK_battle_Gen_UFA = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 3 }
+							check_variable = {
+								global.ARK_Med_Control = 3
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -11546,8 +11995,9 @@ ARK_battle_Gen_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 1 }
-
+		set_variable = {
+			global.ARK_Gen_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -11575,7 +12025,6 @@ ARK_battle_Gen_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -11586,18 +12035,15 @@ ARK_battle_Gen_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -11709,18 +12155,22 @@ ARK_battle_Gen_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Eclipse_UFA = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_7 = 0 } 
-				check_variable = { EGG.ARK_unit_number_area_7 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_7 = 0
+				}
+				check_variable = {
+					EGG.ARK_unit_number_area_7 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -11751,7 +12201,6 @@ ARK_battle_Eclipse_UFA = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_7
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -11768,15 +12217,12 @@ ARK_battle_Eclipse_UFA = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_7 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -11815,12 +12261,14 @@ ARK_battle_Eclipse_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 1 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -11851,7 +12299,6 @@ ARK_battle_Eclipse_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -11862,21 +12309,18 @@ ARK_battle_Eclipse_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -11914,12 +12358,14 @@ ARK_battle_Eclipse_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 1 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -11950,7 +12396,6 @@ ARK_battle_Eclipse_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -11961,18 +12406,15 @@ ARK_battle_Eclipse_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -12013,8 +12455,9 @@ ARK_battle_Eclipse_UFA = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 1 }
-
+		set_variable = {
+			global.ARK_Eclipse_Control = 1
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -12042,7 +12485,6 @@ ARK_battle_Eclipse_UFA = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -12053,18 +12495,15 @@ ARK_battle_Eclipse_UFA = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -12176,18 +12615,22 @@ ARK_battle_Eclipse_UFA = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Dock_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_1 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_1 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_1 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_1 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -12214,7 +12657,11 @@ ARK_battle_Dock_EGG = {
 			}
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
 				}
 				set_temp_variable = {
 					n = ARK_unit_number
@@ -12231,7 +12678,6 @@ ARK_battle_Dock_EGG = {
 					m = ARK_unit_number_area_1
 				}
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -12248,14 +12694,16 @@ ARK_battle_Dock_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			if = {
 				limit = {
-					NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+					NOT = {
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
 				}
 				set_variable = {
 					ARK_unit_number = m
@@ -12275,7 +12723,11 @@ ARK_battle_Dock_EGG = {
 				RCR = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -12353,7 +12805,11 @@ ARK_battle_Dock_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
+							}
 						}
 						set_temp_variable = {
 							css = ARK_unit_number_area_1
@@ -12429,16 +12885,28 @@ ARK_battle_Dock_EGG = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 3 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 3
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 3 }
+		set_variable = {
+			global.ARK_Dock_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -12465,7 +12933,11 @@ ARK_battle_Dock_EGG = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -12482,7 +12954,6 @@ ARK_battle_Dock_EGG = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -12493,21 +12964,22 @@ ARK_battle_Dock_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -12522,12 +12994,16 @@ ARK_battle_Dock_EGG = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -12605,7 +13081,11 @@ ARK_battle_Dock_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -12680,16 +13160,28 @@ ARK_battle_Dock_EGG = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 3 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 3
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 3 }
+		set_variable = {
+			global.ARK_Dock_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -12716,7 +13208,11 @@ ARK_battle_Dock_EGG = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -12733,7 +13229,6 @@ ARK_battle_Dock_EGG = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -12744,21 +13239,22 @@ ARK_battle_Dock_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -12773,12 +13269,16 @@ ARK_battle_Dock_EGG = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -12856,7 +13356,11 @@ ARK_battle_Dock_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_1
@@ -12931,11 +13435,23 @@ ARK_battle_Dock_EGG = {
 			}
 		}
 		if = {
-			limit = { NOT = { check_variable = { global.ARK_Dock_Control = 3 } } }
-			set_temp_variable = {	a = ARK_unit_number	}
-			set_variable = { ARK_unit_number_area_1 = a }
+			limit = {
+				NOT = {
+					check_variable = {
+						global.ARK_Dock_Control = 3
+					}
+				}
+			}
+			set_temp_variable = {
+				a = ARK_unit_number
+			}
+			set_variable = {
+				ARK_unit_number_area_1 = a
+			}
 		}
-		set_variable = { global.ARK_Dock_Control = 3 }
+		set_variable = {
+			global.ARK_Dock_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -12959,7 +13475,11 @@ ARK_battle_Dock_EGG = {
 		}
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_temp_variable = {
 				n = ARK_unit_number
@@ -12976,7 +13496,6 @@ ARK_battle_Dock_EGG = {
 				m = ARK_unit_number_area_1
 			}
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -12987,21 +13506,22 @@ ARK_battle_Dock_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		if = {
 			limit = {
-				NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				NOT = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
 			}
 			set_variable = {
 				ARK_unit_number = m
@@ -13016,7 +13536,7 @@ ARK_battle_Dock_EGG = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				subtract_from_variable = {
@@ -13123,18 +13643,22 @@ ARK_battle_Dock_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Liv_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_2 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_2 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_2 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_2 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -13165,7 +13689,6 @@ ARK_battle_Liv_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_2
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -13182,15 +13705,12 @@ ARK_battle_Liv_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_2 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -13201,8 +13721,12 @@ ARK_battle_Liv_EGG = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Dock_Control = 2 } 
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Dock_Control = 2
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -13270,7 +13794,9 @@ ARK_battle_Liv_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -13294,9 +13820,13 @@ ARK_battle_Liv_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Cnt_Control = 1 } 
-								check_variable = { global.ARK_Dock_Control = 1 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
+								check_variable = {
+									global.ARK_Dock_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -13364,7 +13894,9 @@ ARK_battle_Liv_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 1 }
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -13385,12 +13917,14 @@ ARK_battle_Liv_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 3 }
+		set_variable = {
+			global.ARK_Liv_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -13421,7 +13955,6 @@ ARK_battle_Liv_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -13432,21 +13965,18 @@ ARK_battle_Liv_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -13456,10 +13986,14 @@ ARK_battle_Liv_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 2 } 
-							check_variable = { global.ARK_Dock_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_2
@@ -13526,7 +14060,9 @@ ARK_battle_Liv_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -13550,9 +14086,13 @@ ARK_battle_Liv_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 1 } 
-							check_variable = { global.ARK_Dock_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -13620,7 +14160,9 @@ ARK_battle_Liv_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -13640,12 +14182,14 @@ ARK_battle_Liv_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 3 }
+		set_variable = {
+			global.ARK_Liv_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -13676,7 +14220,6 @@ ARK_battle_Liv_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -13687,18 +14230,15 @@ ARK_battle_Liv_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -13706,14 +14246,18 @@ ARK_battle_Liv_EGG = {
 			limit = {
 				check_variable = {
 					global.ARK_Liv_Control = 2
-					}
+				}
 			}
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 2 } 
-							check_variable = { global.ARK_Dock_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -13781,7 +14325,9 @@ ARK_battle_Liv_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -13805,9 +14351,13 @@ ARK_battle_Liv_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Cnt_Control = 1 } 
-							check_variable = { global.ARK_Dock_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
+							check_variable = {
+								global.ARK_Dock_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -13875,7 +14425,9 @@ ARK_battle_Liv_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -13895,7 +14447,9 @@ ARK_battle_Liv_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Liv_Control = 3 }
+		set_variable = {
+			global.ARK_Liv_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -13917,14 +14471,12 @@ ARK_battle_Liv_EGG = {
 		set_temp_variable = {
 			a = ARK_strength
 		}
-
 		set_temp_variable = {
 			n = ARK_unit_number_area_2
 		}
 		set_temp_variable = {
 			m = ARK_unit_number_area_2
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -13935,18 +14487,15 @@ ARK_battle_Liv_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_2 = m
 		}
@@ -14058,18 +14607,22 @@ ARK_battle_Liv_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Cnt_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_3 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_3 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_3 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_3 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -14100,7 +14653,6 @@ ARK_battle_Cnt_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_3
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -14117,15 +14669,12 @@ ARK_battle_Cnt_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_3 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -14136,8 +14685,12 @@ ARK_battle_Cnt_EGG = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Inf_Control = 2 } 
-								check_variable = { global.ARK_Liv_Control = 2 }
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
+								check_variable = {
+									global.ARK_Liv_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -14205,7 +14758,9 @@ ARK_battle_Cnt_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 2 }
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -14229,9 +14784,13 @@ ARK_battle_Cnt_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Liv_Control = 1 } 
-								check_variable = { global.ARK_Inf_Control = 1 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Liv_Control = 1
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -14299,7 +14858,9 @@ ARK_battle_Cnt_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Inf_Control = 1 }
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_4 = e
@@ -14320,12 +14881,14 @@ ARK_battle_Cnt_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 3 }
+		set_variable = {
+			global.ARK_Cnt_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -14356,7 +14919,6 @@ ARK_battle_Cnt_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -14367,21 +14929,18 @@ ARK_battle_Cnt_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -14391,10 +14950,14 @@ ARK_battle_Cnt_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 2 } 
-							check_variable = { global.ARK_Inf_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_3
@@ -14461,7 +15024,9 @@ ARK_battle_Cnt_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -14485,9 +15050,13 @@ ARK_battle_Cnt_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 1 } 
-							check_variable = { global.ARK_Inf_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -14555,7 +15124,9 @@ ARK_battle_Cnt_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -14575,12 +15146,14 @@ ARK_battle_Cnt_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 3 }
+		set_variable = {
+			global.ARK_Cnt_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -14611,7 +15184,6 @@ ARK_battle_Cnt_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -14622,18 +15194,15 @@ ARK_battle_Cnt_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -14646,9 +15215,13 @@ ARK_battle_Cnt_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 2 } 
-							check_variable = { global.ARK_Inf_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 2
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -14716,7 +15289,9 @@ ARK_battle_Cnt_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 2 }
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -14740,9 +15315,13 @@ ARK_battle_Cnt_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Liv_Control = 1 } 
-							check_variable = { global.ARK_Inf_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Liv_Control = 1
+							}
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -14810,7 +15389,9 @@ ARK_battle_Cnt_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Inf_Control = 1 }
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_4 = e
@@ -14830,8 +15411,9 @@ ARK_battle_Cnt_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Cnt_Control = 3 }
-
+		set_variable = {
+			global.ARK_Cnt_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -14859,7 +15441,6 @@ ARK_battle_Cnt_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_3
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -14870,18 +15451,15 @@ ARK_battle_Cnt_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_3 = m
 		}
@@ -14993,18 +15571,22 @@ ARK_battle_Cnt_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Inf_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_4 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_4 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_4 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_4 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -15035,7 +15617,6 @@ ARK_battle_Inf_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_4
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -15052,15 +15633,12 @@ ARK_battle_Inf_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_4 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -15071,8 +15649,12 @@ ARK_battle_Inf_EGG = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Cnt_Control = 2 } 
-								check_variable = { global.ARK_Med_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -15140,7 +15722,9 @@ ARK_battle_Inf_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 2 }
+								check_variable = {
+									global.ARK_Cnt_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -15164,9 +15748,13 @@ ARK_battle_Inf_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Med_Control = 1 } 
-								check_variable = { global.ARK_Cnt_Control = 1 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -15234,7 +15822,9 @@ ARK_battle_Inf_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Cnt_Control = 1 }
+								check_variable = {
+									global.ARK_Cnt_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_3 = e
@@ -15255,12 +15845,14 @@ ARK_battle_Inf_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 3 }
+		set_variable = {
+			global.ARK_Inf_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -15291,7 +15883,6 @@ ARK_battle_Inf_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -15302,21 +15893,18 @@ ARK_battle_Inf_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -15326,10 +15914,14 @@ ARK_battle_Inf_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 2 } 
-							check_variable = { global.ARK_Cnt_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_4
@@ -15396,7 +15988,9 @@ ARK_battle_Inf_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -15420,9 +16014,13 @@ ARK_battle_Inf_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 1 } 
-							check_variable = { global.ARK_Cnt_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -15490,7 +16088,9 @@ ARK_battle_Inf_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -15510,12 +16110,14 @@ ARK_battle_Inf_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 3 }
+		set_variable = {
+			global.ARK_Inf_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -15546,7 +16148,6 @@ ARK_battle_Inf_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -15557,18 +16158,15 @@ ARK_battle_Inf_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -15581,9 +16179,13 @@ ARK_battle_Inf_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 2 } 
-							check_variable = { global.ARK_Cnt_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -15651,7 +16253,9 @@ ARK_battle_Inf_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
+							check_variable = {
+								global.ARK_Cnt_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -15675,9 +16279,13 @@ ARK_battle_Inf_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Med_Control = 1 } 
-							check_variable = { global.ARK_Cnt_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -15745,7 +16353,9 @@ ARK_battle_Inf_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
+							check_variable = {
+								global.ARK_Cnt_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_3 = e
@@ -15765,8 +16375,9 @@ ARK_battle_Inf_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Inf_Control = 3 }
-
+		set_variable = {
+			global.ARK_Inf_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -15794,7 +16405,6 @@ ARK_battle_Inf_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_4
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -15805,18 +16415,15 @@ ARK_battle_Inf_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_4 = m
 		}
@@ -15928,18 +16535,22 @@ ARK_battle_Inf_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Med_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_5 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_5 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_5 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_5 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -15970,7 +16581,6 @@ ARK_battle_Med_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_5
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -15987,15 +16597,12 @@ ARK_battle_Med_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_5 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -16006,8 +16613,12 @@ ARK_battle_Med_EGG = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Gen_Control = 2 } 
-								check_variable = { global.ARK_Inf_Control = 2 }
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
+								check_variable = {
+									global.ARK_Inf_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -16075,7 +16686,9 @@ ARK_battle_Med_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 2 }
+								check_variable = {
+									global.ARK_Gen_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -16099,9 +16712,13 @@ ARK_battle_Med_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Inf_Control = 1 } 
-								check_variable = { global.ARK_Gen_Control = 1 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Inf_Control = 1
+								}
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -16169,7 +16786,9 @@ ARK_battle_Med_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Gen_Control = 1 }
+								check_variable = {
+									global.ARK_Gen_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_6 = e
@@ -16190,12 +16809,14 @@ ARK_battle_Med_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 3 }
+		set_variable = {
+			global.ARK_Med_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -16226,7 +16847,6 @@ ARK_battle_Med_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -16237,21 +16857,18 @@ ARK_battle_Med_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -16261,10 +16878,14 @@ ARK_battle_Med_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 2 } 
-							check_variable = { global.ARK_Gen_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_5
@@ -16331,7 +16952,9 @@ ARK_battle_Med_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 2 }
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -16355,9 +16978,13 @@ ARK_battle_Med_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 1 } 
-							check_variable = { global.ARK_Gen_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -16425,7 +17052,9 @@ ARK_battle_Med_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 1 }
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -16445,12 +17074,14 @@ ARK_battle_Med_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 3 }
+		set_variable = {
+			global.ARK_Med_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -16481,7 +17112,6 @@ ARK_battle_Med_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -16492,18 +17122,15 @@ ARK_battle_Med_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -16516,9 +17143,13 @@ ARK_battle_Med_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 2 } 
-							check_variable = { global.ARK_Gen_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 2
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -16586,7 +17217,9 @@ ARK_battle_Med_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 2 }
+							check_variable = {
+								global.ARK_Gen_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -16610,9 +17243,13 @@ ARK_battle_Med_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Inf_Control = 1 } 
-							check_variable = { global.ARK_Gen_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Inf_Control = 1
+							}
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -16680,7 +17317,9 @@ ARK_battle_Med_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Gen_Control = 1 }
+							check_variable = {
+								global.ARK_Gen_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_6 = e
@@ -16700,8 +17339,9 @@ ARK_battle_Med_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Med_Control = 3 }
-
+		set_variable = {
+			global.ARK_Med_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -16729,7 +17369,6 @@ ARK_battle_Med_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_5
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -16740,18 +17379,15 @@ ARK_battle_Med_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_5 = m
 		}
@@ -16863,18 +17499,22 @@ ARK_battle_Med_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Gen_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_6 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_6 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_6 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_6 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -16905,7 +17545,6 @@ ARK_battle_Gen_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_6
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -16922,15 +17561,12 @@ ARK_battle_Gen_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_6 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -16941,8 +17577,12 @@ ARK_battle_Gen_EGG = {
 					if = {
 						limit = {
 							NOT = {
-								check_variable = { global.ARK_Med_Control = 2 } 
-								check_variable = { global.ARK_Eclipse_Control = 2 }
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
+								check_variable = {
+									global.ARK_Eclipse_Control = 2
+								}
 							}
 						}
 						set_temp_variable = {
@@ -17010,7 +17650,9 @@ ARK_battle_Gen_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 2 }
+								check_variable = {
+									global.ARK_Med_Control = 2
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -17034,9 +17676,13 @@ ARK_battle_Gen_EGG = {
 				UFA = {
 					if = {
 						limit = {
-							NOT = { 
-								check_variable = { global.ARK_Eclipse_Control = 1 } 
-								check_variable = { global.ARK_Med_Control = 1 } 
+							NOT = {
+								check_variable = {
+									global.ARK_Eclipse_Control = 1
+								}
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
 							}
 						}
 						set_temp_variable = {
@@ -17104,7 +17750,9 @@ ARK_battle_Gen_EGG = {
 						}
 						if = {
 							limit = {
-								check_variable = { global.ARK_Med_Control = 1 }
+								check_variable = {
+									global.ARK_Med_Control = 1
+								}
 							}
 							add_to_variable = {
 								ARK_unit_number_area_5 = e
@@ -17125,12 +17773,14 @@ ARK_battle_Gen_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 3 }
+		set_variable = {
+			global.ARK_Gen_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -17161,7 +17811,6 @@ ARK_battle_Gen_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -17172,21 +17821,18 @@ ARK_battle_Gen_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -17196,10 +17842,14 @@ ARK_battle_Gen_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 2 } 
-							check_variable = { global.ARK_Med_Control = 2 }
-						}	
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 2
+							}
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
+						}
 					}
 					set_temp_variable = {
 						css = ARK_unit_number_area_6
@@ -17266,7 +17916,9 @@ ARK_battle_Gen_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 2 }
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -17290,9 +17942,13 @@ ARK_battle_Gen_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 1 } 
-							check_variable = { global.ARK_Med_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 1
+							}
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -17360,7 +18016,9 @@ ARK_battle_Gen_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 1 }
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -17380,12 +18038,14 @@ ARK_battle_Gen_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 3 }
+		set_variable = {
+			global.ARK_Gen_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -17416,7 +18076,6 @@ ARK_battle_Gen_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -17427,18 +18086,15 @@ ARK_battle_Gen_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -17451,9 +18107,13 @@ ARK_battle_Gen_EGG = {
 			RCR = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 2 } 
-							check_variable = { global.ARK_Med_Control = 2 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 2
+							}
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 					}
 					set_temp_variable = {
@@ -17521,7 +18181,9 @@ ARK_battle_Gen_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 2 }
+							check_variable = {
+								global.ARK_Med_Control = 2
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -17545,9 +18207,13 @@ ARK_battle_Gen_EGG = {
 			UFA = {
 				if = {
 					limit = {
-						NOT = { 
-							check_variable = { global.ARK_Eclipse_Control = 1 } 
-							check_variable = { global.ARK_Med_Control = 1 }
+						NOT = {
+							check_variable = {
+								global.ARK_Eclipse_Control = 1
+							}
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 					}
 					set_temp_variable = {
@@ -17615,7 +18281,9 @@ ARK_battle_Gen_EGG = {
 					}
 					if = {
 						limit = {
-							check_variable = { global.ARK_Med_Control = 1 }
+							check_variable = {
+								global.ARK_Med_Control = 1
+							}
 						}
 						add_to_variable = {
 							ARK_unit_number_area_5 = e
@@ -17635,8 +18303,9 @@ ARK_battle_Gen_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Gen_Control = 3 }
-
+		set_variable = {
+			global.ARK_Gen_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -17664,7 +18333,6 @@ ARK_battle_Gen_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_6
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -17675,18 +18343,15 @@ ARK_battle_Gen_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_6 = m
 		}
@@ -17798,18 +18463,22 @@ ARK_battle_Gen_EGG = {
 		set_country_flag = LOSER
 	}
 }
+
 ARK_battle_Eclipse_EGG = {
 	if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio = 100
 			}
 		}
-		
 		if = {
 			limit = {
-				check_variable = { RCR.ARK_unit_number_area_7 = 0 } 
-				check_variable = { UFA.ARK_unit_number_area_7 = 0 } 
+				check_variable = {
+					RCR.ARK_unit_number_area_7 = 0
+				}
+				check_variable = {
+					UFA.ARK_unit_number_area_7 = 0
+				}
 			}
 			subtract_from_variable = {
 				ARK_organisation = 10
@@ -17840,7 +18509,6 @@ ARK_battle_Eclipse_EGG = {
 			set_temp_variable = {
 				m = ARK_unit_number_area_7
 			}
-
 			multiply_temp_variable = {
 				s = css
 			}
@@ -17857,15 +18525,12 @@ ARK_battle_Eclipse_EGG = {
 			set_variable = {
 				ARK_strength = a
 			}
-
 			subtract_from_temp_variable = {
 				m = n
 			}
-
 			set_variable = {
 				ARK_unit_number_area_7 = m
 			}
-
 			if = {
 				limit = {
 					check_variable = {
@@ -17904,12 +18569,14 @@ ARK_battle_Eclipse_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 3 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 100
 			}
 			check_variable = {
@@ -17940,7 +18607,6 @@ ARK_battle_Eclipse_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -17951,21 +18617,18 @@ ARK_battle_Eclipse_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -18003,12 +18666,14 @@ ARK_battle_Eclipse_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 3 }
+		set_variable = {
+			global.ARK_Eclipse_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else_if = {
 		limit = {
-			check_variable = { 
+			check_variable = {
 				ARK_Ratio < 75
 			}
 			check_variable = {
@@ -18039,7 +18704,6 @@ ARK_battle_Eclipse_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -18050,18 +18714,15 @@ ARK_battle_Eclipse_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-		
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -18102,8 +18763,9 @@ ARK_battle_Eclipse_EGG = {
 				}
 			}
 		}
-		set_variable = { global.ARK_Eclipse_Control = 3 }
-
+		set_variable = {
+			global.ARK_Eclipse_Control = 3
+		}
 		set_country_flag = WINNER
 	}
 	else = {
@@ -18131,7 +18793,6 @@ ARK_battle_Eclipse_EGG = {
 		set_temp_variable = {
 			m = ARK_unit_number_area_7
 		}
-
 		multiply_temp_variable = {
 			s = css
 		}
@@ -18142,18 +18803,15 @@ ARK_battle_Eclipse_EGG = {
 		set_variable = {
 			ARK_casualties = n
 		}
-		
 		subtract_from_temp_variable = {
 			a = s
 		}
 		set_variable = {
 			ARK_strength = a
 		}
-
 		subtract_from_temp_variable = {
 			m = n
 		}
-
 		set_variable = {
 			ARK_unit_number_area_7 = m
 		}
@@ -18359,7 +19017,6 @@ ARK_recalc_ratio = {
 				ARK_temp_num_area = ARK_unit_number_area_7
 			}
 		}
-
 		if = {
 			limit = {
 				check_variable = {
@@ -18390,7 +19047,6 @@ ARK_recalc_ratio = {
 				ARK_temp_owner_tag = EGG
 			}
 		}
-		
 		if = {
 			limit = {
 				check_variable = {
@@ -18461,9 +19117,10 @@ ARK_recalc_ratio = {
 				ARK_temp_owner_num_area = ARK_temp_owner_tag:ARK_unit_number_area_7
 			}
 		}
-
 		if = {
-			limit = { tag = var:ARK_temp_owner_tag }
+			limit = {
+				tag = var:ARK_temp_owner_tag
+			}
 			set_variable = {
 				ARK_Ratio = 100
 			}
@@ -18486,7 +19143,9 @@ ARK_recalc_ratio = {
 					check_variable = {
 						ARK_set_target = 1
 					}
-					NOT = { tag = var:ARK_temp_owner_tag }
+					NOT = {
+						tag = var:ARK_temp_owner_tag
+					}
 				}
 				set_temp_variable = {
 					n = ARK_unit_number
@@ -18532,10 +19191,12 @@ ARK_recalc_ratio = {
 					ARK_Power = a
 				}
 			}
-			if = { 
+			if = {
 				limit = {
 					var:ARK_temp_owner_tag = {
-						check_variable = { ARK_Power > 0 }
+						check_variable = {
+							ARK_Power > 0
+						}
 					}
 				}
 				set_temp_variable = {
@@ -18550,7 +19211,9 @@ ARK_recalc_ratio = {
 				multiply_temp_variable = {
 					u = 100
 				}
-				subtract_from_temp_variable = { u = 50 }
+				subtract_from_temp_variable = {
+					u = 50
+				}
 				set_variable = {
 					ARK_Ratio = u
 				}
@@ -18568,10 +19231,12 @@ ARK_recalc_ratio = {
 		}
 	}
 }
+
 ARK_the_end_of_the_world = {
 	every_country = {
 		country_event = ark_doomsday.1
-		delete_unit = {}
+		delete_unit = {
+		}
 		destroy_ships = {
 			type = destroyer
 			count = all
@@ -18628,11 +19293,13 @@ ARK_the_end_of_the_world = {
 		every_state = {
 			add_manpower = -99999999
 			cancel_resistance = yes
+			add_dynamic_modifier = {
+				modifier = Blasted_by_ARK
+			}
 		}
 		every_character = {
 			# limit = {
 			# 	NOT = {
-					
 			# 	}
 			# }
 			retire = yes
