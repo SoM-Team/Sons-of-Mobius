@@ -8,4 +8,355 @@ focus_tree = {
 	default = yes
 	reset_on_civilwar = no
 
+	continuous_focus_position = {
+		x = 0
+		y = 2000
+	}
+
+	focus = {
+		id = Gen_Improving_the_Army
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 7
+		y = 0
+		completion_reward = {
+			army_experience = 25
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			capital = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = {
+						all_provinces = yes
+						limit_to_victory_point = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Arms_Development_1
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = -1
+		y = 2
+		relative_position_id = Gen_Improving_the_Army
+
+		prerequisite = {
+			focus = Gen_Improving_the_Army
+		}
+		mutually_exclusive = {
+			focus = Gen_Soldier_Training_1
+		}
+		completion_reward = {
+			add_ideas = Rearmament_1
+			add_tech_bonus = {
+				category = infantry_tech
+				uses = 3
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = artillery
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Soldier_Training_1
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 1
+		y = 2
+		relative_position_id = Gen_Improving_the_Army
+
+		prerequisite = {
+			focus = Gen_Improving_the_Army
+		}
+		mutually_exclusive = {
+			focus = Gen_Arms_Development_1
+		}
+		completion_reward = {
+			add_ideas = Retraining_1
+		}
+	}
+	focus = {
+		id = Gen_Doctrines_1
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = -1
+		y = 2
+		relative_position_id = Gen_Soldier_Training_1
+
+		prerequisite = {
+			focus = Gen_Soldier_Training_1
+			focus = Gen_Arms_Development_1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			army_experience = 15
+		}
+	}
+	focus = {
+		id = Gen_Destroy_And_Serve
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = -3
+		y = 1
+		relative_position_id = Gen_Improving_the_Army
+
+		prerequisite = {
+			focus = Gen_Improving_the_Army
+		}
+		mutually_exclusive = {
+			focus = Gen_Save_Every_Soldier
+		}
+		completion_reward = {
+			add_ideas = Destroy_And_Serve
+			add_tech_bonus = {
+				category = engineers_tech
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Save_Every_Soldier
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 3
+		y = 1
+		relative_position_id = Gen_Improving_the_Army
+
+		prerequisite = {
+			focus = Gen_Improving_the_Army
+		}
+		mutually_exclusive = {
+			focus = Gen_Destroy_And_Serve
+		}
+		completion_reward = {
+			add_ideas = Save_Every_Soldier
+			add_tech_bonus = {
+				category = hospital_tech
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Arms_Development_2
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = -2
+		y = 2
+		relative_position_id = Gen_Arms_Development_1
+
+		prerequisite = {
+			focus = Gen_Arms_Development_1
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Rearmament_1
+				add_idea = Rearmament_2
+			}
+			add_tech_bonus = {
+				category = infantry_tech
+				uses = 3
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = motorized_equipment
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Soldier_Training_2
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 2
+		y = 2
+		relative_position_id = Gen_Soldier_Training_1
+
+		prerequisite = {
+			focus = Gen_Soldier_Training_1
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Retraining_1
+				add_idea = Retraining_2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Doctrines_2
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Doctrines_1
+
+		prerequisite = {
+			focus = Gen_Doctrines_1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = land_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			army_experience = 10
+		}
+	}
+	focus = {
+		id = Gen_Arms_Development_3
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Arms_Development_2
+
+		prerequisite = {
+			focus = Gen_Arms_Development_2
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Rearmament_2
+				add_idea = Rearmament_3
+			}
+			add_tech_bonus = {
+				category = robot_techs
+				uses = 2
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = armor
+				uses = 3
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Soldier_Training_3
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Soldier_Training_2
+
+		prerequisite = {
+			focus = Gen_Soldier_Training_2
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Retraining_2
+				add_idea = Retraining_3
+			}
+		}
+	}
+	focus = {
+		id = Gen_Special_Forces
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Doctrines_2
+
+		prerequisite = {
+			focus = Gen_Doctrines_2
+		}
+		prerequisite = {
+			focus = Gen_Arms_Development_3
+			focus = Gen_Soldier_Training_3
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = support_tech
+				uses = 2
+				bonus = 1
+			}
+			add_ideas = Special_Forces
+		}
+	}
+	focus = {
+		id = Gen_Project_Departments
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Arms_Development_3
+
+		prerequisite = {
+			focus = Gen_Arms_Development_3
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Rearmament_3
+				add_idea = Rearmament_4
+			}
+		}
+	}
+	focus = {
+		id = Gen_Best_Weapons
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Project_Departments
+
+		prerequisite = {
+			focus = Gen_Project_Departments
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Rearmament_4
+				add_idea = Rearmament_5
+			}
+		}
+	}
+	focus = {
+		id = Gen_Preparing_Officers_1
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Soldier_Training_3
+
+		prerequisite = {
+			focus = Gen_Soldier_Training_3
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Retraining_3
+				add_idea = Retraining_4
+			}
+		}
+	}
+	focus = {
+		id = Gen_Preparing_Officers_2
+		icon = GFX_obsolete_template_overlay
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Preparing_Officers_1
+
+		prerequisite = {
+			focus = Gen_Preparing_Officers_1
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Retraining_4
+				add_idea = Retraining_5
+			}
+		}
+	}
 }
