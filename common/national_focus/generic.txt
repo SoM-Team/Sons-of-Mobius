@@ -15,7 +15,7 @@ focus_tree = {
 
 	focus = {
 		id = Gen_Improving_the_Army
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 7
 		y = 0
@@ -30,6 +30,7 @@ focus_tree = {
 				add_building_construction = {
 					type = bunker
 					level = 2
+					instant_build = yes
 					province = {
 						all_provinces = yes
 						limit_to_victory_point = yes
@@ -40,7 +41,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Arms_Development_1
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = -1
 		y = 2
@@ -68,7 +69,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Soldier_Training_1
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 1
 		y = 2
@@ -86,10 +87,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Doctrines_1
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = Gen_Soldier_Training_1
 
 		prerequisite = {
@@ -107,7 +108,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Destroy_And_Serve
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = -3
 		y = 1
@@ -130,7 +131,7 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Save_Every_Soldier
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 3
 		y = 1
@@ -153,10 +154,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Arms_Development_2
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = -2
-		y = 2
+		y = 1
 		relative_position_id = Gen_Arms_Development_1
 
 		prerequisite = {
@@ -181,10 +182,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Soldier_Training_2
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 2
-		y = 2
+		y = 1
 		relative_position_id = Gen_Soldier_Training_1
 
 		prerequisite = {
@@ -199,10 +200,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Doctrines_2
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Doctrines_1
 
 		prerequisite = {
@@ -219,10 +220,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Arms_Development_3
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Arms_Development_2
 
 		prerequisite = {
@@ -247,10 +248,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Soldier_Training_3
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Soldier_Training_2
 
 		prerequisite = {
@@ -265,10 +266,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Special_Forces
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Doctrines_2
 
 		prerequisite = {
@@ -289,10 +290,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Project_Departments
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Arms_Development_3
 
 		prerequisite = {
@@ -307,10 +308,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Best_Weapons
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Project_Departments
 
 		prerequisite = {
@@ -325,10 +326,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Preparing_Officers_1
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Soldier_Training_3
 
 		prerequisite = {
@@ -343,10 +344,10 @@ focus_tree = {
 	}
 	focus = {
 		id = Gen_Preparing_Officers_2
-		icon = GFX_obsolete_template_overlay
+		icon = GFX_goal_unknown
 		cost = 7
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = Gen_Preparing_Officers_1
 
 		prerequisite = {
@@ -357,6 +358,2035 @@ focus_tree = {
 				remove_idea = Retraining_4
 				add_idea = Retraining_5
 			}
+		}
+	}
+
+	focus = {
+		id = Gen_Air_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 17
+		y = 0
+		completion_reward = {
+			air_experience = 25
+			if = {
+				limit = {
+					capital = {
+						air_base < 9
+					}
+				}
+				capital = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_capital = no
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			add_tech_bonus = {
+				category = air_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+		}
+	}
+
+	focus = {
+		id = Gen_Focus_on_Fighters
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Air_Development
+
+		prerequisite = {
+			focus = Gen_Air_Development
+		}
+		mutually_exclusive = {
+			focus = Gen_Focus_On_Bombers
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = light_fighter
+				category = light_interceptor
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Fast_And_Maneuverable
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Focus_on_Fighters
+
+		prerequisite = {
+			focus = Gen_Focus_on_Fighters
+		}
+		completion_reward = {
+			add_ideas = Fast_And_Maneuverable
+		}
+	}
+	focus = {
+		id = Gen_Focus_On_Bombers
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Air_Development
+
+		prerequisite = {
+			focus = Gen_Air_Development
+		}
+		mutually_exclusive = {
+			focus = Gen_Focus_on_Fighters
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = tactical_bomber
+				category = cat_strategic_bomber
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Destruction_And_Superiority
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Focus_On_Bombers
+
+		prerequisite = {
+			focus = Gen_Focus_On_Bombers
+		}
+		completion_reward = {
+			add_ideas = Destruction_And_Superiority
+		}
+	}
+	focus = {
+		id = Gen_Air_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Air_Development
+
+		prerequisite = {
+			focus = Gen_Focus_On_Bombers
+			focus = Gen_Focus_on_Fighters
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = air_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			air_experience = 15
+		}
+	}
+	focus = {
+		id = Gen_CAS_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Air_Development_2
+
+		prerequisite = {
+			focus = Gen_Air_Development_2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = cas_bomber
+				category = cat_attack_helicopter
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Drone_Support
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_CAS_Development
+
+		prerequisite = {
+			focus = Gen_CAS_Development
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = kamikaze_drone_tech
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Support_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Air_Development_2
+
+		prerequisite = {
+			focus = Gen_Air_Development_2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = support_plane_tech
+				uses = 2
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Anti_Air
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Support_Development
+
+		prerequisite = {
+			focus = Gen_Support_Development
+		}
+		completion_reward = {
+			capital = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_capital = no
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_capital = no
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_capital = no
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				category = light_interceptor
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Rocket_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Air_Development_2
+
+		prerequisite = {
+			focus = Gen_Air_Development_2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = rocketry
+				uses = 3
+				bonus = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_Modern_Air_Combat
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Rocket_Development
+
+		prerequisite = {
+			focus = Gen_Rocket_Development
+		}
+		prerequisite = {
+			focus = Gen_Drone_Support
+		}
+		prerequisite = {
+			focus = Gen_Anti_Air
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = air_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			air_experience = 10
+		}
+	}
+	focus = {
+		id = Gen_Navy_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 27
+		y = 0
+
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				category = naval_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Flexible_Fleet
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -2
+		y = 1
+		relative_position_id = Gen_Navy_Development
+
+		prerequisite = {
+			focus = Gen_Navy_Development
+		}
+		mutually_exclusive = {
+			focus = Gen_Big_Fleet
+		}
+		completion_reward = {
+			add_ideas = Flexible_Fleet
+		}
+	}
+	focus = {
+		id = Gen_Marines
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -2
+		y = 1
+		relative_position_id = Gen_Flexible_Fleet
+
+		prerequisite = {
+			focus = Gen_Flexible_Fleet
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = tp_tech
+				uses = 1
+				bonus = 1
+			}
+			add_tech_bonus = {
+				category = marine_tech
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Coast_Defense
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Marines
+
+		prerequisite = {
+			focus = Gen_Marines
+		}
+		completion_reward = {
+			add_ideas = Coast_Defense
+		}
+	}
+	focus = {
+		id = Gen_Big_Fleet
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 2
+		y = 1
+		relative_position_id = Gen_Navy_Development
+
+		prerequisite = {
+			focus = Gen_Navy_Development
+		}
+		mutually_exclusive = {
+			focus = Gen_Flexible_Fleet
+		}
+		completion_reward = {
+			add_ideas = Big_Fleet
+		}
+	}
+	focus = {
+		id = Gen_Carrier_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 2
+		y = 1
+		relative_position_id = Gen_Big_Fleet
+
+		prerequisite = {
+			focus = Gen_Big_Fleet
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = cv_tech
+				uses = 2
+				bonus = 1
+				ahead_reduction = 2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Fleet_Logistics
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Carrier_Development
+
+		prerequisite = {
+			focus = Gen_Carrier_Development
+		}
+		completion_reward = {
+			add_ideas = Fleet_Logistics
+		}
+	}
+	focus = {
+		id = Gen_Submarine_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Flexible_Fleet
+
+		prerequisite = {
+			focus = Gen_Flexible_Fleet
+			focus = Gen_Big_Fleet
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = ss_tech
+				uses = 2
+				bonus = 1
+				ahead_reduction = 2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Destroyer_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Submarine_Development
+
+		prerequisite = {
+			focus = Gen_Submarine_Development
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = dd_tech
+				uses = 2
+				bonus = 1
+				ahead_reduction = 2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Cruiser_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Big_Fleet
+
+		prerequisite = {
+			focus = Gen_Flexible_Fleet
+			focus = Gen_Big_Fleet
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = ca_tech
+				uses = 2
+				bonus = 1
+				ahead_reduction = 2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Battleship_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Cruiser_Development
+
+		prerequisite = {
+			focus = Gen_Cruiser_Development
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = bb_tech
+				uses = 2
+				bonus = 1
+				ahead_reduction = 2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Navy_Doctrine_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 2
+		relative_position_id = Gen_Navy_Development
+
+		prerequisite = {
+			focus = Gen_Navy_Development
+		}
+		completion_reward = {
+			navy_experience = 15
+			add_tech_bonus = {
+				category = naval_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+		}
+	}
+	focus = {
+		id = Gen_Navy_Doctrine_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Navy_Doctrine_1
+
+		prerequisite = {
+			focus = Gen_Navy_Doctrine_1
+		}
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				category = naval_doctrine
+				uses = 1
+				bonus = 0.5
+			}
+		}
+	}
+
+	focus = {
+		id = Gen_Economy_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 39
+		y = 0
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Infrastructure_Development_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -4
+		y = 1
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Economy_Development
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				bonus = 0.5
+				uses = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Infrastructure_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Infrastructure_Development_1
+
+		prerequisite = {
+			focus = Gen_Infrastructure_Development_1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				bonus = 0.5
+				uses = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Infrastructure_Development_3
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Infrastructure_Development_2
+
+		prerequisite = {
+			focus = Gen_Infrastructure_Development_2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				category = excavation_tech
+				bonus = 0.5
+				uses = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Industry_Development_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -2
+		y = 1
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Economy_Development
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Industry_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Civil_Industry_Development_1
+
+		prerequisite = {
+			focus = Gen_Civil_Industry_Development_1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Industry_Development_3
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Civil_Industry_Development_2
+
+		prerequisite = {
+			focus = Gen_Civil_Industry_Development_2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Social_Sector_Development_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Economy_Development
+		}
+		completion_reward = {
+			add_stability = 0.025
+			add_ideas = Health_Subsidies
+		}
+	}
+	focus = {
+		id = Gen_Social_Sector_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Social_Sector_Development_1
+
+		prerequisite = {
+			focus = Gen_Social_Sector_Development_1
+		}
+		completion_reward = {
+			add_stability = 0.025
+			add_ideas = Education_Subsidies
+		}
+	}
+	focus = {
+		id = Gen_Social_Sector_Development_3
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Social_Sector_Development_2
+
+		prerequisite = {
+			focus = Gen_Social_Sector_Development_2
+		}
+		completion_reward = {
+			add_stability = 0.025
+			add_ideas = Housing_Subsidies
+		}
+	}
+	focus = {
+		id = Gen_Military_Industry_Development_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 2
+		y = 1
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Economy_Development
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Military_Industry_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Military_Industry_Development_1
+
+		prerequisite = {
+			focus = Gen_Military_Industry_Development_1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Military_Industry_Development_3
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Military_Industry_Development_2
+
+		prerequisite = {
+			focus = Gen_Military_Industry_Development_2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Tech_Development_1
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 4
+		y = 1
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Economy_Development
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 2
+				bonus = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Tech_Development_2
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Civil_Tech_Development_1
+
+		prerequisite = {
+			focus = Gen_Civil_Tech_Development_1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 2
+				bonus = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_Civil_Tech_Development_3
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Civil_Tech_Development_2
+
+		prerequisite = {
+			focus = Gen_Civil_Tech_Development_2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 2
+				bonus = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_New_Industrial_Revolution
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 4
+		relative_position_id = Gen_Economy_Development
+
+		prerequisite = {
+			focus = Gen_Infrastructure_Development_3
+		}
+		prerequisite = {
+			focus = Gen_Civil_Industry_Development_3
+		}
+		prerequisite = {
+			focus = Gen_Social_Sector_Development_3
+		}
+		prerequisite = {
+			focus = Gen_Military_Industry_Development_3
+		}
+		prerequisite = {
+			focus = Gen_Civil_Tech_Development_3
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = industry
+				uses = 1
+				bonus = 1
+			}
+			add_timed_idea = {
+				idea = New_Industrial_Revolution
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = Gen_Space_Program
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -3
+		y = 1
+		relative_position_id = Gen_New_Industrial_Revolution
+
+		prerequisite = {
+			focus = Gen_New_Industrial_Revolution
+		}
+		available = {
+			has_completed_focus = Gen_Rocket_Development
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = space_tech
+				uses = 2
+				bonus = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_Ring_Energy
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_New_Industrial_Revolution
+
+		prerequisite = {
+			focus = Gen_New_Industrial_Revolution
+		}
+		completion_reward = {
+			add_ideas = Ring_Energy
+			every_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Nuclear_Program
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_New_Industrial_Revolution
+
+		prerequisite = {
+			focus = Gen_New_Industrial_Revolution
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = nuclear
+				uses = 1
+				bonus = 1.5
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.75
+			}
+		}
+	}
+	focus = {
+		id = Gen_Nanites_And_AI
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 3
+		y = 1
+		relative_position_id = Gen_New_Industrial_Revolution
+
+		prerequisite = {
+			focus = Gen_New_Industrial_Revolution
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				category = nanites
+				uses = 2
+				bonus = 0.75
+			}
+			add_tech_bonus = {
+				technology = nanite_AI_1
+				technology = nanite_AI_2
+				technology = nanite_AI_3
+				technology = nanite_AI_4
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Politics_Development
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 54
+		y = 0
+
+		completion_reward = {
+			add_political_power = 125
+		}
+	}
+	focus = {
+		id = Gen_Becoming_Closer_To_Freedom_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -6
+		y = 1
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Politics_Development
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Partnership_Agreement_With_Accord
+		}
+	}
+	focus = {
+		id = Gen_Trading_With_Freedom_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Freedom_Accord
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Freedom_Accord
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Trading_With_Freedom_Accord
+		}
+	}
+	focus = {
+		id = Gen_Tech_Partnership_With_Freedom_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Trading_With_Freedom_Accord
+		
+		prerequisite = {
+			focus = Gen_Trading_With_Freedom_Accord
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Tech_With_Accord
+			add_tech_bonus = {
+				category = air_equipment
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Embassies_of_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Freedom_Accord
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Freedom_Accord
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Embassy_Accord
+		}
+	}
+	focus = {
+		id = Gen_Open_Borders_With_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Embassies_of_Accord
+
+		prerequisite = {
+			focus = Gen_Embassies_of_Accord
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Open_Borders_Accord
+			add_ideas = Tourism_Accord
+		}
+	}
+	focus = {
+		id = Gen_Non_Aggression_Pact_With_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 3
+		relative_position_id = Gen_Becoming_Closer_To_Freedom_Accord
+
+		prerequisite = {
+			focus = Gen_Tech_Partnership_With_Freedom_Accord
+		}
+		prerequisite = {
+			focus = Gen_Open_Borders_With_Accord
+		}
+		available = {
+			NOT = {
+				has_war_with = KOA
+			}
+		}
+		completion_reward = {
+			add_ideas = Non_Aggression_Accord
+		}
+	}
+	focus = {
+		id = Gen_Becoming_Closer_To_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -2
+		y = 1
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Politics_Development
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Partnership_Agreement_With_Internationale
+		}
+	}
+	focus = {
+		id = Gen_Trading_With_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Internationale
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Internationale
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Trading_With_Internationale
+		}
+	}
+	focus = {
+		id = Gen_Tech_Partnership_With_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Trading_With_Internationale
+		
+		prerequisite = {
+			focus = Gen_Trading_With_Internationale
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Tech_With_Internationale
+			add_tech_bonus = {
+				category = armor
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Embassies_of_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Internationale
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Internationale
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Embassy_Internationale
+		}
+	}
+	focus = {
+		id = Gen_Open_Borders_With_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Embassies_of_Internationale
+
+		prerequisite = {
+			focus = Gen_Embassies_of_Internationale
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Open_Borders_Internationale
+			add_ideas = Tourism_Internationale
+		}
+	}
+	focus = {
+		id = Gen_Non_Aggression_Pact_With_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 3
+		relative_position_id = Gen_Becoming_Closer_To_Internationale
+
+		prerequisite = {
+			focus = Gen_Tech_Partnership_With_Internationale
+		}
+		prerequisite = {
+			focus = Gen_Open_Borders_With_Internationale
+		}
+		available = {
+			NOT = {
+				has_war_with = RCR
+			}
+		}
+		completion_reward = {
+			add_ideas = Non_Aggression_Internationale
+		}
+	}
+	focus = {
+		id = Gen_Becoming_Closer_To_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 2
+		y = 1
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Politics_Development
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Partnership_Agreement_With_Robosphere
+		}
+	}
+	focus = {
+		id = Gen_Trading_With_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Robosphere
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Robosphere
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Trading_With_Robosphere
+		}
+	}
+	focus = {
+		id = Gen_Tech_Partnership_With_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Trading_With_Robosphere
+		
+		prerequisite = {
+			focus = Gen_Trading_With_Robosphere
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Tech_With_Robosphere
+			add_tech_bonus = {
+				category = air_equipment
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+	focus = {
+		id = Gen_Embassies_of_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Becoming_Closer_To_Robosphere
+
+		prerequisite = {
+			focus = Gen_Becoming_Closer_To_Robosphere
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Embassy_Robosphere
+		}
+	}
+	focus = {
+		id = Gen_Open_Borders_With_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Embassies_of_Robosphere
+
+		prerequisite = {
+			focus = Gen_Embassies_of_Robosphere
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Open_Borders_Robosphere
+			add_ideas = Tourism_Robosphere
+		}
+	}
+	focus = {
+		id = Gen_Non_Aggression_Pact_With_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 3
+		relative_position_id = Gen_Becoming_Closer_To_Robosphere
+
+		prerequisite = {
+			focus = Gen_Tech_Partnership_With_Robosphere
+		}
+		prerequisite = {
+			focus = Gen_Open_Borders_With_Robosphere
+		}
+		available = {
+			NOT = {
+				has_war_with = EGG
+			}
+		}
+		completion_reward = {
+			add_ideas = Non_Aggression_Robosphere
+		}
+	}
+	focus = {
+		id = Gen_Neutrality_Path
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 6
+		y = 1
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Politics_Development
+		}
+		completion_reward = {
+			add_war_support = -0.05
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = Gen_Prepare_Militias
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 1
+		relative_position_id = Gen_Neutrality_Path
+
+		prerequisite = {
+			focus = Gen_Neutrality_Path
+		}
+		completion_reward = {
+			load_oob = unlock_militia
+			add_ideas = Standing_For_Our_Home
+		}
+	}
+	focus = {
+		id = Gen_Defensive_Landscape
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Prepare_Militias
+
+		prerequisite = {
+			focus = Gen_Prepare_Militias
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = Standing_For_Our_Home
+				add_idea = Standing_For_Our_Home_2
+			}
+		}
+	}
+	focus = {
+		id = Gen_Maneuvering
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 1
+		relative_position_id = Gen_Neutrality_Path
+
+		prerequisite = {
+			focus = Gen_Neutrality_Path
+		}
+		completion_reward = {
+			add_ideas = Evading_Conflict
+		}
+	}
+	focus = {
+		id = Gen_Protectionism
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		relative_position_id = Gen_Maneuvering
+
+		prerequisite = {
+			focus = Gen_Maneuvering
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = export_focus
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = export_focus
+				}
+				swap_ideas = {
+					remove_idea = export_focus
+					add_idea = limited_exports
+				}
+			}
+			else = {
+				add_stability = 0.05
+				add_political_power = 50
+			}
+		}
+	}
+	focus = {
+		id = Gen_Declare_Neutrality
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 3
+		relative_position_id = Gen_Neutrality_Path
+
+		prerequisite = {
+			focus = Gen_Defensive_Landscape
+		}
+		prerequisite = {
+			focus = Gen_Protectionism
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_in_faction = yes
+				}
+				diplomatic_relation = {
+					country = PREV
+					relation = non_aggression_pact
+					active = yes
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = Standing_Aside
+				}
+				PREV = {
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Revolution
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -2
+		y = 5
+
+		relative_position_id = Gen_Politics_Development
+		prerequisite = {
+			focus = Gen_Non_Aggression_Pact_With_Accord
+			focus = Gen_Non_Aggression_Pact_With_Internationale
+			focus = Gen_Non_Aggression_Pact_With_Robosphere
+			focus = Gen_Declare_Neutrality
+		}
+		mutually_exclusive = {
+			focus = Gen_Stabilization
+			focus = Gen_Military_Coup
+		}
+		available = {
+			OR = {
+				katzerism > 0.3
+				neosocialism > 0.3
+				autonomous_socialism > 0.3
+				progressism > 0.3
+				progressive_liberalism > 0.3
+				orthodox_liberalism > 0.3
+				conservatism > 0.3
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					check_variable = {
+						highest_party_popularity > 0.3
+						highest_party_popularity < 0.5
+					}
+				}
+				start_civil_war = {
+					ideology = highest_party_ideology
+					size = 0.7
+					army_ratio = 0.5
+					navy_ratio = 0.5
+					air_ratio = 0.5
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						check_variable = {
+							highest_party_popularity = 0.5
+						}
+						check_variable = {
+							highest_party_popularity > 0.5
+							highest_party_popularity < 0.6
+						}
+					}
+				}
+				random_list = {
+					10 = {
+						set_politics = {
+							ruling_party = highest_party_ideology
+						}
+					}
+					90 = {
+						start_civil_war = {
+							ideology = highest_party_ideology
+							size = 0.4
+							army_ratio = 0.45
+							navy_ratio = 0.45
+							air_ratio = 0.45
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						check_variable = {
+							highest_party_popularity = 0.6
+						}
+						check_variable = {
+							highest_party_popularity > 0.6
+							highest_party_popularity < 0.7
+						}
+					}
+				}
+				random_list = {
+					30 = {
+						set_politics = {
+							ruling_party = highest_party_ideology
+						}
+					}
+					70 = {
+						start_civil_war = {
+							ideology = highest_party_ideology
+							size = 0.3
+							army_ratio = 0.4
+							navy_ratio = 0.4
+							air_ratio = 0.4
+						}
+					}
+				}
+			}
+			else = {
+				random_list = {
+					50 = {
+						set_politics = {
+							ruling_party = highest_party_ideology
+						}
+					}
+					50 = {
+						start_civil_war = {
+							ideology = highest_party_ideology
+							size = 0.2
+							army_ratio = 0.35
+							navy_ratio = 0.35
+							air_ratio = 0.35
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Military_Coup
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 5
+
+		relative_position_id = Gen_Politics_Development
+		prerequisite = {
+			focus = Gen_Non_Aggression_Pact_With_Accord
+			focus = Gen_Non_Aggression_Pact_With_Internationale
+			focus = Gen_Non_Aggression_Pact_With_Robosphere
+			focus = Gen_Declare_Neutrality
+		}
+		mutually_exclusive = {
+			focus = Gen_Revolution
+			focus = Gen_Stabilization
+		}
+		available = {
+			check_variable = {
+				highest_party_popularity > 0.3
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					check_variable = {
+						highest_party_popularity > 0.3
+						highest_party_popularity < 0.5
+					}
+				}
+				start_civil_war = {
+					ideology = ROOT
+					ruling_party = highest_party_ideology
+					size = 0.7
+					army_ratio = 0.45
+					navy_ratio = 0.45
+					air_ratio = 0.45
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						check_variable = {
+							highest_party_popularity = 0.5
+						}
+						check_variable = {
+							highest_party_popularity > 0.5
+							highest_party_popularity < 0.6
+						}
+					}
+				}
+				random_list = {
+					50 = {
+						set_politics = {
+							ruling_party = highest_party_ideology
+						}
+					}
+					50 = {
+						start_civil_war = {
+							ideology = ROOT
+							ruling_party = highest_party_ideology
+							size = 0.6
+							army_ratio = 0.4
+							navy_ratio = 0.4
+							air_ratio = 0.4
+						}
+					}
+				}
+			}
+			else = {
+				set_politics = {
+					ruling_party = highest_party_ideology
+				}
+			}
+		}
+	}
+	focus = {
+		id = Gen_Stabilization
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 2
+		y = 5
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Non_Aggression_Pact_With_Accord
+			focus = Gen_Non_Aggression_Pact_With_Internationale
+			focus = Gen_Non_Aggression_Pact_With_Robosphere
+			focus = Gen_Declare_Neutrality
+		}
+		mutually_exclusive = {
+			focus = Gen_Revolution
+			focus = Gen_Military_Coup
+		}
+		completion_reward = {
+			add_ideas = Strong_Foundations
+		}
+	}
+	focus = {
+		id = Gen_Join_Accord
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -3
+		y = 6
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Revolution
+			focus = Gen_Military_Coup
+			focus = Gen_Stabilization
+		}
+		mutually_exclusive = {
+			focus = Gen_Souvereignity
+			focus = Gen_Join_Internationale
+			focus = Gen_Join_Robosphere
+		}
+		available = {
+			KOA = {
+				is_faction_leader = yes
+			}
+			has_completed_focus = Gen_Non_Aggression_Pact_With_Accord
+			OR = {
+				has_government = KOA.current_party_ideology_group
+				has_government = legalism
+				has_government = progressism
+				has_government = progressive_liberalism
+				has_government = orthodox_liberalism
+				has_government = conservatism
+			}
+		}
+		completion_reward = {
+			KOA = {
+				add_to_faction = PREV
+			}
+			add_popularity = {
+				ideology = current_party_ideology_group
+				popularity = 0.1
+			}
+			remove_ideas = {
+				Embassy_Robosphere
+				Tourism_Robosphere
+				Tech_With_Robosphere
+				Open_Borders_Robosphere
+				Trading_With_Robosphere
+				Non_Aggression_Robosphere
+				Partnership_Agreement_With_Robosphere
+			}
+		}
+	}
+	focus = {
+		id = Gen_Join_Internationale
+		icon = GFX_goal_unknown
+		cost = 7
+		x = -1
+		y = 6
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Revolution
+			focus = Gen_Military_Coup
+			focus = Gen_Stabilization
+		}
+		mutually_exclusive = {
+			focus = Gen_Join_Accord
+			focus = Gen_Souvereignity
+			focus = Gen_Join_Robosphere
+		}
+		available = {
+			RCR = {
+				is_faction_leader = yes
+			}
+			has_completed_focus = Gen_Non_Aggression_Pact_With_Internationale
+			OR = {
+				has_government = katzerism
+				has_government = autonomous_socialism
+				has_government = progressism
+				has_government = neosocialism
+				has_government = legalism
+			}
+		}
+		completion_reward = {
+			RCR = {
+				add_to_faction = PREV
+			}
+			add_popularity = {
+				ideology = current_party_ideology_group
+				popularity = 0.1
+			}
+			remove_ideas = {
+				Embassy_Robosphere
+				Tourism_Robosphere
+				Tech_With_Robosphere
+				Open_Borders_Robosphere
+				Trading_With_Robosphere
+				Non_Aggression_Robosphere
+				Partnership_Agreement_With_Robosphere
+			}
+		}
+	}
+	focus = {
+		id = Gen_Join_Robosphere
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 1
+		y = 6
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Revolution
+			focus = Gen_Military_Coup
+			focus = Gen_Stabilization
+		}
+		mutually_exclusive = {
+			focus = Gen_Join_Accord
+			focus = Gen_Join_Internationale
+			focus = Gen_Souvereignity
+		}
+		available = {
+			EGG = {
+				is_faction_leader = yes
+			}
+			has_completed_focus = Gen_Non_Aggression_Pact_With_Robosphere
+			has_government = technocratic_despotism
+		}
+		completion_reward = {
+			EGG = {
+				add_to_faction = PREV
+			}
+			add_popularity = {
+				ideology = current_party_ideology_group
+				popularity = 0.1
+			}
+			remove_ideas = {
+				Embassy_Accord
+				Tourism_Accord
+				Tech_With_Accord
+				Open_Borders_Accord
+				Trading_With_Freedom_Accord
+				Non_Aggression_Accord
+				Partnership_Agreement_With_Accord
+
+				Embassy_Internationale
+				Tourism_Internationale
+				Tech_With_Internationale
+				Open_Borders_Internationale
+				Trading_With_Internationale
+				Non_Aggression_Internationale
+				Partnership_Agreement_With_Internationale
+			}
+		}
+	}
+	focus = {
+		id = Gen_Souvereignity
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 3
+		y = 6
+		relative_position_id = Gen_Politics_Development
+
+		prerequisite = {
+			focus = Gen_Revolution
+			focus = Gen_Military_Coup
+			focus = Gen_Stabilization
+		}
+		mutually_exclusive = {
+			focus = Gen_Join_Accord
+			focus = Gen_Join_Internationale
+			focus = Gen_Join_Robosphere
+		}
+		available = {
+			has_completed_focus = Gen_Declare_Neutrality
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_ideas = Souvereignity
 		}
 	}
 }
