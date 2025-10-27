@@ -12,7 +12,6 @@ ideas = {
 				robot_techs = 0.15
 			}
 			modifier = {
-				
 			}
 		}
 		The_Agreement = {
@@ -1955,7 +1954,6 @@ ideas = {
 				intel_network_gain_factor = -0.2
 			}
 		}
-
 		Influenced_INF_Pipeline = {
 			modifier = {
 				fuel_gain_factor = 100
@@ -1963,11 +1961,10 @@ ideas = {
 				consumer_goods_factor = 0.05
 			}
 			targeted_modifier = {
-				tag = INF   
+				tag = INF
 				extra_trade_to_target_factor = 0.5
 			}
 		}
-
 		Influenced_RCR_Pipeline = {
 			modifier = {
 				fuel_gain_factor = 100
@@ -1975,7 +1972,7 @@ ideas = {
 				consumer_goods_factor = 0.05
 			}
 			targeted_modifier = {
-				tag = RCR 
+				tag = RCR
 				extra_trade_to_target_factor = 0.5
 			}
 		}
@@ -1986,7 +1983,7 @@ ideas = {
 				consumer_goods_factor = 0.05
 			}
 			targeted_modifier = {
-				tag = RCR 
+				tag = RCR
 				extra_trade_to_target_factor = 0.5
 			}
 			on_remove = {
@@ -2113,7 +2110,7 @@ ideas = {
 				out_of_supply_factor = -0.1
 				army_org_regain = 0.1
 				army_attack_factor = 0.05
-				army_org_factor = 0.10
+				army_org_factor = 0.1
 			}
 		}
 		Retraining_4 = {
@@ -2125,7 +2122,7 @@ ideas = {
 				out_of_supply_factor = -0.1
 				army_org_regain = 0.1
 				army_attack_factor = 0.05
-				army_org_factor = 0.10
+				army_org_factor = 0.1
 				training_time_army_factor = -0.15
 				experience_gain_army_factor = 0.15
 				experience_loss_factor = -0.05
@@ -2140,7 +2137,7 @@ ideas = {
 				out_of_supply_factor = -0.1
 				army_org_regain = 0.1
 				army_attack_factor = 0.05
-				army_org_factor = 0.10
+				army_org_factor = 0.1
 				training_time_army_factor = -0.15
 				experience_gain_army_factor = 0.15
 				experience_loss_factor = -0.05
@@ -2158,6 +2155,1505 @@ ideas = {
 				special_forces_defence_factor = 0.05
 			}
 		}
+		Fast_And_Maneuverable = {
+			equipment_bonus = {
+				fighter_equipment = {
+					air_agility = 0.05
+					maximum_speed = 0.05
+				}
+				interceptor = {
+					air_agility = 0.05
+					maximum_speed = 0.05
+				}
+			}
+		}
+		Destruction_And_Superiority = {
+			equipment_bonus = {
+				tac_bomber_equipment = {
+					air_defence = 0.05
+					air_bombing = 0.05
+				}
+				strat_bomber_equipment = {
+					air_defence = 0.05
+					air_bombing = 0.05
+				}
+			}
+		}
+		Flexible_Fleet = {
+			modifier = {
+				navy_screen_attack_factor = 0.05
+				navy_screen_defence_factor = 0.05
+			}
+			equipment_bonus = {
+				ship_hull_light = {
+					build_cost_ic = -0.05
+				}
+				ship_hull_submarine = {
+					build_cost_ic = -0.05
+				}
+			}
+		}
+		Coast_Defense = {
+			modifier = {
+				naval_mines_damage_factor = 0.1
+				mines_planting_by_fleets_factor = 0.1
+			}
+		}
+		Big_Fleet = {
+			modifier = {
+				navy_capital_ship_attack_factor = 0.05
+				navy_capital_ship_defence_factor = 0.05
+			}
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.05
+				}
+			}
+		}
+		Fleet_Logistics = {
+			modifier = {
+				navy_fuel_consumption_factor = -0.1
+				navy_max_range_factor = 0.1
+				naval_morale_factor = 0.05
+			}
+		}
+		Health_Subsidies = {
+			modifier = {
+				weekly_manpower_factor = 0.15
+				stability_factor = 0.025
+			}
+		}
+		Education_Subsidies = {
+			modifier = {
+				research_speed_factor = 0.025
+			}
+		}
+		Housing_Subsidies = {
+			modifier = {
+				global_building_slots_factor = 0.1
+			}
+		}
+		New_Industrial_Revolution = {
+			modifier = {
+				production_speed_buildings_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.1
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+		Ring_Energy = {
+			modifier = {
+				ring_monthly_growth = 100000
+				base_fuel_gain = 102
+				base_fuel_gain_factor = 0.15
+			}
+		}
+		Partnership_Agreement_With_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Partnership_Agreement
+				}
+				reverse_add_opinion_modifier = {
+					target = KOA
+					modifier = Partnership_Agreement
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = KOA
+					modifier = Partnership_Agreement
+				}
+				KOA = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Partnership_Agreement
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = partnership_accord_tt
+			}
+		}
+		Trading_With_Freedom_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				diplomatic_relation = {
+					country = KOA
+					relation = docking_rights
+					active = yes
+				}
+				diplomatic_relation = {
+					country = KOA
+					relation = embargo
+					active = no
+				}
+				KOA = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = yes
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = no
+					}
+				}
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Trading_Partnership
+				}
+				reverse_add_opinion_modifier = {
+					target = KOA
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					reverse_add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+				}
+			}
+			on_remove = {
+				diplomatic_relation = {
+					country = KOA
+					relation = docking_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = KOA
+					relation = embargo
+					active = yes
+				}
+				KOA = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = no
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = yes
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_Partnership
+					}
+				}
+				remove_opinion_modifier = {
+					target = KOA
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Trading_With_Rivals
+						}
+					}
+				}
+			}
+			targeted_modifier = {
+				tag = KOA
+				trade_cost_for_target_factor = -0.15
+				license_purchase_cost_factor = -0.2
+			}
+			modifier = {
+				trade_opinion_factor = 0.15
+				custom_modifier_tooltip = trading_accord_tt
+			}
+		}
+		Tech_With_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				add_to_tech_sharing_group = accord_tech_share
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Tech_Partnership
+				}
+				KOA = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_from_tech_sharing_group = accord_tech_share
+				remove_opinion_modifier = {
+					target = KOA
+					modifier = Tech_Partnership
+				}
+				KOA = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = tech_accord_tt
+			}
+		}
+		Embassy_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Embassies
+				}
+				KOA = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = KOA
+					modifier = Embassies
+				}
+				KOA = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			modifier = {
+				political_power_factor = 0.05
+				autonomy_gain = 0.05
+				enemy_declare_war_tension = 0.15
+				custom_modifier_tooltip = embassies_accord_tt
+			}
+		}
+		Open_Borders_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = KOA
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = KOA
+					relation = military_access
+					active = yes
+				}
+				KOA = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = yes
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = KOA
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = KOA
+					relation = military_access
+					active = no
+				}
+				KOA = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = no
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = KOA
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = open_borders_accord_tt
+			}
+		}
+		Tourism_Accord = {
+			cancel = {
+				has_war = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.075
+			}
+		}
+		Non_Aggression_Accord = {
+			available = {
+				NOT = {
+					has_war_with = KOA
+				}
+			}
+			on_add = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = KOA
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = yes
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = yes
+						}
+					}
+				}
+			}
+			on_remove = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = KOA
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = no
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = no
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = non_aggression_accord_tt
+			}
+		}
+		Partnership_Agreement_With_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Partnership_Agreement
+				}
+				reverse_add_opinion_modifier = {
+					target = RCR
+					modifier = Partnership_Agreement
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = RCR
+					modifier = Partnership_Agreement
+				}
+				RCR = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Partnership_Agreement
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = partnership_internationale_tt
+			}
+		}
+		Trading_With_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				diplomatic_relation = {
+					country = RCR
+					relation = docking_rights
+					active = yes
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = embargo
+					active = no
+				}
+				RCR = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = yes
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = no
+					}
+				}
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Trading_Partnership
+				}
+				reverse_add_opinion_modifier = {
+					target = RCR
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					reverse_add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+				}
+			}
+			on_remove = {
+				diplomatic_relation = {
+					country = RCR
+					relation = docking_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = embargo
+					active = yes
+				}
+				RCR = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = no
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = yes
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_Partnership
+					}
+				}
+				remove_opinion_modifier = {
+					target = RCR
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Trading_With_Rivals
+						}
+					}
+				}
+			}
+			targeted_modifier = {
+				tag = RCR
+				trade_cost_for_target_factor = -0.15
+				license_purchase_cost_factor = -0.2
+			}
+			modifier = {
+				trade_opinion_factor = 0.15
+				custom_modifier_tooltip = trading_internationale_tt
+			}
+		}
+		Tech_With_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				add_to_tech_sharing_group = internationale_tech_share
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Tech_Partnership
+				}
+				RCR = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_from_tech_sharing_group = internationale_tech_share
+				remove_opinion_modifier = {
+					target = RCR
+					modifier = Tech_Partnership
+				}
+				RCR = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = tech_internationale_tt
+			}
+		}
+		Embassy_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Embassies
+				}
+				RCR = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = RCR
+					modifier = Embassies
+				}
+				RCR = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			modifier = {
+				political_power_factor = 0.05
+				autonomy_gain = 0.05
+				enemy_declare_war_tension = 0.15
+				custom_modifier_tooltip = embassies_internationale_tt
+			}
+		}
+		Open_Borders_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = RCR
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = military_access
+					active = yes
+				}
+				RCR = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = yes
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = RCR
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = RCR
+					relation = military_access
+					active = no
+				}
+				RCR = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = no
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = RCR
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = open_borders_internationale_tt
+			}
+		}
+		Tourism_Internationale = {
+			cancel = {
+				has_war = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.075
+			}
+		}
+		Non_Aggression_Internationale = {
+			available = {
+				NOT = {
+					has_war_with = RCR
+				}
+			}
+			on_add = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = RCR
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = yes
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = yes
+						}
+					}
+				}
+			}
+			on_remove = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = RCR
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = no
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = no
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = non_aggression_internationale_tt
+			}
+		}
+		Partnership_Agreement_With_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = EGG
+					modifier = Partnership_Agreement
+				}
+				reverse_add_opinion_modifier = {
+					target = EGG
+					modifier = Partnership_Agreement
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = EGG
+					modifier = Partnership_Agreement
+				}
+				EGG = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Partnership_Agreement
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = partnership_robosphere_tt
+			}
+		}
+		Trading_With_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				diplomatic_relation = {
+					country = EGG
+					relation = docking_rights
+					active = yes
+				}
+				diplomatic_relation = {
+					country = EGG
+					relation = embargo
+					active = no
+				}
+				EGG = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = yes
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = no
+					}
+				}
+				add_opinion_modifier = {
+					target = EGG
+					modifier = Trading_Partnership
+				}
+				reverse_add_opinion_modifier = {
+					target = EGG
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					reverse_add_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+				}
+			}
+			on_remove = {
+				diplomatic_relation = {
+					country = EGG
+					relation = docking_rights
+					active = no
+				}
+				diplomatic_relation = {
+					country = EGG
+					relation = embargo
+					active = yes
+				}
+				EGG = {
+					diplomatic_relation = {
+						country = PREV
+						relation = docking_rights
+						active = no
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = embargo
+						active = yes
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_Partnership
+					}
+				}
+				remove_opinion_modifier = {
+					target = EGG
+					modifier = Trading_Partnership
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Trading_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Trading_With_Rivals
+						}
+					}
+				}
+			}
+			targeted_modifier = {
+				tag = EGG
+				trade_cost_for_target_factor = -0.15
+				license_purchase_cost_factor = -0.2
+			}
+			modifier = {
+				trade_opinion_factor = 0.15
+				custom_modifier_tooltip = trading_robosphere_tt
+			}
+		}
+		Tech_With_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				add_to_tech_sharing_group = robosphere_tech_share
+				add_opinion_modifier = {
+					target = EGG
+					modifier = Tech_Partnership
+				}
+				EGG = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_from_tech_sharing_group = robosphere_tech_share
+				remove_opinion_modifier = {
+					target = EGG
+					modifier = Tech_Partnership
+				}
+				EGG = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_Partnership
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Tech_With_Rivals
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Tech_With_Rivals
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = tech_robosphere_tt
+			}
+		}
+		Embassy_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = EGG
+					modifier = Embassies
+				}
+				EGG = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = EGG
+					modifier = Embassies
+				}
+				EGG = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Embassies
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Embassies
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Embassies
+						}
+					}
+				}
+			}
+			modifier = {
+				political_power_factor = 0.05
+				autonomy_gain = 0.05
+				enemy_declare_war_tension = 0.15
+				custom_modifier_tooltip = embassies_robosphere_tt
+			}
+		}
+		Open_Borders_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				add_opinion_modifier = {
+					target = EGG
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = EGG
+					relation = military_access
+					active = yes
+				}
+				EGG = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = yes
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						add_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			on_remove = {
+				remove_opinion_modifier = {
+					target = EGG
+					modifier = Open_Borders
+				}
+				diplomatic_relation = {
+					country = EGG
+					relation = military_access
+					active = no
+				}
+				EGG = {
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Open_Borders
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = military_access
+						active = no
+					}
+				}
+				every_country = {
+					limit = {
+						is_faction_leader = yes
+						NOT = {
+							is_in_faction_with = EGG
+						}
+					}
+					remove_opinion_modifier = {
+						target = PREV
+						modifier = Rival_Open_Borders
+					}
+					PREV = {
+						remove_opinion_modifier = {
+							target = PREV
+							modifier = Rival_Open_Borders
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = open_borders_robosphere_tt
+			}
+		}
+		Tourism_Robosphere = {
+			cancel = {
+				has_war = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.075
+			}
+		}
+		Non_Aggression_Robosphere = {
+			available = {
+				NOT = {
+					has_war_with = EGG
+				}
+			}
+			on_add = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = EGG
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = yes
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = yes
+						}
+					}
+				}
+			}
+			on_remove = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = EGG
+					}
+					diplomatic_relation = {
+						country = PREV
+						relation = non_aggression_pact
+						active = no
+					}
+					PREV = {
+						diplomatic_relation = {
+							country = PREV
+							relation = military_access
+							active = no
+						}
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = non_aggression_robosphere_tt
+			}
+		}
+		Standing_For_Our_Home = {
+			modifier = {
+				militia_attack_factor = 0.05
+				militia_defence_factor = 0.05
+				supply_combat_penalties_on_core_factor = -0.3
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.2
+				army_attack_factor = -0.1
+				army_defence_attack_factor = -0.1
+			}
+		}
+		Standing_For_Our_Home_2 = {
+			modifier = {
+				militia_attack_factor = 0.05
+				militia_defence_factor = 0.05
+				supply_combat_penalties_on_core_factor = -0.3
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.2
+				army_attack_factor = -0.1
+				army_defence_attack_factor = -0.1
+				land_bunker_effectiveness_factor = 0.1
+				coastal_bunker_effectiveness_factor = 0.1
+				static_anti_air_hit_chance_factor = 0.1
+				static_anti_air_damage_factor = 0.1
+				production_speed_land_bunker_factor = 0.2
+				production_speed_coastal_bunker_factor = 0.2
+				production_speed_anti_air_factor = 0.2
+				production_speed_nuclear_shelter_factor = 0.5
+				ai_join_ally_desire_factor = -0.5
+			}
+		}
+		Evading_Conflict = {
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.5
+				opinion_gain_monthly_factor = 1
+			}
+		}
+		Strong_Foundations = {
+			modifier = {
+				party_popularity_stability_factor = 0.25
+				stability_factor = 0.05
+			}
+		}
+		Souvereignity = {
+			modifier = {
+				enemy_justify_war_goal_time = 0.35
+				autonomy_gain = 1.5
+				defensive_war_stability_factor = 0.1
+				drift_defence_factor = 0.3
+			}
+		}
+		Drift_progressism = {
+			modifier = {
+				progressism_drift = 0.001
+			}
+		}
+		Drift_progressive_liberalism = {
+			modifier = {
+				progressive_liberalism_drift = 0.001
+			}
+		}
+		Drift_orthodox_liberalism = {
+			modifier = {
+				orthodox_liberalism_drift = 0.001
+			}
+		}
+		Drift_conservatism = {
+			modifier = {
+				conservatism_drift = 0.001
+			}
+		}
+		Drift_legalism = {
+			modifier = {
+				legalism_drift = 0.001
+			}
+		}
+		Drift_katzerism = {
+			modifier = {
+				katzerism_drift = 0.001
+			}
+		}
+		Drift_technocratic_despotism = {
+			modifier = {
+				technocratic_despotism_drift = 0.001
+			}
+		}
+		Drift_autonomous_socialism = {
+			modifier = {
+				autonomous_socialism_drift = 0.001
+			}
+		}
+		Drift_neosocialism = {
+			modifier = {
+				neosocialism_drift = 0.001
+			}
+		}
 	}
 	hidden_ideas = {
 		Rings_Infinite_Fuel = {
@@ -2172,10 +3668,10 @@ ideas = {
 			}
 		}
 		Do_not_call_allies = {
-            modifier = {
-                ai_call_ally_desire_factor = -99999
-                ai_join_ally_desire_factor = -99999
-            }
-        }
+			modifier = {
+				ai_call_ally_desire_factor = -99999
+				ai_join_ally_desire_factor = -99999
+			}
+		}
 	}
 }
