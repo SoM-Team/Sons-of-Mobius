@@ -1,3 +1,5 @@
+@resource_exponent = 2
+
 scripted_gui = {
     RINGS = {
         context_type = player_context
@@ -45,6 +47,10 @@ scripted_gui = {
 		}
 
 		triggers = {
+			rings_buy_nukes_button_click_enabled = {
+				always = no
+			}
+
 			rings_buy_science_button_click_enabled = {
 				check_variable = {
 					rings > 999.999
@@ -159,6 +165,61 @@ scripted_gui = {
 			has_country_flag = rings_buy_resources_trade_open
 		}
 
+		# Trying not to overflow really hard
+		triggers = {
+			rings_buy_resources_1_plus_click_enabled = {
+				check_variable = {
+					rings_resources_1_price < 200000
+				}
+			}
+			rings_buy_resources_2_plus_click_enabled = {
+				check_variable = {
+					rings_resources_2_price < 200000
+				}
+			}
+			rings_buy_resources_3_plus_click_enabled = {
+				check_variable = {
+					rings_resources_3_price < 200000
+				}
+			}
+			rings_buy_resources_4_plus_click_enabled = {
+				check_variable = {
+					rings_resources_4_price < 200000
+				}
+			}
+			rings_buy_resources_5_plus_click_enabled = {
+				check_variable = {
+					rings_resources_5_price < 200000
+				}
+			}
+
+			rings_buy_resources_1_minus_click_enabled = {
+				check_variable = {
+					rings_resources_1_amount > 0
+				}
+			}
+			rings_buy_resources_2_minus_click_enabled = {
+				check_variable = {
+					rings_resources_2_amount > 0
+				}
+			}
+			rings_buy_resources_3_minus_click_enabled = {
+				check_variable = {
+					rings_resources_3_amount > 0
+				}
+			}
+			rings_buy_resources_4_minus_click_enabled = {
+				check_variable = {
+					rings_resources_4_amount > 0
+				}
+			}
+			rings_buy_resources_5_minus_click_enabled = {
+				check_variable = {
+					rings_resources_5_amount > 0
+				}
+			}
+		}
+
 		effects = {
 			rings_buy_resources_trade_close_click = {
 				clr_country_flag = rings_buy_resources_trade_open
@@ -234,8 +295,11 @@ scripted_gui = {
 					add_to_variable = {
 						rings_resources_1_amount = -1
 					}
-					add_to_variable = {
-						rings_buy_cost = -1000
+					divide_variable = {
+						rings_resources_1_price = @resource_exponent
+					}
+					subtract_from_variable = {
+						rings_buy_cost = rings_resources_1_price
 					}
 				}
 			}
@@ -244,7 +308,10 @@ scripted_gui = {
 					rings_resources_1_amount = 1
 				}
 				add_to_variable = {
-					rings_buy_cost = 1000
+					rings_buy_cost = rings_resources_1_price
+				}
+				multiply_variable = {
+					rings_resources_1_price = @resource_exponent
 				}
 			}
 
@@ -258,8 +325,11 @@ scripted_gui = {
 					add_to_variable = {
 						rings_resources_2_amount = -1
 					}
-					add_to_variable = {
-						rings_buy_cost = -1000
+					divide_variable = {
+						rings_resources_2_price = @resource_exponent
+					}
+					subtract_from_variable = {
+						rings_buy_cost = rings_resources_2_price
 					}
 				}
 			}
@@ -268,7 +338,10 @@ scripted_gui = {
 					rings_resources_2_amount = 1
 				}
 				add_to_variable = {
-					rings_buy_cost = 1000
+					rings_buy_cost = rings_resources_2_price
+				}
+				multiply_variable = {
+					rings_resources_2_price = @resource_exponent
 				}
 			}
 
@@ -282,8 +355,11 @@ scripted_gui = {
 					add_to_variable = {
 						rings_resources_3_amount = -1
 					}
-					add_to_variable = {
-						rings_buy_cost = -1000
+					divide_variable = {
+						rings_resources_3_price = @resource_exponent
+					}
+					subtract_from_variable = {
+						rings_buy_cost = rings_resources_3_price
 					}
 				}
 			}
@@ -292,7 +368,10 @@ scripted_gui = {
 					rings_resources_3_amount = 1
 				}
 				add_to_variable = {
-					rings_buy_cost = 1000
+					rings_buy_cost = rings_resources_3_price
+				}
+				multiply_variable = {
+					rings_resources_3_price = @resource_exponent
 				}
 			}
 
@@ -306,8 +385,11 @@ scripted_gui = {
 					add_to_variable = {
 						rings_resources_4_amount = -1
 					}
-					add_to_variable = {
-						rings_buy_cost = -1000
+					divide_variable = {
+						rings_resources_4_price = @resource_exponent
+					}
+					subtract_from_variable = {
+						rings_buy_cost = rings_resources_4_price
 					}
 				}
 			}
@@ -316,7 +398,10 @@ scripted_gui = {
 					rings_resources_4_amount = 1
 				}
 				add_to_variable = {
-					rings_buy_cost = 1000
+					rings_buy_cost = rings_resources_4_price
+				}
+				multiply_variable = {
+					rings_resources_4_price = @resource_exponent
 				}
 			}
 
@@ -330,8 +415,11 @@ scripted_gui = {
 					add_to_variable = {
 						rings_resources_5_amount = -1
 					}
-					add_to_variable = {
-						rings_buy_cost = -1000
+					divide_variable = {
+						rings_resources_5_price = @resource_exponent
+					}
+					subtract_from_variable = {
+						rings_buy_cost = rings_resources_5_price
 					}
 				}
 			}
@@ -340,7 +428,10 @@ scripted_gui = {
 					rings_resources_5_amount = 1
 				}
 				add_to_variable = {
-					rings_buy_cost = 1000
+					rings_buy_cost = rings_resources_5_price
+				}
+				multiply_variable = {
+					rings_resources_5_price = @resource_exponent
 				}
 			}
 		}
