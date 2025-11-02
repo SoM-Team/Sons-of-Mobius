@@ -1,341 +1,369 @@
 NUCLEAR_WAR = {
-	nuclear_start = {
-		icon = GFX_cat_nukeprogram
-		allowed = {
-		}
-		available = {
-		}
-		cost = 100
-		#days_re_enable = 100
-		fire_only_once = yes
-		days_remove = 1
-		modifier = {
-		}
-		visible = {
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			ROOT = {
-				set_country_flag = MBRProject
-				hidden_effect = {
-					set_variable = {
-						mbr = 0
-					}
-					set_variable = {
-						mbr_power = 1
-					}
-					set_variable = {
-						mbr_range = 2000
-					}
-				}
-			}
-		}
-	}
-	create_mbr = {
-		icon = GFX_cat_icbmbuild
-		allowed = {
-		}
-		available = {
-			has_country_flag = MBRProject
-			num_of_civilian_factories_available_for_projects > 4
-		}
-		cost = 200
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#100
-		modifier = {
-			consumer_goods_factor = 0.15
-			industrial_capacity_factory = -0.35
-		}
-		visible = {
-			has_country_flag = MBRProject
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = onembr
-			hidden_effect = {
-				add_to_variable = {
-					mbr = 1
-				}
-			}
-		}
-	}
-	upgrade_mbr_power = {
-		icon = GFX_cat_nukebuff
-		allowed = {
-		}
-		available = {
-			has_country_flag = MBRProject
-			check_variable = {
-				mbr_power < 6
-			}
-			num_of_civilian_factories_available_for_projects > 6
-		}
-		cost = 250
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#150
-		modifier = {
-			consumer_goods_factor = 0.2
-			industrial_capacity_factory = -0.5
-			research_speed_factor = -0.1
-		}
-		visible = {
-			has_country_flag = MBRProject
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = powermbr
-			hidden_effect = {
-				add_to_variable = {
-					mbr_power = 1
-				}
-			}
-		}
-	}
-	upgrade_mbr_range = {
-		icon = GFX_cat_nukerange
-		allowed = {
-		}
-		available = {
-			has_country_flag = MBRProject
-			check_variable = {
-				mbr_range < 17000
-			}
-			num_of_civilian_factories_available_for_projects > 9
-		}
-		cost = 200
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#125
-		modifier = {
-			consumer_goods_factor = 0.25
-			industrial_capacity_factory = -0.1
-			research_speed_factor = -0.15
-		}
-		visible = {
-			has_country_flag = MBRProject
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = rangembr
-			hidden_effect = {
-				add_to_variable = {
-					mbr_range = 2500
-				}
-			}
-		}
-	}
-	nuke_rhbz = {
-		icon = GFX_decision_generic_research
-		allowed = {
-		}
-		available = {
-			AND = {
-				#has_tech = rhbz_tech - технология РХБЗ
-				num_of_civilian_factories_available_for_projects > 4
-			}
-		}
-		state_target = yes
-		on_map_mode = map_only
-		target_trigger = {
-			FROM = {
-				AND = {
-					OR = {
-						has_dynamic_modifier = {
-							modifier = Radiation_medium
-							# scope = THIS
-						}
-						has_dynamic_modifier = {
-							modifier = Radiation_heavy
-							# scope = THIS
-						}
-					}
-					is_controlled_by = ROOT
-				}
-			}
-		}
-		cost = 250
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#50
-		modifier = {
-			consumer_goods_factor = 0.1
-			industrial_capacity_factory = -0.1
-			max_command_power = -20
-		}
-		visible = {
-			#has_tech = rhbz_tech - технология РХБЗ
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			custom_effect_tooltip = dezactiv
-			hidden_effect = {
-				if = {
-					limit = {
-						FROM = {
-							has_dynamic_modifier = {
-								modifier = Radiation_heavy
-								# scope = FROM
-							}
-						}
-					}
-					FROM = {
-						remove_dynamic_modifier = {
-							modifier = Radiation_heavy
-						}
-						add_dynamic_modifier = {
-							modifier = Radiation_medium
-							# scope = FROM
-							days = 200
-						}
-					}
-					else = {
-						if = {
-							limit = {
-								FROM = {
-									has_dynamic_modifier = {
-										modifier = Radiation_medium
-										# scope = FROM
-									}
-								}
-							}
-							FROM = {
-								remove_dynamic_modifier = {
-									modifier = Radiation_medium
-								}
-								add_dynamic_modifier = {
-									modifier = Radiation_light
-									# scope = FROM
-									days = 100
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
+    nuclear_start = {
+        icon = GFX_cat_nukeprogram
+        allowed = {
 
+        }
+        available = {
+
+        }
+        cost = 100
+        fire_only_once = yes
+        days_remove = 1
+        modifier = {
+
+        }
+        visible = {
+
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            ROOT = {
+                set_country_flag = MBRProject
+                hidden_effect = {
+                    set_variable = {
+                        mbr = 0
+                    }
+                    set_variable = {
+                        mbr_power = 1
+                    }
+                    set_variable = {
+                        mbr_range = 2000
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    create_mbr = {
+        icon = GFX_cat_icbmbuild
+        allowed = {
+
+        }
+        available = {
+            has_country_flag = MBRProject
+            num_of_civilian_factories_available_for_projects > 4
+        }
+        cost = 200
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.15
+            industrial_capacity_factory = -0.35
+        }
+        visible = {
+            has_country_flag = MBRProject
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            custom_effect_tooltip = onembr
+            hidden_effect = {
+                add_to_variable = {
+                    mbr = 1
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    upgrade_mbr_power = {
+        icon = GFX_cat_nukebuff
+        allowed = {
+
+        }
+        available = {
+            has_country_flag = MBRProject
+            check_variable = {
+                mbr_power < 6
+            }
+            num_of_civilian_factories_available_for_projects > 6
+        }
+        cost = 250
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.2
+            industrial_capacity_factory = -0.5
+            research_speed_factor = -0.1
+        }
+        visible = {
+            has_country_flag = MBRProject
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            custom_effect_tooltip = powermbr
+            hidden_effect = {
+                add_to_variable = {
+                    mbr_power = 1
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    upgrade_mbr_range = {
+        icon = GFX_cat_nukerange
+        allowed = {
+
+        }
+        available = {
+            has_country_flag = MBRProject
+            check_variable = {
+                mbr_range < 17000
+            }
+            num_of_civilian_factories_available_for_projects > 9
+        }
+        cost = 200
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.25
+            industrial_capacity_factory = -0.1
+            research_speed_factor = -0.15
+        }
+        visible = {
+            has_country_flag = MBRProject
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            custom_effect_tooltip = rangembr
+            hidden_effect = {
+                add_to_variable = {
+                    mbr_range = 2500
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    nuke_rhbz = {
+        icon = GFX_decision_generic_research
+        allowed = {
+
+        }
+        available = {
+            AND = {
+                num_of_civilian_factories_available_for_projects > 4
+            }
+        }
+        state_target = yes
+        on_map_mode = map_only
+        target_trigger = {
+            FROM = {
+                AND = {
+                    OR = {
+                        has_dynamic_modifier = {
+                            modifier = Radiation_medium
+                        }
+                        has_dynamic_modifier = {
+                            modifier = Radiation_heavy
+                        }
+                    }
+                    is_controlled_by = ROOT
+                }
+            }
+        }
+        cost = 250
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.1
+            industrial_capacity_factory = -0.1
+            max_command_power = -20
+        }
+        visible = {
+
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            custom_effect_tooltip = dezactiv
+            hidden_effect = {
+                if = {
+                    limit = {
+                        FROM = {
+                            has_dynamic_modifier = {
+                                modifier = Radiation_heavy
+                            }
+                        }
+                    }
+                    FROM = {
+                        remove_dynamic_modifier = {
+                            modifier = Radiation_heavy
+                        }
+                        add_dynamic_modifier = {
+                            modifier = Radiation_medium
+                            days = 200
+                        }
+                    }
+                    else = {
+                        if = {
+                            limit = {
+                                FROM = {
+                                    has_dynamic_modifier = {
+                                        modifier = Radiation_medium
+                                    }
+                                }
+                            }
+                            FROM = {
+                                remove_dynamic_modifier = {
+                                    modifier = Radiation_medium
+                                }
+                                add_dynamic_modifier = {
+                                    modifier = Radiation_light
+                                    days = 100
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+}
 ANTI_MISSILE_DEFENCE = {
-	smd_start = {
-		icon = GFX_cat_nukeprogram
-		allowed = {
-		}
-		available = {
-			AND = {
-				has_tech = satellite_reconnaissance_2
-				num_of_civilian_factories_available_for_projects > 12
-			}
-		}
-		cost = 500
-		#days_re_enable = 100
-		fire_only_once = yes
-		days_remove = 1		#200
-		modifier = {
-			consumer_goods_factor = 0.6
-			industrial_capacity_factory = -0.4
-			research_speed_factor = -0.2
-		}
-		visible = {
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			ROOT = {
-				capital_scope = {
-					add_building_construction = {
-						type = radar_station
-						level = 6
-						instant_build = yes
-					}
-				}
-				set_country_flag = SMDProject
-				hidden_effect = {
-					set_variable = {
-						smd = 1
-					}
-					set_variable = {
-						smd_power = 1
-					}
-				}
-			}
-		}
-	}
-	smd_create = {
-		icon = GFX_cat_icbmbuild
-		allowed = {
-		}
-		available = {
-			AND = {
-				has_country_flag = SMDProject
-				num_of_civilian_factories_available_for_projects > 4
-			}
-		}
-		cost = 75
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#80
-		modifier = {
-			consumer_goods_factor = 0.1
-			industrial_capacity_factory = -0.1
-		}
-		visible = {
-			has_country_flag = SMDProject
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			ROOT = {
-				hidden_effect = {
-					add_to_variable = {
-						smd = 1
-					}
-				}
-			}
-		}
-	}
-	smd_upgrade = {
-		icon = GFX_cat_nukeprogram
-		allowed = {
-		}
-		available = {
-			AND = {
-				has_country_flag = SMDProject
-				check_variable = {
-					smd_power < 6
-				}
-				num_of_civilian_factories_available_for_projects > 6
-			}
-		}
-		cost = 300
-		days_re_enable = 1
-		#fire_only_once = yes
-		days_remove = 1		#200
-		modifier = {
-			consumer_goods_factor = 0.25
-			industrial_capacity_factory = -0.1
-			research_speed_factor = -0.1
-		}
-		visible = {
-			has_country_flag = SMDProject
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			ROOT = {
-				hidden_effect = {
-					add_to_variable = {
-						smd_power = 1
-					}
-				}
-			}
-		}
-	}
+    smd_start = {
+        icon = GFX_cat_nukeprogram
+        allowed = {
+
+        }
+        available = {
+            AND = {
+                has_tech = satellite_reconnaissance_2
+                num_of_civilian_factories_available_for_projects > 12
+            }
+        }
+        cost = 500
+        fire_only_once = yes
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.6
+            industrial_capacity_factory = -0.4
+            research_speed_factor = -0.2
+        }
+        visible = {
+
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            ROOT = {
+                capital_scope = {
+                    add_building_construction = {
+                        type = radar_station
+                        level = 6
+                        instant_build = yes
+                    }
+                }
+                set_country_flag = SMDProject
+                hidden_effect = {
+                    set_variable = {
+                        smd = 1
+                    }
+                    set_variable = {
+                        smd_power = 1
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    smd_create = {
+        icon = GFX_cat_icbmbuild
+        allowed = {
+
+        }
+        available = {
+            AND = {
+                has_country_flag = SMDProject
+                num_of_civilian_factories_available_for_projects > 4
+            }
+        }
+        cost = 75
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.1
+            industrial_capacity_factory = -0.1
+        }
+        visible = {
+            has_country_flag = SMDProject
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            ROOT = {
+                hidden_effect = {
+                    add_to_variable = {
+                        smd = 1
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    smd_upgrade = {
+        icon = GFX_cat_nukeprogram
+        allowed = {
+
+        }
+        available = {
+            AND = {
+                has_country_flag = SMDProject
+                check_variable = {
+                    smd_power < 6
+                }
+                num_of_civilian_factories_available_for_projects > 6
+            }
+        }
+        cost = 300
+        days_re_enable = 1
+        days_remove = 1
+        modifier = {
+            consumer_goods_factor = 0.25
+            industrial_capacity_factory = -0.1
+            research_speed_factor = -0.1
+        }
+        visible = {
+            has_country_flag = SMDProject
+        }
+        complete_effect = {
+
+        }
+        remove_effect = {
+            ROOT = {
+                hidden_effect = {
+                    add_to_variable = {
+                        smd_power = 1
+                    }
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
 }

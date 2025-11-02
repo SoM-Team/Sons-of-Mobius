@@ -1,1798 +1,1709 @@
 INF_Bharatsha_Gold = {
+    INF_invest_Military = {
+        icon = GFX_decision_kill_big
+        allowed = {
 
-	INF_invest_Military = {
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 500
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 500
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 500_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 500
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            add_offsite_building = {
+                type = arms_factory
+                level = 1
+            }
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
+    INF_invest_civilian = {
+        icon = GFX_decision_generic_industry
+        allowed = {
 
-		icon = GFX_decision_kill_big
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 250
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 250
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 250_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 250
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            add_offsite_building = {
+                type = industrial_complex
+                level = 1
+            }
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
+    INF_invest_infrastructure = {
+        icon = GFX_decision_generic_construction
+        allowed = {
 
-		allowed = {
-		}
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 600
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 60
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 600
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 600_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 600
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            every_owned_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 1
+                    instant_build = yes
+                }
+            }
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
+    INF_enforce_the_Legion = {
+        icon = GFX_decision_war_hero_speech
+        allowed = {
 
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 500
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 500
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 500
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 500_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 500
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            add_political_power = 100
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
+    INF_hire_mercs = {
+        icon = GFX_decision_bribe
+        allowed = {
 
-		fire_only_once = no
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 100
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 21
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 100
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 100_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 100
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
+    INF_buy_IFV = {
+        icon = GFX_decision_icv
+        allowed = {
 
-		days_remove = 30
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 500
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 500_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 500 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-	     	add_offsite_building = { 
-			type = arms_factory level = 1 
-			}
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	
-	INF_invest_civilian = {
-
-		icon = GFX_decision_generic_industry
-
-		allowed = {
-		}
-
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 250
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
-
-		fire_only_once = no
-
-		days_remove = 30
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 250
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 250_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 250 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-	     	add_offsite_building = { 
-				type = industrial_complex level = 1 
-			}
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	
-	INF_invest_infrastructure = {
-
-		icon = GFX_decision_generic_construction
-
-		allowed = {
-		}
-
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 600
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
-
-		fire_only_once = no
-
-		days_remove = 60
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 600
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 600_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 600 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-	     	every_owned_state = { 
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	
-	INF_enforce_the_Legion = {
-
-		icon = GFX_decision_war_hero_speech
-
-		allowed = {
-		}
-
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 500
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
-
-		fire_only_once = no
-
-		days_remove = 30
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 500
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 500_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 500 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-	     	add_political_power = 100
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	
-	INF_hire_mercs = {
-
-		icon = GFX_decision_bribe
-
-		allowed = {
-		}
-
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 100
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
-
-		fire_only_once = no
-
-		days_remove = 21
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 100
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 100_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 100 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
-	
-	INF_buy_IFV = {
-
-		icon = GFX_decision_icv
-
-		allowed = {
-		}
-
-		available = {
-			AND = {
-				check_variable = {
-					var = inf_gold_storage
-					value = 200
-					compare = greater_than_or_equals
-				}
-				NOT = {
-					has_country_flag = selling_gold
-				}
-			}
-		}
-
-		fire_only_once = no
-
-		days_remove = 30
-		days_re_enable = 30
-
-		custom_cost_trigger = {
-			check_variable = {
-				var = inf_gold_storage
-				value = 200
-				compare = greater_than_or_equals
-			}
-		}
-		
-		custom_cost_text = 100_gold
-
-		complete_effect = {
-			subtract_from_variable = { inf_gold_storage = 200 }
-			set_country_flag = selling_gold
-		}
-		
-		remove_effect = {
-			clr_country_flag = selling_gold
-		}
-		
-		ai_will_do = {
-			factor = 5
-		}
-	}
+        }
+        available = {
+            AND = {
+                check_variable = {
+                    var = inf_gold_storage
+                    value = 200
+                    compare = greater_than_or_equals
+                }
+                NOT = {
+                    has_country_flag = selling_gold
+                }
+            }
+        }
+        fire_only_once = no
+        days_remove = 30
+        days_re_enable = 30
+        custom_cost_trigger = {
+            check_variable = {
+                var = inf_gold_storage
+                value = 200
+                compare = greater_than_or_equals
+            }
+        }
+        custom_cost_text = 100_gold
+        complete_effect = {
+            subtract_from_variable = {
+                inf_gold_storage = 200
+            }
+            set_country_flag = selling_gold
+        }
+        remove_effect = {
+            clr_country_flag = selling_gold
+        }
+        ai_will_do = {
+            factor = 5
+        }
+    }
 }
-
 INF_Weakening_Enemies = {
-    
     INF_Weak_Neighbour = {
-
         target_trigger = {
             FROM = {
                 is_neighbor_of = ROOT
-
                 NOT = {
                     tag = UFA
-					is_puppet_of = ROOT
-					is_in_faction_with = ROOT
-					has_non_aggression_pact_with = ROOT
-				}
+                    is_puppet_of = ROOT
+                    is_in_faction_with = ROOT
+                    has_non_aggression_pact_with = ROOT
+                }
             }
         }
         on_map_mode = map_only
+        ai_will_do = {
+            base = 1
+        }
     }
-
     INF_Sacrifice_for_Energy = {
-
         fire_only_once = no
-
         custom_cost_trigger = {
             has_manpower > 10
         }
         custom_cost_text = 10_manpower
-
         complete_effect = {
             add_manpower = -10
-            add_to_variable = {inf_phantom_ruby_energy = 10}
-#            clamp_variable = {
-#                var = inf_phantom_ruby_energy
-#                min = 0
-#                max = 100
-#            }
+            add_to_variable = {
+                inf_phantom_ruby_energy = 10
+            }
+        }
+        ai_will_do = {
+            base = 1
         }
     }
-}	
+}
 INF_Phantom_war = {
-	INF_Verify_your_clock = {
-
-		icon = GFX_decision_Destroy_HQ
-
-		allowed = {
-			tag = INF
-		}
-		activation = {
-			has_completed_focus = INF_the_Phantom_Ruby
+    INF_Verify_your_clock = {
+        icon = GFX_decision_Destroy_HQ
+        allowed = {
+            tag = inf
         }
-		is_good = no
-
-		days_mission_timeout = 150
-
-		timeout_effect = {
-			UFA = {
-				create_wargoal = {
-					type = puppet_wargoal_focus
-					target = INF
-				}
-			}
-		}
-	}
+        activation = {
+            has_completed_focus = INF_the_Phantom_Ruby
+        }
+        is_good = no
+        days_mission_timeout = 150
+        timeout_effect = {
+            UFA = {
+                create_wargoal = {
+                    type = puppet_wargoal_focus
+                    target = inf
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
 }
-
 INF_JNC = {
-	inf_oil_test = {
-		visible = {
-			always = yes
-		}
-	}
-
-	INF_Decrease_Influence = {
-		available = {
-			has_completed_focus = INF_The_Splendid_Petrocracy
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				rings > num_of_civilian_factories
-			}
-		}
-
-		days_remove = 45
-		days_re_enable = 45
-
-		remove_effect = {
-			subtract_from_variable = {
-				petrocracy_influence = 20
-			}
-		}
-	}
-
-	INF_Do_A_Favor = {
-		days_mission_timeout = 100
-		days_re_enable = 210
-
-		activation = {
-			has_completed_focus = INF_The_Splendid_Petrocracy
-			check_variable = {
-				petrocracy_influence > 50
-			}
-			
-			set_temp_variable = {
-				t = petrocracy_influence
-			}
-			multiply_temp_variable = {
-				t = 3
-			}
-			set_temp_variable = {
-				u = 1
-			}
-			subtract_from_temp_variable = {
-				u = petrocracy_satisfaction
-			}
-			multiply_temp_variable = {
-				u = 2
-			}
-			add_to_temp_variable = {
-				t = u
-			}
-			check_variable = {
-				t > 0
-			}
-		}
-
-		available = {
-			set_temp_variable = {
-				t = petrocracy_influence
-			}
-			multiply_temp_variable = {
-				t = 3
-			}
-			set_temp_variable = {
-				u = 1
-			}
-			subtract_from_temp_variable = {
-				u = petrocracy_satisfaction
-			}
-			multiply_temp_variable = {
-				u = 2
-			}
-			add_to_temp_variable = {
-				t = u
-			}
-			check_variable = {
-				t < political_power
-			}
-		}
-
-		complete_effect = {
-			set_temp_variable = {
-				t = petrocracy_influence
-			}
-			multiply_temp_variable = {
-				t = 3
-			}
-			set_temp_variable = {
-				u = 1
-			}
-			subtract_from_temp_variable = {
-				u = petrocracy_satisfaction
-			}
-			multiply_temp_variable = {
-				u = 2
-			}
-			add_to_temp_variable = {
-				t = u
-			}
-			multiply_temp_variable = {
-				t = -1
-			}
-			add_political_power = t
-		}
-
-		timeout_effect = {
-			add_to_variable = {
-				number_of_failed_favors = 1
-			}
-
-			set_temp_variable = {
-				t = number_of_failed_favors
-			}
-			multiply_temp_variable = {
-				t = 10
-			}
-			subtract_from_variable = {
-				petrocracy_satisfaction = t
-			}
-
-			if = {
-				limit = {
-					check_variable = {
-						petrocracy_influence > 74
-					}
-					check_variable = {
-						petrocracy_satisfaction < 20
-					}
-				}
-
-				set_politics = {
-					ruling_party = technocratic_despotism
-				}
-
-				country_event = inf_petro.2
-			}
-		}
-	}
-	INF_Acquire_Space_Center = {
-		visible = {
-			has_completed_focus = INF_Eyes_of_JackalNet
-		}
-
-		fire_only_once = yes
-
-		custom_cost_trigger = {
-			command_power > 99
-			has_manpower > 499
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 249
-			}
-			OR = {
-				has_equipment = {
-					transport_plane_equipment > 4
-				}
-				AND = {
-					has_equipment = {
-						convoy > 4
-					}
-					OR = {
-						has_equipment = {
-							destroyer_1 > 1
-						}
-						has_equipment = {
-							destroyer_2 > 1
-						}
-						has_equipment = {
-							destroyer_3 > 1
-						}
-						has_equipment = {
-							destroyer_4 > 1
-						}
-					}
-				}
-			}
-		}
-
-		days_remove = 21
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 100
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -250
-			}
-		}
-		remove_effect = {
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 2
-				category = rocketry
-			}
-			add_tech_bonus = {
-				bonus = 1.0
-				uses = 3
-				category = air_equipment
-			}
-			715 = {
-			add_building_construction = {
-				type = air_base
-				level = 3
-				instant_build = yes
-			}
-			}
-			set_country_flag = INF_Deyland_Space
-			
-			country_event = inf_petro.5
-		}
-	}
-
-	INF_Finish_Compound_N110 = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_Compound_N110
-		}
-
-		remove_effect = {
-			set_technology = {
-				Compound_N110 = 1
-			}			
-		}
-	}
-
-	INF_Ifrit_Project = {
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_Ifrit_Project
-		}
-
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-
-		remove_effect = {
-			set_technology = {
-				artificial_sputnik = 1
-			}
-			set_technology = {
-			   rocket_engines_manufacture = 1
-			}			
-		}
-	}
-
-	INF_Operation_Emptiness = {
-		days_remove = 180
-		fire_only_once = yes
-
-		visible = {
-			has_completed_focus = INF_Acquire_United_Federation_Tech
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 74
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-			has_equipment = {
-				transport_plane_equipment >24
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 2
-				category = robot_techs
-			}
-			add_tech_bonus = {
-				bonus = 0.75
-				uses = 2
-				category = air_equipment
-			}
-			random_list = {
-				25 = {
-					add_equipment_to_stockpile = {
-						type = heavy_robot_equipment_1
-						amount = 50
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = heavy_robot_equipment_1
-							amount = -50
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = heavy_robot_equipment_1
-						amount = 100
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = heavy_robot_equipment_1
-							amount = -100
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = heavy_robot_equipment_1
-						amount = 175
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = heavy_robot_equipment_1
-							amount = -175
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = heavy_robot_equipment_1
-						amount = 250
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = heavy_robot_equipment_1
-							amount = -250
-							producer = UFA
-						}
-					}
-				}
-			}
-			random_list = {
-				25 = {
-					add_equipment_to_stockpile = {
-						type = jet_fighter_equipment_1
-						amount = 15
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_1
-							amount = -15
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = jet_fighter_equipment_1
-						amount = 25
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_1
-							amount = -25
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = jet_fighter_equipment_1
-						amount = 37
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_1
-							amount = -37
-							producer = UFA
-						}
-					}
-				}
-				25 = {
-					add_equipment_to_stockpile = {
-						type = jet_fighter_equipment_1
-						amount = 50
-						producer = UFA
-					}
-					UFA = {
-						add_equipment_to_stockpile = {
-							type = jet_fighter_equipment_1
-							amount = -50
-							producer = UFA
-						}
-					}
-				}
-			}
-			random_list = {
-				25 = {
-					UFA = {
-						add_to_variable = {
-							gov_corruption = 10
-						}
-					}
-				}
-				25 = {
-					UFA = {
-						add_to_variable = {
-							gov_corruption = 12
-						}
-					}
-				}
-				25 = {
-					UFA = {
-						add_to_variable = {
-							gov_corruption = 17
-						}
-					}
-				}
-				25 = {
-					UFA = {
-						add_to_variable = {
-							gov_corruption = 25
-						}
-					}
-				}
-			}
-			country_event = inf_petro.11
-		}
-	}
-
-	INF_Shai_Hulud_Project = {
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_Shai_Hulud_Project
-		}
-
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-		remove_effect = {
-			set_technology = {
-				Robo_Sandworm = 1
-			}			
-			country_event = inf_petro.12
-			load_oob = INF_roboworms
-		}
-	}
-
-	INF_Eshkal_Project = {
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_Eshkal_Project
-		}
-
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-		remove_effect = {
-			set_technology = {
-				GUN_Flying_Dog = 1
-			}			
-			country_event = inf_petro.13
-			load_oob = INF_flying_dog
-		}
-	}
-
-	INF_SatNet_Project = {
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_SatNet_Project
-		}
-
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-		remove_effect = {
-			swap_ideas = {
-				remove_idea = INF_The_Jackalnet_2
-				add_idea = INF_The_Jackalnet_3
-			}
-		}
-	}
-
-	INF_Siark_Project = {
-		fire_only_once = yes
-		days_remove = 180
-
-		visible = {
-			has_completed_focus = INF_Siark_Project
-		}
-
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-		remove_effect = {
-			set_variable = { INF_kamikaze_satellite = 1 }
-			set_country_flag = INF_kamikaze_satellite_enabled
-		}
-	}
-
-	INF_Launch_Satellite_1 = {
-		days_remove = 45
-		custom_cost_trigger = {
-			command_power > 24
-		}
-
-		visible = {
-			has_country_flag = INF_kamikaze_satellite_enabled
-		}
-
-		modifier = {
-			civilian_factory_use = 5
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 25
-			}
-		}
-
-		remove_effect = {
-			add_to_variable = {
-				INF_kamikaze_satellite = 1
-			}
-		}
-	}
-
-	INF_Launch_Satellite_3 = {
-		days_remove = 45
-		custom_cost_trigger = {
-			command_power > 49
-		}
-
-		visible = {
-			has_country_flag = INF_kamikaze_satellite_enabled
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 50
-			}
-		}
-
-		remove_effect = {
-			add_to_variable = {
-				INF_kamikaze_satellite = 3
-			}
-		}
-	}
-
-	INF_Launch_Satellite_5 = {
-		days_remove = 45
-		custom_cost_trigger = {
-			command_power > 74
-		}
-
-		visible = {
-			has_country_flag = INF_kamikaze_satellite_enabled
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-		}
-
-		remove_effect = {
-			add_to_variable = {
-				INF_kamikaze_satellite = 5
-			}
-		}
-	}
-
-	INF_Sell_Oil_to_KOA = {
-		cost = 100
-
-		custom_cost_trigger = {
-			has_equipment = {
-				convoy > 49
-			}
-		}
-
-		days_re_enable = 180
-
-		complete_effect = {
-			add_timed_idea = {
-				idea = INF_Extended_Oil_Exports_to_KOA
-				days = 180
-			}
-
-			KOA = {
-				add_timed_idea = {
-					idea = Extended_Oil_Imports
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Sell_Oil_to_SWA = {
-		cost = 100
-
-		custom_cost_trigger = {
-			has_equipment = {
-				convoy > 49
-			}
-		}
-
-		days_re_enable = 180
-
-		complete_effect = {
-			add_timed_idea = {
-				idea = INF_Extended_Oil_Exports_to_SWA
-				days = 180
-			}
-
-			SWA = {
-				add_timed_idea = {
-					idea = Extended_Oil_Imports
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Sell_Oil_to_MER = {
-		cost = 100
-
-		custom_cost_trigger = {
-			has_equipment = {
-				convoy > 49
-			}
-		}
-
-		days_re_enable = 180
-
-		complete_effect = {
-			add_timed_idea = {
-				idea = INF_Extended_Oil_Exports_to_MER
-				days = 180
-			}
-
-			MER = {
-				add_timed_idea = {
-					idea = Extended_Oil_Imports
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Sell_Oil_to_UFA = {
-		cost = 100
-
-		custom_cost_trigger = {
-			has_equipment = {
-				convoy > 49
-			}
-		}
-
-		days_re_enable = 180
-
-		complete_effect = {
-			add_timed_idea = {
-				idea = INF_Extended_Oil_Exports_to_UFA
-				days = 180
-			}
-
-			UFA = {
-				add_timed_idea = {
-					idea = Extended_Oil_Imports
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Favor_for_Rethenia = {
-		days_mission_timeout = 365
-		fire_only_once = yes
-
-		activation = {
-			has_country_flag = inf_rcr_favor
-		}
-
-		available = {
-			has_equipment = {
-				drone_equipment > 999
-			}
-		}
-
-		complete_effect = {
-			add_equipment_to_stockpile = {
-				type = drone_equipment
-				amount = -1000
-			}
-
-
-			RCR = {
-				add_equipment_to_stockpile = {
-					type = drone_equipment
-					amount = 1000
-				}
-			}
-
-			country_event = inf_rcr.7
-		}
-
-		timeout_effect = {
-			clear_variable = global.inf_rcr_deal
-		}
-	}
-
-	INF_Subvert_Oil_Trade_in_TYY = {
-		days_remove = 45
-		days_re_enable = 90
-
-		visible = {
-			has_completed_focus = INF_Subvert_the_Oil_Trade
-			TYY = {
-				has_idea = Influenced_RCR_Pipeline
-			}
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 49
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			TYY = {
-				remove_ideas = Influenced_RCR_Pipeline
-				add_timed_idea = {
-					idea = Influenced_RCR_Pipeline_2
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Subvert_Oil_Trade_in_CHE = {
-		days_remove = 45
-		days_re_enable = 90
-
-		visible = {
-			has_completed_focus = INF_Subvert_the_Oil_Trade
-			CHE = {
-				has_idea = Influenced_RCR_Pipeline
-			}
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 49
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			CHE = {
-				remove_ideas = Influenced_RCR_Pipeline
-				add_timed_idea = {
-					idea = Influenced_RCR_Pipeline_2
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Subvert_Oil_Trade_in_LTG = {
-		days_remove = 45
-		days_re_enable = 90
-
-		visible = {
-			has_completed_focus = INF_Subvert_the_Oil_Trade
-			LTG = {
-				has_idea = Influenced_RCR_Pipeline
-			}
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 49
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			LTG = {
-				remove_ideas = Influenced_RCR_Pipeline
-				add_timed_idea = {
-					idea = Influenced_RCR_Pipeline_2
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Subvert_Oil_Trade_in_SVT = {
-		days_remove = 45
-		days_re_enable = 90
-
-		visible = {
-			has_completed_focus = INF_Subvert_the_Oil_Trade
-			SVT = {
-				has_idea = Influenced_RCR_Pipeline
-			}
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 49
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			SVT = {
-				remove_ideas = Influenced_RCR_Pipeline
-				add_timed_idea = {
-					idea = Influenced_RCR_Pipeline_2
-					days = 180
-				}
-			}
-		}
-	}
-	INF_Subvert_Oil_Trade_in_TUK = {
-		days_remove = 45
-		days_re_enable = 90
-
-		visible = {
-			has_completed_focus = INF_Subvert_the_Oil_Trade
-			TUK = {
-				has_idea = Influenced_RCR_Pipeline
-			}
-		}
-
-		custom_cost_trigger = {
-			check_variable = {
-				command_power > 49
-			}
-			check_variable = {
-				INF_Ruby_Energy > 24
-			}
-			has_manpower > 999
-			has_equipment = {
-				infantry_equipment > 499
-			}
-			has_equipment = {
-				support_equipment > 499
-			}
-		}
-
-		complete_effect = {
-			subtract_from_variable = {
-				command_power = 75
-			}
-			subtract_from_variable = {
-				INF_Ruby_Energy = 25
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -500
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = -500
-			}
-		}
-
-		remove_effect = {
-			TUK = {
-				remove_ideas = Influenced_RCR_Pipeline
-				add_timed_idea = {
-					idea = Influenced_RCR_Pipeline_2
-					days = 180
-				}
-			}
-		}
-	}
+    inf_oil_test = {
+        visible = {
+            always = yes
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Decrease_Influence = {
+        available = {
+            has_completed_focus = INF_The_Splendid_Petrocracy
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                rings > num_of_civilian_factories
+            }
+        }
+        days_remove = 45
+        days_re_enable = 45
+        remove_effect = {
+            subtract_from_variable = {
+                petrocracy_influence = 20
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Do_A_Favor = {
+        days_mission_timeout = 100
+        days_re_enable = 210
+        activation = {
+            has_completed_focus = INF_The_Splendid_Petrocracy
+            check_variable = {
+                petrocracy_influence > 50
+            }
+            set_temp_variable = {
+                t = petrocracy_influence
+            }
+            multiply_temp_variable = {
+                t = 3
+            }
+            set_temp_variable = {
+                u = 1
+            }
+            subtract_from_temp_variable = {
+                u = petrocracy_satisfaction
+            }
+            multiply_temp_variable = {
+                u = 2
+            }
+            add_to_temp_variable = {
+                t = u
+            }
+            check_variable = {
+                t > 0
+            }
+        }
+        available = {
+            set_temp_variable = {
+                t = petrocracy_influence
+            }
+            multiply_temp_variable = {
+                t = 3
+            }
+            set_temp_variable = {
+                u = 1
+            }
+            subtract_from_temp_variable = {
+                u = petrocracy_satisfaction
+            }
+            multiply_temp_variable = {
+                u = 2
+            }
+            add_to_temp_variable = {
+                t = u
+            }
+            check_variable = {
+                t < political_power
+            }
+        }
+        complete_effect = {
+            set_temp_variable = {
+                t = petrocracy_influence
+            }
+            multiply_temp_variable = {
+                t = 3
+            }
+            set_temp_variable = {
+                u = 1
+            }
+            subtract_from_temp_variable = {
+                u = petrocracy_satisfaction
+            }
+            multiply_temp_variable = {
+                u = 2
+            }
+            add_to_temp_variable = {
+                t = u
+            }
+            multiply_temp_variable = {
+                t = -1
+            }
+            add_political_power = t
+        }
+        timeout_effect = {
+            add_to_variable = {
+                number_of_failed_favors = 1
+            }
+            set_temp_variable = {
+                t = number_of_failed_favors
+            }
+            multiply_temp_variable = {
+                t = 10
+            }
+            subtract_from_variable = {
+                petrocracy_satisfaction = t
+            }
+            if = {
+                limit = {
+                    check_variable = {
+                        petrocracy_influence > 74
+                    }
+                    check_variable = {
+                        petrocracy_satisfaction < 20
+                    }
+                }
+                set_politics = {
+                    ruling_party = technocratic_despotism
+                }
+                country_event = inf_petro.2
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Acquire_Space_Center = {
+        visible = {
+            has_completed_focus = INF_Eyes_of_JackalNet
+        }
+        fire_only_once = yes
+        custom_cost_trigger = {
+            command_power > 99
+            has_manpower > 499
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 249
+            }
+            OR = {
+                has_equipment = {
+                    transport_plane_equipment > 4
+                }
+                AND = {
+                    has_equipment = {
+                        convoy > 4
+                    }
+                    OR = {
+                        has_equipment = {
+                            destroyer_1 > 1
+                        }
+                        has_equipment = {
+                            destroyer_2 > 1
+                        }
+                        has_equipment = {
+                            destroyer_3 > 1
+                        }
+                        has_equipment = {
+                            destroyer_4 > 1
+                        }
+                    }
+                }
+            }
+        }
+        days_remove = 21
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 100
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -250
+            }
+        }
+        remove_effect = {
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 2
+                category = rocketry
+            }
+            add_tech_bonus = {
+                bonus = 1.0
+                uses = 3
+                category = air_equipment
+            }
+            715 = {
+                add_building_construction = {
+                    type = air_base
+                    level = 3
+                    instant_build = yes
+                }
+            }
+            set_country_flag = INF_Deyland_Space
+            country_event = inf_petro.5
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Finish_Compound_N110 = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_Compound_N110
+        }
+        remove_effect = {
+            set_technology = {
+                Compound_N110 = 1
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Ifrit_Project = {
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_Ifrit_Project
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            set_technology = {
+                artificial_sputnik = 1
+            }
+            set_technology = {
+                rocket_engines_manufacture = 1
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Operation_Emptiness = {
+        days_remove = 180
+        fire_only_once = yes
+        visible = {
+            has_completed_focus = INF_Acquire_United_Federation_Tech
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 74
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+            has_equipment = {
+                transport_plane_equipment > 24
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 2
+                category = robot_techs
+            }
+            add_tech_bonus = {
+                bonus = 0.75
+                uses = 2
+                category = air_equipment
+            }
+            random_list = {
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = heavy_robot_equipment_1
+                        amount = 50
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = heavy_robot_equipment_1
+                            amount = -50
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = heavy_robot_equipment_1
+                        amount = 100
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = heavy_robot_equipment_1
+                            amount = -100
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = heavy_robot_equipment_1
+                        amount = 175
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = heavy_robot_equipment_1
+                            amount = -175
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = heavy_robot_equipment_1
+                        amount = 250
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = heavy_robot_equipment_1
+                            amount = -250
+                            producer = UFA
+                        }
+                    }
+                }
+            }
+            random_list = {
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = jet_fighter_equipment_1
+                        amount = 15
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = jet_fighter_equipment_1
+                            amount = -15
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = jet_fighter_equipment_1
+                        amount = 25
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = jet_fighter_equipment_1
+                            amount = -25
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = jet_fighter_equipment_1
+                        amount = 37
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = jet_fighter_equipment_1
+                            amount = -37
+                            producer = UFA
+                        }
+                    }
+                }
+                25 = {
+                    add_equipment_to_stockpile = {
+                        type = jet_fighter_equipment_1
+                        amount = 50
+                        producer = UFA
+                    }
+                    UFA = {
+                        add_equipment_to_stockpile = {
+                            type = jet_fighter_equipment_1
+                            amount = -50
+                            producer = UFA
+                        }
+                    }
+                }
+            }
+            random_list = {
+                25 = {
+                    UFA = {
+                        add_to_variable = {
+                            gov_corruption = 10
+                        }
+                    }
+                }
+                25 = {
+                    UFA = {
+                        add_to_variable = {
+                            gov_corruption = 12
+                        }
+                    }
+                }
+                25 = {
+                    UFA = {
+                        add_to_variable = {
+                            gov_corruption = 17
+                        }
+                    }
+                }
+                25 = {
+                    UFA = {
+                        add_to_variable = {
+                            gov_corruption = 25
+                        }
+                    }
+                }
+            }
+            country_event = inf_petro.11
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Shai_Hulud_Project = {
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_Shai_Hulud_Project
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            set_technology = {
+                Robo_Sandworm = 1
+            }
+            country_event = inf_petro.12
+            load_oob = INF_roboworms
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Eshkal_Project = {
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_Eshkal_Project
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            set_technology = {
+                GUN_Flying_Dog = 1
+            }
+            country_event = inf_petro.13
+            load_oob = INF_flying_dog
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_SatNet_Project = {
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_SatNet_Project
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            swap_ideas = {
+                remove_idea = INF_The_Jackalnet_2
+                add_idea = INF_The_Jackalnet_3
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Siark_Project = {
+        fire_only_once = yes
+        days_remove = 180
+        visible = {
+            has_completed_focus = INF_Siark_Project
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            set_variable = {
+                INF_kamikaze_satellite = 1
+            }
+            set_country_flag = INF_kamikaze_satellite_enabled
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Launch_Satellite_1 = {
+        days_remove = 45
+        custom_cost_trigger = {
+            command_power > 24
+        }
+        visible = {
+            has_country_flag = INF_kamikaze_satellite_enabled
+        }
+        modifier = {
+            civilian_factory_use = 5
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 25
+            }
+        }
+        remove_effect = {
+            add_to_variable = {
+                INF_kamikaze_satellite = 1
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Launch_Satellite_3 = {
+        days_remove = 45
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        visible = {
+            has_country_flag = INF_kamikaze_satellite_enabled
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 50
+            }
+        }
+        remove_effect = {
+            add_to_variable = {
+                INF_kamikaze_satellite = 3
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Launch_Satellite_5 = {
+        days_remove = 45
+        custom_cost_trigger = {
+            command_power > 74
+        }
+        visible = {
+            has_country_flag = INF_kamikaze_satellite_enabled
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+        }
+        remove_effect = {
+            add_to_variable = {
+                INF_kamikaze_satellite = 5
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Sell_Oil_to_KOA = {
+        cost = 100
+        custom_cost_trigger = {
+            has_equipment = {
+                convoy > 49
+            }
+        }
+        days_re_enable = 180
+        complete_effect = {
+            add_timed_idea = {
+                idea = INF_Extended_Oil_Exports_to_KOA
+                days = 180
+            }
+            KOA = {
+                add_timed_idea = {
+                    idea = Extended_Oil_Imports
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Sell_Oil_to_SWA = {
+        cost = 100
+        custom_cost_trigger = {
+            has_equipment = {
+                convoy > 49
+            }
+        }
+        days_re_enable = 180
+        complete_effect = {
+            add_timed_idea = {
+                idea = INF_Extended_Oil_Exports_to_SWA
+                days = 180
+            }
+            SWA = {
+                add_timed_idea = {
+                    idea = Extended_Oil_Imports
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Sell_Oil_to_MER = {
+        cost = 100
+        custom_cost_trigger = {
+            has_equipment = {
+                convoy > 49
+            }
+        }
+        days_re_enable = 180
+        complete_effect = {
+            add_timed_idea = {
+                idea = INF_Extended_Oil_Exports_to_MER
+                days = 180
+            }
+            MER = {
+                add_timed_idea = {
+                    idea = Extended_Oil_Imports
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Sell_Oil_to_UFA = {
+        cost = 100
+        custom_cost_trigger = {
+            has_equipment = {
+                convoy > 49
+            }
+        }
+        days_re_enable = 180
+        complete_effect = {
+            add_timed_idea = {
+                idea = INF_Extended_Oil_Exports_to_UFA
+                days = 180
+            }
+            UFA = {
+                add_timed_idea = {
+                    idea = Extended_Oil_Imports
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Favor_for_Rethenia = {
+        days_mission_timeout = 365
+        fire_only_once = yes
+        activation = {
+            has_country_flag = inf_rcr_favor
+        }
+        available = {
+            has_equipment = {
+                drone_equipment > 999
+            }
+        }
+        complete_effect = {
+            add_equipment_to_stockpile = {
+                type = drone_equipment
+                amount = -1000
+            }
+            RCR = {
+                add_equipment_to_stockpile = {
+                    type = drone_equipment
+                    amount = 1000
+                }
+            }
+            country_event = inf_rcr.7
+        }
+        timeout_effect = {
+            clear_variable = global.inf_rcr_deal
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Subvert_Oil_Trade_in_TYY = {
+        days_remove = 45
+        days_re_enable = 90
+        visible = {
+            has_completed_focus = INF_Subvert_the_Oil_Trade
+            TYY = {
+                has_idea = Influenced_RCR_Pipeline
+            }
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 49
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            TYY = {
+                remove_ideas = Influenced_RCR_Pipeline
+                add_timed_idea = {
+                    idea = Influenced_RCR_Pipeline_2
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Subvert_Oil_Trade_in_CHE = {
+        days_remove = 45
+        days_re_enable = 90
+        visible = {
+            has_completed_focus = INF_Subvert_the_Oil_Trade
+            CHE = {
+                has_idea = Influenced_RCR_Pipeline
+            }
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 49
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            CHE = {
+                remove_ideas = Influenced_RCR_Pipeline
+                add_timed_idea = {
+                    idea = Influenced_RCR_Pipeline_2
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Subvert_Oil_Trade_in_LTG = {
+        days_remove = 45
+        days_re_enable = 90
+        visible = {
+            has_completed_focus = INF_Subvert_the_Oil_Trade
+            LTG = {
+                has_idea = Influenced_RCR_Pipeline
+            }
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 49
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            LTG = {
+                remove_ideas = Influenced_RCR_Pipeline
+                add_timed_idea = {
+                    idea = Influenced_RCR_Pipeline_2
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Subvert_Oil_Trade_in_SVT = {
+        days_remove = 45
+        days_re_enable = 90
+        visible = {
+            has_completed_focus = INF_Subvert_the_Oil_Trade
+            SVT = {
+                has_idea = Influenced_RCR_Pipeline
+            }
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 49
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            SVT = {
+                remove_ideas = Influenced_RCR_Pipeline
+                add_timed_idea = {
+                    idea = Influenced_RCR_Pipeline_2
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Subvert_Oil_Trade_in_TUK = {
+        days_remove = 45
+        days_re_enable = 90
+        visible = {
+            has_completed_focus = INF_Subvert_the_Oil_Trade
+            TUK = {
+                has_idea = Influenced_RCR_Pipeline
+            }
+        }
+        custom_cost_trigger = {
+            check_variable = {
+                command_power > 49
+            }
+            check_variable = {
+                INF_Ruby_Energy > 24
+            }
+            has_manpower > 999
+            has_equipment = {
+                infantry_equipment > 499
+            }
+            has_equipment = {
+                support_equipment > 499
+            }
+        }
+        complete_effect = {
+            subtract_from_variable = {
+                command_power = 75
+            }
+            subtract_from_variable = {
+                INF_Ruby_Energy = 25
+            }
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = -500
+            }
+            add_equipment_to_stockpile = {
+                type = support_equipment
+                amount = -500
+            }
+        }
+        remove_effect = {
+            TUK = {
+                remove_ideas = Influenced_RCR_Pipeline
+                add_timed_idea = {
+                    idea = Influenced_RCR_Pipeline_2
+                    days = 180
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
 }
-
 INF_Pipeline = {
-	INF_pipeline_BHA = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			BHA = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = BHA_INF_Pipeline
-		}
-	}
-	INF_pipeline_NIK = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			NIK = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = NIK_INF_Pipeline
-		}
-	}
-	INF_pipeline_MID = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			MID = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = MID_INF_Pipeline
-		}
-	}
-	INF_pipeline_HUR = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			OR = {
-				has_idea = MID_INF_Pipeline
-				has_idea = BHA_INF_Pipeline
-			}
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			HUR = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = HUR_INF_Pipeline
-		}
-	}
-	INF_pipeline_KAE = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = NIK_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			KAE = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = KAE_INF_Pipeline
-		}
-	}
-	INF_pipeline_GEG = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = NIK_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			GEG = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = GEG_INF_Pipeline
-		}
-	}
-	INF_pipeline_KRO = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = NIK_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			KRO = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = KRO_INF_Pipeline
-		}
-	}
-	INF_pipeline_KUA = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = NIK_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			KUA = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = KUA_INF_Pipeline
-		}
-	}
-	INF_pipeline_RIO = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 290
-
-		available = {
-			has_idea = KUA_INF_Pipeline
-			has_idea = KRO_INF_Pipeline
-			has_idea = GEG_INF_Pipeline
-			has_idea = KAE_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 15
-		}
-
-		remove_effect = {
-			RIO = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = RIO_INF_Pipeline
-		}
-	}
-	INF_pipeline_JUN = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = RIO_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			JUN = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = JUN_INF_Pipeline
-		}
-	}
-	INF_pipeline_LAO = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = RIO_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			LAO = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = LAO_INF_Pipeline
-		}
-	}
-	INF_pipeline_GKR = {
-		cost = 100
-		fire_only_once = yes
-		days_remove = 180
-
-		available = {
-			has_idea = RIO_INF_Pipeline
-		}
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		remove_effect = {
-			GKR = {
-				add_resource = {
-					type = oil
-					amount = 75
-					state = capital
-				}
-				add_ideas = Influenced_INF_Pipeline
-			}
-			add_offsite_building = { 
-				type = industrial_complex 
-				level = 5 
-			}
-			add_ideas = GKR_INF_Pipeline
-		}
-	}
+    INF_pipeline_BHA = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            BHA = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = BHA_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_NIK = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            NIK = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = NIK_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_MID = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            MID = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = MID_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_HUR = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            OR = {
+                has_idea = MID_INF_Pipeline
+                has_idea = BHA_INF_Pipeline
+            }
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            HUR = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = HUR_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_KAE = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = NIK_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            KAE = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = KAE_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_GEG = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = NIK_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            GEG = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = GEG_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_KRO = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = NIK_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            KRO = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = KRO_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_KUA = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = NIK_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            KUA = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = KUA_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_RIO = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 290
+        available = {
+            has_idea = KUA_INF_Pipeline
+            has_idea = KRO_INF_Pipeline
+            has_idea = GEG_INF_Pipeline
+            has_idea = KAE_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 15
+        }
+        remove_effect = {
+            RIO = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = RIO_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_JUN = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = RIO_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            JUN = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = JUN_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_LAO = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = RIO_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            LAO = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = LAO_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_pipeline_GKR = {
+        cost = 100
+        fire_only_once = yes
+        days_remove = 180
+        available = {
+            has_idea = RIO_INF_Pipeline
+        }
+        modifier = {
+            civilian_factory_use = 10
+        }
+        remove_effect = {
+            GKR = {
+                add_resource = {
+                    type = oil
+                    amount = 75
+                    state = capital
+                }
+                add_ideas = Influenced_INF_Pipeline
+            }
+            add_offsite_building = {
+                type = industrial_complex
+                level = 5
+            }
+            add_ideas = GKR_INF_Pipeline
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
 }

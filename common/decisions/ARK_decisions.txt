@@ -1,411 +1,432 @@
 ARK_space_colony = {
-	ARK_collapse = {
-		icon = GFX_decision_kill_delegate
-		is_good = no
-		days_mission_timeout = 720
-		timeout_effect = {
-			country_event = {
-				id = ark.666
-			}
-		}
-	}
-	ARK_send_reinforcements = {
-		icon = GFX_decision_Sonic
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_docks
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Dock_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Dock_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Dock_Control = 1
-						}
-					}
-				}
-			}
-		}
-		custom_cost_trigger = {
-			command_power > 74
-		}
-		custom_cost_text = cost_cc_75
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -75
-			}
-		}
-		days_remove = 7
-		days_re_enable = 14
-		remove_effect = {
-			custom_effect_tooltip = ARK_arrive_reinforcements
-			add_to_variable = {
-				ARK_unit_number = ARK_send_reinforcements
-			}
-		}
-	}
-	ARK_activate_robots = {
-		icon = GFX_decision_eggman_medium
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_liv
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Liv_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Liv_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Liv_Control = 1
-						}
-					}
-				}
-			}
-		}
-		custom_cost_trigger = {
-			command_power > 24
-		}
-		custom_cost_text = cost_cc_25
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -25
-			}
-		}
-		days_remove = 2
-		days_re_enable = 10
-		remove_effect = {
-			custom_effect_tooltip = ARK_robots_plus
-			add_to_variable = {
-				ARK_Free_Units = 100
-			}
-			add_to_variable = {
-				ARK_strength = 20
-			}
-			clamp_variable = {
-				var = ARK_strength
-				min = 0
-				max = 100
-			}
-		}
-	}
-	ARK_cure_soldiers = {
-		icon = GFX_decision_sweat
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_inf
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Inf_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Inf_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Inf_Control = 1
-						}
-					}
-				}
-			}
-		}
-		custom_cost_trigger = {
-			command_power > 24
-		}
-		custom_cost_text = cost_cc_25
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -25
-			}
-		}
-		days_remove = 4
-		days_re_enable = 10
-		remove_effect = {
-			custom_effect_tooltip = ARK_cured_soldiers
-			add_to_variable = {
-				ARK_strength = 30
-			}
-			clamp_variable = {
-				var = ARK_strength
-				min = 0
-				max = 100
-			}
-		}
-	}
-	ARK_deploy_artificial_Chaos = {
-		icon = GFX_decision_artificial_chaos
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_gen
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Gen_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Gen_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Gen_Control = 1
-						}
-					}
-				}
-			}
-		}
-		custom_cost_trigger = {
-			command_power > 49
-		}
-		custom_cost_text = cost_cc_50
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -50
-			}
-		}
-		days_remove = 4
-		days_re_enable = 10
-		remove_effect = {
-			custom_effect_tooltip = ARK_artificial_c
-			add_to_variable = {
-				ARK_strength = 40
-			}
-			clamp_variable = {
-				var = ARK_strength
-				min = 0
-				max = 100
-			}
-			add_to_variable = {
-				ARK_Free_Units = 100
-			}
-		}
-	}
-	ARK_Test = {
-		available = {
-			always = yes
-		}
-		visible = {
-			always = yes
-		}
-		complete_effect = {
-			capital_scope = {
-				add_dynamic_modifier = {
-					modifier = Blasted_by_ARK
-				}
-			}
-		}
-	}
-	ARK_destroy_Eclipse_cannon = {
-		icon = GFX_decision_sabotage
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_eclipse
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Eclipse_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Eclipse_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Eclipse_Control = 1
-						}
-					}
-				}
-			}
-		}
-		custom_cost_trigger = {
-			command_power > 99
-		}
-		custom_cost_text = cost_cc_100
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -100
-			}
-		}
-		days_remove = 180
-		fire_only_once = yes
-		remove_effect = {
-			custom_effect_tooltip = ARK_destroy_eclipse
-			add_political_power = 500
-			add_stability = 0.25
-			add_war_support = 0.3
-		}
-	}
-	ARK_fire_cannon = {
-		icon = GFX_decision_sabotage
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ARK_control_eclipse
-				OR = {
-					AND = {
-						tag = EGG
-						check_variable = {
-							global.ARK_Eclipse_Control = 3
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = {
-							global.ARK_Eclipse_Control = 2
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = {
-							global.ARK_Eclipse_Control = 1
-						}
-					}
-				}
-			}
-			check_variable = {
-				active_emeralds > 0
-			}
-			# always = yes
-		}
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				owner = {
-					has_war_with = ROOT
-				}
-			}
-		}
-		on_map_mode = map_only
-		custom_cost_trigger = {
-			command_power > 99
-		}
-		custom_cost_text = cost_cc_100
-		complete_effect = {
-			hidden_effect = {
-				add_command_power = -100
-			}
-		}
-		days_remove = 3
-		remove_effect = {
-			if = {
-				limit = {
-					ROOT = {
-						check_variable = {
-							active_emeralds > 6
-						}
-					}
-					# always = yes
-				}
-				# utter chaos
-				ARK_the_end_of_the_world = yes
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						check_variable = {
-							active_emeralds < 7
-						}
-						check_variable = {
-							active_emeralds > 4
-						}
-					}
-				}
-				FROM = {
-					every_neighbor_state = {
-						every_neighbor_state = {
-							ROOT = {
-								launch_nuke = {
-									state = PREV
-									use_nuke = no
-								}
-							}
-							add_dynamic_modifier = {
-								modifier = Blasted_by_ARK
-							}
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						check_variable = {
-							active_emeralds < 5
-						}
-						check_variable = {
-							active_emeralds > 2
-						}
-					}
-				}
-				FROM = {
-					every_neighbor_state = {
-						every_neighbor_state = {
-							ROOT = {
-								launch_nuke = {
-									state = PREV
-									use_nuke = no
-								}
-							}
-							add_dynamic_modifier = {
-								modifier = Blasted_by_ARK
-							}
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					ROOT = {
-						check_variable = {
-							active_emeralds < 3
-						}
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = Blasted_by_ARK
-				}
-				ROOT = {
-					launch_nuke = {
-						state = FROM
-						use_nuke = no
-					}
-				}
-			}
-		}
-		days_re_enable = 180
-	}
+    ARK_collapse = {
+        icon = GFX_decision_kill_delegate
+        is_good = no
+        days_mission_timeout = 720
+        timeout_effect = {
+            country_event = {
+                id = ark.666
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_send_reinforcements = {
+        icon = GFX_decision_Sonic
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_docks
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Dock_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Dock_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Dock_Control = 1
+                        }
+                    }
+                }
+            }
+        }
+        custom_cost_trigger = {
+            command_power > 74
+        }
+        custom_cost_text = cost_cc_75
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -75
+            }
+        }
+        days_remove = 7
+        days_re_enable = 14
+        remove_effect = {
+            custom_effect_tooltip = ARK_arrive_reinforcements
+            add_to_variable = {
+                ARK_unit_number = ARK_send_reinforcements
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_activate_robots = {
+        icon = GFX_decision_eggman_medium
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_liv
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Liv_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Liv_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Liv_Control = 1
+                        }
+                    }
+                }
+            }
+        }
+        custom_cost_trigger = {
+            command_power > 24
+        }
+        custom_cost_text = cost_cc_25
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -25
+            }
+        }
+        days_remove = 2
+        days_re_enable = 10
+        remove_effect = {
+            custom_effect_tooltip = ARK_robots_plus
+            add_to_variable = {
+                ARK_Free_Units = 100
+            }
+            add_to_variable = {
+                ARK_strength = 20
+            }
+            clamp_variable = {
+                var = ARK_strength
+                min = 0
+                max = 100
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_cure_soldiers = {
+        icon = GFX_decision_sweat
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_inf
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Inf_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Inf_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Inf_Control = 1
+                        }
+                    }
+                }
+            }
+        }
+        custom_cost_trigger = {
+            command_power > 24
+        }
+        custom_cost_text = cost_cc_25
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -25
+            }
+        }
+        days_remove = 4
+        days_re_enable = 10
+        remove_effect = {
+            custom_effect_tooltip = ARK_cured_soldiers
+            add_to_variable = {
+                ARK_strength = 30
+            }
+            clamp_variable = {
+                var = ARK_strength
+                min = 0
+                max = 100
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_deploy_artificial_Chaos = {
+        icon = GFX_decision_artificial_chaos
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_gen
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Gen_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Gen_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Gen_Control = 1
+                        }
+                    }
+                }
+            }
+        }
+        custom_cost_trigger = {
+            command_power > 49
+        }
+        custom_cost_text = cost_cc_50
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -50
+            }
+        }
+        days_remove = 4
+        days_re_enable = 10
+        remove_effect = {
+            custom_effect_tooltip = ARK_artificial_c
+            add_to_variable = {
+                ARK_strength = 40
+            }
+            clamp_variable = {
+                var = ARK_strength
+                min = 0
+                max = 100
+            }
+            add_to_variable = {
+                ARK_Free_Units = 100
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_Test = {
+        available = {
+            always = yes
+        }
+        visible = {
+            always = yes
+        }
+        complete_effect = {
+            capital_scope = {
+                add_dynamic_modifier = {
+                    modifier = Blasted_by_ARK
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_destroy_Eclipse_cannon = {
+        icon = GFX_decision_sabotage
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_eclipse
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 1
+                        }
+                    }
+                }
+            }
+        }
+        custom_cost_trigger = {
+            command_power > 99
+        }
+        custom_cost_text = cost_cc_100
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -100
+            }
+        }
+        days_remove = 180
+        fire_only_once = yes
+        remove_effect = {
+            custom_effect_tooltip = ARK_destroy_eclipse
+            add_political_power = 500
+            add_stability = 0.25
+            add_war_support = 0.3
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ARK_fire_cannon = {
+        icon = GFX_decision_sabotage
+        available = {
+            custom_trigger_tooltip = {
+                tooltip = ARK_control_eclipse
+                OR = {
+                    AND = {
+                        tag = EGG
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 3
+                        }
+                    }
+                    AND = {
+                        tag = RCR
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 2
+                        }
+                    }
+                    AND = {
+                        tag = UFA
+                        check_variable = {
+                            global.ARK_Eclipse_Control = 1
+                        }
+                    }
+                }
+            }
+            check_variable = {
+                active_emeralds > 0
+            }
+        }
+        state_target = yes
+        target_trigger = {
+            FROM = {
+                owner = {
+                    has_war_with = ROOT
+                }
+            }
+        }
+        on_map_mode = map_only
+        custom_cost_trigger = {
+            command_power > 99
+        }
+        custom_cost_text = cost_cc_100
+        complete_effect = {
+            hidden_effect = {
+                add_command_power = -100
+            }
+        }
+        days_remove = 3
+        remove_effect = {
+            if = {
+                limit = {
+                    ROOT = {
+                        check_variable = {
+                            active_emeralds > 6
+                        }
+                    }
+                }
+                ARK_the_end_of_the_world = yes
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        check_variable = {
+                            active_emeralds < 7
+                        }
+                        check_variable = {
+                            active_emeralds > 4
+                        }
+                    }
+                }
+                FROM = {
+                    every_neighbor_state = {
+                        every_neighbor_state = {
+                            ROOT = {
+                                launch_nuke = {
+                                    state = PREV
+                                    use_nuke = no
+                                }
+                            }
+                            add_dynamic_modifier = {
+                                modifier = Blasted_by_ARK
+                            }
+                        }
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        check_variable = {
+                            active_emeralds < 5
+                        }
+                        check_variable = {
+                            active_emeralds > 2
+                        }
+                    }
+                }
+                FROM = {
+                    every_neighbor_state = {
+                        every_neighbor_state = {
+                            ROOT = {
+                                launch_nuke = {
+                                    state = PREV
+                                    use_nuke = no
+                                }
+                            }
+                            add_dynamic_modifier = {
+                                modifier = Blasted_by_ARK
+                            }
+                        }
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    ROOT = {
+                        check_variable = {
+                            active_emeralds < 3
+                        }
+                    }
+                }
+                add_dynamic_modifier = {
+                    modifier = Blasted_by_ARK
+                }
+                ROOT = {
+                    launch_nuke = {
+                        state = FROM
+                        use_nuke = no
+                    }
+                }
+            }
+        }
+        days_re_enable = 180
+        ai_will_do = {
+            base = 1
+        }
+    }
 }
