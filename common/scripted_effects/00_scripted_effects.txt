@@ -344,3 +344,551 @@ remove_from_allowed_party = {
 		set_temp_variable = { allowed_party_autocracy = 0 }
 	}
 }
+
+#expectes a temp variable country_to_initiate which should contain original_tag to instantiate as a collabration government
+instantiate_collaboration_government = {
+	custom_effect_tooltip = compliance_80_effect_tooltip
+	hidden_effect = {
+		set_variable = { collaboration_formed@var:country_to_initiate = 1 }
+
+		if = {
+			# if country_to_initiate does not exist, simply release it as a puppet
+			limit = {
+				var:country_to_initiate = {
+					exists = no
+				}
+			}
+			var:country_to_initiate = { set_variable = { collaboration_formed_by = PREV } }
+			release_autonomy = {
+				target = country_to_initiate
+				autonomy_state = autonomy_collaboration_government
+				freedom_level = 0.5
+				release_non_owned_controlled = yes
+			}
+		}
+		else = {
+			# if country_to_initiate exists, create a dynamic country as our new puppet
+
+			create_dynamic_country = {
+				original_tag = country_to_initiate
+
+				set_variable = { collaboration_formed_by = PREV }
+				set_temp_variable = { new_country = this }
+
+				PREV = {
+					every_controlled_state = {
+						limit = { occupied_country_tag = country_to_initiate }
+
+						var:new_country = {
+							transfer_state = PREV
+						}
+					}
+
+					puppet = new_country
+
+					set_autonomy = {
+						target = new_country
+						autonomy_state = autonomy_collaboration_government
+						freedom_level = 0.5
+					}
+				}
+			}
+		}
+	}
+}
+
+upgrade_economy_law = {
+	if = {
+		limit = {
+			has_idea = civilian_economy
+		}
+		add_ideas = low_economic_mobilisation
+	}
+	else_if = {
+		limit = {
+			has_idea = low_economic_mobilisation
+		}
+		add_ideas = partial_economic_mobilisation
+	}
+	else_if = {
+		limit = {
+			has_idea = partial_economic_mobilisation
+		}
+		add_ideas = war_economy
+	}
+	else_if = {
+		limit = {
+			has_idea = war_economy
+		}
+		add_ideas = tot_economic_mobilisation
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+gain_random_agency_upgrade = { #Gives a random agency upgrade or grants a free agency if one has not yet been established
+	custom_effect_tooltip = free_agency_upgrade_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				has_intelligence_agency = no
+			}
+			create_intelligence_agency = yes
+		}
+		else = {
+			random_list = {
+				1 = {
+					upgrade_intelligence_agency = training_center
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = training_center
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = army_intelligence
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = army_intelligence
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = stat_analysis
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = stat_analysis
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = air_intelligence
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = air_intelligence
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = synth_op
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = synth_op
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = counterintelligence
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = counterintelligence
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = face_recognition
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = face_recognition
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = biometry
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = biometry
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = force_field
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = force_field
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = fight_riots_protocol
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = fight_riots_protocol
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = industry_espionage
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = industry_espionage
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = ringonite_explosives
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = ringonite_explosives
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = nanite_disguise
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = nanite_disguise
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = satellite_network
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = satellite_network
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = self_destroying_disks
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = self_destroying_disks
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = global_training_network
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = global_training_network
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = special_forces_training
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = special_forces_training
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = diplomacy_training
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = diplomacy_training
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = mind_control
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = mind_control
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = cybernaut_training
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = cybernaut_training
+							NOT = { has_done_agency_upgrade = cyberspace }
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = cyberspace
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = cyberspace
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = cyberattacks
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = cyberattacks
+							NOT = { has_done_agency_upgrade = cyberspace }
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = control_over_ai
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = control_over_ai
+							NOT = { has_done_agency_upgrade = cyberspace }
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = encryption_algorithms
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = encryption_algorithms
+							NOT = { has_done_agency_upgrade = cyberspace }
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = firewall_generation
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = firewall_generation
+							NOT = { has_done_agency_upgrade = cyberspace }
+							NOT = { has_done_agency_upgrade = training_center }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+### Paratroopers
+SF_PARA_sabotage_effect = { #When changing this, update the research tooltip
+	damage_building = {
+		type = infrastructure
+		damage = 2
+	}
+	damage_building = {
+		type = industrial_complex
+		damage = 1
+	}
+	damage_building = {
+		type = arms_factory
+		damage = 1
+	}
+	set_state_flag = {
+		flag = para_drop_effect
+		days = 30
+	}
+}
+
+SF_PARA_combat_effect = { #When changing this, update the research tooltip
+	every_state_division = {
+		limit = { 
+			OWNER = { has_war_with = FROM }
+		}
+		set_unit_organization = 0.50
+	}
+	set_state_flag = {
+		flag = para_drop_effect
+		days = 30
+	}
+}
+
+### Muuuurrrriiinnnnneeeeessssss
+SF_marine_demoliton_effect = { #When changing this, update the research tooltip
+	damage_building = {
+		type = radar_station
+		damage = 1
+	}
+	damage_building = {
+		type = naval_base
+		damage = 1
+	}
+	damage_building = {
+		type = dockyard
+		damage = 1
+	}
+	damage_building = {
+		type = nuclear_reactor
+		damage = 1
+	}
+	damage_building = {
+		type = rocket_site
+		damage = 1
+	}
+	damage_building = {
+		type = fuel_silo
+		damage = 1
+	}
+	set_state_flag = {
+		flag = marines_commando_effect
+		days = 30
+	}
+}
+
+increase_state_category = {
+	if = {
+		limit = {
+			has_state_category = tiny_island
+		}
+		set_state_category = small_island
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+
+	if = {
+		limit = {
+			has_state_category = small_island
+		}
+		set_state_category = large_island
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+
+	if = {
+		limit = {
+			OR = {
+				has_state_category = wasteland
+				has_state_category = enclave
+			}
+		}
+		set_state_category = pastoral
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = pastoral
+		}
+		set_state_category = rural
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = rural
+		}
+		set_state_category = town
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = town
+		}
+		set_state_category = large_town
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = large_town
+		}
+		set_state_category = city
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = city
+		}
+		set_state_category = large_city
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_state_category = large_city
+		}
+		set_state_category = metropolis
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_state_category = metropolis
+		} 
+		set_state_category = megalopolis
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+}
+
+add_potential_special_forces_tree = {
+	custom_effect_tooltip = add_potential_special_forces_tree_tt
+	if = {
+		limit = { NOT = { has_variable = sf_trees } }
+		set_variable = { sf_trees = 2 }
+	}
+	else = {
+		add_to_variable = { sf_trees = 1 }
+	}
+}
+
+remove_potential_special_forces_tree = {
+	if = {
+		limit = { NOT = { has_variable = sf_trees } }
+		set_variable = { sf_trees = 0 }
+	}
+	else = {
+		subtract_from_variable = { sf_trees = 1 }
+	}
+}
+
+store_core_states_on_game_start = { #Should be called from history file
+	every_core_state = {
+		ROOT = {
+			add_to_array = {
+				array = core_states_at_game_start
+				value = PREV
+			}
+		}
+	}
+}

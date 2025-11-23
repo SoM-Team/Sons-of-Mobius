@@ -91,49 +91,6 @@ is_controlled_by_ROOT_or_ally = {
 	}
 }
 
-ai_air_doctrine_tier_1_trigger = {
-	OR = {
-		has_tech = doct_civil_defense
-		has_tech = doct_new_battle_order
-		has_tech = doct_battlefield_clearance
-	}
-}
-
-ai_air_doctrine_tier_2_trigger = {
-	OR = {
-		has_tech = aircraft_radio_cloaking
-		has_tech = cas_dominance
-		has_tech = multidisciplinary_target_detection
-	}
-}
-ai_air_doctrine_tier_3_trigger = {
-	OR = {
-		has_tech = suppression_of_countermeasures
-		has_tech = reconnaissance_drones
-		has_tech = drone_integration
-	}
-}
-
-ai_land_doctrine_tier_1_trigger = {
-	OR = {
-		has_tech = coverage_tactics
-		has_tech = adaptive_formations
-		has_tech = equipment_of_positions
-		has_tech = t_coverage_tactics
-	}
-}
-
-ai_land_doctrine_tier_2_trigger = {
-	OR = {
-		has_tech = cutting_an_artery
-		has_tech = intellectual_tactics
-		has_tech = horde_of_machines
-		has_tech = satellite_correction
-		has_tech = t_engineering_war
-		has_tech = t_ideological_war
-	}
-}
-
 anti_submarine_strategy_required_trigger = {
 	OR = {
 		convoy_threat > 0.3
@@ -234,5 +191,58 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 			is_puppet_of = PREV # if already created one do not create another
 			has_autonomy_state = autonomy_collaboration_government
 		}
+	}
+}
+
+can_unlock_new_special_forces_tree = {
+	if = {
+		limit = { NOT = { has_variable = sf_trees } }
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_none
+			NOT = { has_variable = sf_trees }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { sf_trees > 0 } }
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_more_yes
+			check_variable = { sf_trees > 0 }
+		}
+	}
+	else = {
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_more_no
+			always = no
+		}
+	}
+}
+
+# These are to make strength comparisons easier 
+
+FROM_is_stronger = {
+	strength_ratio = {
+		tag = FROM 
+		ratio < 1
+	}
+}
+
+FROM_is_twice_as_strong = {
+	strength_ratio = {
+		tag = FROM 
+		ratio < 0.5
+	}
+}
+
+FROM_is_weaker = {
+	strength_ratio = {
+		tag = FROM 
+		ratio > 1
+	}
+}
+
+FROM_is_twice_as_weak = {
+	strength_ratio = {
+		tag = FROM 
+		ratio > 2
 	}
 }
