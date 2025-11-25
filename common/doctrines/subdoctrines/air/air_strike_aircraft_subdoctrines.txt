@@ -14,15 +14,15 @@ air_subdoctrine_flying_artillery = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 75
-            OR = {
-                original_tag = ENG
-                original_tag = FRA
-                original_tag = ITA
-                original_tag = SOV
-            }
-        }
+        # modifier = {
+        #     factor = 75
+        #     OR = {
+        #         original_tag = ENG
+        #         original_tag = FRA
+        #         original_tag = ITA
+        #         original_tag = SOV
+        #     }
+        # }
     }
 
     # EFFECTS
@@ -69,10 +69,10 @@ air_subdoctrine_dive_bombers = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 75
-            original_tag = GER
-        }
+        # modifier = {
+        #     factor = 75
+        #     original_tag = GER
+        # }
     }
 
     # EFFECTS
@@ -170,12 +170,15 @@ air_subdoctrine_carrier_strikes = {
      ai_will_do = { base = 0 }
 
     # EFFECTS
-    category_carrier_cas = {
+    cv_cas = {
         air_range = 0.1
     }
-    category_carrier_nav_bomber = {
+    cv_jet_cas = {
         air_range = 0.1
     }
+    # category_carrier_nav_bomber = {
+    #     air_range = 0.1
+    # }
 
     rewards = {
         deck_coordination = {
@@ -183,13 +186,19 @@ air_subdoctrine_carrier_strikes = {
         }
         specialized_torpedoes = {
             naval_strike_targetting_factor = 0.1
-            category_carrier_nav_bomber = {
+            cv_cas = {
+                naval_strike_attack = 0.08
+            }
+            cv_jet_cas = {
                 naval_strike_attack = 0.08
             }
         }
         strike_wave_tactics = { 
             air_cas_efficiency = 0.05
-            category_carrier_cas = {
+            cv_cas = {
+                air_ground_attack = 0.08
+            }
+            cv_jet_cas = {
                 air_ground_attack = 0.08
             }
         }
@@ -219,10 +228,10 @@ air_subdoctrine_naval_strike_tactics = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 75
-            original_tag = USA
-        }
+        # modifier = {
+        #     factor = 75
+        #     original_tag = USA
+        # }
         modifier = {
             factor = 0
             is_major = no 
@@ -233,9 +242,9 @@ air_subdoctrine_naval_strike_tactics = {
 
     rewards = {
         naval_disruption = {
-            category_nav_bomber = {
-                air_defence = 0.07
-                air_attack = 0.07
+            category_cas = {
+                air_defence = 0.05
+                naval_strike_targetting_factor = 0.1
             }           
         }
         attack_synchronization = {
@@ -249,7 +258,7 @@ air_subdoctrine_naval_strike_tactics = {
             air_accidents_factor = -0.1
         }
         optimized_payload = {
-            category_nav_bomber = {
+            category_cas = {
                 air_range = 0.05
                 naval_strike_attack = 0.05
             }
@@ -273,10 +282,10 @@ air_subdoctrine_naval_torpedo_tactics = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 75
-            original_tag = JAP
-        }
+        # modifier = {
+        #     factor = 75
+        #     original_tag = JAP
+        # }
         modifier = {
             factor = 0
             is_major = no 
@@ -292,17 +301,17 @@ air_subdoctrine_naval_torpedo_tactics = {
             port_strike = 0.2
         }
         low_level_attack_runs = {
-            category_nav_bomber = {
+            category_cas = {
                 air_agility = 0.1
             }
         }
         extended_sea_patrols = { 
-            category_nav_bomber = {
+            category_cas = {
                 air_range = 0.05
             }
-            category_carrier_nav_bomber = {
-                air_range = 0.05
-            }
+            # category_carrier_nav_bomber = {
+            #     air_range = 0.05
+            # }
         }
         all_weather_training = {
             air_weather_penalty = -0.1

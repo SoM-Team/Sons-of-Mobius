@@ -17,10 +17,10 @@ armored_spearhead = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            original_tag = GER
-        }
+        # modifier = {
+        #     factor = 25
+        #     original_tag = GER
+        # }
         modifier = {
             factor = 0.5
             is_major = no
@@ -46,10 +46,10 @@ armored_spearhead = {
         }
         local_reserves = {
         #3
-            armored_car = {
-                default_morale = 0.1
-                max_organisation = 7
-            }
+            # armored_car = {
+            #     default_morale = 0.1
+            #     max_organisation = 7
+            # }
             light_armor = {
                 default_morale = 0.1
                 max_organisation = 3
@@ -63,11 +63,11 @@ armored_spearhead = {
         }
         assault_detachments = {
         #5
-            armored_car = {
-                default_morale = 0.2
-                max_organisation = 3
-                breakthrough = 0.2
-            }
+            # armored_car = {
+            #     default_morale = 0.2
+            #     max_organisation = 3
+            #     breakthrough = 0.2
+            # }
              category_tanks= {
                 max_organisation = 3
                 breakthrough = 0.2
@@ -97,10 +97,10 @@ armored_spearhead_no_lar = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            original_tag = GER
-        }
+        # modifier = {
+        #     factor = 25
+        #     original_tag = GER
+        # }
         modifier = {
             factor = 0.5
             is_major = no
@@ -126,7 +126,7 @@ armored_spearhead_no_lar = {
         }
         local_reserves = {
         #3
-            recon = {
+            category_recon = {
                 max_organisation = 10
             }
 
@@ -167,13 +167,13 @@ armored_infantry_support = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            OR = {
-               original_tag = ENG
-               original_tag = FRA
-            }
-        }
+        # modifier = {
+        #     factor = 25
+        #     OR = {
+        #        original_tag = ENG
+        #        original_tag = FRA
+        #     }
+        # }
         modifier = {
             factor = 0.5
             is_major = no
@@ -186,7 +186,7 @@ armored_infantry_support = {
         add_tech_bonus = {
             bonus = 1
             uses = 1
-            category = cat_heavy_armor
+            category = cat_light_armor
             name = SUBDOCTRINE_ARMORED_INFANTRY_SUPPORT
         }
     }
@@ -196,27 +196,27 @@ armored_infantry_support = {
     rewards = {
         mobile_reserves = {
         #1
-            medium_armor = {
+            main_battle_armor = {
                 breakthrough = 0.05
                 soft_attack = 0.1
             }
-            heavy_armor = {
+            light_armor = {
                 breakthrough = 0.05
                 soft_attack = 0.1
             }
         }
         armored_cohorts = {
         #2
-            medium_armor = {
+            main_battle_armor = {
                 max_organisation = 7
             }
-            heavy_armor = {
+            light_armor = {
                 max_organisation = 7
             }
         }
         maintenance_routines = {
         #3
-            armored_maintenance = {
+            armoured_recovery_vehicle = {
                 battalion_mult = {
                     category = category_all_armor
                     max_strength = 0.15
@@ -226,7 +226,7 @@ armored_infantry_support = {
         }
         fuel_rationing = {
         #4
-            heavy_armor = {
+            light_armor = {
                 supply_consumption = -0.08
             }
         }
@@ -235,7 +235,7 @@ armored_infantry_support = {
             category_all_infantry = {
                 breakthrough = 0.05
             }
-            heavy_armor = {
+            light_armor = {
                 breakthrough = 0.1
             }
         }
@@ -258,14 +258,14 @@ streamlined_deployment = {
         ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            OR = {
-                original_tag = SOV 
-                original_tag = CHI 
-                original_tag = PRC 
-            }
-        }
+        # modifier = {
+        #     factor = 25
+        #     OR = {
+        #         original_tag = SOV 
+        #         original_tag = CHI 
+        #         original_tag = PRC 
+        #     }
+        # }
 
     }
 
@@ -278,7 +278,7 @@ streamlined_deployment = {
     rewards = {
         flexible_armored_battalions = {
 
-            unit_medium_armor_design_cost_factor = -0.5
+            unit_main_battle_armor_design_cost_factor = -0.5
             unit_light_armor_design_cost_factor  = -0.5
             light_tank_recon = {
                 battalion_mult = {
@@ -290,7 +290,19 @@ streamlined_deployment = {
 
         }
         mechanized_wave = {
-            mechanized = {
+            apc_mechanized = {
+                max_organisation = 5
+                default_morale = 0.2
+            }
+            ifv_mechanized = {
+                max_organisation = 5
+                default_morale = 0.2
+            }
+            bmd_mechanized = {
+                max_organisation = 5
+                default_morale = 0.2
+            }
+            amphibious_mechanized = {
                 max_organisation = 5
                 default_morale = 0.2
             }
@@ -299,7 +311,7 @@ streamlined_deployment = {
             }
         }
         tank_desant = {
-            armored_signal = {
+            electronic_countermeasure_vehicle = {
                 battalion_mult = {
                     category = category_light_infantry
                     maximum_speed = 0.05
@@ -346,10 +358,10 @@ mobile_defense = {
         ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            original_tag = USA
-        }
+        # modifier = {
+        #     factor = 25
+        #     original_tag = USA
+        # }
 
         modifier = {
             factor = 0.5
@@ -371,7 +383,19 @@ mobile_defense = {
     rewards = {
 
         mechanized_offensive = {
-            mechanized = {
+            apc_mechanized = {
+                defense = 0.1
+                soft_attack = 0.1
+            }
+            ifv_mechanized = {
+                defense = 0.1
+                soft_attack = 0.1
+            }
+            bmd_mechanized = {
+                defense = 0.1
+                soft_attack = 0.1
+            }
+            amphibious_mechanized = {
                 defense = 0.1
                 soft_attack = 0.1
             }
@@ -381,7 +405,7 @@ mobile_defense = {
                 breakthrough = 0.1
                 default_morale = 0.2
             }
-            medium_armor = {
+            main_battle_armor = {
                 breakthrough = 0.1
                 default_morale = 0.2
             }
@@ -393,7 +417,7 @@ mobile_defense = {
             armored_engineer = {
                 max_organisation = 10
             }
-            armored_signal = {
+            electronic_countermeasure_vehicle = {
                 max_organisation = 10
             }
 
@@ -441,21 +465,33 @@ armored_cavalry = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            OR = {
-                original_tag = ITA 
-                original_tag = JAP 
-            }
-        }
+        # modifier = {
+        #     factor = 25
+        #     OR = {
+        #         original_tag = ITA 
+        #         original_tag = JAP 
+        #     }
+        # }
 
     }
 
-    armored_car = {
+    # armored_car = {
+    #     max_organisation = 5
+    #     defense = 0.1
+    # }
+    apc_mechanized =  {
         max_organisation = 5
-        defense = 0.1
+        defense = 0.05
     }
-    mechanized =  {
+    ifv_mechanized =  {
+        max_organisation = 5
+        defense = 0.05
+    }
+    bmd_mechanized =  {
+        max_organisation = 5
+        defense = 0.05
+    }
+    amphibious_mechanized =  {
         max_organisation = 5
         defense = 0.05
     }
@@ -491,16 +527,28 @@ armored_cavalry = {
                 soft_attack = 0.1
     
             }
-            mechanized = {
+            apc_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            ifv_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            bmd_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            amphibious_mechanized = {
                 maximum_speed = 0.05
                 breakthrough = 0.05
             }
         }
         fighting_reconnaissance = {
-            armored_car_recon = {
-                max_organisation = 3
-                 soft_attack = 0.05
-            }
+            # armored_car_recon = {
+            #     max_organisation = 3
+            #      soft_attack = 0.05
+            # }
             light_tank_recon = {
                 max_organisation = 2
                 soft_attack = 0.05
@@ -518,12 +566,32 @@ armored_cavalry = {
                 hard_attack = 0.1
                 default_morale = 0.2
             }
-            mechanized = {
+            apc_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            ifv_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            bmd_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            amphibious_mechanized = {
                 max_organisation = 5
                 soft_attack = 0.05
                 default_morale = 0.2 
             }
             motorized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            motorcycle_battalion = {
                 max_organisation = 5
                 soft_attack = 0.05
                 default_morale = 0.2 
@@ -554,13 +622,13 @@ armored_cavalry_no_lar = {
     ai_will_do = {
 
         base = 1
-        modifier = {
-            factor = 25
-            OR = {
-                original_tag = ITA 
-                original_tag = JAP 
-            }
-        }
+        # modifier = {
+        #     factor = 25
+        #     OR = {
+        #         original_tag = ITA 
+        #         original_tag = JAP 
+        #     }
+        # }
 
     }
 
@@ -568,7 +636,23 @@ armored_cavalry_no_lar = {
         max_organisation = 5
         defense = 0.1
     }
-    mechanized =  {
+    motorcycle_battalion = {
+        max_organisation = 5
+        defense = 0.1
+    }
+    apc_mechanized =  {
+        max_organisation = 5
+        defense = 0.05
+    }
+    ifv_mechanized =  {
+        max_organisation = 5
+        defense = 0.05
+    }
+    bmd_mechanized =  {
+        max_organisation = 5
+        defense = 0.05
+    }
+    amphibious_mechanized =  {
         max_organisation = 5
         defense = 0.05
     }
@@ -598,18 +682,32 @@ armored_cavalry_no_lar = {
             }
             motorized = {
                 maximum_speed = 0.05
-    
             }
-            mechanized = {
+            motorcycle_battalion = {
+                maximum_speed = 0.05
+            }
+            apc_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            ifv_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            bmd_mechanized = {
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            amphibious_mechanized = {
                 maximum_speed = 0.05
                 breakthrough = 0.05
             }
         }
         fighting_reconnaissance = {
-            recon = {
-                max_organisation = 3
-                 soft_attack = 0.05
-            }
+            # recon = {
+            #     max_organisation = 3
+            #      soft_attack = 0.05
+            # }
             light_tank_recon = {
                 max_organisation = 2
                 soft_attack = 0.05
@@ -622,12 +720,32 @@ armored_cavalry_no_lar = {
                 hard_attack = 0.1
                 default_morale = 0.2
             }
-            mechanized = {
+            apc_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            ifv_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            bmd_mechanized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            amphibious_mechanized = {
                 max_organisation = 5
                 soft_attack = 0.05
                 default_morale = 0.2 
             }
             motorized = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2 
+            }
+            motorcycle_battalion = {
                 max_organisation = 5
                 soft_attack = 0.05
                 default_morale = 0.2 
@@ -696,7 +814,7 @@ tank_destroyer_force = {
         }
 
         selfsufficient_battalion = {
-            armored_signal = {
+            electronic_countermeasure_vehicle = {
                 battalion_mult = {
                     category = category_tank_destroyers
                     hard_attack = 0.1
