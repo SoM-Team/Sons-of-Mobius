@@ -3,7 +3,7 @@ focus_tree = {
 	country = { factor = 0 }
 
 	focus = {
-		id = KOA_gather_loyalists
+		id = KOA_red_arm_the_people
 		icon = GFX_idea_unknown
 		x = -4
 		y = 0
@@ -11,15 +11,15 @@ focus_tree = {
 		completion_reward = {
 			capital_scope = {
 				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"King's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 			}
@@ -28,15 +28,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_consolidate_economy
+		id = KOA_red_total_requisition
 		icon = GFX_idea_unknown
 		# prerequisite = {
-		# 	focus = KOA_gather_loyalists
+		# 	focus = KOA_red_arm_the_people
 		# }
 		# mutually_exclusive = {
-		# 	focus = KOA_form_assault_groups
+		# 	focus = KOA_red_army_or_guards
 		# }
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 8
 		y = 0
 		cost = 0
@@ -73,19 +73,19 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_political_power = 200
+			add_political_power = 40
 		}
 	}
 	focus = {
-		id = KOA_form_assault_groups
+		id = KOA_red_army_or_guards
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_gather_loyalists
+			focus = KOA_red_arm_the_people
 		}
 		# mutually_exclusive = {
-		# 	focus = KOA_consolidate_economy
+		# 	focus = KOA_red_total_requisition
 		# }
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = -1
 		y = 1
 		cost = 0
@@ -102,12 +102,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_provide_equipment_with_ammunition
+		id = KOA_red_lure_personnel_to_our_side
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_gather_loyalists
+			focus = KOA_red_arm_the_people
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 1
 		y = 1
 		cost = 0
@@ -121,12 +121,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_control_mobium
+		id = KOA_red_create_industrial_production_directorate
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_consolidate_economy
+			focus = KOA_red_total_requisition
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 7
 		y = 1
 		cost = 0
@@ -136,12 +136,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_make_friends_with_patrons
+		id = KOA_red_planning_commission
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_consolidate_economy
+			focus = KOA_red_total_requisition
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 9
 		y = 1
 		cost = 0
@@ -151,15 +151,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_raise_militia
+		id = KOA_red_first_conscription
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_provide_equipment_with_ammunition
+			focus = KOA_red_lure_personnel_to_our_side
 		}
 		prerequisite = {
-			focus = KOA_form_assault_groups
+			focus = KOA_red_army_or_guards
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 0
 		y = 2
 		cost = 0
@@ -168,15 +168,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_resources_for_crown
+		id = KOA_red_military_economics
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_control_mobium
+			focus = KOA_red_create_industrial_production_directorate
 		}
 		prerequisite = {
-			focus = KOA_make_friends_with_patrons
+			focus = KOA_red_planning_commission
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 8
 		y = 2
 		cost = 0
@@ -210,12 +210,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_call_for_freedom_fighters
+		id = KOA_red_new_generation_of_commanders
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_raise_militia
+			focus = KOA_red_first_conscription
 		}
-	relative_position_id = KOA_gather_loyalists
+	relative_position_id = KOA_red_arm_the_people
 		x = -2
 		y = 3
 		cost = 0
@@ -229,12 +229,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_appoint_young_officers
+		id = KOA_red_technical_support_committee
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_raise_militia
+			focus = KOA_red_first_conscription
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 3
 		cost = 0
@@ -281,12 +281,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_crown_holdings
+		id = KOA_red_emergency_industrial_expansion
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_resources_for_crown
+			focus = KOA_red_military_economics
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 6
 		y = 3
 		cost = 0
@@ -297,12 +297,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_primacy_of_military_research
+		id = KOA_red_research_grants
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_resources_for_crown
+			focus = KOA_red_military_economics
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 10
 		y = 3
 		cost = 0
@@ -316,12 +316,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_organize_sabotage_units
+		id = KOA_red_red_freedom_fighters
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_call_for_freedom_fighters
+			focus = KOA_red_new_generation_of_commanders
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = -3
 		y = 4
 		cost = 0
@@ -344,12 +344,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_urgently_strengthen_capital
+		id = KOA_red_rethenian_veterans
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_call_for_freedom_fighters
+			focus = KOA_red_new_generation_of_commanders
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = -1
 		y = 4
 		cost = 0
@@ -376,12 +376,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_new_aviation_doctrine
+		id = KOA_red_red_tanks
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_appoint_young_officers
+			focus = KOA_red_technical_support_committee
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 1
 		y = 4
 		cost = 0
@@ -401,12 +401,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_reform_motorized_groups
+		id = KOA_red_use_light_vehicles
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_appoint_young_officers
+			focus = KOA_red_technical_support_committee
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 3
 		y = 4
 		cost = 0
@@ -420,12 +420,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_imperialization_of_land
+		id = KOA_red_double_payment_for_strategic_sectors
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_crown_holdings
+			focus = KOA_red_emergency_industrial_expansion
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 5
 		y = 4
 		cost = 0
@@ -436,12 +436,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_three_shifts
+		id = KOA_red_motivation_system
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_crown_holdings
+			focus = KOA_red_emergency_industrial_expansion
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 7
 		y = 4
 		cost = 0
@@ -450,12 +450,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_high_precision_energy_weapons
+		id = KOA_red_develop_field_medicine
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_primacy_of_military_research
+			focus = KOA_red_research_grants
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 9
 		y = 4
 		cost = 0
@@ -475,12 +475,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_smart_projectiles
+		id = KOA_red_create_strategic_research_directorate
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_primacy_of_military_research
+			focus = KOA_red_research_grants
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 11
 		y = 4
 		cost = 0
@@ -490,15 +490,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_prepare_for_race
+		id = KOA_red_volunteer_battalions
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_urgently_strengthen_capital
+			focus = KOA_red_rethenian_veterans
 		}
 		prerequisite = {
-			focus = KOA_organize_sabotage_units
+			focus = KOA_red_red_freedom_fighters
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = -2
 		y = 5
 		cost = 0
@@ -518,15 +518,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_steel_tank_wedges
+		id = KOA_red_relatively_modern_army
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_new_aviation_doctrine
+			focus = KOA_red_red_tanks
 		}
 		prerequisite = {
-			focus = KOA_reform_motorized_groups
+			focus = KOA_red_use_light_vehicles
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 5
 		cost = 0
@@ -540,15 +540,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_food_safety
+		id = KOA_red_sustainable_economic_policy
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_imperialization_of_land
+			focus = KOA_red_double_payment_for_strategic_sectors
 		}
 		prerequisite = {
-			focus = KOA_three_shifts
+			focus = KOA_red_motivation_system
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 6
 		y = 5
 		cost = 0
@@ -558,15 +558,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_create_a_mtrc
+		id = KOA_red_alliance_of_workers_scientists_and_soldiers
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_smart_projectiles
+			focus = KOA_red_create_strategic_research_directorate
 		}
 		prerequisite = {
-			focus = KOA_high_precision_energy_weapons
+			focus = KOA_red_develop_field_medicine
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 10
 		y = 5
 		cost = 0
@@ -575,15 +575,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_begin_political_enlightenment
+		id = KOA_red_create_committees_of_military_education
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_prepare_for_race
+			focus = KOA_red_volunteer_battalions
 		}
 		prerequisite = {
-			focus = KOA_steel_tank_wedges
+			focus = KOA_red_relatively_modern_army
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 0
 		y = 6
 		cost = 0
@@ -593,12 +593,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_reequip_air_wings
+		id = KOA_red_create_peoples_air_force
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_steel_tank_wedges
+			focus = KOA_red_relatively_modern_army
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 6
 		cost = 0
@@ -607,15 +607,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_seek_help_from_uf
+		id = KOA_red_seek_help_from_rcsr
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_reform_motorized_groups
+			focus = KOA_red_use_light_vehicles
 		}
 		prerequisite = {
-			focus = KOA_imperialization_of_land
+			focus = KOA_red_double_payment_for_strategic_sectors
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 4
 		y = 6
 		cost = 0
@@ -639,12 +639,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_trade_with_outside_world
+		id = KOA_red_develop_light_industry
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_food_safety
+			focus = KOA_red_sustainable_economic_policy
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 6
 		y = 6
 		cost = 0
@@ -660,15 +660,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_use_everything
+		id = KOA_red_anticrise_model
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_food_safety
+			focus = KOA_red_sustainable_economic_policy
 		}
 		prerequisite = {
-			focus = KOA_create_a_mtrc
+			focus = KOA_red_alliance_of_workers_scientists_and_soldiers
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 8
 		y = 6
 		cost = 0
@@ -688,12 +688,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_cult_of_elias_personality
+		id = KOA_red_engineer_units
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_begin_political_enlightenment
+			focus = KOA_red_create_committees_of_military_education
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 0
 		y = 7
 		cost = 0
@@ -703,12 +703,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_kings_last_argument
+		id = KOA_red_implement_new_developments
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_reequip_air_wings
+			focus = KOA_red_create_peoples_air_force
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 7
 		cost = 0
@@ -722,12 +722,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_everyone_who_is_loyal_to_acorns
+		id = KOA_red_address_Internationale
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_seek_help_from_uf
+			focus = KOA_red_seek_help_from_rcsr
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 4
 		y = 7
 		cost = 0
@@ -736,12 +736,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_reintegration_of_returned_industry
+		id = KOA_red_anticipating_recovery
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_trade_with_outside_world
+			focus = KOA_red_develop_light_industry
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 6
 		y = 7
 		cost = 0
@@ -751,12 +751,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_create_conducting_institutes
+		id = KOA_red_social_reforms
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_use_everything
+			focus = KOA_red_anticrise_model
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 8
 		y = 7
 		cost = 0
@@ -765,15 +765,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_victory_march
+		id = KOA_red_discipline
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_cult_of_elias_personality
+			focus = KOA_red_engineer_units
 		}
 		prerequisite = {
-			focus = KOA_kings_last_argument
+			focus = KOA_red_implement_new_developments
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 1
 		y = 8
 		cost = 0
@@ -792,12 +792,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_from_young_to_old
+		id = KOA_red_form_factions
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_everyone_who_is_loyal_to_acorns
+			focus = KOA_red_address_Internationale
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 4
 		y = 8
 		cost = 0
@@ -806,15 +806,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_develop_a_reconstruction_plan
+		id = KOA_red_create_restructurization_commission
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_create_conducting_institutes
+			focus = KOA_red_social_reforms
 		}
 		prerequisite = {
-			focus = KOA_reintegration_of_returned_industry
+			focus = KOA_red_anticipating_recovery
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 7
 		y = 8
 		cost = 0
@@ -825,15 +825,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_create_a_crown_judicial_commission
+		id = KOA_red_support_leftist_unity
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_victory_march
+			focus = KOA_red_discipline
 		}
 		prerequisite = {
-			focus = KOA_from_young_to_old
+			focus = KOA_red_form_factions
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 9
 		cost = 0
@@ -853,15 +853,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_start_economic_rehabilitation
+		id = KOA_red_calculate_economic_potential
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_develop_a_reconstruction_plan
+			focus = KOA_red_create_restructurization_commission
 		}
 		prerequisite = {
-			focus = KOA_from_young_to_old
+			focus = KOA_red_form_factions
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 6
 		y = 9
 		cost = 0
@@ -939,15 +939,15 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = KOA_dawn_of_old_new_monarchy
+		id = KOA_red_congress
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_start_economic_rehabilitation
+			focus = KOA_red_calculate_economic_potential
 		}
 		prerequisite = {
-			focus = KOA_create_a_crown_judicial_commission
+			focus = KOA_red_support_leftist_unity
 		}
-		relative_position_id = KOA_gather_loyalists
+		relative_position_id = KOA_red_arm_the_people
 		x = 4
 		y = 10
 		cost = 0
