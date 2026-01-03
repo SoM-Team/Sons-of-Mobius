@@ -6,13 +6,13 @@ pathlist = Path("../common/national_focus").glob("*.*")
 ai = r"""    ai_will_do = {
             base = 1
         }
-"""
+    """
 
 for path in pathlist:
     with open(path, 'r', encoding='utf-8') as f:
         code = f.read()
         ends = []
-        it = re.finditer(r'^\s*focus\s*=\s*\{', code)
+        it = re.finditer(r'^\s*(shared_)?focus\s*=\s*\{', code, flags=re.M)
         for focus in it:
             count = 1
             for i, c in enumerate(code[focus.end():], start=focus.end()):
