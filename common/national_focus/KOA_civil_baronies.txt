@@ -1,13 +1,12 @@
 focus_tree = {
-	id = KOA_civil_baronies  # Todd Godward
-	country = { 
-		factor = 0 
+	id = KOA_civil_baronies	# Todd Godward
+	country = {
+		factor = 0
 		modifier = {
 			add = 10000
 			tag = SOT
 		}
 	}
-
 	focus = {
 		id = KOA_baronies_great_liberation_army
 		icon = GFX_idea_unknown
@@ -15,79 +14,42 @@ focus_tree = {
 		y = 0
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Bun's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Bun's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Bun's Loyals\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
-			add_political_power = 100
+			add_ideas = SOT_Great_Liberation_Army
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_wealth_of_our_lands
 		icon = GFX_idea_unknown
-		# prerequisite = {
-		# 	focus = KOA_baronies_great_liberation_army
-		# }
-		# mutually_exclusive = {
-		# 	focus = KOA_baronies_fighter_barons
-		# }
 		relative_position_id = KOA_baronies_great_liberation_army
 		x = 8
 		y = 0
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			add_resource = {
+				type = coal
+				amount = 5
+				state = 26
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
+			add_resource = {
+				type = oil
+				amount = 9
+				state = 26
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+			add_resource = {
+				type = aluminium
+				amount = 6
+				state = 25
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+			add_resource = {
+				type = steel
+				amount = 12
+				state = 27
 			}
-			add_political_power = 40
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+	}
 	focus = {
 		id = KOA_baronies_fighter_barons
 		icon = GFX_idea_unknown
@@ -102,20 +64,12 @@ focus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_manpower = 5000
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"King's Bodyguards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.8 start_equipment_factor = 1"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
-			# + 5% attack on entrenched positions
+			add_ideas = SOT_Fighter_Barons
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_some_would_get_freedom
 		icon = GFX_idea_unknown
@@ -127,17 +81,12 @@ focus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_fuel = 50000
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 2000
-			}
-			# + 5% production speed
+			add_ideas = SOT_Freedom_is_Not_for_Everyone
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_create_industry_management_council
 		icon = GFX_idea_unknown
@@ -149,13 +98,12 @@ focus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			# add_political_power_growth = 0.10
+			add_ideas = SOT_Industry_Management_Council
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_keep_paying_elderly_support
 		icon = GFX_idea_unknown
@@ -167,13 +115,13 @@ focus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			# production_speed_bunker_factor = 0.1
-			# add_production_efficiency_growth = 0.05
+			add_political_power = 50
+			add_stability = 0.025
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_northern_crusade
 		icon = GFX_idea_unknown
@@ -188,12 +136,17 @@ focus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			# manpower factor +1%
+			add_doctrine_cost_reduction = {
+				name = Northern_Crusade
+				category = land_doctrine
+				uses = 1
+				cost_reduction = 1
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_bunnynomics
 		icon = GFX_idea_unknown
@@ -208,59 +161,29 @@ focus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_resource = {
-					type = oil
-					amount = 8
-				}
-				add_resource = {
-					type = tungsten
-					amount = 8
-				}
-				add_resource = {
-					type = rubber
-					amount = 8
-				}
-				add_resource = {
-					type = steel
-					amount = 8
-				}
-				add_resource = {
-					type = chromium
-					amount = 8
-				}
-				add_resource = {
-					type = aluminium
-					amount = 8
-				}
-			}
+			add_ideas = SOT_Bunnynomics
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_father_officers
 		icon = GFX_idea_unknown
 		prerequisite = {
 			focus = KOA_baronies_northern_crusade
 		}
-	relative_position_id = KOA_baronies_great_liberation_army
+		relative_position_id = KOA_baronies_great_liberation_army
 		x = -2
 		y = 3
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				name = Call_for_freedom_fighters
-				category = land_doctrine
-			}
+			add_ideas = SOT_Father_Officers
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_tradition_in_dynamics
 		icon = GFX_idea_unknown
@@ -272,50 +195,12 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					trickster
-					brilliant_strategist
-				}
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					ranger
-					war_hero
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					winter_expert
-					winter_specialist
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
+			add_ideas = SOT_Tradition_in_Dynamics
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_restitution
 		icon = GFX_idea_unknown
@@ -327,14 +212,18 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# 	production_speed_infrastructure_factor = 0.1
-			# 	production_speed_arms_factory_factor = 0.1
-			# 	production_speed_industrial_complex_factor = 0.1
+			every_owned_state = {
+				limit = {
+					is_controlled_by = SOT
+					is_core_of = SOT
+				}
+				add_extra_state_shared_building_slots = 2
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_sponsorship_program
 		icon = GFX_idea_unknown
@@ -346,17 +235,12 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# add_tech_bonus = {
-			# 	name = primacy_of_military_research
-			# 	bonus = 0.5
-			# 	uses = 2
-			# 	category = ?
-			# }
+			add_ideas = SOT_Sponsorship_Program
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_national_epos
 		icon = GFX_idea_unknown
@@ -368,26 +252,13 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = special_troops
-			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-			}
+			add_stability = 0.05
+			add_war_support = 0.05
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_training_programs
 		icon = GFX_idea_unknown
@@ -399,30 +270,17 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_victory_point = yes
-					}
-				}
+			add_tech_bonus = {
+				name = Baronies_Training_Program
+				category = special_troops
+				bonus = 1
+				uses = 1
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_southern_tank_units
 		icon = GFX_idea_unknown
@@ -435,44 +293,36 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = new_aviation_doctrine
-				bonus = 1
-				uses = 1
-				category = air_doctrine
-			}
-			add_tech_bonus = {
-				name = new_aviation_doctrine
+				name = Baronies_Tank_Units
+				category = armor
 				bonus = 0.5
 				uses = 2
-				category = cas_bomber
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_mobile_rangers
 		icon = GFX_idea_unknown
 		prerequisite = {
 			focus = KOA_baronies_tradition_in_dynamics
 		}
+		available = {
+			controls_province = 4842
+		}
 		relative_position_id = KOA_baronies_great_liberation_army
 		x = 3
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				name = reform_motorized_groups
-				category = motorized_equipment
-			}
+			load_oob = SOT_mobile_brigades
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_revise_workers_rights
 		icon = GFX_idea_unknown
@@ -484,14 +334,12 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_political_power_growth = 0.3
-			add_stability = 0.05
-			# add_counterintelligence = 0.05
+			add_ideas = SOT_Workers_Rights_Revised
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_general_confederation_of_agricultural_manufacturers
 		icon = GFX_idea_unknown
@@ -503,12 +351,12 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_production_efficiency_growth = 0.05
+			add_ideas = SOT_General_Confederation_of_Agricultural_Manufacturers
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_enthusiasts_groups
 		icon = GFX_idea_unknown
@@ -521,22 +369,16 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = high_precision_energy_weapons
+				name = Enthusiasts_clubs
 				bonus = 1
 				uses = 1
 				category = energy_weapons
 			}
-			add_tech_bonus = {
-				name = high_precision_energy_weapons
-				bonus = 1
-				uses = 1
-				category = cat_railgun
-			}
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_baronies_get_secret_blueprints
 		icon = GFX_idea_unknown
@@ -548,13 +390,23 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_air_attack = 0.05
-			# add_breakthrough = 0.05
+			add_tech_bonus = {
+				name = Get_Secret_Blueprints
+				bonus = 0.5
+				uses = 2
+				category = air_equipment
+			}
+			add_tech_bonus = {
+				name = Get_Secret_Blueprints
+				bonus = 0.5
+				uses = 1
+				category = energy_weapons
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_amalgam_brigades
 		icon = GFX_idea_unknown
@@ -569,23 +421,12 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = air_doctrine
-			}
+			add_ideas = SOT_Amalgam_Brigades
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_elite_units
 		icon = GFX_idea_unknown
@@ -600,17 +441,12 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = steel_tank_wedges
-				bonus = 1
-				uses = 2
-				category = armor
-			}
+			add_ideas = SOT_Elite_Units
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_loan_economy
 		icon = GFX_idea_unknown
@@ -625,13 +461,12 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.1
+			add_ideas = SOT_Loan_Economy
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_bureau_of_prioritized_researches
 		icon = GFX_idea_unknown
@@ -646,12 +481,12 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			# add_research_speed = 0.05
+			add_ideas = SOT_Bureau_of_Prioritized_Researches
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_repeat_the_call
 		icon = GFX_idea_unknown
@@ -666,13 +501,12 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_war_support = 0.05
-			# manpower factor + 2%
+			add_manpower = 100000
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_meteors
 		icon = GFX_idea_unknown
@@ -684,12 +518,12 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			# all planes production speed +7.5%
+			add_ideas = SOT_Meteors
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_make_a_name_for_ourselves
 		icon = GFX_idea_unknown
@@ -704,27 +538,29 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
+			every_country = {
+				limit = {
+					NOT = {
+						has_government = purificationism
+						has_government = neosocialism
+						has_government = katzerism
+						has_government = autonomous_socialism
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = SOT_Make_a_Name_for_Ourselves
+				}
+			}
 			add_opinion_modifier = {
-				target = UFA				# Replace with UF country tag
-				modifier = our_partners
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 100
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 250
+				target = ROOT
+				modifier = SOT_Make_a_Name_for_Ourselves
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_keep_mobium_stable
 		icon = GFX_idea_unknown
@@ -736,19 +572,13 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_offsite_building = {
-				type = industrial_complex
-				level = 2
-			}
-			add_offsite_building = {
-				type = arms_factory
-				level = 2
-			}
+			add_ideas = SOT_Steady_Exchange_Rate_of_Mobium
+			add_stability = 0.05
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_concentration
 		icon = GFX_idea_unknown
@@ -763,23 +593,17 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
+			add_tech_bonus = {
+				name = Concentration
+				category = armor
+				uses = 1
+				bonus = 1
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_for_our_truth_and_future
 		icon = GFX_idea_unknown
@@ -791,13 +615,12 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.1
+			add_ideas = SOT_For_Our_Truth_and_Our_Future
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_grounds_for_the_future
 		icon = GFX_idea_unknown
@@ -809,17 +632,39 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = kings_last_argument
-				bonus = 0.5
-				uses = 1
-				category = artillery
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_look_for_moralists
 		icon = GFX_idea_unknown
@@ -831,12 +676,12 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# weekly_manpower + 1000
+			add_ideas = SOT_Look_for_Moralists
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_bounce_theory
 		icon = GFX_idea_unknown
@@ -848,13 +693,12 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# production_speed_infrastructure_factor = 0.1
-			# repair_speed_factor = 0.1
+			add_ideas = SOT_Bounce_Theory
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_begin_repairing_of_infrastructure
 		icon = GFX_idea_unknown
@@ -866,12 +710,55 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# add production efficiency growth + 5%
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = SOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = SOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = SOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = SOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_land_plots
 		icon = GFX_idea_unknown
@@ -886,22 +773,13 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war military buffs
-			every_owned_state = {
-				if = {
-					limit = {
-						has_resistance = yes
-						is_on_continent = northamer
-					}
-					add_compliance = 0.45
-					add_resistance = -0.15
-				}
-			}
+			add_stability = 0.075
+			add_war_support = 0.075
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_establish_diplomatic_corps
 		icon = GFX_idea_unknown
@@ -913,12 +791,12 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
+			add_ideas = SOT_Diplomatic_Corps
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_form_a_new_cadaster
 		icon = GFX_idea_unknown
@@ -933,14 +811,18 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war economic buffs
-			# production_speed_buildings_factor = 0.15
-			# repair_speed_factor = 0.5
+			every_owned_state = {
+				limit = {
+					is_controlled_by = SOT
+					is_core_of = SOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_reintegration_and_filtration
 		icon = GFX_idea_unknown
@@ -955,23 +837,25 @@ focus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			set_popularities = {
-				conservatism = 0.15
-				autocracy = 0.85
-				neosocialism = 0
-				katzerism = 0
-				autonomous_socialism = 0
-				progressism = 0
-				progressive_liberalism = 0
-				orthodox_liberalism = 0
-				legalism = 0
-				purificationism = 0
+			every_owned_state = {
+				limit = {
+					OR = {
+						region = 2
+						region = 4
+						region = 5
+						region = 13
+					}
+					NOT = {
+						is_core_of = SOT
+					}
+				}
+				add_core_of = SOT
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_new_mobium
 		icon = GFX_idea_unknown
@@ -986,81 +870,12 @@ focus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = chromium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = rubber
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = aluminium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = tungsten
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = oil
-					amount = 5
-				}
-			}
+			add_stability = 0.05
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = KOA_baronies_bunnycracy
 		icon = GFX_idea_unknown
@@ -1075,10 +890,15 @@ focus_tree = {
 		y = 10
 		cost = 0
 		completion_reward = {
-			# load_focus_tree = Elias something 
+			load_focus_tree = {
+				tree = Acorn_Civil_War_Winner_Focus_Tree_Placeholder
+				keep_completed = yes
+				copy_completed_from = KOA
+			}
+			set_country_flag = KOA_Foreign_Politics_Available
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 }

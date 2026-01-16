@@ -67,7 +67,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_political_power = 400
+			add_political_power = 40
 		}
 	    ai_will_do = {
             base = 1
@@ -195,9 +195,10 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = Amadeus_GUN_Advisors
-				add_idea = Amadeus_Configuration_Reform
+			add_tech_bonus = {
+				category = infantry_tech
+				bonus = 1
+				uses = 1
 			}
 		}
 	    ai_will_do = {
@@ -218,6 +219,12 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = Amadeus_NRA
 				add_idea = Amadeus_Technical_Equipment
+			}
+			add_tech_bonus = {
+				name = Amadeus_Technical_Equipment
+				category = motorized_equipment
+				uses = 1
+				bonus = 1
 			}
 		}
 	    ai_will_do = {
@@ -275,8 +282,9 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = Freedom_Fighters_Experience
+				cost_reduction = 1
 				uses = 1
 				category = land_doctrine
 			}
@@ -342,6 +350,18 @@ focus_tree = {
 				priority = 2
 			}
 
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "Freedom Fighters Division"
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "Freedom Fighters Division"
+					owner = PREV
+				}
+			}
 			random_owned_controlled_state = {
 				create_unit = {
 					division = "Freedom Fighters Division"
@@ -560,7 +580,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Amadeus_Technical_Equipment
+				remove_idea = Amadeus_NRA
 				add_idea = Amadeus_Strict_Discipline
 			}
 		}
@@ -583,7 +603,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = Amadeus_Configuration_Reform
+				remove_idea = Amadeus_GUN_Advisors
 				add_idea = Amadeus_Reorganization_of_the_General_Staff
 			}
 		}
@@ -730,6 +750,7 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			set_country_flag = NOR_Amadeus_give_factory_pls
+			custom_effect_tooltip = NOR_Amadeus_Reassure_the_Owners_tooltip
 		}
 	    ai_will_do = {
             base = 1
@@ -772,10 +793,14 @@ focus_tree = {
 			every_owned_state = {
 				if = {
 					limit = {
-						has_resistance = yes
-						is_on_continent = northamer
+						OR = {
+							region = 2
+							region = 4
+							region = 5
+							region = 13
+						}
 					}
-					add_compliance = 0.01
+					add_compliance = 0.1
 					add_resistance = -0.25
 					add_resistance_target = -0.10
 				}
@@ -877,8 +902,114 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			remove_ideas = Amadeus_Fire_to_Suppress
-			remove_ideas = Amadeus_Constant_Staff_Rotation
+			create_faction_from_template = {
+				template = faction_template_freedom_accord
+			}
+			if = {
+				limit = {
+					SWA = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = SWA
+			}
+			if = {
+				limit = {
+					BHA = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = BHA
+			}
+			if = {
+				limit = {
+					MID = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = MID
+			}
+			if = {
+				limit = {
+					CNS = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = CNS
+			}
+			if = {
+				limit = {
+					GDK = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = GDK
+			}
+			if = {
+				limit = {
+					NEA = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = NEA
+			}
+			if = {
+				limit = {
+					DOW = {
+						is_subject = no
+						NOT = {
+							has_government = technocratic_despotism
+							has_government = neosocialism
+							has_government = katzerism
+							has_government = autonomous_socialism
+							has_government = purificationism
+						}
+					}
+				}
+				add_to_faction = DOW
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -895,7 +1026,8 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			retire_country_leader = yes
+			# retire_country_leader = yes
+			retire_character = NOR_Amadeus_Prower
 			add_country_leader_role = {
 				character = NOR_Rosemary_Prower
 				promote_leader = yes
@@ -946,10 +1078,11 @@ focus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				category = land_doctrine
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				name = Ideas_of_Amadeus
 				uses = 1
-				bonus = 1
+				category = land_doctrine
 			}
 		}
 	    ai_will_do = {
@@ -1007,8 +1140,12 @@ focus_tree = {
 		y = 10
 		cost = 0
 		completion_reward = {
-			# TODO
-			# load_focus_tree = Rosemary
+			load_focus_tree = {
+				tree = Acorn_Civil_War_Winner_Focus_Tree_Placeholder
+				keep_completed = yes
+				copy_completed_from = KOA
+			}
+			set_country_flag = KOA_Foreign_Politics_Available
 		}
 	    ai_will_do = {
             base = 1
