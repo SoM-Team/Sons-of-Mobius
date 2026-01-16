@@ -2089,3 +2089,393 @@ Faction_Influence = {
         }
     }
 }
+
+Develop_impassable_territories = {
+	DOW_develop_dead_desert_infrastructure = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			OR = {
+				510 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+                510 = {
+                    is_controlled_by = ROOT
+                }
+			}
+		}
+		visible = {
+			OR = {
+				510 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+                510 = {
+                    is_controlled_by = ROOT
+                }
+			}
+            510 = {
+                infrastructure < 5
+            }
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		days_remove = 90
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			510 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	DOW_develop_dead_desert_solar_panels = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			OR = {
+				510 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			510 = {
+				is_controlled_by = ROOT
+			}
+			check_variable = {
+				solar_panels_built_in_the_dead_desert < 20
+			}
+		}
+		visible = {
+			OR = {
+				510 = {
+					controller = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+			510 = {
+				is_controlled_by = ROOT
+			}
+		}
+		modifier = {
+			civilian_factory_use = 5
+		}
+		days_remove = 150
+		complete_effect = {
+			add_to_variable = {
+				solar_panels_built_in_the_dead_desert = 1
+			}
+		}
+		remove_effect = {
+			510 = {
+				add_building_construction = {
+					type = power_plant
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+}
+Space_Exploration = {
+    Select_the_place_for_the_cosmodrome = {
+        available = {
+            num_of_civilian_factories > 80
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = aluminium
+                amount = 60
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = tungsten
+                amount = 30
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = steel
+                amount = 75
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = chromium
+                amount = 20
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = oil
+                amount = 50
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = coal
+                amount = 40
+            }
+            any_country = {
+                OR = {
+                    tag = ROOT
+                    is_in_faction_with = ROOT
+                }
+                OR = {
+                    has_built = {
+                        type = nuclear_reactor
+                        value > 0
+                    }
+                    has_built = {
+                        type = nuclear_reactor_heavy_water
+                        value > 0
+                    }
+                    has_built = {
+                        type = commercial_nuclear_reactor
+                        value > 0
+                    }
+                    has_built = {
+                        type = power_plant
+                        value > 40
+                    }
+                }
+            }
+            amount_research_slots > 4
+            has_tech = jet_engines
+            NOT = {
+                has_civil_war = yes
+            }
+            any_owned_state = {
+                is_controlled_by_ROOT_or_ally = yes
+                rocket_site > 2
+                infrastructure > 4
+                anti_air_building > 4
+                radar_station > 3
+                OR = {
+                    commercial_nuclear_reactor > 0
+                    nuclear_reactor > 0
+                    nuclear_reactor_heavy_water > 0
+                }
+                any_neighbor_state = {
+                    is_controlled_by_ROOT_or_ally = yes
+                }
+            }
+        }
+        complete_effect = {
+            random_state = {
+                limit = {
+                    is_controlled_by_ROOT_or_ally = yes
+                    rocket_site > 2
+                    infrastructure > 4
+                    anti_air_building > 4
+                    radar_station > 3
+                    OR = {
+                        commercial_nuclear_reactor > 0
+                        nuclear_reactor > 0
+                        nuclear_reactor_heavy_water > 0
+                    }
+                    any_neighbor_state = {
+                        is_controlled_by_ROOT_or_ally = yes
+                    }
+                }
+                set_state_flag = space_launch_pad
+            }
+            custom_effect_tooltip = Place_for_the_rocket_tooltip  # write something about commission choosing the best place
+        }
+    }
+    Launch_the_sattellite = {
+        available = {
+            num_of_civilian_factories > 100
+            num_of_available_civilian_factories > 44
+            num_of_military_factories > 40
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = aluminium
+                amount = 120
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = tungsten
+                amount = 60
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = steel
+                amount = 150
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = chromium
+                amount = 40
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = oil
+                amount = 100
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = coal
+                amount = 80
+            }
+            any_country = {
+                OR = {
+                    tag = ROOT
+                    is_in_faction_with = ROOT
+                }
+                OR = {
+                    has_built = {
+                        type = nuclear_reactor
+                        value > 4
+                    }
+                    has_built = {
+                        type = nuclear_reactor_heavy_water
+                        value > 4
+                    }
+                    has_built = {
+                        type = commercial_nuclear_reactor
+                        value > 4
+                    }
+                    has_built = {
+                        type = power_plant
+                        value > 60
+                    }
+                }
+            }
+            amount_research_slots > 4
+            has_tech = artificial_sputnik
+            has_stability > 0.6
+            has_war_support > 0.4
+            surrender_progress < 0.1
+            NOT = {
+                has_civil_war = yes
+            }
+            any_owned_state = {
+                has_state_flag = space_launch_pad
+                any_neighbor_state = {
+                    is_controlled_by_ROOT_or_ally = yes
+                }
+            }
+        }
+        visible = {
+            has_faction_goal = faction_goal_the_space_exploration
+        }
+        modifier = {
+            civilian_factory_use = 45
+            production_speed_buildings_factor = -0.05
+            production_factory_max_efficiency_factor = -0.05
+            intelligence_agency_defense = 4.5
+            intel_network_gain_factor = -0.2
+            research_speed_factor = 0.1
+        }
+        days_remove = 180
+        complete_effect = {
+            
+        }
+        remove_effect = {
+            set_country_flag = artificial_sattellite_launched
+        }
+    }
+    Mobians_in_space = {
+        available = {
+            num_of_civilian_factories > 100
+            num_of_available_civilian_factories > 59
+            num_of_military_factories > 40
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = aluminium
+                amount = 120
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = tungsten
+                amount = 60
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = steel
+                amount = 150
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = chromium
+                amount = 40
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = oil
+                amount = 100
+            }
+            has_resources_in_collection = {
+                collection = collection:country_and_all_subjects
+                resource = coal
+                amount = 80
+            }
+                any_country = {
+                OR = {
+                    tag = ROOT
+                    is_in_faction_with = ROOT
+                }
+                OR = {
+                    has_built = {
+                        type = nuclear_reactor
+                        value > 7
+                    }
+                    has_built = {
+                        type = nuclear_reactor_heavy_water
+                        value > 7
+                    }
+                    has_built = {
+                        type = commercial_nuclear_reactor
+                        value > 7
+                    }
+                    has_built = {
+                        type = power_plant
+                        value > 90
+                    }
+                }
+            }
+            amount_research_slots > 4
+            has_tech = artificial_sputnik
+            has_stability > 0.6
+            has_war_support > 0.4
+            surrender_progress < 0.1
+            NOT = {
+                has_civil_war = yes
+            }
+            any_owned_state = {
+                has_state_flag = space_launch_pad
+                any_neighbor_state = {
+                    is_controlled_by_ROOT_or_ally = yes
+                }
+            }
+        }
+        visible = {
+            has_faction_goal = faction_goal_mobians_in_space
+        }
+        modifier = {
+            civilian_factory_use = 60
+            production_speed_buildings_factor = -0.1
+            production_factory_max_efficiency_factor = -0.1
+            intelligence_agency_defense = 4.5
+            intel_network_gain_factor = -0.2
+            research_speed_factor = 0.1
+        }
+        days_remove = 360
+        complete_effect = {
+            
+        }
+        remove_effect = {
+            set_country_flag = mobians_launched_into_space
+        }
+    }
+}

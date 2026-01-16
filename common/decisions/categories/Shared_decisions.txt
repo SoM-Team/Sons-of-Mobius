@@ -1,16 +1,15 @@
 International_Decisions = {
 	allowed = {
-		always = yes
+		always = no
 	}
 	available = {
 		is_in_faction_with = RCR
 		NOT = {
-			is_puppet = yes
+			is_subject = yes
 		}
 	}
 	visible = {
-		# is_in_faction_with = RCR
-        always = no
+		is_in_faction_with = RCR
 	}
 
 	scripted_gui = Internationale_Scripted_GUI
@@ -129,5 +128,34 @@ Party_Popularities = {
 Faction_Influence = {
 	allowed = {
 		always = yes
+	}
+}
+
+Develop_impassable_territories = {
+	allowed = {
+		always = yes
+	}
+	available = {
+		any_owned_state = {
+			impassable = yes
+		}
+	}
+	visible = {
+		any_owned_state = {
+			impassable = yes
+		}
+	}
+}
+
+Space_Exploration = {
+    allowed = {
+		always = yes
+	}
+	available = {
+
+	}
+	visible = {
+		has_tech = jet_engines
+        num_of_civilian_factories > 50
 	}
 }

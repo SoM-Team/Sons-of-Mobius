@@ -1,112 +1,168 @@
-
- ##   ##  ### ###  ##  #  #  ## 
-#  # #  #  #   #  #  # ## # #   
-#### #     #   #  #  # # ##  #  
-#  # #  #  #   #  #  # #  #   # 
-#  #  ##   #  ###  ##  #  # ##  
-
-
-dismissal_rule_world_tension = {
+dismissal_rule_ideology_not_centrist = {
 	type = dismissal_rules
-	ai_will_do = {
-		base = 0
-		modifier = {  
-			add = 1
-			has_government = democratic
-			is_faction_leader = yes 
+	visible = {
+		OR = {
+			has_government = progressism
+			has_government = progressive_liberalism
+			has_government = orthodox_liberalism
+			has_government = conservatism
+			has_government = legalism
 		}
 	}
-	dismiss_member_trigger = {
-		has_added_tension_amount > 0.1
-	}
-}
-
-dismissal_rule_offensive_war = {
-	type = dismissal_rules
-	ai_will_do = {
-		base = 0
-		modifier = {  
-			add = 1
-			has_government = neutrality
-			is_faction_leader = yes 
-		}
-	}
-	dismiss_member_trigger = {
-		has_offensive_war_without_friend = FROM
-	}
 	ai_will_do = {
 		base = 0
 	}
-}
-
-
-### ###  ###  ##  #    ##   ##  #   # 
- #  #  # #   #  # #   #  # #     # #  
- #  #  # ##  #  # #   #  # # ##   #   
- #  #  # #   #  # #   #  # #  #   #   
-### ###  ###  ##  ###  ##   ##    #   
-
-
-dismissal_rule_ideology_not_democratic = {
-	type = dismissal_rules
-	visible = { has_government = democratic }
-	ai_will_do = {
-		base = 0
-	}
-
 	dismiss_member_trigger = {
 		NOT = {
-			has_government = democratic 
+			OR = {
+				has_government = progressism
+				has_government = progressive_liberalism
+				has_government = orthodox_liberalism
+				has_government = conservatism
+				has_government = legalism
+			}
 		}
 	}
 }
 
-dismissal_rule_ideology_not_communism = {
+dismissal_rule_ideology_not_purist = {
 	type = dismissal_rules
-	visible = { has_government = communism }
+	visible = {
+		has_government = purificationism
+	}
 	ai_will_do = {
 		base = 0
 	}
-
 	dismiss_member_trigger = {
 		NOT = {
-			has_government = communism 
+			has_government = purificationism
+		}
+	}
+}
+dismissal_rule_ideology_not_technocracy = {
+	type = dismissal_rules
+	visible = {
+		has_government = technocratic_despotism
+	}
+	ai_will_do = {
+		base = 0
+	}
+	dismiss_member_trigger = {
+		NOT = {
+			has_government = technocratic_despotism
+		}
+	}
+}
+
+dismissal_rule_ideology_not_leftist = {
+	type = dismissal_rules
+	visible = {
+		OR = {
+			has_government = neosocialism
+			has_government = katzerism
+			has_government = autonomous_socialism
+			has_government = progressism
+		}
+	}
+	ai_will_do = {
+		base = 0
+	}
+	dismiss_member_trigger = {
+		NOT = {
+			OR = {
+				has_government = neosocialism
+				has_government = katzerism
+				has_government = autonomous_socialism
+				has_government = progressism
+			}
+		}
+	}
+}
+
+dismissal_rule_ideology_not_radical_left = {
+	type = dismissal_rules
+	visible = {
+		OR = {
+			has_government = neosocialism
+			has_government = katzerism
+		}
+	}
+	ai_will_do = {
+		base = 0
+	}
+	dismiss_member_trigger = {
+		NOT = {
+			OR = {
+				has_government = neosocialism
+				has_government = katzerism
+			}
 		}
 	}
 }
 
 dismissal_rule_ideology_communist = {
 	type = dismissal_rules
-	visible = { NOT = { has_government = communism } }
+	visible = {
+		NOT = {
+			OR = {
+				has_government = neosocialism
+				has_government = katzerism
+				has_government = autonomous_socialism
+			}
+		}
+	}
 	ai_will_do = {
 		base = 0
 	}
-
 	dismiss_member_trigger = {
-		has_government = communism
+		OR = {
+			has_government = neosocialism
+			has_government = katzerism
+			has_government = autonomous_socialism
+		}
 	}
 }
 
-dismissal_rule_ideology_fascist = {
+dismissal_rule_ideology_rightist = {
 	type = dismissal_rules
-	visible = { NOT = { has_government = fascism } }
+	visible = {
+		NOT = {
+			OR = {
+				has_government = purificationism
+				has_government = technocratic_despotism
+				has_government = autocracy
+			}
+		}
+	}
 	ai_will_do = {
 		base = 0
 	}
-
 	dismiss_member_trigger = {
-		has_government = fascism
+		OR = {
+			has_government = purificationism
+			has_government = technocratic_despotism
+			has_government = autocracy
+		}
 	}
 }
 
-dismissal_rule_ideology_democratic = {
+dismissal_rule_ideology_far_right = {
 	type = dismissal_rules
-	visible = { NOT = { has_government = democratic } }
+	visible = {
+		NOT = {
+			OR = {
+				has_government = purificationism
+				has_government = technocratic_despotism
+			}
+		}
+	}
 	ai_will_do = {
 		base = 0
 	}
-
 	dismiss_member_trigger = {
-		has_government = democratic
+		OR = {
+			has_government = purificationism
+			has_government = technocratic_despotism
+		}
 	}
 }
