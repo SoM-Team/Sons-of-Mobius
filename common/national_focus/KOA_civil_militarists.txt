@@ -1,7 +1,8 @@
 tfocus_tree = {
-	id = KOA_civil_militarists  # Jason Doe
-	country = { factor = 0 }
-
+	id = KOA_civil_baronies	# Jason Doe
+	country = {
+		factor = 0
+	}
 	focus = {
 		id = KOA_militarists_best_job_in_the_world
 		icon = GFX_idea_unknown
@@ -9,79 +10,26 @@ tfocus_tree = {
 		y = 0
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Veterans of the South\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Veterans of the South\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Veterans of the South\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
-			add_political_power = 100
+			add_ideas = SOT_Best_Job_in_the_World
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_so_dig
 		icon = GFX_idea_unknown
-		# prerequisite = {
-		# 	focus = KOA_militarists_best_job_in_the_world
-		# }
-		# mutually_exclusive = {
-		# 	focus = KOA_militarists_military_campaign
-		# }
 		relative_position_id = KOA_militarists_best_job_in_the_world
 		x = 8
 		y = 0
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			add_political_power = 40
+			add_ideas = SOT_Best_Job_in_the_World
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_military_campaign
 		icon = GFX_idea_unknown
@@ -96,20 +44,23 @@ tfocus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_manpower = 5000
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"King's Bodyguards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.8 start_equipment_factor = 1"
-					owner = ROOT
-				}
+			set_popularities = {
+				conservatism = 0
+				autocracy = 0
+				neosocialism = 0
+				katzerism = 0
+				autonomous_socialism = 0
+				progressism = 0
+				progressive_liberalism = 0
+				orthodox_liberalism = 0
+				legalism = 1
+				purificationism = 0
 			}
-			add_stability = 0.05
-			# + 5% attack on entrenched positions
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_esteemed_officers
 		icon = GFX_idea_unknown
@@ -121,17 +72,52 @@ tfocus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_fuel = 50000
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 2000
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					trickster
+					commando
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 3
 			}
-			# + 5% production speed
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					ranger
+					war_hero
+				}
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 1
+			}
+			create_corps_commander = {
+				# name = ""
+				# picture = "Unknown.dds"
+				traits = {
+					infantry_officer
+					trait_cautious
+					career_officer
+					old_guard
+				}
+				skill = 3
+				attack_skill = 1
+				defense_skill = 4
+				planning_skill = 2
+				logistics_skill = 3
+			}
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_militarization_of_economics
 		icon = GFX_idea_unknown
@@ -143,13 +129,12 @@ tfocus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			# add_political_power_growth = 0.10
+			add_ideas = SOT_Militarization_of_Economics
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_grand_conversion
 		icon = GFX_idea_unknown
@@ -161,13 +146,81 @@ tfocus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			# production_speed_bunker_factor = 0.1
-			# add_production_efficiency_growth = 0.05
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_heck_lets_do_this
 		icon = GFX_idea_unknown
@@ -182,12 +235,12 @@ tfocus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			# manpower factor +1%
+			add_ideas = SOT_Lets_do_This
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_two_of_every_kind
 		icon = GFX_idea_unknown
@@ -202,44 +255,20 @@ tfocus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_resource = {
-					type = oil
-					amount = 8
-				}
-				add_resource = {
-					type = tungsten
-					amount = 8
-				}
-				add_resource = {
-					type = rubber
-					amount = 8
-				}
-				add_resource = {
-					type = steel
-					amount = 8
-				}
-				add_resource = {
-					type = chromium
-					amount = 8
-				}
-				add_resource = {
-					type = aluminium
-					amount = 8
-				}
-			}
+			add_stability = -0.1
+			add_war_support = 0.05
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_northamer_army
 		icon = GFX_idea_unknown
 		prerequisite = {
 			focus = KOA_militarists_heck_lets_do_this
 		}
-	relative_position_id = KOA_militarists_best_job_in_the_world
+		relative_position_id = KOA_militarists_best_job_in_the_world
 		x = -2
 		y = 3
 		cost = 0
@@ -247,8 +276,8 @@ tfocus_tree = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				name = Call_for_freedom_fighters
-				category = land_doctrine
+				name = Northamer_Army
+				category = infantry_equipment
 			}
 		}
 	    ai_will_do = {
@@ -266,44 +295,11 @@ tfocus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					trickster
-					brilliant_strategist
-				}
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					ranger
-					war_hero
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					winter_expert
-					winter_specialist
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				name = Northamer_Army
+				category = cat_mechanized_equipment
 			}
 		}
 	    ai_will_do = {
@@ -321,14 +317,12 @@ tfocus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# 	production_speed_infrastructure_factor = 0.1
-			# 	production_speed_arms_factory_factor = 0.1
-			# 	production_speed_industrial_complex_factor = 0.1
+			add_ideas = SOT_Militarist_Industry
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_and_science
 		icon = GFX_idea_unknown
@@ -340,17 +334,12 @@ tfocus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# add_tech_bonus = {
-			# 	name = primacy_of_military_research
-			# 	bonus = 0.5
-			# 	uses = 2
-			# 	category = ?
-			# }
+			add_ideas = SOT_Militarist_Science
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_army_drill
 		icon = GFX_idea_unknown
@@ -362,20 +351,10 @@ tfocus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = special_troops
-			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = land_doctrine
 			}
 		}
 	    ai_will_do = {
@@ -393,30 +372,12 @@ tfocus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_victory_point = yes
-					}
-				}
-			}
+			add_ideas = SOT_Militarist_Frontline
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_educate_new_technicians
 		icon = GFX_idea_unknown
@@ -429,16 +390,10 @@ tfocus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = new_aviation_doctrine
-				bonus = 1
-				uses = 1
-				category = air_doctrine
-			}
-			add_tech_bonus = {
-				name = new_aviation_doctrine
+				name = educate_new_technicians
 				bonus = 0.5
 				uses = 2
-				category = cas_bomber
+				category = motorized_equipment
 			}
 		}
 	    ai_will_do = {
@@ -457,10 +412,10 @@ tfocus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				name = reform_motorized_groups
-				category = motorized_equipment
+				name = prestige_of_eggheads
+				bonus = 0.5
+				uses = 2
+				category = support_tech
 			}
 		}
 	    ai_will_do = {
@@ -478,14 +433,12 @@ tfocus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_political_power_growth = 0.3
-			add_stability = 0.05
-			# add_counterintelligence = 0.05
+			add_ideas = SOT_Militarist_Military_Department
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_agricultural_all_hands_rush
 		icon = GFX_idea_unknown
@@ -497,12 +450,12 @@ tfocus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_production_efficiency_growth = 0.05
+			add_ideas = SOT_Militarist_All_Hands_Rush
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_develop_new_guns
 		icon = GFX_idea_unknown
@@ -515,16 +468,10 @@ tfocus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = high_precision_energy_weapons
+				name = develop_new_guns
 				bonus = 1
 				uses = 1
-				category = energy_weapons
-			}
-			add_tech_bonus = {
-				name = high_precision_energy_weapons
-				bonus = 1
-				uses = 1
-				category = cat_railgun
+				category = artillery
 			}
 		}
 	    ai_will_do = {
@@ -542,13 +489,12 @@ tfocus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_air_attack = 0.05
-			# add_breakthrough = 0.05
+			add_ideas = SOT_Militarist_The_Faster_The_Better
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_show_me_your_battle_grin
 		icon = GFX_idea_unknown
@@ -563,23 +509,12 @@ tfocus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = air_doctrine
-			}
+			add_ideas = SOT_Militarist_Battle_Grin
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_big_guns
 		icon = GFX_idea_unknown
@@ -594,17 +529,12 @@ tfocus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = steel_tank_wedges
-				bonus = 1
-				uses = 2
-				category = armor
-			}
+			add_ideas = SOT_Militarist_Big_Guns
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_while_it_works
 		icon = GFX_idea_unknown
@@ -619,13 +549,32 @@ tfocus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.1
+			add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 2000
+                producer = SOT
+            }
+			add_equipment_to_stockpile = {
+                type = artillery
+                amount = 200
+                producer = SOT
+            }
+			add_equipment_to_stockpile = {
+                type = apc_mechanized
+                amount = 200
+                producer = SOT
+            }
+			add_equipment_to_stockpile = {
+                type = main_battle_tank_equipment
+                amount = 25
+                producer = SOT
+            }
+			add_stability = -0.1
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_compliment_the_eggheads
 		icon = GFX_idea_unknown
@@ -640,12 +589,12 @@ tfocus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			# add_research_speed = 0.05
+			add_ideas = SOT_Militarist_Compliment_the_Eggheads
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_strike_first
 		icon = GFX_idea_unknown
@@ -660,13 +609,17 @@ tfocus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_war_support = 0.05
-			# manpower factor + 2%
+			add_tech_bonus = {
+				name = strike_first
+				bonus = 1
+				uses = 1
+				category = special_troops
+			}
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_more_tanks_and_armored_vehicles
 		icon = GFX_idea_unknown
@@ -678,12 +631,12 @@ tfocus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			# all planes production speed +7.5%
+			add_ideas = SOT_Militarist_More_Tanks_and_Armored_Vehicles
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_pull_everything_from_everywhere
 		icon = GFX_idea_unknown
@@ -698,27 +651,12 @@ tfocus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_opinion_modifier = {
-				target = UFA				# Replace with UF country tag
-				modifier = our_partners
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 100
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 250
-			}
+			add_ideas = SOT_Militarist_Pull_Everything_From_Everywhere
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_postpone_modernization
 		icon = GFX_idea_unknown
@@ -730,19 +668,12 @@ tfocus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_offsite_building = {
-				type = industrial_complex
-				level = 2
-			}
-			add_offsite_building = {
-				type = arms_factory
-				level = 2
-			}
+			add_ideas = SOT_Militarist_Postpone_Modernization
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_military_morals
 		icon = GFX_idea_unknown
@@ -757,23 +688,14 @@ tfocus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
+			add_war_support = 0.15
+			add_political_power = -100
+			add_stability = -0.05
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_true_soldiers
 		icon = GFX_idea_unknown
@@ -785,13 +707,17 @@ tfocus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.1
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				name = true_soldiers
+				category = infantry_equipment
+			}
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_grind_them_to_dust
 		icon = GFX_idea_unknown
@@ -804,10 +730,16 @@ tfocus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = kings_last_argument
+				name = grind_them_to_dust
 				bonus = 0.5
 				uses = 1
-				category = artillery
+				category = cas_bomber
+			}
+			add_tech_bonus = {
+				name = grind_them_to_dust
+				bonus = 0.5
+				uses = 1
+				category = tactical_bomber
 			}
 		}
 	    ai_will_do = {
@@ -825,12 +757,12 @@ tfocus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# weekly_manpower + 1000
+			add_ideas = SOT_Militarist_Speak_Plainly
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_make_riches_tremble
 		icon = GFX_idea_unknown
@@ -842,13 +774,12 @@ tfocus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# production_speed_infrastructure_factor = 0.1
-			# repair_speed_factor = 0.1
+			add_political_power = 50
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_shut_up_the_discontent
 		icon = GFX_idea_unknown
@@ -860,12 +791,12 @@ tfocus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# add production efficiency growth + 5%
+			add_ideas = SOT_Militarist_Shut_Up_the_Discontent
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_why_we_fight
 		icon = GFX_idea_unknown
@@ -880,16 +811,10 @@ tfocus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war military buffs
-			every_owned_state = {
-				if = {
-					limit = {
-						has_resistance = yes
-						is_on_continent = northamer
-					}
-					add_compliance = 0.45
-					add_resistance = -0.15
-				}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 1
+				category = land_doctrine
 			}
 		}
 	    ai_will_do = {
@@ -907,14 +832,20 @@ tfocus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
+			every_other_country = {
+				add_opinion_modifier = {
+                    target = SOT
+                    modifier = Militaristic_Rhetorics
+                }
+			}
+			add_war_support = 0.1
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
-		id = KOA_militarists_ridge
+		id = KOA_militarists_furlough
 		icon = GFX_idea_unknown
 		prerequisite = {
 			focus = KOA_militarists_shut_up_the_discontent
@@ -927,14 +858,12 @@ tfocus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war economic buffs
-			# production_speed_buildings_factor = 0.15
-			# repair_speed_factor = 0.5
+			add_stability = 0.15
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_it_is_only_the_beginning
 		icon = GFX_idea_unknown
@@ -949,28 +878,17 @@ tfocus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			set_popularities = {
-				conservatism = 0.15
-				autocracy = 0.85
-				neosocialism = 0
-				katzerism = 0
-				autonomous_socialism = 0
-				progressism = 0
-				progressive_liberalism = 0
-				orthodox_liberalism = 0
-				legalism = 0
-				purificationism = 0
-			}
+			add_war_support = 0.1
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_tighten_the_screws
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_militarists_ridge
+			focus = KOA_militarists_furlough
 		}
 		prerequisite = {
 			focus = KOA_militarists_we_will_think_later_on_what_to_do
@@ -980,81 +898,12 @@ tfocus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = chromium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = rubber
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = aluminium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = tungsten
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = oil
-					amount = 5
-				}
-			}
+			add_political_power = 100
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 	focus = {
 		id = KOA_militarists_time_to_beat_the_crap_out_of_them
 		icon = GFX_idea_unknown
@@ -1069,10 +918,15 @@ tfocus_tree = {
 		y = 10
 		cost = 0
 		completion_reward = {
-			# load_focus_tree = Elias something 
+			load_focus_tree = {
+				tree = Acorn_Civil_War_Winner_Focus_Tree_Placeholder
+				keep_completed = yes
+				copy_completed_from = KOA
+			}
+			set_country_flag = KOA_Foreign_Politics_Available
 		}
-	    ai_will_do = {
+		ai_will_do = {
             base = 1
         }
-    }
+	}
 }

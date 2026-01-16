@@ -15,74 +15,74 @@ focus_tree = {
 		y = 0
 		cost = 0
 		completion_reward = {
+			load_oob = unlock_militia
 			capital_scope = {
 				create_unit = {
-					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 				create_unit = {
-					division = "name = \"Red Guards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					division = "name = \"Red Guards\" division_template = \"Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Militia\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
 					owner = ROOT
 				}
 			}
-			add_stability = 0.05
-			add_political_power = 100
 		}
 	    ai_will_do = {
             base = 1
         }
     }
 	focus = {
-		id = KOA_red_total_requisition
+		id = KOA_red_general_audit
 		icon = GFX_idea_unknown
-		# prerequisite = {
-		# 	focus = KOA_red_arm_the_people
-		# }
-		# mutually_exclusive = {
-		# 	focus = KOA_red_army_or_guards
-		# }
 		relative_position_id = KOA_red_arm_the_people
 		x = 8
 		y = 0
 		cost = 0
 		completion_reward = {
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+				add_resource = {
+					type = oil
+					amount = 4
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+				add_resource = {
+					type = tungsten
+					amount = 4
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
+				add_resource = {
+					type = rubber
+					amount = 4
 				}
 			}
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
+				add_resource = {
+					type = steel
+					amount = 4
 				}
 			}
-			add_political_power = 40
+			random_owned_controlled_state = {
+				add_resource = {
+					type = chromium
+					amount = 4
+				}
+			}
+			random_owned_controlled_state = {
+				add_resource = {
+					type = aluminium
+					amount = 4
+				}
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -95,22 +95,14 @@ focus_tree = {
 			focus = KOA_red_arm_the_people
 		}
 		# mutually_exclusive = {
-		# 	focus = KOA_red_total_requisition
+		# 	focus = KOA_red_general_audit
 		# }
 		relative_position_id = KOA_red_arm_the_people
 		x = -1
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_manpower = 5000
-			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"King's Bodyguards\" division_template = \"Royal Guards Division\" start_experience_factor = 0.8 start_equipment_factor = 1"
-					owner = ROOT
-				}
-			}
-			add_stability = 0.05
-			# + 5% attack on entrenched positions
+			country_event = koa.leftists.1
 		}
 	    ai_will_do = {
             base = 1
@@ -127,12 +119,9 @@ focus_tree = {
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_fuel = 50000
-			add_equipment_to_stockpile = {
-				type = motorized_equipment
-				amount = 2000
-			}
-			# + 5% production speed
+			army_experience = 25
+			navy_experience = 25
+			air_experience = 25
 		}
 	    ai_will_do = {
             base = 1
@@ -142,15 +131,45 @@ focus_tree = {
 		id = KOA_red_create_industrial_production_directorate
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_red_total_requisition
+			focus = KOA_red_general_audit
 		}
 		relative_position_id = KOA_red_arm_the_people
 		x = 7
 		y = 1
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			# add_political_power_growth = 0.10
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -160,22 +179,21 @@ focus_tree = {
 		id = KOA_red_planning_commission
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_red_total_requisition
+			focus = KOA_red_general_audit
 		}
 		relative_position_id = KOA_red_arm_the_people
 		x = 9
 		y = 1
 		cost = 0
 		completion_reward = {
-			# production_speed_bunker_factor = 0.1
-			# add_production_efficiency_growth = 0.05
+			add_ideas = UWM_Planning_Commission
 		}
 	    ai_will_do = {
             base = 1
         }
     }
 	focus = {
-		id = KOA_red_first_conscription
+		id = KOA_red_first_call
 		icon = GFX_idea_unknown
 		prerequisite = {
 			focus = KOA_red_lure_personnel_to_our_side
@@ -188,7 +206,28 @@ focus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			# manpower factor +1%
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Red Infantry Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Red Guards Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Red Freedom Fighters Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Red Freedom Fighters Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Red Guards\" division_template = \"Red Armor Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -208,31 +247,9 @@ focus_tree = {
 		y = 2
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_resource = {
-					type = oil
-					amount = 8
-				}
-				add_resource = {
-					type = tungsten
-					amount = 8
-				}
-				add_resource = {
-					type = rubber
-					amount = 8
-				}
-				add_resource = {
-					type = steel
-					amount = 8
-				}
-				add_resource = {
-					type = chromium
-					amount = 8
-				}
-				add_resource = {
-					type = aluminium
-					amount = 8
-				}
+			swap_ideas = {
+				remove_idea = UWM_Planning_Commission
+				add_idea = UWM_Planning_Commission_2
 			}
 		}
 	    ai_will_do = {
@@ -243,17 +260,17 @@ focus_tree = {
 		id = KOA_red_new_generation_of_commanders
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_red_first_conscription
+			focus = KOA_red_first_call
 		}
 	relative_position_id = KOA_red_arm_the_people
 		x = -2
 		y = 3
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				name = new_generation_of_commanders
+				cost_reduction = 1
 				uses = 1
-				name = Call_for_freedom_fighters
 				category = land_doctrine
 			}
 		}
@@ -265,51 +282,18 @@ focus_tree = {
 		id = KOA_red_technical_support_committee
 		icon = GFX_idea_unknown
 		prerequisite = {
-			focus = KOA_red_first_conscription
+			focus = KOA_red_first_call
 		}
 		relative_position_id = KOA_red_arm_the_people
 		x = 2
 		y = 3
 		cost = 0
 		completion_reward = {
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					trickster
-					brilliant_strategist
-				}
-				skill = 1
-				attack_skill = 2
-				defense_skill = 1
-				planning_skill = 2
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					ranger
-					war_hero
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
-			}
-			create_corps_commander = {
-				# name = ""
-				# picture = "Unknown.dds"
-				traits = {
-					winter_expert
-					winter_specialist
-				}
-				skill = 1
-				attack_skill = 1
-				defense_skill = 1
-				planning_skill = 1
-				logistics_skill = 1
+			add_tech_bonus = {
+				name = technical_support_committee
+				category = infantry_tech
+				uses = 2
+				bonus = 0.5
 			}
 		}
 	    ai_will_do = {
@@ -327,9 +311,66 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# 	production_speed_infrastructure_factor = 0.1
-			# 	production_speed_arms_factory_factor = 0.1
-			# 	production_speed_industrial_complex_factor = 0.1
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			if = {
+				limit = {
+					RCR = {
+						OR = {
+							has_government = katzerism
+							has_government = neosocialism
+							has_government = autonomous_socialism
+							has_government = progressism
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -346,12 +387,7 @@ focus_tree = {
 		y = 3
 		cost = 0
 		completion_reward = {
-			# add_tech_bonus = {
-			# 	name = primacy_of_military_research
-			# 	bonus = 0.5
-			# 	uses = 2
-			# 	category = ?
-			# }
+			add_ideas = UWM_Research_Grants
 		}
 	    ai_will_do = {
             base = 1
@@ -369,19 +405,10 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = special_troops
-			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"Royal Jagers\" division_template = \"Jagers\" start_experience_factor = 0.5 start_equipment_factor = 0.95"
-					owner = ROOT
-				}
+				name = red_freedom_fighters
+				bonus = 1
+				uses = 1
+				category = support_tech
 			}
 		}
 	    ai_will_do = {
@@ -399,25 +426,7 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			capital_scope = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 1
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_victory_point = yes
-					}
-				}
-			}
+			add_ideas = UWM_Rethenian_Veterans
 		}
 	    ai_will_do = {
             base = 1
@@ -435,16 +444,10 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = new_aviation_doctrine
-				bonus = 1
-				uses = 1
-				category = air_doctrine
-			}
-			add_tech_bonus = {
-				name = new_aviation_doctrine
+				name = red_tanks
 				bonus = 0.5
 				uses = 2
-				category = cas_bomber
+				category = armor
 			}
 		}
 	    ai_will_do = {
@@ -463,9 +466,9 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				name = reform_motorized_groups
+				bonus = 0.5
+				uses = 2
+				name = use_light_vehicles
 				category = motorized_equipment
 			}
 		}
@@ -484,9 +487,7 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_political_power_growth = 0.3
 			add_stability = 0.05
-			# add_counterintelligence = 0.05
 		}
 	    ai_will_do = {
             base = 1
@@ -503,7 +504,7 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_production_efficiency_growth = 0.05
+			add_ideas = UWM_Motivation_System
 		}
 	    ai_will_do = {
             base = 1
@@ -524,14 +525,9 @@ focus_tree = {
 				name = high_precision_energy_weapons
 				bonus = 1
 				uses = 1
-				category = energy_weapons
+				category = hospital_tech
 			}
-			add_tech_bonus = {
-				name = high_precision_energy_weapons
-				bonus = 1
-				uses = 1
-				category = cat_railgun
-			}
+			add_ideas = UWM_Upgraded_Field_Medicine
 		}
 	    ai_will_do = {
             base = 1
@@ -548,8 +544,10 @@ focus_tree = {
 		y = 4
 		cost = 0
 		completion_reward = {
-			# add_air_attack = 0.05
-			# add_breakthrough = 0.05
+			add_breakthrough_progress = {
+				value = 0.75
+				specialization = specialization_nuclear  # later must also add other "super-weapon" specializations
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -569,17 +567,27 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = land_doctrine
-			}
-			add_tech_bonus = {
-				name = prepare_for_race
-				bonus = 0.5
-				uses = 2
-				category = air_doctrine
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Rethenian Volunteers\" division_template = \"Red Armor Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Rethenian Volunteers\" division_template = \"Red Armor Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Rethenian Volunteers\" division_template = \"Red Freedom Fighters Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Rethenian Volunteers\" division_template = \"Red Freedom Fighters Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"Rethenian Volunteers\" division_template = \"Red Armor Division\" start_experience_factor = 0.05 start_equipment_factor = 0.95"
+					owner = ROOT
+				}
 			}
 		}
 	    ai_will_do = {
@@ -601,10 +609,10 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_tech_bonus = {
-				name = steel_tank_wedges
-				bonus = 1
+				name = relatively_modern_army
+				bonus = 0.5
 				uses = 2
-				category = armor
+				category = infantry_tech
 			}
 		}
 	    ai_will_do = {
@@ -625,8 +633,116 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.1
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UWM
+				}
+				if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						add_to_variable = {
+							rings = 10
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UWM
+				}
+				if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						add_to_variable = {
+							rings = 10
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UWM
+				}
+				if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						add_to_variable = {
+							rings = 10
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UWM
+				}
+				if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						add_to_variable = {
+							rings = 10
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UWM
+				}
+				if = {
+					limit = {
+						infrastructure < 5
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					ROOT = {
+						add_to_variable = {
+							rings = 10
+						}
+					}
+				}
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -646,7 +762,7 @@ focus_tree = {
 		y = 5
 		cost = 0
 		completion_reward = {
-			# add_research_speed = 0.05
+			add_stability = 0.1
 		}
 	    ai_will_do = {
             base = 1
@@ -667,7 +783,12 @@ focus_tree = {
 		cost = 0
 		completion_reward = {
 			add_war_support = 0.05
-			# manpower factor + 2%
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				name = committees_of_military_education
+				uses = 1
+				category = land_doctrine
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -684,7 +805,24 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			# all planes production speed +7.5%
+			add_tech_bonus = {
+				name = create_peoples_air_force
+				category = cas_bomber
+				uses = 1
+				bonus = 0.5
+			}
+			add_tech_bonus = {
+				name = create_peoples_air_force
+				category = light_fighter
+				uses = 1
+				bonus = 0.5
+			}
+			add_tech_bonus = {
+				name = create_peoples_air_force
+				category = tactical_bomber
+				uses = 1
+				bonus = 0.5
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -704,21 +842,15 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_opinion_modifier = {
-				target = UFA				# Replace with UF country tag
-				modifier = our_partners
+			add_tech_bonus = {
+				name = seek_help_from_rcsr
+				category = support_tech
+				uses = 1
+				bonus = 1
 			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 100
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 250
+			army_experience = 25
+			add_to_variable = {
+				rings = 5
 			}
 		}
 	    ai_will_do = {
@@ -736,13 +868,29 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			add_offsite_building = {
-				type = industrial_complex
-				level = 2
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
 			}
-			add_offsite_building = {
-				type = arms_factory
-				level = 2
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
 			}
 		}
 	    ai_will_do = {
@@ -763,18 +911,7 @@ focus_tree = {
 		y = 6
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-			}
+			add_ideas = UWM_Anticrise_Model
 		}
 	    ai_will_do = {
             base = 1
@@ -791,8 +928,12 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.1
+			add_tech_bonus = {
+				name = engineer_units
+				category = engineers_tech
+				uses = 1
+				bonus = 1
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -831,7 +972,7 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# weekly_manpower + 1000
+			add_ideas = UWM_Appeal_to_Internationale
 		}
 	    ai_will_do = {
             base = 1
@@ -848,8 +989,7 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# production_speed_infrastructure_factor = 0.1
-			# repair_speed_factor = 0.1
+			add_ideas = UWM_Restructuring_Assessment_Commission
 		}
 	    ai_will_do = {
             base = 1
@@ -866,7 +1006,8 @@ focus_tree = {
 		y = 7
 		cost = 0
 		completion_reward = {
-			# add production efficiency growth + 5%
+			add_stability = 0.1
+			add_war_support = 0.15
 		}
 	    ai_will_do = {
             base = 1
@@ -886,17 +1027,7 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war military buffs
-			every_owned_state = {
-				if = {
-					limit = {
-						has_resistance = yes
-						is_on_continent = northamer
-					}
-					add_compliance = 0.45
-					add_resistance = -0.15
-				}
-			}
+			add_ideas = UWM_Red_Discipline
 		}
 	    ai_will_do = {
             base = 1
@@ -913,7 +1044,19 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			add_stability = 0.15
+			add_stability = 0.05
+			set_popularities = {
+				conservatism = 0
+				autocracy = 0
+				neosocialism = 0.3
+				katzerism = 0.3
+				autonomous_socialism = 0.3
+				progressism = 0.1
+				progressive_liberalism = 0
+				orthodox_liberalism = 0
+				legalism = 0
+				purificationism = 0
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -933,9 +1076,10 @@ focus_tree = {
 		y = 8
 		cost = 0
 		completion_reward = {
-			# remove civil war economic buffs
-			# production_speed_buildings_factor = 0.15
-			# repair_speed_factor = 0.5
+			swap_ideas = {
+				remove_idea = UWM_Restructuring_Assessment_Commission
+				add_idea = UWM_Restructuring_Assessment_Commission_2
+			}
 		}
 	    ai_will_do = {
             base = 1
@@ -955,18 +1099,7 @@ focus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			set_popularities = {
-				conservatism = 0.15
-				autocracy = 0.85
-				neosocialism = 0
-				katzerism = 0
-				autonomous_socialism = 0
-				progressism = 0
-				progressive_liberalism = 0
-				orthodox_liberalism = 0
-				legalism = 0
-				purificationism = 0
-			}
+			add_stability = 0.1
 		}
 	    ai_will_do = {
             base = 1
@@ -986,76 +1119,7 @@ focus_tree = {
 		y = 9
 		cost = 0
 		completion_reward = {
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = chromium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = rubber
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = aluminium
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = tungsten
-					amount = 5
-				}
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = -1
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-				}
-				add_resource = {
-					type = oil
-					amount = 5
-				}
-			}
+			add_ideas = UWM_Calculate_Economic_Potential
 		}
 	    ai_will_do = {
             base = 1
@@ -1075,7 +1139,12 @@ focus_tree = {
 		y = 10
 		cost = 0
 		completion_reward = {
-			# load_focus_tree = Elias something 
+			load_focus_tree = {
+				tree = Acorn_Civil_War_Winner_Focus_Tree_Placeholder
+				keep_completed = yes
+				copy_completed_from = KOA
+			}
+			set_country_flag = KOA_Foreign_Politics_Available
 		}
 	    ai_will_do = {
             base = 1
