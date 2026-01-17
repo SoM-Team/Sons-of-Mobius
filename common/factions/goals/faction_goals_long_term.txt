@@ -997,7 +997,6 @@ faction_goal_defeat_of_rightists = {
 ### Regional
 # Control the Dragon Kingdom
 faction_goal_control_the_dragon_kingdom = {
-	# this shit doesn't work and I don't know why
 	name = control_the_dragon_kingdom_goal_name
 	description = control_the_dragon_kingdom_goal_desc
 	group = FOCUS_FILTER_ANNEXATION
@@ -1055,6 +1054,93 @@ faction_goal_control_the_dragon_kingdom = {
 	}
 	completed = {
 		ROOT_or_ally_controls_every_Shishang_state = yes
+	}
+	complete_effect = {
+		add_faction_power_projection = 200
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ALL_FACTION_MEMBERS
+		every_faction_member = {
+			add_war_support = 0.025
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = PEACE_CONFERENCE_WINNERS
+		every_faction_member = {
+			visible_when_empty = yes
+			add_faction_initiative = 1
+		}
+	}
+}
+
+# Control Northamer
+faction_goal_control_northamer = {
+	name = control_northamer_goal_name
+	description = control_northamer_goal_desc
+	group = FOCUS_FILTER_ANNEXATION
+	category = long_term
+	visible = {
+		any_controlled_state = {
+			OR = {
+				region = 2
+				region = 4
+				region = 5
+				region = 63
+				region = 28
+				region = 25
+				region = 12
+				region = 20
+				region = 21
+				region = 22
+				region = 23
+				region = 24
+				region = 16
+				region = 17
+				region = 18
+				region = 27
+				region = 26
+				region = 15
+				region = 14
+				region = 6
+				region = 10
+				region = 7
+				region = 8
+				region = 9
+				region = 11
+				region = 30
+				region = 19
+				region = 29
+			}
+		}
+	}
+	completed = {
+		ROOT_or_ally_controls_every_Northamer_state = yes
+	}
+	complete_effect = {
+		add_faction_power_projection = 200
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ALL_FACTION_MEMBERS
+		every_faction_member = {
+			add_war_support = 0.025
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = PEACE_CONFERENCE_WINNERS
+		every_faction_member = {
+			visible_when_empty = yes
+			add_faction_initiative = 1
+		}
+	}
+}
+
+# The red landbridge (control over TYY, SWA, UMK and a lot of land between RCR/FEC and TRA
+faction_goal_red_landbridge = {
+	name = red_landbridge_goal_name
+	description = red_landbridge_goal_desc
+	group = FOCUS_FILTER_ANNEXATION
+	category = long_term
+	visible = {
+		has_faction_template = faction_template_internationale
+	}
+	completed = {
+		ROOT_or_ally_controls_red_landbridge = yes
 	}
 	complete_effect = {
 		add_faction_power_projection = 200
