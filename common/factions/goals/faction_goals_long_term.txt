@@ -996,36 +996,65 @@ faction_goal_defeat_of_rightists = {
 
 ### Regional
 # Control the Dragon Kingdom
-faction_goal_control_the_dragon_kingdom = {  # this shit doesn't work and I don't know why
+faction_goal_control_the_dragon_kingdom = {
+	# this shit doesn't work and I don't know why
 	name = control_the_dragon_kingdom_goal_name
 	description = control_the_dragon_kingdom_goal_desc
 	group = FOCUS_FILTER_ANNEXATION
 	category = long_term
 	visible = {
-		any_collection_element = {
-			collection = collection:faction_controlled_shishang_states
-			is_controlled_by_ROOT_or_ally = yes
-		}
-		collection_size = {
-			input = {
-				input = collection:faction_controlled_shishang_states
-				operators = {
-					limit = {
-						NOT = {
-							is_fully_controlled_by = ROOT
-						}
+		any_controlled_state = {
+			OR = {
+				region = 147
+				region = 148
+				region = 149
+				region = 135
+				region = 41
+				region = 136
+				region = 133
+				AND = {
+					region = 140
+					NOT = {
+						state = 420
+						state = 421
+						state = 422
+						state = 423
+						state = 424
+						state = 425
+						state = 434
 					}
 				}
-				name = FACTION_CORE_STATES_NOT_FULLY_CONTROLLED
+				AND = {
+					region = 146
+					NOT = {
+						state = 420
+						state = 421
+						state = 422
+						state = 423
+						state = 424
+						state = 425
+						state = 434
+					}
+				}
+				AND = {
+					region = 134
+					NOT = {
+						state = 682
+						state = 681
+					}
+				}
+				AND = {
+					region = 132
+					NOT = {
+						state = 495
+						state = 496
+					}
+				}
 			}
-			value > 0
 		}
 	}
 	completed = {
-		all_collection_elements = {
-			collection = collection:faction_controlled_shishang_states
-			is_controlled_by_ROOT_or_ally = yes
-		}
+		ROOT_or_ally_controls_every_Shishang_state = yes
 	}
 	complete_effect = {
 		add_faction_power_projection = 200
