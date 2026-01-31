@@ -1340,7 +1340,7 @@ faction_goal_control_soumerca = {
 	}
 }
 
-# The red landbridge (control over TYY, SWA, UMK and a lot of land between RCR/FEC and TRA
+# The red landbridge (land connection between HIB, RCR and TRA)
 faction_goal_red_landbridge = {
 	name = red_landbridge_goal_name
 	description = red_landbridge_goal_desc
@@ -1364,6 +1364,14 @@ faction_goal_red_landbridge = {
 		every_faction_member = {
 			visible_when_empty = yes
 			add_faction_initiative = 1
+		}
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			has_faction_template = faction_template_internationale
+			is_faction_leader = yes
+			add = 1
 		}
 	}
 }
