@@ -1,101 +1,245 @@
-# HERO_DECISIONS = {
-# 	tails_create = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			NOT = {
-# 				has_global_flag = TAILS
-# 			}
-# 		}
-# 		cost = 1000
-# 		days_re_enable = 100
-# 		#fire_only_once = yes
-# 		days_remove = 1
-# 		modifier = {
-# 		}
-# 		visible = {
-# 			NOT = {
-# 				has_global_flag = TAILS
-# 			}
-# 		}
-# 		complete_effect = {
-# 		}
-# 		remove_effect = {
-# 			ROOT = {
-# 				set_country_flag = TOO_FLUFFY
-# 				division_template = {
-# 					name = "Miles ''Tails'' Prower"
-# 					regiments = {
-# 						tails_mech_hero = {
-# 							x = 0
-# 							y = 0
-# 						}
-# 					}
-# 					support = {
-# 					}
-# 					is_locked = yes
-# 				}
-# 				capital_scope = {
-# 					create_unit = {
-# 						division = "name = \"Miles ''Tails'' Prower Mech\" division_template = \"Miles ''Tails'' Prower\" start_experience_factor = 1.0"
-# 						owner = PREV
-# 					}
-# 				}
-# 			}
-# 		}
-# 	}
-# 	tails_disband = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			has_country_flag = TOO_FLUFFY
-# 		}
-# 		cost = 0
-# 		days_re_enable = 1
-# 		#fire_only_once = yes
-# 		days_remove = 1
-# 		modifier = {
-# 		}
-# 		visible = {
-# 			has_country_flag = TOO_FLUFFY
-# 		}
-# 		complete_effect = {
-# 		}
-# 		remove_effect = {
-# 			ROOT = {
-# 				delete_unit_template_and_units = {
-# 					division_template = "Miles ''Tails'' Prower"
-# 					disband = yes
-# 				}
-# 			}
-# 			clr_country_flag = TOO_FLUFFY
-# 			clr_global_flag = TAILS
-# 		}
-# 	}
-# 	tails_support = {
-# 		icon = generic_nationalism
-# 		allowed = {
-# 		}
-# 		available = {
-# 			has_country_flag = TOO_FLUFFY
-# 		}
-# 		cost = 100
-# 		days_re_enable = 1
-# 		#fire_only_once = yes
-# 		days_remove = 1
-# 		modifier = {
-# 		}
-# 		visible = {
-# 			has_country_flag = TOO_FLUFFY
-# 		}
-# 		complete_effect = {
-# 		}
-# 		remove_effect = {
-# 			add_equipment_to_stockpile = {
-# 				hero_mech_equipment = 1000
-# 			}
-# 		}
-# 	}
-# }
+HERO_DECISIONS = {
+	Summon_Sonic = {
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = sonic_hero
+                    }
+                }
+            }
+            has_global_flag = Allow_to_recruit_Sonic
+        }
+        visible = {
+            has_character = KOA_Sonic_the_Hedgehog
+        }
+        complete_effect = {
+            load_oob = KOA_Sonic_back
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Sonic the Hedgehog\" division_template = \"Sonic the Hedgehog\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32110623
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    Summon_Shadow = {
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = shadow_hero
+                    }
+                }
+            }
+        }
+        visible = {
+            has_character = UFA_Shadow_the_Hedgehog
+        }
+        complete_effect = {
+            load_oob = Shadow_the_Hedgehog
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Shadow the Hedgehog\" division_template = \"Shadow the Hedgehog\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    Summon_Omega = {
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = omega_hero
+                    }
+                }
+            }
+        }
+        visible = {
+            has_character = UFA_E123_Omega
+        }
+        complete_effect = {
+            load_oob = E_123_Omega
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"E-123 Omega\" division_template = \"E-123 Omega\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    Summon_Tails = {
+        visible = {
+            has_character = NOR_Miles_Prower
+        }
+        available = {
+            ROOT = {
+                has_character = NOR_Miles_Prower
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = tails_mech_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = KOA_Tails_mech
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Tails the Fox\" division_template = \"Tails the Fox\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32201121
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    ANG_Summon_Knuckles = {
+        visible = {
+            has_character = ANG_Knuckles_the_Echidna
+        }
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = knuckles_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = ANG_Knuckles_hero
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Knuckles the Echidna\" division_template = \"Knuckles the Echidna\" start_experience_factor = 0.65 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32101017
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    EGG_Summon_Eggman = {
+        visible = {
+            has_character = EGG_Ivo_Robotnik
+        }
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = eggman_mech_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = EGG_Eggman_Mech
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Eggman Mech\" division_template = \"Eggman Mech\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 31800623
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    EGG_Summon_Metal_Sonic = {
+        visible = {
+            has_character = EGG_METAL_SONIC
+        }
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = metal_sonic_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = EGG_METAL_SONIC
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Metal Sonic\" division_template = \"Metal Sonic\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32330923
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    RCR_Summon_Pallasov = {
+        visible = {
+            has_character = RCR_Yuriy_Pallasov
+        }
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = pallasov_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = RCR_Pallasov_hero
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Yuriy Pallasov\" division_template = \"Yuriy Pallasov\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32031228
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+    INF_Summon_Infinite = {
+        visible = {
+            has_character = INF_Infinite_the_Jackal
+        }
+        available = {
+            ROOT = {
+                NOT = {
+                    any_country_division = {
+                        division_has_battalion_in_template = infinite_hero
+                    }
+                }
+            }
+        }
+        complete_effect = {
+            load_oob = INF_Infinite_hero
+            capital_scope = {
+                create_unit = {
+                    division = "name = \"Infinite the Jackal\" division_template = \"Infinite the Jackal\" start_experience_factor = 0.75 start_equipment_factor = 1"
+                    owner = ROOT
+                    id = 32080308
+                }
+            }
+        }
+        ai_will_do = {
+            base = 1
+        }
+    }
+}
