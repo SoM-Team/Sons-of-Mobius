@@ -21,17 +21,12 @@ mobile_infantry = {
 	}
 	# EFFECTS
 	enable_tactic = tactic_overwhelming_fire
-	effect = {
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 1
-			category = motorized_equipment
-			name = SUBDOCTRINE_MOBILE_INFANTRY
-		}
-	}
 	rewards = {
-		cavalry_charge = {
-			category_cavalry = {
+		armored_charge = {
+			category_vehicle_infantry = {
+				breakthrough = 0.2
+			}
+			category_light_robots = {
 				breakthrough = 0.2
 			}
 		}
@@ -40,10 +35,17 @@ mobile_infantry = {
 				max_organisation = 10
 				maximum_speed = 0.05
 			}
+			category_light_robots = {
+				max_organisation = 10
+				maximum_speed = 0.05
+			}
 		}
 		decisive_operations = {
 			category_vehicle_infantry = {
 				max_organisation = 20
+			}
+			category_light_robots = {
+				max_organisation = 10
 			}
 		}
 		delegated_authority = {
@@ -51,9 +53,17 @@ mobile_infantry = {
 				default_morale = 0.1
 				soft_attack = 0.1
 			}
+			category_light_robots = {
+				default_morale = 0.1
+				soft_attack = 0.1
+			}
 		}
 		maneuver_warfare = {
 			category_all_infantry = {
+				max_organisation = 10
+				maximum_speed = 0.2
+			}
+			category_light_robots = {
 				max_organisation = 10
 				maximum_speed = 0.2
 			}
@@ -86,7 +96,7 @@ defensive_postures = {
 		# }
 	}
 	#OTHER BASE REWARDS
-	category_cavalry = {
+	category_vehicle_infantry = {
 		supply_consumption = -0.01
 	}
 	category_all_infantry = {
@@ -95,6 +105,7 @@ defensive_postures = {
 	rewards = {
 		improvised_fighting_position = {
 			dig_in_speed_factor = 0.05
+			cas_damage_reduction = 0.1
 		}
 		elastic_operations = {
 			category_all_infantry = {
@@ -108,83 +119,18 @@ defensive_postures = {
 			}
 		}
 		field_emplacements = {
+			kamikaze_drone = {
+				battalion_mult = {
+					category = category_all_infantry
+					defence = 0.1
+				}
+			}
 			category_all_infantry = {
 				soft_attack = 0.1
 			}
 		}
 		field_construction_training = {
 			dig_in_speed_factor = 0.15
-		}
-	}
-}
-
-large_unit_tactics = {
-	track = infantry
-	name = SUBDOCTRINE_LARGE_UNIT_TACTICS
-	description = SUBDOCTRINE_LARGE_UNIT_TACTICS_DESC
-	icon = GFX_doctrine_human_infantry_offensive_medium
-	xp_cost = 100
-	xp_type = army
-	available = {
-		always = yes
-	}
-	ai_will_do = {
-		base = 1
-		# modifier = {
-		#     factor = 95
-		#     OR = {
-		#         original_tag = SOV
-		#         original_tag = CHI
-		#         original_tag = JAP
-		#     }
-		# }
-		modifier = {
-			factor = 0.5
-			is_major = no
-		}
-	}
-	# EFFECTS
-	effect = {
-	}
-	#OTHER BASE REWARDS
-	category_all_infantry = {
-		supply_consumption = -0.01
-	}
-	rewards = {
-		wide_trench_networks = {
-			dig_in_speed_factor = 0.1
-		}
-		flexible_division_structures = {
-			#2
-			unit_infantry_design_cost_factor = -1
-			infantry = {
-				combat_width = -0.3
-			}
-		}
-		unit_knowledge_sharing = {
-			#3
-			category_all_infantry = {
-				experience_loss_factor = -0.01
-			}
-		}
-		large_front_offensive = {
-			#4
-			category_all_infantry = {
-				max_organisation = 10
-				soft_attack = 0.1
-			}
-			army_morale = 0.2
-		}
-		motorization_initiative = {
-			#5
-			category_all_infantry = {
-				breakthrough = 0.1
-				soft_attack = 0.1
-			}
-			category_vehicle_infantry = {
-				supply_consumption = -0.02
-				reliability = 0.1
-			}
 		}
 	}
 }
@@ -215,13 +161,27 @@ assault_infantry = {
 	artillery = {
 		soft_attack = 0.1
 	}
+	kamikaze_drone = {
+		soft_attack = 0.1
+	}
 	rewards = {
 		low_echelon_fire_support = {
 			#1
-			artillery = {
+			category_support_artillery = {
 				battalion_mult = {
 					category = category_light_infantry
-					soft_attack = 0.2
+					soft_attack = 0.1
+				}
+				battalion_mult = {
+					category = category_light_robots
+					soft_attack = 0.1
+				}
+			}
+			kamikaze_drone = {
+				battalion_mult = {
+					category = category_light_infantry
+					soft_attack = 0.1
+					defence = 0.05
 				}
 			}
 		}
@@ -236,6 +196,10 @@ assault_infantry = {
 			}
 			anti_air = {
 				air_attack = 0.1
+			}
+			kamikaze_drone = {
+				soft_attack = 0.05
+				hard_attack = 0.05
 			}
 		}
 		integrated_support_batteries = {
@@ -253,6 +217,12 @@ assault_infantry = {
 					breakthrough = 0.1
 				}
 			}
+			armored_reconnaissance_vehicle = {
+				battalion_mult = {
+					category = category_all_infantry
+					breakthrough = 0.1
+				}
+			}
 			category_recon = {
 				max_organisation = 20
 				battalion_mult = {
@@ -264,6 +234,15 @@ assault_infantry = {
 					max_organisation = 5
 					add = yes
 				}
+				battalion_mult = {
+					category = category_light_robots
+					breakthrough = 0.1
+				}
+				battalion_mult = {
+					category = category_light_robots
+					max_organisation = 5
+					add = yes
+				}
 			}
 		}
 		assault_detachments = {
@@ -271,23 +250,26 @@ assault_infantry = {
 			category_support_artillery = {
 				supply_consumption = -0.02
 			}
-			light_flame_tank = {
+			category_engineer = {
 				battalion_mult = {
 					category = category_all_infantry
 					breakthrough = 0.1
 					soft_attack = 0.1
 				}
+				battalion_mult = {
+					category = category_light_robots
+					breakthrough = 0.1
+					soft_attack = 0.1
+				}
 			}
-			medium_flame_tank = {
+			kamikaze_drone = {
 				battalion_mult = {
 					category = category_all_infantry
 					breakthrough = 0.1
 					soft_attack = 0.1
 				}
-			}
-			heavy_flame_tank = {
 				battalion_mult = {
-					category = category_all_infantry
+					category = category_light_robots
 					breakthrough = 0.1
 					soft_attack = 0.1
 				}
@@ -296,97 +278,8 @@ assault_infantry = {
 	}
 }
 
-# mounted_infantry = {
-# 	track = infantry
-# 	name = SUBDOCTRINE_MOUNTED_INFANTRY
-# 	description = SUBDOCTRINE_MOUNTED_INFANTRY_DESC
-# 	icon = GFX_doctrine_mounted_infantry_medium
-# 	xp_cost = 100
-# 	xp_type = army
-# 	mastery = {
-# 		categories = {
-# 			category_cavalry
-# 			category_all_infantry
-# 		}
-# 	}
-# 	available = {
-# 		always = yes
-# 	}
-# 	visible = {
-# 		has_dlc = "No Compromise, No Surrender"
-# 	}
-# 	ai_will_do = {
-# 		base = 1
-# 		modifier = {
-# 			factor = 0.5
-# 			is_major = yes
-# 		}
-# 	}
-# 	category_cavalry = {
-# 		soft_attack = 0.1
-# 		breakthrough = 0.1
-# 	}
-# 	unit_cavalry_design_cost_factor = -1
-# 	# EFFECTS
-# 	rewards = {
-# 		dragoon_traditions = {
-# 			category_cavalry = {
-# 				breakthrough = 0.2
-# 				defense = 0.1
-# 			}
-# 		}
-# 		mounted_skirmish_groups = {
-# 			recon = {
-# 				max_organisation = 10
-# 				soft_attack = 0.2
-# 				battalion_mult = {
-# 					category = category_light_infantry
-# 					soft_attack = 0.1
-# 					defense = 0.1
-# 				}
-# 				battalion_mult = {
-# 					category = category_light_infantry
-# 					max_organisation = 5
-# 					add = yes
-# 				}
-# 			}
-# 			category_cavalry = {
-# 				max_organisation = 5
-# 			}
-# 		}
-# 		anti_mechanized_cavalry_groups = {
-# 			category_cavalry = {
-# 				hard_attack = 0.2
-# 				ap_attack = 0.2
-# 			}
-# 		}
-# 		beasts_of_war = {
-# 			category_cavalry = {
-# 				maximum_speed = 0.5
-# 				max_strength = 0.05
-# 			}
-# 			recon = {
-# 				maximum_speed = 0.5
-# 			}
-# 		}
-# 		limbered_combat_support = {
-# 			artillery_brigade = {
-# 				maximum_speed = 0.5
-# 			}
-# 			anti_tank_brigade = {
-# 				maximum_speed = 0.5
-# 			}
-# 			anti_air_brigade = {
-# 				maximum_speed = 0.5
-# 			}
-# 			rocket_artillery_brigade = {
-# 				maximum_speed = 0.5
-# 			}
-# 		}
-# 	}
-# }
-
 commandos = {
+	# rename to Decentralized Initiative
 	track = infantry
 	name = SUBDOCTRINE_COMMANDOS
 	description = SUBDOCTRINE_COMMANDOS_DESC
@@ -396,15 +289,15 @@ commandos = {
 	available = {
 	}
 	visible = {
-		has_dlc = "No Compromise, No Surrender"
 	}
 	ai_will_do = {
 		base = 0
 	}
 	enable_tactic = tactic_infantry_charge
 	category_light_infantry = {
-		max_strength = 0.15
+		max_strength = 0.05
 	}
+	planning_speed = 0.05
 	# EFFECTS
 	rewards = {
 		isolated_combat_elements = {
@@ -421,9 +314,18 @@ commandos = {
 			helicopter_field_hospital = {
 				casualty_trickleback = 0.05
 			}
+			field_hospital_with_medical_drones = {
+				casualty_trickleback = 0.05
+			}
 		}
 		security_zone_operations = {
 			signal_company = {
+				battalion_mult = {
+					category = category_all_infantry
+					defense = 0.1
+				}
+			}
+			electronic_countermeasure_vehicle = {
 				battalion_mult = {
 					category = category_all_infantry
 					defense = 0.1
@@ -466,10 +368,15 @@ commandos = {
 					attack = 0.05
 					movement = 0.1
 				}
+				night = {
+					movement = 0.1
+				}
 			}
 		}
 		field_intel_retrieval = {
 			intel_from_combat_factor = 0.15
+			initiative_factor = 0.15
+			army_org_regain = 0.05
 		}
 		integrated_assaults = {
 			category_all_infantry = {
@@ -490,7 +397,6 @@ irregulars = {
 	available = {
 	}
 	visible = {
-		has_dlc = "No Compromise, No Surrender"
 	}
 	ai_will_do = {
 		base = 1
@@ -548,13 +454,9 @@ irregulars = {
 				max_organisation = 10
 				soft_attack = 0.1
 			}
-			effect = {
-				add_tech_bonus = {
-					bonus = 0.5
-					uses = 2
-					category = support_tech
-					name = SUBDOCTRINE_IRREGULARS
-				}
+			kamikaze_drone = {
+				soft_attack = 0.1
+				hard_attack = 0.1
 			}
 		}
 	}
@@ -568,10 +470,13 @@ peoples_war = {
 	xp_cost = 50
 	xp_type = army
 	available = {
-		has_government = communism
+		OR = {
+			has_government = neosocialism
+			has_government = katzerism
+			has_government = autonomous_socialism
+		}
 	}
 	visible = {
-		has_dlc = "No Compromise, No Surrender"
 	}
 	ai_will_do = {
 		base = 1
@@ -582,6 +487,11 @@ peoples_war = {
 		modifier = {
 			factor = 2
 			is_major = no
+			has_defensive_war = yes
+		}
+		modifier = {
+			factor = 2
+			has_defensive_war = yes
 		}
 	}
 	# EFFECTS
@@ -627,73 +537,253 @@ peoples_war = {
 				soft_attack = 0.1
 				max_strength = 0.15
 			}
+			kamikaze_drone = {
+				soft_attack = 0.1
+				hard_attack = 0.1
+			}
 		}
 	}
 }
 
-great_war_infantry = {
+# light robots sub-doctrine
+automated_assault_hives = {
 	track = infantry
-	name = SUBDOCTRINE_GREAT_WAR_INFANTRY
-	description = SUBDOCTRINE_GREAT_WAR_INFANTRY_DESC
-	icon = GFX_doctrine_great_war_infantry_medium
+	name = SUBDOCTRINE_AUTOMATED_ASSAULT_HIVES
+	description = SUBDOCTRINE_AUTOMATED_ASSAULT_HIVES_DESC
+	icon = GFX_horde_of_machines_medium
 	xp_cost = 50
 	xp_type = army
 	available = {
-		always = yes
+		has_doctrine = automated_warfare
 	}
 	ai_will_do = {
 		base = 1
-		# modifier = {
-		# 	factor = 95
-		# 	original_tag = FRA
-		# }
+		modifier = {
+		    factor = 100
+			original_tag = EGG
+		    has_country_leader = {
+				character = EGG_Neo_Metal_Sonic
+			}
+		}
+		modifier = {
+		    factor = 50
+			original_tag = EGG
+		    has_country_leader = {
+				character = EGG_Ivo_Robotnik
+			}
+		}
+		modifier = {
+		    factor = 25
+			has_government = technocratic_despotism
+		}
 	}
 	# EFFECTS
-	#OTHER BASE REWARDS
-	category_cavalry = {
-		supply_consumption = -0.02
+	light_robots = {
+		max_organisation = 10
+		maximum_speed = 0.05
+		breakthrough = 0.1
 	}
-	category_light_infantry = {
-		defense = 0.1
+	mastery = {
+		sub_units = {
+			light_robots
+		}
 	}
-	production_speed_bunker_factor = 0.25
 	rewards = {
-		traverse_digging = {
-			dig_in_speed_factor = 0.05
-			engineer = {
-				battalion_mult = {
-					category = category_light_infantry
-					entrenchment = 0.05
-				}
+		homing_systems = {
+			#1
+			
+			light_robots = {
+				soft_attack = 0.15
+				hard_attack = 0.05
+				breakthrough = 0.05
+				ap_attack = 0.1
 			}
 		}
-		sapping_operations = {
-			category_light_infantry = {
+		badnik_specialization = {
+			#2
+			
+			light_robots = {
+				soft_attack = 0.1
+				hard_attack = 0.1
+				ap_attack = 0.1
+			}
+		}
+		consumable_material = {
+			#3
+			
+			light_robots = {
+				max_organisation = 5
+				supply_consumption_factor = -0.15
+				fuel_consumption_factor = -0.1
+			}
+		}
+		horde_of_machines = {
+			#4
+			
+			light_robots = {
+				max_organisation = 5
+				soft_attack = 0.1
+				hard_attack = 0.1
+				ap_attack = 0.1
+			}
+		}
+		endless_wave = {
+			#5
+			
+			light_robots = {
+				max_organisation = 5
+				combat_width = -0.4
+				breakthrough = 0.1
+				default_morale = 0.1
+			}
+		}
+	}
+}
+
+# light robots AND cyborgs sub-doctrine
+flesh_and_metal_pact = {
+	track = infantry
+	name = SUBDOCTRINE_FLESH_AND_METAL_PACT
+	description = SUBDOCTRINE_FLESH_AND_METAL_PACT_DESC
+	icon = GFX_flesh_and_metal_pact_medium
+	xp_cost = 50
+	xp_type = army
+	available = {
+		has_doctrine = automated_warfare
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+		    factor = 100
+			original_tag = EGG
+		    has_country_leader = {
+				character = EGG_Snivley_Robotnik
+			}
+		}
+		modifier = {
+		    factor = 50
+			original_tag = EGG
+		    has_country_leader = {
+				character = EGG_Ivo_Robotnik
+			}
+		}
+		modifier = {
+		    factor = 25
+			has_government = technocratic_despotism
+		}
+	}
+	# EFFECTS
+	androids = {
+		soft_attack = 0.05
+		hard_attack = 0.05
+	}
+	light_robots = {
+		soft_attack = 0.05
+		hard_attack = 0.05
+	}
+	robians = {
+		soft_attack = 0.05
+		hard_attack = 0.05
+	}
+	elite_robians = {
+		soft_attack = 0.05
+		hard_attack = 0.05
+	}
+	mastery = {
+		sub_units = {
+			light_robots
+			robians
+			elite_robians
+			androids
+		}
+	}
+	rewards = {
+		centralized_command = {
+			#1
+			
+			androids = {
+				max_organisation = 5
+			}
+			light_robots = {
+				max_organisation = 5
+			}
+			robians = {
+				max_organisation = 5
+				default_morale = 0.05
+			}
+			elite_robians = {
+				max_organisation = 5
+				default_morale = 0.05
+			}
+		}
+		cyborgization = {
+			#2
+			
+			androids = {
+				max_organisation = 5
+				maximum_speed = 0.05
 				defense = 0.1
 			}
-			field_hospital = {
-				casualty_trickleback = 0.1
+			light_robots = {
+				max_organisation = 5
+				maximum_speed = 0.05
+				defense = 0.1
 			}
-		}
-		centralized_artillery_control = {
-			artillery = {
-				soft_attack = 0.1
-				battalion_mult = {
-					category = category_light_infantry
-					soft_attack = 0.1
-					breakthrough = 0.05
-				}
+			category_all_infantry = {
+				max_organisation = 10
+				defense = 0.1
 			}
-		}
-		field_fortification_emphasis = {
 			category_light_infantry = {
-				reliability = 0.05
-				defense = 0.05
+				maximum_speed = 0.2
+			}
+		}
+		intellectual_tactics = {
+			#3
+			
+			androids = {
+				max_organisation = 10
+			}
+			robians = {
+				max_organisation = 5
+			}
+			elite_robians = {
 				max_organisation = 5
 			}
 		}
-		redoubt_networks = {
-			dig_in_speed_factor = 0.1
+		advantages_of_mechanisms = {
+			#4
+			
+			androids = {
+				breakthrough = 0.1
+				hardness = 1
+			}
+			light_robots = {
+				breakthrough = 0.1
+			}
+			robians = {
+				breakthrough = 0.1
+				hardness = 1
+			}
+			elite_robians = {
+				breakthrough = 0.1
+			}
+		}
+		battle_androids = {
+			#5
+			
+			androids = {
+				soft_attack = 0.05
+				hard_attack = 0.05
+				max_organisation = 5
+			}
+			robians = {
+				soft_attack = 0.1
+				hard_attack = 0.05
+			}
+			elite_robians = {
+				soft_attack = 0.1
+				hard_attack = 0.05
+			}
 		}
 	}
 }
