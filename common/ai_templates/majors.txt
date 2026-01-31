@@ -205,6 +205,10 @@ mechanized_generic = {
 	
 	upgrade_prio = {
 		base = 2
+		modifier = {
+			factor = 10
+			is_major = yes
+		}
 	}
 
 	light_motorized_for_poors = {
@@ -359,7 +363,7 @@ cheap_infantry = {
 		INF
 	}
 	
-	role = garrison
+	role = cheap_infantry
 	
 	upgrade_prio = {
 		base = 0.5
@@ -415,10 +419,6 @@ suppression_generic = {
 			factor = 20
 			has_war = yes
 		}
-		modifier = {
-			factor = 0
-			has_tech = light_robots_1
-		}
 	}
 
 	suppression_generic = {
@@ -433,11 +433,11 @@ suppression_generic = {
 		target_template = {
 			
 			support = { 
-				military_police = 1
+				motorized_military_police = 1
 			}
 
 			regiments = {
-				infantry = 5
+				motorcycle_battalion = 5
 			}
 		}
 	}
@@ -453,7 +453,7 @@ suppression_generic_robot = {
 		INF
 	}
 	
-	role = suppression
+	role = suppression_robot
 	
 	upgrade_prio = {
 		base = 0.5
@@ -781,7 +781,7 @@ light_robots_generic = {
 		INF
 	}
 
-	role = jagers
+	role = robot
 	
 	upgrade_prio = {
 		base = 2
@@ -812,9 +812,11 @@ light_robots_generic = {
 		target_template = {
 			
 			support = {
+				robot_engineer = 1
 				robot_maintenance_company = 1
 				robot_recon = 1
 				robotic_artillery = 1
+				kamikaze_drone = 1
 			}
 			
 			regiments = {
@@ -834,7 +836,7 @@ medium_robots_generic = {
 		INF
 	}
 
-	role = jagers
+	role = robot
 	
 	upgrade_prio = {
 		base = 2
@@ -868,6 +870,9 @@ medium_robots_generic = {
 		target_template = {
 			
 			support = {
+				kamikaze_drone = 1
+				robotic_artillery = 1
+				robot_engineer = 1
 				robot_maintenance_company = 1
 				robot_recon = 1
 			}
@@ -890,7 +895,7 @@ heavy_robots_generic = {
 		INF
 	}
 
-	role = jagers
+	role = robot
 	
 	upgrade_prio = {
 		base = 2
@@ -925,6 +930,9 @@ heavy_robots_generic = {
 		target_template = {
 			
 			support = {
+				kamikaze_drone = 1
+				robotic_artillery = 1
+				robot_engineer = 1
 				robot_maintenance_company = 1
 				robot_recon = 1
 			}
@@ -948,7 +956,7 @@ robians_generic = {
 		INF
 	}
 
-	role = jagers
+	role = robians
 	
 	upgrade_prio = {
 		base = 2
@@ -981,6 +989,8 @@ robians_generic = {
 			support = {
 				robot_maintenance_company = 1
 				robot_recon = 1
+				robot_engineer = 1
+				robot_military_police = 1
 			}
 			
 			regiments = {
