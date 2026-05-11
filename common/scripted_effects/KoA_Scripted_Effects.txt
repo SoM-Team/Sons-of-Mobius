@@ -501,7 +501,6 @@ KOA_release_NOR = {
 				KOA_Prower_army_support_2
 				KOA_Prower_army_support_3
 			}
-
 			set_nationality = {
 				target_country = NOR
 				character = NOR_Amadeus_Prower
@@ -536,7 +535,6 @@ KOA_release_NOR = {
 		remove_state_core = 12
 		remove_state_core = 38
 		remove_state_core = 39
-
 		NOR = {
 			# we need to skip the generic leader
 			retire_country_leader = yes
@@ -592,12 +590,41 @@ KOA_release_UWM = {
 }
 
 KOA_Armistice_EGG = {
-	every_core_state = {
-		limit = {
-			is_owned_by = EGG
+	KOA = {
+		every_core_state = {
+			limit = {
+				is_owned_by = EGG
+			}
+			set_state_owner_to = ROOT
 		}
-		set_state_owner_to = ROOT
+		white_peace = EGG
+		country_event = koa.1101
 	}
-	white_peace = EGG
-	country_event = koa.1101
+}
+
+Acorn_Civil_War_Aftermath_Spirit_Upgrade = {
+	if = {
+		limit = {
+			has_idea = Acorn_Civil_War_Aftermath
+		}
+		swap_ideas = {
+			remove_idea = Acorn_Civil_War_Aftermath
+			add_idea = Acorn_Civil_War_Aftermath_2
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Acorn_Civil_War_Aftermath_2
+		}
+		swap_ideas = {
+			remove_idea = Acorn_Civil_War_Aftermath_2
+			add_idea = Acorn_Civil_War_Aftermath_3
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Acorn_Civil_War_Aftermath_3
+		}
+		remove_ideas = Acorn_Civil_War_Aftermath_3
+	}
 }
