@@ -228,7 +228,6 @@ on_actions = {
 				add_dynamic_modifier = {
 					modifier = Spirit_of_the_Freedom_Fighters
 				}
-				
 				country_event = koa.1100
 				set_country_flag = leader_has_bio
 				set_variable = {
@@ -1218,7 +1217,7 @@ on_actions = {
 						total_robians_in_state = manpower
 					}
 					divide_temp_variable = {
-						total_robians_in_state = 10000  # yes, 10k
+						total_robians_in_state = 10000						# yes, 10k
 					}
 					add_to_variable = {
 						PREV.total_robians = total_robians_in_state
@@ -1728,6 +1727,29 @@ on_actions = {
 			}
 		}
 	}
+	on_monthly_UWM = {
+		effect = {
+			if = {
+				limit = {
+					UWM = {
+						has_idea = UWM_The_Haywood_Pact
+					}
+				}
+				every_country = {
+					limit = {
+						is_in_faction_with = UWM
+						NOT = {
+							has_idea = UWM_The_Haywood_Pact
+						}
+					}
+					add_ideas = UWM_The_Haywood_Pact
+				}
+			}
+			else = {
+				
+			}
+		}
+	}
 	on_daily = {
 		effect = {
 			if = {
@@ -1761,7 +1783,6 @@ on_actions = {
 					}
 				}
 				clr_country_flag = KOA_Amadeus_give_factory_pls
-				
 				random_owned_controlled_state = {
 					add_extra_state_shared_building_slots = 7
 					add_building_construction = {
