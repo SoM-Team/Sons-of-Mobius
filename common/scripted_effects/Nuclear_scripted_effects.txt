@@ -1,0 +1,1773 @@
+Nuclear_Escalation_Limited_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				95 = {
+				}
+				5 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				85 = {
+				}
+				15 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				95 = {
+				}
+				5 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				85 = {
+				}
+				15 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				55 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				45 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				70 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				30 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				40 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				60 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				50 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				50 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
+
+Nuclear_Escalation_Base_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				60 = {
+				}
+				40 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				45 = {
+				}
+				55 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				70 = {
+				}
+				30 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				60 = {
+				}
+				40 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				45 = {
+				}
+				55 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				70 = {
+				}
+				30 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				75 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				25 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				90 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				10 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				55 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				45 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				70 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				30 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
+
+Nuclear_Escalation_Critical_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				75 = {
+				}
+				25 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				30 = {
+				}
+				70 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				55 = {
+				}
+				45 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				75 = {
+				}
+				25 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				30 = {
+				}
+				70 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				55 = {
+				}
+				45 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				90 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				10 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				99 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				1 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				70 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				30 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				85 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				15 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
+
+Thermonuclear_Escalation_Limited_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				90 = {
+				}
+				10 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				83 = {
+				}
+				17 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				98 = {
+				}
+				2 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				92 = {
+				}
+				8 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				90 = {
+				}
+				10 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				83 = {
+				}
+				17 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				98 = {
+				}
+				2 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				92 = {
+				}
+				8 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				5 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				95 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				20 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				80 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				1 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				99 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				1 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				99 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
+
+Thermonuclear_Escalation_Base_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				70 = {
+				}
+				30 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				90 = {
+				}
+				10 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				85 = {
+				}
+				15 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				80 = {
+				}
+				20 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				70 = {
+				}
+				30 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				90 = {
+				}
+				10 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				85 = {
+				}
+				15 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				25 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				75 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				40 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				60 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				5 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				95 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				20 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				80 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
+
+Thermonuclear_Escalation_Critical_Success = {
+	if = {
+		limit = {
+			has_dynamic_modifier = Radiation_medium
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				88 = {
+				}
+				12 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				83 = {
+				}
+				17 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Heavy
+						days = 2000
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				77 = {
+				}
+				23 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_medium
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_heavy
+						days = 2000
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = Radiation_light
+		}
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				88 = {
+				}
+				12 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				65 = {
+				}
+				35 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				82 = {
+				}
+				18 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Medium
+						days = 800
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				77 = {
+				}
+				23 = {
+					remove_dynamic_modifier = {
+						modifier = Radiation_light
+					}
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				40 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				60 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor > 0
+					nuclear_reactor_heavy_water > 0
+					commercial_nuclear_reactor > 0
+				}
+				nuclear_bunker = 0
+			}
+			random_list = {
+				50 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				50 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					nuclear_reactor = 0
+					nuclear_reactor_heavy_water = 0
+					commercial_nuclear_reactor = 0
+				}
+				nuclear_bunker > 0
+			}
+			random_list = {
+				20 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				80 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+					add_dynamic_modifier = {
+						modifier = Nuclear_Shelter_Compensation_Light
+						days = 320
+					}
+				}
+			}
+		}
+		else = {
+			random_list = {
+				35 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_medium
+						days = 800
+					}
+				}
+				65 = {
+					add_dynamic_modifier = {
+						modifier = Radiation_light
+						days = 320
+					}
+				}
+			}
+		}
+	}
+}
