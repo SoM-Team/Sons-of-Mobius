@@ -2,7 +2,7 @@ name = "Sonic Optional Version 0.17"
 
 path = "mod/sonic017/"
 
-supported_version = "1.15.*"
+supported_version = "1.18.*"
 
 tags = {
 	"National Focuses"
@@ -10,6 +10,8 @@ tags = {
 	"Map"
 }
 
+replace_path="common/abilities"
+replace_path="common/ai_areas"
 replace_path = "common/ai_equipment"
 replace_path = "common/ai_focuses" 
 replace_path = "common/ai_strategy" 
