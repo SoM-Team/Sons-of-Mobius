@@ -89,6 +89,23 @@ GEM_HUNT = {
         }
         complete_effect = {
             set_country_flag = currently_hunting
+            every_country = {
+                limit = {
+                    is_ai = yes
+                    has_global_flag = gem_hunt
+                    NOT = {
+                        has_global_flag = ai_searching
+                    }
+                    OR = {
+                        TAG = RCR
+                        TAG = KOA
+                        TAG = EGG
+                        TAG = SWA
+                        TAG = UFA
+                    }
+                }
+                country_event = gem.15
+            }
         }
         remove_effect = {
             clr_country_flag = currently_hunting
