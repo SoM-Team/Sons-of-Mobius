@@ -2,7 +2,7 @@ name = "Sonic Optional Version 0.17"
 
 path = "mod/sonic017/"
 
-supported_version = "1.18.*"
+supported_version = "1.17.*"
 
 tags = {
 	"National Focuses"
