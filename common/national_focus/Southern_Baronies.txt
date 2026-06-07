@@ -1,37 +1,50 @@
 focus_tree = {
 	id = sonic_focus
-	
 	country = {
 		factor = 0
-		
 		modifier = {
 			add = 10
 			tag = SOT
 		}
 	}
-	
 	default = no
-	continuous_focus_position = { x = 50 y = 5000 }
-	
+	continuous_focus_position = {
+		x = 50
+		y = 5000
+	}
 	focus = {
-		id = SOT_Barons_Council 
+		id = SOT_Barons_Council
 		icon = GFX_focus_baron_council
 		x = 10
 		y = 0
 		cost = 10
-
 		available_if_capitulated = yes
-
-		completion_reward = {
-			country_event = {
-				id = sot.1
-				days = 1
-			}
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			if = {
+				limit = {
+					has_government = legalism
+				}
+				add_popularity = {
+					ideology = legalism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = {
+					has_government = autocracy
+				}
+				add_popularity = {
+					ideology = autocracy
+					popularity = 0.1
+				}
+			}
+			add_political_power = 75
+			country_event = koa.baronies.1
+		}
+	}
 	focus = {
 		id = SOT_Northern_March
 		icon = GFX_focus_Northern_March
@@ -39,21 +52,24 @@ focus_tree = {
 		y = 1
 		cost = 10
 		prerequisite = {
-			focus = SOT_Barons_Council 
+			focus = SOT_Barons_Council
 		}
 		mutually_exclusive = {
 			focus = SOT_Away_from_Dreams
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Northern_March
+			KOA = {
+				every_core_state = {
+					add_claim_by = SOT
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Away_from_Dreams
 		icon = GFX_focus_Away_from_Dreams
@@ -61,21 +77,19 @@ focus_tree = {
 		y = 1
 		cost = 10
 		prerequisite = {
-			focus = SOT_Barons_Council 
+			focus = SOT_Barons_Council
 		}
 		mutually_exclusive = {
 			focus = SOT_Northern_March
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Away_From_the_Storm
+		}
+	}
 	focus = {
 		id = SOT_Presidental_Dictatorship
 		icon = GFX_focus_Presidental_Dictatorship
@@ -83,18 +97,26 @@ focus_tree = {
 		y = 2
 		cost = 10
 		prerequisite = {
-			focus = SOT_Northern_March 
+			focus = SOT_Northern_March
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Emergency_Powers
+			random_character = {
+				limit = {
+					is_country_leader = yes
+				}
+				add_trait = {
+					trait = The_Southern_King
+				}
+			}
+			country_event = koa.baronies.2
+			# add_ideas = "Emergency Powers" The Bun President gets trait "The Southern King" (political_power_cost = -0.15 drift_defense_factor = 0.1)
+		}
+	}
 	focus = {
 		id = SOT_Tax_the_Rich
 		icon = GFX_focus_Tax_the_Rich
@@ -104,16 +126,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Presidental_Dictatorship
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Wealth_Tax
+		}
+	}
 	focus = {
 		id = SOT_Tax_the_Land
 		icon = GFX_focus_Tax_the_Land
@@ -123,16 +143,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Tax_the_Rich
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Land_Tax
+		}
+	}
 	focus = {
 		id = SOT_Arise_Patriot
 		icon = GFX_focus_Arise_Patriot
@@ -142,16 +160,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Presidental_Dictatorship
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Patriotic_Society
+		}
+	}
 	focus = {
 		id = SOT_Arrest_Illoyal
 		icon = GFX_focus_Arrest_Illoyal
@@ -161,16 +177,16 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Presidental_Dictatorship
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = -0.025
+			add_political_power = 100
+		}
+	}
 	focus = {
 		id = SOT_Hong_Reforms
 		icon = GFX_focus_Hong_Reforms
@@ -180,16 +196,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Arrest_Illoyal
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Populist_Reforms
+		}
+	}
 	focus = {
 		id = SOT_Corporative_Ethos
 		icon = GFX_focus_Corporative_Ethos
@@ -202,16 +216,15 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Oligarchat
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Corporative_Ethos
+			country_event = koa.baronies.3
+		}
+	}
 	focus = {
 		id = SOT_Oligarchat
 		icon = GFX_focus_Oligarchat
@@ -224,16 +237,15 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Corporative_Ethos
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Oligarchy
+			country_event = koa.baronies.4
+		}
+	}
 	focus = {
 		id = SOT_Protection_for_Poor
 		icon = GFX_focus_Poor_Protection
@@ -243,16 +255,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Corporative_Ethos
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
+			swap_ideas = {
+				remove_idea = SOT_Corporative_Ethos
+				add_idea = SOT_Corporative_Ethos_2
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Hongists_Parliament
 		icon = GFX_focus_Hongists_Parliament
@@ -262,16 +275,31 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Protection_for_Poor
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = SOT_Corporative_Ethos_2
+				}
+				swap_ideas = {
+					remove_idea = SOT_Corporative_Ethos_2
+					add_idea = SOT_Corporative_Ethos_3b
+				}
+			}
+			if = {
+				limit = {
+					has_idea = SOT_Corporative_Ethos_3a
+				}
+				swap_ideas = {
+					remove_idea = SOT_Corporative_Ethos_3a
+					add_idea = SOT_Corporative_Ethos_4
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Heroes_of_Labour
 		icon = GFX_focus_Heroes_of_Labour
@@ -281,16 +309,31 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Protection_for_Poor
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = SOT_Corporative_Ethos_2
+				}
+				swap_ideas = {
+					remove_idea = SOT_Corporative_Ethos_2
+					add_idea = SOT_Corporative_Ethos_3a
+				}
+			}
+			if = {
+				limit = {
+					has_idea = SOT_Corporative_Ethos_3b
+				}
+				swap_ideas = {
+					remove_idea = SOT_Corporative_Ethos_3b
+					add_idea = SOT_Corporative_Ethos_4
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Democratic_Dictator
 		icon = GFX_focus_Democratic_Dictator
@@ -303,16 +346,18 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Hongists_Parliament
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_Emergency_Powers
+				add_idea = SOT_Indefinite_Emergency_Powers
+			}
+			country_event = koa.baronies.5
+		}
+	}
 	focus = {
 		id = SOT_Tight_belt
 		icon = GFX_focus_Tight_belt
@@ -322,16 +367,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Oligarchat
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_Oligarchy
+				add_idea = SOT_Oligarchy_2
+			}
+		}
+	}
 	focus = {
 		id = SOT_Atlant_Right
 		icon = GFX_focus_Atlant_Right
@@ -341,16 +387,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Tight_belt
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_Oligarchy_2
+				add_idea = SOT_Oligarchy_3
+			}
+		}
+	}
 	focus = {
 		id = SOT_Fourteen_Hours_Working_Day
 		icon = GFX_focus_14_hours_work
@@ -360,16 +407,31 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Atlant_Right
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = SOT_Oligarchy_3
+				}
+				swap_ideas = {
+					remove_idea = SOT_Oligarchy_3
+					add_idea = SOT_Oligarchy_4a
+				}
+			}
+			if = {
+				limit = {
+					has_idea = SOT_Oligarchy_4b
+				}
+				swap_ideas = {
+					remove_idea = SOT_Oligarchy_4b
+					add_idea = SOT_Oligarchy_5
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Rewarded_In_Heaven
 		icon = GFX_focus_Rewarded_In_the_Sky
@@ -379,16 +441,31 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Atlant_Right
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
+			if = {
+				limit = {
+					has_idea = SOT_Oligarchy_3
+				}
+				swap_ideas = {
+					remove_idea = SOT_Oligarchy_3
+					add_idea = SOT_Oligarchy_4b
+				}
+			}
+			if = {
+				limit = {
+					has_idea = SOT_Oligarchy_4a
+				}
+				swap_ideas = {
+					remove_idea = SOT_Oligarchy_4a
+					add_idea = SOT_Oligarchy_5
+				}
+			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Senate_Power
 		icon = GFX_focus_Senate_Power
@@ -400,16 +477,19 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = SOT_Fourteen_Hours_Working_Day
-		}		
-		available_if_capitulated = yes
-
-		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		available_if_capitulated = yes
+		ai_will_do = {
+			base = 1
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_Oligarchy_5
+				add_idea = SOT_Oligarchy_6
+			}
+			country_event = koa.baronies.6
+		}
+	}
 	focus = {
 		id = SOT_Great_Baron_Charter
 		icon = GFX_focus_Great_Baron_Charter
@@ -420,16 +500,14 @@ focus_tree = {
 			focus = SOT_Northern_March
 			focus = SOT_Away_from_Dreams
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.7
+		}
+	}
 	focus = {
 		id = SOT_Protect_Farmers
 		icon = GFX_focus_Protect_Farmers
@@ -439,16 +517,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Great_Baron_Charter
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_The_Great_Charter
+				add_idea = SOT_The_Great_Charter_2
+			}
+		}
+	}
 	focus = {
 		id = SOT_Legalize_Guns
 		icon = GFX_focus_Legalize_Guns
@@ -458,16 +537,17 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Protect_Farmers
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SOT_The_Great_Charter_2
+				add_idea = SOT_The_Great_Charter_3
+			}
+		}
+	}
 	focus = {
 		id = SOT_People_Army
 		icon = GFX_focus_People_Army
@@ -480,16 +560,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Arise_Patriot
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Peoples_Army
+		}
+	}
 	focus = {
 		id = SOT_Nutshell_Legion
 		icon = GFX_focus_Nutshell_Legion
@@ -499,16 +577,107 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_People_Army
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			division_template = {
+				name = "Nutshell Legion"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 3
+				priority = 2
+				template_counter = 0
+				regiments = {
+					main_battle_armor = {
+						x = 0
+						y = 0
+					}
+					main_battle_armor = {
+						x = 0
+						y = 1
+					}
+					main_battle_armor = {
+						x = 0
+						y = 2
+					}
+					main_battle_armor = {
+						x = 0
+						y = 3
+					}
+					main_battle_armor = {
+						x = 1
+						y = 0
+					}
+					main_battle_armor = {
+						x = 1
+						y = 1
+					}
+					main_battle_armor = {
+						x = 1
+						y = 2
+					}
+					main_battle_armor = {
+						x = 1
+						y = 3
+					}
+					apc_mechanized = {
+						x = 2
+						y = 0
+					}
+					apc_mechanized = {
+						x = 2
+						y = 1
+					}
+					apc_mechanized = {
+						x = 2
+						y = 2
+					}
+					apc_mechanized = {
+						x = 2
+						y = 3
+					}
+					apc_mechanized = {
+						x = 3
+						y = 0
+					}
+					apc_mechanized = {
+						x = 3
+						y = 1
+					}
+					apc_mechanized = {
+						x = 3
+						y = 2
+					}
+				}
+				support = {
+					military_engineering_vehicle = {
+						x = 0
+						y = 0
+					}
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Nutshell Legion\" division_template = \"Nutshell Legion\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Nutshell Legion\" division_template = \"Nutshell Legion\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Nutshell Legion\" division_template = \"Nutshell Legion\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Doe_Scouts
 		icon = GFX_focus_Doe_Scouts
@@ -518,16 +687,91 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_People_Army
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			division_template = {
+				name = "Doe's Scouts"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 3
+				priority = 2
+				template_counter = 0
+				regiments = {
+					apc_mechanized = {
+						x = 0
+						y = 0
+					}
+					apc_mechanized = {
+						x = 0
+						y = 1
+					}
+					apc_mechanized = {
+						x = 0
+						y = 2
+					}
+					apc_mechanized = {
+						x = 0
+						y = 3
+					}
+					ifv_mechanized = {
+						x = 1
+						y = 0
+					}
+					ifv_mechanized = {
+						x = 1
+						y = 1
+					}
+					ifv_mechanized = {
+						x = 1
+						y = 2
+					}
+					ifv_mechanized = {
+						x = 1
+						y = 3
+					}
+				}
+				support = {
+					armored_reconnaissance_vehicle = {
+						x = 0
+						y = 0
+					}
+					military_engineering_vehicle = {
+						x = 0
+						y = 1
+					}
+					anti_air = {
+						x = 0
+						y = 2
+					}
+					anti_tank = {
+						x = 0
+						y = 3
+					}
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Doe's Scouts\" division_template = \"Doe's Scouts\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Doe's Scouts\" division_template = \"Doe's Scouts\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				division = "name = \"Doe's Scouts\" division_template = \"Doe's Scouts\" start_experience_factor = 0.5"
+				owner = SOT
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Secondhogs
 		icon = GFX_focus_Secondhogs
@@ -537,16 +781,53 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_People_Army
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			division_template = {
+				name = "Secondhogs"
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 3
+				priority = 2
+				template_counter = 0
+				regiments = {
+					infantry   = { x = 0 y = 0 }
+					infantry   = { x = 0 y = 1 }
+					infantry   = { x = 0 y = 2 }
+					infantry   = { x = 0 y = 3 }
+					infantry   = { x = 1 y = 0 }
+					infantry   = { x = 1 y = 1 }
+					infantry   = { x = 1 y = 2 }
+					infantry   = { x = 1 y = 3 }
+				}
+				support = {
+					artillery = {
+						x = 0
+						y = 0
+					}
+					military_engineering_vehicle = {
+						x = 0
+						y = 1
+					}
+					anti_air = {
+						x = 0
+						y = 2
+					}
+					anti_tank = {
+						x = 0
+						y = 3
+					}
+					support_motorized_rocket = {
+						x = 0
+						y = 4
+					}
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Barons_Elections
 		icon = GFX_focus_Barons_Elections
@@ -556,16 +837,15 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Away_from_Dreams
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_stability = 0.05
+			country_event = koa.baronies.8
+		}
+	}
 	focus = {
 		id = SOT_Rich_will_vote
 		icon = GFX_focus_Rich_will_vote
@@ -578,16 +858,14 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Total_Suffrage
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Limited_Suffrage
+		}
+	}
 	focus = {
 		id = SOT_Total_Suffrage
 		icon = GFX_focus_Total_Suffrage
@@ -600,16 +878,14 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Rich_will_vote
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Total_Suffrage
+		}
+	}
 	focus = {
 		id = SOT_President_Doddward
 		icon = GFX_focus_President_Doddward
@@ -620,16 +896,18 @@ focus_tree = {
 			focus = SOT_Total_Suffrage
 			focus = SOT_Rich_will_vote
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			SOT_Diamond_Godward = {
+				add_trait = {
+					trait = Pragmatic_Aristocrat
+				}
+			}
+		}
+	}
 	focus = {
 		id = SOT_Home_Family_Rifle
 		icon = GFX_focus_Home_Family_Rifle
@@ -643,14 +921,13 @@ focus_tree = {
 			focus = SOT_Legalize_Guns
 		}
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Home_Family_Rifle
+		}
+	}
 	focus = {
 		id = SOT_Corn_Field_Tax
 		icon = GFX_focus_Corn_Field_Tax
@@ -660,16 +937,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_President_Doddward
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			add_ideas = SOT_Food_Tax
+		}
+	}
 	focus = {
 		id = SOT_Business_Sharks_War
 		icon = GFX_focus_Business_Sharks_War
@@ -679,16 +954,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Corn_Field_Tax
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.9
+		}
+	}
 	focus = {
 		id = SOT_Politeconom_questions
 		icon = GFX_focus_Politeconom_questions
@@ -698,16 +971,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Business_Sharks_War
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.10
+		}
+	}
 	focus = {
 		id = SOT_economic_miracle
 		icon = GFX_focus_economic_miracle
@@ -717,16 +988,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Business_Sharks_War
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.11
+		}
+	}
 	focus = {
 		id = SOT_violence_monopoly
 		icon = GFX_focus_violence_monopoly
@@ -739,16 +1008,14 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Politeconom_questions
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.12
+		}
+	}
 	focus = {
 		id = SOT_Darkest_Day
 		icon = GFX_focus_Darkest_Day
@@ -758,25 +1025,21 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_violence_monopoly
 		}
-		
 		available_if_capitulated = yes
-
-		completion_reward = {
-			
+		ai_will_do = {
+			base = 1
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		completion_reward = {
+			country_event = koa.baronies.13
+		}
+	}
 	focus = {
 		id = SOT_Hail_Katty
 		icon = GFX_focus_Hail_Katty
 		x = 5
 		y = 10
 		cost = 10
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 			create_country_leader = {
 				name = "Katty Sparrow"
@@ -788,10 +1051,10 @@ focus_tree = {
 				}
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Print_money
 		icon = GFX_focus_Print_money
@@ -801,16 +1064,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Hail_Katty
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Fight_Mutiny
 		icon = GFX_focus_Fight_Mutiny
@@ -820,16 +1080,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Hail_Katty
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Oust_the_Military
 		icon = GFX_focus_Oust_the_Military
@@ -839,16 +1096,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Hail_Katty
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Escalating_Crisis
 		icon = GFX_focus_Escalating_Crisis
@@ -864,16 +1118,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Print_money
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Bend_to_Oligarchs
 		icon = GFX_focus_Bend_to_Oligarchs
@@ -886,16 +1137,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Bend_to_Bureaucrats
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Bend_to_Bureaucrats
 		icon = GFX_focus_Bend_to_Bureaucrats
@@ -908,16 +1156,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Bend_to_Oligarchs
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Combat_Crisis
 		icon = GFX_focus_Combat_Crisis
@@ -927,16 +1172,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Bend_to_Oligarchs
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Golden_Standard
 		icon = GFX_focus_Golden_Standard
@@ -946,16 +1188,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Combat_Crisis
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Tax_the_Poor
 		icon = GFX_focus_Tax_the_Poor
@@ -965,16 +1204,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Combat_Crisis
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Rehabilitate_Barons
 		icon = GFX_focus_Rehabilitate_Barons
@@ -985,16 +1221,13 @@ focus_tree = {
 			focus = SOT_Bend_to_Bureaucrats
 			focus = SOT_Bend_to_Oligarchs
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Union_of_Sword_and_Plow
 		icon = GFX_focus_Union_of_Sword_and_Plow
@@ -1004,16 +1237,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Rehabilitate_Barons
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Government_Reform
 		icon = GFX_focus_Government_Reform
@@ -1023,16 +1253,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Bend_to_Bureaucrats
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Information_War
 		icon = GFX_focus_Information_War
@@ -1042,16 +1269,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Government_Reform
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Rewrite_Charter
 		icon = GFX_focus_Rewrite_Charter
@@ -1061,16 +1285,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Information_War
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Weaken_Regulations
 		icon = GFX_focus_Weaken_Regulations
@@ -1087,14 +1308,12 @@ focus_tree = {
 			focus = SOT_Union_of_Sword_and_Plow
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Strenghten_Social_Control
 		icon = GFX_focus_Strenghten_Social_Control
@@ -1108,14 +1327,12 @@ focus_tree = {
 			focus = SOT_Union_of_Sword_and_Plow
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Social_Freedom
 		icon = GFX_focus_Social_Freedom
@@ -1126,14 +1343,12 @@ focus_tree = {
 			focus = SOT_Golden_Standard
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Social_Contract
 		icon = GFX_focus_Social_Contract
@@ -1144,14 +1359,12 @@ focus_tree = {
 			focus = SOT_Social_Freedom
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Calm_Land
 		icon = GFX_focus_Calm_Land
@@ -1162,14 +1375,12 @@ focus_tree = {
 			focus = SOT_Social_Contract
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Press_On_Media
 		icon = GFX_focus_Press_On_Media
@@ -1180,14 +1391,12 @@ focus_tree = {
 			focus = SOT_Rewrite_Charter
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Close_Borders
 		icon = GFX_focus_Close_Borders
@@ -1198,33 +1407,29 @@ focus_tree = {
 			focus = SOT_Press_On_Media
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Up_The_Flags
 		icon = GFX_focus_Up_The_Flags
 		x = 16
 		y = 10
 		cost = 10
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 			set_politics = {
 				ruling_party = purificationism
 			}
 			set_cosmetic_tag = SOT_NUT
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Pogrom_Weeks
 		icon = GFX_focus_Pogrom_Weeks
@@ -1234,15 +1439,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Up_The_Flags
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Baronies_For_Buns
 		icon = GFX_focus_Baronies_For_Buns
@@ -1252,15 +1455,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Up_The_Flags
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_POLA
 		icon = GFX_focus_POLA
@@ -1270,15 +1471,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Pogrom_Weeks
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Brilliant_Night
 		icon = GFX_focus_Brilliant_Night
@@ -1288,15 +1487,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_POLA
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Esoteric_Executions
 		icon = GFX_focus_Esoteric_Executions
@@ -1306,15 +1503,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Brilliant_Night
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Control_Corporations
 		icon = GFX_focus_Control_Corporations
@@ -1324,15 +1519,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_POLA
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Sanatorium_of_Death
 		icon = GFX_focus_Sanatorium_of_Death
@@ -1346,13 +1539,12 @@ focus_tree = {
 			focus = SOT_Esoteric_Executions
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Species_Camps
 		icon = GFX_focus_Species_Camps
@@ -1362,15 +1554,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Control_Corporations
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Legionary_Government
 		icon = GFX_focus_Legionary_Government
@@ -1383,15 +1573,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Pogrom_Weeks
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Legionary_Manifesto
 		icon = GFX_focus_Legionary_Manifesto
@@ -1401,15 +1589,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Legionary_Government
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Specist_Ethics
 		icon = GFX_focus_Specist_Ethics
@@ -1422,15 +1608,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Pogrom_Weeks
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Children_Squads
 		icon = GFX_focus_Children_Squads
@@ -1440,15 +1624,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Specist_Ethics
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Controlled_Media
 		icon = GFX_focus_Controlled_Media
@@ -1461,15 +1643,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Control_Corporations
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_The_Vanguard
 		icon = GFX_focus_The_Vanguard
@@ -1482,15 +1662,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Children_Squads
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Expand_The_Party
 		icon = GFX_focus_Expand_The_Party
@@ -1500,15 +1678,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_The_Vanguard
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Solidarize_the_Nation
 		icon = GFX_focus_Solidarize_the_Nation
@@ -1518,15 +1694,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Children_Squads
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_New_Fanatic_Generation
 		icon = GFX_focus_New_Fanatic_Generation
@@ -1536,15 +1710,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Children_Squads
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Smash_The_Carrotlord
 		icon = GFX_focus_Smash_The_Carrotlord
@@ -1560,15 +1732,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Spare_Hongists
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Spare_Hongists
 		icon = GFX_focus_Spare_Hongists
@@ -1584,15 +1754,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Smash_The_Carrotlord
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_God_State
 		icon = GFX_focus_God_State
@@ -1603,15 +1771,13 @@ focus_tree = {
 			focus = SOT_Spare_Hongists
 			focus = SOT_Smash_The_Carrotlord
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Nutshellist_Triumph
 		icon = GFX_focus_Nutshellist_Triumph
@@ -1621,15 +1787,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_God_State
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Puppet_Opposition
 		icon = GFX_focus_Puppet_Opposition
@@ -1639,30 +1803,26 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Spare_Hongists
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Shoot_Nazi
 		icon = GFX_focus_Shoot_Nazi
 		x = 27
 		y = 10
 		cost = 10
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_General_President
 		icon = GFX_focus_General_President
@@ -1672,9 +1832,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Shoot_Nazi
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 			kill_country_leader = yes
 			create_country_leader = {
@@ -1687,9 +1845,9 @@ focus_tree = {
 				}
 			}
 			set_party_name = {
-					ideology = autocracy
-					long_name = SOT_Doe_Gang
-					name = SOT_Doe_Gang
+				ideology = autocracy
+				long_name = SOT_Doe_Gang
+				name = SOT_Doe_Gang
 			}
 			set_country_flag = {
 				flag = SOT_Doe_Banner
@@ -1697,10 +1855,10 @@ focus_tree = {
 			}
 			set_cosmetic_tag = SOT_DOE
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Putsch_Politics
 		icon = GFX_focus_Putsch_Politics
@@ -1710,15 +1868,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_General_President
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Mass_Militarism
 		icon = GFX_focus_Mass_Militarism
@@ -1728,15 +1884,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Putsch_Politics
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Penal_squads
 		icon = GFX_focus_Penal_squads
@@ -1746,15 +1900,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Mass_Militarism
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Deserve_A_Medal
 		icon = GFX_focus_Deserve_A_Medal
@@ -1764,15 +1916,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Penal_squads
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Military_Parades
 		icon = GFX_focus_Military_Parades
@@ -1782,15 +1932,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Mass_Militarism
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Culture_of_Gun
 		icon = GFX_focus_Culture_of_Gun
@@ -1800,15 +1948,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Military_Parades
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Do_or_Die
 		icon = GFX_focus_Do_or_Die
@@ -1821,15 +1967,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Deserve_A_Medal
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Politics_for_Military
 		icon = GFX_focus_Politics_for_Military
@@ -1839,15 +1983,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Putsch_Politics
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Economy_for_Military
 		icon = GFX_focus_Economy_for_Military
@@ -1857,15 +1999,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Politics_for_Military
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Left_Cause
 		icon = GFX_focus_Left_Cause
@@ -1878,9 +2018,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Right_Cause
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 			create_country_leader = {
 				name = "Jay Doe"
@@ -1892,10 +2030,10 @@ focus_tree = {
 				}
 			}
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Right_Cause
 		icon = GFX_focus_Right_Cause
@@ -1908,15 +2046,13 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SOT_Left_Cause
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_This_Is_My_Rifle
 		icon = GFX_focus_This_Is_My_Rifle
@@ -1927,15 +2063,13 @@ focus_tree = {
 			focus = SOT_Right_Cause
 			focus = SOT_Left_Cause
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Zoo_And_Farm
 		icon = GFX_focus_Zoo_And_Farm
@@ -1945,15 +2079,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Putsch_Politics
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Adult_Camps
 		icon = GFX_focus_Adult_Camps
@@ -1963,15 +2095,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Zoo_And_Farm
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Child_Camps
 		icon = GFX_focus_Child_Camps
@@ -1981,15 +2111,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Zoo_And_Farm
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Beat_the_Crap
 		icon = GFX_focus_Beat_the_Crap
@@ -2003,13 +2131,12 @@ focus_tree = {
 			focus = SOT_Adult_Camps
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_War_Face
 		icon = GFX_focus_War_Face
@@ -2019,15 +2146,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Beat_the_Crap
 		}
-
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Presidental_Voice
 		icon = GFX_focus_Presidental_Voice
@@ -2037,15 +2162,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_This_Is_My_Rifle
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Katzerist_Pussies
 		icon = GFX_focus_Katzerist_Pussies
@@ -2055,15 +2178,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Presidental_Voice
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Techdes_Worse
 		icon = GFX_focus_Techdes_Worse
@@ -2073,15 +2194,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Katzerist_Pussies
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Popularize_Biography
 		icon = GFX_focus_Popularize_Biography
@@ -2091,15 +2210,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_This_Is_My_Rifle
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Personaliy_Cult
 		icon = GFX_focus_Personaliy_Cult
@@ -2109,15 +2226,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Popularize_Biography
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Ban_Cult
 		icon = GFX_focus_Ban_Cult
@@ -2127,15 +2242,13 @@ focus_tree = {
 		prerequisite = {
 			focus = SOT_Personaliy_Cult
 		}
-		
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Northamer_Fuck_Yeah
 		icon = GFX_focus_Northamer_Fuck_Yeah
@@ -2149,13 +2262,12 @@ focus_tree = {
 			focus = SOT_Techdes_Worse
 		}
 		available_if_capitulated = yes
-
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Hong_Dictate
 		icon = GFX_focus_Hong_Dictate
@@ -2163,17 +2275,16 @@ focus_tree = {
 		y = 0
 		cost = 10
 		available_if_capitulated = yes
-
 		completion_reward = {
 			set_politics = {
 				ruling_party = conservatism
 			}
 			set_cosmetic_tag = SOT_HON
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Social_Reforms
 		icon = GFX_focus_Social_Reforms
@@ -2186,10 +2297,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Cultural_Reforms
 		icon = GFX_focus_Cultural_Reforms
@@ -2202,10 +2313,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Economic_Reforms
 		icon = GFX_focus_Economic_Reforms
@@ -2218,10 +2329,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Stop_Segregation
 		icon = GFX_focus_Stop_Segregation
@@ -2233,12 +2344,11 @@ focus_tree = {
 			focus = SOT_Social_Reforms
 		}
 		completion_reward = {
-			
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_For_Poor_Men
 		icon = GFX_focus_For_Poor_Men
@@ -2251,10 +2361,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Everyone_a_King
 		icon = GFX_focus_Everyone_a_King
@@ -2267,10 +2377,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Public_Schools
 		icon = GFX_focus_Public_Schools
@@ -2283,10 +2393,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Meritocracy_of_Government
 		icon = GFX_focus_Meritocracy_of_Government
@@ -2302,10 +2412,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Rally_the_Nation
 		icon = GFX_focus_Rally_the_Nation
@@ -2318,10 +2428,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Public_Theatres
 		icon = GFX_focus_Public_Theatres
@@ -2334,10 +2444,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Hong_Economic_Plan
 		icon = GFX_focus_Hong_Economic_Plan
@@ -2350,10 +2460,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Root_out_Nepotism
 		icon = GFX_focus_Root_out_Nepotism
@@ -2369,10 +2479,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Progressive_Taxation
 		icon = GFX_focus_Progressive_Taxation
@@ -2385,10 +2495,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_End_the_damn_Crisis
 		icon = GFX_focus_End_the_damn_Crisis
@@ -2404,10 +2514,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Power_to_the_Dictate
 		icon = GFX_focus_Power_to_the_Dictate
@@ -2421,10 +2531,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Condemn_the_Barons
 		icon = GFX_focus_Condemn_the_Barons
@@ -2437,10 +2547,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Crownmont_Processes
 		icon = GFX_focus_Crownmont_Processes
@@ -2453,10 +2563,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Free_Speech
 		icon = GFX_focus_Free_Speech
@@ -2469,10 +2579,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Democratization
 		icon = GFX_focus_Democratization
@@ -2488,10 +2598,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Kings_of_Northamer
 		icon = GFX_focus_Kings_of_Northamer
@@ -2504,10 +2614,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Negotiate_with_opposition
 		icon = GFX_focus_Negotiate_with_opposition
@@ -2520,10 +2630,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Coalition_with_Liberals
 		icon = GFX_focus_Coalition_with_Liberals
@@ -2539,10 +2649,10 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = SOT_Coalition_with_Militarists
 		icon = GFX_focus_Coalition_with_Militarists
@@ -2558,10 +2668,8 @@ focus_tree = {
 		}
 		completion_reward = {
 		}
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		ai_will_do = {
+			base = 1
+		}
+	}
 }
-	
-	
