@@ -94,6 +94,15 @@ sp_nuclear_reactor = {
 							localization_key = SP_UNLOCK_BUILDING
 							BUILDING = nuclear_reactor
 						}
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 					}
 				}
 			}
@@ -105,9 +114,19 @@ sp_nuclear_reactor = {
 					country_effects = {
 						custom_effect_tooltip = {
 							localization_key = SP_UNLOCK_BUILDING
-							BUILDING = nuclear_reactor_heavy_water
+							BUILDING = nuclear_reactor
 						}
-						set_country_flag = nuclear_reactor_heavy_water_flag
+						# set_country_flag = nuclear_reactor_heavy_water_flag
+						add_ideas = Nuclear_Reactor_Heavy_Water
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 					}
 				}
 			}
@@ -130,7 +149,15 @@ sp_nuclear_reactor = {
 				
 				iteration_output = {
 					country_effects = {
-						#Do nothing, this is the default option
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 					}
 				}
 			}
@@ -146,7 +173,15 @@ sp_nuclear_reactor = {
 								popup = no
 							}
 						}
-						#custom_effect_tooltip = sp_nuclear_isotope_separation_choice_reward_tt
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 						add_timed_idea = {
 							idea = special_project_consumer_costs_high
 							days = 365
@@ -182,6 +217,15 @@ sp_nuclear_reactor = {
 					country_effects = {
 						set_global_flag = nuclear_reactor_tested_flag
 						set_country_flag = nuclear_reactor_classify_flag
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.1 }
+						}
 					}
 				}
 			}
@@ -193,6 +237,15 @@ sp_nuclear_reactor = {
 					country_effects = {
 						set_global_flag = nuclear_reactor_tested_flag
 						set_country_flag = nuclear_reactor_public_flag
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 						add_popularity = {
 							ideology = ROOT
 							popularity = 0.1
@@ -246,6 +299,15 @@ sp_nuclear_reactor = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+							}
+							sp:sp_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 						FROM = { add_project_progress_ratio = constant:sp_progress.gain.medium }
 					}
 				}
@@ -378,7 +440,16 @@ sp_commercial_nuclear_reactor = {
 						}
 						add_political_power = 50
 						FROM = { add_project_progress_ratio = constant:sp_progress.loss.medium }
-						set_country_flag = no_filters_for_reactors_flag
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+								is_special_project_completed = sp:sp_nuclear_reactor
+							}
+							sp:sp_commercial_nuclear_reactor = { add_project_progress_ratio = 0.05 }
+						}
 					}
 				}
 			}
@@ -387,9 +458,20 @@ sp_commercial_nuclear_reactor = {
 				token = sp_commercial_nuclear_reactor_concerns_reward_option_ignore
 				iteration_output = {
 					country_effects = {
+						set_country_flag = no_filters_for_reactors_flag
 						add_popularity = {
 							ideology = ROOT
 							popularity = -0.05
+						}
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_People_s_Wrath_is_Physical_Law
+									has_completed_focus = KOA_The_King_s_Divine_Fire
+								}
+								is_special_project_completed = sp:sp_nuclear_reactor
+							}
+							sp:sp_commercial_nuclear_reactor = { add_project_progress_ratio = 0.05 }
 						}
 					}
 				}
@@ -531,6 +613,15 @@ sp_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+							}
+							sp:sp_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						FROM = { add_project_progress_ratio = constant:sp_progress.gain.medium }
 					}
 				}
@@ -541,6 +632,15 @@ sp_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+							}
+							sp:sp_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						add_nuclear_bombs = 1
 					}
 				}
@@ -570,6 +670,15 @@ sp_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = { 
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+							}
+							sp:sp_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						set_country_flag = nuclear_bomb_low_security_flag
 					}
 					scientist_effects = {
@@ -586,6 +695,15 @@ sp_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+							}
+							sp:sp_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						set_country_flag = nuclear_bomb_high_security_flag
 						custom_effect_tooltip = sp_nuclear_bomb_espionage_threats_reward_increase_security_tt
 						FROM = { add_project_progress_ratio = constant:sp_progress.loss.low }
@@ -666,6 +784,15 @@ sp_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+							}
+							sp:sp_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						FROM = { add_project_progress_ratio = constant:sp_progress.gain.low }
 					}
 				}
@@ -756,6 +883,16 @@ sp_thermo_nuclear_bomb = {
 				
 				iteration_output = {
 					country_effects = {
+						if = {
+							limit = {
+								OR = {
+									has_completed_focus = RCR_No_Throne_Shall_Survive_the_Fire
+									has_completed_focus = KOA_The_Radiant_Crown
+								}
+								is_special_project_completed = sp:sp_nuclear_bomb
+							}
+							sp:sp_thermo_nuclear_bomb = { add_project_progress_ratio = 0.05 }
+						}
 						IF = {
 							limit = {
 								num_of_nukes > 0

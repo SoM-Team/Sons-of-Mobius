@@ -20,14 +20,14 @@
 # ============================================================
 
 # Путь к файлу национальных духов (.txt) / Path to national spirits file (.txt)
-SPIRIT_FILE_PATH = r"C:/Users/Admin/Documents/Paradox Interactive/Hearts of Iron IV/mod/sonic017/common/ideas/UWM.txt"
+SPIRIT_FILE_PATH = r"C:/Users/Admin/Documents/Paradox Interactive/Hearts of Iron IV/mod/sonic017/common/ideas/Great_Patriotic_War.txt"
 
 # Путь к файлу таблицы (.xlsx, .xls, .csv) / Path to spreadsheet file
-TABLE_FILE_PATH = r"C:/Users/Admin/Desktop/United_Workers_of_Mobius_Focus_Tree.xlsx"
+TABLE_FILE_PATH = r"C:/Users/Admin/Desktop/Great_Patriotic_War_Focus_Tree.xlsx"
 
 # Имя листа в таблице (если не указан - берётся активный лист)
 # Sheet name in spreadsheet (if empty - takes active sheet)
-SHEET_NAME = "UWM"  # <--- ИЗМЕНИТЕ ПРИ НЕОБХОДИМОСТИ
+SHEET_NAME = "RCR"  # <--- ИЗМЕНИТЕ ПРИ НЕОБХОДИМОСТИ
 
 # Столбец в таблице с названием духа / Column with spirit name
 NAME_COLUMN = "National Ideas Names"
@@ -37,7 +37,7 @@ EFFECTS_COLUMN = "National Ideas Effects"
 
 # Префикс для названия духа / Prefix for spirit name
 # Пример: "NOR_" -> NOR_Amadeus_The_First_Democratic_Reform
-PREFIX = "UWM_"
+PREFIX = "RCR_"
 
 # Изображение по умолчанию / Default picture
 # Пример: GFX_idea_generic

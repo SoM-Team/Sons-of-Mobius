@@ -7,19 +7,36 @@ focus_tree = {
 		x = 250
 		y = 1500
 	}
-
 	focus = {
 		id = RCR_The_Great_Hour_Has_Come
 		icon = GFX_RCR_The_Great_Hour_Has_come
 		cost = 7
 		x = 9
 		y = 0
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_war_support = 0.05
+			add_ideas = RCR_Our_Resolve
+			add_mastery = {
+				amount = 100
+				track = capital_ships
+			}
+			add_mastery = {
+				amount = 100
+				track = carriers
+			}
+			add_mastery = {
+				amount = 100
+				track = screens
+			}
+			add_mastery = {
+				amount = 100
+				track = submarines
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Doomsday_Warfare
 		icon = GFX_RCR_Doomsday_Warfare
@@ -30,12 +47,44 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Great_Hour_Has_Come
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_built = {
+							type = nuclear_facility
+							value > 0
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = RCR
+					}
+					add_building_construction = {
+						type = nuclear_facility
+						level = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_built = {
+						type = nuclear_facility
+						value > 0
+					}
+				}
+				add_breakthrough_progress = {
+					value = 0.95
+					specialization = specialization_nuclear
+				}
+			}
+			custom_effect_tooltip = RCR_Doomsday_Warfare_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_People_s_Wrath_is_Physical_Law
 		icon = GFX_RCR_People_s_Wrath_is_Physical_Law
@@ -46,12 +95,25 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Doomsday_Warfare
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_breakthrough_points = {
+						specialization = specialization_nuclear
+						value < 1
+					}
+				}
+				add_breakthrough_progress = {
+					value = 0.85
+					specialization = specialization_nuclear
+				}
+			}
+			custom_effect_tooltip = RCR_People_s_Wrath_is_Physical_Law_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_No_Throne_Shall_Survive_the_Fire
 		icon = GFX_RCR_No_Throne_Shall_Survive_the_Fire
@@ -62,12 +124,25 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_People_s_Wrath_is_Physical_Law
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			if = {
+				limit = {
+					has_breakthrough_points = {
+						specialization = specialization_nuclear
+						value < 1
+					}
+				}
+				add_breakthrough_progress = {
+					value = 0.85
+					specialization = specialization_nuclear
+				}
+			}
+			custom_effect_tooltip = RCR_No_Throne_Shall_Survive_the_Fire_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_March_of_the_Ghosts
 		icon = GFX_RCR_March_of_the_Ghosts
@@ -78,12 +153,26 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Doomsday_Warfare
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			# Halo / Black Rain
+			if = {
+				limit = {
+					has_breakthrough_points = {
+						specialization = specialization_mega_projects
+						value < 2
+					}
+				}
+				add_breakthrough_progress = {
+					value = 0.85
+					specialization = specialization_mega_projects
+				}
+			}
+			custom_effect_tooltip = RCR_No_Throne_Shall_Survive_the_Fire_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_A_Thousand_Needles
 		icon = GFX_RCR_A_Thousand_Needles
@@ -94,12 +183,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_March_of_the_Ghosts
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_ideas = RCR_Sunburst
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Last_Transmission
 		icon = GFX_RCR_The_Last_Transmission
@@ -113,12 +203,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_No_Throne_Shall_Survive_the_Fire
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Last_Transmission_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Operation_Archangelsky
 		icon = GFX_RCR_Operation_Archangelsky
@@ -129,12 +220,38 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Great_Hour_Has_Come
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_mastery = {
+				amount = 100
+				track = fighter_aircraft
+			}
+			add_mastery = {
+				amount = 100
+				track = heavy_aircraft
+			}
+			add_mastery = {
+				amount = 100
+				track = medium_aircraft
+			}
+			add_mastery = {
+				amount = 100
+				track = strike_aircraft
+			}
+			add_timed_idea = {
+				idea = RCR_Prepare_the_Airborne_Assault
+				days = 120
+			}
+			add_tech_bonus = {
+				name = RCR_Prepare_the_Airborne_Assault
+				category = para_tech
+				uses = 1
+				bonus = 1.5
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Storm_the_Gates_of_Heaven
 		icon = GFX_RCR_Storm_the_Gates_of_Heaven
@@ -145,12 +262,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Archangelsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_ideas = RCR_Wings_of_Revolution
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Shooting_Stars_Rebellion
 		icon = GFX_RCR_The_Shooting_Stars_Rebellion
@@ -161,12 +279,25 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Archangelsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Shooting_Stars_Rebellion_tooltip
+			add_tech_bonus = {
+				name = RCR_The_Shooting_Stars_Rebellion
+				category = light_interceptor
+				bonus = 1
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = RCR_The_Shooting_Stars_Rebellion
+				category = space_tech
+				bonus = 1
+				uses = 2
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Frequency_of_Death
 		icon = GFX_RCR_The_Frequency_of_Death
@@ -177,12 +308,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Archangelsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Frequency_of_Death_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Last_Sunrise_for_the_Egg_Fleet
 		icon = GFX_RCR_The_Last_Sunrise_for_the_Egg_Fleet
@@ -199,12 +331,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Frequency_of_Death
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Last_Sunrise_for_the_Egg_Fleet_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Kites_that_Cut_Like_Knives
 		icon = GFX_RCR_Kites_that_Cut_Like_Knives
@@ -221,12 +354,16 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Frequency_of_Death
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RCR_Wings_of_Revolution
+				add_idea = RCR_Wings_of_Revolution_2
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Sky_Belongs_to_the_People
 		icon = GFX_RCR_The_Sky_Belongs_to_the_People
@@ -240,12 +377,16 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Kites_that_Cut_Like_Knives
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = RCR_Wings_of_Revolution_2
+				add_idea = RCR_Wings_of_Revolution_3
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Operation_Radzetsky
 		icon = GFX_RCR_Operation_Radzetsky
@@ -256,12 +397,32 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Great_Hour_Has_Come
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_mastery = {
+				amount = 100
+				track = infantry
+			}
+			add_mastery = {
+				amount = 100
+				track = combat_support
+			}
+			add_mastery = {
+				amount = 100
+				track = armor
+			}
+			add_mastery = {
+				amount = 100
+				track = operations
+			}
+			add_timed_idea = {
+				idea = RCR_Rapid_Development
+				days = 120
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Hammers_Upon_the_Anvil
 		icon = GFX_RCR_Hammers_Upon_the_Anvil
@@ -272,12 +433,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Radzetsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_Hammers_Upon_the_Anvil_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Red_Fangs_Bite_Deep
 		icon = GFX_RCR_The_Red_Fangs_Bite_Deep
@@ -288,12 +450,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Radzetsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Red_Fangs_Bite_Deep_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Sky_Falls_Silent
 		icon = GFX_RCR_The_Sky_Falls_Silent
@@ -304,12 +467,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_Operation_Radzetsky
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_The_Sky_Falls_Silent_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_No_Truck_Unloads_Alone
 		icon = GFX_RCR_No_Truck_Unloads_Alone
@@ -323,12 +487,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Red_Fangs_Bite_Deep
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			add_ideas = RCR_Electronic_Warfare
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_Continuation_of_the_Self
 		icon = GFX_RCR_Continuation_of_the_Self
@@ -339,12 +504,13 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_The_Sky_Falls_Silent
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			custom_effect_tooltip = RCR_Continuation_of_the_Self_tooltip
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_No_Land_For_Tyrants
 		icon = GFX_RCR_No_Land_For_Tyrants
@@ -358,12 +524,30 @@ focus_tree = {
 		prerequisite = {
 			focus = RCR_No_Truck_Unloads_Alone
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
-
+		completion_reward = {
+			if = {
+				limit = {
+					EGG = {
+						has_idea = EGG_Dreams_of_Freedom
+					}
+				}
+				EGG = {
+					swap_ideas = {
+						remove_idea = EGG_Dreams_of_Freedom
+						add_idea = EGG_Dreams_of_Freedom_2
+					}
+				}
+			}
+			else = {
+				EGG = {
+					add_ideas = EGG_Dreams_of_Freedom
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 	focus = {
 		id = RCR_The_Eggshell_Cracked
 		icon = GFX_RCR_The_Eggshell_Cracked
@@ -376,11 +560,105 @@ focus_tree = {
 			focus = RCR_The_Last_Transmission
 			focus = RCR_The_Sky_Belongs_to_the_People
 		}
-		completion_reward = { }
-	    ai_will_do = {
-            base = 1
-        }
-    }
+		available = {
+			always = no
+		}
+		bypass = {
+			EGG = {
+				OR = {
+					exists = no
+					is_subject = yes
+				}
+				NOT = {
+					has_government = technocratic_despotism
+				}
+			}
+		}
+		bypass_effect = {
+			add_ideas = Victor_of_Second_Robotnik_War
+			set_temp_variable = {
+				root_egg_states = 0
+			}
+			every_state = {
+				limit = {
+					is_core_of = EGG
+					is_controlled_by = ROOT
+				}
+				ROOT = {
+					add_to_temp_variable = {
+						root_egg_states = 1
+					}
+				}
+			}
+			every_allied_country = {
+				set_temp_variable = {
+					ally_egg_states = 0
+				}
+				every_state = {
+					limit = {
+						is_core_of = EGG
+						is_controlled_by = PREV
+					}
+					PREV = {
+						add_to_temp_variable = {
+							ally_egg_states = 1
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_allied_country = {
+							check_variable = {
+								ally_egg_states > ROOT.root_egg_states
+							}
+						}
+					}
+				}
+				add_ideas = Right_of_the_Liberator
+			}
+			clear_variable = root_egg_states
+			every_allied_country = {
+				clear_variable = ally_egg_states
+			}
+			if = {
+				limit = {
+					controls_state = 70
+				}
+				add_ideas = Eggmans_Data
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_allied_country = {
+							num_of_factories > ROOT.num_of_factories
+						}
+					}
+				}
+				add_ideas = Industrial_Standardization
+			}
+			if = {
+				limit = {
+					NOT = {
+						num_nukes_being_dropped > 0
+					}
+				}
+				add_ideas = Saviour_of_Nature
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_allied_country = {
+							num_researched_technologies > ROOT.num_researched_technologies
+						}
+					}
+				}
+				add_ideas = Technological_Ascendancy
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
 }
-
-
