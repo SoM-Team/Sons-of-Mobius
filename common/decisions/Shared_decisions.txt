@@ -1,6 +1,7 @@
 Test_decisions = {
 	test = {
 		complete_effect = {
+			load_focus_tree = NOR_civil_amadeus
 		}
 	}
 }
@@ -1167,6 +1168,7 @@ Derobotization_Effort = {
 	Integrate_Robians_in_Army = {
 		available = {
 			command_power > 49
+			has_idea = Consequences_of_Roboticization
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -1186,7 +1188,7 @@ Derobotization_Effort = {
 	Integrate_Robians_in_Military_High_Staff = {
 		available = {
 			has_army_experience > 74
-			has_decision = Integrate_Robians_in_Army
+			has_idea = Consequences_of_Roboticization_2
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -1206,7 +1208,7 @@ Derobotization_Effort = {
 	Expand_Robian_Employment = {
 		available = {
 			has_political_power > 99
-			has_decision = Integrate_Robians_in_Military_High_Staff
+			has_idea = Consequences_of_Roboticization_3
 		}
 		fire_only_once = yes
 		days_remove = 90
@@ -1225,7 +1227,7 @@ Derobotization_Effort = {
 	}
 	Mass_Deroboticization_Campaign = {
 		available = {
-			has_decision = Expand_Robian_Employment
+			has_idea = Consequences_of_Roboticization_4
 			check_variable = {
 				rings > 99.999
 			}
@@ -1235,14 +1237,11 @@ Derobotization_Effort = {
 		complete_effect = {
 			add_to_variable = {
 				var = rings
-				value = -100000
+				value = -100
 			}
 		}
 		remove_effect = {
 			remove_ideas = Consequences_of_Roboticization_4
-			every_owned_state = {
-				clr_state_flag = Roboticized
-			}
 		}
 		ai_will_do = {
 			base = 1
@@ -1256,6 +1255,7 @@ Targeted_Derobotization = {
 		allowed = {
 			NOT = {
 				tag = EGG
+				tag = IRO
 			}
 		}
 		state_target = yes
@@ -1304,6 +1304,9 @@ Targeted_Derobotization = {
 				add_command_power = -5
 			}
 		}
+		modifier = {
+			civilian_factory_use = 1
+		}
 		remove_effect = {
 			clr_country_flag = Derobotization_in_progress
 			FROM = {
@@ -1318,6 +1321,7 @@ Targeted_Derobotization = {
 		allowed = {
 			NOT = {
 				tag = EGG
+				tag = IRO
 			}
 		}
 		state_target = yes
@@ -1397,6 +1401,86 @@ Targeted_Derobotization = {
 				add_resistance_target = 0.1
 			}
 			add_stability = 0.015
+		}
+	}
+	Deroboticize_Robian_Refugees_50k = {
+		icon = GFX_decision_roboticize
+		allowed = {
+			NOT = {
+				tag = EGG
+				tag = IRO
+			}
+		}
+		available = {
+			has_equipment = {
+				robians_equipment > 0
+			}
+			NOT = {
+				has_country_flag = Derobotization_in_progress
+			}
+		}
+		visible = {
+			always = yes
+		}
+		cancel_trigger = {
+			has_equipment = {
+				robians_equipment = 0
+			}
+		}
+		fire_only_once = no
+		days_remove = 21
+		custom_cost_trigger = {
+			has_political_power > 4
+			command_power > 4
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		complete_effect = {
+			set_country_flag = Derobotization_in_progress
+			hidden_effect = {
+				add_political_power = -5
+				add_command_power = -5
+			}
+		}
+		modifier = {
+			civilian_factory_use = 1
+		}
+		remove_effect = {
+			clr_country_flag = Derobotization_in_progress
+			if = {
+				limit = {
+					has_equipment = {
+						robians_equipment < 50000
+					}
+				}
+				set_temp_variable = {
+					robians_being_deroboticized = num_equipment@robians_equipment
+				}
+				divide_temp_variable = {
+					robians_being_deroboticized = 2
+				}
+				random_owned_controlled_state = {
+					add_manpower = robians_being_deroboticized
+				}
+				add_manpower = robians_being_deroboticized
+				add_equipment_to_stockpile = {
+					type = robians_equipment
+					amount = -50000
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = robians_equipment
+					amount = -50000
+				}
+				random_owned_controlled_state = {
+					add_manpower = 25000
+				}
+				add_manpower = 25000
+				add_stability = 0.025
+			}
 		}
 	}
 }
@@ -2268,7 +2352,7 @@ Space_Exploration = {
 
 Fight_Acorn_Bio_Agents = {
 	# not for Eggman - he has his own set of decisions
-    	Cultivate_the_Antidote = {
+	Cultivate_the_Antidote = {
 		available = {
 			OR = {
 				has_idea = KOA_Metal_Consuming_Bacterias_level_1
@@ -2391,8 +2475,8 @@ Fight_Acorn_Bio_Agents = {
 			}
 		}
 		complete_effect = {
-            add_stability = -0.05
-            add_war_support = -0.05
+			add_stability = -0.05
+			add_war_support = -0.05
 			add_manpower = -40000
 		}
 		modifier = {
