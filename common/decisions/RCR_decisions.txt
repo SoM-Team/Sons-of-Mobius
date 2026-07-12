@@ -6775,45 +6775,6 @@ RCR_Black_Rain = {
             base = 1
         }
     }
-    # RCR_BR_Launch_EMP = {
-    #     icon = generic_nationalism
-    #     allowed = {
-    #         original_tag = RCR
-    #     }
-    #     available = {
-    #         AND = {
-    #             has_country_flag = EMP_has_blueprint
-    #             has_country_flag = EMP_has_infr
-    #             has_country_flag = EMP_has_energy
-    #             has_country_flag = EMP_has_station
-    #         }
-    #     }
-    #     cost = 400
-    #     fire_only_once = yes
-    #     days_re_enable = 1
-    #     days_remove = 200
-    #     modifier = {
-    #         civilian_factory_use = 12
-    #         max_command_power = -40
-    #     }
-    #     visible = {
-    #         AND = {
-    #             has_country_flag = EMP_has_blueprint
-    #             has_country_flag = EMP_has_infr
-    #             has_country_flag = EMP_has_energy
-    #             has_country_flag = EMP_has_station
-    #         }
-    #     }
-    #     complete_effect = {
-
-    #     }
-    #     remove_effect = {
-    #         set_country_flag = EMP_was_launched
-    #     }
-    #     ai_will_do = {
-    #         base = 1
-    #     }
-    # }
     RCR_BR_Use_the_Rods = {
         icon = generic_nationalism
         allowed = {
@@ -6839,7 +6800,7 @@ RCR_Black_Rain = {
         }
         cost = 10
         # fire_only_once = yes
-        days_re_enable = 270
+        days_re_enable = 180
         days_remove = 10
         modifier = {
             fuel_gain_factor = -0.1
@@ -6855,7 +6816,7 @@ RCR_Black_Rain = {
             }
             command_power > 9
             check_variable = {
-                rings > 5000
+                rings > 2000
             }
         }
         custom_cost_text = RCR_BR_Use_the_Rods_cost_text
@@ -6865,31 +6826,120 @@ RCR_Black_Rain = {
                 add_political_power = -10
                 add_command_power = -10
                 add_to_variable = {
-                    rings = -5000
+                    rings = -2000
                 }
             }
         }
         remove_effect = {
+            hidden_effect = {
+                country_event = {
+                    id = rcr.9002
+                    days = 365
+                }
+            }
             FROM = {
-                set_building_level = { type = industrial_complex level = 0 }
-                set_building_level = { type = arms_factory level = 0 }
-                set_building_level = { type = dockyard level = 0 }
-                set_building_level = { type = infrastructure level = 0 }
-                set_building_level = { type = air_base level = 0 }
-                set_building_level = { type = radar_station level = 0 }
-                set_building_level = { type = anti_air_building level = 0 }
-                set_building_level = { type = supply_node level = 0 }
-                set_building_level = { type = bunker level = 0 }
-                set_building_level = { type = coastal_bunker level = 0 }
-                set_building_level = { type = nuclear_reactor level = 0 }
-                set_building_level = { type = commercial_nuclear_reactor level = 0 }
-                set_building_level = { type = steel_plant level = 0 }
-                set_building_level = { type = power_plant level = 0 }
-                set_building_level = { type = aluminium_plant level = 0 }
-                set_building_level = { type = tungsten_plant level = 0 }
-                set_building_level = { type = chromium_plant level = 0 }
-                set_building_level = { type = synthetic_refinery level = 0 }
-                set_building_level = { type = rail_way level = 0 }  # idk if that one would work
+                add_dynamic_modifier = {
+                    modifier = Rod_Attack_Moon_Landscape
+                }
+                every_state_division = {
+					set_unit_organization = 0.65
+				}
+                add_to_array = {
+                    array = global.RCR_Black_Rain_affected_states_array
+                    value = THIS
+                }
+                damage_building = {
+                    type = industrial_complex
+                    damage = 1
+                }
+                damage_building = {
+                    type = arms_factory
+                    damage = 1
+                }
+                damage_building = {
+                    type = dockyard
+                    damage = 1
+                }
+                damage_building = {
+                    type = infrastructure
+                    damage = 1
+                }
+                damage_building = {
+                    type = air_base
+                    damage = 1
+                }
+                damage_building = {
+                    type = radar_station
+                    damage = 1
+                }
+                damage_building = {
+                    type = anti_air_building
+                    damage = 1
+                }
+                damage_building = {
+                    type = supply_node
+                    damage = 1
+                }
+                damage_building = {
+                    type = bunker
+                    damage = 1
+                }
+                damage_building = {
+                    type = coastal_bunker
+                    damage = 1
+                }
+                damage_building = {
+                    type = nuclear_reactor
+                    damage = 1
+                }
+                damage_building = {
+                    type = commercial_nuclear_reactor
+                    damage = 1
+                }
+                damage_building = {
+                    type = steel_plant
+                    damage = 1
+                }
+                damage_building = {
+                    type = power_plant
+                    damage = 1
+                }
+                damage_building = {
+                    type = aluminium_plant
+                    damage = 1
+                }
+                damage_building = {
+                    type = tungsten_plant
+                    damage = 1
+                }
+                damage_building = {
+                    type = chromium_plant
+                    damage = 1
+                }
+                damage_building = {
+                    type = synthetic_refinery
+                    damage = 1
+                }
+                damage_building = {
+                    type = rail_way
+                    damage = 1
+                }
+                damage_building = {
+                    type = nuclear_bunker
+                    damage = 1
+                }
+                damage_building = {
+                    type = rocket_site
+                    damage = 1
+                }
+                damage_building = {
+                    type = fuel_silo
+                    damage = 1
+                }
+                damage_building = {
+                    type = naval_base
+                    damage = 1
+                }
             }
             clr_country_flag = ROD_ATTACK
         }
@@ -7037,45 +7087,6 @@ RCR_EMP_weapon = {
             base = 1
         }
     }
-    # RCR_EMP_Launch_EMP = {
-    #     icon = generic_nationalism
-    #     allowed = {
-    #         original_tag = RCR
-    #     }
-    #     available = {
-    #         AND = {
-    #             has_country_flag = EMP_has_blueprint
-    #             has_country_flag = EMP_has_infr
-    #             has_country_flag = EMP_has_energy
-    #             has_country_flag = EMP_has_station
-    #         }
-    #     }
-    #     cost = 400
-    #     fire_only_once = yes
-    #     days_re_enable = 1
-    #     days_remove = 200
-    #     modifier = {
-    #         civilian_factory_use = 12
-    #         max_command_power = -40
-    #     }
-    #     visible = {
-    #         AND = {
-    #             has_country_flag = EMP_has_blueprint
-    #             has_country_flag = EMP_has_infr
-    #             has_country_flag = EMP_has_energy
-    #             has_country_flag = EMP_has_station
-    #         }
-    #     }
-    #     complete_effect = {
-
-    #     }
-    #     remove_effect = {
-    #         set_country_flag = EMP_was_launched
-    #     }
-    #     ai_will_do = {
-    #         base = 1
-    #     }
-    # }
     RCR_EMP_Use_EMP = {
         icon = generic_nationalism
         allowed = {
