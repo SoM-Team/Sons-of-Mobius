@@ -4936,11 +4936,11 @@ EGG_DEATH_EGG = {
 				clr_state_flag = Death_Egg_is_here
 			}
 			set_global_flag = Death_Egg_is_moving
-            every_country = {
-                remove_ideas = death_egg_aura_ally_support
-                remove_ideas = death_egg_aura_enemy_harassing
-                remove_ideas = death_egg_aura_neutral_reconnaissance
-            }
+			every_country = {
+				remove_ideas = death_egg_aura_ally_support
+				remove_ideas = death_egg_aura_enemy_harassing
+				remove_ideas = death_egg_aura_neutral_reconnaissance
+			}
 		}
 		remove_effect = {
 			clr_global_flag = Death_Egg_is_moving
@@ -4950,7 +4950,7 @@ EGG_DEATH_EGG = {
 			set_variable = {
 				Death_Egg_location = FROM
 			}
-            if = {
+			if = {
 				limit = {
 					var:Death_Egg_location = {
 						owner = {
@@ -4963,12 +4963,12 @@ EGG_DEATH_EGG = {
 					}
 				}
 				var:Death_Egg_location = {
-						owner = {
-                            add_ideas = death_egg_aura_ally_support
-						}
+					owner = {
+						add_ideas = death_egg_aura_ally_support
 					}
+				}
 			}
-            if = {
+			if = {
 				limit = {
 					var:Death_Egg_location = {
 						owner = {
@@ -4977,29 +4977,29 @@ EGG_DEATH_EGG = {
 					}
 				}
 				var:Death_Egg_location = {
-						owner = {
-                            add_ideas = death_egg_aura_enemy_harassing
-						}
+					owner = {
+						add_ideas = death_egg_aura_enemy_harassing
 					}
+				}
 			}
-            if = {
+			if = {
 				limit = {
 					var:Death_Egg_location = {
 						owner = {
-                            NOT = {
-                                is_ally_with = EGG
+							NOT = {
+								is_ally_with = EGG
 								is_subject_of = EGG
 								tag = EGG
-                                has_war_with = EGG
-                            }
+								has_war_with = EGG
+							}
 						}
 					}
 				}
 				var:Death_Egg_location = {
-						owner = {
-                            add_ideas = death_egg_aura_neutral_reconnaissance
-						}
+					owner = {
+						add_ideas = death_egg_aura_neutral_reconnaissance
 					}
+				}
 			}
 		}
 	}
@@ -5008,22 +5008,22 @@ EGG_DEATH_EGG = {
 		visible = {
 			NOT = {
 				has_global_flag = Death_Egg_is_moving
-                Death_Egg_location = {
-                    owner = {
-                        OR = {
-                            tag = EGG
-                            is_ally_with = EGG
-                            is_subject_of = EGG
-                        }
-                    }
-                }
+				Death_Egg_location = {
+					owner = {
+						OR = {
+							tag = EGG
+							is_ally_with = EGG
+							is_subject_of = EGG
+						}
+					}
+				}
 			}
 			has_global_flag = Death_Egg_has_been_deployed
-            Death_Egg_location = {
-                owner = {
-                    has_war_with = EGG
-                }
-            }
+			Death_Egg_location = {
+				owner = {
+					has_war_with = EGG
+				}
+			}
 		}
 		# state_target = yes
 		# on_map_mode = map_only
@@ -5095,10 +5095,6 @@ EGG_DEATH_EGG = {
 					damage = 25
 				}
 				damage_building = {
-					type = nuclear_reactor_heavy_water
-					damage = 25
-				}
-				damage_building = {
 					type = commercial_nuclear_reactor
 					damage = 25
 				}
@@ -5113,5 +5109,353 @@ EGG_DEATH_EGG = {
 			}
 		}
 		days_re_enable = 14
+	}
+}
+
+EGG_Fight_Bio_Agents = {
+	EGG_Sacred_Forest = {
+		# de-industrialize and revitalize the Great Forest in hope that it will help to produce the natural antidote. 
+		# this natural antidote is extracted from a rare plant, which cannot survive in heavily contaminated areas.
+		# this plant traces its origin to the Great Forest
+		# easy to make, easy to lose
+		available = {
+			OR = {
+				4 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				5 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				13 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				15 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				16 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				17 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				18 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				19 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				21 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				23 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				27 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+				28 = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+			OR = {
+				has_idea = KOA_Metal_Consuming_Bacterias_level_1
+				has_idea = KOA_Metal_Consuming_Bacterias_level_2
+				has_idea = KOA_Metal_Consuming_Bacterias_level_3
+				has_idea = KOA_Metal_Consuming_Bacterias_level_4
+				has_idea = KOA_Metal_Consuming_Bacterias_level_5
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_1
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_2
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_3
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_4
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_5
+			}
+		}
+		cost = 5
+		days_remove = 60
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = EGG_nature_sanctuary
+					}
+				}
+				add_ideas = EGG_nature_sanctuary
+			}
+			else = {
+				add_war_support = -0.03
+				add_stability = -0.03
+				add_popularity = {
+					ideology = technocratic_despotism
+					popularity = -0.07
+				}
+			}
+		}
+		modifier = {
+			civilian_factory_use = 10
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_5
+				}
+				swap_ideas = {
+					remove_idea = KOA_Metal_Consuming_Bacterias_level_5
+					add_idea = KOA_Metal_Consuming_Bacterias_level_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_4
+				}
+				swap_ideas = {
+					remove_idea = KOA_Metal_Consuming_Bacterias_level_4
+					add_idea = KOA_Metal_Consuming_Bacterias_level_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_3
+				}
+				swap_ideas = {
+					remove_idea = KOA_Metal_Consuming_Bacterias_level_3
+					add_idea = KOA_Metal_Consuming_Bacterias_level_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_2
+				}
+				swap_ideas = {
+					remove_idea = KOA_Metal_Consuming_Bacterias_level_2
+					add_idea = KOA_Metal_Consuming_Bacterias_level_1
+				}
+			}
+			else = {
+				remove_ideas = KOA_Metal_Consuming_Bacterias_level_1
+			}
+			if = {
+				limit = {
+					has_idea = KOA_Polymer_Decomposing_Bacterias_level_5
+				}
+				swap_ideas = {
+					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_5
+					add_idea = KOA_Polymer_Decomposing_Bacterias_level_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Polymer_Decomposing_Bacterias_level_4
+				}
+				swap_ideas = {
+					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_4
+					add_idea = KOA_Polymer_Decomposing_Bacterias_level_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Polymer_Decomposing_Bacterias_level_3
+				}
+				swap_ideas = {
+					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_3
+					add_idea = KOA_Polymer_Decomposing_Bacterias_level_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Polymer_Decomposing_Bacterias_level_2
+				}
+				swap_ideas = {
+					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_2
+					add_idea = KOA_Polymer_Decomposing_Bacterias_level_1
+				}
+			}
+			else = {
+				remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_1
+			}
+		}
+	}
+	EGG_Synthetic_Solution = {
+		# still needs natural samples, but much less. Needs research and factories.
+		# gives/upgrades idea that partially mitigates the damage at the cost of constant expenses
+		# reliable, but expensive long-term solution
+		cost = 5
+		days_remove = 90
+		complete_effect = {
+			add_timed_idea = {
+				idea = EGG_synthetic_bio_deterrent_research
+				days = 90
+			}
+		}
+		available = {
+			OR = {
+				has_idea = KOA_Metal_Consuming_Bacterias_level_1
+				has_idea = KOA_Metal_Consuming_Bacterias_level_2
+				has_idea = KOA_Metal_Consuming_Bacterias_level_3
+				has_idea = KOA_Metal_Consuming_Bacterias_level_4
+				has_idea = KOA_Metal_Consuming_Bacterias_level_5
+			}
+		}
+		modifier = {
+			civilian_factory_use = 15
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_1
+				}
+				add_ideas = EGG_synthetic_bio_deterrent_level_1
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_2
+				}
+				add_ideas = EGG_synthetic_bio_deterrent_level_2
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_3
+				}
+				add_ideas = EGG_synthetic_bio_deterrent_level_3
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_4
+				}
+				add_ideas = EGG_synthetic_bio_deterrent_level_4
+			}
+			else_if = {
+				limit = {
+					has_idea = KOA_Metal_Consuming_Bacterias_level_5
+				}
+				add_ideas = EGG_synthetic_bio_deterrent_level_5
+			}
+		}
+	}
+	EGG_Kill_It_With_Fire = {
+		# radical solution - heavily damages infrastructure, manpower and industry, but removes debuff immediately and completely. 
+		# also provides eternal debuff.
+		cost = 5
+		days_remove = 30
+		available = {
+			OR = {
+				has_idea = KOA_Metal_Consuming_Bacterias_level_1
+				has_idea = KOA_Metal_Consuming_Bacterias_level_2
+				has_idea = KOA_Metal_Consuming_Bacterias_level_3
+				has_idea = KOA_Metal_Consuming_Bacterias_level_4
+				has_idea = KOA_Metal_Consuming_Bacterias_level_5
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_1
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_2
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_3
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_4
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_5
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = EGG_scorched_biosphere
+					}
+				}
+				add_ideas = EGG_scorched_biosphere
+			}
+			else = {
+				add_stability = -0.03
+			}
+			add_manpower = -40000
+		}
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {
+			remove_ideas = KOA_Metal_Consuming_Bacterias_level_1
+			remove_ideas = KOA_Metal_Consuming_Bacterias_level_2
+			remove_ideas = KOA_Metal_Consuming_Bacterias_level_3
+			remove_ideas = KOA_Metal_Consuming_Bacterias_level_4
+			remove_ideas = KOA_Metal_Consuming_Bacterias_level_5
+			remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_1
+			remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_2
+			remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_3
+			remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_4
+			remove_ideas = KOA_Polymer_Decomposing_Bacterias_level_5
+			random_owned_controlled_state = {
+				damage_building = {
+					type = arms_factory
+					damage = 0.8
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 0.8
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.8
+				}
+				damage_building = {
+					type = rail_way
+					damage = 0.8
+				}
+				damage_building = {
+					type = supply_node
+					damage = 0.8
+				}
+				damage_building = {
+					type = dockyard
+					damage = 0.8
+				}
+			}
+			random_owned_controlled_state = {
+				damage_building = {
+					type = arms_factory
+					damage = 0.8
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 0.8
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.8
+				}
+				damage_building = {
+					type = rail_way
+					damage = 0.8
+				}
+				damage_building = {
+					type = supply_node
+					damage = 0.8
+				}
+				damage_building = {
+					type = dockyard
+					damage = 0.8
+				}
+			}
+			random_owned_controlled_state = {
+				damage_building = {
+					type = arms_factory
+					damage = 0.8
+				}
+				damage_building = {
+					type = infrastructure
+					damage = 0.8
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.8
+				}
+				damage_building = {
+					type = rail_way
+					damage = 0.8
+				}
+				damage_building = {
+					type = supply_node
+					damage = 0.8
+				}
+				damage_building = {
+					type = dockyard
+					damage = 0.8
+				}
+			}
+		}
 	}
 }
