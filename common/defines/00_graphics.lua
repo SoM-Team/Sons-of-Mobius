@@ -71,6 +71,15 @@ NMapMode = {
 	RAILWAY_GUN_RANGE_INDICATOR_DEFAULT_COLOR = { 1.0, 1.0, 1.0, 1.0 },				-- On map circle indicating the railway gun bombardment range.
 	RAILWAY_GUN_RANGE_INDICATOR_ROTATION_SPEED = 0.001,								-- How fast the indicator is rotating.
 	RAILWAY_GUN_RANGE_STRIPES_COLOR = { 1.0, 0.5, 0.0, 0.2 },						-- Color of the railway gun range stripes (when hovered)
+	DEPLOYED_GENERAL_UNIT_LINE_COLOR = { 1.0, 1.0, 1.0, 0.3 },						-- Colour of the line drawn between a deployed General and their divisions when no commander ability is active.
+	DEPLOYED_GENERAL_UNIT_LINE_COLOR_ABILITY_ACTIVE = { 1.0, 0.55, 0.1, 1.0 },		-- Colour of the line drawn between a deployed General and their divisions when at least one commander ability is active on the General.
+	SHOW_DEPLOYED_GENERAL_COMMUNICATION_LINES = true,                                                        -- If true, show lines between deployed generals and their divisions when in range
+	SHOW_DEPLOYED_GENERAL_NO_COMMUNICATION_LINES = true,                                                     -- If true, show lines between deployed generals and their divisions when outside range
+	SHOW_DEPLOYED_GENERAL_FRONT_LINES = true,										-- If true, show the always-on line from each deployed General to the nearest point of their frontline.
+	DEPLOYED_GENERAL_FRONT_LINE_MAX_CAMERA_HEIGHT = 350.0,							-- Camera height above which the always-on General->frontline lines are culled (hidden).
+	SHOW_DEPLOYED_GENERAL_BASE_PLATES = true,										-- If true, draw a flat circular decal under each deployed General as a visual anchor for the comms lines.
+	DEPLOYED_GENERAL_BASE_PLATE_RADIUS = 2.5,										-- Radius of the deployed General base plate in map units. Passed as the vRange to CRangeIndicator (which doubles it to get diameter).
+	DEPLOYED_GENERAL_BASE_PLATE_COLOR = { 1.0, 1.0, 1.0, 0.9 },						-- Multiplicative tint applied to the white base-plate texture. Alpha here scales the whole decal's opacity (the texture itself already has a soft radial alpha).
 
 	PREPARING_RAID_ARROW_COLOR = { 0.7, 0.7, 0.7, 1.0 },							    -- Color of the arrow drawn in the raid map mode for raids that are still preparing.
 	READY_RAID_ARROW_COLOR = { 0.7, 0.7, 0, 0.9},							        -- Color of the arrow drawn in the raid map mode for raids that can be launched.
@@ -853,18 +862,18 @@ NGraphics = {
 	DRAW_FOW_CUTOFF = 400,
 	DRAW_FOW_FADE_LENGTH = 350,
 	GRADIENT_BORDERS_FIELD_COUNTRY_REFRESH = 10, -- When country changes it's size by X provinces, then it refresh it's thickness and rebuilds all provinces
-	GRADIENT_BORDERS_FIELD_COUNTRY_LOW = 300.0, -- country area in sum of pixels ...
+	GRADIENT_BORDERS_FIELD_COUNTRY_LOW = 100.0, -- country area in sum of pixels ...
 	GRADIENT_BORDERS_FIELD_COUNTRY_HIGH = 9000.0, -- ... the value is squared, so fe. country of size 100x100pix = 10000
-	GRADIENT_BORDERS_THICKNESS_COUNTRY_LOW = 5.0, -- thickness in pixels
-	GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 2.0, -- The center gradient is linear 1/255 per pixel for this many pixels
-	GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 25.0,
-	GRADIENT_BORDERS_THICKNESS_STATE = 5.0,
+	GRADIENT_BORDERS_THICKNESS_COUNTRY_LOW = 1.0, -- thickness in pixels
+	GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 1.0, -- The center gradient is linear 1/255 per pixel for this many pixels
+	GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 35.0,
+	GRADIENT_BORDERS_THICKNESS_STATE = 1.0,
 	GRADIENT_BORDERS_THICKNESS_RESISTANCE = 5.0,
 	GRADIENT_BORDERS_THICKNESS_INTEL_LEDGER = 5.0,
 	GRADIENT_BORDERS_THICKNESS_SUPPLY_AREA_A = 2.0,
 	GRADIENT_BORDERS_THICKNESS_SUPPLY_AREA_B = 20.0,
-	GRADIENT_BORDERS_THICKNESS_STRATEGIC_REGIONS = 150.0,
-	GRADIENT_BORDERS_THICKNESS_DIPLOMACY = 12.0,
+	GRADIENT_BORDERS_THICKNESS_STRATEGIC_REGIONS = 1.0,
+	GRADIENT_BORDERS_THICKNESS_DIPLOMACY = 2.0,
 	GRADIENT_BORDERS_THICKNESS_DIPLOMACY_ON_INTEL_LEDGER = 3.0,
 	GRADIENT_BORDERS_THICKNESS_PEACE_CONFERENCE_A = 3.0, -- transparency at 0 up until A
 	GRADIENT_BORDERS_THICKNESS_PEACE_CONFERENCE_B = 6.0, -- increasing transparency up to 100% when at B
@@ -1298,16 +1307,6 @@ NGraphics = {
 	RAID_UNIT_ENTITY_BASE_SCALE = 2.0,              -- Base scale of the raid unit entity used to show the progress of the raid (can be further modifier in raid script)
 	RAID_UNIT_ENTITY_OFFSET = { 0.0, 0.0, 0.0 },    -- Raid entity offset from the arrow spline position
 
-	-- The next two values specify how multi-stage animation works for raid units, which is used, for example, for some nuclear rockets.
-	-- Currently, three-stage animation is supported, in order for it to work, the unit entity must have following animation states:
-	--  "idle"			- idle animation of the first stage (looped)
-	--  "idle2_intro"	- intro animation of the second stage (not looped, goes to "idle2" when done)
-	--  "idle2"			- idle animation of the second stage (looped)
-	--  "idle3_intro"	- intro animation of the third stage (not looped, goes to "idle3" when done)
-	--  "idle3"			- idle animation of the third stage (looped)
-	RAID_UNIT_SECOND_STAGE_PROGRESS = 0.33,			-- Specifies raid progress value on [0,1] where second stage is activated
-	RAID_UNIT_THIRD_STAGE_PROGRESS = 0.66,			-- Specifies raid progress value on [0,1] where third stage is activated
-
 	DEFAULT_NUDGE_FLOATING_HARBOR_DIST = 7.0,       -- Default distance of floating harbors from the coast in pixels, for nudger
 
 	RAID_MAP_ICON_DRAW_DISTANCE_MIN = 10.0,                      -- Below this distance, raid map icons are hidden
@@ -1315,6 +1314,7 @@ NGraphics = {
 	RAID_MAP_ICON_MAX_DRAW_DISTANCE_IN_RAID_MAP_MODE = 1600.0,   -- Above this distance, raid map icons are hidden in raid map mode
 
 	RAID_TARGET_ZOOM_HEIGHT = 200.0,				-- The height for the map carmera to zoom in to a raid target
+	RAID_UNIT_ZOOM_HEIGHT = 150.0,					-- The height for the map camera to zoom in to a raid unit
 
 	NAVAL_DOMINANCE_ICON_MAX_DRAW_DISTANCE = 1000.0,-- The camera distance at which naval dominance map icons are hidden
 	
@@ -1536,6 +1536,8 @@ NSound = {
 
 	VOICE_OVER_CATEGORY  = "Voices",
 	VOICE_OVER_COOL_DOWN = 2.8, -- Wait for this many seconds before playing another vo
+
+	ABILITY_GENERIC_SOUND_NAME = "ability_generic", -- Sound played in addition to an ability's own sound effect when the player activates an ability
 },
 
 NFriendGUI = {
