@@ -1,8 +1,8 @@
 sabotage_eggmans_nukes = {
 	icon = GFX_operations_coordinated_strike
 	map_icon = GFX_operations_coordinated_strike_map
-	name = operation_coordinated_strike
-	desc = operation_coordinated_strike_desc
+	name = operation_sabotage_eggmans_nukes
+	desc = operation_sabotage_eggmans_nukes_desc
 	days = 15
 	priority = 11
 	allowed = {
@@ -28,7 +28,7 @@ sabotage_eggmans_nukes = {
 		}
 		num_of_operatives > 1
 		network_national_coverage = {
-			target = FROM
+			target = EGG
 			value > 0
 		}
 	}
@@ -166,8 +166,8 @@ sabotage_eggmans_nukes = {
 sabotage_eggmans_satellites = {
 	icon = GFX_operations_coordinated_strike
 	map_icon = GFX_operations_coordinated_strike_map
-	name = operation_coordinated_strike
-	desc = operation_coordinated_strike_desc
+	name = operation_sabotage_eggmans_satellites
+	desc = operation_sabotage_eggmans_satellites_desc
 	days = 75
 	priority = 11
 	allowed = {
@@ -201,7 +201,7 @@ sabotage_eggmans_satellites = {
 		}
 		num_of_operatives > 1
 		network_national_coverage = {
-			target = FROM
+			target = EGG
 			value > 0
 		}
 	}
@@ -302,8 +302,8 @@ sabotage_eggmans_satellites = {
 sabotage_eggmans_industry = {
 	icon = GFX_operations_coordinated_strike
 	map_icon = GFX_operations_coordinated_strike_map
-	name = operation_coordinated_strike
-	desc = operation_coordinated_strike_desc
+	name = operation_sabotage_eggmans_industry
+	desc = operation_sabotage_eggmans_industry_desc
 	priority = 13
 	days = 45
 	network_strength = 35
@@ -317,7 +317,7 @@ sabotage_eggmans_industry = {
 	visible = {
 		num_of_operatives > 1
 		network_national_coverage = {
-			target = FROM
+			target = EGG
 			value > 0
 		}
 		has_operation_token = {
@@ -468,8 +468,8 @@ sabotage_eggmans_industry = {
 sabotage_eggmans_aviation = {
 	icon = GFX_operations_coordinated_strike
 	map_icon = GFX_operations_coordinated_strike_map
-	name = operation_coordinated_strike
-	desc = operation_coordinated_strike_desc
+	name = operation_sabotage_eggmans_aviation
+	desc = operation_sabotage_eggmans_aviation_desc
 	priority = 13
 	days = 45
 	network_strength = 35
@@ -483,7 +483,7 @@ sabotage_eggmans_aviation = {
 	visible = {
 		num_of_operatives > 1
 		network_national_coverage = {
-			target = FROM
+			target = EGG
 			value > 0
 		}
 		has_operation_token = {
@@ -639,8 +639,8 @@ hack_into_egg_code = {
 	### 3 1/55
 	icon = GFX_operations_capture_ciphers
 	map_icon = GFX_operations_capture_ciphers_map
-	name = operation_capture_cipher
-	desc = operation_capture_cipher_desc
+	name = operation_hack_into_egg_code
+	desc = operation_hack_into_egg_code_desc
 	priority = 3
 	days = 120
 	network_strength = 50
@@ -653,8 +653,8 @@ hack_into_egg_code = {
 	}
 	visible = {
 		network_strength = {
-			target = FROM
-			value > 25
+			target = EGG
+			value > 0
 		}
 		#has_tech = mechanical_computing
 		has_done_agency_upgrade = cyberspace
@@ -914,8 +914,8 @@ hack_into_egg_code = {
 operation_metal_fatigue = {
 	icon = GFX_operations_infiltrate_armed_forces
 	map_icon = GFX_operations_infiltrate_armed_forces_map
-	name = operation_infiltrate_armed_forces_army
-	desc = operation_infiltrate_armed_forces_army_desc
+	name = operation_metal_fatigue
+	desc = operation_metal_fatigue_desc
 	priority = 4
 	days = 90
 	network_strength = 50
@@ -960,9 +960,9 @@ operation_metal_fatigue = {
 	}
 	outcome_execute = {
 		random_list = {
-			90 = {
+			70 = {
 			}
-			10 = {
+			30 = {
 				ROOT = {
 					if = {
 						limit = {
@@ -1003,13 +1003,129 @@ operation_metal_fatigue = {
 					else = {
 						add_ideas = KOA_Metal_Consuming_Bacterias_level_1
 					}
+					random_owned_controlled_state = {
+						owner = {
+							add_stability = -0.015
+						}
+						add_manpower = -5000
+						damage_building = {
+							type = industrial_complex
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = arms_factory
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = dockyard
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = infrastructure
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = air_base
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = radar_station
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = anti_air_building
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = supply_node
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = coastal_bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = nuclear_reactor
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = commercial_nuclear_reactor
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = steel_plant
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = power_plant
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = aluminium_plant
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = tungsten_plant
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = chromium_plant
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = synthetic_refinery
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = rail_way
+							damage = 0.5
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = nuclear_bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = rocket_site
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = fuel_silo
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = naval_base
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+					}
+					country_event = shared.200
 				}
-			}
-		}
-		ROOT = {
-			add_operation_token = {
-				tag = FROM
-				token = token_army
 			}
 		}
 		FROM = {
@@ -1202,8 +1318,8 @@ operation_metal_fatigue = {
 operation_recycling = {
 	icon = GFX_operations_infiltrate_armed_forces
 	map_icon = GFX_operations_infiltrate_armed_forces_map
-	name = operation_infiltrate_armed_forces_army
-	desc = operation_infiltrate_armed_forces_army_desc
+	name = operation_recycling
+	desc = operation_recycling_desc
 	priority = 4
 	days = 90
 	network_strength = 50
@@ -1248,9 +1364,9 @@ operation_recycling = {
 	}
 	outcome_execute = {
 		random_list = {
-			90 = {
+			70 = {
 			}
-			10 = {
+			30 = {
 				ROOT = {
 					if = {
 						limit = {
@@ -1291,13 +1407,129 @@ operation_recycling = {
 					else = {
 						add_ideas = KOA_Polymer_Decomposing_Bacterias_level_1
 					}
+					random_owned_controlled_state = {
+						owner = {
+							add_stability = -0.015
+						}
+						add_manpower = -5000
+						damage_building = {
+							type = industrial_complex
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = arms_factory
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = dockyard
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = infrastructure
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = air_base
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = radar_station
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = anti_air_building
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = supply_node
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = coastal_bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = nuclear_reactor
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = commercial_nuclear_reactor
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = steel_plant
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = power_plant
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = aluminium_plant
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = tungsten_plant
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = chromium_plant
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = synthetic_refinery
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = rail_way
+							damage = 0.5
+							repair_speed_modifier = -0.25
+						}
+						damage_building = {
+							type = nuclear_bunker
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = rocket_site
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+						damage_building = {
+							type = fuel_silo
+							damage = 0.75
+							repair_speed_modifier = -0.75
+						}
+						damage_building = {
+							type = naval_base
+							damage = 0.75
+							repair_speed_modifier = -0.5
+						}
+					}
+					country_event = shared.201
 				}
-			}
-		}
-		ROOT = {
-			add_operation_token = {
-				tag = FROM
-				token = token_army
 			}
 		}
 		FROM = {
@@ -1342,7 +1574,8 @@ operation_recycling = {
 			}
 		}
 	}
-	outcome_extra_execute = { # SCOPE_OPERATION
+	outcome_extra_execute = {
+		# SCOPE_OPERATION
 		FROM = {
 			if = {
 				limit = {
@@ -1386,47 +1619,6 @@ operation_recycling = {
 		}
 	}
 	outcome_potential = {
-		FROM = {
-			if = {
-				limit = {
-					has_idea = KOA_Polymer_Decomposing_Bacterias_level_4
-				}
-				swap_ideas = {
-					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_4
-					add_idea = KOA_Polymer_Decomposing_Bacterias_level_5
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = KOA_Polymer_Decomposing_Bacterias_level_3
-				}
-				swap_ideas = {
-					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_3
-					add_idea = KOA_Polymer_Decomposing_Bacterias_level_4
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = KOA_Polymer_Decomposing_Bacterias_level_2
-				}
-				swap_ideas = {
-					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_2
-					add_idea = KOA_Polymer_Decomposing_Bacterias_level_3
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = KOA_Polymer_Decomposing_Bacterias_level_1
-				}
-				swap_ideas = {
-					remove_idea = KOA_Polymer_Decomposing_Bacterias_level_1
-					add_idea = KOA_Polymer_Decomposing_Bacterias_level_2
-				}
-			}
-			else = {
-				add_ideas = KOA_Polymer_Decomposing_Bacterias_level_1
-			}
-		}
 	}
 	phases = {
 		#infiltration
@@ -1482,6 +1674,91 @@ operation_recycling = {
 		}
 		exfiltration_submarine_pickup = {
 			base = 25
+		}
+	}
+}
+
+operation_contest_for_ARK_1 = {
+	icon = GFX_operations_infiltrate_armed_forces
+	map_icon = GFX_operations_infiltrate_armed_forces_map
+	name = operation_contest_for_ARK_1
+	desc = operation_contest_for_ARK_1_desc
+	priority = 1001
+	days = 15
+	network_strength = 75
+	operatives = 1
+	visible = {
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+		check_variable = {
+			ARK_set_target = 1
+		}
+		has_country_flag = ARK_is_available_for_this_country
+		FROM = {
+			has_country_flag = ARK_is_available_for_this_country
+		}
+	}
+	equipment = {
+		civilian_factories = {
+			amount = 5
+			days = 15
+		}
+	}
+	available = {
+		FROM = {
+			NOT = {
+				has_idea = KOA_Polymer_Decomposing_Bacterias_level_5
+			}
+		}
+	}
+	risk_chance = 0.35
+	risk_modifiers = {
+		operation_infiltrate_risk
+		operation_risk
+	}
+	# outcome_chance = 0.25
+	outcome_modifiers = {
+		operation_infiltrate_outcome
+		operation_outcome
+	}
+	cost_modifiers = {
+		operation_infiltrate_cost
+		operation_cost
+	}
+	outcome_execute = {
+		# 1. Take number from ARK_Free_Units variable as a base
+		# 2. Multiply it consecutively by a set of coefficients for attacker
+		# 3. Same for defender
+		# 4. Subtract attacker total value from defender total value and assign it to a special variable
+		# 5. Add a small randomized value
+		# 6. Multiply the result by a special coefficient
+		# 7. Subtract this special result from attacker total value and defender total value, implying that it was battle losses
+		# 8. Give control over contested area to attacker or defender, depending on who has the biggest value. If said value is absolutely same somehow - decide by random
+	}
+	outcome_extra_execute = {
+		# SCOPE_OPERATION
+	}
+	outcome_potential = {
+	}
+	phases = {
+		#infiltration
+		infiltration_space_shuttle = {
+			base = 100
+		}
+	}
+	phases = {
+		#prepare the ground
+		contest_for_ARK_prepare_the_ground = {
+			# replace to stealth raid
+			base = 100
+		}
+	}
+	phases = {
+		#battle
+		contest_for_ARK_attack = {
+			base = 100
 		}
 	}
 }

@@ -720,6 +720,19 @@ country_event = {
 			tag = KOA
 		}
 	}
+	immediate = {
+		set_global_flag = Sonic_is_back		### SUPER EVENT
+		set_global_flag = Allow_to_recruit_Sonic
+		load_oob = "KOA_Sonic_back"
+		KOA = {
+			7 = {
+				create_unit = {
+					division = "name = \"Sonic\" division_template = \"Sonic the Hedgehog\" start_experience_factor = 0.95 start_equipment_factor = 0.95" 
+					owner = KOA
+				}
+			}
+		}
+	}
 	option = {
 		name = koa.600.a
 		add_political_power = 100
@@ -744,24 +757,9 @@ country_event = {
 		# 	legacy_id = 23061991
 		# 	}
 		# }
-		set_global_flag = Sonic_is_back		### SUPER EVENT
-		set_global_flag = Allow_to_recruit_Sonic
+		
 		# remove_ideas = KOA_sonic_dead
-		load_oob = "KOA_Sonic_back"
-		KOA = {
-			7 = {
-				create_unit = {
-					division = "name = "
-					Sonic
-					" division_template = "
-					Sonic
-					the
-					Hedgehog
-					" start_experience_factor = 0.95 start_equipment_factor = 0.95"
-					owner = KOA
-				}
-			}
-		}
+		
 	}
 }
 
@@ -774,6 +772,19 @@ country_event = {
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.88"
 		KOA_release_SOT = yes
+		KOA = {
+			transfer_units_fraction= {
+				target = SOT
+				size = 0.25
+				stockpile_ratio = 0.25
+				army_ratio = 0.25
+				navy_ratio = 0.35
+				air_ratio = 0.25
+				keep_unit_leaders_trigger = {
+					has_trait = acorn_royalist
+				}
+			}
+		}
 	}
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -833,23 +844,28 @@ country_event = {
 		KOA_release_NOR = yes
 		if = {
 			limit = {
-				has_global_flag = united_front
+				has_global_flag = NOR_united_front
 			}
-			clr_global_flag = united_front
+			clr_global_flag = NOR_united_front
 			13 = {
 				add_core_of = NOR
+				add_core_of = KOA
 			}
 			14 = {
 				add_core_of = NOR
+				add_core_of = KOA
 			}
 			15 = {
 				add_core_of = NOR
+				add_core_of = KOA
 			}
 			16 = {
 				add_core_of = NOR
+				add_core_of = KOA
 			}
 			5 = {
 				add_core_of = NOR
+				add_core_of = KOA
 			}
 			NOR = {
 				transfer_state = 14
@@ -857,19 +873,60 @@ country_event = {
 				transfer_state = 15
 				transfer_state = 16
 				transfer_state = 5
-				add_popularity = {
-					ideology = neosocialism
-					popularity = 0.1
-				}
-				add_popularity = {
-					ideology = katzerism
-					popularity = 0.15
-				}
-				add_popularity = {
-					ideology = autonomous_socialism
-					popularity = 0.15
+				set_popularities = {
+					neosocialism = 10
+					katzerism = 10
+					autonomous_socialism = 15
+					progressism = 15
+					progressive_liberalism = 20
+					orthodox_liberalism = 10
+					conservatism = 10
+					legalism = 5
+					autocracy = 5
+					technocratic_despotism = 0
+					purificationism = 0
 				}
 				set_cosmetic_tag = UF_NOR
+			}
+			KOA = {
+				transfer_units_fraction= {
+					target = NOR
+					size = 0.5
+					stockpile_ratio = 0.5
+					army_ratio = 0.4
+					navy_ratio = 0.5
+					air_ratio = 0.5
+					keep_unit_leaders_trigger = {
+						has_trait = acorn_royalist
+					}
+				}
+			}
+		}
+		else = {
+			NOR = {
+				set_popularities = {
+					neosocialism = 2
+					katzerism = 3
+					autonomous_socialism = 5
+					progressism = 25
+					progressive_liberalism = 25
+					orthodox_liberalism = 10
+					conservatism = 10
+					legalism = 10
+					autocracy = 10
+					technocratic_despotism = 0
+					purificationism = 0
+				}
+			}
+			KOA = {
+				transfer_units_fraction= {
+					target = NOR
+					size = 0.25
+					stockpile_ratio = 0.25
+					army_ratio = 0.35
+					navy_ratio = 0.25
+					air_ratio = 0.25
+				}
 			}
 		}
 	}
@@ -894,6 +951,23 @@ country_event = {
 			ideology = conservatism
 			popularity = -0.05
 		}
+		if = {
+			limit = {
+				has_global_flag = NOR_united_front
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = -0.1
+			}
+		}
 	}
 	option = {
 		name = koa.89.b		### Stand by the republic
@@ -914,6 +988,23 @@ country_event = {
 			ideology = conservatism
 			popularity = -0.05
 		}
+		if = {
+			limit = {
+				has_global_flag = NOR_united_front
+			}
+			add_popularity = {
+				ideology = katzerism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = autonomous_socialism
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = neosocialism
+				popularity = -0.1
+			}
+		}
 		NOR = {
 			change_tag_from = KOA
 		}
@@ -929,6 +1020,19 @@ country_event = {
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.90"
 		KOA_release_UWM = yes
+		KOA = {
+			transfer_units_fraction= {
+				target = UWM
+				size = 0.25
+				stockpile_ratio = 0.25
+				army_ratio = 0.25
+				navy_ratio = 0.25
+				air_ratio = 0.35
+				keep_unit_leaders_trigger = {
+					has_trait = acorn_royalist
+				}
+			}
+		}
 	}
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -990,7 +1094,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		set_global_flag = united_front
+		set_global_flag = NOR_united_front
 	}
 }
 
