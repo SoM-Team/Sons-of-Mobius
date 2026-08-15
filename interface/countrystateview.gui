@@ -33,13 +33,13 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "state_info_window"
-			position = { x = 0 y = 0 }
-			size = { width=780 height=496 }
+			position = { x = 0 y = -50 }
+			size = { width=580 height=600 }
 			
 			
 			background = {
 				name = "Background"
-				quadTextureSprite = "GFX_stateview_bg"
+				quadTextureSprite = "GFX_ww_stateview_bg"
 				position = { x = 5 y = 5 }
 			}
 						
@@ -61,15 +61,40 @@ guiTypes = {
 				format = "UPPER_LEFT"
 				slotsize = { width = 60 height = 52 }
 				max_slots_horizontal = 5
+				max_slots_vertical = 1
 			}
 			
 			instantTextboxType = {
 				name = "shared_slot_count"
-				position = { x = 214 y = 178 }
+				position = { x = 184 y = 182 }
 				textureFile = ""
 				font = "futura_20"
 				text = "SLOTS"
 				maxWidth = 210
+				maxHeight = 30
+				format = left
+				fixedsize = yes
+			}
+			
+			iconType ={
+				name ="energy_consumption_bg"
+				spriteType = "GFX_victorypoint_stateview_bg"
+				position = { x = 400 y = 181 }
+			}
+			
+			iconType = {
+				name = "energy_icon"
+				spriteType = "GFX_modifiers_energy"
+				position = { x = 418 y = 177 }
+			}
+			
+			instantTextboxType = {
+				name = "energy_text"
+				position = { x = 398 y = 183 }
+				textureFile = ""
+				font = "futura_20"
+				text = ""
+				maxWidth = 30
 				maxHeight = 30
 				format = center
 			}
@@ -81,12 +106,13 @@ guiTypes = {
 				format = "UPPER_LEFT"
 				slotsize = { width = 57 height = 48 }
 				max_slots_horizontal = 5
+				max_slots_vertical = 5
 			}
 
 			iconType ={
 				name ="victory_points_bg"
 				spriteType = "GFX_victorypoint_stateview_bg"
-				position = { x = 17 y = 18 }
+				position = { x = 17 y = 1118 }
 			}
 			
 			instantTextboxType = { 
@@ -114,7 +140,7 @@ guiTypes = {
 			
 			OverlappingElementsBoxType = {
 				name = "state_claims"
-				position = { x = 91 y = 95 }
+				position = { x = 40 y = 151 }
 				size = { x = 110 y = 40 }
 				format = left
 				spacing = 1.0
@@ -134,7 +160,7 @@ guiTypes = {
 			
 			OverlappingElementsBoxType = {
 				name = "state_owners"
-				position = { x = 35 y = 63 }
+				position = { x = 40 y = 97 }
 				size = { x = 60 y = 40 }
 				format = left
 				spacing = 1.0
@@ -181,8 +207,7 @@ guiTypes = {
 					format = "UPPER_LEFT"
 					slotsize = { width = 50 height = 31 }
 					max_slots_horizontal = 2
-					max_slots_vertical = 3
-					
+					max_slots_vertical = 4
 				}
 			}
 			
@@ -197,7 +222,7 @@ guiTypes = {
 				name = "manpower" 
 				position = { x = 60 y = 199 }
 				textureFile = ""
-				font = "futura_18"
+				font = "futura_20"
 				maxWidth = 80
 				maxHeight = 30
 				format = center	
@@ -205,17 +230,25 @@ guiTypes = {
 			
 			containerWindowType = {
 				name = "resistance_container"
-				position = { x = 20 y = 196}	
+				position = { x = 20 y = 196}
 				size = { width = 519 height = 100 }
 				
-				
+				iconType ={
+					name ="state_resistance_icon"
+					spriteType = "GFX_resistance_icon"
+					position = { x = 0 y = 0 }
+				}
 				
 				positionType = {
 					name = "resistance_status_pos"
 					position = { x = 36 y = 80 }
 				}
 				
-				
+				iconType ={
+					name ="state_compliance_icon"
+					spriteType = "GFX_compliance_icon"
+					position = { x = 0 y = 30 }
+				}
 				
 				positionType = {
 					name = "compliance_status_pos"
@@ -275,40 +308,32 @@ guiTypes = {
 			
 			iconType = {
 				name = "terrain_picture"
-				position = { x = 5 y= -22 }
+				position = { x = 8 y= -41 }
 				spriteType = "GFX_terrain_default"
 				Orientation = "UPPER_LEFT"
 			}
 			
-			iconType = {
-				name = "province_header"
-				position = { x = 6 y= -34 }
-				spriteType = "GFX_province_header"
-				Orientation = "UPPER_LEFT"
-				alwaystransparent = yes
-			}			
-
 			instantTextboxType = {
 				name = "province"
 				position = { x = 15 y= -32 }
 				font = "futura_20"
-				maxWidth = 160
+				maxWidth = 300
 				maxHeight = 30
 				format = left
 			}
 			
 			iconType = {
 				name = "province_required_rule"
-				position = { x = 100 y = -3 }
+				position = { x = 22 y = -7 }
 				spriteType = "GFX_required_rule"
 				Orientation = "UPPER_LEFT"
 			}	
 
 			iconType = {
 				name = "building_modifiers_icon"
-				position = { x = 342 y= -76 }
+				position = { x = -103 y= 230 }
 				spriteType = "GFX_buildings_strip"
-				Orientation = "UPPER_LEFT"
+				Orientation = "LOWER_RIGHT"
 				frame = 21
 				scale = 0.8
 				hide = yes
@@ -352,10 +377,29 @@ guiTypes = {
 				spriteType = "GFX_impassable_icon"
 				Orientation = "UPPER_LEFT"
 			}
+
+			instantTextboxType = {
+				name = "state_modifiers"
+				text = "STATE_MODIFIERS"
+				position = { x = 16 y= -72 }
+				font = "futura_20"
+				maxWidth = 200
+				maxHeight = 30
+				format = left
+			}
 			
 			gridBoxType = {
 				name = "dynamic_modifiers_grid"
 				position = { x = 423 y = 71 }
+				size = { width = 0 height = 0 }
+				format = "LOWER_LEFT"
+				slotsize = { width = 33 height = 33 }
+				max_slots_vertical = 1
+			}
+			
+			gridBoxType = {
+				name = "strategic_locations_grid"
+				position = { x = -5 y = 30 }
 				size = { width = 0 height = 0 }
 				format = "LOWER_LEFT"
 				slotsize = { width = 40 height = 47 }
@@ -381,6 +425,15 @@ guiTypes = {
 					Orientation = "UPPER_LEFT"			
 				}	
 			}
+
+			gridBoxType = {
+				name = "province_custom_icon_building_entries"
+				position = { x = 10 y = 5}
+				size = { width = 400 height = 40 }
+				format = "UPPER_LEFT"
+				slotsize = { width = 61 height = 84}
+				max_slots_vertical = 1
+			}
 			
 			gridBoxType = {
 				name = "province_building_entries"
@@ -388,33 +441,14 @@ guiTypes = {
 				size = { width = 480 height = 90%% }
 				format = "UPPER_LEFT"
 				slotsize = { width = 109 height = 54 }
-				max_slots_horizontal = 4
+				max_slots_horizontal = 7
+				max_slots_vertical = 1
 			}
-			
-			# buttonType = {
-			# 	name = "nuke_province"
-			# 	quadTextureSprite ="GFX_nuke_button"
-			# 	position = { x= 13 y = -11 }
-			# }
-			
-			# iconType = {
-			# 	name = "nuclear_strike_bar"
-			# 	spriteType = "GFX_nuke_progress"
-			# 	position = { x=23 y= 27 }
-			# 	rotation = 1.5708		
-			# }	
-			
-			# iconType = {
-			# 	name = "nuke_progress_frame"
-			# 	spriteType = "GFX_nuke_progress_frame"
-			# 	position = { x=15 y= -6 }	
-			# }				
-			
 		}	
 		
 		buttonType = {
 			name = "close_button"
-			position = { x = -107 y = 32 }
+			position = { x = -107 y = -18 }
 			quadTextureSprite ="GFX_closebutton_state"
 			buttonFont = "Main_14_black"
 			shortcut = "ESCAPE"
@@ -425,10 +459,10 @@ guiTypes = {
 
 		buttonType = {
 			name = "scorched_earth_state_button"
-			position = { x = -31 y = 135 }
-			quadTextureSprite ="GFX_scorched_earth"
+			position = { x = -460 y = -115 }
+			quadTextureSprite ="GFX_scorched_earth_state"
 			buttonFont = "Main_14_black"
-			Orientation = "UPPER_RIGHT"
+			Orientation = "LOWER_RIGHT"
 		}
 	}
 	
@@ -497,7 +531,7 @@ guiTypes = {
 		
 		buttonType = {
 			name = "building_picture" 
-			position = { x = 8 y = 10 }
+			position = { x = 12 y = 5 }
 			quadTextureSprite ="GFX_buildings_strip"
 		}
 		
@@ -587,7 +621,39 @@ guiTypes = {
 			spriteType = "GFX_damage_bar"
 			position = { x = 10 y = 34  }
 			rotation = 1.5708		
-		} 
+		}
+	}
+
+	containerWindowType = {
+		name = "province_building_special_icon_entry"
+		position = { x=-8 y=18 }
+		size = { width=50 height= 43 }
+		clipping = no
+
+		background = {
+			name = "Background"
+			spriteType ="GFX_province_landmark_bg"
+		}
+
+		# Since the province building and facility icons are not the same size.
+		# For now use the position type X value as a scale, where 1 = 0.1 scale.
+		positionType = {
+			name = "facility_building_button_scale"
+			position = { x = 4 y = 0}
+		}
+
+		buttonType = {
+			name = "building_button"
+			quadTextureSprite = "GFX_placeholder_bg"
+			position = { x = 14 y = 7 }
+			scale = 1.0
+		}
+		
+		iconType = {
+			name = "damage_bar"
+			spriteType = "GFX_province_landmark_damage_bar"
+			position = { x=6 y=8  }
+		}
 	}
 	
 	containerWindowType = {
@@ -599,14 +665,14 @@ guiTypes = {
 		
 		iconType = {
 			name = "resource"
-			position = { x=53 y=8 }	
+			position = { x=57 y=13 }	
 			spriteType = "GFX_resources_strip"
 		}
 		
 		instantTextboxType = {
 			name = "amount"
-			position = { x = 70 y = 11 }
-			font = "hoi_20b"
+			position = { x = 72 y = 18 }
+			font = "futura_20b"
 			maxWidth = 37
 			maxHeight = 18
 			format = center
@@ -624,8 +690,13 @@ guiTypes = {
 			spriteType = "GFX_occupation_state_compliance_bar_bg"
 			position = { x = -44 y = -7 }
 		}
-			
-		
+
+		# iconType = {
+		# 	name = "progress"
+		# 	spriteType = "GFX_occupation_state_compliance_bar"
+		# 	position = { x = 3 y = 2 }
+		# 	frame = 100
+		# }
 		
 		instantTextBoxType = {
 			name ="progress_text"
@@ -635,19 +706,6 @@ guiTypes = {
 			maxWidth = 80
 			format = center 
 			alwaystransparent = yes
-		}
-		
-		iconType = {
-			name ="state_compliance_icon"
-			spriteType = "GFX_compliance_icon"
-			position = { x = -41 y = -6 }
-		}
-		
-		iconType = {
-			name = "progress"
-			spriteType = "GFX_occupation_state_compliance_bar"
-			position = { x = 0 y = 17 }
-			frame = 100 
 		}
 	}
 	containerWindowType = {
@@ -661,7 +719,12 @@ guiTypes = {
 			position = { x = -44 y = -7 }
 		}
 			
-		
+		# iconType = {
+		# 	name = "progress"
+		# 	spriteType = "GFX_occupation_state_resistance_bar"
+		# 	position = { x = 1 y = 2 }
+		# 	frame = 100
+		# }
 		
 		instantTextBoxType = {
 			name ="progress_text"
@@ -672,24 +735,12 @@ guiTypes = {
 			format = center
 			alwaystransparent = yes
 		}
-		
-		iconType = {
-			name ="state_resistance_icon"
-			spriteType = "GFX_resistance_icon"
-			position = { x = -37 y = -2 }
-		}
-		
-		iconType = {
-			name = "progress"
-			spriteType = "GFX_occupation_state_resistance_bar"
-			position = { x = 0 y = 17 }
-			frame = 100
-		}
 	}
 	
 	containerWindowType = {
 		name = "state_view_dynamic_modifier_entry"
 		size = { width = 40 height = 47 }
+		position = { x = 0 y = -4 }
 		clipping = no
 		
 		iconType = {
@@ -702,6 +753,19 @@ guiTypes = {
 			position = { x = 25 y = 25 }
 			quadTextureSprite ="GFX_mapicon_unit_flag_stripe"
 			orientation = "UPPER_LEFT"
+		}
+	}
+	
+	containerWindowType = {
+		name = "province_view_strategic_location_entry"
+		size = { width = 40 height = 47 }
+		position = { x = 4 y = 2 }
+		clipping = no
+		
+		iconType = {
+			name = "icon"
+			quadTextureSprite ="GFX_idea_unknown"
+			scale = 0.8
 		}
 	}
 }
