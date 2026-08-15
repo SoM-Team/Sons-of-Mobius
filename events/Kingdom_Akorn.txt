@@ -771,17 +771,19 @@ country_event = {
 	picture = GFX_report_event_southern_rebellion
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.88"
-		KOA_release_SOT = yes
-		KOA = {
-			transfer_units_fraction= {
-				target = SOT
-				size = 0.25
-				stockpile_ratio = 0.25
-				army_ratio = 0.25
-				navy_ratio = 0.35
-				air_ratio = 0.25
-				keep_unit_leaders_trigger = {
-					has_trait = acorn_royalist
+		hidden_effect = {			
+			KOA_release_SOT = yes
+			KOA = {
+				transfer_units_fraction= {
+					target = SOT
+					size = 0.25
+					stockpile_ratio = 0.25
+					army_ratio = 0.25
+					navy_ratio = 0.35
+					air_ratio = 0.25
+					keep_unit_leaders_trigger = {
+						has_trait = acorn_royalist
+					}
 				}
 			}
 		}
@@ -841,91 +843,93 @@ country_event = {
 	picture = GFX_report_general_strike
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.89"
-		KOA_release_NOR = yes
-		if = {
-			limit = {
-				has_global_flag = NOR_united_front
-			}
-			clr_global_flag = NOR_united_front
-			13 = {
-				add_core_of = NOR
-				add_core_of = KOA
-			}
-			14 = {
-				add_core_of = NOR
-				add_core_of = KOA
-			}
-			15 = {
-				add_core_of = NOR
-				add_core_of = KOA
-			}
-			16 = {
-				add_core_of = NOR
-				add_core_of = KOA
-			}
-			5 = {
-				add_core_of = NOR
-				add_core_of = KOA
-			}
-			NOR = {
-				transfer_state = 14
-				transfer_state = 13
-				transfer_state = 15
-				transfer_state = 16
-				transfer_state = 5
-				set_popularities = {
-					neosocialism = 10
-					katzerism = 10
-					autonomous_socialism = 15
-					progressism = 15
-					progressive_liberalism = 20
-					orthodox_liberalism = 10
-					conservatism = 10
-					legalism = 5
-					autocracy = 5
-					technocratic_despotism = 0
-					purificationism = 0
+		hidden_effect = {
+			KOA_release_NOR = yes
+			if = {
+				limit = {
+					has_global_flag = NOR_united_front
 				}
-				set_cosmetic_tag = UF_NOR
-			}
-			KOA = {
-				transfer_units_fraction= {
-					target = NOR
-					size = 0.5
-					stockpile_ratio = 0.5
-					army_ratio = 0.4
-					navy_ratio = 0.5
-					air_ratio = 0.5
-					keep_unit_leaders_trigger = {
-						has_trait = acorn_royalist
+				clr_global_flag = NOR_united_front
+				13 = {
+					add_core_of = NOR
+					add_core_of = KOA
+				}
+				14 = {
+					add_core_of = NOR
+					add_core_of = KOA
+				}
+				15 = {
+					add_core_of = NOR
+					add_core_of = KOA
+				}
+				16 = {
+					add_core_of = NOR
+					add_core_of = KOA
+				}
+				5 = {
+					add_core_of = NOR
+					add_core_of = KOA
+				}
+				NOR = {
+					transfer_state = 14
+					transfer_state = 13
+					transfer_state = 15
+					transfer_state = 16
+					transfer_state = 5
+					set_popularities = {
+						neosocialism = 10
+						katzerism = 10
+						autonomous_socialism = 15
+						progressism = 15
+						progressive_liberalism = 20
+						orthodox_liberalism = 10
+						conservatism = 10
+						legalism = 5
+						autocracy = 5
+						technocratic_despotism = 0
+						purificationism = 0
+					}
+					set_cosmetic_tag = UF_NOR
+				}
+				KOA = {
+					transfer_units_fraction= {
+						target = NOR
+						size = 0.5
+						stockpile_ratio = 0.5
+						army_ratio = 0.5
+						navy_ratio = 0.5
+						air_ratio = 0.5
+						keep_unit_leaders_trigger = {
+							has_trait = acorn_royalist
+						}
 					}
 				}
 			}
-		}
-		else = {
-			NOR = {
-				set_popularities = {
-					neosocialism = 2
-					katzerism = 3
-					autonomous_socialism = 5
-					progressism = 25
-					progressive_liberalism = 25
-					orthodox_liberalism = 10
-					conservatism = 10
-					legalism = 10
-					autocracy = 10
-					technocratic_despotism = 0
-					purificationism = 0
+			else = {
+				NOR = {
+					set_popularities = {
+						neosocialism = 2
+						katzerism = 3
+						autonomous_socialism = 5
+						progressism = 25
+						progressive_liberalism = 25
+						orthodox_liberalism = 10
+						conservatism = 10
+						legalism = 10
+						autocracy = 10
+						technocratic_despotism = 0
+						purificationism = 0
+					}
 				}
-			}
-			KOA = {
-				transfer_units_fraction= {
-					target = NOR
-					size = 0.25
-					stockpile_ratio = 0.25
-					army_ratio = 0.35
-					navy_ratio = 0.25
-					air_ratio = 0.25
+				KOA = {
+					transfer_units_fraction= {
+						target = NOR
+						size = 0.25
+						stockpile_ratio = 0.25
+						army_ratio = 0.35
+						navy_ratio = 0.25
+						air_ratio = 0.25
+					}
 				}
 			}
 		}
@@ -1019,17 +1023,19 @@ country_event = {
 	picture = GFX_report_event_revolution_Avisla
 	immediate = {
 		log = "[GetDateText]: [Root.GetName]: event koa.90"
-		KOA_release_UWM = yes
-		KOA = {
-			transfer_units_fraction= {
-				target = UWM
-				size = 0.25
-				stockpile_ratio = 0.25
-				army_ratio = 0.25
-				navy_ratio = 0.25
-				air_ratio = 0.35
-				keep_unit_leaders_trigger = {
-					has_trait = acorn_royalist
+		hidden_effect = {
+			KOA_release_UWM = yes
+			KOA = {
+				transfer_units_fraction= {
+					target = UWM
+					size = 0.25
+					stockpile_ratio = 0.25
+					army_ratio = 0.25
+					navy_ratio = 0.25
+					air_ratio = 0.35
+					keep_unit_leaders_trigger = {
+						has_trait = acorn_royalist
+					}
 				}
 			}
 		}
@@ -1379,6 +1385,7 @@ country_event = {
 	id = koa.121
 	title = koa.121.t
 	desc = koa.121.d
+	picture = GFX_report_event_unloyal_generals
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
@@ -1390,6 +1397,7 @@ country_event = {
 	id = koa.122
 	title = koa.122.t
 	desc = koa.122.d
+	picture = GFX_report_event_sonic_says
 	fire_only_once = yes
 	is_triggered_only = yes
 	option = {
@@ -1398,7 +1406,7 @@ country_event = {
 }
 
 country_event = {
-	id = koa.123
+	id = koa.123  # should never be called unless the other side in civil war had done something really atrocious
 	title = koa.123.t
 	desc = koa.123.d
 	fire_only_once = yes
