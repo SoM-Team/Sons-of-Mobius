@@ -1,18 +1,6 @@
 add_namespace = ark
 add_namespace = ark_doomsday
 country_event = {
-	id = ark.666
-	title = ark.666.t
-	desc = ark.666.d
-	picture = GFX_report_event_revolution_Avisla
-	fire_only_once = yes
-	is_triggered_only = yes
-	option = {
-		name = ark.666.a
-	}
-}
-
-country_event = {
 	id = ark_doomsday.1
 	title = ark_doomsday.1.t
 	desc = ark_doomsday.1.d
@@ -38,11 +26,1667 @@ country_event = {
 	option = {
 		name = ark_doomsday.2.a
 		every_country = {
-            XYZ = {
-                annex_country = {
-                    target = PREV
-                }
-            }
-        }
+			XYZ = {
+				annex_country = {
+					target = PREV
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ark.1
+	title = ark.1.t
+	desc = ark.1.d
+	picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		ARK_process_reinforcement_queue = yes
+	}
+	option = {
+		name = ark.1.a
+	}
+}
+
+country_event = {
+	# The best of the best of our agents was trained both as elite operatives and astronauts. Their mission will be written in history books.
+	id = ark.2
+	title = ark.2.t
+	desc = ark.2.d
+	# picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = ARK_Prepare_The_Assault
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 1
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 1
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 2
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 2
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 3
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 3
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 4
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 4
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 5
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 5
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 6
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 6
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_set_target = 7
+				}
+			}
+			set_variable = {
+				ARK_operation_target = 7
+			}
+		}
+	}
+	option = {
+		name = ark.2.a
+		country_event = {
+			id = ark.3
+			days = 5
+		}
+	}
+}
+
+country_event = {
+	# Our operatives will try to gather as much intel about the enemy as possible before boarding
+	id = ark.3
+	title = ark.3.t
+	desc = ark.3.d
+	# picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		# Фиксация начальной численности для расчета % потерь
+		set_variable = {
+			ARK_Initial_Attacker_Units = ROOT.ARK_Free_Units
+		}
+		set_variable = {
+			ARK_Attacker_Strength = ROOT.ARK_Free_Units
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						check_variable = {
+							ARK_operation_target = 1
+						}
+						check_variable = {
+							global.ARK_Dock_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 2
+						}
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 3
+						}
+						check_variable = {
+							global.ARK_Cnt_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 4
+						}
+						check_variable = {
+							global.ARK_Inf_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 5
+						}
+						check_variable = {
+							global.ARK_Med_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 6
+						}
+						check_variable = {
+							global.ARK_Gen_Control = 1
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 7
+						}
+						check_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+				}
+			}
+			set_variable = {
+				ARK_Initial_Defender_Units = UFA.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender_Strength = UFA.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender = UFA
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						check_variable = {
+							ARK_operation_target = 1
+						}
+						check_variable = {
+							global.ARK_Dock_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 2
+						}
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 3
+						}
+						check_variable = {
+							global.ARK_Cnt_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 4
+						}
+						check_variable = {
+							global.ARK_Inf_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 5
+						}
+						check_variable = {
+							global.ARK_Med_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 6
+						}
+						check_variable = {
+							global.ARK_Gen_Control = 2
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 7
+						}
+						check_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+				}
+			}
+			set_variable = {
+				ARK_Initial_Defender_Units = RCR.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender_Strength = RCR.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender = RCR
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						check_variable = {
+							ARK_operation_target = 1
+						}
+						check_variable = {
+							global.ARK_Dock_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 2
+						}
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 3
+						}
+						check_variable = {
+							global.ARK_Cnt_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 4
+						}
+						check_variable = {
+							global.ARK_Inf_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 5
+						}
+						check_variable = {
+							global.ARK_Med_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 6
+						}
+						check_variable = {
+							global.ARK_Gen_Control = 3
+						}
+					}
+					AND = {
+						check_variable = {
+							ARK_operation_target = 7
+						}
+						check_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+				}
+			}
+			set_variable = {
+				ARK_Initial_Defender_Units = EGG.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender_Strength = EGG.ARK_Free_Units
+			}
+			set_variable = {
+				ARK_Defender = EGG
+			}
+		}
+		# --- ВЕТКА 1: ПУСТОЙ ОТСЕК ---
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender_Strength = 0
+				}
+			}
+			set_variable = {
+				ARK_Attacker_Losses = 0
+			}
+			set_variable = {
+				ARK_Defender_Losses = 0
+			}
+		}
+	}
+	option = {
+		name = ark.3.a
+		country_event = {
+			id = ark.4
+			days = 5
+		}
+	}
+}
+
+country_event = {
+	# It's time to put the efforts of our operatives to the test
+	# the crutch for stupid spy operations
+	id = ark.4
+	title = ark.4.t
+	desc = ark.4.d
+	# picture = GFX_report_event_revolution_Avisla
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		# --- ВЕТКА 2: ПОЛНОЦЕННЫЙ БОЙ ---
+		# Расчет бонусов Атакующего
+		set_variable = {
+			ARK_Attacker_Bonuses = 1
+		}
+		if = {
+			limit = {
+				any_character = {
+					is_advisor = yes
+					has_trait = chief_of_intelligence
+					has_trait = int_ark_specialist
+				}
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.15
+			}
+		}
+		if = {
+			limit = {
+				has_done_agency_upgrade = satellite_network
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.125
+			}
+		}
+		if = {
+			limit = {
+				has_done_agency_upgrade = nanite_disguise
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.125
+			}
+		}
+		if = {
+			limit = {
+				has_done_agency_upgrade = cyberspace
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.1
+			}
+		}
+		if = {
+			limit = {
+				has_done_agency_upgrade = cybernaut_training
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.1
+			}
+		}
+		if = {
+			limit = {
+				has_done_agency_upgrade = special_forces_training
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.1
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+				}
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.1
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Cnt_Control = 1
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Cnt_Control = 2
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Cnt_Control = 3
+						}
+					}
+				}
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.1
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+			add_to_variable = {
+				ARK_Attacker_Bonuses = 0.25
+			}
+			add_to_variable = {
+				ARK_Attacker_Strength = 10
+			}
+		}
+		# Расчет бонусов Защитника
+		set_variable = {
+			ARK_Defender_Bonuses = 1
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = UFA
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						any_character = {
+							is_advisor = yes
+							has_trait = chief_of_intelligence
+							has_trait = int_ark_specialist
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.15
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						has_done_agency_upgrade = satellite_network
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.2
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						has_done_agency_upgrade = nanite_disguise
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.05
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						has_done_agency_upgrade = cyberspace
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						has_done_agency_upgrade = cybernaut_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						has_done_agency_upgrade = special_forces_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Liv_Control = 1
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Cnt_Control = 1
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					UFA = {
+						OR = {
+							AND = {
+								has_character = EGG_Neo_Metal_Sonic
+								has_global_flag = Metal_Sonic_on_ARK
+							}
+							AND = {
+								has_character = EGG_Ivo_Robotnik
+								has_global_flag = Eggman_on_ARK
+							}
+							AND = {
+								has_character = RCR_Yuriy_Pallasov
+								has_global_flag = Pallasov_on_ARK
+							}
+							AND = {
+								has_character = RCR_Zoya_Shubina
+								has_global_flag = Shubina_on_ARK
+							}
+							AND = {
+								has_character = RCR_Fyodor_Shubin
+								has_global_flag = Fyodor_on_ARK
+							}
+							AND = {
+								has_character = UFA_Shadow_the_Hedgehog
+								has_global_flag = Shadow_on_ARK
+							}
+							AND = {
+								has_character = KOA_Sonic_the_Hedgehog
+								has_global_flag = Sonic_on_ARK
+							}
+							AND = {
+								has_character = NOR_Miles_Prower
+								has_global_flag = Tails_on_ARK
+							}
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.25
+				}
+				add_to_variable = {
+					ARK_Defender_Strength = 10
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = RCR
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						any_character = {
+							is_advisor = yes
+							has_trait = chief_of_intelligence
+							has_trait = int_ark_specialist
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.15
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						has_done_agency_upgrade = satellite_network
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.2
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						has_done_agency_upgrade = nanite_disguise
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.05
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						has_done_agency_upgrade = cyberspace
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						has_done_agency_upgrade = cybernaut_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						has_done_agency_upgrade = special_forces_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Liv_Control = 2
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Cnt_Control = 2
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					RCR = {
+						OR = {
+							AND = {
+								has_character = EGG_Neo_Metal_Sonic
+								has_global_flag = Metal_Sonic_on_ARK
+							}
+							AND = {
+								has_character = EGG_Ivo_Robotnik
+								has_global_flag = Eggman_on_ARK
+							}
+							AND = {
+								has_character = RCR_Yuriy_Pallasov
+								has_global_flag = Pallasov_on_ARK
+							}
+							AND = {
+								has_character = RCR_Zoya_Shubina
+								has_global_flag = Shubina_on_ARK
+							}
+							AND = {
+								has_character = RCR_Fyodor_Shubin
+								has_global_flag = Fyodor_on_ARK
+							}
+							AND = {
+								has_character = UFA_Shadow_the_Hedgehog
+								has_global_flag = Shadow_on_ARK
+							}
+							AND = {
+								has_character = KOA_Sonic_the_Hedgehog
+								has_global_flag = Sonic_on_ARK
+							}
+							AND = {
+								has_character = NOR_Miles_Prower
+								has_global_flag = Tails_on_ARK
+							}
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.25
+				}
+				add_to_variable = {
+					ARK_Defender_Strength = 10
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = EGG
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						any_character = {
+							is_advisor = yes
+							has_trait = chief_of_intelligence
+							has_trait = int_ark_specialist
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.15
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						has_done_agency_upgrade = satellite_network
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.2
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						has_done_agency_upgrade = nanite_disguise
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.05
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						has_done_agency_upgrade = cyberspace
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						has_done_agency_upgrade = cybernaut_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						has_done_agency_upgrade = special_forces_training
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Liv_Control = 3
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.ARK_Cnt_Control = 3
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.1
+				}
+			}
+			if = {
+				limit = {
+					EGG = {
+						OR = {
+							AND = {
+								has_character = EGG_Neo_Metal_Sonic
+								has_global_flag = Metal_Sonic_on_ARK
+							}
+							AND = {
+								has_character = EGG_Ivo_Robotnik
+								has_global_flag = Eggman_on_ARK
+							}
+							AND = {
+								has_character = RCR_Yuriy_Pallasov
+								has_global_flag = Pallasov_on_ARK
+							}
+							AND = {
+								has_character = RCR_Zoya_Shubina
+								has_global_flag = Shubina_on_ARK
+							}
+							AND = {
+								has_character = RCR_Fyodor_Shubin
+								has_global_flag = Fyodor_on_ARK
+							}
+							AND = {
+								has_character = UFA_Shadow_the_Hedgehog
+								has_global_flag = Shadow_on_ARK
+							}
+							AND = {
+								has_character = KOA_Sonic_the_Hedgehog
+								has_global_flag = Sonic_on_ARK
+							}
+							AND = {
+								has_character = NOR_Miles_Prower
+								has_global_flag = Tails_on_ARK
+							}
+						}
+					}
+				}
+				add_to_variable = {
+					ARK_Defender_Bonuses = 0.25
+				}
+				add_to_variable = {
+					ARK_Defender_Strength = 10
+				}
+			}
+		}
+		# Рандомные ранние модификаторы
+		set_variable_to_random = {
+			var = ARK_Random_Modifier_Attacker
+			min = 0.95
+			max = 1.05
+		}
+		multiply_variable = {
+			ARK_Attacker_Bonuses = ARK_Random_Modifier_Attacker
+		}
+		set_variable_to_random = {
+			var = ARK_Random_Modifier_Defender
+			min = 0.95
+			max = 1.05
+		}
+		multiply_variable = {
+			ARK_Defender_Bonuses = ARK_Random_Modifier_Defender
+		}
+		# Применение бонусов к мощи
+		multiply_variable = {
+			ARK_Attacker_Strength = ARK_Attacker_Bonuses
+		}
+		multiply_variable = {
+			ARK_Defender_Strength = ARK_Defender_Bonuses
+		}
+		# Расчет пропорции сил Ratio
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender_Strength > ARK_Attacker_Strength
+				}
+			}
+			set_variable = {
+				ARK_Max_Strength = ARK_Defender_Strength
+			}
+			set_variable = {
+				ARK_Min_Strength = ARK_Attacker_Strength
+			}
+		}
+		else = {
+			set_variable = {
+				ARK_Max_Strength = ARK_Attacker_Strength
+			}
+			set_variable = {
+				ARK_Min_Strength = ARK_Defender_Strength
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Min_Strength = 0
+				}
+			}
+			set_variable = {
+				ARK_Min_Strength = 1
+			}
+		}
+		set_variable = {
+			ARK_Operation_Ratio = ARK_Max_Strength
+		}
+		divide_variable = {
+			ARK_Operation_Ratio = ARK_Min_Strength
+		}
+		# Базовый урон
+		set_variable = {
+			ARK_Loss_Multiplier = 0.35
+		}
+		# divide_variable = {
+		# 	ARK_Loss_Multiplier = ARK_Operation_Ratio
+		# }
+		# Штраф за плотность огня при превосходстве врага (x1.75 при Ratio >= 2.0, x2.5 при Ratio >= 3.0)
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Operation_Ratio > 2
+				}
+			}
+			multiply_variable = {
+				ARK_Loss_Multiplier = 3
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Operation_Ratio > 1.5
+				}
+			}
+			multiply_variable = {
+				ARK_Loss_Multiplier = 2
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Operation_Ratio > 1.25
+				}
+			}
+			multiply_variable = {
+				ARK_Loss_Multiplier = 1.5
+			}
+		}
+		# Расчет потерь Атакующего
+		set_variable = {
+			ARK_Attacker_Losses = ARK_Defender_Strength
+		}
+		multiply_variable = {
+			ARK_Attacker_Losses = ARK_Loss_Multiplier
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Inf_Control = 1
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Inf_Control = 2
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Inf_Control = 3
+						}
+					}
+				}
+			}
+			multiply_variable = {
+				ARK_Attacker_Losses = 0.9
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Med_Control = 1
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Med_Control = 2
+						}
+					}
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Med_Control = 3
+						}
+					}
+				}
+			}
+			multiply_variable = {
+				ARK_Attacker_Losses = 0.9
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Attacker_Losses > ARK_Attacker_Strength
+				}
+			}
+			set_variable = {
+				ARK_Attacker_Losses = ARK_Attacker_Strength
+			}
+		}
+		round_variable = ARK_Attacker_Losses
+		# Расчет потерь Защитника
+		set_variable = {
+			ARK_Defender_Losses = ARK_Attacker_Strength
+		}
+		multiply_variable = {
+			ARK_Defender_Losses = ARK_Loss_Multiplier
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = UFA
+				}
+				check_variable = {
+					global.ARK_Inf_Control = 1
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = RCR
+				}
+				check_variable = {
+					global.ARK_Inf_Control = 2
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = EGG
+				}
+				check_variable = {
+					global.ARK_Inf_Control = 3
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = UFA
+				}
+				check_variable = {
+					global.ARK_Med_Control = 1
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = RCR
+				}
+				check_variable = {
+					global.ARK_Med_Control = 2
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = EGG
+				}
+				check_variable = {
+					global.ARK_Med_Control = 3
+				}
+			}
+			multiply_variable = {
+				ARK_Defender_Losses = 0.9
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender_Losses > ARK_Defender_Strength
+				}
+			}
+			set_variable = {
+				ARK_Defender_Losses = ARK_Defender_Strength
+			}
+		}
+		round_variable = ARK_Defender_Losses
+		# --- СПИСАНИЕ ПОТЕРЬ ---
+		subtract_from_variable = {
+			ROOT.ARK_Free_Units = ARK_Attacker_Losses
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = UFA
+				}
+			}
+			subtract_from_variable = {
+				UFA.ARK_Free_Units = ARK_Defender_Losses
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = RCR
+				}
+			}
+			subtract_from_variable = {
+				RCR.ARK_Free_Units = ARK_Defender_Losses
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Defender = EGG
+				}
+			}
+			subtract_from_variable = {
+				EGG.ARK_Free_Units = ARK_Defender_Losses
+			}
+		}
+		# --- ПЕРЕДАЧА КОНТРОЛЯ НАД ОТСЕКОМ ---
+		if = {
+			limit = {
+				check_variable = {
+					ARK_Attacker_Losses < ARK_Defender_Losses
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 1
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Dock_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Dock_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Dock_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 2
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 3
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Cnt_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Cnt_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Cnt_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 4
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Inf_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Inf_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Inf_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 5
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Med_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Med_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Med_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 6
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Gen_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Gen_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Gen_Control = 3
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_operation_target = 7
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							tag = UFA
+						}
+						set_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+					else_if = {
+						limit = {
+							tag = RCR
+						}
+						set_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+					else_if = {
+						limit = {
+							tag = EGG
+						}
+						set_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+				}
+			}
+		}
+		# --- ПРОВЕРКА ПОРОГА ПТСР / ГОСПИТАЛЯ ДЛЯ ГЕРОЯ (50% ПОТЕРЬ) ---
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+				check_variable = {
+					ARK_Initial_Attacker_Units > 0
+				}
+			}
+			set_variable = {
+				ARK_Attacker_Loss_Ratio = ARK_Attacker_Losses
+			}
+			divide_variable = {
+				ARK_Attacker_Loss_Ratio = ARK_Initial_Attacker_Units
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ARK_Attacker_Loss_Ratio > 0.5
+					}
+				}
+				if = {
+					limit = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					clr_global_flag = Metal_Sonic_on_ARK
+					EGG_Neo_Metal_Sonic = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = metal_sonic_repair_tt
+				}
+				if = {
+					limit = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					clr_global_flag = Eggman_on_ARK
+					EGG_Ivo_Robotnik = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = eggman_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					clr_global_flag = Pallasov_on_ARK
+					RCR_Yuriy_Pallasov = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = pallasov_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					clr_global_flag = Shubina_on_ARK
+					RCR_Zoya_Shubina = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = zoya_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					clr_global_flag = Fyodor_on_ARK
+					RCR_Fyodor_Shubin = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = fyodor_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					clr_global_flag = Shadow_on_ARK
+					UFA_Shadow_the_Hedgehog = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = shadow_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					clr_global_flag = Sonic_on_ARK
+					KOA_Sonic_the_Hedgehog = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = sonic_in_hospital_tt
+				}
+				if = {
+					limit = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+					clr_global_flag = Tails_on_ARK
+					NOR_Miles_Prower = {
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+					custom_effect_tooltip = tails_in_hospital_tt
+				}
+			}
+		}
+	}
+	option = {
+		name = ark.4.a
+		set_variable = {
+			ARK_operation_target = 0
+		}
+		clr_country_flag = ARK_Prepare_The_Assault
 	}
 }
