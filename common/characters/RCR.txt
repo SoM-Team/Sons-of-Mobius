@@ -26,6 +26,11 @@ characters = {
 				trait_reckless
 				politically_connected
 			}
+			visible = {
+				NOT = {
+					has_global_flag = Pallasov_on_ARK
+				}
+			}
 			skill = 5
 			attack_skill = 5
 			defense_skill = 4
@@ -169,30 +174,11 @@ characters = {
 			}
 		}
 	}
-	RCR_Vladislav_Andreev = {
-		name = RCR_Vladislav_Andreev_name
-		portraits = {
-			civilian = {
-				small = "gfx/interface/government/RCR_Vladislav_Andreev_int.dds"
-			}
-		}
-		advisor = {
-			slot = interior_minister
-			ledger = civilian
-			idea_token = RCR_vladislav_andreev_int
-			allowed = {
-				tag = RCR
-			}
-			traits = {
-				interior_minister
-			}
-		}
-	}
 	RCR_Leonid_Angelovski = {
 		name = RCR_Leonid_Angelovski_name
 		portraits = {
 			civilian = {
-				small = "gfx/interface/government/RCR_Vladislav_Andreev_int.dds"
+				small = "gfx/interface/government/RCR_Leonid_Angelovski_int.dds"
 			}
 		}
 		advisor = {
@@ -251,25 +237,56 @@ characters = {
 		}
 	}
 	#CHIEFS OF INTELLIGENCE
-	# RCR_Vladislav_Kravchik = {
-	# 	name = RCR_Vladislav_Andreev_name
-	# 	portraits = {
-	# 		civilian = {
-	# 			small = "gfx/interface/government/Portrait_Vladislav_Kravchik_shirt.dds"
-	# 		}
-	# 	}
-	# 	advisor = {
-	# 		slot = chief_of_intelligence
-	# 		ledger = civilian
-	# 		idea_token = RCR_vladislav_kravchik_int
-	# 		allowed = {
-	# 			tag = RCR
-	# 		}
-	# 		traits = {
-	# 			int_empath
-	# 		}
-	# 	}
-	# }
+	RCR_Vladislav_Andreev = {
+		name = RCR_Vladislav_Andreev_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/RCR_Vladislav_Andreev_int.dds"
+			}
+		}
+		advisor = {
+			slot = chief_of_intelligence
+			ledger = civilian
+			idea_token = RCR_vladislav_andreev_int
+			allowed = {
+				tag = RCR
+			}
+			traits = {
+				chief_of_intelligence
+				int_andreev
+			}
+		}
+	}
+	RCR_Vladislav_Kravchik = {
+		name = RCR_Vladislav_Kravchik_name
+		portraits = {
+			civilian = {
+				small = "gfx/interface/government/Portrait_Vladislav_Kravchik_shirt.dds"
+			}
+		}
+		advisor = {
+			slot = chief_of_intelligence
+			ledger = civilian
+			idea_token = RCR_vladislav_kravchik_int
+			allowed = {
+				tag = RCR
+			}
+			visible = {
+				NOT = {
+					RCR = {
+						OR = {
+							has_character = RCR_Vladislav_Andreev
+							has_country_leader = RCR_Gennadiy_Shilov
+						}
+					}
+				}
+			}
+			traits = {
+				chief_of_intelligence
+				int_kravchik
+			}
+		}
+	}
 	#MINISTERS OF FOREIGN AFFAIRS
 	RCR_Bumagin = {
 		name = RCR_Bumagin_name
@@ -388,6 +405,9 @@ characters = {
 				NOT = {
 					has_character_flag = in_hiding
 				}
+				NOT = {
+					has_global_flag = Fyodor_on_ARK
+				}
 			}
 		}
 		advisor = {
@@ -404,6 +424,9 @@ characters = {
 			visible = {
 				NOT = {
 					has_character_flag = in_hiding
+				}
+				NOT = {
+					has_global_flag = Fyodor_on_ARK
 				}
 			}
 		}
@@ -604,6 +627,9 @@ characters = {
 			visible = {
 				NOT = {
 					has_character_flag = in_hiding
+				}
+				NOT = {
+					has_global_flag = Shubina_on_ARK
 				}
 			}
 		}

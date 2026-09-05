@@ -1,769 +1,812 @@
 scripted_gui = {
-	ARK_Button = { 
+	ARK_Button = {
 		context_type = player_context
 		parent_window_token = top_bar
 		window_name = "ARK_Button_opener"
-	
 		visible = {
 			has_country_flag = ARK_is_available_for_this_country
 		}
-
 		effects = {
 			ARK_Button_click = {
 				if = {
-					limit = { has_country_flag = ARK_visible_flag }
+					limit = {
+						has_country_flag = ARK_visible_flag
+					}
 					clr_country_flag = ARK_visible_flag
 				}
-				else = { set_country_flag = ARK_visible_flag }
+				else = {
+					set_country_flag = ARK_visible_flag
+				}
 			}
 		}
 	}
 }
 
 scripted_gui = {
-	ARK_Screen = { 
+	ARK_Screen = {
 		context_type = player_context
 		window_name = "ARK_Window"
-	
 		visible = {
 			has_country_flag = ARK_visible_flag
 		}
-
 		effects = {
 			ARK_PLUS_click = {
+				# instead, it will add reinforcements in training queue
 				if = {
 					limit = {
 						check_variable = {
-							ARK_Free_Units > 49
+							ARK_Reinforcements_Training_Slots > 0
 						}
 					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 1
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_1 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
+					add_to_variable = {
+						ARK_Reinforcements_In_Queue = 1
 					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 2
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_2 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 3
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_3 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 4
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_4 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 5
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_5 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 6
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_6 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_unit_number_area_7 = 50
-						}
-						subtract_from_variable = {
-							ARK_Free_Units = 50
-						}
+					clamp_variable = {
+						var = ARK_Reinforcements_In_Queue
+						min = 0
+						max = 99
 					}
 				}
-				else = {
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 1
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_1 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 2
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_2 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 3
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_3 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 4
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_4 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 5
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_5 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else_if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 6
-							}
-						}
-						add_to_variable = {
-							ARK_unit_number_area_6 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_unit_number_area_7 = ARK_Free_Units
-						}
-						set_variable = {
-							ARK_Free_Units = 0
-						}
-					}
-				}
-				ARK_recalc_ratio = yes
+				# if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_Free_Units > 49
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 1
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_1 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 2
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_2 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 3
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_3 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 4
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_4 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 5
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_5 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 6
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_6 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_7 = 50
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# }
+				# else = {
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 1
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_1 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 2
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_2 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 3
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_3 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 4
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_4 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 5
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_5 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 6
+				# 			}
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_6 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_unit_number_area_7 = ARK_Free_Units
+				# 		}
+				# 		set_variable = {
+				# 			ARK_Free_Units = 0
+				# 		}
+				# 	}
+				# }
+				ARK_process_reinforcement_queue = yes
+				ARK_recalc_reinforcements_training_slots = yes
 			}
 			ARK_MINUS_click = {
+				# instead, it will remove reinforcements from training queue (no refunds)
 				if = {
 					limit = {
 						check_variable = {
-							ARK_set_target = 1
+							ARK_Reinforcements_Training_Slots > 0
 						}
 					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_1 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_1 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
+					subtract_from_variable = {
+						ARK_Reinforcements_In_Queue = 1
 					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_1
-						}
-						set_variable = {
-							ARK_unit_number_area_1 = 0
-						}
+					clamp_variable = {
+						var = ARK_Reinforcements_In_Queue
+						min = 0
+						max = 99
 					}
 				}
-				else_if = {
-					limit = {
-						check_variable = {
-							ARK_set_target = 2
-						}
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_2 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_2 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_2
-						}
-						set_variable = {
-							ARK_unit_number_area_2 = 0
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = {
-							ARK_set_target = 3
-						}
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_3 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_3 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_3
-						}
-						set_variable = {
-							ARK_unit_number_area_3 = 0
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = {
-							ARK_set_target = 4
-						}
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_4 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_4 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_4
-						}
-						set_variable = {
-							ARK_unit_number_area_4 = 0
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = {
-							ARK_set_target = 5
-						}
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_5 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_5 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_5
-						}
-						set_variable = {
-							ARK_unit_number_area_5 = 0
-						}
-					}
-				}
-				else_if = {
-					limit = {
-						check_variable = {
-							ARK_set_target = 6
-						}
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_6 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_6 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_6
-						}
-						set_variable = {
-							ARK_unit_number_area_6 = 0
-						}
-					}
-				}
-				else = {
-					if = {
-						limit = {
-							check_variable = {
-								ARK_unit_number_area_7 > 49
-							}
-						}
-						subtract_from_variable = {
-							ARK_unit_number_area_7 = 50
-						}
-						add_to_variable = {
-							ARK_Free_Units = 50
-						}
-					}
-					else = {
-						add_to_variable = {
-							ARK_Free_Units = ARK_unit_number_area_7
-						}
-						set_variable = {
-							ARK_unit_number_area_7 = 0
-						}
-					}
-				}
-				ARK_recalc_ratio = yes
+				# if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 1
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_1 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_1 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_1
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_1 = 0
+				# 		}
+				# 	}
+				# }
+				# else_if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 2
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_2 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_2 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_2
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_2 = 0
+				# 		}
+				# 	}
+				# }
+				# else_if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 3
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_3 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_3 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_3
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_3 = 0
+				# 		}
+				# 	}
+				# }
+				# else_if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 4
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_4 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_4 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_4
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_4 = 0
+				# 		}
+				# 	}
+				# }
+				# else_if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 5
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_5 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_5 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_5
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_5 = 0
+				# 		}
+				# 	}
+				# }
+				# else_if = {
+				# 	limit = {
+				# 		check_variable = {
+				# 			ARK_set_target = 6
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_6 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_6 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_6
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_6 = 0
+				# 		}
+				# 	}
+				# }
+				# else = {
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_7 > 49
+				# 			}
+				# 		}
+				# 		subtract_from_variable = {
+				# 			ARK_unit_number_area_7 = 50
+				# 		}
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = 50
+				# 		}
+				# 	}
+				# 	else = {
+				# 		add_to_variable = {
+				# 			ARK_Free_Units = ARK_unit_number_area_7
+				# 		}
+				# 		set_variable = {
+				# 			ARK_unit_number_area_7 = 0
+				# 		}
+				# 	}
+				# }
+				# ARK_recalc_ratio = yes
+				ARK_process_reinforcement_queue = yes
+				ARK_recalc_reinforcements_training_slots = yes
 			}
 			ARK_close_button_click = {
 				clr_country_flag = ARK_visible_flag
 			}
 			ARK_motion_button_click = {
-				if = {
-					limit = {
-						tag = RCR
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 1
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Dock_Control = 1
-								}
-								check_variable = {
-									global.ARK_Dock_Control = 3
-								}
-							}
-						}
-						ARK_battle_Dock_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 2
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Liv_Control = 1
-								}
-								check_variable = {
-									global.ARK_Liv_Control = 3
-								}
-							}
-						}
-						ARK_battle_Liv_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 3
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Cnt_Control = 1
-								}
-								check_variable = {
-									global.ARK_Cnt_Control = 3
-								}
-							}
-						}
-						ARK_battle_Cnt_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 4
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Inf_Control = 1
-								}
-								check_variable = {
-									global.ARK_Inf_Control = 3
-								}
-							}
-						}
-						ARK_battle_Inf_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 5
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Med_Control = 1
-								}
-								check_variable = {
-									global.ARK_Med_Control = 3
-								}
-							}
-						}
-						ARK_battle_Med_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 6
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Gen_Control = 1
-								}
-								check_variable = {
-									global.ARK_Gen_Control = 3
-								}
-							}
-						}
-						ARK_battle_Gen_RCR = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 7
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Eclipse_Control = 1
-								}
-								check_variable = {
-									global.ARK_Eclipse_Control = 3
-								}
-							}
-						}
-						ARK_battle_Eclipse_RCR = yes
-					}
+				# this button will launch a pseudo spy operation
+				# if = {
+				# 	limit = {
+				# 		tag = RCR
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 1
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Dock_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 2
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Liv_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 3
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Cnt_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 4
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Inf_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 5
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Med_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 6
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Gen_RCR = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 7
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 1
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Eclipse_RCR = yes
+				# 	}
+				# }
+				# if = {
+				# 	limit = {
+				# 		tag = UFA
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 1
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Dock_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 2
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Liv_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 3
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Cnt_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 4
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Inf_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 5
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Med_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 6
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Gen_UFA = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 7
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 3
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Eclipse_UFA = yes
+				# 	}
+				# }
+				# if = {
+				# 	limit = {
+				# 		tag = EGG
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 1
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Dock_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Dock_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 2
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Liv_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Liv_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 3
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Cnt_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Cnt_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 4
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Inf_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Inf_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 5
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Med_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Med_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 6
+				# 			}
+				# 				OR = {
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Gen_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Gen_EGG = yes
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			check_variable = {
+				# 				ARK_set_target = 7
+				# 			}
+				# 			OR = {
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 2
+				# 				}
+				# 				check_variable = {
+				# 					global.ARK_Eclipse_Control = 1
+				# 				}
+				# 			}
+				# 		}
+				# 		ARK_battle_Eclipse_EGG = yes
+				# 	}
+				# }
+				# ARK_recalc_ratio = yes
+				country_event = {
+					id = ark.2
+					days = 5
 				}
-				if = {
-					limit = {
-						tag = UFA
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 1
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Dock_Control = 2
-								}
-								check_variable = {
-									global.ARK_Dock_Control = 3
-								}
-							}
-						}
-						ARK_battle_Dock_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 2
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Liv_Control = 2
-								}
-								check_variable = {
-									global.ARK_Liv_Control = 3
-								}
-							}
-						}
-						ARK_battle_Liv_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 3
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Cnt_Control = 2
-								}
-								check_variable = {
-									global.ARK_Cnt_Control = 3
-								}
-							}
-						}
-						ARK_battle_Cnt_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 4
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Inf_Control = 2
-								}
-								check_variable = {
-									global.ARK_Inf_Control = 3
-								}
-							}
-						}
-						ARK_battle_Inf_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 5
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Med_Control = 2
-								}
-								check_variable = {
-									global.ARK_Med_Control = 3
-								}
-							}
-						}
-						ARK_battle_Med_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 6
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Gen_Control = 2
-								}
-								check_variable = {
-									global.ARK_Gen_Control = 3
-								}
-							}
-						}
-						ARK_battle_Gen_UFA = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 7
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Eclipse_Control = 2
-								}
-								check_variable = {
-									global.ARK_Eclipse_Control = 3
-								}
-							}
-						}
-						ARK_battle_Eclipse_UFA = yes
-					}
+				subtract_from_variable = {
+					rings = 150
 				}
-				if = {
-					limit = {
-						tag = EGG
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 1
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Dock_Control = 2
-								}
-								check_variable = {
-									global.ARK_Dock_Control = 1
-								}
-							}
-						}
-						ARK_battle_Dock_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 2
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Liv_Control = 2
-								}
-								check_variable = {
-									global.ARK_Liv_Control = 1
-								}
-							}
-						}
-						ARK_battle_Liv_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 3
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Cnt_Control = 2
-								}
-								check_variable = {
-									global.ARK_Cnt_Control = 1
-								}
-							}
-						}
-						ARK_battle_Cnt_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 4
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Inf_Control = 2
-								}
-								check_variable = {
-									global.ARK_Inf_Control = 1
-								}
-							}
-						}
-						ARK_battle_Inf_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 5
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Med_Control = 2
-								}
-								check_variable = {
-									global.ARK_Med_Control = 1
-								}
-							}
-						}
-						ARK_battle_Med_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 6
-							}
-								OR = {
-								check_variable = {
-									global.ARK_Gen_Control = 2
-								}
-								check_variable = {
-									global.ARK_Gen_Control = 1
-								}
-							}
-						}
-						ARK_battle_Gen_EGG = yes
-					}
-					if = {
-						limit = {
-							check_variable = {
-								ARK_set_target = 7
-							}
-							OR = {
-								check_variable = {
-									global.ARK_Eclipse_Control = 2
-								}
-								check_variable = {
-									global.ARK_Eclipse_Control = 1
-								}
-							}
-						}
-						ARK_battle_Eclipse_EGG = yes
-					}
-				}
-				ARK_recalc_ratio = yes
 			}
 			ARK_Dock_UFA_click = {
 				set_variable = {
@@ -892,269 +935,270 @@ scripted_gui = {
 				ARK_recalc_ratio = yes
 			}
 		}
-
 		triggers = {
 			ARK_motion_button_click_enabled = {
+				# NOT = {
+				# 	has_country_flag = WINNER
+				# 	has_country_flag = LOSER
+				# }
+				# check_variable = {
+				# 	ARK_organisation > 0
+				# }
+				# check_variable = {
+				# 	ARK_strength > 0
+				# }
+				# OR = {
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 1 }
+				# 		NOT = { check_variable = { global.ARK_Dock_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_1 > 0
+				# 			}
+				# 			check_variable = {
+				# 				ARK_unit_number > 0
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 2 }
+				# 		NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Dock_Control = 2 }
+				# 			check_variable = { global.ARK_Cnt_Control = 2 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_2 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 3 }
+				# 		NOT = { check_variable = { global.ARK_Cnt_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 2 }
+				# 			check_variable = { global.ARK_Liv_Control = 2 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_3 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 4 }
+				# 		NOT = { check_variable = { global.ARK_Inf_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Cnt_Control = 2 }
+				# 			check_variable = { global.ARK_Med_Control = 2 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_4 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 5 }
+				# 		NOT = { check_variable = { global.ARK_Med_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 2 }
+				# 			check_variable = { global.ARK_Gen_Control = 2 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_5 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 6 }
+				# 		NOT = { check_variable = { global.ARK_Gen_Control = 2 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Eclipse_Control = 2 }
+				# 			check_variable = { global.ARK_Med_Control = 2 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_6 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = RCR
+				# 		check_variable = { ARK_set_target = 7 }
+				# 		NOT = { check_variable = { global.ARK_Eclipse_Control = 2 } }
+				# 		check_variable = { global.ARK_Gen_Control = 2 }
+				# 		check_variable = {
+				# 			ARK_unit_number_area_7 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 1 }
+				# 		NOT = { check_variable = { global.ARK_Dock_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_1 > 0
+				# 			}
+				# 			check_variable = {
+				# 				ARK_unit_number > 0
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 2 }
+				# 		NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Dock_Control = 1 }
+				# 			check_variable = { global.ARK_Cnt_Control = 1 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_2 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 3 }
+				# 		NOT = { check_variable = { global.ARK_Cnt_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 1 }
+				# 			check_variable = { global.ARK_Liv_Control = 1 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_3 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 4 }
+				# 		NOT = { check_variable = { global.ARK_Inf_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Cnt_Control = 1 }
+				# 			check_variable = { global.ARK_Med_Control = 1 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_4 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 5 }
+				# 		NOT = { check_variable = { global.ARK_Med_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 1 }
+				# 			check_variable = { global.ARK_Gen_Control = 1 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_5 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 6 }
+				# 		NOT = { check_variable = { global.ARK_Gen_Control = 1 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Eclipse_Control = 1 }
+				# 			check_variable = { global.ARK_Med_Control = 1 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_6 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = UFA
+				# 		check_variable = { ARK_set_target = 7 }
+				# 		NOT = { check_variable = { global.ARK_Eclipse_Control = 1 } }
+				# 		check_variable = { global.ARK_Gen_Control = 1 }
+				# 		check_variable = {
+				# 			ARK_unit_number_area_7 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 1 }
+				# 		NOT = { check_variable = { global.ARK_Dock_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = {
+				# 				ARK_unit_number_area_1 > 0
+				# 			}
+				# 			check_variable = {
+				# 				ARK_unit_number > 0
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 2 }
+				# 		NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Dock_Control = 3 }
+				# 			check_variable = { global.ARK_Cnt_Control = 3 }
+				# 			check_variable = {
+				# 				ARK_unit_number_area_2 > 0
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 3 }
+				# 		NOT = { check_variable = { global.ARK_Cnt_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 3 }
+				# 			check_variable = { global.ARK_Liv_Control = 3 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_3 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 4 }
+				# 		NOT = { check_variable = { global.ARK_Inf_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Cnt_Control = 3 }
+				# 			check_variable = { global.ARK_Med_Control = 3 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_4 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 5 }
+				# 		NOT = { check_variable = { global.ARK_Med_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Inf_Control = 3 }
+				# 			check_variable = { global.ARK_Gen_Control = 3 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_5 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 6 }
+				# 		NOT = { check_variable = { global.ARK_Gen_Control = 3 } }
+				# 		OR = {
+				# 			check_variable = { global.ARK_Eclipse_Control = 3 }
+				# 			check_variable = { global.ARK_Med_Control = 3 }
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_6 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		tag = EGG
+				# 		check_variable = { ARK_set_target = 7 }
+				# 		NOT = { check_variable = { global.ARK_Eclipse_Control = 3 } }
+				# 		check_variable = { global.ARK_Gen_Control = 3 }
+				# 		check_variable = {
+				# 			ARK_unit_number_area_7 > 0
+				# 		}
+				# 	}
+				# }
 				NOT = {
-					has_country_flag = WINNER
-					has_country_flag = LOSER
-				}
-				check_variable = {
-					ARK_organisation > 0
-				}
-				check_variable = {
-					ARK_strength > 0
-				}
-				OR = {
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 1 }
-						NOT = { check_variable = { global.ARK_Dock_Control = 2 } }
-						OR = {
-							check_variable = {
-								ARK_unit_number_area_1 > 0
-							}
-							check_variable = {
-								ARK_unit_number > 0
-							}
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 2 }
-						NOT = { check_variable = { global.ARK_Liv_Control = 2 } }
-						OR = {
-							check_variable = { global.ARK_Dock_Control = 2 }
-							check_variable = { global.ARK_Cnt_Control = 2 }
-						}
-						check_variable = {
-							ARK_unit_number_area_2 > 0
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 3 }
-						NOT = { check_variable = { global.ARK_Cnt_Control = 2 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 2 }
-							check_variable = { global.ARK_Liv_Control = 2 }
-						}
-						check_variable = {
-							ARK_unit_number_area_3 > 0
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 4 }
-						NOT = { check_variable = { global.ARK_Inf_Control = 2 } }
-						OR = {
-							check_variable = { global.ARK_Cnt_Control = 2 }
-							check_variable = { global.ARK_Med_Control = 2 }
-						}
-						check_variable = {
-							ARK_unit_number_area_4 > 0
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 5 }
-						NOT = { check_variable = { global.ARK_Med_Control = 2 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 2 }
-							check_variable = { global.ARK_Gen_Control = 2 }
-						}
-						check_variable = {
-							ARK_unit_number_area_5 > 0
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 6 }
-						NOT = { check_variable = { global.ARK_Gen_Control = 2 } }
-						OR = {
-							check_variable = { global.ARK_Eclipse_Control = 2 }
-							check_variable = { global.ARK_Med_Control = 2 }
-						}
-						check_variable = {
-							ARK_unit_number_area_6 > 0
-						}
-					}
-					AND = {
-						tag = RCR
-						check_variable = { ARK_set_target = 7 }
-						NOT = { check_variable = { global.ARK_Eclipse_Control = 2 } }
-						check_variable = { global.ARK_Gen_Control = 2 }
-						check_variable = {
-							ARK_unit_number_area_7 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 1 }
-						NOT = { check_variable = { global.ARK_Dock_Control = 1 } }
-						OR = {
-							check_variable = {
-								ARK_unit_number_area_1 > 0
-							}
-							check_variable = {
-								ARK_unit_number > 0
-							}
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 2 }
-						NOT = { check_variable = { global.ARK_Liv_Control = 1 } }
-						OR = {
-							check_variable = { global.ARK_Dock_Control = 1 }
-							check_variable = { global.ARK_Cnt_Control = 1 }
-						}
-						check_variable = {
-							ARK_unit_number_area_2 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 3 }
-						NOT = { check_variable = { global.ARK_Cnt_Control = 1 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 1 }
-							check_variable = { global.ARK_Liv_Control = 1 }
-						}
-						check_variable = {
-							ARK_unit_number_area_3 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 4 }
-						NOT = { check_variable = { global.ARK_Inf_Control = 1 } }
-						OR = {
-							check_variable = { global.ARK_Cnt_Control = 1 }
-							check_variable = { global.ARK_Med_Control = 1 }
-						}
-						check_variable = {
-							ARK_unit_number_area_4 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 5 }
-						NOT = { check_variable = { global.ARK_Med_Control = 1 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 1 }
-							check_variable = { global.ARK_Gen_Control = 1 }
-						}
-						check_variable = {
-							ARK_unit_number_area_5 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 6 }
-						NOT = { check_variable = { global.ARK_Gen_Control = 1 } }
-						OR = {
-							check_variable = { global.ARK_Eclipse_Control = 1 }
-							check_variable = { global.ARK_Med_Control = 1 }
-						}
-						check_variable = {
-							ARK_unit_number_area_6 > 0
-						}
-					}
-					AND = {
-						tag = UFA
-						check_variable = { ARK_set_target = 7 }
-						NOT = { check_variable = { global.ARK_Eclipse_Control = 1 } }
-						check_variable = { global.ARK_Gen_Control = 1 }
-						check_variable = {
-							ARK_unit_number_area_7 > 0
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 1 }
-						NOT = { check_variable = { global.ARK_Dock_Control = 3 } }
-						OR = {
-							check_variable = {
-								ARK_unit_number_area_1 > 0
-							}
-							check_variable = {
-								ARK_unit_number > 0
-							}
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 2 }
-						NOT = { check_variable = { global.ARK_Liv_Control = 3 } }
-						OR = {
-							check_variable = { global.ARK_Dock_Control = 3 }
-							check_variable = { global.ARK_Cnt_Control = 3 }
-							check_variable = {
-								ARK_unit_number_area_2 > 0
-							}
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 3 }
-						NOT = { check_variable = { global.ARK_Cnt_Control = 3 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 3 }
-							check_variable = { global.ARK_Liv_Control = 3 }
-						}
-						check_variable = {
-							ARK_unit_number_area_3 > 0
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 4 }
-						NOT = { check_variable = { global.ARK_Inf_Control = 3 } }
-						OR = {
-							check_variable = { global.ARK_Cnt_Control = 3 }
-							check_variable = { global.ARK_Med_Control = 3 }
-						}
-						check_variable = {
-							ARK_unit_number_area_4 > 0
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 5 }
-						NOT = { check_variable = { global.ARK_Med_Control = 3 } }
-						OR = {
-							check_variable = { global.ARK_Inf_Control = 3 }
-							check_variable = { global.ARK_Gen_Control = 3 }
-						}
-						check_variable = {
-							ARK_unit_number_area_5 > 0
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 6 }
-						NOT = { check_variable = { global.ARK_Gen_Control = 3 } }
-						OR = {
-							check_variable = { global.ARK_Eclipse_Control = 3 }
-							check_variable = { global.ARK_Med_Control = 3 }
-						}
-						check_variable = {
-							ARK_unit_number_area_6 > 0
-						}
-					}
-					AND = {
-						tag = EGG
-						check_variable = { ARK_set_target = 7 }
-						NOT = { check_variable = { global.ARK_Eclipse_Control = 3 } }
-						check_variable = { global.ARK_Gen_Control = 3 }
-						check_variable = {
-							ARK_unit_number_area_7 > 0
-						}
-					}
+					has_country_flag = ARK_Prepare_The_Assault
 				}
 			}
-			
 			ARK_Dock_UFA_visible = {
 				check_variable = {
 					global.ARK_Dock_Control = 1
@@ -1285,405 +1329,413 @@ scripted_gui = {
 				has_country_flag = Shubina_to_Ark
 			}
 			ARK_MINUS_click_enabled = {
-				OR = {
-					AND = {
-						check_variable = {
-							ARK_set_target = 1
-						}
-						check_variable = {
-							ARK_unit_number_area_1 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 2
-						}
-						check_variable = {
-							ARK_unit_number_area_2 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 3
-						}
-						check_variable = {
-							ARK_unit_number_area_3 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 4
-						}
-						check_variable = {
-							ARK_unit_number_area_4 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 5
-						}
-						check_variable = {
-							ARK_unit_number_area_5 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 6
-						}
-						check_variable = {
-							ARK_unit_number_area_6 > 0
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 7
-						}
-						check_variable = {
-							ARK_unit_number_area_7 > 0
-						}
+				# OR = {
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 1
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_1 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 2
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_2 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 3
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_3 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 4
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_4 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 5
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_5 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 6
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_6 > 0
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 7
+				# 		}
+				# 		check_variable = {
+				# 			ARK_unit_number_area_7 > 0
+				# 		}
+				# 	}
+				# }
+				NOT = {
+					check_variable = {
+						ARK_Reinforcements_In_Queue < 0
 					}
 				}
 			}
 			ARK_PLUS_click_enabled = {
+				# check_variable = {
+				# 	ARK_Free_Units > 0
+				# }
+				# OR = {
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 1
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 2
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Dock_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 3
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Liv_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 4
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Cnt_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 5
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Inf_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 6
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Med_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	AND = {
+				# 		check_variable = {
+				# 			ARK_set_target = 7
+				# 		}
+				# 		OR = {
+				# 			AND = {
+				# 				tag = EGG
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 3
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 3
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = RCR
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 2
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 2
+				# 					}
+				# 				}
+				# 			}
+				# 			AND = {
+				# 				tag = UFA
+				# 				OR = { 
+				# 					check_variable = {
+				# 						global.ARK_Eclipse_Control = 1
+				# 					}
+				# 					check_variable = {
+				# 						global.ARK_Gen_Control = 1
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# }
 				check_variable = {
-					ARK_Free_Units > 0
-				}
-				OR = {
-					AND = {
-						check_variable = {
-							ARK_set_target = 1
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 3
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 2
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 1
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 2
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 3
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 3
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 2
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 2
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Dock_Control = 1
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 1
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 3
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 3
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 3
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 2
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 2
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 1
-									}
-									check_variable = {
-										global.ARK_Liv_Control = 1
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 4
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 3
-									}
-									check_variable = {
-										global.ARK_Med_Control = 3
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 2
-									}
-									check_variable = {
-										global.ARK_Med_Control = 2
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 1
-									}
-									check_variable = {
-										global.ARK_Med_Control = 1
-									}
-									check_variable = {
-										global.ARK_Cnt_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 5
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 3
-									}
-									check_variable = {
-										global.ARK_Med_Control = 3
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 2
-									}
-									check_variable = {
-										global.ARK_Med_Control = 2
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Inf_Control = 1
-									}
-									check_variable = {
-										global.ARK_Med_Control = 1
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 6
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 3
-									}
-									check_variable = {
-										global.ARK_Med_Control = 3
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 2
-									}
-									check_variable = {
-										global.ARK_Med_Control = 2
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 1
-									}
-									check_variable = {
-										global.ARK_Med_Control = 1
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 1
-									}
-								}
-							}
-						}
-					}
-					AND = {
-						check_variable = {
-							ARK_set_target = 7
-						}
-						OR = {
-							AND = {
-								tag = EGG
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 3
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 3
-									}
-								}
-							}
-							AND = {
-								tag = RCR
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 2
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 2
-									}
-								}
-							}
-							AND = {
-								tag = UFA
-								OR = { 
-									check_variable = {
-										global.ARK_Eclipse_Control = 1
-									}
-									check_variable = {
-										global.ARK_Gen_Control = 1
-									}
-								}
-							}
-						}
-					}
+					ARK_Reinforcements_In_Queue < 999
 				}
 			}
 		}
 		properties = {
-			ARK_ORG_BAR = {
-				frame = ARK_organisation
-			}
-			ARK_STR_BAR = {
-				frame = ARK_strength
-			}
+			# ARK_ORG_BAR = {
+			# 	frame = ARK_organisation
+			# }
+			# ARK_STR_BAR = {
+			# 	frame = ARK_strength
+			# }
 			ARK_STR_RATIO = {
 				frame = ARK_Ratio
 			}
@@ -1692,14 +1744,12 @@ scripted_gui = {
 }
 
 scripted_gui = {
-	ARK_Combat_log_winner = { 
+	ARK_Combat_log_winner = {
 		context_type = player_context
 		window_name = "ARK_Combat_log_win"
-	
 		visible = {
 			has_country_flag = WINNER
 		}
-
 		triggers = {
 			ARK_RCR_LCS_visible = {
 				tag = RCR
@@ -1735,7 +1785,6 @@ scripted_gui = {
 				}
 			}
 		}
-
 		effects = {
 			ARK_Dismiss_Button_click = {
 				if = {
@@ -1747,25 +1796,25 @@ scripted_gui = {
 						}
 					}
 					set_temp_variable = {
-						a = ARK_unit_number_area_1 
-					}	
-					set_temp_variable = {
-						b = ARK_unit_number_area_2 
+						a = ARK_unit_number_area_1
 					}
 					set_temp_variable = {
-						c = ARK_unit_number_area_3 
+						b = ARK_unit_number_area_2
 					}
 					set_temp_variable = {
-						d = ARK_unit_number_area_4 
+						c = ARK_unit_number_area_3
 					}
 					set_temp_variable = {
-						e = ARK_unit_number_area_5 
+						d = ARK_unit_number_area_4
 					}
 					set_temp_variable = {
-						f = ARK_unit_number_area_6 
+						e = ARK_unit_number_area_5
 					}
 					set_temp_variable = {
-						g = ARK_unit_number_area_7 
+						f = ARK_unit_number_area_6
+					}
+					set_temp_variable = {
+						g = ARK_unit_number_area_7
 					}
 					set_temp_variable = {
 						h = ARK_Free_Units
@@ -1811,14 +1860,12 @@ scripted_gui = {
 }
 
 scripted_gui = {
-	ARK_Combat_log_loser = { 
+	ARK_Combat_log_loser = {
 		context_type = player_context
 		window_name = "ARK_Combat_log_lose"
-
 		visible = {
 			has_country_flag = LOSER
 		}
-
 		triggers = {
 			ARK_RCR_LCS_visible = {
 				tag = RCR
@@ -1854,7 +1901,6 @@ scripted_gui = {
 				}
 			}
 		}
-
 		effects = {
 			ARK_Dismiss_Button_click = {
 				if = {
@@ -1866,25 +1912,25 @@ scripted_gui = {
 						}
 					}
 					set_temp_variable = {
-						a = ARK_unit_number_area_1 
-					}	
-					set_temp_variable = {
-						b = ARK_unit_number_area_2 
+						a = ARK_unit_number_area_1
 					}
 					set_temp_variable = {
-						c = ARK_unit_number_area_3 
+						b = ARK_unit_number_area_2
 					}
 					set_temp_variable = {
-						d = ARK_unit_number_area_4 
+						c = ARK_unit_number_area_3
 					}
 					set_temp_variable = {
-						e = ARK_unit_number_area_5 
+						d = ARK_unit_number_area_4
 					}
 					set_temp_variable = {
-						f = ARK_unit_number_area_6 
+						e = ARK_unit_number_area_5
 					}
 					set_temp_variable = {
-						g = ARK_unit_number_area_7 
+						f = ARK_unit_number_area_6
+					}
+					set_temp_variable = {
+						g = ARK_unit_number_area_7
 					}
 					set_temp_variable = {
 						h = ARK_Free_Units
@@ -1929,45 +1975,41 @@ scripted_gui = {
 	}
 }
 
-scripted_gui = {
-	ARK_Reinf_screen = { 
-		context_type = decision_category
-		window_name = "ARK_Reinforcement_screen"
-	
-		triggers = {
-			ARK_Reinf_Plus_click_enabled = {
-				has_manpower > 49
-			}
-			ARK_Reinf_Minus_click_enabled = {
-				check_variable = {
-					ARK_send_reinforcements > 49
-				}
-			}
-		}
-
-		effects = {
-			ARK_Reinf_Plus_click = {
-				add_manpower = -50
-				add_to_variable = {
-					ARK_send_reinforcements = 50
-				}
-			}
-			ARK_Reinf_Minus_click = {
-				subtract_from_variable = {
-					ARK_send_reinforcements = 50
-				}
-				add_manpower = 50
-			}
-		}
-	}
-}
-
+# scripted_gui = {
+# 	ARK_Reinf_screen = { 
+# 		context_type = decision_category
+# 		window_name = "ARK_Reinforcement_screen"
+# 		triggers = {
+# 			ARK_Reinf_Plus_click_enabled = {
+# 				has_manpower > 49
+# 			}
+# 			ARK_Reinf_Minus_click_enabled = {
+# 				check_variable = {
+# 					ARK_send_reinforcements > 49
+# 				}
+# 			}
+# 		}
+# 		effects = {
+# 			ARK_Reinf_Plus_click = {
+# 				add_manpower = -50
+# 				add_to_variable = {
+# 					ARK_send_reinforcements = 50
+# 				}
+# 			}
+# 			ARK_Reinf_Minus_click = {
+# 				subtract_from_variable = {
+# 					ARK_send_reinforcements = 50
+# 				}
+# 				add_manpower = 50
+# 			}
+# 		}
+# 	}
+# }
 scripted_gui = {
 	CORRUPTION = {
 		context_type = player_context
 		window_name = "corruption_window"
 		parent_window_token = top_bar
-
 		visible = {
 			OR = {
 				tag = EGG
@@ -1983,7 +2025,6 @@ scripted_gui = {
 		context_type = player_context
 		window_name = "unity_window"
 		parent_window_token = top_bar
-
 		visible = {
 			tag = UFA
 		}

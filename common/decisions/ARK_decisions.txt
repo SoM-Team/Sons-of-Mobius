@@ -1,424 +1,2174 @@
 ARK_space_colony = {
-    ARK_collapse = {
-        icon = GFX_decision_kill_delegate
-        is_good = no
-        days_mission_timeout = 720
-        timeout_effect = {
-            country_event = {
-                id = ark.666
-            }
-        }
-        ai_will_do = {
-            base = 1
-        }
-    }
-    ARK_send_reinforcements = {
-        icon = GFX_decision_Sonic
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_docks
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Dock_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Dock_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Dock_Control = 1
-                        }
-                    }
-                }
-            }
-        }
-        custom_cost_trigger = {
-            command_power > 74
-        }
-        custom_cost_text = cost_cc_75
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -75
-            }
-        }
-        days_remove = 7
-        days_re_enable = 14
-        remove_effect = {
-            custom_effect_tooltip = ARK_arrive_reinforcements
-            add_to_variable = {
-                ARK_unit_number = ARK_send_reinforcements
-            }
-        }
-        ai_will_do = {
-            base = 1
-        }
-    }
-    ARK_activate_robots = {
-        icon = GFX_decision_eggman_medium
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_liv
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Liv_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Liv_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Liv_Control = 1
-                        }
-                    }
-                }
-            }
-        }
-        custom_cost_trigger = {
-            command_power > 24
-        }
-        custom_cost_text = cost_cc_25
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -25
-            }
-        }
-        days_remove = 2
-        days_re_enable = 10
-        remove_effect = {
-            custom_effect_tooltip = ARK_robots_plus
-            add_to_variable = {
-                ARK_Free_Units = 100
-            }
-            add_to_variable = {
-                ARK_strength = 20
-            }
-            clamp_variable = {
-                var = ARK_strength
-                min = 0
-                max = 100
-            }
-        }
-        ai_will_do = {
-            base = 1
-        }
-    }
-    ARK_cure_soldiers = {
-        icon = GFX_decision_sweat
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_inf
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Inf_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Inf_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Inf_Control = 1
-                        }
-                    }
-                }
-            }
-        }
-        custom_cost_trigger = {
-            command_power > 24
-        }
-        custom_cost_text = cost_cc_25
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -25
-            }
-        }
-        days_remove = 4
-        days_re_enable = 10
-        remove_effect = {
-            custom_effect_tooltip = ARK_cured_soldiers
-            add_to_variable = {
-                ARK_strength = 30
-            }
-            clamp_variable = {
-                var = ARK_strength
-                min = 0
-                max = 100
-            }
-        }
-        ai_will_do = {
-            base = 1
-        }
-    }
-    ARK_deploy_artificial_Chaos = {
-        icon = GFX_decision_artificial_chaos
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_gen
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Gen_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Gen_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Gen_Control = 1
-                        }
-                    }
-                }
-            }
-        }
-        custom_cost_trigger = {
-            command_power > 49
-        }
-        custom_cost_text = cost_cc_50
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -50
-            }
-        }
-        days_remove = 4
-        days_re_enable = 10
-        remove_effect = {
-            custom_effect_tooltip = ARK_artificial_c
-            add_to_variable = {
-                ARK_strength = 40
-            }
-            clamp_variable = {
-                var = ARK_strength
-                min = 0
-                max = 100
-            }
-            add_to_variable = {
-                ARK_Free_Units = 100
-            }
-        }
-        ai_will_do = {
-            base = 1
-        }
-    }
-    ARK_Test = {
-        available = {
-            always = yes
-        }
-        visible = {
-            always = yes
-        }
-        complete_effect = {
-            capital_scope = {
-                add_dynamic_modifier = {
-                    modifier = Blasted_by_ARK
-                }
-            }
-        }
-    }
-    ARK_destroy_Eclipse_cannon = {
-        icon = GFX_decision_sabotage
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_eclipse
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 1
-                        }
-                    }
-                }
-            }
-        }
-        custom_cost_trigger = {
-            command_power > 99
-        }
-        custom_cost_text = cost_cc_100
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -100
-            }
-        }
-        days_remove = 180
-        fire_only_once = yes
-        remove_effect = {
-            custom_effect_tooltip = ARK_destroy_eclipse
-            add_political_power = 500
-            add_stability = 0.25
-            add_war_support = 0.3
-        }
-    }
-    ARK_fire_cannon = {
-        icon = GFX_decision_sabotage
-        available = {
-            custom_trigger_tooltip = {
-                tooltip = ARK_control_eclipse
-                OR = {
-                    AND = {
-                        tag = EGG
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 3
-                        }
-                    }
-                    AND = {
-                        tag = RCR
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 2
-                        }
-                    }
-                    AND = {
-                        tag = UFA
-                        check_variable = {
-                            global.ARK_Eclipse_Control = 1
-                        }
-                    }
-                }
-            }
-            check_variable = {
-                active_emeralds > 0
-            }
-        }
-        state_target = yes
-        target_trigger = {
-            FROM = {
-                owner = {
-                    has_war_with = ROOT
-                }
-            }
-        }
-        on_map_mode = map_only
-        custom_cost_trigger = {
-            command_power > 99
-        }
-        custom_cost_text = cost_cc_100
-        complete_effect = {
-            hidden_effect = {
-                add_command_power = -100
-            }
-        }
-        days_remove = 3
-        remove_effect = {
-            if = {
-                limit = {
-                    ROOT = {
-                        check_variable = {
-                            active_emeralds > 6
-                        }
-                    }
-                }
-                ARK_the_end_of_the_world = yes
-            }
-            else_if = {
-                limit = {
-                    ROOT = {
-                        check_variable = {
-                            active_emeralds < 7
-                        }
-                        check_variable = {
-                            active_emeralds > 4
-                        }
-                    }
-                }
-                FROM = {
-                    every_neighbor_state = {
-                        every_neighbor_state = {
-                            ROOT = {
-                                launch_nuke = {
-                                    state = PREV
-                                    use_nuke = no
-                                }
-                            }
-                            add_dynamic_modifier = {
-                                modifier = Blasted_by_ARK
-                            }
-                        }
-                    }
-                }
-            }
-            else_if = {
-                limit = {
-                    ROOT = {
-                        check_variable = {
-                            active_emeralds < 5
-                        }
-                        check_variable = {
-                            active_emeralds > 2
-                        }
-                    }
-                }
-                FROM = {
-                    every_neighbor_state = {
-                        ROOT = {
-                            launch_nuke = {
-                                state = PREV
-                                use_nuke = no
-                            }
-                        }
-                        add_dynamic_modifier = {
-                            modifier = Blasted_by_ARK
-                        }
-                    }
-                }
-            }
-            else_if = {
-                limit = {
-                    ROOT = {
-                        check_variable = {
-                            active_emeralds < 3
-                        }
-                    }
-                }
-                add_dynamic_modifier = {
-                    modifier = Blasted_by_ARK
-                }
-                ROOT = {
-                    launch_nuke = {
-                        state = FROM
-                        use_nuke = no
-                    }
-                }
-            }
-        }
-        days_re_enable = 180
-        ai_will_do = {
-            base = 1
-        }
-    }
+	ARK_send_Metal_Sonic_in_space = {
+		visible = {
+			has_character = EGG_Neo_Metal_Sonic
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			EGG_Neo_Metal_Sonic = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Metal Sonic"
+			}
+			set_global_flag = Metal_Sonic_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Metal_Sonic_back = {
+		visible = {
+			has_character = EGG_Neo_Metal_Sonic
+			has_global_flag = Metal_Sonic_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Metal_Sonic_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Eggman_in_space = {
+		visible = {
+			has_character = EGG_Ivo_Robotnik
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			EGG_Ivo_Robotnik = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Eggman Mech"
+			}
+			set_global_flag = Eggman_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Eggman_back = {
+		visible = {
+			has_character = EGG_Ivo_Robotnik
+			has_global_flag = Eggman_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Eggman_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Pallasov_in_space = {
+		visible = {
+			has_character = RCR_Yuriy_Pallasov
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			RCR_Yuriy_Pallasov = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Yuriy Pallasov"
+			}
+			set_global_flag = Pallasov_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Pallasov_back = {
+		visible = {
+			has_character = RCR_Yuriy_Pallasov
+			has_global_flag = Pallasov_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Pallasov_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shubina_in_space = {
+		visible = {
+			has_character = RCR_Zoya_Shubina
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			RCR_Zoya_Shubina = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			# delete_unit = {
+			#     division_template = "Zoya Shubina"
+			# }
+			set_global_flag = Shubina_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shubina_back = {
+		visible = {
+			has_character = RCR_Zoya_Shubina
+			has_global_flag = Shubina_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Shubina_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shubin_in_space = {
+		visible = {
+			has_character = RCR_Fyodor_Shubin
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			RCR_Fyodor_Shubin = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			# delete_unit = {
+			#     division_template = "Fyodor Shubin"
+			# }
+			set_global_flag = Fyodor_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shubin_back = {
+		visible = {
+			has_character = RCR_Fyodor_Shubin
+			has_global_flag = Fyodor_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Fyodor_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shadow_in_space = {
+		visible = {
+			has_character = UFA_Shadow_the_Hedgehog
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			UFA_Shadow_the_Hedgehog = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Shadow the Hedgehog"
+			}
+			set_global_flag = Shadow_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Shadow_back = {
+		visible = {
+			has_character = UFA_Shadow_the_Hedgehog
+			has_global_flag = Shadow_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Shadow_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Sonic_in_space = {
+		visible = {
+			has_character = KOA_Sonic_the_Hedgehog
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			KOA_Sonic_the_Hedgehog = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Sonic the Hedgehog"
+			}
+			set_global_flag = Sonic_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Sonic_back = {
+		visible = {
+			has_character = KOA_Sonic_the_Hedgehog
+			has_global_flag = Sonic_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Sonic_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Tails_in_space = {
+		visible = {
+			has_character = NOR_Miles_Prower
+			NOT = {
+				OR = {
+					AND = {
+						has_character = EGG_Neo_Metal_Sonic
+						has_global_flag = Metal_Sonic_on_ARK
+					}
+					AND = {
+						has_character = EGG_Ivo_Robotnik
+						has_global_flag = Eggman_on_ARK
+					}
+					AND = {
+						has_character = RCR_Yuriy_Pallasov
+						has_global_flag = Pallasov_on_ARK
+					}
+					AND = {
+						has_character = RCR_Zoya_Shubina
+						has_global_flag = Shubina_on_ARK
+					}
+					AND = {
+						has_character = RCR_Fyodor_Shubin
+						has_global_flag = Fyodor_on_ARK
+					}
+					AND = {
+						has_character = UFA_Shadow_the_Hedgehog
+						has_global_flag = Shadow_on_ARK
+					}
+					AND = {
+						has_character = KOA_Sonic_the_Hedgehog
+						has_global_flag = Sonic_on_ARK
+					}
+					AND = {
+						has_character = NOR_Miles_Prower
+						has_global_flag = Tails_on_ARK
+					}
+				}
+			}
+		}
+		available = {
+			NOR_Miles_Prower = {
+				NOT = {
+					has_trait = wounded
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			delete_unit = {
+				division_template = "Tails the Fox"
+			}
+			set_global_flag = Tails_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_send_Tails_back = {
+		visible = {
+			has_character = NOR_Miles_Prower
+			has_global_flag = Tails_on_ARK
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		complete_effect = {
+			clr_global_flag = Tails_on_ARK			# prevents the hero from simultaneously being deployed in the fields
+		}
+	}
+	ARK_train_intel_chief_as_an_ARK_specialist = {
+		visible = {
+			any_character = {
+				has_trait = chief_of_intelligence
+			}
+			NOT = {
+				any_character = {
+					has_trait = int_ark_specialist
+				}
+			}
+		}
+		available = {
+			num_of_available_civilian_factories > 0
+		}
+		days_remove = 180
+		modifier = {
+			civilian_factory_use = 1
+			command_power_gain_mult = -0.5
+		}
+		remove_effect = {
+			random_character = {
+				limit = {
+					has_trait = chief_of_intelligence
+				}
+				add_trait = {
+					trait = int_ark_specialist
+				}
+			}
+		}
+	}
+	# ARK_collapse = {
+	# 	# TODO: rework
+	# 	icon = GFX_decision_kill_delegate
+	# 	is_good = no
+	# 	days_mission_timeout = 720
+	# 	timeout_effect = {
+	# 	}
+	# 	ai_will_do = {
+	# 		base = 1
+	# 	}
+	# }
+	# ARK_send_reinforcements = {
+	# 	icon = GFX_decision_Sonic
+	# 	available = {
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = ARK_control_docks
+	# 			OR = {
+	# 				AND = {
+	# 					tag = EGG
+	# 					check_variable = {
+	# 						global.ARK_Dock_Control = 3
+	# 					}
+	# 				}
+	# 				AND = {
+	# 					tag = RCR
+	# 					check_variable = {
+	# 						global.ARK_Dock_Control = 2
+	# 					}
+	# 				}
+	# 				AND = {
+	# 					tag = UFA
+	# 					check_variable = {
+	# 						global.ARK_Dock_Control = 1
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	custom_cost_trigger = {
+	# 		command_power > 24
+	# 	}
+	# 	custom_cost_text = cost_cc_25
+	# 	complete_effect = {
+	# 		hidden_effect = {
+	# 			add_command_power = -25
+	# 		}
+	# 	}
+	# 	days_remove = 7
+	# 	days_re_enable = 14
+	# 	remove_effect = {
+	# 		custom_effect_tooltip = ARK_arrive_reinforcements
+	# 		add_to_variable = {
+	# 			ARK_Free_Units = 1
+	# 			# ARK_unit_number = ARK_send_reinforcements
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		base = 1
+	# 	}
+	# }
+	ARK_activate_robots = {
+		icon = GFX_decision_eggman_medium
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_liv
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Liv_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Liv_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Liv_Control = 1
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			check_variable = {
+				ARK_robots_activated < 25
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		custom_cost_text = cost_cc_25
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+		}
+		days_remove = 2
+		days_re_enable = 10
+		remove_effect = {
+			custom_effect_tooltip = ARK_robots_plus
+			add_to_variable = {
+				# ARK_Free_Units = 100
+				ARK_Free_Units = 1
+			}
+			# add_to_variable = {
+			# 	ARK_strength = 20
+			# }
+			# clamp_variable = {
+			# 	var = ARK_strength
+			# 	min = 0
+			# 	max = 100
+			# }
+			add_to_variable = {
+				ARK_robots_activated = 1
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	# ARK_cure_soldiers = {
+	#     icon = GFX_decision_sweat
+	#     available = {
+	#         custom_trigger_tooltip = {
+	#             tooltip = ARK_control_inf
+	#             OR = {
+	#                 AND = {
+	#                     tag = EGG
+	#                     check_variable = {
+	#                         global.ARK_Inf_Control = 3
+	#                     }
+	#                 }
+	#                 AND = {
+	#                     tag = RCR
+	#                     check_variable = {
+	#                         global.ARK_Inf_Control = 2
+	#                     }
+	#                 }
+	#                 AND = {
+	#                     tag = UFA
+	#                     check_variable = {
+	#                         global.ARK_Inf_Control = 1
+	#                     }
+	#                 }
+	#             }
+	#         }
+	#     }
+	#     custom_cost_trigger = {
+	#         command_power > 24
+	#     }
+	#     custom_cost_text = cost_cc_25
+	#     complete_effect = {
+	#         hidden_effect = {
+	#             add_command_power = -25
+	#         }
+	#     }
+	#     days_remove = 4
+	#     days_re_enable = 10
+	#     remove_effect = {
+	#         custom_effect_tooltip = ARK_cured_soldiers
+	#         add_to_variable = {
+	#             ARK_strength = 30
+	#         }
+	#         clamp_variable = {
+	#             var = ARK_strength
+	#             min = 0
+	#             max = 100
+	#         }
+	#     }
+	#     ai_will_do = {
+	#         base = 1
+	#     }
+	# }
+	ARK_deploy_artificial_Chaos = {
+		icon = GFX_decision_artificial_chaos
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_gen
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Gen_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Gen_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Gen_Control = 1
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			check_variable = {
+				ARK_chaos_activated < 25
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = cost_cc_50
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+		days_remove = 4
+		days_re_enable = 10
+		remove_effect = {
+			custom_effect_tooltip = ARK_artificial_c
+			# add_to_variable = {
+			# 	ARK_strength = 40
+			# }
+			# clamp_variable = {
+			# 	var = ARK_strength
+			# 	min = 0
+			# 	max = 100
+			# }
+			add_to_variable = {
+				# ARK_Free_Units = 100
+				ARK_Free_Units = 1
+			}
+			add_to_variable = {
+				ARK_chaos_activated = 1
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	ARK_Test = {
+		available = {
+			is_debug = yes
+		}
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			capital_scope = {
+				add_dynamic_modifier = {
+					modifier = Blasted_by_ARK
+				}
+			}
+		}
+	}
+	ARK_destroy_Eclipse_cannon = {
+		icon = GFX_decision_sabotage
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_eclipse
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+				}
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 99
+		}
+		custom_cost_text = cost_cc_100
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -100
+			}
+		}
+		days_remove = 180
+		fire_only_once = yes
+		remove_effect = {
+			custom_effect_tooltip = ARK_destroy_eclipse
+			add_political_power = 500
+			add_stability = 0.25
+			add_war_support = 0.3
+		}
+	}
+	ARK_fire_cannon = {
+		icon = GFX_decision_sabotage
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ARK_control_eclipse
+				OR = {
+					AND = {
+						tag = EGG
+						check_variable = {
+							global.ARK_Eclipse_Control = 3
+						}
+					}
+					AND = {
+						tag = RCR
+						check_variable = {
+							global.ARK_Eclipse_Control = 2
+						}
+					}
+					AND = {
+						tag = UFA
+						check_variable = {
+							global.ARK_Eclipse_Control = 1
+						}
+					}
+				}
+			}
+			check_variable = {
+				active_emeralds > 0
+			}
+		}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				owner = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		on_map_mode = map_only
+		custom_cost_trigger = {
+			command_power > 99
+		}
+		custom_cost_text = cost_cc_100
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -100
+			}
+		}
+		days_remove = 3
+		remove_effect = {
+			if = {
+				limit = {
+					ROOT = {
+						check_variable = {
+							active_emeralds > 6
+						}
+					}
+				}
+				ARK_the_end_of_the_world = yes
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						check_variable = {
+							active_emeralds < 7
+						}
+						check_variable = {
+							active_emeralds > 4
+						}
+					}
+				}
+				FROM = {
+					every_neighbor_state = {
+						every_neighbor_state = {
+							ROOT = {
+								launch_nuke = {
+									state = PREV
+									use_nuke = no
+								}
+							}
+							add_dynamic_modifier = {
+								modifier = Blasted_by_ARK
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						check_variable = {
+							active_emeralds < 5
+						}
+						check_variable = {
+							active_emeralds > 2
+						}
+					}
+				}
+				FROM = {
+					every_neighbor_state = {
+						ROOT = {
+							launch_nuke = {
+								state = PREV
+								use_nuke = no
+							}
+						}
+						add_dynamic_modifier = {
+							modifier = Blasted_by_ARK
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						check_variable = {
+							active_emeralds < 3
+						}
+					}
+				}
+				FROM = {
+					add_dynamic_modifier = {
+						modifier = Blasted_by_ARK
+					}
+				}
+				ROOT = {
+					launch_nuke = {
+						state = FROM
+						use_nuke = no
+					}
+				}
+			}
+		}
+		days_re_enable = 180
+		ai_will_do = {
+			base = 1
+		}
+	}
+	ARK_prepare_the_reinforcements_1 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 0
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		days_re_enable = 1
+		fire_only_once = no
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			set_country_flag = ARK_prepare_the_reinforcements_1_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+			
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				var = ARK_Occupied_Reinforcements_Training_Slots 
+				value = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_1_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_2 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 1
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			set_country_flag = ARK_prepare_the_reinforcements_2_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+			
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_2_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_3 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 2
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_3_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_3_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_4 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 3
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_4_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_4_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_5 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 4
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_5_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_5_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_6 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 5
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_6_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_6_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_7 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 6
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_7_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_7_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_8 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 7
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_8_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_8_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_9 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 8
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_9_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_9_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_10 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 9
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_10_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_10_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_11 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 10
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_11_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_11_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_12 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 11
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_12_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_12_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_13 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 12
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_13_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_13_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_14 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 13
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_14_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_14_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_15 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 14
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_15_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_15_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_16 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 15
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_16_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_16_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_17 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 16
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_17_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_17_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_18 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 17
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_18_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_18_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_19 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 18
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_19_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_19_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_20 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 19
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_20_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_20_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_21 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 20
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_21_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_21_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_22 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 21
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_22_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_22_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_23 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 22
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_23_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_23_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_24 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 23
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_24_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_24_decision_is_active
+		}
+	}
+	ARK_prepare_the_reinforcements_25 = {
+		visible = {
+			check_variable = {
+				ARK_Reinforcements_Training_Slots > 24
+			}
+		}
+		allowed = {
+			OR = {
+				tag = UFA
+				tag = RCR
+				tag = EGG
+			}
+		}
+		available = {
+			always = no
+		}
+		days_remove = 90
+		complete_effect = {
+			add_to_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			
+			set_country_flag = ARK_prepare_the_reinforcements_25_decision_is_active
+			subtract_from_variable = {
+				rings = 25
+			}
+		}
+		
+		remove_effect = {
+			subtract_from_variable = {
+				ARK_Occupied_Reinforcements_Training_Slots = 1
+			}
+			add_to_variable = {
+				ARK_Free_Units = 1
+			}
+			country_event = {
+				id = ARK.1
+				days = 3
+			}
+			clr_country_flag = ARK_prepare_the_reinforcements_25_decision_is_active
+		}
+	}
 }
