@@ -10,8 +10,8 @@ tags = {
 	"Map"
 }
 
-replace_path="common/abilities"
-replace_path="common/ai_areas"
+replace_path ="common/abilities"
+replace_path ="common/ai_areas"
 replace_path = "common/ai_equipment"
 replace_path = "common/ai_focuses" 
 replace_path = "common/ai_strategy" 
@@ -54,6 +54,7 @@ replace_path = "common/peace_conference/cost_modifiers"
 replace_path = "common/unit_leader" 
 replace_path = "common/units"
 replace_path = "common/units/codenames_operatives"
+replace_path = "common/units/names_railway_guns"
 replace_path = "common/units/names_divisions" 
 replace_path = "common/units/names_ships" 
 replace_path = "common/units/names"
