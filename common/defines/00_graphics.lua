@@ -864,16 +864,16 @@ NGraphics = {
 	GRADIENT_BORDERS_FIELD_COUNTRY_REFRESH = 10, -- When country changes it's size by X provinces, then it refresh it's thickness and rebuilds all provinces
 	GRADIENT_BORDERS_FIELD_COUNTRY_LOW = 100.0, -- country area in sum of pixels ...
 	GRADIENT_BORDERS_FIELD_COUNTRY_HIGH = 9000.0, -- ... the value is squared, so fe. country of size 100x100pix = 10000
-	GRADIENT_BORDERS_THICKNESS_COUNTRY_LOW = 1.0, -- thickness in pixels
-	GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 1.0, -- The center gradient is linear 1/255 per pixel for this many pixels
-	GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 35.0,
-	GRADIENT_BORDERS_THICKNESS_STATE = 1.0,
+	GRADIENT_BORDERS_THICKNESS_COUNTRY_LOW = 5.0, -- thickness in pixels
+	GRADIENT_BORDERS_COUNTRY_CENTER_THICKNESS = 2.0, -- The center gradient is linear 1/255 per pixel for this many pixels
+	GRADIENT_BORDERS_THICKNESS_COUNTRY_HIGH = 25.0,
+	GRADIENT_BORDERS_THICKNESS_STATE = 5.0,
 	GRADIENT_BORDERS_THICKNESS_RESISTANCE = 5.0,
 	GRADIENT_BORDERS_THICKNESS_INTEL_LEDGER = 5.0,
 	GRADIENT_BORDERS_THICKNESS_SUPPLY_AREA_A = 2.0,
 	GRADIENT_BORDERS_THICKNESS_SUPPLY_AREA_B = 20.0,
 	GRADIENT_BORDERS_THICKNESS_STRATEGIC_REGIONS = 10.0,
-	GRADIENT_BORDERS_THICKNESS_DIPLOMACY = 2.0,
+	GRADIENT_BORDERS_THICKNESS_DIPLOMACY = 5.0,
 	GRADIENT_BORDERS_THICKNESS_DIPLOMACY_ON_INTEL_LEDGER = 3.0,
 	GRADIENT_BORDERS_THICKNESS_PEACE_CONFERENCE_A = 3.0, -- transparency at 0 up until A
 	GRADIENT_BORDERS_THICKNESS_PEACE_CONFERENCE_B = 6.0, -- increasing transparency up to 100% when at B
@@ -1329,6 +1329,7 @@ NGraphics = {
 
 NInterface = {
 	MAX_NO_FACTION_FILTER_BUTTONS = 40,			-- Max number of faction filter buttons that can be generated in diplomacy view.
+	AUTO_DIPLOMACY_RESPONSE_ITEM_ALPHA = 0.3,	-- Display alpha of diplomacy actions in the Automatic Response list
 
 	LOGISTICS_PAST_WEEK = 7,					-- Number of days from the past (including current day) we want logistics data for (Max 30 days)
 
@@ -1358,6 +1359,12 @@ NInterface = {
 
 	MINIMAP_TOGGLE_DURATION = 0.5,				-- Delay for minimap toggle
 	MINIMAP_TOGGLE_SHIFT = 270,				-- horizontal shift for minimap to close it
+	FOCUS_MINIMAP_SCALE = 0.035,				-- focus-tree mini-map panel pixels per canvas pixel
+	FOCUS_MINIMAP_MIN_SIZE = 48,				-- focus-tree mini-map minimum panel dimension
+
+	INFO_WINDOW_GAP_X = 20,				-- gap between a clicked focus/technology and the details window it opens
+	INFO_WINDOW_OFFSET_Y = 60,				-- how far above the clicked item a details window starts
+	INFO_WINDOW_CASCADE_OFFSET = 40,			-- diagonal step used when a details window would land on an open one
 
 	TIMED_MESSAGE_TIMEOUT = 0.35,					-- Timeout for timed message
 

@@ -137,6 +137,7 @@ NDiplomacy = {
 	VOLUNTEERS_PER_COUNTRY_ARMY = 0.05,				-- Each army unit owned by the source country contributes this amount of volunteers to the limit.
 	VOLUNTEERS_RETURN_EQUIPMENT = 0.95,				-- Returning volunteers keep this much equipment
 	VOLUNTEERS_TRANSFER_SPEED = 14,					-- days to transfer a unit to another nation
+	VOLUNTEERS_RECALL_DAYS_PER_UNIT = 2,			-- days to recall a unit, scales linearly for each army unit in the recall order
 	VOLUNTEERS_DIVISIONS_REQUIRED = 30,				-- This many divisons are required for the country to be able to send volunteers.
 	TENSION_STATE_VALUE = 0.10,						-- Tension value gained by annexing one state (this value used to be divided by 20, this is no longer the case)
 	TENSION_CIVIL_WAR_IMPACT = 0.2,					-- civil war multiplier on tension.
@@ -171,6 +172,8 @@ NDiplomacy = {
 	BASE_CONDITIONAL_PEACE_MONTHS = 3,				-- War length must be before a surrender is possible.
 	JOINING_NAP_WAR_PENALTY = 0.2,					-- War support penalty for breaking non-breakable NAP
 	BREAKING_GUARANTEE_PENALTY = 0.2,				-- War support penalty for breaking guarantee
+	SEND_VOLUNTEERS_AGAIN_COOLDOWN = 180,			-- How long after recalling volunteers can you send volunteers to the same country (Days)
+	RECALL_VOLUNTEERS_AFTER_ARRIVAL_COOLDOWN = 180, -- How long after arriving can the volunteers be recalled (Days)
 
 	-- WARNING ! if you modify the following values, you should update corresponding loc keys in games_rules_l_english.yml
 	PEACE_SCORE_TRANSFERRED_TO_FACTION_LEADER = 0.1, 		-- Part of the peace score transferred from the faction members to the faction leader (if game rule enabled)
@@ -773,6 +776,7 @@ NMilitary = {
 
 	CASUALTIES_WS_P_PENALTY_DIVISOR = 200,							--Divisor for casualties WS penalty
 	CASUALTIES_WS_A_PENALTY_DIVISOR = 600,							--Divisor for casualties WS penalty
+	MAX_CASUALTY_TRICKLEBACK = 0.95,								--Upper cap on casualty trickleback so it can't create more troops than die
 	
 	PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 		1.00,
@@ -813,10 +817,11 @@ NMilitary = {
 	VPS_FOR_HIGH_HISTORY_ENTRY = 8,				-- VPs required for high-level history entry
 	ENTRIES_TO_CHECK_FOR_DUPLICATE = 2,			-- Max number of history entries to check back to see if we're being awarded the same entry
 	COST_INCREASE_PER_ACTIVE_MEDAL = 0.25,		-- Additional cost factor per active medal
+	MEDAL_AWARD_CONFIRM_PP_THRESHOLD = 200.0,	-- Below this much political power, awarding a medal asks for confirmation; at or above it is granted directly
 	MAX_ENTRY_ELISION_COUNT = 4,				-- If we do the same type of thing consecutively, each entry will stack locations up to this number
 	GENERATE_AI_DIV_COMMAND_HISTORY_ENTRIES = true,	--Should we generate history entries for the AI (may cause savegame bloat)
-	GENERATE_AI_DIV_COMMAND_MEDALS = 0.5,		-- Chance for AI to award a medal when receiving a history entry that allows it. Also gives a chance for AI to gain history entries irrespective of the setting above
-	MAX_NUM_AUTOMEDALS = 9999,						-- You can't get more medals from the automedal system than this.
+	GENERATE_AI_DIV_COMMAND_MEDALS = 0.10,		-- Chance for AI to award a medal when receiving a history entry that allows it. Also gives a chance for AI to gain history entries irrespective of the setting above
+	MAX_NUM_AUTOMEDALS = 6,						-- You can't get more medals from the automedal system than this.
 	FIELD_EXPERIENCE_ON_DIVISION_MULT = 0.04,	-- Multiply field experience gained by this, when applying to divisional commander
 	MAX_FIELD_EXPERIENCE_ON_DIVISION = 8000,	-- Max experience that can be gained on divisional commanders
 	FIELD_EXPERIENCE_ON_DIVISION_PER_MEDAL_MULT = 0.1,	--Multiply officer field experience gain by this * number of division medals on application
@@ -2329,6 +2334,15 @@ NTrade = {
 	ANTI_MONOPOLY_TRADE_FACTOR_THRESHOLD = 0.5,	-- What percentage of resources has to be sold to the buyer for the anti-monopoly factor to take effect
 	ANTI_MONOPOLY_TRADE_FACTOR = -100,			-- This is added to the factor value when anti-monopoly threshold is exceeded
 	NAVAL_ROUTE_ACCESS_AVOID_COST_MULT = 1,	-- Naval pathfinding should avoid certain regions that you mark. High "cost multiplier" will make it less willingly go through a specific region.
+	AUTO_IMPORT_DEFICIT_TOLERANCE = 0,			-- Player auto-import tolerates a resource balance down to minus this before importing (set higher to ignore small shortfalls)
+	AUTO_IMPORT_TARGET_MARGIN = 0,				-- Player auto-import aims for a balance of at least plus this, and only shrinks/cancels its trades once the surplus exceeds it (hysteresis to avoid churn)
+	AUTO_IMPORT_DEFAULT_BUDGET_FRACTION = 0.25,	-- Fraction of usable civilian factories the auto-import budget is seeded to when first enabled
+	
+	-- auto import trade
+	AUTO_IMPORT_MIN_CONVOY_EFFICIENCY = 0.4,	-- Don't start a sea trade whose convoy efficiency is below this
+	AUTO_IMPORT_FUEL_TOPPING_START_RATIO = 0.5,	-- Spend leftover budget on extra oil once the fuel stockpile falls below this fraction
+	AUTO_IMPORT_FUEL_TOPPING_STOP_RATIO = 0.9,	-- Stop spending leftover budget on extra oil once the fuel stockpile reaches this fraction
+	AUTO_IMPORT_MAX_ACCEPTED_SHORTAGE = 99,		-- Highest shortage a player can accept per resource in the auto-import priority window
 },
 
 NAI = {
@@ -3100,6 +3114,7 @@ NAI = {
 	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.2,		-- deployment will try to buffer a ratio of manpower (for reinforcements) during peace time
 
 	MANPOWER_RATIO_REQUIRED_TO_PRIO_MOBILIZATION_LAW = 0.55,		-- percentage of manpower in field is desired to be buffered for AI when it has upcoming wars or already at war. if it has less manpower, it will prio manpower laws
+	MOBILIZATION_RATIO_REQUIRED_TO_RAISE_MOBILIZATION_LAW = 0.95,		-- ratio of its target conscription an AI must already have mobilized before a higher conscription law is treated as urgent. raising the law does not speed up mobilization, so escalating below this only pays the industrial penalty
 	UPGRADES_DEFICIT_LIMIT_DAYS = 60,                            -- Ai will avoid upgrading units in the field to new templates if it takes longer than this to fullfill their equipment need
 
 	GIE_EXILE_AIR_MANPOWER_USAGE_RATIO = 0.2, -- AI will not deploy new exile wings when this percentage of available exile manpower is already used for wing recruitment.
@@ -3250,6 +3265,7 @@ NAI = {
 	MIN_WANTED_MAX_FUEL = 50,									   -- minimum value for wanted fuel buffers for AI (in thousands)
 
 	GIE_LEND_LEASE_TO_PLAYER_EXILE_DESIRE_BONUS = 40, -- AI host is more likely to accept lend lease requests from a player.
+	LENDLEASE_TO_CAPITULATED_DESIRE_PENALTY = 500, -- Flat lend lease desire penalty towards a capitulated country we don't host
 
 	NAVAL_BASE_RATIO_ALLOCATED_FOR_REPAIRS = 0.5,				-- ai will allocate at most this ratio of dockyards for repairs in peace time
 	NAVAL_BASE_RATIO_ALLOCATED_FOR_REPAIRS_IN_WAR_TIME = 0.75,	-- ai will allocate at most this ratio of dockyards for repairs in war time
@@ -3566,7 +3582,7 @@ NAI = {
     NUM_CONVOYS_FOR_MAX_PROTECTION = 50,                    -- When deciding whether to protect a convoy route, the importance will scale with the number of convoys up to this value
     CONVOY_RAIDING_TARGET_RECALC_DAYS = 15,                  -- Each X days, the AI will reevaluate which regions to convoy raid (because enemy convoy usage or trade routes might change)
 	STRIKE_FORCE_TARGET_RECALC_DAYS = 5,					-- Each X days, the AI will reevaluate which regions to put strike forces in (because patrol coverage will change)
-    AI_OBJECTIVE_DEFAULT_TARGET_RECALC_DAYS = 7,            -- Each X days, the AI will reevaluate which regions to target for naval missions (this is the default value, but can be overriden by specific objectives, see CONVOY_RAIDING_TARGET_RECALC_DAYS)
+    AI_OBJECTIVE_DEFAULT_TARGET_RECALC_DAYS = 5,            -- Each X days, the AI will reevaluate which regions to target for naval missions (this is the default value, but can be overriden by specific objectives, see CONVOY_RAIDING_TARGET_RECALC_DAYS)
 	DANGEROUS_ENEMY_ARMY_SIZE = 100,						-- If the size of the enemy's army of the attacking country is more than this value, the AI will add naval invasion defense importance
 	DANGEROUS_DISTANCE_TO_CAPITAL = 1000.0,					-- Distance in pixels from the target province to capital location where the AI will add the naval invasion defense importance
 	
@@ -4643,7 +4659,7 @@ NFactions = {
 		"spymaster",
 		"spymaster_no_lar",
 		"special_envoy",
-		"intelligence_service_deputy",
+		"intelligence_service_deputy"
 
 	},
 	FACTION_INTELLIGENCE_UNLOCK_COST = 1,
